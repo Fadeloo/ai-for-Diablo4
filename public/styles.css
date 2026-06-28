@@ -2083,6 +2083,169 @@ h4 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.build-manual-panel {
+  background:
+    linear-gradient(180deg, rgba(30, 14, 10, 0.82), rgba(7, 4, 3, 0.78));
+  border: 1px solid rgba(214, 173, 99, 0.24);
+  display: grid;
+  gap: 14px;
+  padding: 14px;
+}
+
+.build-manual-panel > header {
+  align-items: start;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.build-manual-panel > header span,
+.build-manual-block__title span,
+.manual-gear-row span,
+.manual-flow-list strong {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.build-manual-panel > header strong {
+  color: #fff7df;
+  display: block;
+  font-size: 17px;
+  line-height: 1.3;
+  margin-top: 4px;
+}
+
+.build-manual-panel > header em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 750;
+  justify-self: end;
+  text-align: right;
+}
+
+.build-manual-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.build-manual-block {
+  background: rgba(8, 4, 3, 0.5);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  padding: 12px;
+}
+
+.build-manual-block__title {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.build-manual-block__title strong,
+.manual-step-list strong,
+.manual-gear-row strong {
+  color: var(--bone);
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.manual-gear-list,
+.manual-step-list,
+.manual-flow-list {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.manual-gear-row {
+  align-items: center;
+  background: rgba(242, 240, 234, 0.04);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  color: inherit;
+  cursor: pointer;
+  display: grid;
+  gap: 7px;
+  grid-template-columns: 64px minmax(0, 1fr) minmax(108px, 0.9fr) auto;
+  min-height: 42px;
+  padding: 8px;
+  text-align: left;
+}
+
+.manual-gear-row:hover {
+  background: rgba(214, 173, 99, 0.09);
+  border-color: rgba(240, 207, 143, 0.42);
+}
+
+.manual-gear-row.is-required {
+  border-color: rgba(240, 207, 143, 0.5);
+}
+
+.manual-gear-row em,
+.manual-gear-row b,
+.manual-step-list p,
+.manual-flow-list p {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.manual-gear-row b {
+  background: rgba(214, 173, 99, 0.09);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  color: var(--bone);
+  font-weight: 800;
+  padding: 4px 6px;
+  white-space: nowrap;
+}
+
+.manual-step-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.manual-step-list li {
+  align-items: start;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 28px minmax(0, 1fr);
+}
+
+.manual-step-list li > span {
+  align-items: center;
+  background: rgba(164, 32, 24, 0.32);
+  border: 1px solid rgba(214, 173, 99, 0.28);
+  color: #fff7df;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 900;
+  height: 26px;
+  justify-content: center;
+  width: 26px;
+}
+
+.manual-flow-list div {
+  border-bottom: 1px solid rgba(214, 173, 99, 0.12);
+  display: grid;
+  gap: 4px;
+  padding-bottom: 8px;
+}
+
+.manual-flow-list div:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
 .execution-plan {
   display: grid;
   gap: 10px;
@@ -2549,6 +2712,7 @@ h4 {
   min-height: 420px;
   padding: 14px;
   position: relative;
+  scroll-margin-top: 132px;
 }
 
 .gear-slot-card.is-core {
@@ -4089,6 +4253,7 @@ h4 {
   .route-overview__skillbar,
   .route-board-lane,
   .combat-overview__grid,
+  .build-manual-grid,
   .execution-plan,
   .suitability-grid,
   .point-band-grid,
@@ -4110,6 +4275,14 @@ h4 {
 
   .loadout-strip {
     grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .build-manual-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .build-manual-block--gear {
+    grid-column: 1 / -1;
   }
 
   .gear-summary-table {
@@ -4255,6 +4428,8 @@ h4 {
   .hero-actions,
   .hero-metrics,
   .loadout-board__header,
+  .build-manual-panel > header,
+  .build-manual-grid,
   .route-overview__head,
   .route-overview__grid,
   .route-overview__skillbar,
@@ -4310,6 +4485,15 @@ h4 {
   }
 
   .equipment-usage-row {
+    grid-template-columns: 1fr;
+  }
+
+  .build-manual-panel > header em {
+    justify-self: start;
+    text-align: left;
+  }
+
+  .manual-gear-row {
     grid-template-columns: 1fr;
   }
 

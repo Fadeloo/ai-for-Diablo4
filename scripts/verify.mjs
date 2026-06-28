@@ -224,6 +224,9 @@ assert(frontendText.includes("renderLoadoutBoard"), "BD detail must render a pap
 assert(frontendText.includes("loadout-paper-doll"), "BD detail must expose a fixed 11-slot paper-doll layout");
 assert(frontendText.includes("renderBuildVersionSwitcher"), "BD detail must render same-archetype daily/speed/push version switching");
 assert(frontendText.includes("guide-version-tabs"), "BD detail must expose visible version tabs near the hero");
+assert(frontendText.includes("renderBuildManualPanel"), "BD overview must render a copy-ready execution manual");
+assert(frontendText.includes("build-manual-panel"), "BD overview must expose gear, skill, paragon and gameplay before long sections");
+assert(frontendText.includes("manual-gear-row"), "BD execution manual must expose all gear slots as jump targets");
 assert(frontendText.includes("renderGearSummaryMatrix"), "BD gear section must render a complete 11-slot gear summary matrix");
 assert(frontendText.includes("gear-summary-matrix"), "BD gear section must expose target items, replacement status and affix direction before long cards");
 assert(frontendText.includes("renderRouteOverview"), "BD overview must render skill and paragon execution route overview");

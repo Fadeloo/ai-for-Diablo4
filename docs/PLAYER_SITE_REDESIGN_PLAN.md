@@ -358,6 +358,7 @@ public/
 | `BuildDetailPage` | BD 详情容器 | guideId | 完整详情 |
 | `BuildSummaryPanel` | 顶部概要和强弱项 | guide.summary | 摘要 |
 | `BuildVersionSwitcher` | 同流派版本切换 | 当前 guide、同赛季同职业同流派 guides | 日常、速刷、冲层版本入口和同职业社区 BD 参考 |
+| `BuildManualPanel` | BD 执行手册 | guide.gearSlots / skillTree / paragon / gameplay | 总览首屏汇总 11 装备位、技能加点、巅峰点击和打法流程 |
 | `GearSummaryMatrix` | 装备总表 | guide.gearSlots | 11 部位目标件、核心/替换状态、威能或暗金、词缀方向和明细跳转 |
 | `GearSlotGrid` | 11 槽位布局 | gearSlots | 槽位网格 |
 | `GearSlotCard` | 单槽位装备明细 | gearSlot/item | 装备卡 |
@@ -382,6 +383,7 @@ public/
 - 所有中文标签集中在 `labels.js` 或现有 label map 中，避免英文残留。
 - 列表卡片和详情页面不复用同一个大模板，防止信息过密。
 - `BuildVersionSwitcher` 只按 `seasonId + classId + archetypeId` 建组；不同流派只能作为同职业参考，不能伪装成同一 BD 的版本。
+- `BuildManualPanel` 位于 BD 总览顶部，必须把全身装备、技能顺序、巅峰点击和打法阶段作为可扫描索引先展示出来。
 - `GearSummaryMatrix` 是装备分区入口，必须让玩家不展开长卡也能看出每个部位穿什么、是否可替换、核心威能或暗金是什么。
 - `SkillRouteMatrix` 和 `ParagonRouteMatrix` 是技能/巅峰分区入口，必须先展示可执行顺序，再展示说明。
 - `CombatFlowMatrix` 是打法分区入口，必须先按战斗阶段展示动作，再展示细节说明。

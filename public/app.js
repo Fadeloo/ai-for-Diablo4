@@ -494,6 +494,16 @@ function bindImageFallbacks(root) {
   });
 }
 
+function scrollToGuideTarget(target) {
+  if (!target) return;
+  const headerHeight = $("[data-header]")?.getBoundingClientRect().height || 0;
+  const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 18;
+  (document.scrollingElement || document.documentElement).scrollTo({
+    top: Math.max(0, top),
+    behavior: "instant"
+  });
+}
+
 function calculateDamage(form) {
   const data = Object.fromEntries(new FormData(form).entries());
   const weaponDamage = Number(data.weaponDamage);
@@ -1587,6 +1597,96 @@ function renderLoadoutStrip(guide) {
   `;
 }
 
+function renderBuildManualPanel(guide) {
+  const skillSteps = (guide.skillTree?.pointOrder || []).slice(0, 10);
+  const paragonSteps = (guide.paragon?.clickOrder || []).slice(0, 10);
+  const flowSections = [
+    ["起手", guide.gameplay?.opener || []],
+    ["主循环", guide.gameplay?.loop || []],
+    ["首领", guide.gameplay?.boss || []],
+    ["防御", guide.gameplay?.defense || []],
+    ["速刷", guide.gameplay?.speedFarm || []],
+    ["避坑", guide.gameplay?.commonMistakes || []]
+  ];
+  return `
+    <section class="build-manual-panel" aria-label="BD 执行手册">
+      <header>
+        <div>
+          <span>BD 执行手册</span>
+          <strong>装备、技能、巅峰和打法一次看完</strong>
+        </div>
+        <em>${guide.taxonomy.seasonName} · ${guide.taxonomy.className} · ${guide.taxonomy.archetypeName}</em>
+      </header>
+      <div class="build-manual-grid">
+        <article class="build-manual-block build-manual-block--gear">
+          <div class="build-manual-block__title">
+            <strong>全身装备位</strong>
+            <span>${guide.gearSlots.length} 个位置</span>
+          </div>
+          <div class="manual-gear-list">
+            ${guide.gearSlots.map((slot) => `
+              <button class="manual-gear-row ${gearSlotStateClass(slot)}" type="button" data-guide-jump="gear" data-gear-slot-target="${slot.slotId}">
+                <span>${slot.zhSlotName}</span>
+                <strong>${displayText(slot.target.zhName)}</strong>
+                <em>${gearSlotStatus(slot)} · ${gearAspectDisplay(slot)}</em>
+                <b>${(slot.alternatives || []).length} 替换</b>
+              </button>
+            `).join("")}
+          </div>
+        </article>
+        <article class="build-manual-block">
+          <div class="build-manual-block__title">
+            <strong>技能加点</strong>
+            <span>${skillSteps.length} 步</span>
+          </div>
+          <ol class="manual-step-list">
+            ${skillSteps.map((step) => `
+              <li>
+                <span>${step.step}</span>
+                <div>
+                  <strong>${displayText(step.levelRange)} · ${displayText(step.skill)}</strong>
+                  <p>${displayText(step.points)} · ${displayText(step.reason)}</p>
+                </div>
+              </li>
+            `).join("")}
+          </ol>
+        </article>
+        <article class="build-manual-block">
+          <div class="build-manual-block__title">
+            <strong>巅峰点击</strong>
+            <span>${paragonSteps.length} 步</span>
+          </div>
+          <ol class="manual-step-list">
+            ${paragonSteps.map((step) => `
+              <li>
+                <span>${step.step}</span>
+                <div>
+                  <strong>${displayText(step.board)} · ${displayText(step.node)}</strong>
+                  <p>${displayText(step.reason)}</p>
+                </div>
+              </li>
+            `).join("")}
+          </ol>
+        </article>
+        <article class="build-manual-block">
+          <div class="build-manual-block__title">
+            <strong>打法流程</strong>
+            <span>6 个阶段</span>
+          </div>
+          <div class="manual-flow-list">
+            ${flowSections.map(([title, lines]) => `
+              <div>
+                <strong>${title}</strong>
+                <p>${displayText((lines || [])[0] || "待来源回填")}</p>
+              </div>
+            `).join("")}
+          </div>
+        </article>
+      </div>
+    </section>
+  `;
+}
+
 function renderExecutionPlan(guide) {
   const requiredSlots = guide.gearSlots.filter((slot) => slot.required).slice(0, 4);
   const skillSteps = (guide.skillTree?.pointOrder || []).slice(0, 3);
@@ -2158,6 +2258,7 @@ function renderBuildGuideDetail() {
 
         <div class="guide-main-sections">
           ${renderGuideDetailSection("总览", "定位、强弱项和适用阶段", `
+            ${renderBuildManualPanel(guide)}
             ${renderExecutionPlan(guide)}
             ${renderRouteOverview(guide)}
             ${renderGameplayOverview(guide)}
@@ -3030,11 +3131,11 @@ function bindInteractions() {
     if (!button) return;
     if (button.dataset.gearSlotTarget) {
       const target = $(`[data-gear-slot-card="${button.dataset.gearSlotTarget}"]`);
-      target?.scrollIntoView({ behavior: "smooth", block: "start" });
+      scrollToGuideTarget(target);
       return;
     }
     const section = $(`[data-guide-section="${button.dataset.guideJump}"]`);
-    section?.scrollIntoView({ behavior: "smooth", block: "start" });
+    scrollToGuideTarget(section);
   });
 }
 
