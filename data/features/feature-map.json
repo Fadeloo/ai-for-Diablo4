@@ -15,7 +15,7 @@
     "id": "equipment_database",
     "zhName": "装备与词缀数据库",
     "status": "partial_official_unique_affix_seed",
-    "primaryFiles": ["data/equipment/slots.json", "data/equipment/stat-categories.json", "data/equipment/affix-taxonomy.json", "data/generated/official-3.1.0-guaranteed-unique-affixes.json", "data/equipment/equipment-library.json"]
+    "primaryFiles": ["data/equipment/slots.json", "data/equipment/stat-categories.json", "data/equipment/affix-taxonomy.json", "data/generated/official-3.1.0-guaranteed-unique-affixes.json", "data/generated/d4builds-icon-index.json", "data/equipment/equipment-library.json"]
   },
   {
     "id": "damage_calculation",
@@ -57,6 +57,6 @@
     "id": "frontend_or_bot",
     "zhName": "前端/机器人/交互查询",
     "status": "seeded_static_frontend_with_build_simulator",
-    "primaryFiles": ["index.html", "public/styles.css", "public/app.js", "public/assets/hero-sanctuary.png", "public/assets/icon-weapon.png", "public/assets/icon-armor.png", "public/assets/icon-jewelry.png", "public/assets/icon-utility.png", "scripts/serve.mjs"]
+    "primaryFiles": ["index.html", "public/styles.css", "public/app.js", "public/assets/hero-sanctuary.png", "public/assets/icon-weapon.png", "public/assets/icon-armor.png", "public/assets/icon-jewelry.png", "public/assets/icon-utility.png", "scripts/serve.mjs", "scripts/fetch-d4builds-icons.mjs"]
   }
 ]

@@ -47,6 +47,27 @@ function percent(value) {
   return `${(value * 100).toFixed(0)}%`;
 }
 
+function iconSource(item) {
+  return item.externalImage || item.image || `./public/assets/icon-${item.visualType}.png`;
+}
+
+function fallbackIcon(item) {
+  return item.image || `./public/assets/icon-${item.visualType}.png`;
+}
+
+function renderIcon(item, alt) {
+  return `<img src="${iconSource(item)}" data-fallback="${fallbackIcon(item)}" alt="${alt}">`;
+}
+
+function bindImageFallbacks(root) {
+  root.querySelectorAll("img[data-fallback]").forEach((img) => {
+    img.addEventListener("error", () => {
+      if (img.src.endsWith(img.dataset.fallback)) return;
+      img.src = img.dataset.fallback;
+    }, { once: true });
+  });
+}
+
 function calculateDamage(form) {
   const data = Object.fromEntries(new FormData(form).entries());
   const weaponDamage = Number(data.weaponDamage);
@@ -134,7 +155,7 @@ function renderSimulator() {
     .slice(0, 4)
     .map((item) => `
       <article class="sim-item">
-        <img src="./public/assets/icon-${item.visualType}.png" alt="">
+        ${renderIcon(item, `${item.name} icon`)}
         <strong>${item.name}</strong>
         <span>${item.guaranteedAffixes.join(" / ")}</span>
       </article>
@@ -164,6 +185,7 @@ function renderSimulator() {
     </div>
     <p class="sim-warning">${state.simulations.warning}</p>
   `;
+  bindImageFallbacks($("[data-sim-result]"));
 }
 
 function renderClasses() {
@@ -231,7 +253,7 @@ function renderEquipment() {
   $("[data-equipment-results]").innerHTML = rows
     .map((item) => `
       <article class="equipment-card">
-        <img src="./public/assets/icon-${item.visualType}.png" alt="${item.visualType} icon">
+        ${renderIcon(item, `${item.name} icon`)}
         <div>
           <p>${item.classRestriction === "All Classes" ? "全职业" : item.classRestriction}</p>
           <h3>${item.name}</h3>
@@ -243,6 +265,7 @@ function renderEquipment() {
       </article>
     `)
     .join("");
+  bindImageFallbacks($("[data-equipment-results]"));
 }
 
 function renderForecast() {

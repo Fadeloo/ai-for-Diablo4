@@ -23,6 +23,7 @@ const sources = await readJson("data/sources/source-registry.json");
 const features = await readJson("data/features/feature-map.json");
 const equipmentLibrary = await readJson("data/equipment/equipment-library.json");
 const simulations = await readJson("data/generated/build-simulations.json");
+const iconIndex = await readJson("data/generated/d4builds-icon-index.json");
 
 assert(version.effectiveLiveVersion.patch === "3.0.4", "Expected live patch 3.0.4");
 assert(version.publishedUpcomingVersion.patch === "3.1.0", "Expected upcoming patch 3.1.0");
@@ -59,6 +60,12 @@ assert(equipmentLibrary.itemCount === equipmentLibrary.items.length, "Equipment 
 assert(equipmentLibrary.itemCount > 100, "Equipment library seed should contain more than 100 records");
 assert(equipmentLibrary.limitations.some((line) => line.includes("not the full Diablo IV equipment database")), "Equipment library must disclose incomplete scope");
 assert(equipmentLibrary.items.every((item) => item.image && item.guaranteedAffixes.length > 0), "Each equipment record needs an image path and guaranteed affixes");
+
+assert(iconIndex.source.usage === "external_url_reference_only_no_asset_download", "Icon index must store URLs only");
+assert(iconIndex.itemCount === equipmentLibrary.itemCount, "Icon index must cover the equipment seed");
+assert(iconIndex.matchedCount === iconIndex.itemCount, "Every seeded equipment item should have an external icon URL");
+assert(iconIndex.items.every((item) => item.iconUrl?.startsWith("https://sunderarmor.com/DIABLO4/Uniques/2/")), "External icon URLs must use the expected HTTPS asset host path");
+assert(equipmentLibrary.items.every((item) => item.externalImage?.startsWith("https://sunderarmor.com/DIABLO4/Uniques/2/")), "Each equipment item should expose an external icon URL");
 
 assert(simulations.seasons.length === 3, "Build simulator should cover the next three season windows");
 assert(simulations.rows.length === simulations.seasons.length * classes.length, "Simulation rows must cover every class in every modeled season");

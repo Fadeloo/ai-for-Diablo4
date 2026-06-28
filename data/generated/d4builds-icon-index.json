@@ -1,0 +1,1687 @@
+{
+  "generatedAt": "2026-06-28T06:19:31.391Z",
+  "source": {
+    "id": "d4builds_sunderarmor_icons",
+    "name": "D4Builds rendered unique item icons",
+    "pageUrl": "https://d4builds.gg/database/uniques/",
+    "assetHost": "https://sunderarmor.com",
+    "usage": "external_url_reference_only_no_asset_download"
+  },
+  "itemCount": 278,
+  "matchedCount": 278,
+  "limitations": [
+    "This file stores external icon URLs only; it does not download or commit third-party image assets.",
+    "D4Builds and sunderarmor assets are third-party community resources and are not official Blizzard API data.",
+    "The frontend must keep local generated icons as a fallback when an external URL fails."
+  ],
+  "items": [
+    {
+      "name": "Ahavarion, Spear of Lycander",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/ahavarion,_spear_of_lycander.png",
+      "sourceName": "Ahavarion, Spear of Lycander",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Andariel's Visage",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/andariel's_visage.png",
+      "sourceName": "Andariel's Visage",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Azurewrath",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/azurewrath.png",
+      "sourceName": "Azurewrath",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Banished Lord's Talisman",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/banished_lord's_talisman.png",
+      "sourceName": "Banished Lord's Talisman",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Blood-Mad Idol",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/blood-mad_idol.png",
+      "sourceName": "Blood-Mad Idol",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Crown of Lucion",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/crown_of_lucion.png",
+      "sourceName": "Crown of Lucion",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Doombringer",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/doombringer.png",
+      "sourceName": "Doombringer",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "El'Druin, Sword of Justice",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/el'druin,_sword_of_justice.png",
+      "sourceName": "El'druin, Sword of Justice",
+      "matchType": "alias"
+    },
+    {
+      "name": "Endurant Faith",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/endurant_faith.png",
+      "sourceName": "Endurant Faith",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Fists of Fate",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/fists_of_fate.png",
+      "sourceName": "Fists of Fate",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Flickerstep",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/flickerstep.png",
+      "sourceName": "Flickerstep",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Frostburn",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/frostburn.png",
+      "sourceName": "Frostburn",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Godslayer Crown",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/godslayer_crown.png",
+      "sourceName": "Godslayer Crown",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Harlequin Crest",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/harlequin_crest.png",
+      "sourceName": "Harlequin Crest",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Heir of Perdition",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/heir_of_perdition.png",
+      "sourceName": "Heir of Perdition",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Locran's Talisman",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/locran's_talisman.png",
+      "sourceName": "Locran's Talisman",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Melted Heart of Selig",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/melted_heart_of_selig.png",
+      "sourceName": "Melted Heart of Selig",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Mother's Embrace",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/mother's_embrace.png",
+      "sourceName": "Mother's Embrace",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Paingorger's Gauntlets",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/paingorger's_gauntlets.png",
+      "sourceName": "Paingorger's Gauntlets",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Penitent Greaves",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/penitent_greaves.png",
+      "sourceName": "Penitent Greaves",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Rakanoth's Wake",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/rakanoth's_wake.png",
+      "sourceName": "Rakanoth's Wake",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Razorplate",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/razorplate.png",
+      "sourceName": "Razorplate",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Ring of Starless Skies",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/ring_of_starless_skies.png",
+      "sourceName": "Ring of Starless Skies",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Rustbitten Dirk",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/rustbitten_dirk.png",
+      "sourceName": "Rustbitten Dirk",
+      "matchType": "verified_url_guess"
+    },
+    {
+      "name": "Shard of Verathiel",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
+      "sourceName": "Shard of Verathiel",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Shattered Vow",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/shattered_vow.png",
+      "sourceName": "Shattered Vow",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Shroud of False Death",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/shroud_of_false_death.png",
+      "sourceName": "Shroud of False Death",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Signet of Pelghain",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/signet_of_pelghain.png",
+      "sourceName": "Signet of Pelghain",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Soulbrand",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/soulbrand.png",
+      "sourceName": "Soulbrand",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Tassets of the Dawning Sky",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/tassets_of_the_dawning_sky.png",
+      "sourceName": "Tassets of the Dawning Sky",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Temerity",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/temerity.png",
+      "sourceName": "Temerity",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "The Butcher's Cleaver",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/the_butcher's_cleaver.png",
+      "sourceName": "The Butcher's Cleaver",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "The Grandfather",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/the_grandfather.png",
+      "sourceName": "The Grandfather",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Thousand-Eye Reaver",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
+      "sourceName": "Thousand-Eye Reaver",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Thundergod's Blessing",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/thundergod's_blessing.png",
+      "sourceName": "Thundergod's Blessing",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Tibault's Will",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/tibault's_will.png",
+      "sourceName": "Tibault's Will",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Tyrael's Might",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/tyrael's_might.png",
+      "sourceName": "Tyrael's Might",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Wendigo Brand",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/wendigo_brand.png",
+      "sourceName": "Wendigo Brand",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Wyrdskin",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/wyrdskin.png",
+      "sourceName": "Wyrdskin",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "X'Fal's Corroded Signet",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/x'fal's_corroded_signet.png",
+      "sourceName": "X'Fal's Corroded Signet",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Yen's Blessing",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/yen's_blessing.png",
+      "sourceName": "Yen's Blessing",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "100,000 Steps",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/100,000_steps.png",
+      "sourceName": "100,000 Steps",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Ancients' Oath",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/ancients'_oath.png",
+      "sourceName": "Ancients' Oath",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Arreat's Bearing",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/arreat's_bearing.png",
+      "sourceName": "Arreat's Bearing",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Bane of Ahjed-Den",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/bane_of_ahjed-den.png",
+      "sourceName": "Bane of Ahjed-Den",
+      "matchType": "verified_url_guess"
+    },
+    {
+      "name": "Battle Trance",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/battle_trance.png",
+      "sourceName": "Battle Trance",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Chainscourged Mail",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/chainscourged_mail.png",
+      "sourceName": "Chainscourged Mail",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Dark Stalker's Medallion",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/dark_stalker's_medallion.png",
+      "sourceName": "Dark Stalker's Medallion",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Emblem of Staalbreak",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/emblem_of_staalbreak.png",
+      "sourceName": "Emblem of Staalbreak",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Fields of Crimson",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/fields_of_crimson.png",
+      "sourceName": "Fields of Crimson",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Gohr's Devastating Grips",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/gohr's_devastating_grips.png",
+      "sourceName": "Gohr's Devastating Grips",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Hellhammer",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/hellhammer.png",
+      "sourceName": "Hellhammer",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Hooves of the Mountain God",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/hooves_of_the_mountain_god.png",
+      "sourceName": "Hooves of the Mountain God",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Mantle of Mountain's Fury",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/mantle_of_mountain's_fury.png",
+      "sourceName": "Mantle of Mountain's Fury",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Might of Qual-Kehk",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/might_of_qual-kehk.png",
+      "sourceName": "Might of Qual-Kehk",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Nomad's Longing Heart",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/nomad's_longing_heart.png",
+      "sourceName": "Nomad's Longing Heart",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Overkill",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/overkill.png",
+      "sourceName": "Overkill",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Rage of Harrogath",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/rage_of_harrogath.png",
+      "sourceName": "Rage of Harrogath",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Ramaladni's Magnum Opus",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/ramaladni's_magnum_opus.png",
+      "sourceName": "Ramaladni's Magnum Opus",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Ring of Red Furor",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/ring_of_red_furor.png",
+      "sourceName": "Ring of Red Furor",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Ring of the Ravenous",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/ring_of_the_ravenous.png",
+      "sourceName": "Ring of the Ravenous",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Sabre of Tsasgal",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/sabre_of_tsasgal.png",
+      "sourceName": "Sabre of Tsasgal",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "The Open Eye of Gorgorra",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/the_open_eye_of_gorgorra.png",
+      "sourceName": "The Open Eye of Gorgorra",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "The Relentless Heart",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/the_relentless_heart.png",
+      "sourceName": "The Relentless Heart",
+      "matchType": "verified_url_guess"
+    },
+    {
+      "name": "The Third Blade",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/the_third_blade.png",
+      "sourceName": "The Third Blade",
+      "matchType": "verified_url_guess"
+    },
+    {
+      "name": "Tuskhelm of Joritz the Mighty",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/tuskhelm_of_joritz_the_mighty.png",
+      "sourceName": "Tuskhelm of Joritz the Mighty",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Twin Strikes",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/twin_strikes.png",
+      "sourceName": "Twin Strikes",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Ugly Bastard Helm",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/ugly_bastard_helm.png",
+      "sourceName": "Ugly Bastard Helm",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Unbroken Chain",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/unbroken_chain.png",
+      "sourceName": "Unbroken Chain",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Accord of the Wilds",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/accord_of_the_wilds.png",
+      "sourceName": "Accord of the Wilds",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Airidah's Inexorable Will",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/airidah's_inexorable_will.png",
+      "sourceName": "Airidah's Inexorable Will",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Autumnal Crown",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/autumnal_crown.png",
+      "sourceName": "Autumnal Crown",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Dark Howl",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/dark_howl.png",
+      "sourceName": "Dark Howl",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Dirge of Airidah",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/dirge_of_airidah.png",
+      "sourceName": "Dirge of Airidah",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Dolmen Stone",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/dolmen_stone.png",
+      "sourceName": "Dolmen Stone",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Earthbreaker",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/earthbreaker.png",
+      "sourceName": "Earthbreaker",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Fleshrender",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/fleshrender.png",
+      "sourceName": "Fleshrender",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Fractured Runestone",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/fractured_runestone.png",
+      "sourceName": "Fractured Runestone",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Fury of the Wilds",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/fury_of_the_wilds.png",
+      "sourceName": "Fury of the Wilds",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Gathlen's Birthright",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/gathlen's_birthright.png",
+      "sourceName": "Gathlen's Birthright",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Greatstaff of the Crone",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/greatstaff_of_the_crone.png",
+      "sourceName": "Greatstaff of the Crone",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Greenwalker's Oath",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/greenwalker's_oath.png",
+      "sourceName": "Greenwalker's Oath",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Greenwalker's Signet",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/greenwalker's_signet.png",
+      "sourceName": "Greenwalker's Signet",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Heart of Azgar",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/heart_of_azgar.png",
+      "sourceName": "Heart of Azgar",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Hunter's Zenith",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/hunter's_zenith.png",
+      "sourceName": "Hunter's Zenith",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Ifeh's Dire Totem",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/ifeh's_dire_totem.png",
+      "sourceName": "Ifeh's Dire Totem",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Insatiable Fury",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/insatiable_fury.png",
+      "sourceName": "Insatiable Fury",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Khamsin Steppewalkers",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/khamsin_steppewalkers.png",
+      "sourceName": "Khamsin Steppewalkers",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Kilt of Blackwing",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/kilt_of_blackwing.png",
+      "sourceName": "Kilt of Blackwing",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Mad Wolf's Glee",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/mad_wolf's_glee.png",
+      "sourceName": "Mad Wolf's Glee",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Malefic Crescent",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/malefic_crescent.png",
+      "sourceName": "Malefic Crescent",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Mark of the Old Wolf",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/mark_of_the_old_wolf.png",
+      "sourceName": "Mark of the Old Wolf",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Might of the Ursine",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/might_of_the_ursine.png",
+      "sourceName": "Might of the Ursine",
+      "matchType": "verified_url_guess"
+    },
+    {
+      "name": "Mjölnic Ring",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/mj%C3%B6lnic_ryng.png",
+      "sourceName": "Mjölnic Ryng",
+      "matchType": "alias"
+    },
+    {
+      "name": "Purified Lightbringer",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/purified_lightbringer.png",
+      "sourceName": "Purified Lightbringer",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Stone of Vehemen",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/stone_of_vehemen.png",
+      "sourceName": "Stone of Vehemen",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Storm's Companion",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/storm's_companion.png",
+      "sourceName": "Storm's Companion",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "The Basilisk",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/the_basilisk.png",
+      "sourceName": "The Basilisk",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Unsung Ascetic's Wraps",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/unsung_ascetic's_wraps.png",
+      "sourceName": "Unsung Ascetic's Wraps",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Waxing Gibbous",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/waxing_gibbous.png",
+      "sourceName": "Waxing Gibbous",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Wildheart Hunger",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/wildheart_hunger.png",
+      "sourceName": "Wildheart Hunger",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Will of Stone",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/will_of_stone.png",
+      "sourceName": "Will of Stone",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Blood Moon Breeches",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/blood_moon_breeches.png",
+      "sourceName": "Blood Moon Breeches",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Blood Wake",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/blood_wake.png",
+      "sourceName": "Blood Wake",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Bloodless Scream",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/bloodless_scream.png",
+      "sourceName": "Bloodless Scream",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Cruor's Embrace",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/cruor's_embrace.png",
+      "sourceName": "Cruor's Embrace",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Deathgrip",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/deathgrip.png",
+      "sourceName": "Deathgrip",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Deathless Visage",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/deathless_visage.png",
+      "sourceName": "Deathless Visage",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Ebonpiercer",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/ebonpiercer.png",
+      "sourceName": "Ebonpiercer",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Gospel of the Devotee",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/gospel_of_the_devotee.png",
+      "sourceName": "Gospel of the Devotee",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Gravewalker's Hand",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/gravewalker's_hand.png",
+      "sourceName": "Gravewalker's Hand",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Hangman's Hand",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/hangman's_hand.png",
+      "sourceName": "Hangman's Hand",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Howl from Below",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/howl_from_below.png",
+      "sourceName": "Howl from Below",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Kessime's Legacy",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/kessime's_legacy.png",
+      "sourceName": "Kessime's Legacy",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Lidless Wall",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/lidless_wall.png",
+      "sourceName": "Lidless Wall",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Mace of King Leoric",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/mace_of_king_leoric.png",
+      "sourceName": "Mace of King Leoric",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Mutilator Plate",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/mutilator_plate.png",
+      "sourceName": "Mutilator Plate",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Omen of Pain",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/omen_of_pain.png",
+      "sourceName": "Omen of Pain",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Pact of Bone",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/pact_of_bone.png",
+      "sourceName": "Pact of Bone",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Path of Trag'Oul",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/path_of_trag'oul.png",
+      "sourceName": "Path of Trag'Oul",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Red Blessing",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/red_blessing.png",
+      "sourceName": "Red Blessing",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Ring of the Sacrilegious Soul",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/ring_of_the_sacrilegious_soul.png",
+      "sourceName": "Ring of the Sacrilegious Soul",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Sanguivor, Blade of Zir",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/sanguivor,_blade_of_zir.png",
+      "sourceName": "Sanguivor, Blade of Zir",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "The Gloom Ward",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/the_gloom_ward.png",
+      "sourceName": "The Gloom Ward",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "The Hand of Naz",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/the_hand_of_naz.png",
+      "sourceName": "The Hand of Naz",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "The Mortacrux",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/the_mortacrux.png",
+      "sourceName": "The Mortacrux",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "The Undercrown",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/the_undercrown.png",
+      "sourceName": "The Undercrown",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "The Unmaker",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/the_unmaker.png",
+      "sourceName": "The Unmaker",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Vengeful Sinew",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/vengeful_sinew.png",
+      "sourceName": "Vengeful Sinew",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Will of Rathma",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/will_of_rathma.png",
+      "sourceName": "Will of Rathma",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Arcadia",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/arcadia.png",
+      "sourceName": "Arcadia",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Argent Veil",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/argent_veil.png",
+      "sourceName": "Argent Veil",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Bastion of Sir Matthias",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/bastion_of_sir_matthias.png",
+      "sourceName": "Bastion of Sir Matthias",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Cathedral's Song",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/cathedral's_song.png",
+      "sourceName": "Cathedral's Song",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Dawnfire",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/dawnfire.png",
+      "sourceName": "Dawnfire",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Gate of the Red Dawn",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/gate_of_the_red_dawn.png",
+      "sourceName": "Gate of the Red Dawn",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Griswold's Opus",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/griswold's_opus.png",
+      "sourceName": "Griswold's Opus",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Herald of Zakarum",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/herald_of_zakarum.png",
+      "sourceName": "Herald of Zakarum",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Herald's Morningstar",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/herald's_morningstar.png",
+      "sourceName": "Herald's Morningstar",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Judgment of Auriel",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/judgment_of_auriel.png",
+      "sourceName": "Judgment of Auriel",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Judicant's Glaivehelm",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/judicant's_glaivehelm.png",
+      "sourceName": "Judicant's Glaivehelm",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Light's Rebuke",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/light's_rebuke.png",
+      "sourceName": "Light's Rebuke",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Mantle of the Grey",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/mantle_of_the_grey.png",
+      "sourceName": "Mantle of the Grey",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "March of the Stalwart Soul",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/march_of_the_stalwart_soul.png",
+      "sourceName": "March of the Stalwart Soul",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Red Sermon",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/red_sermon.png",
+      "sourceName": "Red Sermon",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Sanctis of Kethamar",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/sanctis_of_kethamar.png",
+      "sourceName": "Sanctis of Kethamar",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Seal of the Second Trumpet",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/seal_of_the_second_trumpet.png",
+      "sourceName": "Seal of the Second Trumpet",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Sunbrand",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/sunbrand.png",
+      "sourceName": "Sunbrand",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Sundered Night",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/sundered_night.png",
+      "sourceName": "Sundered Night",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Supplication",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/supplication.png",
+      "sourceName": "Supplication",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Ward of the White Dove",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/ward_of_the_white_dove.png",
+      "sourceName": "Ward of the White Dove",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Wreath of Auric Laurel",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/wreath_of_auric_laurel.png",
+      "sourceName": "Wreath of Auric Laurel",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Asheara's Khanjar",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/asheara's_khanjar.png",
+      "sourceName": "Asheara's Khanjar",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Assassin's Stride",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/assassin's_stride.png",
+      "sourceName": "Assassin's Stride",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Bands of Ichorous Rose",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/bands_of_ichorous_rose.png",
+      "sourceName": "Bands of Ichorous Rose",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Beastfall Boots",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/beastfall_boots.png",
+      "sourceName": "Beastfall Boots",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Cassia's Grace",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/cassia's_grace.png",
+      "sourceName": "Cassia's Grace",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Condemnation",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/condemnation.png",
+      "sourceName": "Condemnation",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Cowl of the Nameless",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/cowl_of_the_nameless.png",
+      "sourceName": "Cowl of the Nameless",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Death's Pavane",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/death's_pavane.png",
+      "sourceName": "Death's Pavane",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Deathmask of Nirmitruq",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/deathmask_of_nirmitruq.png",
+      "sourceName": "Deathmask of Nirmitruq",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Desperate March",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/desperate_march.png",
+      "sourceName": "Desperate March",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Eaglehorn",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/eaglehorn.png",
+      "sourceName": "Eaglehorn",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Etna's Lost Dagger",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/etna's_lost_dagger.png",
+      "sourceName": "Etna's Lost Dagger",
+      "matchType": "verified_url_guess"
+    },
+    {
+      "name": "Eyes in the Dark",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/eyes_in_the_dark.png",
+      "sourceName": "Eyes in the Dark",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Fist of the Iron Rose",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/fist_of_the_iron_rose.png",
+      "sourceName": "Fist of the Iron Rose",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Gladiator's Triumph",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/gladiator's_triumph.png",
+      "sourceName": "Gladiator's Triumph",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Grasp of Shadow",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/grasp_of_shadow.png",
+      "sourceName": "Grasp of Shadow",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Misericorde",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/misericorde.png",
+      "sourceName": "Misericorde",
+      "matchType": "verified_url_guess"
+    },
+    {
+      "name": "Orphan Maker",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/orphan_maker.png",
+      "sourceName": "Orphan Maker",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Pitfighter's Gull",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/pitfighter's_gull.png",
+      "sourceName": "Pitfighter's Gull",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Saboteur's Signet",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/saboteur's_signet.png",
+      "sourceName": "Saboteur's Signet",
+      "matchType": "verified_url_guess"
+    },
+    {
+      "name": "Scoundrel's Kiss",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/scoundrel's_kiss.png",
+      "sourceName": "Scoundrel's Kiss",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Scoundrel's Leathers",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/scoundrel's_leathers.png",
+      "sourceName": "Scoundrel's Leathers",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Sea Lord's Fine Gloves",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/sea_lord's_fine_gloves.png",
+      "sourceName": "Sea Lord's Fine Gloves",
+      "matchType": "verified_url_guess"
+    },
+    {
+      "name": "Shroud of Khanduras",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/shroud_of_khanduras.png",
+      "sourceName": "Shroud of Khanduras",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Shrouded Gift",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/shrouded_gift.png",
+      "sourceName": "Shrouded Gift",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Skyhunter",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/skyhunter.png",
+      "sourceName": "Skyhunter",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "The Maestro",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/the_maestro.png",
+      "sourceName": "The Maestro",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "The Umbracrux",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/the_umbracrux.png",
+      "sourceName": "The Umbracrux",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Windforce",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/windforce.png",
+      "sourceName": "Windforce",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Word of Hakan",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/word_of_hakan.png",
+      "sourceName": "Word of Hakan",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Writhing Band of Trickery",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/writhing_band_of_trickery.png",
+      "sourceName": "Writhing Band of Trickery",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Axial Conduit",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/axial_conduit.png",
+      "sourceName": "Axial Conduit",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Blue Rose",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/blue_rose.png",
+      "sourceName": "Blue Rose",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Drognan's Anguish",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/drognan's_anguish.png",
+      "sourceName": "Drognan's Anguish",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Emberfury",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/emberfury.png",
+      "sourceName": "Emberfury",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Esadora's Overflowing Cameo",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/esadora's_overflowing_cameo.png",
+      "sourceName": "Esadora's Overflowing Cameo",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Esu's Heirloom",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/esu's_heirloom.png",
+      "sourceName": "Esu's Heirloom",
+      "matchType": "verified_url_guess"
+    },
+    {
+      "name": "Fang of the Vipermagi",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/fang_of_the_vipermagi.png",
+      "sourceName": "Fang of the Vipermagi",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Flamescar",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/flamescar.png",
+      "sourceName": "Flamescar",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Flameweaver",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/flameweaver.png",
+      "sourceName": "Flameweaver",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Fractured Winterglass",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/fractured_winterglass.png",
+      "sourceName": "Fractured Winterglass",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Galvanic Azurite",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/galvanic_azurite.png",
+      "sourceName": "Galvanic Azurite",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Gift of Frost",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/gift_of_frost.png",
+      "sourceName": "Gift of Frost",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Hail of Verglas",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/hail_of_verglas.png",
+      "sourceName": "Hail of Verglas",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Iceheart Brais",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/iceheart_brais.png",
+      "sourceName": "Iceheart Brais",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Levin Grasp",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/levin_grasp.png",
+      "sourceName": "Levin Grasp",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Molten Band",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/molten_band.png",
+      "sourceName": "Molten Band",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Onyx Soul",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/onyx_soul.png",
+      "sourceName": "Onyx Soul",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Ophidian Iris",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/ophidian_iris.png",
+      "sourceName": "Ophidian Iris",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Orsivane",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/orsivane.png",
+      "sourceName": "Orsivane",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Raiment of the Infinite",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/raiment_of_the_infinite.png",
+      "sourceName": "Raiment of the Infinite",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Raiment of the Sea",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/raiment_of_the_sea.png",
+      "sourceName": "Raiment of the Sea",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Rimeblood",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/rimeblood.png",
+      "sourceName": "Rimeblood",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Shanar's Resonance",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/shanar's_resonance.png",
+      "sourceName": "Shanar's Resonance",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Sidhe Bindings",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/sidhe_bindings.png",
+      "sourceName": "Sidhe Bindings",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Staff of Endless Rage",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/staff_of_endless_rage.png",
+      "sourceName": "Staff of Endless Rage",
+      "matchType": "verified_url_guess"
+    },
+    {
+      "name": "Staff of Lam Esen",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/staff_of_lam_esen.png",
+      "sourceName": "Staff of Lam Esen",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Staff of Zerae",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/staff_of_zerae.png",
+      "sourceName": "Staff of Zerae",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Starfall Coronet",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/starfall_coronet.png",
+      "sourceName": "Starfall Coronet",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Strike of Stormhorn",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/strike_of_stormhorn.png",
+      "sourceName": "Strike of Stormhorn",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Tal Rasha's Iridescent Loop",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/tal_rasha's_iridescent_loop.png",
+      "sourceName": "Tal Rasha's Iridescent Loop",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "The Oculus",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/the_oculus.png",
+      "sourceName": "The Oculus",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Vision of the Firestorm",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/vision_of_the_firestorm.png",
+      "sourceName": "Vision of the Firestorm",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Vox Omnium",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/vox_omnium.png",
+      "sourceName": "Vox Omnium",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Balazan's Maxtlatl",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/balazan's_maxtlatl.png",
+      "sourceName": "Balazan's Maxtlatl",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Band of First Breath",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/band_of_first_breath.png",
+      "sourceName": "Band of First Breath",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Craze of the Dead God",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/craze_of_the_dead_god.png",
+      "sourceName": "Craze of the Dead God",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Echo of Kwatli",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/echo_of_kwatli.png",
+      "sourceName": "Echo of Kwatli",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Harmony of Ebewaka",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/harmony_of_ebewaka.png",
+      "sourceName": "Harmony of Ebewaka",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Hesha e Kesungi",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/hesha_e_kesungi.png",
+      "sourceName": "Hesha e Kesungi",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Jacinth Shell",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/jacinth_shell.png",
+      "sourceName": "Jacinth Shell",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Loyalty's Mantle",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/loyalty's_mantle.png",
+      "sourceName": "Loyalty's Mantle",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Nesekem, the Herald",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/nesekem,_the_herald.png",
+      "sourceName": "Nesekem, The Herald",
+      "matchType": "alias"
+    },
+    {
+      "name": "Path of the Emissary",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/path_of_the_emissary.png",
+      "sourceName": "Path of the Emissary",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Peacemonger's Signet",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/peacemonger's_signet.png",
+      "sourceName": "Peacemonger's Signet",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Protean Heart",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/protean_heart.png",
+      "sourceName": "Protean Heart",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Protection of the Prime",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/protection_of_the_prime.png",
+      "sourceName": "Protection of the Prime",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Ring of the Midday Hunt",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/ring_of_the_midday_hunt.png",
+      "sourceName": "Ring of the Midday Hunt",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Ring of the Midnight Sun",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/ring_of_the_midnight_sun.png",
+      "sourceName": "Ring of the Midnight Sun",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Ring of Writhing Moon",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/ring_of_writhing_moon.png",
+      "sourceName": "Ring of Writhing Moon",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Rod of Kepeleke",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/rod_of_kepeleke.png",
+      "sourceName": "Rod of Kepeleke",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Scorn of the Earth",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/scorn_of_the_earth.png",
+      "sourceName": "Scorn of the Earth",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Sepazontec",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/sepazontec.png",
+      "sourceName": "Sepazontec",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Sunbird's Gorget",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/sunbird's_gorget.png",
+      "sourceName": "Sunbird's Gorget",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Sunstained War-Crozier",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/sunstained_war-crozier.png",
+      "sourceName": "Sunstained War-Crozier",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Widow's Web",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/widow's_web.png",
+      "sourceName": "Widow's Web",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Wound Drinker",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/wound_drinker.png",
+      "sourceName": "Wound Drinker",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Wushe Nak Pa",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
+      "sourceName": "Wushe Nak Pa",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Ae'grom's Schism",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/ae'grom's_schism.png",
+      "sourceName": "Ae'grom's Schism",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Anathema of the Primes",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/anathema_of_the_primes.png",
+      "sourceName": "Anathema of the Primes",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Bindings of Attrition",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/bindings_of_attrition.png",
+      "sourceName": "Bindings of Attrition",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Bridle of Tor'Baalos",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/bridle_of_tor'baalos.png",
+      "sourceName": "Bridle of Tor'Baalos",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Cage of Madness",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/cage_of_madness.png",
+      "sourceName": "Cage of Madness",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Cowl of Malefic Torment",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/cowl_of_malefic_torment.png",
+      "sourceName": "Cowl of Malefic Torment",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Dirge of Odium",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/dirge_of_odium.png",
+      "sourceName": "Dirge of Odium",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Elegy",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/elegy.png",
+      "sourceName": "Elegy",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Eye of Baal",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/eye_of_baal.png",
+      "sourceName": "Eye of Baal",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Fleshwrit Carapace",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/fleshwrit_carapace.png",
+      "sourceName": "Fleshwrit Carapace",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Footfalls of the Waning World",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/footfalls_of_the_waning_world.png",
+      "sourceName": "Footfalls of the Waning World",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Gauntlets of Sheol",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/gauntlets_of_sheol.png",
+      "sourceName": "Gauntlets of Sheol",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Hand of Apotheosis",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/hand_of_apotheosis.png",
+      "sourceName": "Hand of Apotheosis",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Hands of the Worldbreaker",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/hands_of_the_worldbreaker.png",
+      "sourceName": "Hands of the Worldbreaker",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Hecaton Chasm",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/hecaton_chasm.png",
+      "sourceName": "Hecaton Chasm",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Hellbrand Signet",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/hellbrand_signet.png",
+      "sourceName": "Hellbrand Signet",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Hellhound's Sabatons",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/hellhound's_sabatons.png",
+      "sourceName": "Hellhound's Sabatons",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Infernal Homunculus",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/infernal_homunculus.png",
+      "sourceName": "Infernal Homunculus",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Kabraxis' Will",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/kabraxis'_will.png",
+      "sourceName": "Kabraxis' Will",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Litany of Sable",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/litany_of_sable.png",
+      "sourceName": "Litany of Sable",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Lurid Pact",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/lurid_pact.png",
+      "sourceName": "Lurid Pact",
+      "matchType": "verified_url_guess"
+    },
+    {
+      "name": "Moloch's Beating Flame",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/moloch's_beating_flame.png",
+      "sourceName": "Moloch's Beating Flame",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Morlu Fleshward",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/morlu_fleshward.png",
+      "sourceName": "Morlu Fleshward",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Nails of the Gore-Crowned",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/nails_of_the_gore-crowned.png",
+      "sourceName": "Nails of the Gore-Crowned",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Night Terror",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/night_terror.png",
+      "sourceName": "Night Terror",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Rictus of Terror",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/rictus_of_terror.png",
+      "sourceName": "Rictus of Terror",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Sashes of the Wretched",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/sashes_of_the_wretched.png",
+      "sourceName": "Sashes of the Wretched",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Scepter of the Three",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/scepter_of_the_three.png",
+      "sourceName": "Scepter of the Three",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Scourge of Duriel",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/scourge_of_duriel.png",
+      "sourceName": "Scourge of Duriel",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Seal of the Ophanim",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/seal_of_the_ophanim.png",
+      "sourceName": "Seal of the Ophanim",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Seed of Horazon",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/seed_of_horazon.png",
+      "sourceName": "Seed of Horazon",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Sire of Sin",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/sire_of_sin.png",
+      "sourceName": "Sire of Sin",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Spine of Tathamet",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/spine_of_tathamet.png",
+      "sourceName": "Spine of Tathamet",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "The Blade of Sight Aflame",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/the_blade_of_sight_aflame.png",
+      "sourceName": "The Blade of Sight Aflame",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "The Eightfold Idol",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/the_eightfold_idol.png",
+      "sourceName": "The Eightfold Idol",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "The Fecund Seal",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/the_fecund_seal.png",
+      "sourceName": "The Fecund Seal",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "The Hemat Stone",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/the_hemat_stone.png",
+      "sourceName": "The Hemat Stone",
+      "matchType": "rendered_alt"
+    },
+    {
+      "name": "Thrice-Woven Nightmare",
+      "iconUrl": "https://sunderarmor.com/DIABLO4/Uniques/2/thrice-woven_nightmare.png",
+      "sourceName": "Thrice-Woven Nightmare",
+      "matchType": "rendered_alt"
+    }
+  ]
+}

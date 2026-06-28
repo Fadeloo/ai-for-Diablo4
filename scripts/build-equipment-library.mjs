@@ -4,6 +4,7 @@ import path from "node:path";
 const root = path.resolve(new URL(".", import.meta.url).pathname, "..");
 const uniquePath = path.join(root, "data/generated/official-3.1.0-guaranteed-unique-affixes.json");
 const taxonomyPath = path.join(root, "data/equipment/affix-taxonomy.json");
+const iconIndexPath = path.join(root, "data/generated/d4builds-icon-index.json");
 const output = path.join(root, "data/equipment/equipment-library.json");
 
 function slugify(value) {
@@ -62,8 +63,18 @@ function buildRole(categories) {
   return "specialized";
 }
 
+async function readOptionalJson(file) {
+  try {
+    return JSON.parse(await readFile(file, "utf8"));
+  } catch {
+    return null;
+  }
+}
+
 const uniqueData = JSON.parse(await readFile(uniquePath, "utf8"));
 const taxonomy = JSON.parse(await readFile(taxonomyPath, "utf8"));
+const iconIndex = await readOptionalJson(iconIndexPath);
+const externalIcons = new Map((iconIndex?.items ?? []).map((item) => [item.name, item]));
 const items = uniqueData.items.map((item) => {
   const guaranteedAffixes = item.guaranteedAffixes.map((affix) => ({
     ...affix,
@@ -71,6 +82,7 @@ const items = uniqueData.items.map((item) => {
   }));
   const categories = [...new Set(guaranteedAffixes.map((affix) => affix.categoryId))];
   const visualType = inferVisualType(item);
+  const externalIcon = externalIcons.get(item.name);
   return {
     id: slugify(item.name),
     name: item.name,
@@ -78,6 +90,9 @@ const items = uniqueData.items.map((item) => {
     classRestriction: item.classRestriction,
     visualType,
     image: `./public/assets/icon-${visualType}.png`,
+    externalImage: externalIcon?.iconUrl ?? null,
+    externalImageSource: externalIcon?.iconUrl ? iconIndex.source : null,
+    externalImageMatchType: externalIcon?.matchType ?? "none",
     guaranteedAffixes,
     categories,
     buildRole: buildRole(categories),
@@ -87,7 +102,8 @@ const items = uniqueData.items.map((item) => {
       guaranteedAffixes: "official_3_1_0_patch",
       fullAffixRanges: "needs_source_backfill",
       uniquePower: "needs_source_backfill",
-      slot: "inferred_or_unknown"
+      slot: "inferred_or_unknown",
+      icon: externalIcon?.iconUrl ? "external_url_reference" : "local_generated_fallback"
     },
     notes: item.notes
   };
@@ -100,7 +116,8 @@ const payload = {
   limitations: [
     "This is not the full Diablo IV equipment database.",
     "Official patch notes provide guaranteed affix names but not every roll range, item slot, image, or unique power.",
-    "Visual type is inferred for UI grouping and must be replaced by verified item slot data."
+    "Visual type is inferred for UI grouping and must be replaced by verified item slot data.",
+    "External icon URLs are referenced from a third-party community source and image files are not committed to this repository."
   ],
   itemCount: items.length,
   items

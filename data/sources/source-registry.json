@@ -75,9 +75,22 @@
     "lastChecked": "2026-06-28",
     "use": [
       "gear_affix_cross_check",
-      "planner_parity"
+      "planner_parity",
+      "external_unique_icon_url_reference"
     ],
     "notes": "Accessible as a rendered Gatsby site during preflight; internal data shape should not be treated as stable API."
+  },
+  {
+    "id": "d4builds_sunderarmor_icons",
+    "name": "D4Builds rendered unique item icons",
+    "category": "community_visual_reference",
+    "trustLevel": "needs_license_review",
+    "url": "https://d4builds.gg/database/uniques/",
+    "lastChecked": "2026-06-28",
+    "use": [
+      "external_unique_icon_url_reference"
+    ],
+    "notes": "Stores external icon URLs only. Do not download or commit third-party image assets without explicit permission or license review."
   },
   {
     "id": "d4lf_repo",

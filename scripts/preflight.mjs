@@ -19,9 +19,11 @@ const REQUIRED_FILES = [
   "data/classes/classes.json",
   "data/equipment/equipment-library.json",
   "data/generated/build-simulations.json",
+  "data/generated/d4builds-icon-index.json",
   "src/damage/calculate.js",
   "scripts/build-equipment-library.mjs",
   "scripts/generate-build-simulations.mjs",
+  "scripts/fetch-d4builds-icons.mjs",
   "scripts/create-item-icons.mjs",
   "scripts/verify.mjs"
 ];

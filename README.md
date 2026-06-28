@@ -17,6 +17,7 @@
 - `data/sources/source-registry.json`：官方与社区来源登记，含可信度和用途。
 - `data/classes/classes.json`：8 个职业的中文名称、资源、开荒优先级、构筑方向和资料状态。
 - `data/equipment/`：装备部位、词缀分类、伤害计算角色和 278 条官方 3.1.0 唯一装备 guaranteed affix 种子库。
+- `data/generated/d4builds-icon-index.json`：278 条唯一装备的第三方外部图标 URL 索引，不下载或提交图标文件。
 - `data/builds/`：职业流派原型和赛季开荒计划。
 - `data/generated/build-simulations.json`：未来三个赛季窗口的冲层、速刷、日常配装预测矩阵，含 150 层速度估计和置信度。
 - `data/features/feature-map.json`：攻略项目功能地图和当前状态。
@@ -34,12 +35,13 @@ npm run build:assets
 npm run dev
 npm run preflight
 npm run fetch:patch
+npm run fetch:icons
 npm run sample
 npm run verify
 ```
 
 ## 数据边界
 
-当前前端已经有配装模拟器、装备检索、职业开荒页、伤害实验室和 150 层预测页。装备库不是全量数据库：它只包含官方 3.1.0 补丁页可追溯的唯一装备 guaranteed affix 种子，并使用本地生成图标代替真实物品图标。普通装备基础词缀、传奇威能全量表、暗金特效、完整数值范围、职业技能全量系数和服务器端结算顺序仍需要继续接入有授权或可审计的数据源；项目不会把未验证字段伪装成官方事实。
+当前前端已经有配装模拟器、装备检索、职业开荒页、伤害实验室和 150 层预测页。装备库不是全量数据库：它只包含官方 3.1.0 补丁页可追溯的唯一装备 guaranteed affix 种子。页面会优先显示第三方外部图标 URL，加载失败时回退到本地生成占位图；公开仓库不会提交第三方图标文件。普通装备基础词缀、传奇威能全量表、暗金特效、完整数值范围、职业技能全量系数和服务器端结算顺序仍需要继续接入有授权或可审计的数据源；项目不会把未验证字段伪装成官方事实。
 
 三赛季配装和 150 层速度是模型预测，不是天梯或排行榜事实。赛季上线后应把真实冲层、速刷样本和热修补丁写回 `data/generated/build-simulations.json` 或替换生成规则。

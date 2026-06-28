@@ -123,6 +123,8 @@ function scoreArchetype(archetype, mode, classId, seasonIndex, equipmentItems) {
       id: item.id,
       name: item.name,
       visualType: item.visualType,
+      image: item.image,
+      externalImage: item.externalImage,
       guaranteedAffixes: item.guaranteedAffixes.map((affix) => affix.name)
     })),
     rationale: [

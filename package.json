@@ -10,6 +10,7 @@
     "dev": "node scripts/serve.mjs",
     "preflight": "node scripts/preflight.mjs",
     "fetch:patch": "node scripts/fetch-official-patch.mjs",
+    "fetch:icons": "node scripts/fetch-d4builds-icons.mjs",
     "sample": "node scripts/run-sample.mjs",
     "verify": "node scripts/verify.mjs"
   },
