@@ -94,6 +94,8 @@ BD 详情 #bd/<guideId>
   ├─ 职业定位
   ├─ 开荒阶段
   ├─ 流派轴
+  ├─ 赛季切换
+  ├─ 职业完整流派矩阵：日常 / 速刷 / 冲层的难度、阶段、上限、来源和核心件
   └─ 该职业可用 BD 入口
 
 伤害实验室 #damage
@@ -140,7 +142,7 @@ BD 详情 #bd/<guideId>
 | `EquipmentDetailPanel` | 装备详情 | `item`、`relatedGuides` | 固定词缀、来源、相关 BD |
 | `AspectBrowser` | 威能检索 | `aspect-index.aspects`、filters | 列表、详情和相关 BD |
 | `AspectDetailPanel` | 威能详情 | `aspect` | 常见部位、核心度、替换状态、关联 BD |
-| `ClassStartPlan` | 职业开荒 | `classes`、`season-start-plans` | 阶段路线和 BD 入口 |
+| `ClassStartPlan` | 职业开荒 | `classes`、`season-start-plans` | 阶段路线、赛季切换和完整流派矩阵 |
 | `DamageWorkbench` | 伤害计算 | 表单、`src/damage` | 期望伤害拆分 |
 | `ForecastTable` | 预测矩阵 | `build-simulations` | 三赛季速度和风险 |
 | `SourceRegistryView` | 来源库 | `source-registry` | 来源、可信度、使用范围 |

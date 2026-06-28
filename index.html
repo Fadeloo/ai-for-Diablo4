@@ -201,8 +201,8 @@
         <header class="page-head">
           <div>
             <p class="eyebrow">赛季开荒路线</p>
-            <h2 id="classes-title">职业开荒、流派轴和掉落决策。</h2>
-            <p>每个职业都有独立的开荒优先级、过渡路线、构筑轴和可用 BD 入口，补丁上线后可以快速调整权重。</p>
+            <h2 id="classes-title">职业开荒、完整流派矩阵和掉落决策。</h2>
+            <p>每个职业都有独立的开荒优先级、过渡路线、构筑轴、赛季 BD 矩阵和可用入口，补丁上线后可以快速调整权重。</p>
           </div>
         </header>
         <div class="class-workbench" aria-live="polite">
@@ -210,8 +210,15 @@
           <div class="class-panel">
             <p class="panel-kicker" data-class-resource>资源</p>
             <h3 data-class-title>野蛮人</h3>
+            <div class="class-season-control">
+              <label>
+                <span>赛季</span>
+                <select data-class-season></select>
+              </label>
+            </div>
             <ol class="plan-list" data-class-plan></ol>
             <div class="archetype-grid" data-archetypes></div>
+            <div data-class-builds></div>
           </div>
         </div>
       </section>

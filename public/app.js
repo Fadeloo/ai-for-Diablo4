@@ -461,6 +461,13 @@ function renderSelects() {
     .map((season) => `<option value="${season.id}">${season.zhLabel || season.label}</option>`)
     .join("");
   $("[data-sim-season]").value = state.sim.seasonId;
+  const classSeason = $("[data-class-season]");
+  if (classSeason) {
+    classSeason.innerHTML = state.simulations.seasons
+      .map((season) => `<option value="${season.id}">${season.zhLabel || season.label}</option>`)
+      .join("");
+    classSeason.value = state.sim.seasonId;
+  }
 
   const slotSelect = $("[data-equipment-slot]");
   if (slotSelect) {
@@ -1358,10 +1365,111 @@ function renderClasses() {
   renderSelectedClass();
 }
 
+const classModeOrder = ["daily", "speed_farm", "pit_push"];
+const ignoredAspectDisplayNames = new Set(["暗金特效位", "神话暗金位", "空槽说明", "空槽位"]);
+
+function classSeasonGuides(classId) {
+  return allBuildGuides()
+    .filter((guide) => guide.taxonomy.seasonId === state.sim.seasonId)
+    .filter((guide) => guide.taxonomy.classId === classId)
+    .sort((a, b) => {
+      const archetypeCompare = a.taxonomy.archetypeName.localeCompare(b.taxonomy.archetypeName, "zh-CN");
+      if (archetypeCompare) return archetypeCompare;
+      return classModeOrder.indexOf(a.taxonomy.mode) - classModeOrder.indexOf(b.taxonomy.mode);
+    });
+}
+
+function guideCoreLine(guide) {
+  const uniqueNames = (guide.coreUniques || []).map((item) => item.zhName);
+  const aspectNames = (guide.coreAspects || [])
+    .map((aspect) => aspect.name)
+    .filter((name) => !ignoredAspectDisplayNames.has(name));
+  const combined = [...uniqueNames, ...aspectNames].slice(0, 4);
+  return combined.length ? combined.join(" / ") : "核心件待来源回填";
+}
+
+function renderClassSeasonSummary(selected, guides) {
+  const communityCount = guides.filter((guide) => guide.source.references?.length).length;
+  const archetypeCount = new Set(guides.map((guide) => guide.taxonomy.archetypeId)).size;
+  const bestPush = guides
+    .filter((guide) => guide.taxonomy.mode === "pit_push")
+    .sort(sortGuidesForPlayer)[0];
+  const easiest = guides
+    .filter((guide) => guide.taxonomy.mode === "daily")
+    .sort((a, b) => a.formationDifficulty.level - b.formationDifficulty.level || sortGuidesForPlayer(a, b))[0];
+  return `
+    <div class="class-season-summary">
+      <article><strong>${guides.length}</strong><span>当前赛季 BD</span></article>
+      <article><strong>${archetypeCount}</strong><span>流派轴</span></article>
+      <article><strong>${communityCount}</strong><span>社区来源</span></article>
+      <article><strong>${bestPush ? `${bestPush.taxonomy.archetypeName} · ${bestPush.ceiling.displayTier || bestPush.ceiling.tier}` : "待回填"}</strong><span>冲层上限</span></article>
+      <article><strong>${easiest ? `${easiest.taxonomy.archetypeName} · ${easiest.formationDifficulty.label}` : "待回填"}</strong><span>低门槛入口</span></article>
+      <article><strong>${selected.primaryResources.map(resourceLabel).join(" / ")}</strong><span>职业资源</span></article>
+    </div>
+  `;
+}
+
+function renderClassBuildMatrix(selected, archetypes, guides) {
+  const guidesByArchetype = new Map();
+  for (const guide of guides) {
+    if (!guidesByArchetype.has(guide.taxonomy.archetypeId)) guidesByArchetype.set(guide.taxonomy.archetypeId, []);
+    guidesByArchetype.get(guide.taxonomy.archetypeId).push(guide);
+  }
+  return `
+    <section class="class-build-panel">
+      <div class="section-title">
+        <h4>${selected.zhName}完整流派矩阵</h4>
+        <span>${state.simulations.seasons.find((season) => season.id === state.sim.seasonId)?.zhLabel || "当前赛季"}</span>
+      </div>
+      ${renderClassSeasonSummary(selected, guides)}
+      <div class="class-build-family-list">
+        ${archetypes.map((archetype) => {
+          const archetypeGuides = guidesByArchetype.get(archetype.id) || [];
+          return `
+            <article class="class-build-family">
+              <header>
+                <div>
+                  <strong>${archetypeGuides[0]?.taxonomy.archetypeName || archetype.zhName}</strong>
+                  <span>${archetype.primaryStats.map(statLabel).join(" / ")}</span>
+                </div>
+                <em>${archetypeGuides.filter((guide) => guide.source.references?.length).length} 社区参考</em>
+              </header>
+              <div class="class-build-mode-grid">
+                ${classModeOrder.map((mode) => {
+                  const guide = archetypeGuides.find((item) => item.taxonomy.mode === mode);
+                  if (!guide) {
+                    return `
+                      <div class="class-mode-card is-empty">
+                        <span>${modeName(mode)}</span>
+                        <strong>待回填</strong>
+                        <em>暂无结构化 BD</em>
+                      </div>
+                    `;
+                  }
+                  return `
+                    <a class="class-mode-card" href="${guideUrl(guide)}">
+                      <span>${guide.taxonomy.modeName}</span>
+                      <strong>${guide.formationDifficulty.label} · ${guide.taxonomy.stage}</strong>
+                      <em>${guide.ceiling.label}</em>
+                      <p>${guideSourceLabel(guide)}</p>
+                      <small>${guideCoreLine(guide)}</small>
+                    </a>
+                  `;
+                }).join("")}
+              </div>
+            </article>
+          `;
+        }).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderSelectedClass() {
   const selected = state.classes.find((item) => item.id === state.selectedClassId) ?? state.classes[0];
   const plan = state.plans.find((item) => item.classId === selected.id);
   const archetypes = state.archetypes.find((item) => item.classId === selected.id)?.archetypes ?? [];
+  const classGuides = classSeasonGuides(selected.id);
   const modeShortcuts = Object.keys(modeLabels)
     .map((mode) => ({ mode, guide: bestGuideForClassMode(selected.id, mode) }));
   const communityGuides = allBuildGuides()
@@ -1374,6 +1482,8 @@ function renderSelectedClass() {
   document.querySelectorAll("[data-class-id]").forEach((button) => {
     button.setAttribute("aria-selected", String(button.dataset.classId === selected.id));
   });
+  const classSeason = $("[data-class-season]");
+  if (classSeason) classSeason.value = state.sim.seasonId;
   $("[data-class-resource]").textContent = selected.primaryResources.map(resourceLabel).join(" / ");
   $("[data-class-title]").textContent = selected.zhName;
   $("[data-class-plan]").innerHTML = (plan?.plan ?? [])
@@ -1386,7 +1496,8 @@ function renderSelectedClass() {
         <span>${item.primaryStats.map(statLabel).join(" / ")}</span>
       </article>
     `)
-    .join("") + `
+    .join("");
+  $("[data-class-builds]").innerHTML = `
       <section class="class-build-panel">
         <div class="section-title">
           <h4>${selected.zhName} BD 入口</h4>
@@ -1403,6 +1514,7 @@ function renderSelectedClass() {
         </div>
         ${renderGuideMiniLinks(communityGuides, "该职业还没有同赛季或跨赛季社区 BD，后续导入后会显示在这里。")}
       </section>
+      ${renderClassBuildMatrix(selected, archetypes, classGuides)}
     `;
 }
 
@@ -1850,6 +1962,15 @@ function bindInteractions() {
     state.sim.buildIndex = 0;
     renderSimulator();
     renderForecast();
+    renderSelectedClass();
+  });
+  $("[data-class-season]").addEventListener("change", (event) => {
+    state.sim.seasonId = event.target.value;
+    state.sim.buildIndex = 0;
+    syncBuildFilterControls();
+    renderSimulator();
+    renderForecast();
+    renderSelectedClass();
   });
   $("[data-sim-class]").addEventListener("change", (event) => {
     state.sim.classId = event.target.value;

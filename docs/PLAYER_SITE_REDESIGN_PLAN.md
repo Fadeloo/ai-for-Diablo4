@@ -285,7 +285,9 @@ BD 卡片字段：
 - 开荒强势技能。
 - 掉落决策：拿到哪些暗金/威能后切换流派。
 - 赛季阶段：1-50、50-70、T1-T4、终局。
-- 该职业所有社区来源 BD。
+- 赛季切换：同一职业能在 S14、S15、S16 三季之间查看不同 BD 矩阵。
+- 完整流派矩阵：每个流派按日常、速刷、冲层三种用途分列，展示成型难度、阶段、150 层参考、来源状态和核心装备/威能。
+- 该职业所有社区来源 BD，并能直接进入 `#bd/<guideId>` 详情页。
 - 缺口：该职业尚未导入的主流流派。
 
 ### 5.6 150 层参考
@@ -352,7 +354,7 @@ public/
 | `VariantPanel` | 替换与变体 | variants | 变体列表 |
 | `EquipmentBrowser` | 装备搜索筛选 | equipment/filterState | 装备列表 |
 | `EquipmentDetailPanel` | 装备详情 | item/relatedGuides | 明细 |
-| `ClassGuidePage` | 职业开荒 | class/plans/guides | 职业页 |
+| `ClassGuidePage` | 职业开荒、赛季切换、完整流派矩阵 | class/plans/archetypes/guides | 职业页 |
 | `ForecastTable` | 150 层矩阵 | simulations | 排名表 |
 | `DamageWorkbench` | 伤害计算 | form/damage model | 拆分结果 |
 

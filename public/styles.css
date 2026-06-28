@@ -2233,6 +2233,32 @@ h4 {
   padding: 24px;
 }
 
+.class-season-control {
+  max-width: 280px;
+}
+
+.class-season-control label {
+  display: grid;
+  gap: 6px;
+}
+
+.class-season-control span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.class-season-control select {
+  appearance: none;
+  background: linear-gradient(180deg, rgba(242, 232, 216, 0.98), rgba(214, 198, 170, 0.96));
+  border: 1px solid rgba(214, 173, 99, 0.24);
+  border-radius: var(--radius);
+  color: var(--ink);
+  min-height: 42px;
+  padding: 9px 11px;
+  width: 100%;
+}
+
 .plan-list {
   color: rgba(242, 240, 234, 0.8);
   font-size: 14px;
@@ -2305,6 +2331,125 @@ h4 {
 .class-build-chip strong {
   color: var(--gold-bright);
   font-size: 15px;
+}
+
+.class-season-summary {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.class-season-summary article {
+  background: rgba(8, 4, 3, 0.5);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  gap: 4px;
+  min-height: 70px;
+  padding: 11px;
+}
+
+.class-season-summary strong {
+  color: #fff7df;
+  font-size: 16px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.class-season-summary span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.class-build-family-list {
+  display: grid;
+  gap: 12px;
+}
+
+.class-build-family {
+  background: rgba(8, 4, 3, 0.42);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  gap: 12px;
+  padding: 13px;
+}
+
+.class-build-family header {
+  align-items: start;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.class-build-family header strong {
+  color: var(--gold-bright);
+  font-size: 16px;
+}
+
+.class-build-family header span,
+.class-build-family header em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
+}
+
+.class-build-family header em {
+  background: rgba(214, 173, 99, 0.1);
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  color: var(--gold);
+  padding: 6px 8px;
+  white-space: nowrap;
+}
+
+.class-build-mode-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.class-mode-card {
+  background: linear-gradient(180deg, rgba(214, 173, 99, 0.1), rgba(10, 6, 4, 0.66));
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  display: grid;
+  gap: 6px;
+  min-height: 138px;
+  padding: 12px;
+}
+
+.class-mode-card:hover {
+  border-color: rgba(240, 207, 143, 0.5);
+}
+
+.class-mode-card.is-empty {
+  opacity: 0.62;
+}
+
+.class-mode-card span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.class-mode-card strong {
+  color: var(--bone);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.class-mode-card em,
+.class-mode-card p,
+.class-mode-card small {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.class-mode-card p {
+  color: var(--gold);
+  font-weight: 750;
 }
 
 .damage-workbench {
@@ -2607,6 +2752,8 @@ h4 {
   .sim-items,
   .archetype-grid,
   .class-build-actions,
+  .class-season-summary,
+  .class-build-mode-grid,
   .build-atlas-grid,
   .coverage-grid,
   .storage-layer-grid,
@@ -2692,6 +2839,8 @@ h4 {
   .storage-layer-grid,
   .guide-card-grid,
   .class-build-actions,
+  .class-season-summary,
+  .class-build-mode-grid,
   .guide-card__metrics,
   .guide-hero__main,
   .guide-kpi-grid,
@@ -2744,12 +2893,17 @@ h4 {
   }
 
   .atlas-class-card header,
-  .atlas-mode-list a {
+  .atlas-mode-list a,
+  .class-build-family header {
     grid-template-columns: 1fr;
   }
 
   .atlas-mode-list a > em {
     text-align: left;
+  }
+
+  .class-build-family header em {
+    justify-self: start;
   }
 
   .loadout-slot {

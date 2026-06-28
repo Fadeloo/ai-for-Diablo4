@@ -19,7 +19,7 @@
   └─ 来源与边界：官方、社区、图标、开源资料的可信度说明
 ```
 
-路由使用 hash 模式，当前页面包括 `#home`、`#builds`、`#bd/<guideId>`、`#equipment`、`#classes`、`#damage`、`#forecast` 和 `#sources`。后续如果接入后端，可以保持同样的 view model 字段，把静态 JSON 替换为 API。
+路由使用 hash 模式，当前页面包括 `#home`、`#builds`、`#bd/<guideId>`、`#equipment`、`#item/<itemId>`、`#aspects`、`#aspect/<aspectId>`、`#classes`、`#damage`、`#forecast` 和 `#sources`。后续如果接入后端，可以保持同样的 view model 字段，把静态 JSON 替换为 API。
 
 ## 视觉和组件方向
 
@@ -37,6 +37,8 @@
 - `SkillRoutePanel`：技能栏、技能加点顺序、被动优先级。
 - `ParagonRoutePanel`：巅峰盘顺序、雕文、点击顺序和阶段说明。
 - `EquipmentBrowser`：装备库筛选、装备卡片和展开详情。
+- `AspectBrowser`：从 BD 槽位汇总威能，检索核心度、常见部位和关联 BD。
+- `ClassBuildMatrix`：职业页按赛季、流派和日常/速刷/冲层用途展示可进入详情的 BD 矩阵。
 - `SourceBadge`：官方、社区参考、结构化模板、待回填等状态标记。
 - `DamageWorkbench`：伤害输入、结果拆分和计算边界。
 
