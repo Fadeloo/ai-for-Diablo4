@@ -7,12 +7,13 @@ const paths = {
   equipment: "./data/equipment/equipment-library.json",
   simulations: "./data/generated/build-simulations.json",
   buildGuides: "./data/generated/build-guides.json",
+  aspectIndex: "./data/generated/aspect-index.json",
   coverage: "./data/generated/site-coverage.json",
   categories: "./data/equipment/stat-categories.json",
   sources: "./data/sources/source-registry.json"
 };
 
-const viewIds = ["home", "builds", "bd", "equipment", "classes", "damage", "forecast", "sources"];
+const viewIds = ["home", "builds", "bd", "equipment", "aspects", "classes", "damage", "forecast", "sources"];
 const routeAliases = {
   simulator: "builds"
 };
@@ -22,6 +23,7 @@ const state = {
   plans: [],
   archetypes: [],
   equipment: [],
+  aspects: [],
   simulations: null,
   buildGuides: null,
   coverage: null,
@@ -29,6 +31,7 @@ const state = {
   selectedGuideId: null,
   selectedClassId: "barbarian",
   selectedEquipmentId: null,
+  selectedAspectId: null,
   sim: {
     seasonId: "s14",
     classId: "all",
@@ -46,6 +49,14 @@ const state = {
     related: "all",
     query: "",
     visible: 48
+  },
+  aspectFilters: {
+    classId: "all",
+    mode: "all",
+    slot: "all",
+    source: "all",
+    query: "",
+    visible: 60
   }
 };
 
@@ -169,14 +180,24 @@ function parseRoute(route) {
     return {
       view: "equipment",
       guideId: null,
-      itemId: decodeURIComponent(clean.slice(5))
+      itemId: decodeURIComponent(clean.slice(5)),
+      aspectId: null
+    };
+  }
+  if (clean.startsWith("aspect/")) {
+    return {
+      view: "aspects",
+      guideId: null,
+      itemId: null,
+      aspectId: decodeURIComponent(clean.slice(7))
     };
   }
   const normalized = routeAliases[clean] || clean;
   return {
     view: viewIds.includes(normalized) ? normalized : "home",
     guideId: null,
-    itemId: null
+    itemId: null,
+    aspectId: null
   };
 }
 
@@ -206,6 +227,18 @@ function setView(route, options = {}) {
       visible: Math.max(state.equipmentFilters.visible, 48)
     };
   }
+  if (parsed.aspectId) {
+    state.selectedAspectId = parsed.aspectId;
+    state.aspectFilters = {
+      ...state.aspectFilters,
+      classId: "all",
+      mode: "all",
+      slot: "all",
+      source: "all",
+      query: "",
+      visible: Math.max(state.aspectFilters.visible, 60)
+    };
+  }
   document.body.dataset.view = normalized;
 
   document.querySelectorAll(".view[data-view]").forEach((view) => {
@@ -225,9 +258,15 @@ function setView(route, options = {}) {
     syncEquipmentFilterControls();
     renderEquipment();
   }
+  if (normalized === "aspects") {
+    syncAspectFilterControls();
+    renderAspects();
+  }
 
   const desiredHash = parsed.itemId
     ? `#item/${encodeURIComponent(parsed.itemId)}`
+    : parsed.aspectId
+    ? `#aspect/${encodeURIComponent(parsed.aspectId)}`
     : normalized === "bd" && state.selectedGuideId
     ? `#bd/${encodeURIComponent(state.selectedGuideId)}`
     : `#${normalized}`;
@@ -412,6 +451,11 @@ function renderSelects() {
   $("[data-sim-class]").innerHTML = `<option value="all">全部职业</option>${classOptions}`;
   $("[data-sim-class]").value = state.sim.classId;
   $("[data-equipment-class]").innerHTML = `<option value="all">全部职业</option><option value="All Classes">全职业</option>${classOptions}`;
+  const aspectClass = $("[data-aspect-class]");
+  if (aspectClass) {
+    aspectClass.innerHTML = `<option value="all">全部职业</option>${classOptions}`;
+    aspectClass.value = state.aspectFilters.classId;
+  }
 
   $("[data-sim-season]").innerHTML = state.simulations.seasons
     .map((season) => `<option value="${season.id}">${season.zhLabel || season.label}</option>`)
@@ -448,6 +492,13 @@ function renderSelects() {
       <option value="unused">暂无 BD 使用</option>
     `;
   }
+  const aspectSlot = $("[data-aspect-slot]");
+  if (aspectSlot) {
+    const slotOptions = (state.buildGuides?.slotOrder || [])
+      .map((slot) => `<option value="${slot.id}">${slot.zhName}</option>`)
+      .join("");
+    aspectSlot.innerHTML = `<option value="all">全部部位</option>${slotOptions}`;
+  }
 }
 
 function allBuildGuides() {
@@ -463,6 +514,11 @@ function itemUrl(itemOrId) {
   return id ? `#item/${encodeURIComponent(id)}` : "#equipment";
 }
 
+function aspectUrl(aspectOrId) {
+  const id = typeof aspectOrId === "string" ? aspectOrId : aspectOrId?.id;
+  return id ? `#aspect/${encodeURIComponent(id)}` : "#aspects";
+}
+
 function syncEquipmentFilterControls() {
   const search = $("[data-equipment-search]");
   const classSelect = $("[data-equipment-class]");
@@ -476,6 +532,19 @@ function syncEquipmentFilterControls() {
   if (slot) slot.value = state.equipmentFilters.slot;
   if (status) status.value = state.equipmentFilters.status;
   if (related) related.value = state.equipmentFilters.related;
+}
+
+function syncAspectFilterControls() {
+  const search = $("[data-aspect-search]");
+  const classSelect = $("[data-aspect-class]");
+  const mode = $("[data-aspect-mode]");
+  const slot = $("[data-aspect-slot]");
+  const source = $("[data-aspect-source]");
+  if (search) search.value = state.aspectFilters.query;
+  if (classSelect) classSelect.value = state.aspectFilters.classId;
+  if (mode) mode.value = state.aspectFilters.mode;
+  if (slot) slot.value = state.aspectFilters.slot;
+  if (source) source.value = state.aspectFilters.source;
 }
 
 function filteredGuides() {
@@ -1506,6 +1575,166 @@ function renderEquipmentDetail(item) {
   bindImageFallbacks(panel);
 }
 
+function sourceLevelText(level) {
+  return verificationLevelLabels[level] || level;
+}
+
+function aspectSourceLabel(aspect) {
+  const levels = aspect.sourceLevels || {};
+  if (levels.community_reference) return "同赛季社区参考";
+  if (levels.cross_season_reference) return "跨赛季社区参考";
+  if (levels.official_seed_template) return "官方词缀模板";
+  return "推演模板";
+}
+
+function aspectSearchText(aspect) {
+  return [
+    aspect.name,
+    ...(aspect.zhClasses || []),
+    ...(aspect.zhModes || []),
+    ...(aspect.zhSeasons || []),
+    ...(aspect.slotUsage || []).map((slot) => slot.zhSlotName).join(" "),
+    ...(aspect.sourceStatusSamples || []),
+    ...(aspect.buildUses || []).map((use) => `${use.guideTitle} ${use.className} ${use.archetypeName} ${use.modeName} ${use.zhSlotName} ${use.role}`).join(" ")
+  ].join(" ").toLowerCase();
+}
+
+function aspectMatchesSource(aspect, source) {
+  if (source === "all") return true;
+  const levels = aspect.sourceLevels || {};
+  if (source === "community") return Boolean(levels.community_reference || levels.cross_season_reference);
+  if (source === "template") return Boolean(levels.official_seed_template || levels.projection_template);
+  return Boolean(levels[source]);
+}
+
+function filteredAspectRows() {
+  const { classId, mode, slot, source, query } = state.aspectFilters;
+  const normalizedQuery = query.trim().toLowerCase();
+  return state.aspects
+    .filter((aspect) => classId === "all" || aspect.classIds?.includes(classId))
+    .filter((aspect) => mode === "all" || aspect.modes?.includes(mode))
+    .filter((aspect) => slot === "all" || aspect.slotUsage?.some((item) => item.slotId === slot))
+    .filter((aspect) => aspectMatchesSource(aspect, source))
+    .filter((aspect) => !normalizedQuery || aspectSearchText(aspect).includes(normalizedQuery))
+    .sort((a, b) => {
+      const sourceRank = (aspect) => aspect.sourceLevels?.community_reference ? 0 : aspect.sourceLevels?.cross_season_reference ? 1 : 2;
+      return sourceRank(a) - sourceRank(b)
+        || b.guideCount - a.guideCount
+        || b.usageCount - a.usageCount
+        || a.name.localeCompare(b.name, "zh-CN");
+    });
+}
+
+function renderAspects() {
+  const filtered = filteredAspectRows();
+  const rows = filtered.slice(0, state.aspectFilters.visible);
+  if (!filtered.some((aspect) => aspect.id === state.selectedAspectId)) {
+    state.selectedAspectId = rows[0]?.id || null;
+  }
+  const selected = state.aspects.find((aspect) => aspect.id === state.selectedAspectId) ?? rows[0];
+
+  $("[data-aspect-meta]").textContent =
+    `显示 ${rows.length} / ${filtered.length} 条，索引总计 ${state.aspects.length} 条。该索引从 BD 装备槽位汇总，帮助查核心威能、使用部位、可替换状态和相关 BD。`;
+  $("[data-aspect-results]").innerHTML = rows
+    .map((aspect) => {
+      const topSlots = (aspect.slotUsage || []).slice(0, 3).map((slot) => `${slot.zhSlotName} ${slot.count}`).join(" / ");
+      return `
+        <button class="aspect-row" type="button" data-aspect-id="${aspect.id}" aria-selected="${aspect.id === selected?.id}">
+          <span>
+            <small>${aspectSourceLabel(aspect)} · ${topSlots || "部位待回填"}</small>
+            <strong>${aspect.name}</strong>
+            <em>${aspect.guideCount} 套 BD · ${aspect.usageCount} 次使用 · ${(aspect.zhClasses || []).slice(0, 4).join(" / ")}</em>
+          </span>
+          <b>${aspect.guideCount}</b>
+        </button>
+      `;
+    })
+    .join("");
+  const moreButton = $("[data-aspect-more]");
+  moreButton.hidden = rows.length >= filtered.length;
+  renderAspectDetail(selected);
+}
+
+function renderAspectDetail(aspect) {
+  const panel = $("[data-aspect-detail]");
+  if (!aspect) {
+    panel.innerHTML = `
+      <div class="empty-panel">
+        <p class="panel-kicker">没有匹配威能</p>
+        <h3>调整筛选条件</h3>
+        <p>当前职业、用途、部位或关键词没有命中威能。</p>
+      </div>
+    `;
+    return;
+  }
+
+  const levelRows = Object.entries(aspect.sourceLevels || {})
+    .map(([level, count]) => `<span>${sourceLevelText(level)} ${count}</span>`)
+    .join("");
+  const slotRows = (aspect.slotUsage || []).map((slot) => `
+    <article>
+      <strong>${slot.zhSlotName}</strong>
+      <span>${slot.count} 次使用</span>
+      <p>${slot.coreCount} 次核心位，${slot.requiredCount} 次硬需求，${slot.replaceableCount} 次可替换。</p>
+    </article>
+  `).join("");
+  const uses = (aspect.buildUses || []).slice(0, 20).map((use) => `
+    <a class="aspect-use-link" href="${guideUrl({ id: use.guideId })}">
+      <span>${use.seasonName} · ${use.className} · ${use.modeName}</span>
+      <strong>${use.archetypeName}</strong>
+      <em>${use.zhSlotName} · ${use.required ? "硬需求" : use.replaceable ? "可替换" : "核心位"} · ${use.role}</em>
+    </a>
+  `).join("");
+
+  panel.innerHTML = `
+    <div class="aspect-detail-hero">
+      <div>
+        <p class="panel-kicker">${aspectSourceLabel(aspect)} · ${aspect.zhModes.join(" / ")}</p>
+        <h3>${aspect.name}</h3>
+        <p>${aspect.dataStatus?.zhText || "从 BD 装备槽位汇总。"}</p>
+      </div>
+      <div class="aspect-score">
+        <strong>${aspect.guideCount}</strong>
+        <span>关联 BD</span>
+      </div>
+    </div>
+    <div class="tag-row">${levelRows}</div>
+    <section class="detail-section">
+      <div class="section-title">
+        <h4>常见部位</h4>
+        <span>${aspect.usageCount} 次使用</span>
+      </div>
+      <div class="aspect-slot-grid">${slotRows}</div>
+    </section>
+    <section class="detail-section">
+      <div class="section-title">
+        <h4>适用职业与用途</h4>
+        <span>${aspect.zhSeasons.join(" / ")}</span>
+      </div>
+      <div class="equipment-info-grid">
+        <article><strong>职业</strong><span>${aspect.zhClasses.join(" / ")}</span></article>
+        <article><strong>用途</strong><span>${aspect.zhModes.join(" / ")}</span></article>
+        <article><strong>数据范围</strong><span>${aspect.dataStatus?.zhText || "从 BD 汇总"}</span></article>
+        <article><strong>来源样本</strong><span>${(aspect.sourceStatusSamples || []).slice(0, 3).join(" / ") || "待回填"}</span></article>
+      </div>
+    </section>
+    <section class="detail-section">
+      <div class="section-title">
+        <h4>相关 BD</h4>
+        <span>最多显示 20 条</span>
+      </div>
+      <div class="aspect-use-list">${uses}</div>
+    </section>
+    <section class="detail-section">
+      <div class="section-title">
+        <h4>数据边界</h4>
+        <span>不是全量威能库</span>
+      </div>
+      <p>${aspect.dataStatus?.zhText || "该条目由结构化 BD 汇总。"} 后续需要接入官方或可审计的完整传奇威能数据库后，才能展示完整效果、数值范围和掉落位置。</p>
+    </section>
+  `;
+}
+
 function renderForecast() {
   const season = state.simulations.seasons.find((item) => item.id === state.sim.seasonId) ?? state.simulations.seasons[0];
   const rows = state.simulations.rows
@@ -1559,6 +1788,7 @@ function renderCoverage() {
   if (!panel || !coverage) return;
   const buildCoverage = coverage.buildCoverage;
   const equipmentCoverage = coverage.equipmentCoverage;
+  const aspectCoverage = coverage.aspectCoverage;
   const sourceCoverage = coverage.sourceCoverage;
   const sourceLevels = buildCoverage.byVerificationLevel || {};
   panel.innerHTML = `
@@ -1577,6 +1807,11 @@ function renderCoverage() {
           <strong>${equipmentCoverage.total}</strong>
           <span>装备种子</span>
           <p>固定词缀已接入；暗金特效、完整范围、掉落来源和官方槽位仍待回填。</p>
+        </article>
+        <article>
+          <strong>${aspectCoverage.total}</strong>
+          <span>威能索引</span>
+          <p>${aspectCoverage.usageCount} 次 BD 槽位使用记录；该索引不是官方全量威能库。</p>
         </article>
         <article>
           <strong>${sourceCoverage.total}</strong>
@@ -1712,6 +1947,52 @@ function bindInteractions() {
     state.equipmentFilters.visible += 48;
     renderEquipment();
   });
+  $("[data-aspect-search]").addEventListener("input", (event) => {
+    state.aspectFilters.query = event.target.value;
+    state.aspectFilters.visible = 60;
+    state.selectedAspectId = null;
+    renderAspects();
+  });
+  $("[data-aspect-class]").addEventListener("change", (event) => {
+    state.aspectFilters.classId = event.target.value;
+    state.aspectFilters.visible = 60;
+    state.selectedAspectId = null;
+    renderAspects();
+  });
+  $("[data-aspect-mode]").addEventListener("change", (event) => {
+    state.aspectFilters.mode = event.target.value;
+    state.aspectFilters.visible = 60;
+    state.selectedAspectId = null;
+    renderAspects();
+  });
+  $("[data-aspect-slot]").addEventListener("change", (event) => {
+    state.aspectFilters.slot = event.target.value;
+    state.aspectFilters.visible = 60;
+    state.selectedAspectId = null;
+    renderAspects();
+  });
+  $("[data-aspect-source]").addEventListener("change", (event) => {
+    state.aspectFilters.source = event.target.value;
+    state.aspectFilters.visible = 60;
+    state.selectedAspectId = null;
+    renderAspects();
+  });
+  $("[data-aspect-results]").addEventListener("click", (event) => {
+    const button = event.target.closest("[data-aspect-id]");
+    if (!button) return;
+    state.selectedAspectId = button.dataset.aspectId;
+    const hash = aspectUrl(state.selectedAspectId);
+    if (window.location.hash === hash) {
+      renderAspects();
+    } else {
+      window.location.hash = hash;
+    }
+    $("[data-aspect-detail]")?.scrollTo(0, 0);
+  });
+  $("[data-aspect-more]").addEventListener("click", () => {
+    state.aspectFilters.visible += 60;
+    renderAspects();
+  });
 
   document.addEventListener("click", (event) => {
     const filterLink = event.target.closest("[data-build-filter-class]");
@@ -1733,7 +2014,7 @@ function bindInteractions() {
 }
 
 async function init() {
-  const [version, classes, plans, archetypes, uniques, equipment, simulations, buildGuides, coverage, sources] = await Promise.all([
+  const [version, classes, plans, archetypes, uniques, equipment, simulations, buildGuides, aspectIndex, coverage, sources] = await Promise.all([
     loadJson(paths.version),
     loadJson(paths.classes),
     loadJson(paths.plans),
@@ -1742,6 +2023,7 @@ async function init() {
     loadJson(paths.equipment),
     loadJson(paths.simulations),
     loadJson(paths.buildGuides),
+    loadJson(paths.aspectIndex),
     loadJson(paths.coverage),
     loadJson(paths.sources)
   ]);
@@ -1750,6 +2032,7 @@ async function init() {
   state.plans = plans;
   state.archetypes = archetypes;
   state.equipment = equipment.items;
+  state.aspects = aspectIndex.aspects;
   state.simulations = simulations;
   state.buildGuides = buildGuides;
   state.coverage = coverage;
@@ -1765,6 +2048,7 @@ async function init() {
   renderClasses();
   renderDamage();
   renderEquipment();
+  renderAspects();
   renderForecast();
   renderSources(sources);
   bindInteractions();

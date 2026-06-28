@@ -15,6 +15,7 @@
         <a href="#home" data-view-link>首页</a>
         <a href="#builds" data-view-link>BD</a>
         <a href="#equipment" data-view-link>装备</a>
+        <a href="#aspects" data-view-link>威能</a>
         <a href="#classes" data-view-link>职业</a>
         <a href="#damage" data-view-link>伤害</a>
         <a href="#forecast" data-view-link>150层</a>
@@ -159,6 +160,40 @@
             <button class="button button-secondary equipment-more" type="button" data-equipment-more>显示更多装备</button>
           </section>
           <aside class="equipment-detail-panel" data-equipment-detail aria-live="polite"></aside>
+        </div>
+      </section>
+
+      <section class="view tool-view aspects-view" id="aspects" data-view="aspects" aria-labelledby="aspects-title">
+        <header class="page-head">
+          <div>
+            <p class="eyebrow">威能索引</p>
+            <h2 id="aspects-title">查核心威能在哪些 BD 和部位使用。</h2>
+            <p>从结构化 BD 的装备槽位汇总威能名称、常见部位、核心度、替换状态和相关 BD。它不是官方全量威能库，完整效果和数值范围仍待接入可审计数据源。</p>
+          </div>
+        </header>
+        <div class="aspect-layout">
+          <section class="aspect-board" aria-label="威能筛选和列表">
+            <div class="aspect-controls">
+              <input data-aspect-search type="search" placeholder="搜索威能、职业、部位或流派">
+              <select data-aspect-class></select>
+              <select data-aspect-mode>
+                <option value="all">全部用途</option>
+                <option value="pit_push">冲层</option>
+                <option value="speed_farm">速刷</option>
+                <option value="daily">日常</option>
+              </select>
+              <select data-aspect-slot aria-label="按部位筛选"></select>
+              <select data-aspect-source aria-label="按来源状态筛选">
+                <option value="all">全部来源</option>
+                <option value="community">社区参考</option>
+                <option value="template">模板/推演</option>
+              </select>
+            </div>
+            <div class="aspect-meta" data-aspect-meta></div>
+            <div class="aspect-results" data-aspect-results></div>
+            <button class="button button-secondary aspect-more" type="button" data-aspect-more>显示更多威能</button>
+          </section>
+          <aside class="aspect-detail-panel" data-aspect-detail aria-live="polite"></aside>
         </div>
       </section>
 

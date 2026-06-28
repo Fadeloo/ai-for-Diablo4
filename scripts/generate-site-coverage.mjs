@@ -16,10 +16,11 @@ function countBy(items, getKey) {
   }, {});
 }
 
-const [classes, equipment, buildGuides, sources] = await Promise.all([
+const [classes, equipment, buildGuides, aspectIndex, sources] = await Promise.all([
   readJson("data/classes/classes.json"),
   readJson("data/equipment/equipment-library.json"),
   readJson("data/generated/build-guides.json"),
+  readJson("data/generated/aspect-index.json"),
   readJson("data/sources/source-registry.json")
 ]);
 
@@ -77,6 +78,12 @@ const payload = {
       frontendUse: "BD 大厅、BD 详情、职业入口和装备相关 BD。"
     },
     {
+      id: "aspect_index",
+      zhName: "威能索引层",
+      files: ["data/generated/aspect-index.json"],
+      frontendUse: "威能索引页展示威能槽位、核心度和相关 BD。"
+    },
+    {
       id: "forecast_matrix",
       zhName: "预测矩阵层",
       files: ["data/generated/build-simulations.json"],
@@ -98,6 +105,18 @@ const payload = {
     coverage: equipment.coverage,
     statusCounts: equipmentStatusCounts,
     limitations: equipment.limitations
+  },
+  aspectCoverage: {
+    total: aspectIndex.aspects.length,
+    usageCount: aspectIndex.usageCount,
+    scope: aspectIndex.scope,
+    limitations: aspectIndex.zhLimitations || aspectIndex.limitations,
+    sourceLevels: countBy(aspectIndex.aspects, (aspect) => {
+      if (aspect.sourceLevels.community_reference) return "community_reference";
+      if (aspect.sourceLevels.cross_season_reference) return "cross_season_reference";
+      if (aspect.sourceLevels.official_seed_template) return "official_seed_template";
+      return "projection_template";
+    })
   },
   sourceCoverage: {
     total: sources.length,

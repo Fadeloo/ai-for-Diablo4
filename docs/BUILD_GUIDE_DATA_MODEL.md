@@ -20,6 +20,12 @@ scripts/generate-build-guides.mjs
 data/generated/build-guides.json
         |
         v
+scripts/generate-aspect-index.mjs
+        |
+        v
+data/generated/aspect-index.json
+        |
+        v
 scripts/generate-site-coverage.mjs
         |
         v
@@ -31,6 +37,8 @@ data/generated/site-coverage.json
 `data/builds/community-build-overrides.json` 用来把可追溯社区 BD 覆盖到生成档案上。覆盖字段可以替换装备槽位、核心威能、技能加点、巅峰点击顺序、打法、来源引用和数据质量状态。没有覆盖的 BD 继续使用本站结构化模板。
 
 `data/generated/site-coverage.json` 从生成后的 BD、装备库和来源登记表汇总玩家可见的覆盖状态。来源页读取它展示 BD 数、社区参考数、模板数、装备字段缺口和存储层用途；`npm run verify` 会校验这些统计和真实数据一致。
+
+`data/generated/aspect-index.json` 从 `build-guides.json` 的 `gearSlots[].aspect` 汇总威能索引，排除 `暗金特效位` 和 `空槽说明` 这类占位名。它记录威能常见部位、核心/硬需求/可替换次数、关联 BD 和来源状态，供 `#aspects` 页面检索。它不是官方全量传奇威能库，不能用来声明完整效果或数值范围。
 
 社区覆盖支持 `extends`：冲层版可以作为基础，速刷和日常版只覆盖变化的槽位、摘要和打法，生成脚本会合并出完整 11 个装备位。这样同一套真实 BD 的多用途变体可以共享来源和主体结构，同时避免复制粘贴导致槽位遗漏。
 

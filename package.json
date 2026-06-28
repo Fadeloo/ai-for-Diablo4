@@ -6,7 +6,7 @@
   "description": "暗黑4攻略数据、构筑规划和伤害计算核心。",
   "scripts": {
     "build:assets": "node scripts/create-hero-asset.mjs && node scripts/create-item-icons.mjs",
-    "build:data": "node scripts/build-equipment-library.mjs && node scripts/generate-build-simulations.mjs && node scripts/generate-build-guides.mjs && node scripts/generate-site-coverage.mjs",
+    "build:data": "node scripts/build-equipment-library.mjs && node scripts/generate-build-simulations.mjs && node scripts/generate-build-guides.mjs && node scripts/generate-aspect-index.mjs && node scripts/generate-site-coverage.mjs",
     "dev": "node scripts/serve.mjs",
     "preflight": "node scripts/preflight.mjs",
     "fetch:patch": "node scripts/fetch-official-patch.mjs",

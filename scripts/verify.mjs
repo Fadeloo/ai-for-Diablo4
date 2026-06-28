@@ -46,6 +46,7 @@ const features = await readJson("data/features/feature-map.json");
 const equipmentLibrary = await readJson("data/equipment/equipment-library.json");
 const simulations = await readJson("data/generated/build-simulations.json");
 const buildGuides = await readJson("data/generated/build-guides.json");
+const aspectIndex = await readJson("data/generated/aspect-index.json");
 const siteCoverage = await readJson("data/generated/site-coverage.json");
 const iconIndex = await readJson("data/generated/d4builds-icon-index.json");
 
@@ -144,11 +145,20 @@ assert(buildGuides.builds.length === expectedBuildGuideCount, `Expected ${expect
 assert(buildGuides.slotOrder.length >= 11, "Build guides need full gear slot order");
 assert(communityOverrides.length >= 1, "Need at least one community build override");
 
+assert(aspectIndex.scope === "aspect_index_derived_from_structured_build_guides", "Aspect index scope mismatch");
+assert(aspectIndex.aspectCount === aspectIndex.aspects.length, "Aspect index count mismatch");
+assert(aspectIndex.aspectCount > 20, "Aspect index should contain structured aspect references");
+assert(aspectIndex.aspects.every((aspect) => aspect.id && aspect.name && aspect.guideCount > 0 && aspect.usageCount > 0), "Each aspect needs id, name and usage counts");
+assert(aspectIndex.aspects.every((aspect) => aspect.dataStatus?.scope === "derived_from_build_gear_slots"), "Each aspect must disclose derived scope");
+assert(aspectIndex.aspects.every((aspect) => !(aspectIndex.ignoredNames || []).includes(aspect.name)), "Aspect index must not include placeholder aspect names");
+assert(aspectIndex.aspects.every((aspect) => aspect.slotUsage?.length >= 1 && aspect.buildUses?.length >= aspect.guideCount), "Each aspect needs slot usage and related builds");
+
 assert(siteCoverage.scope === "player_site_data_coverage_and_storage_usage", "Site coverage scope mismatch");
 assert(siteCoverage.buildCoverage?.total === buildGuides.builds.length, "Site coverage build count mismatch");
 assert(siteCoverage.buildCoverage?.classes === classes.length, "Site coverage class count mismatch");
 assert(siteCoverage.buildCoverage?.seasons === simulations.seasons.length, "Site coverage season count mismatch");
 assert(siteCoverage.equipmentCoverage?.total === equipmentLibrary.items.length, "Site coverage equipment count mismatch");
+assert(siteCoverage.aspectCoverage?.total === aspectIndex.aspects.length, "Site coverage aspect count mismatch");
 assert(siteCoverage.sourceCoverage?.total === sources.length, "Site coverage source count mismatch");
 assert(siteCoverage.storageLayers?.length >= 4, "Site coverage must describe storage layers");
 assert(siteCoverage.buildCoverage.classMatrix?.length === simulations.seasons.length, "Site coverage needs per-season class matrix");

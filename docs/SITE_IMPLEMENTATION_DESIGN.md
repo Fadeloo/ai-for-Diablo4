@@ -84,6 +84,12 @@ BD 详情 #bd/<guideId>
   ├─ 装备详情：完整字段、来源、相关 BD
   └─ #item/<itemId> 独立装备页
 
+威能索引 #aspects
+  ├─ 筛选：职业、用途、部位、来源状态、关键词
+  ├─ 威能列表：名称、常见部位、使用次数、关联 BD
+  ├─ 威能详情：部位分布、核心/硬需求/可替换统计、相关 BD
+  └─ #aspect/<aspectId> 独立威能页
+
 职业开荒 #classes
   ├─ 职业定位
   ├─ 开荒阶段
@@ -132,6 +138,8 @@ BD 详情 #bd/<guideId>
 | `VariantPanel` | 替换方案 | `guide.variants` | 缺件与速刷方案 |
 | `EquipmentBrowser` | 装备检索 | `equipment.items`、filters | 列表和分页 |
 | `EquipmentDetailPanel` | 装备详情 | `item`、`relatedGuides` | 固定词缀、来源、相关 BD |
+| `AspectBrowser` | 威能检索 | `aspect-index.aspects`、filters | 列表、详情和相关 BD |
+| `AspectDetailPanel` | 威能详情 | `aspect` | 常见部位、核心度、替换状态、关联 BD |
 | `ClassStartPlan` | 职业开荒 | `classes`、`season-start-plans` | 阶段路线和 BD 入口 |
 | `DamageWorkbench` | 伤害计算 | 表单、`src/damage` | 期望伤害拆分 |
 | `ForecastTable` | 预测矩阵 | `build-simulations` | 三赛季速度和风险 |
@@ -169,6 +177,7 @@ data/
     d4builds-icon-index.json
     build-simulations.json
     build-guides.json
+    aspect-index.json
     site-coverage.json
 ```
 
@@ -179,6 +188,7 @@ data/
 - 装备记录必须带结构化 `gameVersion`，以及 `uniquePower`、`fullAffixRanges`、`dropSource`、`verifiedSlot` 的字段级状态。缺失字段显示为待来源回填，不能让玩家误以为页面漏渲染。
 - `community-build-overrides.json` 是真实社区 BD 的人工结构化入口，支持 `extends` 复用冲层、速刷、日常变体。
 - `build-guides.json` 是前端 BD 主数据，只由脚本生成。
+- `aspect-index.json` 从 `build-guides.json` 的装备槽位汇总威能名称、部位、核心度、替换状态和相关 BD。它不是官方全量传奇威能库。
 - `build-simulations.json` 是三赛季预测矩阵，只作为参考，不作为事实榜单。
 - `site-coverage.json` 是玩家页覆盖摘要，记录 BD、装备、来源、存储层和字段缺口。来源页直接读取它展示当前资料边界。
 

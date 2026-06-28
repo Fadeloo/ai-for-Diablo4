@@ -449,6 +449,7 @@ h4 {
 
 .build-library-shell,
 .equipment-layout,
+.aspect-layout,
 .class-workbench,
 .damage-workbench,
 .forecast-board,
@@ -462,6 +463,7 @@ h4 {
 
 .build-library-shell::before,
 .equipment-layout::before,
+.aspect-layout::before,
 .class-workbench::before,
 .damage-workbench::before,
 .forecast-board::before,
@@ -523,7 +525,8 @@ h4 {
 }
 
 .build-filters,
-.equipment-controls {
+.equipment-controls,
+.aspect-controls {
   background: rgba(10, 6, 4, 0.52);
   border-bottom: 1px solid rgba(214, 173, 99, 0.22);
   display: grid;
@@ -537,13 +540,15 @@ h4 {
 }
 
 .build-filters label,
-.equipment-controls label {
+.equipment-controls label,
+.aspect-controls label {
   display: grid;
   gap: 6px;
 }
 
 .build-filters span,
 .equipment-controls span,
+.aspect-controls span,
 .damage-lab span {
   color: var(--muted);
   font-size: 12px;
@@ -554,6 +559,8 @@ h4 {
 .build-filters input,
 .equipment-controls select,
 .equipment-controls input,
+.aspect-controls select,
+.aspect-controls input,
 .damage-lab input {
   appearance: none;
   background: linear-gradient(180deg, rgba(242, 232, 216, 0.98), rgba(214, 198, 170, 0.96));
@@ -605,7 +612,8 @@ h4 {
 }
 
 .build-list-link,
-.equipment-row {
+.equipment-row,
+.aspect-row {
   background: transparent;
   border: 0;
   border-bottom: 1px solid rgba(214, 173, 99, 0.14);
@@ -631,7 +639,8 @@ h4 {
 }
 
 .build-list-link strong,
-.equipment-row strong {
+.equipment-row strong,
+.aspect-row strong {
   color: var(--bone);
   font-size: 15px;
   font-weight: 750;
@@ -641,6 +650,8 @@ h4 {
 .build-list-link em,
 .equipment-row em,
 .equipment-row small,
+.aspect-row em,
+.aspect-row small,
 .sim-item span,
 .gear-reason-list span,
 .compact-list,
@@ -1824,7 +1835,15 @@ h4 {
   overflow: hidden;
 }
 
-.equipment-board {
+.aspect-layout {
+  display: grid;
+  grid-template-columns: minmax(420px, 0.86fr) minmax(0, 1.14fr);
+  min-height: calc(100svh - 184px);
+  overflow: hidden;
+}
+
+.equipment-board,
+.aspect-board {
   background: transparent;
   border: 0;
   box-shadow: none;
@@ -1837,14 +1856,20 @@ h4 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.equipment-meta {
+.aspect-controls {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.equipment-meta,
+.aspect-meta {
   border-bottom: 1px solid var(--line);
   color: var(--muted);
   font-size: 12px;
   padding: 12px 16px;
 }
 
-.equipment-results {
+.equipment-results,
+.aspect-results {
   display: grid;
   grid-auto-rows: max-content;
   min-height: 0;
@@ -1859,6 +1884,38 @@ h4 {
   grid-template-columns: 58px minmax(0, 1fr) auto;
   min-height: 94px;
   padding: 13px 16px;
+}
+
+.aspect-row {
+  align-items: center;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) 44px;
+  min-height: 90px;
+  padding: 14px 16px;
+}
+
+.aspect-row span {
+  display: grid;
+  gap: 4px;
+}
+
+.aspect-row small {
+  color: var(--gold);
+  font-weight: 750;
+}
+
+.aspect-row b {
+  align-items: center;
+  background: rgba(214, 173, 99, 0.1);
+  border: 1px solid rgba(214, 173, 99, 0.22);
+  color: var(--gold);
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 850;
+  height: 34px;
+  justify-content: center;
+  width: 34px;
 }
 
 .equipment-row span {
@@ -1877,19 +1934,117 @@ h4 {
   font-weight: 700;
 }
 
-.equipment-more {
+.equipment-more,
+.aspect-more {
   border-radius: 0;
   justify-self: stretch;
   margin: 0;
 }
 
-.equipment-detail-panel {
+.equipment-detail-panel,
+.aspect-detail-panel {
   border-left: 1px solid rgba(214, 173, 99, 0.22);
   display: grid;
   gap: 18px;
   max-height: calc(100svh - 184px);
   overflow: auto;
   padding: 24px;
+}
+
+.aspect-detail-hero {
+  align-items: start;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(0, 1fr) 120px;
+}
+
+.aspect-detail-hero h3 {
+  color: #fff7df;
+}
+
+.aspect-detail-hero p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 8px 0 0;
+}
+
+.aspect-score {
+  background: rgba(8, 4, 3, 0.58);
+  border: 1px solid rgba(214, 173, 99, 0.22);
+  display: grid;
+  gap: 4px;
+  min-height: 92px;
+  padding: 14px;
+  text-align: right;
+}
+
+.aspect-score strong {
+  color: #fff7df;
+  font-size: 34px;
+  line-height: 1;
+}
+
+.aspect-score span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.aspect-slot-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.aspect-slot-grid article {
+  background: rgba(8, 4, 3, 0.48);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+}
+
+.aspect-slot-grid strong {
+  color: var(--gold);
+  font-size: 13px;
+}
+
+.aspect-slot-grid span,
+.aspect-slot-grid p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.aspect-use-list {
+  display: grid;
+  gap: 8px;
+}
+
+.aspect-use-link {
+  background: rgba(8, 4, 3, 0.48);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+}
+
+.aspect-use-link:hover {
+  border-color: rgba(240, 207, 143, 0.42);
+}
+
+.aspect-use-link span,
+.aspect-use-link em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
+}
+
+.aspect-use-link strong {
+  color: var(--bone);
+  font-size: 14px;
 }
 
 .equipment-detail-hero {
@@ -2387,6 +2542,7 @@ h4 {
   .build-library-layout,
   .guide-detail-layout,
   .equipment-layout,
+  .aspect-layout,
   .class-workbench,
   .damage-workbench {
     grid-template-columns: 1fr;
@@ -2412,7 +2568,8 @@ h4 {
   }
 
   .build-filters,
-  .equipment-controls {
+  .equipment-controls,
+  .aspect-controls {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
@@ -2431,6 +2588,7 @@ h4 {
   }
 
   .equipment-detail-panel,
+  .aspect-detail-panel,
   .class-panel,
   .damage-output {
     border-left: 0;
@@ -2461,6 +2619,10 @@ h4 {
   .gameplay-grid,
   .variant-grid,
   .source-status-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .aspect-slot-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2520,6 +2682,7 @@ h4 {
   .build-class-rail,
   .build-filters,
   .equipment-controls,
+  .aspect-controls,
   .detail-head,
   .two-column-detail,
   .sim-items,
@@ -2539,6 +2702,8 @@ h4 {
   .gameplay-grid,
   .variant-grid,
   .source-status-grid,
+  .aspect-detail-hero,
+  .aspect-slot-grid,
   .equipment-info-grid,
   .status-grid,
   .damage-lab,
@@ -2563,6 +2728,7 @@ h4 {
   .build-library-layout,
   .guide-detail-layout,
   .equipment-layout,
+  .aspect-layout,
   .class-workbench,
   .damage-workbench {
     min-height: auto;
@@ -2600,6 +2766,7 @@ h4 {
 
   .build-library-content,
   .equipment-detail-panel,
+  .aspect-detail-panel,
   .class-panel,
   .damage-output {
     padding: 18px;
@@ -2680,6 +2847,10 @@ h4 {
 
   .equipment-detail-hero {
     grid-template-columns: 72px minmax(0, 1fr);
+  }
+
+  .aspect-score {
+    text-align: left;
   }
 
   .equipment-detail-hero img {
