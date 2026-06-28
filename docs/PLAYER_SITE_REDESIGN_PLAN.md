@@ -364,6 +364,7 @@ public/
 | `SkillRoutePanel` | 技能栏和加点顺序 | skillTree | 技能路线 |
 | `ParagonRouteMatrix` | 巅峰路线总表 | paragon | 盘顺序、雕文、点数阶段和完整点击主线 |
 | `ParagonRoutePanel` | 巅峰盘和点击步骤 | paragon | 巅峰路线 |
+| `CombatFlowMatrix` | 打法流程总表 | gameplay | 起手、主循环、首领、防御、速刷和常见错误的执行动作 |
 | `GameplayPanel` | 起手、循环、防御、错误 | gameplay | 操作指南 |
 | `VariantPanel` | 替换与变体 | variants | 变体列表 |
 | `EquipmentBrowser` | 装备搜索筛选 | equipment/filterState | 装备列表 |
@@ -381,6 +382,7 @@ public/
 - `BuildVersionSwitcher` 只按 `seasonId + classId + archetypeId` 建组；不同流派只能作为同职业参考，不能伪装成同一 BD 的版本。
 - `GearSummaryMatrix` 是装备分区入口，必须让玩家不展开长卡也能看出每个部位穿什么、是否可替换、核心威能或暗金是什么。
 - `SkillRouteMatrix` 和 `ParagonRouteMatrix` 是技能/巅峰分区入口，必须先展示可执行顺序，再展示说明。
+- `CombatFlowMatrix` 是打法分区入口，必须先按战斗阶段展示动作，再展示细节说明。
 
 ## 7. 视觉系统
 

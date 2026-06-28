@@ -1833,6 +1833,86 @@ function renderParagon(paragon) {
   `;
 }
 
+function combatFlowSections(gameplay) {
+  return [
+    {
+      title: "起手",
+      timing: "进场到第一轮爆发",
+      focus: "先建立核心增伤、资源和安全位置，再进入主循环。",
+      lines: gameplay.opener || []
+    },
+    {
+      title: "主循环",
+      timing: "常规清怪和精英包",
+      focus: "按资源、冷却和核心技能窗口循环，避免空转关键爆发。",
+      lines: gameplay.loop || []
+    },
+    {
+      title: "首领",
+      timing: "单体和高血量目标",
+      focus: "把爆发留给易伤、控制或增伤窗口，失误时先保命。",
+      lines: gameplay.boss || []
+    },
+    {
+      title: "防御",
+      timing: "高压、低血和危险词缀",
+      focus: "防御技能优先覆盖危险窗口，不为多打一轮牺牲生存。",
+      lines: gameplay.defense || []
+    },
+    {
+      title: "速刷",
+      timing: "低层、日常和材料效率",
+      focus: "压缩停顿时间，保持位移、聚怪和主攻技能节奏。",
+      lines: gameplay.speedFarm || []
+    },
+    {
+      title: "常见错误",
+      timing: "最容易掉层或降速的点",
+      focus: "优先避免资源断档、防御真空和错误装备触发顺序。",
+      lines: gameplay.commonMistakes || []
+    }
+  ];
+}
+
+function renderCombatFlowMatrix(gameplay) {
+  const sections = combatFlowSections(gameplay);
+  return `
+    <section class="combat-flow-matrix" aria-label="打法流程总表">
+      <header class="combat-flow-matrix__head">
+        <div>
+          <span>打法流程总表</span>
+          <strong>起手、主循环、首领、防御、速刷和常见错误</strong>
+        </div>
+        <em>先按阶段执行，再看下方详细说明</em>
+      </header>
+      <div class="combat-flow-table">
+        <div class="combat-flow-row combat-flow-row--head" aria-hidden="true">
+          <span>阶段</span>
+          <span>执行动作</span>
+          <span>重点</span>
+        </div>
+        ${sections.map((section) => `
+          <article class="combat-flow-row">
+            <div class="combat-flow-phase">
+              <span>${section.title}</span>
+              <strong>${section.timing}</strong>
+            </div>
+            <ol>
+              ${(section.lines || []).map((line, index) => `
+                <li>
+                  <b>${index + 1}</b>
+                  <p>${displayText(line)}</p>
+                </li>
+              `).join("")}
+            </ol>
+            <p class="combat-flow-focus">${section.focus}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderGameplay(gameplay) {
   const blocks = [
     ["起手", gameplay.opener],
@@ -1843,6 +1923,7 @@ function renderGameplay(gameplay) {
     ["常见错误", gameplay.commonMistakes]
   ];
   return `
+    ${renderCombatFlowMatrix(gameplay)}
     <div class="gameplay-grid">
       ${blocks.map(([title, lines]) => `
         <article>

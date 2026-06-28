@@ -144,6 +144,7 @@ BD 详情 #bd/<guideId>
 | `SkillRoutePanel` | 技能栏和加点 | `guide.skillTree` | 技能顺序和被动优先级 |
 | `ParagonRouteMatrix` | 巅峰路线总表 | `guide.paragon` | 展示盘顺序、雕文、点数阶段和完整点击主线 |
 | `ParagonRoutePanel` | 巅峰路线 | `guide.paragon` | 盘、雕文、点击顺序 |
+| `CombatFlowMatrix` | 打法流程总表 | `guide.gameplay` | 按起手、主循环、首领、防御、速刷和常见错误展示执行动作 |
 | `GameplayPanel` | 实战操作 | `guide.gameplay` | 起手/循环/首领/防御 |
 | `VariantPanel` | 替换方案 | `guide.variants` | 缺件与速刷方案 |
 | `EquipmentBrowser` | 装备检索 | `equipment.items`、filters | 列表和分页 |
@@ -163,6 +164,7 @@ BD 详情 #bd/<guideId>
 - `BuildVersionSwitcher` 只在同一赛季、同一职业、同一流派内切换用途版本；它不能把不同流派混在同一组里。
 - `GearSummaryMatrix` 必须覆盖 11 个装备位，并能跳到对应装备卡或装备详情页。
 - `SkillRouteMatrix` 和 `ParagonRouteMatrix` 必须放在各自分区顶部，先给可抄路线，再给解释卡片。
+- `CombatFlowMatrix` 必须放在打法分区顶部，先给阶段动作，再给分块说明。
 - 装备、技能、巅峰、打法都必须能单独阅读，不嵌套在同一张大卡里。
 - 详情页内所有外链都显示来源站点和日期。
 - 所有长文本都要在移动端换行，不能覆盖相邻装备卡。

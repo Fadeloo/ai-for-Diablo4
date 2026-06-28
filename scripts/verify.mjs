@@ -230,6 +230,8 @@ assert(frontendText.includes("renderParagonRouteMatrix"), "BD paragon section mu
 assert(frontendText.includes("paragon-route-matrix"), "BD paragon section must expose board order, glyphs and click route before long notes");
 assert(frontendText.includes("renderGameplayOverview"), "BD overview must render combat loop overview");
 assert(frontendText.includes("combat-overview__grid"), "BD overview must expose opener, loop, defense and mistakes");
+assert(frontendText.includes("renderCombatFlowMatrix"), "BD gameplay section must render a stage-based combat flow matrix");
+assert(frontendText.includes("combat-flow-matrix"), "BD gameplay section must expose opener, loop, boss, defense, speed and mistakes before long notes");
 
 const generatedText = [
   await readFile(path.join(PROJECT_ROOT, "data/generated/build-simulations.json"), "utf8"),
