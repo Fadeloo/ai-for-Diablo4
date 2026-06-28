@@ -406,8 +406,29 @@ function versionLineLabel(value) {
   return `${patch} 构建 #${build}（全平台）— ${year}-${monthMap[month] ?? month}-${day.padStart(2, "0")}`;
 }
 
+function displayText(value) {
+  return String(value || "")
+    .replace(/\bEnd Game\b/g, "终局")
+    .replace(/\bEndgame\b/g, "终局")
+    .replace(/\bStarter\b/g, "起步")
+    .replace(/\bMythic\b/g, "神话")
+    .replace(/\bPushing\b/g, "冲层")
+    .replace(/\bPush\b/g, "冲层")
+    .replace(/\bSpeed Farm\b/g, "速刷")
+    .replace(/\bSpeedfarm\b/g, "速刷")
+    .replace(/\bHardcore\b/g, "硬核")
+    .replace(/\bBudget\b/g, "低成本")
+    .replace(/\bController\b/g, "手柄")
+    .replace(/\bBossing\b/g, "首领")
+    .replace(/\bLeveling\b/g, "升级")
+    .replace(/\bParagon\b/g, "巅峰")
+    .replace(/\bFAQ\b/g, "常见问题")
+    .replace(/\bSpirit Halls\b/g, "灵魂殿堂")
+    .replace(/作为\s+终局\s+核心/g, "作为终局核心");
+}
+
 function listItems(items) {
-  return (items || []).map((item) => `<li>${item}</li>`).join("");
+  return (items || []).map((item) => `<li>${displayText(item)}</li>`).join("");
 }
 
 function bindImageFallbacks(root) {
@@ -837,11 +858,11 @@ function renderSuitability(guide) {
       ${entries.map(([label, value]) => `
         <article>
           <strong>${label}</strong>
-          <span>${value || "待评估"}</span>
+          <span>${displayText(value || "待评估")}</span>
         </article>
       `).join("")}
     </div>
-    ${guide.suitability?.notes?.length ? `<p class="guide-note">${guide.suitability.notes.join(" ")}</p>` : ""}
+    ${guide.suitability?.notes?.length ? `<p class="guide-note">${displayText(guide.suitability.notes.join(" "))}</p>` : ""}
   `;
 }
 
@@ -1058,37 +1079,49 @@ function renderTargetLink(target) {
   return `<a href="${itemUrl(target.itemId)}">${target.zhName}</a>`;
 }
 
+function gearSlotStatus(slot) {
+  if (slot.required) return "硬需求";
+  if (slot.replaceable) return "可替换";
+  return "核心位";
+}
+
+function gearSlotStateClass(slot) {
+  if (slot.required) return "is-required";
+  if (slot.replaceable) return "is-replaceable";
+  return slot.core ? "is-core" : "is-support";
+}
+
 function renderGearSlot(slot) {
   const upgradePath = slot.upgradePath || [];
   const sourceStatus = slot.aspect?.sourceStatus || slot.dataStatus || "资料状态待回填";
   const alternatives = (slot.alternatives || []).map((alt) => {
     const name = alt.itemId ? `<a href="${itemUrl(alt.itemId)}">${alt.zhName}</a>` : `<b>${alt.zhName}</b>`;
-    return `<li>${name}<span>${alt.reason} ${alt.tradeoff}</span></li>`;
+    return `<li>${name}<span>${displayText(`${alt.reason} ${alt.tradeoff}`)}</span></li>`;
   }).join("");
   return `
     <article class="gear-slot-card ${slot.core ? "is-core" : ""}">
       <div class="gear-slot-card__top">
         <span>${slot.zhSlotName}</span>
-        <strong>${slot.required ? "硬需求" : slot.replaceable ? "可替换" : "核心位"}</strong>
+        <strong>${gearSlotStatus(slot)}</strong>
       </div>
       <div class="gear-slot-card__main">
         ${renderIcon(slot.target, `${slot.target.zhName}图标`)}
         <div>
           <h4>${renderTargetLink(slot.target)}</h4>
-          <p>${slot.target.description}</p>
+          <p>${displayText(slot.target.description)}</p>
         </div>
       </div>
       <div class="gear-slot-card__flags">
         <span>${slot.priority}</span>
         <span>${slot.aspect.name}</span>
-        <span>${slot.aspect.role}</span>
+        <span>${displayText(slot.aspect.role)}</span>
       </div>
       <dl class="gear-lines">
-        <div><dt>数据状态</dt><dd>${sourceStatus}</dd></div>
-        <div><dt>词缀</dt><dd>${slot.affixes.join(" / ")}</dd></div>
-        <div><dt>淬炼</dt><dd>${slot.tempers.join(" / ")}</dd></div>
-        <div><dt>精造</dt><dd>${slot.masterwork.join(" / ")}</dd></div>
-        <div><dt>宝石</dt><dd>${slot.sockets.join(" / ")}</dd></div>
+        <div><dt>数据状态</dt><dd>${displayText(sourceStatus)}</dd></div>
+        <div><dt>词缀</dt><dd>${slot.affixes.map(displayText).join(" / ")}</dd></div>
+        <div><dt>淬炼</dt><dd>${slot.tempers.map(displayText).join(" / ")}</dd></div>
+        <div><dt>精造</dt><dd>${slot.masterwork.map(displayText).join(" / ")}</dd></div>
+        <div><dt>宝石</dt><dd>${slot.sockets.map(displayText).join(" / ")}</dd></div>
       </dl>
       ${upgradePath.length ? `
         <div class="slot-upgrade-path">
@@ -1100,8 +1133,91 @@ function renderGearSlot(slot) {
         <strong>替换方案</strong>
         <ul>${alternatives}</ul>
       </div>
-      ${slot.notes?.length ? `<p class="slot-note">${slot.notes.join(" ")}</p>` : ""}
+      ${slot.notes?.length ? `<p class="slot-note">${displayText(slot.notes.join(" "))}</p>` : ""}
     </article>
+  `;
+}
+
+const loadoutBoardOrder = [
+  "helm",
+  "chest",
+  "gloves",
+  "pants",
+  "boots",
+  "amulet",
+  "ring1",
+  "ring2",
+  "twoHand",
+  "mainHand",
+  "offHand"
+];
+
+const loadoutBoardSlotClasses = {
+  helm: "helm",
+  chest: "chest",
+  gloves: "gloves",
+  pants: "pants",
+  boots: "boots",
+  amulet: "amulet",
+  ring1: "ring-1",
+  ring2: "ring-2",
+  twoHand: "two-hand",
+  mainHand: "main-hand",
+  offHand: "off-hand"
+};
+
+function renderLoadoutBoardSlot(slot) {
+  if (!slot) return "";
+  const aspectName = slot.aspect?.name || "威能待回填";
+  const cleanAspectName = displayText(ignoredAspectDisplayNames.has(aspectName) ? slot.aspect?.role || aspectName : aspectName);
+  return `
+    <button class="loadout-board-slot loadout-board-slot--${loadoutBoardSlotClasses[slot.slotId] || slot.slotId} ${gearSlotStateClass(slot)}" type="button" data-guide-jump="gear">
+      ${renderIcon(slot.target, `${slot.zhSlotName}${slot.target.zhName}图标`)}
+      <span>${slot.zhSlotName}</span>
+      <strong>${displayText(slot.target.zhName)}</strong>
+      <em>${gearSlotStatus(slot)} · ${cleanAspectName}</em>
+    </button>
+  `;
+}
+
+function renderLoadoutBoard(guide) {
+  const slotsById = new Map(guide.gearSlots.map((slot) => [slot.slotId, slot]));
+  const requiredCount = guide.gearSlots.filter((slot) => slot.required).length;
+  const replaceableCount = guide.gearSlots.filter((slot) => slot.replaceable).length;
+  const coreCount = guide.gearSlots.filter((slot) => slot.core || slot.required).length;
+  const coreUniques = (guide.coreUniques || []).slice(0, 3).map((item) => item.zhName);
+  const coreAspects = (guide.coreAspects || [])
+    .map((aspect) => aspect.name)
+    .filter((name) => !ignoredAspectDisplayNames.has(name))
+    .slice(0, 4);
+  return `
+    <section class="loadout-board" aria-label="纸娃娃式全身装备盘面">
+      <header class="loadout-board__header">
+        <div>
+          <span>全身装备盘面</span>
+          <strong>${guide.taxonomy.className} · ${guide.taxonomy.archetypeName}</strong>
+        </div>
+        <div class="loadout-board__counts" aria-label="装备状态统计">
+          <em>${coreCount} 核心</em>
+          <em>${requiredCount} 硬需求</em>
+          <em>${replaceableCount} 可替换</em>
+        </div>
+      </header>
+      <div class="loadout-paper-doll">
+        <div class="loadout-board-center">
+          <span>${guide.taxonomy.modeName}</span>
+          <strong>${guide.ceiling.displayTier || guide.ceiling.tier}</strong>
+          <p>${guide.formationDifficulty.label}成型 · ${guide.taxonomy.stage}</p>
+          <small>${guideSourceLabel(guide)}</small>
+          <div>
+            ${(coreUniques.length ? coreUniques : ["核心暗金待回填"]).map((name) => `<b>${name}</b>`).join("")}
+            ${coreAspects.map((name) => `<b>${name}</b>`).join("")}
+          </div>
+        </div>
+        ${loadoutBoardOrder.map((slotId) => renderLoadoutBoardSlot(slotsById.get(slotId))).join("")}
+      </div>
+      <p class="loadout-board__note">点击任意装备位跳到装备详情区，查看词缀、淬炼、精造、宝石和替换方案。</p>
+    </section>
   `;
 }
 
@@ -1113,7 +1229,7 @@ function renderLoadoutStrip(guide) {
           ${renderIcon(slot.target, `${slot.zhSlotName}${slot.target.zhName}图标`)}
           <span>${slot.zhSlotName}</span>
           <strong>${slot.target.zhName}</strong>
-          <em>${slot.required ? "硬需求" : slot.replaceable ? "可替换" : "核心位"}</em>
+          <em>${gearSlotStatus(slot)}</em>
         </button>
       `).join("")}
     </div>
@@ -1339,7 +1455,7 @@ function renderBuildGuideDetail() {
           <span><b>${guide.gearSlots.length}</b>装备位置</span>
           <span><b>${guide.coreUniques.length}</b>核心暗金</span>
         </div>
-        ${renderLoadoutStrip(guide)}
+        ${renderLoadoutBoard(guide)}
       </header>
 
       <div class="guide-detail-layout">
@@ -1387,6 +1503,7 @@ function renderBuildGuideDetail() {
           `, "overview")}
 
           ${renderGuideDetailSection("全身装备", "每个位置、替换件和精造方向", `
+            ${renderLoadoutStrip(guide)}
             <div class="gear-slot-grid">${guide.gearSlots.map(renderGearSlot).join("")}</div>
           `, "gear")}
 
@@ -1401,12 +1518,12 @@ function renderBuildGuideDetail() {
               ${guide.variants.map((variant) => `
                 <article>
                   <h5>${variant.name}</h5>
-                  <p>${variant.useCase}</p>
+                  <p>${displayText(variant.useCase)}</p>
                   <dl>
-                    <div><dt>换下</dt><dd>${variant.swapOut}</dd></div>
-                    <div><dt>换上</dt><dd>${variant.swapIn}</dd></div>
+                    <div><dt>换下</dt><dd>${displayText(variant.swapOut)}</dd></div>
+                    <div><dt>换上</dt><dd>${displayText(variant.swapIn)}</dd></div>
                   </dl>
-                  <span>${variant.notes}</span>
+                  <span>${displayText(variant.notes)}</span>
                 </article>
               `).join("")}
             </div>

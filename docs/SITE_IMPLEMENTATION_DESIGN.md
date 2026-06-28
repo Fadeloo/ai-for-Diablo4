@@ -133,6 +133,7 @@ BD 详情 #bd/<guideId>
 | `BuildDetailLayout` | BD 详情页容器 | `guideId` | 渲染分区目录和详情 |
 | `BuildSummaryPanel` | 定位、难度、强弱项 | `guide.summary`、`ceiling` | 顶部摘要 |
 | `LoadoutStrip` | 全身装备速览 | `guide.gearSlots` | 11 个槽位快速跳到装备区 |
+| `LoadoutBoard` | 纸娃娃式配装盘面 | `guide.gearSlots`、`coreUniques`、`coreAspects` | 首屏展示 11 个部位、核心/硬需求/可替换和暗金/威能 |
 | `GearSlotGrid` | 11 装备位 | `guide.gearSlots` | 展示目标件和替换路径 |
 | `GearSlotCard` | 单个装备槽位 | `gearSlot` | 图标、词缀、淬炼、宝石 |
 | `SkillRoutePanel` | 技能栏和加点 | `guide.skillTree` | 技能顺序和被动优先级 |
