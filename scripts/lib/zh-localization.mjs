@@ -53,12 +53,16 @@ const exactItemNames = new Map([
   ["Orphan Maker", "孤儿制造者"],
   ["Writhing Band of Trickery", "诡诈扭曲指环"],
   ["Strike of Stormhorn", "风暴角之击"],
+  ["Dawnfire", "黎明之火"],
+  ["Gate of the Red Dawn", "赤色黎明之门"],
   ["Kilt of Blackwing", "黑翼褶裙"],
   ["Shroud of Khanduras", "坎杜拉斯罩衣"],
   ["The Basilisk", "石化蜥蜴"],
   ["Unsung Ascetic's Wraps", "无名苦修者裹手"],
   ["Rod of Kepeleke", "凯佩莱凯之杖"],
   ["Thundergod's Blessing", "雷神的祝福"],
+  ["Ring of Writhing Moon", "扭月之戒"],
+  ["Tassets of the Dawning Sky", "曙空裙甲"],
   ["Yen's Blessing", "延的祝福"]
 ]);
 

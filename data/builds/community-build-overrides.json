@@ -2712,5 +2712,152 @@
       {"name": "震波成型点", "useCase": "拿到震波威能后。", "swapOut": "普通增伤护符", "swapIn": "传奇护符 + 震波威能", "notes": "这是粉碎从过渡变成真正清场流派的分界线。"},
       {"name": "资源稳定版", "useCase": "粉碎断灵力。", "swapOut": "一处伤害戒指", "swapIn": "资源威能或无星夜空之戒", "notes": "牺牲爆发，换日常手感。"}
     ]
+  },
+  {
+    "id": "s14-spiritborn-sunbird_firestorm-pit_push",
+    "sourceReference": {
+      "site": "Mobalytics",
+      "url": "https://mobalytics.gg/diablo-4/builds/spiritborn-sunbirds-gorget-endgame",
+      "sourceSeason": "S14 死亡觉醒",
+      "referenceTitle": "Sunbird's Firestorm - Infernoborn",
+      "asOf": "2026-06-28",
+      "note": "Mobalytics 页面标注为 S14 Sunbird's Firestorm - Infernoborn，2026-06-27 更新，含装备、技能循环、Spirit Halls、巅峰传奇节点、Pushing/Starter/Mythic 变体和 FAQ；本站按中文资料页结构整理。"
+    },
+    "title": "S14 死亡觉醒 魂灵师 · 日炎风暴冲层",
+    "archetypeName": "日炎风暴",
+    "summary": {
+      "oneLine": "魂灵师「日炎风暴」冲层 BD，围绕太阳鸟颈甲、剃刀之翼、吞噬者、漩涡聚怪、祸害覆盖和凯佩莱凯之杖建立火焰范围爆发。",
+      "pros": ["火焰范围爆发强", "来源标注可冲层、速刷并有 Starter/Mythic 变体", "漩涡聚怪后爆发直观"],
+      "cons": ["太阳鸟颈甲和凯佩莱凯之杖缺失时上限下降", "需要管理祸害、劫掠者和铁甲皮肤覆盖", "巅峰坐标仍需 Planner 级来源回填"],
+      "requirements": ["护符：太阳鸟颈甲", "武器：凯佩莱凯之杖", "手套：命运之拳", "胸甲：紫晶外壳"],
+      "statPriority": ["火焰伤害", "暴击几率", "冷却缩减", "剃刀之翼等级", "活力生成", "生命上限"]
+    },
+    "gearSlots": [
+      {"slotId": "helm", "target": {"type": "legendary", "zhName": "传奇头盔 + 重定向之力威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "重定向之力威能", "role": "把防御资源转为剃刀之翼与火焰爆发收益。", "sourceStatus": "Mobalytics Sunbird 装备栏"}, "required": false, "core": true, "replaceable": true, "affixes": ["冷却缩减", "生命上限", "护甲", "全元素抗性"], "alternatives": [{"zhName": "沉沦继承者", "reason": "神话暗金变体提高全局伤害。", "tradeoff": "失去重定向之力威能位。"}, {"zhName": "忠诚披肩", "reason": "Spirit Hall 固定时提高稳定性。", "tradeoff": "火焰爆发上限下降。"}]},
+      {"slotId": "chest", "target": {"type": "unique", "zhName": "紫晶外壳"}, "aspect": {"name": "暗金特效位", "role": "生命消耗换冷却节奏，帮助维持吞噬者和防御技能覆盖。", "sourceStatus": "Mobalytics Sunbird 装备栏"}, "required": true, "core": true, "replaceable": false, "affixes": ["每秒活力", "生命上限", "冷却缩减", "全元素抗性"], "alternatives": [{"zhName": "伪死之衣", "reason": "神话速刷变体，提高路线效率和通用属性。", "tradeoff": "失去紫晶外壳冷却节奏。"}, {"zhName": "泰瑞尔之力", "reason": "极端抗性和防御压力下使用。", "tradeoff": "爆发循环下降。"}]},
+      {"slotId": "gloves", "target": {"type": "unique", "zhName": "命运之拳"}, "aspect": {"name": "暗金特效位", "role": "幸运一击与高波动爆发，配合火焰范围清场。", "sourceStatus": "Mobalytics Sunbird 装备栏"}, "required": true, "core": true, "replaceable": true, "affixes": ["幸运一击几率", "暴击几率", "攻击速度", "剃刀之翼等级"], "alternatives": [{"zhName": "传奇手套 + 平原之力威能", "reason": "需要更稳定伤害时使用。", "tradeoff": "高爆发波动下降。"}, {"zhName": "传奇手套 + 火焰威能", "reason": "缺命运之拳时过渡。", "tradeoff": "幸运一击联动下降。"}]},
+      {"slotId": "pants", "target": {"type": "legendary", "zhName": "传奇裤子 + 决斗者威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "决斗者威能", "role": "提高残暴层数与攻速节奏，强化剃刀之翼循环。", "sourceStatus": "Mobalytics Sunbird 装备栏"}, "required": false, "core": true, "replaceable": true, "affixes": ["生命上限", "护甲", "全元素抗性", "减伤"], "alternatives": [{"zhName": "鲁莽", "reason": "Starter 或低门槛屏障过渡。", "tradeoff": "攻速和残暴层数下降。"}, {"zhName": "曙空裙甲", "reason": "抗性缺口大时使用。", "tradeoff": "核心输出联动下降。"}]},
+      {"slotId": "boots", "target": {"type": "legendary", "zhName": "传奇靴子 + 湍流威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "湍流威能", "role": "提高移动、风暴/火焰路线和速刷手感。", "sourceStatus": "Mobalytics Sunbird 装备栏"}, "required": false, "core": true, "replaceable": true, "affixes": ["移动速度", "闪避冷却", "全元素抗性", "活力消耗降低"], "alternatives": [{"zhName": "延的祝福", "reason": "速刷和自动技能触发变体。", "tradeoff": "湍流威能联动下降。"}, {"zhName": "传奇靴子 + 移动威能", "reason": "低层日常过渡。", "tradeoff": "高层收益较低。"}]},
+      {"slotId": "amulet", "target": {"type": "unique", "zhName": "太阳鸟颈甲"}, "aspect": {"name": "暗金特效位", "role": "日炎风暴核心，决定火焰爆发与构筑上限。", "sourceStatus": "Mobalytics Sunbird 标题与装备栏核心"}, "required": true, "core": true, "replaceable": false, "affixes": ["火焰伤害乘区", "冷却缩减", "移动速度", "剃刀之翼等级"], "alternatives": [{"zhName": "传奇护符 + 平原之力威能", "reason": "缺太阳鸟颈甲时保留部分伤害。", "tradeoff": "不再是完整日炎风暴。"}, {"zhName": "塞利格的融心", "reason": "极端生存压力时尝试。", "tradeoff": "核心火焰暗金缺失。"}]},
+      {"slotId": "ring1", "target": {"type": "legendary", "zhName": "传奇戒指 + 月升威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "月升威能", "role": "基础攻击和攻速叠层，支撑凯佩莱凯循环。", "sourceStatus": "Mobalytics Sunbird 装备栏"}, "required": false, "core": true, "replaceable": true, "affixes": ["暴击几率", "攻击速度", "幸运一击几率", "资源生成"], "alternatives": [{"zhName": "传奇戒指 + 资源威能", "reason": "活力不足时过渡。", "tradeoff": "攻速叠层下降。"}, {"zhName": "扭月之戒", "reason": "毒素/蜈蚣过渡或娱乐变体。", "tradeoff": "偏离日炎风暴。"}]},
+      {"slotId": "ring2", "target": {"type": "legendary", "zhName": "传奇戒指 + 平原之力威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "平原之力威能", "role": "核心增伤位，配合美洲豹/雄鹰节奏提高输出。", "sourceStatus": "Mobalytics Sunbird 装备栏"}, "required": false, "core": true, "replaceable": true, "affixes": ["暴击几率", "火焰伤害", "资源生成", "冷却缩减"], "alternatives": [{"zhName": "无星夜空之戒", "reason": "资源压力大时用神话戒指稳定循环。", "tradeoff": "失去平原之力增伤位。"}, {"zhName": "传奇戒指 + 月升威能", "reason": "威能位重排时互换。", "tradeoff": "需要补另一处核心威能。"}]},
+      {"slotId": "twoHand", "target": {"type": "unique", "zhName": "凯佩莱凯之杖"}, "aspect": {"name": "暗金特效位", "role": "核心技能资源转爆发，Spiritborn 多数终局输出的关键武器。", "sourceStatus": "Mobalytics Sunbird 装备栏"}, "required": true, "core": true, "replaceable": false, "affixes": ["武器伤害", "核心技能等级", "暴击伤害", "资源生成"], "alternatives": [{"zhName": "传奇长柄武器 + 森林之力威能", "reason": "来源变体中的传奇武器过渡。", "tradeoff": "失去凯佩莱凯资源转爆发。"}, {"zhName": "先驱者内塞克姆", "reason": "高装等或易伤过渡。", "tradeoff": "核心技能循环下降。"}]},
+      {"slotId": "mainHand", "target": {"type": "legendary", "zhName": "不使用：双手武器方案", "image": "./public/assets/icon-weapon.png"}, "aspect": {"name": "空槽位", "role": "来源 BD 使用凯佩莱凯之杖，不占用主手。", "sourceStatus": "Mobalytics Sunbird 装备栏"}, "required": false, "core": false, "replaceable": true, "affixes": ["不占用", "双手武器伤害优先", "核心技能等级", "火焰伤害"], "alternatives": [{"zhName": "单手武器 + 月升威能", "reason": "开荒期没有双手武器时过渡。", "tradeoff": "终局上限下降。"}, {"zhName": "单手武器 + 资源威能", "reason": "活力不足时使用。", "tradeoff": "伤害下降。"}]},
+      {"slotId": "offHand", "target": {"type": "legendary", "zhName": "不使用：双手武器方案", "image": "./public/assets/icon-weapon.png"}, "aspect": {"name": "空槽位", "role": "来源 BD 使用凯佩莱凯之杖，不占用副手。", "sourceStatus": "Mobalytics Sunbird 装备栏"}, "required": false, "core": false, "replaceable": true, "affixes": ["不占用", "双手武器伤害优先", "冷却缩减", "活力生成"], "alternatives": [{"zhName": "副手 + 平原之力威能", "reason": "单手/副手过渡。", "tradeoff": "双手武器伤害下降。"}, {"zhName": "副手 + 防御威能", "reason": "抗性不足时过渡。", "tradeoff": "火焰爆发下降。"}]}
+    ],
+    "skillTree": {
+      "core": "剃刀之翼",
+      "skillBar": [
+        {"slot": 1, "name": "剃刀之翼", "role": "主攻和火焰范围输出", "points": 5},
+        {"slot": 2, "name": "吞噬者", "role": "终极爆发和大范围窗口", "points": 1},
+        {"slot": 3, "name": "漩涡", "role": "聚怪和爆发前准备", "points": 1},
+        {"slot": 4, "name": "祸害", "role": "持续覆盖、减益和循环触发", "points": 1},
+        {"slot": 5, "name": "劫掠者", "role": "增伤和攻击节奏", "points": 1},
+        {"slot": 6, "name": "铁甲皮肤", "role": "防御、强韧和危险窗口保命", "points": 1}
+      ],
+      "pointOrder": [
+        {"levelRange": "1-8", "skill": "剃刀之翼", "points": "+5 并点强化", "reason": "主攻技能先成型。"},
+        {"levelRange": "9-14", "skill": "漩涡", "points": "+1 至聚怪分支", "reason": "来源循环要求用漩涡把怪拉到爆发范围。"},
+        {"levelRange": "15-20", "skill": "祸害", "points": "+1 至覆盖分支", "reason": "保持减益和持续触发。"},
+        {"levelRange": "21-26", "skill": "劫掠者", "points": "+1 至增伤分支", "reason": "来源提示需要保持劫掠者覆盖。"},
+        {"levelRange": "27-32", "skill": "铁甲皮肤", "points": "+1 至防御分支", "reason": "高层和近身爆发前确保硬度。"},
+        {"levelRange": "33-38", "skill": "吞噬者", "points": "+1", "reason": "精英包和首领爆发。"},
+        {"levelRange": "39-48", "skill": "美洲豹/雄鹰被动", "points": "+3 至 +6", "reason": "强化攻速、火焰和机动收益。"},
+        {"levelRange": "49-60", "skill": "资源和冷却被动", "points": "+3 至 +6", "reason": "凯佩莱凯和太阳鸟循环需要资源与冷却。"},
+        {"levelRange": "60-80", "skill": "防御与屏障被动", "points": "按装备微调", "reason": "紫晶外壳和铁甲皮肤需要生命/屏障配合。"},
+        {"levelRange": "80+", "skill": "终局重分配", "points": "围绕太阳鸟颈甲和凯佩莱凯调整", "reason": "核心件到位后提高火焰爆发和首领输出。"}
+      ],
+      "notes": ["Spirit Halls：来源页显示 Primary Jaguar，Secondary Gorilla。", "来源循环提示：保持祸害、劫掠者、铁甲皮肤覆盖，漩涡聚怪后持续释放剃刀之翼。"]
+    },
+    "paragon": {
+      "rule": "Mobalytics 页面提供巅峰入口与传奇节点方向；本站按日炎风暴输出节奏整理：先资源与核心伤害，再火焰/美洲豹/生存节点，精确坐标待 Planner 级来源回填。",
+      "boardOrder": [
+        {"order": 1, "name": "起始盘", "goal": "打开核心雕文孔和活力通路", "glyph": "Canny", "rotate": "默认方向"},
+        {"order": 2, "name": "Revealing", "goal": "暴露和核心技能伤害", "glyph": "Turf", "rotate": "向雕文孔短路"},
+        {"order": 3, "name": "Sapping", "goal": "资源回收和持续输出", "glyph": "Spirit", "rotate": "向资源节点短路"},
+        {"order": 4, "name": "In-Fighter", "goal": "贴身爆发和美洲豹收益", "glyph": "Exploit", "rotate": "向传奇节点短路"},
+        {"order": 5, "name": "Convergence", "goal": "多标签技能聚合增伤", "glyph": "Fulminate", "rotate": "向稀有节点短路"},
+        {"order": 6, "name": "Colossal", "goal": "防御、生命和终局补强", "glyph": "Hubris", "rotate": "按抗性缺口调整"}
+      ],
+      "clickOrder": [
+        {"board": "起始盘", "node": "Canny 雕文孔", "reason": "先打开核心雕文孔。"},
+        {"board": "起始盘", "node": "生命、护甲和活力稀有节点", "reason": "紫晶外壳和近身爆发需要基础硬度。"},
+        {"board": "Revealing", "node": "Turf 雕文孔", "reason": "剃刀之翼需要贴身范围收益。"},
+        {"board": "Revealing", "node": "核心技能稀有节点", "reason": "提高主攻输出。"},
+        {"board": "Sapping", "node": "资源回复路径", "reason": "解决凯佩莱凯循环的资源压力。"},
+        {"board": "In-Fighter", "node": "传奇节点", "reason": "提高近距离爆发。"},
+        {"board": "Convergence", "node": "多标签增伤路径", "reason": "日炎风暴混合火焰、机动和核心标签。"},
+        {"board": "Colossal", "node": "生命和防御稀有节点", "reason": "高层容错补强。"},
+        {"board": "任意盘", "node": "暴击、火焰、资源小点", "reason": "输出稳定后补伤害。"},
+        {"board": "任意盘", "node": "抗性、护甲、生命补点", "reason": "冲层前按装备缺口收尾。"}
+      ]
+    },
+    "gameplay": {
+      "opener": ["进图先保持祸害、劫掠者和铁甲皮肤覆盖。", "用漩涡把怪群拉到身边。", "开启吞噬者处理精英包或首领。", "连续释放剃刀之翼打出日炎爆发。"],
+      "loop": ["剃刀之翼是主攻，围绕太阳鸟颈甲和凯佩莱凯节奏持续释放。", "祸害、劫掠者和铁甲皮肤不要断档。", "漩涡留给密集怪或精英包，不要随手空放。", "吞噬者用于精英、事件和首领爆发窗口。"],
+      "boss": ["首领前保留吞噬者和完整防御覆盖。", "先开祸害与劫掠者，再用剃刀之翼打爆发。", "资源不足时用月升和凯佩莱凯循环重建节奏。"],
+      "defense": ["紫晶外壳会改变生命和冷却节奏，生命过低时先退开。", "铁甲皮肤是危险窗口核心，不要和其他防御一起空交。", "抗性、护甲、生命不达标前不要硬推高层。"],
+      "speedFarm": ["速刷时漩涡拉一到两波怪后剃刀之翼清场。", "低层不需要每波都交吞噬者。"],
+      "commonMistakes": ["没有太阳鸟颈甲就按完整日炎风暴打。", "漩涡没聚到怪就空放剃刀之翼。", "祸害、劫掠者或铁甲皮肤断档。", "紫晶外壳压低生命后继续硬站。"]
+    },
+    "variants": [
+      {"name": "来源标准日炎风暴", "useCase": "太阳鸟颈甲、紫晶外壳、命运之拳和凯佩莱凯之杖到位后冲层。", "swapOut": "无", "swapIn": "按上方 11 槽位配置", "notes": "适合高层、事件和首领，优先保持防御与资源循环。"},
+      {"name": "Starter 过渡", "useCase": "缺太阳鸟或核心暗金时。", "swapOut": "太阳鸟颈甲 / 紫晶外壳", "swapIn": "传奇护符 + 平原之力威能 / 传奇胸甲 + 防御威能", "notes": "不是完整日炎风暴，但能保留剃刀之翼主体。"},
+      {"name": "Mythic 变体", "useCase": "拥有神话暗金后。", "swapOut": "传奇头或胸甲", "swapIn": "沉沦继承者、伪死之衣或泰瑞尔之力", "notes": "按生存和速度需求重排威能位。"}
+    ]
+  },
+  {
+    "id": "s14-spiritborn-sunbird_firestorm-speed_farm",
+    "extends": "s14-spiritborn-sunbird_firestorm-pit_push",
+    "title": "S14 死亡觉醒 魂灵师 · 日炎风暴速刷",
+    "archetypeName": "日炎风暴",
+    "summary": {
+      "oneLine": "魂灵师「日炎风暴」速刷 BD，保留太阳鸟与剃刀之翼主体，把靴子、戒指和胸甲变体向移动、路线效率和连续清场倾斜。",
+      "pros": ["聚怪清场快", "路线推进舒服", "和冲层版装备重叠度高"],
+      "cons": ["极限高层需要切回冲层版", "防御覆盖断档会被秒", "缺太阳鸟时上限明显下降"],
+      "requirements": ["护符：太阳鸟颈甲", "武器：凯佩莱凯之杖", "保持祸害、劫掠者和铁甲皮肤覆盖"],
+      "statPriority": ["移动速度", "冷却缩减", "攻击速度", "火焰伤害", "活力生成"]
+    },
+    "gearSlots": [
+      {"slotId": "chest", "target": {"type": "unique", "zhName": "伪死之衣"}, "aspect": {"name": "神话暗金位", "role": "速刷隐身、通用属性和路线效率。", "sourceStatus": "Mobalytics Sunbird Mythic/速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["全属性", "全元素抗性", "生命上限", "移动速度"], "alternatives": [{"zhName": "紫晶外壳", "reason": "需要冲层冷却和防御节奏时换回。", "tradeoff": "路线速度下降。"}, {"zhName": "泰瑞尔之力", "reason": "抗性压力大时使用。", "tradeoff": "速度下降。"}]},
+      {"slotId": "boots", "target": {"type": "unique", "zhName": "延的祝福"}, "aspect": {"name": "暗金特效位", "role": "自动触发和移动速刷。", "sourceStatus": "Mobalytics Sunbird 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["移动速度", "闪避冷却", "全元素抗性", "活力消耗降低"], "alternatives": [{"zhName": "传奇靴子 + 湍流威能", "reason": "需要标准冲层位时换回。", "tradeoff": "自动触发和路线效率下降。"}, {"zhName": "传奇靴子 + 移动威能", "reason": "低层过渡。", "tradeoff": "暗金收益下降。"}]},
+      {"slotId": "ring1", "target": {"type": "legendary", "zhName": "传奇戒指 + 资源威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "资源威能", "role": "低层连续剃刀之翼续航。", "sourceStatus": "Mobalytics Sunbird 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["资源生成", "攻击速度", "暴击几率", "幸运一击几率"], "alternatives": [{"zhName": "传奇戒指 + 月升威能", "reason": "需要冲层攻速叠层时换回。", "tradeoff": "资源压力上升。"}, {"zhName": "无星夜空之戒", "reason": "有神话戒指时稳定资源。", "tradeoff": "威能位需要重排。"}]}
+    ],
+    "gameplay": {
+      "opener": ["进图先开劫掠者和祸害。", "漩涡拉第一包怪。", "剃刀之翼清大包，吞噬者留给事件或精英。"],
+      "loop": ["低层按路线连续漩涡和剃刀之翼。", "延的祝福和伪死之衣用于缩短空跑。", "资源戒指保证连续清包。", "不要为零散小怪停留。"],
+      "boss": ["速刷首领打一轮吞噬者和剃刀之翼。", "单体时间过长时切回冲层胸甲和戒指。", "资源不足时先重建月升/凯佩莱凯节奏。"],
+      "defense": ["速刷版防御较低，铁甲皮肤不要断。", "紫晶外壳换掉后冷却节奏不同，不要按冲层手感硬站。", "硬核角色保留紫晶外壳。"],
+      "speedFarm": ["主目标是路线、聚怪和连续剃刀之翼。", "低层材料可牺牲部分防御换速度。"],
+      "commonMistakes": ["吞噬者交给零散小怪。", "漩涡乱放导致清场角度差。", "把防御件全换成速度后挑战高层。"]
+    }
+  },
+  {
+    "id": "s14-spiritborn-sunbird_firestorm-daily",
+    "extends": "s14-spiritborn-sunbird_firestorm-pit_push",
+    "title": "S14 死亡觉醒 魂灵师 · 日炎风暴日常",
+    "archetypeName": "日炎风暴",
+    "summary": {
+      "oneLine": "魂灵师「日炎风暴」日常 BD，用传奇胸甲、防御裤和资源戒指降低门槛，先保证剃刀之翼、漩涡、祸害和活力循环。",
+      "pros": ["低门槛可过渡", "日常清图直观", "核心件到位后可平滑转冲层版"],
+      "cons": ["没有太阳鸟颈甲不是完整流派", "缺凯佩莱凯时爆发明显下降", "紫晶外壳未齐时冷却循环较慢"],
+      "requirements": ["先找太阳鸟颈甲", "武器优先凯佩莱凯之杖或高装等长柄武器", "戒指补资源和攻速"],
+      "statPriority": ["生命上限", "全元素抗性", "活力生成", "移动速度", "剃刀之翼等级"]
+    },
+    "gearSlots": [
+      {"slotId": "helm", "target": {"type": "legendary", "zhName": "传奇头盔 + 防御威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "防御威能", "role": "日常抗性、生命和护甲过渡。", "sourceStatus": "Mobalytics Sunbird 日常变体整理"}, "required": false, "core": false, "replaceable": true, "affixes": ["生命上限", "护甲", "全元素抗性", "冷却缩减"], "alternatives": [{"zhName": "传奇头盔 + 重定向之力威能", "reason": "进入完整版本时换回。", "tradeoff": "日常硬度下降。"}, {"zhName": "忠诚披肩", "reason": "Spirit Hall 固定时可用。", "tradeoff": "获取难度高。"}]},
+      {"slotId": "chest", "target": {"type": "legendary", "zhName": "传奇胸甲 + 防御威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "防御威能", "role": "缺紫晶外壳时补硬度。", "sourceStatus": "Mobalytics Sunbird Starter 变体整理"}, "required": false, "core": false, "replaceable": true, "affixes": ["生命上限", "护甲", "减伤", "全元素抗性"], "alternatives": [{"zhName": "紫晶外壳", "reason": "拿到后切回来源标准版。", "tradeoff": "需要适应生命/冷却节奏。"}, {"zhName": "伪死之衣", "reason": "有神话暗金时提高效率。", "tradeoff": "缺冷却循环。"}]},
+      {"slotId": "pants", "target": {"type": "legendary", "zhName": "传奇裤子 + 防御威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "防御威能", "role": "日常硬度和抗性补齐。", "sourceStatus": "Mobalytics Sunbird 日常变体整理"}, "required": false, "core": false, "replaceable": true, "affixes": ["生命上限", "护甲", "全元素抗性", "减伤"], "alternatives": [{"zhName": "传奇裤子 + 决斗者威能", "reason": "伤害和攻速成型后换回。", "tradeoff": "防御下降。"}, {"zhName": "鲁莽", "reason": "屏障过渡。", "tradeoff": "残暴层数下降。"}]},
+      {"slotId": "ring1", "target": {"type": "legendary", "zhName": "传奇戒指 + 资源威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "资源威能", "role": "缺月升或资源词缀时维持剃刀之翼。", "sourceStatus": "Mobalytics Sunbird Starter 变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["资源生成", "攻击速度", "暴击几率", "幸运一击几率"], "alternatives": [{"zhName": "传奇戒指 + 月升威能", "reason": "攻速成型后切回来源版。", "tradeoff": "资源压力上升。"}, {"zhName": "无星夜空之戒", "reason": "有神话戒指时稳定资源。", "tradeoff": "威能位需要重排。"}]},
+      {"slotId": "twoHand", "target": {"type": "legendary", "zhName": "传奇长柄武器 + 森林之力威能", "image": "./public/assets/icon-weapon.png"}, "aspect": {"name": "森林之力威能", "role": "缺凯佩莱凯时的双手武器过渡。", "sourceStatus": "Mobalytics Sunbird Starter 变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["武器伤害", "核心技能等级", "暴击伤害", "火焰伤害"], "alternatives": [{"zhName": "凯佩莱凯之杖", "reason": "拿到后切回完整来源版。", "tradeoff": "获取前爆发和资源转化较弱。"}, {"zhName": "先驱者内塞克姆", "reason": "高装等或易伤过渡。", "tradeoff": "核心技能循环下降。"}]}
+    ],
+    "gameplay": {
+      "opener": ["先用高装等武器和防御件推进难度。", "祸害和劫掠者覆盖后再漩涡聚怪。", "用剃刀之翼清密集怪。"],
+      "loop": ["日常版本先保证活力、抗性和生命。", "铁甲皮肤留给危险精英，不要空交。", "没有太阳鸟颈甲时不要按完整爆发预期推进。", "太阳鸟、紫晶外壳、凯佩莱凯到位后转冲层版。"],
+      "boss": ["保留吞噬者和铁甲皮肤。", "活力不足时先用资源戒指重建循环。", "日常首领不追求极限秒杀。"],
+      "defense": ["抗性、护甲、生命优先于纯输出。", "缺紫晶外壳时冷却更慢，拉怪规模要降低。", "被压血后先移动，不要硬等下一轮爆发。"],
+      "speedFarm": ["低层可切延的祝福和伪死之衣。", "材料刷取以路线效率为主。"],
+      "commonMistakes": ["没有太阳鸟颈甲就硬推高层。", "把资源位换掉后剃刀之翼断档。", "铁甲皮肤断档仍贴脸输出。"]
+    }
   }
 ]

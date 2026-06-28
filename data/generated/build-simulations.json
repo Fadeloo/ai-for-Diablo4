@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T15:20:14.578Z",
+  "generatedAt": "2026-06-28T15:32:12.084Z",
   "scope": "next_three_season_build_and_pit150_prediction_matrix",
   "warning": "Predictions are model output, not facts. Update with live leaderboard and patch data after each season starts.",
   "zhWarning": "预测结果是模型输出，不是事实榜单。每个赛季上线后需要用真实冲层、速刷成绩和热修补丁继续校准。",
@@ -10149,6 +10149,187 @@
           "modeName": "冲层",
           "topBuilds": [
             {
+              "archetypeId": "sunbird_firestorm",
+              "archetypeName": "日炎风暴",
+              "score": 84,
+              "predictedPit150Minutes": 8,
+              "confidence": 0.69,
+              "keyStats": [
+                "elemental_damage_multiplier",
+                "mobility",
+                "critical_strike"
+              ],
+              "recommendedItems": [
+                {
+                  "id": "eldruin-sword-of-justice",
+                  "name": "El'Druin, Sword of Justice",
+                  "zhName": "正义之剑·艾尔德鲁因",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/el'druin,_sword_of_justice.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "All Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "全伤害乘区"
+                  ]
+                },
+                {
+                  "id": "rustbitten-dirk",
+                  "name": "Rustbitten Dirk",
+                  "zhName": "锈蚀短匕",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/rustbitten_dirk.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "All Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "全伤害乘区"
+                  ]
+                },
+                {
+                  "id": "wushe-nak-pa",
+                  "name": "Wushe Nak Pa",
+                  "zhName": "乌蛇纳克帕",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "All Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "全伤害乘区"
+                  ]
+                },
+                {
+                  "id": "the-butchers-cleaver",
+                  "name": "The Butcher's Cleaver",
+                  "zhName": "屠夫的砍斧",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/the_butcher's_cleaver.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "Critical Strike Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "暴击伤害乘区"
+                  ]
+                }
+              ],
+              "rationale": [
+                "冲层模型优先 元素伤害乘区 / 机动性 / 暴击。",
+                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              ],
+              "guide": {
+                "summary": "魂灵师「日炎风暴」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
+                "skillPlan": {
+                  "core": "日炎风暴",
+                  "bar": [
+                    "基础触发",
+                    "主力输出",
+                    "防御",
+                    "机动",
+                    "增伤/控制",
+                    "终极"
+                  ],
+                  "priority": [
+                    "主力输出技能 5 点优先",
+                    "基础技能只承担资源、触发或易伤",
+                    "防御技能至少 1 点并补关键强化",
+                    "机动技能保持可用",
+                    "终极技选择最稳定的爆发窗口",
+                    "关键被动根据主要词缀收益选择"
+                  ]
+                },
+                "paragonPlan": {
+                  "boardRoute": [
+                    "起始盘先拿主属性、护甲和生命",
+                    "第二盘围绕主要伤害标签",
+                    "第三盘补资源、冷却和抗性",
+                    "雕文优先跟随主词缀类别"
+                  ],
+                  "glyphPriority": [
+                    "元素伤害乘区",
+                    "机动性",
+                    "暴击"
+                  ],
+                  "rule": "先用最短路径拿到雕文孔和关键稀有节点，再按真实装备词缀补齐抗性、护甲、资源或冷却。"
+                },
+                "gearPlan": {
+                  "statPriority": [
+                    "元素伤害乘区",
+                    "机动性",
+                    "暴击"
+                  ],
+                  "slotPriority": [
+                    "武器：元素伤害乘区、技能等级、易伤或暴击相关词缀优先。",
+                    "首饰：机动性、冷却、资源和乘区词缀优先。",
+                    "防具：护甲、生命、抗性、冷却和关键技能等级优先。",
+                    "靴子与手套：移动速度、攻速、幸运一击或流派触发词缀优先。"
+                  ],
+                  "recommendedItems": [
+                    {
+                      "id": "eldruin-sword-of-justice",
+                      "zhName": "正义之剑·艾尔德鲁因",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
+                    },
+                    {
+                      "id": "rustbitten-dirk",
+                      "zhName": "锈蚀短匕",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
+                    },
+                    {
+                      "id": "wushe-nak-pa",
+                      "zhName": "乌蛇纳克帕",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
+                    },
+                    {
+                      "id": "the-butchers-cleaver",
+                      "zhName": "屠夫的砍斧",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 暴击伤害乘区。"
+                    }
+                  ],
+                  "tempering": [
+                    "过渡期先补资源与生存",
+                    "终局期再追主词缀、乘区和冷却",
+                    "未接入全量淬炼/精造库前不写死单条最优词缀"
+                  ]
+                },
+                "rotation": [
+                  "先建立防御和资源",
+                  "上控制或易伤后打主力输出",
+                  "危险词缀出现时先移动",
+                  "精英和首领前保留爆发技能"
+                ],
+                "leveling": [
+                  "1-35 级：不锁死终局装备，选择手感顺、范围稳定的主力技能。",
+                  "35-60 级：用最高装等武器和资源词缀推进难度。",
+                  "60 级后：围绕核心唯一装备、抗性上限和雕文等级重构。",
+                  "进入冲层：先保证不被秒杀，再调高伤害乘区和爆发窗口。"
+                ],
+                "dataCompleteness": {
+                  "equipmentAffixes": "官方 3.1.0 固定词缀已接入",
+                  "uniquePower": "暗金特效与完整数值范围待授权数据源回填",
+                  "skillRanks": "技能顺序为构筑模板，精确点数待游戏内/可审计数据源校准",
+                  "paragon": "巅峰路径为路线模板，具体盘名、节点坐标和雕文半径待回填",
+                  "prediction": "基于官方补丁资料的预测"
+                }
+              }
+            },
+            {
               "archetypeId": "gorilla",
               "archetypeName": "猩猩坚韧",
               "score": 83,
@@ -10509,192 +10690,11 @@
                   "prediction": "基于官方补丁资料的预测"
                 }
               }
-            },
-            {
-              "archetypeId": "centipede",
-              "archetypeName": "蜈蚣持续伤",
-              "score": 75,
-              "predictedPit150Minutes": 9.6,
-              "confidence": 0.69,
-              "keyStats": [
-                "additive_damage",
-                "lucky_hit",
-                "cooldown_reduction"
-              ],
-              "recommendedItems": [
-                {
-                  "id": "eldruin-sword-of-justice",
-                  "name": "El'Druin, Sword of Justice",
-                  "zhName": "正义之剑·艾尔德鲁因",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/el'druin,_sword_of_justice.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "All Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "全伤害乘区"
-                  ]
-                },
-                {
-                  "id": "rustbitten-dirk",
-                  "name": "Rustbitten Dirk",
-                  "zhName": "锈蚀短匕",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/rustbitten_dirk.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "All Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "全伤害乘区"
-                  ]
-                },
-                {
-                  "id": "wushe-nak-pa",
-                  "name": "Wushe Nak Pa",
-                  "zhName": "乌蛇纳克帕",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "All Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "全伤害乘区"
-                  ]
-                },
-                {
-                  "id": "the-butchers-cleaver",
-                  "name": "The Butcher's Cleaver",
-                  "zhName": "屠夫的砍斧",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/the_butcher's_cleaver.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "Critical Strike Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "暴击伤害乘区"
-                  ]
-                }
-              ],
-              "rationale": [
-                "冲层模型优先 加伤池 / 幸运一击 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
-              ],
-              "guide": {
-                "summary": "魂灵师「蜈蚣持续伤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
-                "skillPlan": {
-                  "core": "蜈蚣持续伤",
-                  "bar": [
-                    "基础触发",
-                    "持续伤主攻",
-                    "减益",
-                    "防御",
-                    "位移",
-                    "终极"
-                  ],
-                  "priority": [
-                    "持续伤主力技能 5 点",
-                    "基础技用于活力和触发",
-                    "防御技能点出减伤",
-                    "控制或减益技能保持覆盖",
-                    "终极技选择持续伤放大",
-                    "关键被动选择毒素或持续伤收益"
-                  ]
-                },
-                "paragonPlan": {
-                  "boardRoute": [
-                    "起始盘拿持续伤害和生存",
-                    "第二盘走幸运一击与冷却",
-                    "第三盘补资源和抗性",
-                    "雕文优先选择持续伤、幸运一击、冷却、生存"
-                  ],
-                  "glyphPriority": [
-                    "加伤池",
-                    "幸运一击",
-                    "冷却缩减"
-                  ],
-                  "rule": "先用最短路径拿到雕文孔和关键稀有节点，再按真实装备词缀补齐抗性、护甲、资源或冷却。"
-                },
-                "gearPlan": {
-                  "statPriority": [
-                    "加伤池",
-                    "幸运一击",
-                    "冷却缩减"
-                  ],
-                  "slotPriority": [
-                    "武器：加伤池、技能等级、易伤或暴击相关词缀优先。",
-                    "首饰：幸运一击、冷却、资源和乘区词缀优先。",
-                    "防具：护甲、生命、抗性、冷却和关键技能等级优先。",
-                    "靴子与手套：移动速度、攻速、幸运一击或流派触发词缀优先。"
-                  ],
-                  "recommendedItems": [
-                    {
-                      "id": "eldruin-sword-of-justice",
-                      "zhName": "正义之剑·艾尔德鲁因",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
-                    },
-                    {
-                      "id": "rustbitten-dirk",
-                      "zhName": "锈蚀短匕",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
-                    },
-                    {
-                      "id": "wushe-nak-pa",
-                      "zhName": "乌蛇纳克帕",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
-                    },
-                    {
-                      "id": "the-butchers-cleaver",
-                      "zhName": "屠夫的砍斧",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 暴击伤害乘区。"
-                    }
-                  ],
-                  "tempering": [
-                    "过渡期先补资源与生存",
-                    "终局期再追主词缀、乘区和冷却",
-                    "未接入全量淬炼/精造库前不写死单条最优词缀"
-                  ]
-                },
-                "rotation": [
-                  "先上减益",
-                  "持续伤铺满后移动拉怪",
-                  "冷却好就刷新爆发窗口",
-                  "高层以覆盖率和站位为核心"
-                ],
-                "leveling": [
-                  "1-35 级：不锁死终局装备，选择手感顺、范围稳定的主力技能。",
-                  "35-60 级：用最高装等武器和资源词缀推进难度。",
-                  "60 级后：围绕核心唯一装备、抗性上限和雕文等级重构。",
-                  "进入冲层：先保证不被秒杀，再调高伤害乘区和爆发窗口。"
-                ],
-                "dataCompleteness": {
-                  "equipmentAffixes": "官方 3.1.0 固定词缀已接入",
-                  "uniquePower": "暗金特效与完整数值范围待授权数据源回填",
-                  "skillRanks": "技能顺序为构筑模板，精确点数待游戏内/可审计数据源校准",
-                  "paragon": "巅峰路径为路线模板，具体盘名、节点坐标和雕文半径待回填",
-                  "prediction": "基于官方补丁资料的预测"
-                }
-              }
             }
           ],
           "pit150SpeedPrediction": {
-            "bestMinutes": 8.2,
-            "classRankScore": 83,
+            "bestMinutes": 8,
+            "classRankScore": 84,
             "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
           }
         },
@@ -10883,6 +10883,187 @@
               }
             },
             {
+              "archetypeId": "sunbird_firestorm",
+              "archetypeName": "日炎风暴",
+              "score": 81,
+              "predictedPit150Minutes": 8,
+              "confidence": 0.69,
+              "keyStats": [
+                "elemental_damage_multiplier",
+                "mobility",
+                "critical_strike"
+              ],
+              "recommendedItems": [
+                {
+                  "id": "thousand-eye-reaver",
+                  "name": "Thousand-Eye Reaver",
+                  "zhName": "千眼掠夺者",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "Attack Speed"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "攻击速度"
+                  ]
+                },
+                {
+                  "id": "eldruin-sword-of-justice",
+                  "name": "El'Druin, Sword of Justice",
+                  "zhName": "正义之剑·艾尔德鲁因",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/el'druin,_sword_of_justice.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "All Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "全伤害乘区"
+                  ]
+                },
+                {
+                  "id": "rustbitten-dirk",
+                  "name": "Rustbitten Dirk",
+                  "zhName": "锈蚀短匕",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/rustbitten_dirk.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "All Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "全伤害乘区"
+                  ]
+                },
+                {
+                  "id": "wushe-nak-pa",
+                  "name": "Wushe Nak Pa",
+                  "zhName": "乌蛇纳克帕",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "All Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "全伤害乘区"
+                  ]
+                }
+              ],
+              "rationale": [
+                "速刷模型优先 元素伤害乘区 / 机动性 / 暴击。",
+                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              ],
+              "guide": {
+                "summary": "魂灵师「日炎风暴」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
+                "skillPlan": {
+                  "core": "日炎风暴",
+                  "bar": [
+                    "基础触发",
+                    "主力输出",
+                    "防御",
+                    "机动",
+                    "增伤/控制",
+                    "终极"
+                  ],
+                  "priority": [
+                    "主力输出技能 5 点优先",
+                    "基础技能只承担资源、触发或易伤",
+                    "防御技能至少 1 点并补关键强化",
+                    "机动技能保持可用",
+                    "终极技选择最稳定的爆发窗口",
+                    "关键被动根据主要词缀收益选择"
+                  ]
+                },
+                "paragonPlan": {
+                  "boardRoute": [
+                    "起始盘先拿主属性、护甲和生命",
+                    "第二盘围绕主要伤害标签",
+                    "第三盘补资源、冷却和抗性",
+                    "雕文优先跟随主词缀类别"
+                  ],
+                  "glyphPriority": [
+                    "元素伤害乘区",
+                    "机动性",
+                    "暴击"
+                  ],
+                  "rule": "先用最短路径拿到雕文孔和关键稀有节点，再按真实装备词缀补齐抗性、护甲、资源或冷却。"
+                },
+                "gearPlan": {
+                  "statPriority": [
+                    "元素伤害乘区",
+                    "机动性",
+                    "暴击"
+                  ],
+                  "slotPriority": [
+                    "武器：元素伤害乘区、技能等级、易伤或暴击相关词缀优先。",
+                    "首饰：机动性、冷却、资源和乘区词缀优先。",
+                    "防具：护甲、生命、抗性、冷却和关键技能等级优先。",
+                    "靴子与手套：移动速度、攻速、幸运一击或流派触发词缀优先。"
+                  ],
+                  "recommendedItems": [
+                    {
+                      "id": "thousand-eye-reaver",
+                      "zhName": "千眼掠夺者",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
+                    },
+                    {
+                      "id": "eldruin-sword-of-justice",
+                      "zhName": "正义之剑·艾尔德鲁因",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
+                    },
+                    {
+                      "id": "rustbitten-dirk",
+                      "zhName": "锈蚀短匕",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
+                    },
+                    {
+                      "id": "wushe-nak-pa",
+                      "zhName": "乌蛇纳克帕",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
+                    }
+                  ],
+                  "tempering": [
+                    "过渡期先补资源与生存",
+                    "终局期再追主词缀、乘区和冷却",
+                    "未接入全量淬炼/精造库前不写死单条最优词缀"
+                  ]
+                },
+                "rotation": [
+                  "先建立防御和资源",
+                  "上控制或易伤后打主力输出",
+                  "危险词缀出现时先移动",
+                  "精英和首领前保留爆发技能"
+                ],
+                "leveling": [
+                  "1-35 级：不锁死终局装备，选择手感顺、范围稳定的主力技能。",
+                  "35-60 级：用最高装等武器和资源词缀推进难度。",
+                  "60 级后：围绕核心唯一装备、抗性上限和雕文等级重构。",
+                  "进入冲层：先保证不被秒杀，再调高伤害乘区和爆发窗口。"
+                ],
+                "dataCompleteness": {
+                  "equipmentAffixes": "官方 3.1.0 固定词缀已接入",
+                  "uniquePower": "暗金特效与完整数值范围待授权数据源回填",
+                  "skillRanks": "技能顺序为构筑模板，精确点数待游戏内/可审计数据源校准",
+                  "paragon": "巅峰路径为路线模板，具体盘名、节点坐标和雕文半径待回填",
+                  "prediction": "基于官方补丁资料的预测"
+                }
+              }
+            },
+            {
               "archetypeId": "centipede",
               "archetypeName": "蜈蚣持续伤",
               "score": 79,
@@ -11047,187 +11228,6 @@
                   "持续伤铺满后移动拉怪",
                   "冷却好就刷新爆发窗口",
                   "高层以覆盖率和站位为核心"
-                ],
-                "leveling": [
-                  "1-35 级：不锁死终局装备，选择手感顺、范围稳定的主力技能。",
-                  "35-60 级：用最高装等武器和资源词缀推进难度。",
-                  "60 级后：围绕核心唯一装备、抗性上限和雕文等级重构。",
-                  "进入冲层：先保证不被秒杀，再调高伤害乘区和爆发窗口。"
-                ],
-                "dataCompleteness": {
-                  "equipmentAffixes": "官方 3.1.0 固定词缀已接入",
-                  "uniquePower": "暗金特效与完整数值范围待授权数据源回填",
-                  "skillRanks": "技能顺序为构筑模板，精确点数待游戏内/可审计数据源校准",
-                  "paragon": "巅峰路径为路线模板，具体盘名、节点坐标和雕文半径待回填",
-                  "prediction": "基于官方补丁资料的预测"
-                }
-              }
-            },
-            {
-              "archetypeId": "gorilla",
-              "archetypeName": "猩猩坚韧",
-              "score": 77,
-              "predictedPit150Minutes": 8.7,
-              "confidence": 0.69,
-              "keyStats": [
-                "survivability",
-                "overpower",
-                "resource"
-              ],
-              "recommendedItems": [
-                {
-                  "id": "thousand-eye-reaver",
-                  "name": "Thousand-Eye Reaver",
-                  "zhName": "千眼掠夺者",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "Attack Speed"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "攻击速度"
-                  ]
-                },
-                {
-                  "id": "eldruin-sword-of-justice",
-                  "name": "El'Druin, Sword of Justice",
-                  "zhName": "正义之剑·艾尔德鲁因",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/el'druin,_sword_of_justice.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "All Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "全伤害乘区"
-                  ]
-                },
-                {
-                  "id": "rustbitten-dirk",
-                  "name": "Rustbitten Dirk",
-                  "zhName": "锈蚀短匕",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/rustbitten_dirk.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "All Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "全伤害乘区"
-                  ]
-                },
-                {
-                  "id": "wushe-nak-pa",
-                  "name": "Wushe Nak Pa",
-                  "zhName": "乌蛇纳克帕",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "All Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "全伤害乘区"
-                  ]
-                }
-              ],
-              "rationale": [
-                "速刷模型优先 生存 / 压制 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
-              ],
-              "guide": {
-                "summary": "魂灵师「猩猩坚韧」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
-                "skillPlan": {
-                  "core": "猩猩坚韧",
-                  "bar": [
-                    "基础生成",
-                    "重击主攻",
-                    "防御",
-                    "聚怪",
-                    "增伤",
-                    "终极"
-                  ],
-                  "priority": [
-                    "主力重击技能 5 点",
-                    "基础技用于活力循环",
-                    "防御技能优先点满关键节点",
-                    "控制技能保留聚怪",
-                    "终极技选择站场爆发",
-                    "关键被动选择强韧或压制收益"
-                  ]
-                },
-                "paragonPlan": {
-                  "boardRoute": [
-                    "起始盘拿生命、护甲和压制",
-                    "第二盘走强韧和近战伤",
-                    "第三盘补资源与抗性",
-                    "雕文优先选择压制、生命、近战、生存"
-                  ],
-                  "glyphPriority": [
-                    "生存",
-                    "压制",
-                    "资源循环"
-                  ],
-                  "rule": "先用最短路径拿到雕文孔和关键稀有节点，再按真实装备词缀补齐抗性、护甲、资源或冷却。"
-                },
-                "gearPlan": {
-                  "statPriority": [
-                    "生存",
-                    "压制",
-                    "资源循环"
-                  ],
-                  "slotPriority": [
-                    "武器：生存、技能等级、易伤或暴击相关词缀优先。",
-                    "首饰：压制、冷却、资源和乘区词缀优先。",
-                    "防具：护甲、生命、抗性、冷却和关键技能等级优先。",
-                    "靴子与手套：移动速度、攻速、幸运一击或流派触发词缀优先。"
-                  ],
-                  "recommendedItems": [
-                    {
-                      "id": "thousand-eye-reaver",
-                      "zhName": "千眼掠夺者",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
-                    },
-                    {
-                      "id": "eldruin-sword-of-justice",
-                      "zhName": "正义之剑·艾尔德鲁因",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
-                    },
-                    {
-                      "id": "rustbitten-dirk",
-                      "zhName": "锈蚀短匕",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
-                    },
-                    {
-                      "id": "wushe-nak-pa",
-                      "zhName": "乌蛇纳克帕",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
-                    }
-                  ],
-                  "tempering": [
-                    "过渡期先补资源与生存",
-                    "终局期再追主词缀、乘区和冷却",
-                    "未接入全量淬炼/精造库前不写死单条最优词缀"
-                  ]
-                },
-                "rotation": [
-                  "先建立防御层",
-                  "聚怪后打主攻窗口",
-                  "危险词缀时保留防御技能",
-                  "首领战用压制窗口爆发"
                 ],
                 "leveling": [
                   "1-35 级：不锁死终局装备，选择手感顺、范围稳定的主力技能。",
@@ -23551,6 +23551,187 @@
           "modeName": "冲层",
           "topBuilds": [
             {
+              "archetypeId": "sunbird_firestorm",
+              "archetypeName": "日炎风暴",
+              "score": 82,
+              "predictedPit150Minutes": 8.4,
+              "confidence": 0.58,
+              "keyStats": [
+                "elemental_damage_multiplier",
+                "mobility",
+                "critical_strike"
+              ],
+              "recommendedItems": [
+                {
+                  "id": "eldruin-sword-of-justice",
+                  "name": "El'Druin, Sword of Justice",
+                  "zhName": "正义之剑·艾尔德鲁因",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/el'druin,_sword_of_justice.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "All Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "全伤害乘区"
+                  ]
+                },
+                {
+                  "id": "rustbitten-dirk",
+                  "name": "Rustbitten Dirk",
+                  "zhName": "锈蚀短匕",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/rustbitten_dirk.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "All Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "全伤害乘区"
+                  ]
+                },
+                {
+                  "id": "wushe-nak-pa",
+                  "name": "Wushe Nak Pa",
+                  "zhName": "乌蛇纳克帕",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "All Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "全伤害乘区"
+                  ]
+                },
+                {
+                  "id": "the-butchers-cleaver",
+                  "name": "The Butcher's Cleaver",
+                  "zhName": "屠夫的砍斧",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/the_butcher's_cleaver.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "Critical Strike Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "暴击伤害乘区"
+                  ]
+                }
+              ],
+              "rationale": [
+                "冲层模型优先 元素伤害乘区 / 机动性 / 暴击。",
+                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              ],
+              "guide": {
+                "summary": "魂灵师「日炎风暴」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
+                "skillPlan": {
+                  "core": "日炎风暴",
+                  "bar": [
+                    "基础触发",
+                    "主力输出",
+                    "防御",
+                    "机动",
+                    "增伤/控制",
+                    "终极"
+                  ],
+                  "priority": [
+                    "主力输出技能 5 点优先",
+                    "基础技能只承担资源、触发或易伤",
+                    "防御技能至少 1 点并补关键强化",
+                    "机动技能保持可用",
+                    "终极技选择最稳定的爆发窗口",
+                    "关键被动根据主要词缀收益选择"
+                  ]
+                },
+                "paragonPlan": {
+                  "boardRoute": [
+                    "起始盘先拿主属性、护甲和生命",
+                    "第二盘围绕主要伤害标签",
+                    "第三盘补资源、冷却和抗性",
+                    "雕文优先跟随主词缀类别"
+                  ],
+                  "glyphPriority": [
+                    "元素伤害乘区",
+                    "机动性",
+                    "暴击"
+                  ],
+                  "rule": "先用最短路径拿到雕文孔和关键稀有节点，再按真实装备词缀补齐抗性、护甲、资源或冷却。"
+                },
+                "gearPlan": {
+                  "statPriority": [
+                    "元素伤害乘区",
+                    "机动性",
+                    "暴击"
+                  ],
+                  "slotPriority": [
+                    "武器：元素伤害乘区、技能等级、易伤或暴击相关词缀优先。",
+                    "首饰：机动性、冷却、资源和乘区词缀优先。",
+                    "防具：护甲、生命、抗性、冷却和关键技能等级优先。",
+                    "靴子与手套：移动速度、攻速、幸运一击或流派触发词缀优先。"
+                  ],
+                  "recommendedItems": [
+                    {
+                      "id": "eldruin-sword-of-justice",
+                      "zhName": "正义之剑·艾尔德鲁因",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
+                    },
+                    {
+                      "id": "rustbitten-dirk",
+                      "zhName": "锈蚀短匕",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
+                    },
+                    {
+                      "id": "wushe-nak-pa",
+                      "zhName": "乌蛇纳克帕",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
+                    },
+                    {
+                      "id": "the-butchers-cleaver",
+                      "zhName": "屠夫的砍斧",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 暴击伤害乘区。"
+                    }
+                  ],
+                  "tempering": [
+                    "过渡期先补资源与生存",
+                    "终局期再追主词缀、乘区和冷却",
+                    "未接入全量淬炼/精造库前不写死单条最优词缀"
+                  ]
+                },
+                "rotation": [
+                  "先建立防御和资源",
+                  "上控制或易伤后打主力输出",
+                  "危险词缀出现时先移动",
+                  "精英和首领前保留爆发技能"
+                ],
+                "leveling": [
+                  "1-35 级：不锁死终局装备，选择手感顺、范围稳定的主力技能。",
+                  "35-60 级：用最高装等武器和资源词缀推进难度。",
+                  "60 级后：围绕核心唯一装备、抗性上限和雕文等级重构。",
+                  "进入冲层：先保证不被秒杀，再调高伤害乘区和爆发窗口。"
+                ],
+                "dataCompleteness": {
+                  "equipmentAffixes": "官方 3.1.0 固定词缀已接入",
+                  "uniquePower": "暗金特效与完整数值范围待授权数据源回填",
+                  "skillRanks": "技能顺序为构筑模板，精确点数待游戏内/可审计数据源校准",
+                  "paragon": "巅峰路径为路线模板，具体盘名、节点坐标和雕文半径待回填",
+                  "prediction": "未来赛季低置信度推演"
+                }
+              }
+            },
+            {
               "archetypeId": "gorilla",
               "archetypeName": "猩猩坚韧",
               "score": 81,
@@ -23911,192 +24092,11 @@
                   "prediction": "未来赛季低置信度推演"
                 }
               }
-            },
-            {
-              "archetypeId": "centipede",
-              "archetypeName": "蜈蚣持续伤",
-              "score": 74,
-              "predictedPit150Minutes": 9.8,
-              "confidence": 0.58,
-              "keyStats": [
-                "additive_damage",
-                "lucky_hit",
-                "cooldown_reduction"
-              ],
-              "recommendedItems": [
-                {
-                  "id": "eldruin-sword-of-justice",
-                  "name": "El'Druin, Sword of Justice",
-                  "zhName": "正义之剑·艾尔德鲁因",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/el'druin,_sword_of_justice.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "All Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "全伤害乘区"
-                  ]
-                },
-                {
-                  "id": "rustbitten-dirk",
-                  "name": "Rustbitten Dirk",
-                  "zhName": "锈蚀短匕",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/rustbitten_dirk.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "All Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "全伤害乘区"
-                  ]
-                },
-                {
-                  "id": "wushe-nak-pa",
-                  "name": "Wushe Nak Pa",
-                  "zhName": "乌蛇纳克帕",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "All Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "全伤害乘区"
-                  ]
-                },
-                {
-                  "id": "the-butchers-cleaver",
-                  "name": "The Butcher's Cleaver",
-                  "zhName": "屠夫的砍斧",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/the_butcher's_cleaver.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "Critical Strike Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "暴击伤害乘区"
-                  ]
-                }
-              ],
-              "rationale": [
-                "冲层模型优先 加伤池 / 幸运一击 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
-              ],
-              "guide": {
-                "summary": "魂灵师「蜈蚣持续伤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
-                "skillPlan": {
-                  "core": "蜈蚣持续伤",
-                  "bar": [
-                    "基础触发",
-                    "持续伤主攻",
-                    "减益",
-                    "防御",
-                    "位移",
-                    "终极"
-                  ],
-                  "priority": [
-                    "持续伤主力技能 5 点",
-                    "基础技用于活力和触发",
-                    "防御技能点出减伤",
-                    "控制或减益技能保持覆盖",
-                    "终极技选择持续伤放大",
-                    "关键被动选择毒素或持续伤收益"
-                  ]
-                },
-                "paragonPlan": {
-                  "boardRoute": [
-                    "起始盘拿持续伤害和生存",
-                    "第二盘走幸运一击与冷却",
-                    "第三盘补资源和抗性",
-                    "雕文优先选择持续伤、幸运一击、冷却、生存"
-                  ],
-                  "glyphPriority": [
-                    "加伤池",
-                    "幸运一击",
-                    "冷却缩减"
-                  ],
-                  "rule": "先用最短路径拿到雕文孔和关键稀有节点，再按真实装备词缀补齐抗性、护甲、资源或冷却。"
-                },
-                "gearPlan": {
-                  "statPriority": [
-                    "加伤池",
-                    "幸运一击",
-                    "冷却缩减"
-                  ],
-                  "slotPriority": [
-                    "武器：加伤池、技能等级、易伤或暴击相关词缀优先。",
-                    "首饰：幸运一击、冷却、资源和乘区词缀优先。",
-                    "防具：护甲、生命、抗性、冷却和关键技能等级优先。",
-                    "靴子与手套：移动速度、攻速、幸运一击或流派触发词缀优先。"
-                  ],
-                  "recommendedItems": [
-                    {
-                      "id": "eldruin-sword-of-justice",
-                      "zhName": "正义之剑·艾尔德鲁因",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
-                    },
-                    {
-                      "id": "rustbitten-dirk",
-                      "zhName": "锈蚀短匕",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
-                    },
-                    {
-                      "id": "wushe-nak-pa",
-                      "zhName": "乌蛇纳克帕",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
-                    },
-                    {
-                      "id": "the-butchers-cleaver",
-                      "zhName": "屠夫的砍斧",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 暴击伤害乘区。"
-                    }
-                  ],
-                  "tempering": [
-                    "过渡期先补资源与生存",
-                    "终局期再追主词缀、乘区和冷却",
-                    "未接入全量淬炼/精造库前不写死单条最优词缀"
-                  ]
-                },
-                "rotation": [
-                  "先上减益",
-                  "持续伤铺满后移动拉怪",
-                  "冷却好就刷新爆发窗口",
-                  "高层以覆盖率和站位为核心"
-                ],
-                "leveling": [
-                  "1-35 级：不锁死终局装备，选择手感顺、范围稳定的主力技能。",
-                  "35-60 级：用最高装等武器和资源词缀推进难度。",
-                  "60 级后：围绕核心唯一装备、抗性上限和雕文等级重构。",
-                  "进入冲层：先保证不被秒杀，再调高伤害乘区和爆发窗口。"
-                ],
-                "dataCompleteness": {
-                  "equipmentAffixes": "官方 3.1.0 固定词缀已接入",
-                  "uniquePower": "暗金特效与完整数值范围待授权数据源回填",
-                  "skillRanks": "技能顺序为构筑模板，精确点数待游戏内/可审计数据源校准",
-                  "paragon": "巅峰路径为路线模板，具体盘名、节点坐标和雕文半径待回填",
-                  "prediction": "未来赛季低置信度推演"
-                }
-              }
             }
           ],
           "pit150SpeedPrediction": {
-            "bestMinutes": 8.5,
-            "classRankScore": 81,
+            "bestMinutes": 8.4,
+            "classRankScore": 82,
             "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
           }
         },
@@ -24285,6 +24285,187 @@
               }
             },
             {
+              "archetypeId": "sunbird_firestorm",
+              "archetypeName": "日炎风暴",
+              "score": 80,
+              "predictedPit150Minutes": 8.2,
+              "confidence": 0.58,
+              "keyStats": [
+                "elemental_damage_multiplier",
+                "mobility",
+                "critical_strike"
+              ],
+              "recommendedItems": [
+                {
+                  "id": "thousand-eye-reaver",
+                  "name": "Thousand-Eye Reaver",
+                  "zhName": "千眼掠夺者",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "Attack Speed"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "攻击速度"
+                  ]
+                },
+                {
+                  "id": "eldruin-sword-of-justice",
+                  "name": "El'Druin, Sword of Justice",
+                  "zhName": "正义之剑·艾尔德鲁因",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/el'druin,_sword_of_justice.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "All Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "全伤害乘区"
+                  ]
+                },
+                {
+                  "id": "rustbitten-dirk",
+                  "name": "Rustbitten Dirk",
+                  "zhName": "锈蚀短匕",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/rustbitten_dirk.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "All Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "全伤害乘区"
+                  ]
+                },
+                {
+                  "id": "wushe-nak-pa",
+                  "name": "Wushe Nak Pa",
+                  "zhName": "乌蛇纳克帕",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "All Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "全伤害乘区"
+                  ]
+                }
+              ],
+              "rationale": [
+                "速刷模型优先 元素伤害乘区 / 机动性 / 暴击。",
+                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              ],
+              "guide": {
+                "summary": "魂灵师「日炎风暴」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
+                "skillPlan": {
+                  "core": "日炎风暴",
+                  "bar": [
+                    "基础触发",
+                    "主力输出",
+                    "防御",
+                    "机动",
+                    "增伤/控制",
+                    "终极"
+                  ],
+                  "priority": [
+                    "主力输出技能 5 点优先",
+                    "基础技能只承担资源、触发或易伤",
+                    "防御技能至少 1 点并补关键强化",
+                    "机动技能保持可用",
+                    "终极技选择最稳定的爆发窗口",
+                    "关键被动根据主要词缀收益选择"
+                  ]
+                },
+                "paragonPlan": {
+                  "boardRoute": [
+                    "起始盘先拿主属性、护甲和生命",
+                    "第二盘围绕主要伤害标签",
+                    "第三盘补资源、冷却和抗性",
+                    "雕文优先跟随主词缀类别"
+                  ],
+                  "glyphPriority": [
+                    "元素伤害乘区",
+                    "机动性",
+                    "暴击"
+                  ],
+                  "rule": "先用最短路径拿到雕文孔和关键稀有节点，再按真实装备词缀补齐抗性、护甲、资源或冷却。"
+                },
+                "gearPlan": {
+                  "statPriority": [
+                    "元素伤害乘区",
+                    "机动性",
+                    "暴击"
+                  ],
+                  "slotPriority": [
+                    "武器：元素伤害乘区、技能等级、易伤或暴击相关词缀优先。",
+                    "首饰：机动性、冷却、资源和乘区词缀优先。",
+                    "防具：护甲、生命、抗性、冷却和关键技能等级优先。",
+                    "靴子与手套：移动速度、攻速、幸运一击或流派触发词缀优先。"
+                  ],
+                  "recommendedItems": [
+                    {
+                      "id": "thousand-eye-reaver",
+                      "zhName": "千眼掠夺者",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
+                    },
+                    {
+                      "id": "eldruin-sword-of-justice",
+                      "zhName": "正义之剑·艾尔德鲁因",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
+                    },
+                    {
+                      "id": "rustbitten-dirk",
+                      "zhName": "锈蚀短匕",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
+                    },
+                    {
+                      "id": "wushe-nak-pa",
+                      "zhName": "乌蛇纳克帕",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
+                    }
+                  ],
+                  "tempering": [
+                    "过渡期先补资源与生存",
+                    "终局期再追主词缀、乘区和冷却",
+                    "未接入全量淬炼/精造库前不写死单条最优词缀"
+                  ]
+                },
+                "rotation": [
+                  "先建立防御和资源",
+                  "上控制或易伤后打主力输出",
+                  "危险词缀出现时先移动",
+                  "精英和首领前保留爆发技能"
+                ],
+                "leveling": [
+                  "1-35 级：不锁死终局装备，选择手感顺、范围稳定的主力技能。",
+                  "35-60 级：用最高装等武器和资源词缀推进难度。",
+                  "60 级后：围绕核心唯一装备、抗性上限和雕文等级重构。",
+                  "进入冲层：先保证不被秒杀，再调高伤害乘区和爆发窗口。"
+                ],
+                "dataCompleteness": {
+                  "equipmentAffixes": "官方 3.1.0 固定词缀已接入",
+                  "uniquePower": "暗金特效与完整数值范围待授权数据源回填",
+                  "skillRanks": "技能顺序为构筑模板，精确点数待游戏内/可审计数据源校准",
+                  "paragon": "巅峰路径为路线模板，具体盘名、节点坐标和雕文半径待回填",
+                  "prediction": "未来赛季低置信度推演"
+                }
+              }
+            },
+            {
               "archetypeId": "centipede",
               "archetypeName": "蜈蚣持续伤",
               "score": 78,
@@ -24449,187 +24630,6 @@
                   "持续伤铺满后移动拉怪",
                   "冷却好就刷新爆发窗口",
                   "高层以覆盖率和站位为核心"
-                ],
-                "leveling": [
-                  "1-35 级：不锁死终局装备，选择手感顺、范围稳定的主力技能。",
-                  "35-60 级：用最高装等武器和资源词缀推进难度。",
-                  "60 级后：围绕核心唯一装备、抗性上限和雕文等级重构。",
-                  "进入冲层：先保证不被秒杀，再调高伤害乘区和爆发窗口。"
-                ],
-                "dataCompleteness": {
-                  "equipmentAffixes": "官方 3.1.0 固定词缀已接入",
-                  "uniquePower": "暗金特效与完整数值范围待授权数据源回填",
-                  "skillRanks": "技能顺序为构筑模板，精确点数待游戏内/可审计数据源校准",
-                  "paragon": "巅峰路径为路线模板，具体盘名、节点坐标和雕文半径待回填",
-                  "prediction": "未来赛季低置信度推演"
-                }
-              }
-            },
-            {
-              "archetypeId": "gorilla",
-              "archetypeName": "猩猩坚韧",
-              "score": 76,
-              "predictedPit150Minutes": 8.9,
-              "confidence": 0.58,
-              "keyStats": [
-                "survivability",
-                "overpower",
-                "resource"
-              ],
-              "recommendedItems": [
-                {
-                  "id": "thousand-eye-reaver",
-                  "name": "Thousand-Eye Reaver",
-                  "zhName": "千眼掠夺者",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "Attack Speed"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "攻击速度"
-                  ]
-                },
-                {
-                  "id": "eldruin-sword-of-justice",
-                  "name": "El'Druin, Sword of Justice",
-                  "zhName": "正义之剑·艾尔德鲁因",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/el'druin,_sword_of_justice.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "All Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "全伤害乘区"
-                  ]
-                },
-                {
-                  "id": "rustbitten-dirk",
-                  "name": "Rustbitten Dirk",
-                  "zhName": "锈蚀短匕",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/rustbitten_dirk.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "All Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "全伤害乘区"
-                  ]
-                },
-                {
-                  "id": "wushe-nak-pa",
-                  "name": "Wushe Nak Pa",
-                  "zhName": "乌蛇纳克帕",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "All Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "全伤害乘区"
-                  ]
-                }
-              ],
-              "rationale": [
-                "速刷模型优先 生存 / 压制 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
-              ],
-              "guide": {
-                "summary": "魂灵师「猩猩坚韧」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
-                "skillPlan": {
-                  "core": "猩猩坚韧",
-                  "bar": [
-                    "基础生成",
-                    "重击主攻",
-                    "防御",
-                    "聚怪",
-                    "增伤",
-                    "终极"
-                  ],
-                  "priority": [
-                    "主力重击技能 5 点",
-                    "基础技用于活力循环",
-                    "防御技能优先点满关键节点",
-                    "控制技能保留聚怪",
-                    "终极技选择站场爆发",
-                    "关键被动选择强韧或压制收益"
-                  ]
-                },
-                "paragonPlan": {
-                  "boardRoute": [
-                    "起始盘拿生命、护甲和压制",
-                    "第二盘走强韧和近战伤",
-                    "第三盘补资源与抗性",
-                    "雕文优先选择压制、生命、近战、生存"
-                  ],
-                  "glyphPriority": [
-                    "生存",
-                    "压制",
-                    "资源循环"
-                  ],
-                  "rule": "先用最短路径拿到雕文孔和关键稀有节点，再按真实装备词缀补齐抗性、护甲、资源或冷却。"
-                },
-                "gearPlan": {
-                  "statPriority": [
-                    "生存",
-                    "压制",
-                    "资源循环"
-                  ],
-                  "slotPriority": [
-                    "武器：生存、技能等级、易伤或暴击相关词缀优先。",
-                    "首饰：压制、冷却、资源和乘区词缀优先。",
-                    "防具：护甲、生命、抗性、冷却和关键技能等级优先。",
-                    "靴子与手套：移动速度、攻速、幸运一击或流派触发词缀优先。"
-                  ],
-                  "recommendedItems": [
-                    {
-                      "id": "thousand-eye-reaver",
-                      "zhName": "千眼掠夺者",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
-                    },
-                    {
-                      "id": "eldruin-sword-of-justice",
-                      "zhName": "正义之剑·艾尔德鲁因",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
-                    },
-                    {
-                      "id": "rustbitten-dirk",
-                      "zhName": "锈蚀短匕",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
-                    },
-                    {
-                      "id": "wushe-nak-pa",
-                      "zhName": "乌蛇纳克帕",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
-                    }
-                  ],
-                  "tempering": [
-                    "过渡期先补资源与生存",
-                    "终局期再追主词缀、乘区和冷却",
-                    "未接入全量淬炼/精造库前不写死单条最优词缀"
-                  ]
-                },
-                "rotation": [
-                  "先建立防御层",
-                  "聚怪后打主攻窗口",
-                  "危险词缀时保留防御技能",
-                  "首领战用压制窗口爆发"
                 ],
                 "leveling": [
                   "1-35 级：不锁死终局装备，选择手感顺、范围稳定的主力技能。",
@@ -25019,15 +25019,15 @@
               }
             },
             {
-              "archetypeId": "centipede",
-              "archetypeName": "蜈蚣持续伤",
+              "archetypeId": "sunbird_firestorm",
+              "archetypeName": "日炎风暴",
               "score": 72,
               "predictedPit150Minutes": 10.8,
               "confidence": 0.58,
               "keyStats": [
-                "additive_damage",
-                "lucky_hit",
-                "cooldown_reduction"
+                "elemental_damage_multiplier",
+                "mobility",
+                "critical_strike"
               ],
               "recommendedItems": [
                 {
@@ -25096,53 +25096,53 @@
                 }
               ],
               "rationale": [
-                "日常模型优先 加伤池 / 幸运一击 / 冷却缩减。",
+                "日常模型优先 元素伤害乘区 / 机动性 / 暴击。",
                 "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
               ],
               "guide": {
-                "summary": "魂灵师「蜈蚣持续伤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
+                "summary": "魂灵师「日炎风暴」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
                 "skillPlan": {
-                  "core": "蜈蚣持续伤",
+                  "core": "日炎风暴",
                   "bar": [
                     "基础触发",
-                    "持续伤主攻",
-                    "减益",
+                    "主力输出",
                     "防御",
-                    "位移",
+                    "机动",
+                    "增伤/控制",
                     "终极"
                   ],
                   "priority": [
-                    "持续伤主力技能 5 点",
-                    "基础技用于活力和触发",
-                    "防御技能点出减伤",
-                    "控制或减益技能保持覆盖",
-                    "终极技选择持续伤放大",
-                    "关键被动选择毒素或持续伤收益"
+                    "主力输出技能 5 点优先",
+                    "基础技能只承担资源、触发或易伤",
+                    "防御技能至少 1 点并补关键强化",
+                    "机动技能保持可用",
+                    "终极技选择最稳定的爆发窗口",
+                    "关键被动根据主要词缀收益选择"
                   ]
                 },
                 "paragonPlan": {
                   "boardRoute": [
-                    "起始盘拿持续伤害和生存",
-                    "第二盘走幸运一击与冷却",
-                    "第三盘补资源和抗性",
-                    "雕文优先选择持续伤、幸运一击、冷却、生存"
+                    "起始盘先拿主属性、护甲和生命",
+                    "第二盘围绕主要伤害标签",
+                    "第三盘补资源、冷却和抗性",
+                    "雕文优先跟随主词缀类别"
                   ],
                   "glyphPriority": [
-                    "加伤池",
-                    "幸运一击",
-                    "冷却缩减"
+                    "元素伤害乘区",
+                    "机动性",
+                    "暴击"
                   ],
                   "rule": "先用最短路径拿到雕文孔和关键稀有节点，再按真实装备词缀补齐抗性、护甲、资源或冷却。"
                 },
                 "gearPlan": {
                   "statPriority": [
-                    "加伤池",
-                    "幸运一击",
-                    "冷却缩减"
+                    "元素伤害乘区",
+                    "机动性",
+                    "暴击"
                   ],
                   "slotPriority": [
-                    "武器：加伤池、技能等级、易伤或暴击相关词缀优先。",
-                    "首饰：幸运一击、冷却、资源和乘区词缀优先。",
+                    "武器：元素伤害乘区、技能等级、易伤或暴击相关词缀优先。",
+                    "首饰：机动性、冷却、资源和乘区词缀优先。",
                     "防具：护甲、生命、抗性、冷却和关键技能等级优先。",
                     "靴子与手套：移动速度、攻速、幸运一击或流派触发词缀优先。"
                   ],
@@ -25179,10 +25179,10 @@
                   ]
                 },
                 "rotation": [
-                  "先上减益",
-                  "持续伤铺满后移动拉怪",
-                  "冷却好就刷新爆发窗口",
-                  "高层以覆盖率和站位为核心"
+                  "先建立防御和资源",
+                  "上控制或易伤后打主力输出",
+                  "危险词缀出现时先移动",
+                  "精英和首领前保留爆发技能"
                 ],
                 "leveling": [
                   "1-35 级：不锁死终局装备，选择手感顺、范围稳定的主力技能。",
@@ -36953,6 +36953,187 @@
           "modeName": "冲层",
           "topBuilds": [
             {
+              "archetypeId": "sunbird_firestorm",
+              "archetypeName": "日炎风暴",
+              "score": 81,
+              "predictedPit150Minutes": 8.5,
+              "confidence": 0.47,
+              "keyStats": [
+                "elemental_damage_multiplier",
+                "mobility",
+                "critical_strike"
+              ],
+              "recommendedItems": [
+                {
+                  "id": "eldruin-sword-of-justice",
+                  "name": "El'Druin, Sword of Justice",
+                  "zhName": "正义之剑·艾尔德鲁因",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/el'druin,_sword_of_justice.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "All Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "全伤害乘区"
+                  ]
+                },
+                {
+                  "id": "rustbitten-dirk",
+                  "name": "Rustbitten Dirk",
+                  "zhName": "锈蚀短匕",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/rustbitten_dirk.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "All Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "全伤害乘区"
+                  ]
+                },
+                {
+                  "id": "wushe-nak-pa",
+                  "name": "Wushe Nak Pa",
+                  "zhName": "乌蛇纳克帕",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "All Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "全伤害乘区"
+                  ]
+                },
+                {
+                  "id": "the-butchers-cleaver",
+                  "name": "The Butcher's Cleaver",
+                  "zhName": "屠夫的砍斧",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/the_butcher's_cleaver.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "Critical Strike Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "暴击伤害乘区"
+                  ]
+                }
+              ],
+              "rationale": [
+                "冲层模型优先 元素伤害乘区 / 机动性 / 暴击。",
+                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              ],
+              "guide": {
+                "summary": "魂灵师「日炎风暴」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
+                "skillPlan": {
+                  "core": "日炎风暴",
+                  "bar": [
+                    "基础触发",
+                    "主力输出",
+                    "防御",
+                    "机动",
+                    "增伤/控制",
+                    "终极"
+                  ],
+                  "priority": [
+                    "主力输出技能 5 点优先",
+                    "基础技能只承担资源、触发或易伤",
+                    "防御技能至少 1 点并补关键强化",
+                    "机动技能保持可用",
+                    "终极技选择最稳定的爆发窗口",
+                    "关键被动根据主要词缀收益选择"
+                  ]
+                },
+                "paragonPlan": {
+                  "boardRoute": [
+                    "起始盘先拿主属性、护甲和生命",
+                    "第二盘围绕主要伤害标签",
+                    "第三盘补资源、冷却和抗性",
+                    "雕文优先跟随主词缀类别"
+                  ],
+                  "glyphPriority": [
+                    "元素伤害乘区",
+                    "机动性",
+                    "暴击"
+                  ],
+                  "rule": "先用最短路径拿到雕文孔和关键稀有节点，再按真实装备词缀补齐抗性、护甲、资源或冷却。"
+                },
+                "gearPlan": {
+                  "statPriority": [
+                    "元素伤害乘区",
+                    "机动性",
+                    "暴击"
+                  ],
+                  "slotPriority": [
+                    "武器：元素伤害乘区、技能等级、易伤或暴击相关词缀优先。",
+                    "首饰：机动性、冷却、资源和乘区词缀优先。",
+                    "防具：护甲、生命、抗性、冷却和关键技能等级优先。",
+                    "靴子与手套：移动速度、攻速、幸运一击或流派触发词缀优先。"
+                  ],
+                  "recommendedItems": [
+                    {
+                      "id": "eldruin-sword-of-justice",
+                      "zhName": "正义之剑·艾尔德鲁因",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
+                    },
+                    {
+                      "id": "rustbitten-dirk",
+                      "zhName": "锈蚀短匕",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
+                    },
+                    {
+                      "id": "wushe-nak-pa",
+                      "zhName": "乌蛇纳克帕",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
+                    },
+                    {
+                      "id": "the-butchers-cleaver",
+                      "zhName": "屠夫的砍斧",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 暴击伤害乘区。"
+                    }
+                  ],
+                  "tempering": [
+                    "过渡期先补资源与生存",
+                    "终局期再追主词缀、乘区和冷却",
+                    "未接入全量淬炼/精造库前不写死单条最优词缀"
+                  ]
+                },
+                "rotation": [
+                  "先建立防御和资源",
+                  "上控制或易伤后打主力输出",
+                  "危险词缀出现时先移动",
+                  "精英和首领前保留爆发技能"
+                ],
+                "leveling": [
+                  "1-35 级：不锁死终局装备，选择手感顺、范围稳定的主力技能。",
+                  "35-60 级：用最高装等武器和资源词缀推进难度。",
+                  "60 级后：围绕核心唯一装备、抗性上限和雕文等级重构。",
+                  "进入冲层：先保证不被秒杀，再调高伤害乘区和爆发窗口。"
+                ],
+                "dataCompleteness": {
+                  "equipmentAffixes": "官方 3.1.0 固定词缀已接入",
+                  "uniquePower": "暗金特效与完整数值范围待授权数据源回填",
+                  "skillRanks": "技能顺序为构筑模板，精确点数待游戏内/可审计数据源校准",
+                  "paragon": "巅峰路径为路线模板，具体盘名、节点坐标和雕文半径待回填",
+                  "prediction": "未来赛季低置信度推演"
+                }
+              }
+            },
+            {
               "archetypeId": "gorilla",
               "archetypeName": "猩猩坚韧",
               "score": 80,
@@ -37313,192 +37494,11 @@
                   "prediction": "未来赛季低置信度推演"
                 }
               }
-            },
-            {
-              "archetypeId": "centipede",
-              "archetypeName": "蜈蚣持续伤",
-              "score": 72,
-              "predictedPit150Minutes": 10.2,
-              "confidence": 0.47,
-              "keyStats": [
-                "additive_damage",
-                "lucky_hit",
-                "cooldown_reduction"
-              ],
-              "recommendedItems": [
-                {
-                  "id": "eldruin-sword-of-justice",
-                  "name": "El'Druin, Sword of Justice",
-                  "zhName": "正义之剑·艾尔德鲁因",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/el'druin,_sword_of_justice.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "All Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "全伤害乘区"
-                  ]
-                },
-                {
-                  "id": "rustbitten-dirk",
-                  "name": "Rustbitten Dirk",
-                  "zhName": "锈蚀短匕",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/rustbitten_dirk.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "All Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "全伤害乘区"
-                  ]
-                },
-                {
-                  "id": "wushe-nak-pa",
-                  "name": "Wushe Nak Pa",
-                  "zhName": "乌蛇纳克帕",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "All Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "全伤害乘区"
-                  ]
-                },
-                {
-                  "id": "the-butchers-cleaver",
-                  "name": "The Butcher's Cleaver",
-                  "zhName": "屠夫的砍斧",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/the_butcher's_cleaver.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "Critical Strike Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "暴击伤害乘区"
-                  ]
-                }
-              ],
-              "rationale": [
-                "冲层模型优先 加伤池 / 幸运一击 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
-              ],
-              "guide": {
-                "summary": "魂灵师「蜈蚣持续伤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
-                "skillPlan": {
-                  "core": "蜈蚣持续伤",
-                  "bar": [
-                    "基础触发",
-                    "持续伤主攻",
-                    "减益",
-                    "防御",
-                    "位移",
-                    "终极"
-                  ],
-                  "priority": [
-                    "持续伤主力技能 5 点",
-                    "基础技用于活力和触发",
-                    "防御技能点出减伤",
-                    "控制或减益技能保持覆盖",
-                    "终极技选择持续伤放大",
-                    "关键被动选择毒素或持续伤收益"
-                  ]
-                },
-                "paragonPlan": {
-                  "boardRoute": [
-                    "起始盘拿持续伤害和生存",
-                    "第二盘走幸运一击与冷却",
-                    "第三盘补资源和抗性",
-                    "雕文优先选择持续伤、幸运一击、冷却、生存"
-                  ],
-                  "glyphPriority": [
-                    "加伤池",
-                    "幸运一击",
-                    "冷却缩减"
-                  ],
-                  "rule": "先用最短路径拿到雕文孔和关键稀有节点，再按真实装备词缀补齐抗性、护甲、资源或冷却。"
-                },
-                "gearPlan": {
-                  "statPriority": [
-                    "加伤池",
-                    "幸运一击",
-                    "冷却缩减"
-                  ],
-                  "slotPriority": [
-                    "武器：加伤池、技能等级、易伤或暴击相关词缀优先。",
-                    "首饰：幸运一击、冷却、资源和乘区词缀优先。",
-                    "防具：护甲、生命、抗性、冷却和关键技能等级优先。",
-                    "靴子与手套：移动速度、攻速、幸运一击或流派触发词缀优先。"
-                  ],
-                  "recommendedItems": [
-                    {
-                      "id": "eldruin-sword-of-justice",
-                      "zhName": "正义之剑·艾尔德鲁因",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
-                    },
-                    {
-                      "id": "rustbitten-dirk",
-                      "zhName": "锈蚀短匕",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
-                    },
-                    {
-                      "id": "wushe-nak-pa",
-                      "zhName": "乌蛇纳克帕",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
-                    },
-                    {
-                      "id": "the-butchers-cleaver",
-                      "zhName": "屠夫的砍斧",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 暴击伤害乘区。"
-                    }
-                  ],
-                  "tempering": [
-                    "过渡期先补资源与生存",
-                    "终局期再追主词缀、乘区和冷却",
-                    "未接入全量淬炼/精造库前不写死单条最优词缀"
-                  ]
-                },
-                "rotation": [
-                  "先上减益",
-                  "持续伤铺满后移动拉怪",
-                  "冷却好就刷新爆发窗口",
-                  "高层以覆盖率和站位为核心"
-                ],
-                "leveling": [
-                  "1-35 级：不锁死终局装备，选择手感顺、范围稳定的主力技能。",
-                  "35-60 级：用最高装等武器和资源词缀推进难度。",
-                  "60 级后：围绕核心唯一装备、抗性上限和雕文等级重构。",
-                  "进入冲层：先保证不被秒杀，再调高伤害乘区和爆发窗口。"
-                ],
-                "dataCompleteness": {
-                  "equipmentAffixes": "官方 3.1.0 固定词缀已接入",
-                  "uniquePower": "暗金特效与完整数值范围待授权数据源回填",
-                  "skillRanks": "技能顺序为构筑模板，精确点数待游戏内/可审计数据源校准",
-                  "paragon": "巅峰路径为路线模板，具体盘名、节点坐标和雕文半径待回填",
-                  "prediction": "未来赛季低置信度推演"
-                }
-              }
             }
           ],
           "pit150SpeedPrediction": {
-            "bestMinutes": 8.7,
-            "classRankScore": 80,
+            "bestMinutes": 8.5,
+            "classRankScore": 81,
             "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
           }
         },
@@ -37687,6 +37687,187 @@
               }
             },
             {
+              "archetypeId": "sunbird_firestorm",
+              "archetypeName": "日炎风暴",
+              "score": 78,
+              "predictedPit150Minutes": 8.5,
+              "confidence": 0.47,
+              "keyStats": [
+                "elemental_damage_multiplier",
+                "mobility",
+                "critical_strike"
+              ],
+              "recommendedItems": [
+                {
+                  "id": "thousand-eye-reaver",
+                  "name": "Thousand-Eye Reaver",
+                  "zhName": "千眼掠夺者",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "Attack Speed"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "攻击速度"
+                  ]
+                },
+                {
+                  "id": "eldruin-sword-of-justice",
+                  "name": "El'Druin, Sword of Justice",
+                  "zhName": "正义之剑·艾尔德鲁因",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/el'druin,_sword_of_justice.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "All Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "全伤害乘区"
+                  ]
+                },
+                {
+                  "id": "rustbitten-dirk",
+                  "name": "Rustbitten Dirk",
+                  "zhName": "锈蚀短匕",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/rustbitten_dirk.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "All Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "全伤害乘区"
+                  ]
+                },
+                {
+                  "id": "wushe-nak-pa",
+                  "name": "Wushe Nak Pa",
+                  "zhName": "乌蛇纳克帕",
+                  "visualType": "weapon",
+                  "image": "./public/assets/icon-weapon.png",
+                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
+                  "guaranteedAffixes": [
+                    "Weapon Damage",
+                    "All Damage Multiplier"
+                  ],
+                  "zhGuaranteedAffixes": [
+                    "武器伤害",
+                    "全伤害乘区"
+                  ]
+                }
+              ],
+              "rationale": [
+                "速刷模型优先 元素伤害乘区 / 机动性 / 暴击。",
+                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              ],
+              "guide": {
+                "summary": "魂灵师「日炎风暴」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
+                "skillPlan": {
+                  "core": "日炎风暴",
+                  "bar": [
+                    "基础触发",
+                    "主力输出",
+                    "防御",
+                    "机动",
+                    "增伤/控制",
+                    "终极"
+                  ],
+                  "priority": [
+                    "主力输出技能 5 点优先",
+                    "基础技能只承担资源、触发或易伤",
+                    "防御技能至少 1 点并补关键强化",
+                    "机动技能保持可用",
+                    "终极技选择最稳定的爆发窗口",
+                    "关键被动根据主要词缀收益选择"
+                  ]
+                },
+                "paragonPlan": {
+                  "boardRoute": [
+                    "起始盘先拿主属性、护甲和生命",
+                    "第二盘围绕主要伤害标签",
+                    "第三盘补资源、冷却和抗性",
+                    "雕文优先跟随主词缀类别"
+                  ],
+                  "glyphPriority": [
+                    "元素伤害乘区",
+                    "机动性",
+                    "暴击"
+                  ],
+                  "rule": "先用最短路径拿到雕文孔和关键稀有节点，再按真实装备词缀补齐抗性、护甲、资源或冷却。"
+                },
+                "gearPlan": {
+                  "statPriority": [
+                    "元素伤害乘区",
+                    "机动性",
+                    "暴击"
+                  ],
+                  "slotPriority": [
+                    "武器：元素伤害乘区、技能等级、易伤或暴击相关词缀优先。",
+                    "首饰：机动性、冷却、资源和乘区词缀优先。",
+                    "防具：护甲、生命、抗性、冷却和关键技能等级优先。",
+                    "靴子与手套：移动速度、攻速、幸运一击或流派触发词缀优先。"
+                  ],
+                  "recommendedItems": [
+                    {
+                      "id": "thousand-eye-reaver",
+                      "zhName": "千眼掠夺者",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
+                    },
+                    {
+                      "id": "eldruin-sword-of-justice",
+                      "zhName": "正义之剑·艾尔德鲁因",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
+                    },
+                    {
+                      "id": "rustbitten-dirk",
+                      "zhName": "锈蚀短匕",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
+                    },
+                    {
+                      "id": "wushe-nak-pa",
+                      "zhName": "乌蛇纳克帕",
+                      "zhVisualType": "武器",
+                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
+                    }
+                  ],
+                  "tempering": [
+                    "过渡期先补资源与生存",
+                    "终局期再追主词缀、乘区和冷却",
+                    "未接入全量淬炼/精造库前不写死单条最优词缀"
+                  ]
+                },
+                "rotation": [
+                  "先建立防御和资源",
+                  "上控制或易伤后打主力输出",
+                  "危险词缀出现时先移动",
+                  "精英和首领前保留爆发技能"
+                ],
+                "leveling": [
+                  "1-35 级：不锁死终局装备，选择手感顺、范围稳定的主力技能。",
+                  "35-60 级：用最高装等武器和资源词缀推进难度。",
+                  "60 级后：围绕核心唯一装备、抗性上限和雕文等级重构。",
+                  "进入冲层：先保证不被秒杀，再调高伤害乘区和爆发窗口。"
+                ],
+                "dataCompleteness": {
+                  "equipmentAffixes": "官方 3.1.0 固定词缀已接入",
+                  "uniquePower": "暗金特效与完整数值范围待授权数据源回填",
+                  "skillRanks": "技能顺序为构筑模板，精确点数待游戏内/可审计数据源校准",
+                  "paragon": "巅峰路径为路线模板，具体盘名、节点坐标和雕文半径待回填",
+                  "prediction": "未来赛季低置信度推演"
+                }
+              }
+            },
+            {
               "archetypeId": "centipede",
               "archetypeName": "蜈蚣持续伤",
               "score": 77,
@@ -37851,187 +38032,6 @@
                   "持续伤铺满后移动拉怪",
                   "冷却好就刷新爆发窗口",
                   "高层以覆盖率和站位为核心"
-                ],
-                "leveling": [
-                  "1-35 级：不锁死终局装备，选择手感顺、范围稳定的主力技能。",
-                  "35-60 级：用最高装等武器和资源词缀推进难度。",
-                  "60 级后：围绕核心唯一装备、抗性上限和雕文等级重构。",
-                  "进入冲层：先保证不被秒杀，再调高伤害乘区和爆发窗口。"
-                ],
-                "dataCompleteness": {
-                  "equipmentAffixes": "官方 3.1.0 固定词缀已接入",
-                  "uniquePower": "暗金特效与完整数值范围待授权数据源回填",
-                  "skillRanks": "技能顺序为构筑模板，精确点数待游戏内/可审计数据源校准",
-                  "paragon": "巅峰路径为路线模板，具体盘名、节点坐标和雕文半径待回填",
-                  "prediction": "未来赛季低置信度推演"
-                }
-              }
-            },
-            {
-              "archetypeId": "gorilla",
-              "archetypeName": "猩猩坚韧",
-              "score": 74,
-              "predictedPit150Minutes": 9.2,
-              "confidence": 0.47,
-              "keyStats": [
-                "survivability",
-                "overpower",
-                "resource"
-              ],
-              "recommendedItems": [
-                {
-                  "id": "thousand-eye-reaver",
-                  "name": "Thousand-Eye Reaver",
-                  "zhName": "千眼掠夺者",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "Attack Speed"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "攻击速度"
-                  ]
-                },
-                {
-                  "id": "eldruin-sword-of-justice",
-                  "name": "El'Druin, Sword of Justice",
-                  "zhName": "正义之剑·艾尔德鲁因",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/el'druin,_sword_of_justice.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "All Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "全伤害乘区"
-                  ]
-                },
-                {
-                  "id": "rustbitten-dirk",
-                  "name": "Rustbitten Dirk",
-                  "zhName": "锈蚀短匕",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/rustbitten_dirk.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "All Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "全伤害乘区"
-                  ]
-                },
-                {
-                  "id": "wushe-nak-pa",
-                  "name": "Wushe Nak Pa",
-                  "zhName": "乌蛇纳克帕",
-                  "visualType": "weapon",
-                  "image": "./public/assets/icon-weapon.png",
-                  "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
-                  "guaranteedAffixes": [
-                    "Weapon Damage",
-                    "All Damage Multiplier"
-                  ],
-                  "zhGuaranteedAffixes": [
-                    "武器伤害",
-                    "全伤害乘区"
-                  ]
-                }
-              ],
-              "rationale": [
-                "速刷模型优先 生存 / 压制 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
-              ],
-              "guide": {
-                "summary": "魂灵师「猩猩坚韧」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
-                "skillPlan": {
-                  "core": "猩猩坚韧",
-                  "bar": [
-                    "基础生成",
-                    "重击主攻",
-                    "防御",
-                    "聚怪",
-                    "增伤",
-                    "终极"
-                  ],
-                  "priority": [
-                    "主力重击技能 5 点",
-                    "基础技用于活力循环",
-                    "防御技能优先点满关键节点",
-                    "控制技能保留聚怪",
-                    "终极技选择站场爆发",
-                    "关键被动选择强韧或压制收益"
-                  ]
-                },
-                "paragonPlan": {
-                  "boardRoute": [
-                    "起始盘拿生命、护甲和压制",
-                    "第二盘走强韧和近战伤",
-                    "第三盘补资源与抗性",
-                    "雕文优先选择压制、生命、近战、生存"
-                  ],
-                  "glyphPriority": [
-                    "生存",
-                    "压制",
-                    "资源循环"
-                  ],
-                  "rule": "先用最短路径拿到雕文孔和关键稀有节点，再按真实装备词缀补齐抗性、护甲、资源或冷却。"
-                },
-                "gearPlan": {
-                  "statPriority": [
-                    "生存",
-                    "压制",
-                    "资源循环"
-                  ],
-                  "slotPriority": [
-                    "武器：生存、技能等级、易伤或暴击相关词缀优先。",
-                    "首饰：压制、冷却、资源和乘区词缀优先。",
-                    "防具：护甲、生命、抗性、冷却和关键技能等级优先。",
-                    "靴子与手套：移动速度、攻速、幸运一击或流派触发词缀优先。"
-                  ],
-                  "recommendedItems": [
-                    {
-                      "id": "thousand-eye-reaver",
-                      "zhName": "千眼掠夺者",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
-                    },
-                    {
-                      "id": "eldruin-sword-of-justice",
-                      "zhName": "正义之剑·艾尔德鲁因",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
-                    },
-                    {
-                      "id": "rustbitten-dirk",
-                      "zhName": "锈蚀短匕",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
-                    },
-                    {
-                      "id": "wushe-nak-pa",
-                      "zhName": "乌蛇纳克帕",
-                      "zhVisualType": "武器",
-                      "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
-                    }
-                  ],
-                  "tempering": [
-                    "过渡期先补资源与生存",
-                    "终局期再追主词缀、乘区和冷却",
-                    "未接入全量淬炼/精造库前不写死单条最优词缀"
-                  ]
-                },
-                "rotation": [
-                  "先建立防御层",
-                  "聚怪后打主攻窗口",
-                  "危险词缀时保留防御技能",
-                  "首领战用压制窗口爆发"
                 ],
                 "leveling": [
                   "1-35 级：不锁死终局装备，选择手感顺、范围稳定的主力技能。",

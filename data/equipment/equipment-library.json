@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T15:20:14.522Z",
+  "generatedAt": "2026-06-28T15:32:12.013Z",
   "source": {
     "id": "blizzard_patch_3_1",
     "url": "https://news.blizzard.com/en-us/article/24287406/diablo-iv-patch-notes",
@@ -2013,7 +2013,7 @@
     {
       "id": "tassets-of-the-dawning-sky",
       "name": "Tassets of the Dawning Sky",
-      "zhName": "裙甲德阿沃恩伊恩格斯凯伊",
+      "zhName": "曙空裙甲",
       "rarity": "unique",
       "classRestriction": "All Classes",
       "zhClassRestriction": "全职业",
@@ -9258,7 +9258,7 @@
     {
       "id": "dawnfire",
       "name": "Dawnfire",
-      "zhName": "德阿沃恩弗伊尔埃",
+      "zhName": "黎明之火",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -9327,7 +9327,7 @@
     {
       "id": "gate-of-the-red-dawn",
       "name": "Gate of the Red Dawn",
-      "zhName": "格阿特埃赤红德阿沃恩",
+      "zhName": "赤色黎明之门",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -15951,7 +15951,7 @@
     {
       "id": "ring-of-writhing-moon",
       "name": "Ring of Writhing Moon",
-      "zhName": "戒指扭动月亮",
+      "zhName": "扭月之戒",
       "rarity": "unique",
       "classRestriction": "Spiritborn",
       "zhClassRestriction": "魂灵师",

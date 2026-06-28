@@ -53,6 +53,7 @@
     "classId": "spiritborn",
     "archetypes": [
       {"id": "jaguar_eagle", "zhName": "美洲豹/雄鹰", "primaryStats": ["attack_speed", "mobility", "critical_strike"]},
+      {"id": "sunbird_firestorm", "zhName": "日炎风暴", "primaryStats": ["elemental_damage_multiplier", "mobility", "critical_strike"]},
       {"id": "gorilla", "zhName": "猩猩坚韧", "primaryStats": ["survivability", "overpower", "resource"]},
       {"id": "centipede", "zhName": "蜈蚣持续伤", "primaryStats": ["additive_damage", "lucky_hit", "cooldown_reduction"]}
     ]
