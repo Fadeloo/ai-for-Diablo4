@@ -246,6 +246,8 @@ assert(frontendText.includes("renderGameplayOverview"), "BD overview must render
 assert(frontendText.includes("combat-overview__grid"), "BD overview must expose opener, loop, defense and mistakes");
 assert(frontendText.includes("renderCombatFlowMatrix"), "BD gameplay section must render a stage-based combat flow matrix");
 assert(frontendText.includes("combat-flow-matrix"), "BD gameplay section must expose opener, loop, boss, defense, speed and mistakes before long notes");
+assert(frontendText.includes("renderReplacementMatrix"), "BD variants section must render an all-slot replacement matrix");
+assert(frontendText.includes("replacement-matrix"), "BD variants section must expose replacement status, first alternative and tradeoff for every slot");
 
 const generatedText = [
   await readFile(path.join(PROJECT_ROOT, "data/generated/build-simulations.json"), "utf8"),

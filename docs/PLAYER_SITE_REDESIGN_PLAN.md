@@ -368,6 +368,7 @@ public/
 | `ParagonRoutePanel` | 巅峰盘和点击步骤 | paragon | 巅峰路线 |
 | `CombatFlowMatrix` | 打法流程总表 | gameplay | 起手、主循环、首领、防御、速刷和常见错误的执行动作 |
 | `GameplayPanel` | 起手、循环、防御、错误 | gameplay | 操作指南 |
+| `ReplacementMatrix` | 全槽位替换矩阵 | gearSlots[].alternatives | 每个部位的替换状态、首选替换、代价和明细跳转 |
 | `VariantPanel` | 替换与变体 | variants | 变体列表 |
 | `EquipmentBrowser` | 装备搜索筛选 | equipment/filterState | 装备列表 |
 | `EquipmentDetailPanel` | 装备详情 | item/relatedGuides | 明细 |

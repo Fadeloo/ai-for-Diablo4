@@ -1531,6 +1531,60 @@ function renderGearSlot(slot) {
   `;
 }
 
+function renderAlternativeTarget(alternative) {
+  if (!alternative) return `<strong>没有登记替换件</strong>`;
+  return alternative.itemId ? `<a href="${itemUrl(alternative.itemId)}">${alternative.zhName}</a>` : `<strong>${alternative.zhName}</strong>`;
+}
+
+function renderReplacementMatrix(guide) {
+  return `
+    <section class="replacement-matrix" aria-label="全槽位替换矩阵">
+      <header>
+        <div>
+          <span>全槽位替换矩阵</span>
+          <strong>11 个部位的可替换性、首选替换和代价</strong>
+        </div>
+        <em>${guide.gearSlots.filter((slot) => slot.replaceable).length} 可替换 · ${guide.gearSlots.filter((slot) => slot.required).length} 硬需求</em>
+      </header>
+      <div class="replacement-table">
+        <div class="replacement-row replacement-row--head" aria-hidden="true">
+          <span>部位</span>
+          <span>当前目标</span>
+          <span>首选替换</span>
+          <span>代价 / 触发条件</span>
+          <span>操作</span>
+        </div>
+        ${guide.gearSlots.map((slot) => {
+          const alternative = (slot.alternatives || [])[0];
+          return `
+            <article class="replacement-row ${gearSlotStateClass(slot)}">
+              <div class="replacement-slot">
+                <span>${slot.zhSlotName}</span>
+                <strong>${gearSlotStatus(slot)}</strong>
+              </div>
+              <div>
+                <b class="replacement-label">当前目标</b>
+                ${renderTargetLink(slot.target)}
+                <em>${gearAspectDisplay(slot)}</em>
+              </div>
+              <div>
+                <b class="replacement-label">首选替换</b>
+                ${renderAlternativeTarget(alternative)}
+                <em>${(slot.alternatives || []).length} 个可选方案</em>
+              </div>
+              <div>
+                <b class="replacement-label">代价 / 触发条件</b>
+                <p>${displayText(alternative ? `${alternative.reason || ""} ${alternative.tradeoff || ""}`.trim() : "没有可替换方案，优先保留当前部位。")}</p>
+              </div>
+              <button type="button" data-guide-jump="gear" data-gear-slot-target="${slot.slotId}">看部位</button>
+            </article>
+          `;
+        }).join("")}
+      </div>
+    </section>
+  `;
+}
+
 const loadoutBoardOrder = [
   "helm",
   "chest",
@@ -2330,6 +2384,7 @@ function renderBuildGuideDetail() {
           ${renderGuideDetailSection("打法", "起手、循环、首领、防御和常见错误", renderGameplay(guide.gameplay), "gameplay")}
 
           ${renderGuideDetailSection("替换与变体", "缺件、冲层和高容错版本", `
+            ${renderReplacementMatrix(guide)}
             <div class="variant-grid">
               ${guide.variants.map((variant) => `
                 <article>

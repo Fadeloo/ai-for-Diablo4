@@ -148,6 +148,7 @@ BD 详情 #bd/<guideId>
 | `ParagonRoutePanel` | 巅峰路线 | `guide.paragon` | 盘、雕文、点击顺序 |
 | `CombatFlowMatrix` | 打法流程总表 | `guide.gameplay` | 按起手、主循环、首领、防御、速刷和常见错误展示执行动作 |
 | `GameplayPanel` | 实战操作 | `guide.gameplay` | 起手/循环/首领/防御 |
+| `ReplacementMatrix` | 全槽位替换矩阵 | `guide.gearSlots[].alternatives` | 在替换分区展示每个部位的替换状态、首选替换、代价和明细跳转 |
 | `VariantPanel` | 替换方案 | `guide.variants` | 缺件与速刷方案 |
 | `EquipmentBrowser` | 装备检索 | `equipment.items`、filters | 列表和分页 |
 | `EquipmentDetailPanel` | 装备详情 | `item`、`relatedGuides` | 固定词缀、来源、相关 BD |
