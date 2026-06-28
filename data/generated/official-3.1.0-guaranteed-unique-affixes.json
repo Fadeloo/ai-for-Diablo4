@@ -1,0 +1,5293 @@
+{
+  "generatedAt": "2026-06-28T04:43:29.990Z",
+  "source": {
+    "id": "blizzard_patch_3_1",
+    "url": "https://news.blizzard.com/en-us/article/24287406/diablo-iv-patch-notes",
+    "versionLine": "3.1.0 Build #72578 (All Platforms)—June 30, 2026"
+  },
+  "scope": "official_3_1_0_new_guaranteed_unique_affixes",
+  "itemCount": 278,
+  "items": [
+    {
+      "name": "Ahavarion, Spear of Lycander",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Lucky Hit: Resource"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Andariel's Visage",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Poison Resistance"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Azurewrath",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Banished Lord's Talisman",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Critical Strike Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Blood-Mad Idol",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Attack Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Crown of Lucion",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Resource Cost Reduction"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Doombringer",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life %"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "El'Druin, Sword of Justice",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "All Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Endurant Faith",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Fists of Fate",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Lucky Hit Chance"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Flickerstep",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Attacks Reduce Evade's Cooldown"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Frostburn",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Lucky Hit Chance"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Godslayer Crown",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Armor"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Harlequin Crest",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Heir of Perdition",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Movement Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Locran's Talisman",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Critical Strike Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Melted Heart of Selig",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Resource Generation"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Mother's Embrace",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Critical Strike Chance"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Paingorger's Gauntlets",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Attack Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Penitent Greaves",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Movement Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Rakanoth's Wake",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "All Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Razorplate",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "name": "Thorns"
+        }
+      ],
+      "notes": [
+        "No longer drops with a fifth Core affix."
+      ]
+    },
+    {
+      "name": "Ring of Starless Skies",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Attack Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Rustbitten Dirk",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "All Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Shard of Verathiel",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Basic Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Shattered Vow",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Damage Over Time Duration"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Shroud of False Death",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "All Stats"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "All Resistances"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Signet of Pelghain",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "All Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Soulbrand",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Armor"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Tassets of the Dawning Sky",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "All Resistances"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Temerity",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "The Butcher's Cleaver",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Critical Strike Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "The Grandfather",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Critical Strike Chance"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Thousand-Eye Reaver",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Attack Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Thundergod's Blessing",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Lightning Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Tibault's Will",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Tyrael's Might",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "All Resistances %"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Wendigo Brand",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Wyrdskin",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Vulnerable Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "X'Fal's Corroded Signet",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Damage Over Time Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Yen's Blessing",
+      "classRestriction": "All Classes",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Movement Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "100,000 Steps",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Ground Stomp"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Ancients' Oath",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "All Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Arreat's Bearing",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Armor"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Bane of Ahjed-Den",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Physical Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Battle Trance",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Frenzy"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Chainscourged Mail",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Brawling Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Dark Stalker's Medallion",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to All Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Emblem of Staalbreak",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Attack Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Fields of Crimson",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Rupture"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Gohr's Devastating Grips",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Whirlwind"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Hellhammer",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Upheaval"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Hooves of the Mountain God",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Fury per Second"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Mantle of Mountain's Fury",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Earthquake Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Might of Qual-Kehk",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Cooldown Reduction"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Nomad's Longing Heart",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Core Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Overkill",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Death Blow"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Rage of Harrogath",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Damage Over Time Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Ramaladni's Magnum Opus",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Resource"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Ring of Red Furor",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Critical Strike Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Ring of the Ravenous",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Rend"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Sabre of Tsasgal",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Cooldown Reduction"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "The Open Eye of Gorgorra",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Damage Over Time Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "The Relentless Heart",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Hammer of the Ancients"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "The Third Blade",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Core Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Tuskhelm of Joritz the Mighty",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Twin Strikes",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Double Swing"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Ugly Bastard Helm",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Fire Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Unbroken Chain",
+      "classRestriction": "Barbarian",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Attack Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Accord of the Wilds",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Companion Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Airidah's Inexorable Will",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Storm Strike"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Autumnal Crown",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Wind Shear"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Dark Howl",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Critical Strike Chance"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Dirge of Airidah",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Vulnerable Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Dolmen Stone",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Boulder"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Earthbreaker",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Landslide"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Fleshrender",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Tornado"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Fractured Runestone",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Earth Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Fury of the Wilds",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Shapeshifting Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Gathlen's Birthright",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Cyclone Armor"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Greatstaff of the Crone",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Claw"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Greenwalker's Oath",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Vine Creeper"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Greenwalker's Signet",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Human Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Heart of Azgar",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Maul"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Hunter's Zenith",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Hurricane"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Ifeh's Dire Totem",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Poison Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Insatiable Fury",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Trample"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Khamsin Steppewalkers",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Earthen Bulwark"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Kilt of Blackwing",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Ravens"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Mad Wolf's Glee",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Core Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Malefic Crescent",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Blood Howl"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Mark of the Old Wolf",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Attack Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Might of the Ursine",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Werebear Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Mjölnic Ring",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Nature Magic Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Purified Lightbringer",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Pulverize"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Stone of Vehemen",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Stone Burst"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Storm's Companion",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Wolves"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "The Basilisk",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Critical Strike Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Unsung Ascetic's Wraps",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Lightning Storm"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Waxing Gibbous",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Shred"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Wildheart Hunger",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Rabies"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Will of Stone",
+      "classRestriction": "Druid",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Earth Spike"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Blood Moon Breeches",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Critical Strike Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Blood Wake",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Blood Mist"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Bloodless Scream",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Darkness Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Cruor's Embrace",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Blood Surge"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Deathgrip",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Skeleton Warrior"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Deathless Visage",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Bone Spear"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Ebonpiercer",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Blight"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Gospel of the Devotee",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Basic Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Gravewalker's Hand",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Resource"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Hangman's Hand",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Sever"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Howl from Below",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Attack Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Kessime's Legacy",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Cooldown Reduction"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Lidless Wall",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Critical Strike Chance"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Mace of King Leoric",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Golem"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Mutilator Plate",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Blood Lance"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Omen of Pain",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Pact of Bone",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Critical Strike Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Path of Trag'Oul",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Bone Prison"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Red Blessing",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Blood Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Ring of the Sacrilegious Soul",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Corpse Tendrils"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Sanguivor, Blade of Zir",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Physical Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "The Gloom Ward",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Darkness Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "The Hand of Naz",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Skeleton Mage"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "The Mortacrux",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Macabre Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "The Undercrown",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Minion Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "The Unmaker",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Cooldown Reduction"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Vengeful Sinew",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Bone Spirit"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Will of Rathma",
+      "classRestriction": "Necromancer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Vulnerable Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Arcadia",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Argent Veil",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Core Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Bastion of Sir Matthias",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Shield Bash"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Cathedral's Song",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Disciple Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Dawnfire",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "All Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Gate of the Red Dawn",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Core Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Griswold's Opus",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Lucky Hit Chance"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Herald of Zakarum",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Thorns"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Herald's Morningstar",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Blessed Hammer"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Judgment of Auriel",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Judicant's Glaivehelm",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Justice Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Light's Rebuke",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Divine Lance"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Mantle of the Grey",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Juggernaut Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "March of the Stalwart Soul",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Advance"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Red Sermon",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Zeal"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Sanctis of Kethamar",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Attack Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Seal of the Second Trumpet",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Attack Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Sunbrand",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Cooldown Reduction"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Sundered Night",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Aura Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Supplication",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Brandish"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Ward of the White Dove",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Blessed Hammer"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Wreath of Auric Laurel",
+      "classRestriction": "Paladin",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Attack Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Asheara's Khanjar",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Assassin's Stride",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Shadow Imbue"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Bands of Ichorous Rose",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Poison Trap"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Beastfall Boots",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Resource"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Cassia's Grace",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Arrow Storm Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Condemnation",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Core Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Cowl of the Nameless",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Imbuements Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Death's Pavane",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Dance Of Knives"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Deathmask of Nirmitruq",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Flurry"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Desperate March",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Caltrops"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Eaglehorn",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Penetrating Shot"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Etna's Lost Dagger",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Imbuements Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Eyes in the Dark",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Cooldown Reduction"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Fist of the Iron Rose",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "All Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Gladiator's Triumph",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Critical Strike Chance"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Grasp of Shadow",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "All Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Misericorde",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Cooldown Reduction"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Orphan Maker",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Marksman Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Pitfighter's Gull",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Smoke Grenade"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Saboteur's Signet",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Grenade Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Scoundrel's Kiss",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Attack Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Scoundrel's Leathers",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Trap Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Sea Lord's Fine Gloves",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Attack Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Shroud of Khanduras",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Shrouded Gift",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Movement Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Skyhunter",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Rapid Fire"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "The Maestro",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Twisting Blades"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "The Umbracrux",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Windforce",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Barrage"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Word of Hakan",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Imbuements Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Writhing Band of Trickery",
+      "classRestriction": "Rogue",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Trap Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Axial Conduit",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Chain Lightning"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Blue Rose",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Frost Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Drognan's Anguish",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Pyromancy Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Emberfury",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Pyromancy Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Esadora's Overflowing Cameo",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Attack Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Esu's Heirloom",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Movement Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Fang of the Vipermagi",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Cooldown Reduction"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Flamescar",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Incinerate"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Flameweaver",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "All Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Fractured Winterglass",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Conjuration Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Galvanic Azurite",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Shock Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Gift of Frost",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Movement Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Hail of Verglas",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Ice Shards"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Iceheart Brais",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Armor"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Levin Grasp",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Attack Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Molten Band",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Critical Strike Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Onyx Soul",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Frozen Orb"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Ophidian Iris",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Hydra"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Orsivane",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "All Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Raiment of the Infinite",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Raiment of the Sea",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Blizzard"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Rimeblood",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Attack Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Shanar's Resonance",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Cooldown Reduction"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Sidhe Bindings",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "All Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Staff of Endless Rage",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Fireball"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Staff of Lam Esen",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Charged Bolts"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Staff of Zerae",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Shock Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Starfall Coronet",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Meteor"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Strike of Stormhorn",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Ball Lightning"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Tal Rasha's Iridescent Loop",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "All Resistances"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "The Oculus",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Teleport"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Vision of the Firestorm",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Firewall"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Vox Omnium",
+      "classRestriction": "Sorcerer",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Basic Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Balazan's Maxtlatl",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Thorns"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Band of First Breath",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Attack Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Craze of the Dead God",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Touch of Death"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Echo of Kwatli",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Vulnerable Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Harmony of Ebewaka",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Hesha e Kesungi",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Gorilla Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Jacinth Shell",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Vigor per Second"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Loyalty's Mantle",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Nesekem, the Herald",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Vulnerable Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Path of the Emissary",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Core Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Peacemonger's Signet",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Attack Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Protean Heart",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to All Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Protection of the Prime",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Armor"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Ring of the Midday Hunt",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Poison Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Ring of the Midnight Sun",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Critical Strike Chance"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Ring of Writhing Moon",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Poison Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Rod of Kepeleke",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Core Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Scorn of the Earth",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Soar"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Sepazontec",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Basic Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Sunbird's Gorget",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Fire Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Sunstained War-Crozier",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Potency Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Widow's Web",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Poison Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Wound Drinker",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Thorns"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Wushe Nak Pa",
+      "classRestriction": "Spiritborn",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "All Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Ae'grom's Schism",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Anathema of the Primes",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Core Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Bindings of Attrition",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Armor"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Bridle of Tor'Baalos",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Molten Bomb"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Cage of Madness",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Command Fallen"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Cowl of Malefic Torment",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Doom"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Dirge of Odium",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Basic Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Elegy",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Blazing Scream"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Eye of Baal",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Critical Strike Chance"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Fleshwrit Carapace",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Armor"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Footfalls of the Waning World",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Movement Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Gauntlets of Sheol",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Physical Damage Multiplier"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Hand of Apotheosis",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Hands of the Worldbreaker",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Attack Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Hecaton Chasm",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Tyrant's Grasp"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Hellbrand Signet",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Sigil of Chaos"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Hellhound's Sabatons",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Movement Speed"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Infernal Homunculus",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Demonology Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Kabraxis' Will",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Wall of Agony"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Litany of Sable",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Dread Claws"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Lurid Pact",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Rampage"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Moloch's Beating Flame",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Hellfire Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Morlu Fleshward",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Defensive Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Nails of the Gore-Crowned",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Hellion Sting"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Night Terror",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Abyss Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Rictus of Terror",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Cooldown Reduction"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Sashes of the Wretched",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Scepter of the Three",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Maximum Life"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Scourge of Duriel",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Umbral Chains"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Seal of the Ophanim",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Profane Sentinel"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Seed of Horazon",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Demonology Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Sire of Sin",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Infernal Breath"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Spine of Tathamet",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Hell Fracture"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "The Blade of Sight Aflame",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Weapon Damage"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Bombardment"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "The Eightfold Idol",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Sigil of Subversion"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "The Fecund Seal",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Sigil of Summons"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "The Hemat Stone",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Skill Ranks to Occult Skills"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "Thrice-Woven Nightmare",
+      "classRestriction": "Warlock",
+      "guaranteedAffixes": [
+        {
+          "slots": [
+            1
+          ],
+          "name": "Primary Core Stat"
+        },
+        {
+          "slots": [
+            2
+          ],
+          "name": "Cooldown Reduction"
+        }
+      ],
+      "notes": []
+    }
+  ]
+}

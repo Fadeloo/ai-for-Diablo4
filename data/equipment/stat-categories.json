@@ -1,0 +1,82 @@
+[
+  {
+    "id": "weapon_damage",
+    "zhName": "武器伤害",
+    "calculationRole": "base_damage"
+  },
+  {
+    "id": "primary_core_stat",
+    "zhName": "主属性",
+    "calculationRole": "primary_stat_multiplier"
+  },
+  {
+    "id": "skill_rank",
+    "zhName": "技能等级",
+    "calculationRole": "skill_coefficient_or_modifier"
+  },
+  {
+    "id": "additive_damage",
+    "zhName": "加伤池",
+    "calculationRole": "additive_bucket"
+  },
+  {
+    "id": "all_damage_multiplier",
+    "zhName": "全伤乘区",
+    "calculationRole": "multiplicative_bucket"
+  },
+  {
+    "id": "elemental_damage_multiplier",
+    "zhName": "元素伤害乘区",
+    "calculationRole": "conditional_multiplicative_bucket"
+  },
+  {
+    "id": "critical_strike",
+    "zhName": "暴击",
+    "calculationRole": "expected_event_multiplier"
+  },
+  {
+    "id": "vulnerable",
+    "zhName": "易伤",
+    "calculationRole": "uptime_event_multiplier"
+  },
+  {
+    "id": "overpower",
+    "zhName": "压制",
+    "calculationRole": "expected_event_multiplier"
+  },
+  {
+    "id": "attack_speed",
+    "zhName": "攻击速度",
+    "calculationRole": "dps_frequency"
+  },
+  {
+    "id": "cooldown_reduction",
+    "zhName": "冷却缩减",
+    "calculationRole": "uptime_and_rotation"
+  },
+  {
+    "id": "resource",
+    "zhName": "资源",
+    "calculationRole": "rotation_sustain"
+  },
+  {
+    "id": "survivability",
+    "zhName": "生存",
+    "calculationRole": "effective_health"
+  },
+  {
+    "id": "mobility",
+    "zhName": "机动",
+    "calculationRole": "clear_speed"
+  },
+  {
+    "id": "lucky_hit",
+    "zhName": "幸运一击",
+    "calculationRole": "proc_rate"
+  },
+  {
+    "id": "thorns",
+    "zhName": "荆棘",
+    "calculationRole": "retaliation_damage"
+  }
+]

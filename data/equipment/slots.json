@@ -1,0 +1,57 @@
+[
+  {
+    "id": "helm",
+    "zhName": "头盔",
+    "category": "armor"
+  },
+  {
+    "id": "chest",
+    "zhName": "胸甲",
+    "category": "armor"
+  },
+  {
+    "id": "gloves",
+    "zhName": "手套",
+    "category": "armor"
+  },
+  {
+    "id": "pants",
+    "zhName": "裤子",
+    "category": "armor"
+  },
+  {
+    "id": "boots",
+    "zhName": "靴子",
+    "category": "armor"
+  },
+  {
+    "id": "amulet",
+    "zhName": "护符",
+    "category": "jewelry"
+  },
+  {
+    "id": "ring",
+    "zhName": "戒指",
+    "category": "jewelry"
+  },
+  {
+    "id": "one_hand_weapon",
+    "zhName": "单手武器",
+    "category": "weapon"
+  },
+  {
+    "id": "two_hand_weapon",
+    "zhName": "双手武器",
+    "category": "weapon"
+  },
+  {
+    "id": "offhand",
+    "zhName": "副手",
+    "category": "weapon"
+  },
+  {
+    "id": "shield",
+    "zhName": "盾牌",
+    "category": "weapon"
+  }
+]

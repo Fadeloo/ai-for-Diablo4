@@ -1,0 +1,95 @@
+[
+  {
+    "id": "blizzard_patch_3_0",
+    "name": "Diablo IV Patch Notes 3.0",
+    "category": "official_patch_notes",
+    "trustLevel": "official",
+    "url": "https://news.blizzard.com/en-us/article/24271857/diablo-iv-patch-notes-3-0",
+    "lastChecked": "2026-06-28",
+    "use": [
+      "current_live_patch",
+      "build_number",
+      "patch_date"
+    ],
+    "notes": "Contains 3.0.4 Build #72271 dated 2026-06-10."
+  },
+  {
+    "id": "blizzard_patch_3_1",
+    "name": "Diablo IV Patch Notes 3.1.0",
+    "category": "official_patch_notes",
+    "trustLevel": "official",
+    "url": "https://news.blizzard.com/en-us/article/24287406/diablo-iv-patch-notes",
+    "lastChecked": "2026-06-28",
+    "use": [
+      "upcoming_patch",
+      "unique_item_guaranteed_affixes",
+      "balance_preview"
+    ],
+    "notes": "Published page for 3.1.0 Build #72578 dated 2026-06-30; future relative to 2026-06-28."
+  },
+  {
+    "id": "blizzard_season_death_awakening",
+    "name": "Hunt the Death Cult in Season of Death Awakening",
+    "category": "official_season_overview",
+    "trustLevel": "official",
+    "url": "https://news.blizzard.com/en-us/article/24268702/hunt-the-death-cult-in-season-of-death-awakening",
+    "lastChecked": "2026-06-28",
+    "use": [
+      "season_theme",
+      "seasonal_activity_context"
+    ],
+    "notes": "Use for season-specific guide context, not for item stat formulas."
+  },
+  {
+    "id": "maxroll_damage_guide",
+    "name": "Maxroll Diablo IV In-Depth Damage Guide",
+    "category": "community_mechanics",
+    "trustLevel": "community_verified",
+    "url": "https://maxroll.gg/d4/resources/in-depth-damage-guide",
+    "lastChecked": "2026-06-28",
+    "use": [
+      "damage_formula_reference",
+      "mechanic_explanation"
+    ],
+    "notes": "Community mechanics source. Keep formula assumptions explicit and verify representative samples in-game."
+  },
+  {
+    "id": "wowhead_damage_buckets",
+    "name": "Wowhead Diablo IV Damage Buckets Guide",
+    "category": "community_mechanics",
+    "trustLevel": "community_verified",
+    "url": "https://www.wowhead.com/diablo-4/guide/gameplay/damage-buckets",
+    "lastChecked": "2026-06-28",
+    "use": [
+      "damage_bucket_reference",
+      "tooltip_cross_check"
+    ],
+    "notes": "Use as secondary cross-check for tooltip-visible categories."
+  },
+  {
+    "id": "d4builds_database",
+    "name": "D4Builds Database",
+    "category": "community_database",
+    "trustLevel": "needs_validation",
+    "url": "https://d4builds.gg/database/gear-affixes/",
+    "lastChecked": "2026-06-28",
+    "use": [
+      "gear_affix_cross_check",
+      "planner_parity"
+    ],
+    "notes": "Accessible as a rendered Gatsby site during preflight; internal data shape should not be treated as stable API."
+  },
+  {
+    "id": "d4lf_repo",
+    "name": "d4lfteam/d4lf",
+    "category": "open_source_tooling",
+    "trustLevel": "community_verified",
+    "url": "https://github.com/d4lfteam/d4lf",
+    "lastChecked": "2026-06-28",
+    "use": [
+      "loot_filter_model_reference",
+      "item_tooltip_parsing_reference"
+    ],
+    "notes": "MIT repository updated near the project baseline; useful for parser ideas, not a canonical item database."
+  }
+]

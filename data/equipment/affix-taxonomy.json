@@ -1,0 +1,78 @@
+{
+  "version": "0.1.0",
+  "sourceStatus": "seeded_from_official_patch_terms_and_common_tooltips",
+  "rules": [
+    {
+      "match": "Weapon Damage",
+      "categoryId": "weapon_damage"
+    },
+    {
+      "match": "Primary Core Stat",
+      "categoryId": "primary_core_stat"
+    },
+    {
+      "match": "All Damage Multiplier",
+      "categoryId": "all_damage_multiplier"
+    },
+    {
+      "match": "Critical Strike Chance",
+      "categoryId": "critical_strike"
+    },
+    {
+      "match": "Critical Strike Damage Multiplier",
+      "categoryId": "critical_strike"
+    },
+    {
+      "match": "Vulnerable Damage Multiplier",
+      "categoryId": "vulnerable"
+    },
+    {
+      "match": "Overpower",
+      "categoryId": "overpower"
+    },
+    {
+      "match": "Attack Speed",
+      "categoryId": "attack_speed"
+    },
+    {
+      "match": "Cooldown Reduction",
+      "categoryId": "cooldown_reduction"
+    },
+    {
+      "match": "Resource",
+      "categoryId": "resource"
+    },
+    {
+      "match": "Maximum Life",
+      "categoryId": "survivability"
+    },
+    {
+      "match": "Armor",
+      "categoryId": "survivability"
+    },
+    {
+      "match": "Resistance",
+      "categoryId": "survivability"
+    },
+    {
+      "match": "Movement Speed",
+      "categoryId": "mobility"
+    },
+    {
+      "match": "Lucky Hit",
+      "categoryId": "lucky_hit"
+    },
+    {
+      "match": "Thorns",
+      "categoryId": "thorns"
+    },
+    {
+      "matchPrefix": "Skill Ranks to",
+      "categoryId": "skill_rank"
+    },
+    {
+      "matchSuffix": "Damage Multiplier",
+      "categoryId": "elemental_damage_multiplier"
+    }
+  ]
+}

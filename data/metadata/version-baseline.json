@@ -1,0 +1,41 @@
+{
+  "asOf": "2026-06-28",
+  "timezone": "Asia/Shanghai",
+  "effectiveLiveVersion": {
+    "game": "Diablo IV",
+    "patch": "3.0.4",
+    "build": "72271",
+    "platforms": "All Platforms",
+    "releaseDate": "2026-06-10",
+    "sourceId": "blizzard_patch_3_0",
+    "sourceUrl": "https://news.blizzard.com/en-us/article/24271857/diablo-iv-patch-notes-3-0"
+  },
+  "publishedUpcomingVersion": {
+    "game": "Diablo IV",
+    "patch": "3.1.0",
+    "build": "72578",
+    "platforms": "All Platforms",
+    "releaseDate": "2026-06-30",
+    "sourceId": "blizzard_patch_3_1",
+    "sourceUrl": "https://news.blizzard.com/en-us/article/24287406/diablo-iv-patch-notes"
+  },
+  "targetState": "current_live_with_3_1_preview",
+  "classSet": [
+    "barbarian",
+    "druid",
+    "necromancer",
+    "paladin",
+    "rogue",
+    "sorcerer",
+    "spiritborn",
+    "warlock"
+  ],
+  "dataCompleteness": {
+    "officialPatchMetadata": "seeded",
+    "officialUniqueGuaranteedAffixes": "importable_from_3_1_0_patch",
+    "fullBaseItems": "needs_source_backfill",
+    "fullLegendaryAspects": "needs_source_backfill",
+    "skillCoefficients": "needs_source_backfill",
+    "serverDamageOrder": "needs_validation"
+  }
+}

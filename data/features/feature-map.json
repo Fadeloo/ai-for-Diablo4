@@ -1,0 +1,62 @@
+[
+  {
+    "id": "version_and_sources",
+    "zhName": "版本与来源治理",
+    "status": "seeded",
+    "primaryFiles": ["data/metadata/version-baseline.json", "data/sources/source-registry.json", "docs/DATA_SOURCES.md"]
+  },
+  {
+    "id": "class_season_start",
+    "zhName": "各职业赛季开荒",
+    "status": "seeded",
+    "primaryFiles": ["data/classes/classes.json", "data/builds/season-start-plans.json", "docs/SEASON_START_GUIDE.md"]
+  },
+  {
+    "id": "equipment_database",
+    "zhName": "装备与词缀数据库",
+    "status": "partial_official_unique_affix_seed",
+    "primaryFiles": ["data/equipment/slots.json", "data/equipment/stat-categories.json", "data/equipment/affix-taxonomy.json", "data/generated/official-3.1.0-guaranteed-unique-affixes.json"]
+  },
+  {
+    "id": "damage_calculation",
+    "zhName": "伤害计算",
+    "status": "seeded_expected_value_model",
+    "primaryFiles": ["src/damage/calculate.js", "docs/DAMAGE_MODEL.md"]
+  },
+  {
+    "id": "build_design",
+    "zhName": "流派构筑设计",
+    "status": "seeded",
+    "primaryFiles": ["data/builds/archetypes.json", "src/build/score.js", "docs/BUILD_DESIGN.md"]
+  },
+  {
+    "id": "gear_scoring",
+    "zhName": "装备评分与配装筛选",
+    "status": "seeded",
+    "primaryFiles": ["src/build/score.js", "data/equipment/affix-taxonomy.json"]
+  },
+  {
+    "id": "paragon_and_glyphs",
+    "zhName": "巅峰盘与雕文",
+    "status": "planned",
+    "primaryFiles": []
+  },
+  {
+    "id": "boss_loot_tables",
+    "zhName": "Boss 与掉落表",
+    "status": "planned",
+    "primaryFiles": []
+  },
+  {
+    "id": "season_mechanics",
+    "zhName": "赛季机制与活动",
+    "status": "source_registered",
+    "primaryFiles": ["data/sources/source-registry.json"]
+  },
+  {
+    "id": "frontend_or_bot",
+    "zhName": "前端/机器人/交互查询",
+    "status": "planned",
+    "primaryFiles": []
+  }
+]

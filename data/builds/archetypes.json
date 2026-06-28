@@ -1,0 +1,69 @@
+[
+  {
+    "classId": "barbarian",
+    "archetypes": [
+      {"id": "weapon_core", "zhName": "武器核心技", "primaryStats": ["weapon_damage", "skill_rank", "resource", "critical_strike"]},
+      {"id": "bleed_dot", "zhName": "流血持续伤", "primaryStats": ["skill_rank", "additive_damage", "cooldown_reduction", "survivability"]},
+      {"id": "thorns", "zhName": "荆棘反伤", "primaryStats": ["thorns", "survivability", "all_damage_multiplier"]}
+    ]
+  },
+  {
+    "classId": "druid",
+    "archetypes": [
+      {"id": "storm_earth", "zhName": "风暴/大地", "primaryStats": ["skill_rank", "elemental_damage_multiplier", "resource"]},
+      {"id": "companion", "zhName": "同伴", "primaryStats": ["skill_rank", "cooldown_reduction", "attack_speed"]},
+      {"id": "shapeshift", "zhName": "变形", "primaryStats": ["survivability", "all_damage_multiplier", "critical_strike"]}
+    ]
+  },
+  {
+    "classId": "necromancer",
+    "archetypes": [
+      {"id": "minion", "zhName": "召唤", "primaryStats": ["skill_rank", "attack_speed", "survivability"]},
+      {"id": "blood_overpower", "zhName": "鲜血压制", "primaryStats": ["overpower", "survivability", "resource"]},
+      {"id": "bone_crit", "zhName": "白骨暴击", "primaryStats": ["critical_strike", "vulnerable", "skill_rank"]},
+      {"id": "shadow_dot", "zhName": "暗影持续伤", "primaryStats": ["additive_damage", "cooldown_reduction", "resource"]}
+    ]
+  },
+  {
+    "classId": "paladin",
+    "archetypes": [
+      {"id": "shield_bash", "zhName": "盾击", "primaryStats": ["skill_rank", "survivability", "all_damage_multiplier"]},
+      {"id": "blessed_hammer", "zhName": "祝福之锤", "primaryStats": ["weapon_damage", "skill_rank", "attack_speed"]},
+      {"id": "aura_juggernaut", "zhName": "光环/重装", "primaryStats": ["cooldown_reduction", "survivability", "resource"]}
+    ]
+  },
+  {
+    "classId": "rogue",
+    "archetypes": [
+      {"id": "marksman", "zhName": "射手", "primaryStats": ["vulnerable", "critical_strike", "mobility"]},
+      {"id": "cutthroat", "zhName": "近战", "primaryStats": ["attack_speed", "resource", "survivability"]},
+      {"id": "trap_imbue", "zhName": "陷阱/灌注", "primaryStats": ["cooldown_reduction", "elemental_damage_multiplier", "lucky_hit"]}
+    ]
+  },
+  {
+    "classId": "sorcerer",
+    "archetypes": [
+      {"id": "fire", "zhName": "火焰", "primaryStats": ["elemental_damage_multiplier", "resource", "skill_rank"]},
+      {"id": "frost", "zhName": "冰霜", "primaryStats": ["vulnerable", "cooldown_reduction", "survivability"]},
+      {"id": "shock", "zhName": "电击", "primaryStats": ["attack_speed", "critical_strike", "lucky_hit"]},
+      {"id": "conjuration", "zhName": "召唤", "primaryStats": ["skill_rank", "cooldown_reduction", "all_damage_multiplier"]}
+    ]
+  },
+  {
+    "classId": "spiritborn",
+    "archetypes": [
+      {"id": "jaguar_eagle", "zhName": "美洲豹/雄鹰", "primaryStats": ["attack_speed", "mobility", "critical_strike"]},
+      {"id": "gorilla", "zhName": "猩猩坚韧", "primaryStats": ["survivability", "overpower", "resource"]},
+      {"id": "centipede", "zhName": "蜈蚣持续伤", "primaryStats": ["additive_damage", "lucky_hit", "cooldown_reduction"]}
+    ]
+  },
+  {
+    "classId": "warlock",
+    "archetypes": [
+      {"id": "demonology", "zhName": "恶魔学", "primaryStats": ["skill_rank", "cooldown_reduction", "survivability"]},
+      {"id": "hellfire", "zhName": "地狱火", "primaryStats": ["elemental_damage_multiplier", "weapon_damage", "critical_strike"]},
+      {"id": "abyss_sigils", "zhName": "深渊/符印", "primaryStats": ["skill_rank", "resource", "lucky_hit"]},
+      {"id": "doom_dot", "zhName": "毁灭持续伤", "primaryStats": ["additive_damage", "all_damage_multiplier", "cooldown_reduction"]}
+    ]
+  }
+]
