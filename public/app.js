@@ -6,11 +6,12 @@ const paths = {
   uniques: "./data/generated/official-3.1.0-guaranteed-unique-affixes.json",
   equipment: "./data/equipment/equipment-library.json",
   simulations: "./data/generated/build-simulations.json",
+  buildGuides: "./data/generated/build-guides.json",
   categories: "./data/equipment/stat-categories.json",
   sources: "./data/sources/source-registry.json"
 };
 
-const viewIds = ["home", "builds", "equipment", "classes", "damage", "forecast", "sources"];
+const viewIds = ["home", "builds", "bd", "equipment", "classes", "damage", "forecast", "sources"];
 const routeAliases = {
   simulator: "builds"
 };
@@ -21,7 +22,9 @@ const state = {
   archetypes: [],
   equipment: [],
   simulations: null,
+  buildGuides: null,
   activeView: "home",
+  selectedGuideId: null,
   selectedClassId: "barbarian",
   selectedEquipmentId: null,
   sim: {
@@ -128,14 +131,34 @@ async function loadJson(path) {
   return response.json();
 }
 
-function normalizeView(viewId) {
-  const normalized = routeAliases[viewId] || viewId;
-  return viewIds.includes(normalized) ? normalized : "home";
+function parseRoute(route) {
+  const clean = (route || "home").replace(/^#/, "") || "home";
+  if (clean.startsWith("bd/")) {
+    return {
+      view: "bd",
+      guideId: decodeURIComponent(clean.slice(3))
+    };
+  }
+  const normalized = routeAliases[clean] || clean;
+  return {
+    view: viewIds.includes(normalized) ? normalized : "home",
+    guideId: null
+  };
 }
 
-function setView(viewId, options = {}) {
-  const normalized = normalizeView(viewId);
+function normalizeView(viewId) {
+  return parseRoute(viewId).view;
+}
+
+function navView(viewId) {
+  return viewId === "bd" ? "builds" : viewId;
+}
+
+function setView(route, options = {}) {
+  const parsed = parseRoute(route);
+  const normalized = parsed.view;
   state.activeView = normalized;
+  if (parsed.guideId) state.selectedGuideId = parsed.guideId;
   document.body.dataset.view = normalized;
 
   document.querySelectorAll(".view[data-view]").forEach((view) => {
@@ -143,15 +166,20 @@ function setView(viewId, options = {}) {
   });
   document.querySelectorAll("[data-view-link]").forEach((link) => {
     const target = normalizeView(link.getAttribute("href")?.replace("#", "") || "home");
-    if (target === normalized) {
+    if (navView(target) === navView(normalized)) {
       link.setAttribute("aria-current", "page");
     } else {
       link.removeAttribute("aria-current");
     }
   });
 
-  if (options.replaceHash && window.location.hash !== `#${normalized}`) {
-    history.replaceState(null, "", `#${normalized}`);
+  if (normalized === "bd") renderBuildGuideDetail();
+
+  const desiredHash = normalized === "bd" && state.selectedGuideId
+    ? `#bd/${encodeURIComponent(state.selectedGuideId)}`
+    : `#${normalized}`;
+  if (options.replaceHash && window.location.hash !== desiredHash) {
+    history.replaceState(null, "", desiredHash);
   }
   window.scrollTo(0, 0);
 }
@@ -328,133 +356,333 @@ function renderSelects() {
   $("[data-sim-season]").value = state.sim.seasonId;
 }
 
+function allBuildGuides() {
+  return state.buildGuides?.builds || [];
+}
+
+function guideUrl(guide) {
+  return `#bd/${encodeURIComponent(guide.id)}`;
+}
+
+function filteredGuides() {
+  return allBuildGuides()
+    .filter((guide) => guide.taxonomy.seasonId === state.sim.seasonId)
+    .filter((guide) => guide.taxonomy.classId === state.sim.classId)
+    .filter((guide) => guide.taxonomy.mode === state.sim.mode)
+    .sort((a, b) => a.ceiling.pit150Minutes - b.ceiling.pit150Minutes || a.formationDifficulty.level - b.formationDifficulty.level);
+}
+
+function renderTags(tags, limit = 8) {
+  return (tags || []).slice(0, limit).map((tag) => `<span>${tag}</span>`).join("");
+}
+
+function renderCoreUniques(guide, limit = 4) {
+  return guide.coreUniques.slice(0, limit)
+    .map((item) => `
+      <span class="mini-item">
+        ${renderIcon(item, `${item.zhName}图标`)}
+        <b>${item.zhName}</b>
+      </span>
+    `)
+    .join("");
+}
+
+function renderBuildLibraryCard(guide) {
+  return `
+    <article class="guide-card">
+      <div class="guide-card__head">
+        <div>
+          <p class="panel-kicker">${guide.taxonomy.className} · ${guide.taxonomy.modeName}</p>
+          <h3>${guide.taxonomy.archetypeName}</h3>
+        </div>
+        <strong>${guide.ceiling.tier}</strong>
+      </div>
+      <p>${guide.summary.oneLine}</p>
+      <div class="guide-card__tags">${renderTags(guide.taxonomy.stageTags)}</div>
+      <div class="guide-card__metrics">
+        <span><b>${guide.formationDifficulty.label}</b>成型难度</span>
+        <span><b>${guide.ceiling.pit150Minutes} 分</b>150 层参考</span>
+        <span><b>${guide.gearSlots.length}</b>装备位置</span>
+      </div>
+      <div class="guide-card__items">${renderCoreUniques(guide, 3)}</div>
+      <a class="button button-secondary" href="${guideUrl(guide)}">查看完整 BD</a>
+    </article>
+  `;
+}
+
 function renderSimulator() {
-  const row = state.simulations.rows.find(
-    (item) => item.seasonId === state.sim.seasonId && item.classId === state.sim.classId
-  );
-  if (!row) return;
-  const mode = row.modes[state.sim.mode];
-  if (!mode.topBuilds[state.sim.buildIndex]) state.sim.buildIndex = 0;
-  const best = mode.topBuilds[state.sim.buildIndex] ?? mode.topBuilds[0];
-  const guide = best.guide;
+  const guides = filteredGuides();
+  const selected = guides[state.sim.buildIndex] || guides[0] || null;
+  if (!guides.some((guide) => guide.id === state.selectedGuideId)) {
+    state.selectedGuideId = selected?.id || null;
+  }
 
   $("[data-build-candidates]").innerHTML = `
     <div class="side-panel-title">
-      <span>${row.zhName} · ${mode.modeName}</span>
-      <strong>${mode.topBuilds.length} 套候选</strong>
+      <span>${className(state.sim.classId)} · ${modeName(state.sim.mode)}</span>
+      <strong>${guides.length} 套 BD</strong>
     </div>
-    ${mode.topBuilds.map((build, index) => `
-      <button class="build-candidate" type="button" data-build-index="${index}" aria-selected="${index === state.sim.buildIndex}">
+    ${guides.map((guide, index) => `
+      <a class="build-candidate guide-link" href="${guideUrl(guide)}" aria-selected="${index === state.sim.buildIndex}">
         <span>${String(index + 1).padStart(2, "0")}</span>
-        <strong>${build.archetypeName}</strong>
-        <em>${build.predictedPit150Minutes} 分 · 置信度 ${percent(build.confidence)}</em>
-      </button>
+        <strong>${guide.taxonomy.archetypeName}</strong>
+        <em>${guide.taxonomy.stageTags.join(" / ")} · 成型${guide.formationDifficulty.label} · ${guide.ceiling.tier}</em>
+      </a>
     `).join("")}
   `;
 
-  const recommendedItems = best.recommendedItems
-    .slice(0, 6)
-    .map((item) => `
-      <article class="sim-item">
-        ${renderIcon(item, `${itemName(item)}图标`)}
-        <div>
-          <strong>${itemName(item)}</strong>
-          <span>${itemAffixes(item).join(" / ") || "词缀待回填"}</span>
-        </div>
-      </article>
-    `)
-    .join("");
-  const gearReasons = guide.gearPlan.recommendedItems
-    .map((item) => `
-      <li>
-        <strong>${item.zhName}</strong>
-        <span>${item.zhVisualType} · ${item.reason}</span>
-      </li>
-    `)
-    .join("");
-  const dataCompleteness = Object.values(guide.dataCompleteness)
-    .map((line) => `<span>${line}</span>`)
-    .join("");
+  if (!guides.length) {
+    $("[data-sim-result]").innerHTML = `
+      <div class="empty-panel">
+        <p class="panel-kicker">没有匹配 BD</p>
+        <h3>调整赛季、职业或用途</h3>
+        <p>当前筛选条件没有找到构筑档案。</p>
+      </div>
+    `;
+    return;
+  }
 
+  const modeLabel = modeName(state.sim.mode);
   $("[data-sim-result]").innerHTML = `
-    <div class="detail-head">
+    <div class="library-head">
       <div>
-        <p class="panel-kicker">${className(row.classId)} · ${modeName(state.sim.mode)}</p>
-        <h3>${best.archetypeName}</h3>
+        <p class="panel-kicker">BD 大厅</p>
+        <h3>${className(state.sim.classId)} · ${modeLabel}</h3>
+        <p>每张卡进入独立 BD 详情页，详情页按装备、技能、巅峰、打法和替换件分区阅读。</p>
       </div>
-      <div class="score-tile">
-        <strong>${best.predictedPit150Minutes}</strong>
-        <span>150层分钟</span>
+      <div class="library-stats">
+        <span><b>${guides.length}</b>套流派</span>
+        <span><b>${guides[0].ceiling.label}</b>最高参考</span>
       </div>
     </div>
-    <div class="stat-strip">
-      <span>模型分 ${best.score}</span>
-      <span>置信度 ${percent(best.confidence)}</span>
-      <span>${row.zhModelStatus || row.modelStatus}</span>
+    <div class="guide-card-grid">
+      ${guides.map(renderBuildLibraryCard).join("")}
     </div>
-    <p class="detail-summary">${guide.summary}</p>
-    <p class="detail-rationale">${best.rationale.join(" ")}</p>
-    <section class="detail-section">
-      <div class="section-title">
-        <h4>关键装备</h4>
-        <span>推荐优先级</span>
-      </div>
-      <div class="sim-items">${recommendedItems}</div>
-    </section>
-    <section class="detail-section">
-      <div class="section-title">
-        <h4>技能加点</h4>
-        <span>${guide.skillPlan.core}</span>
-      </div>
-      <div class="skill-bar">${guide.skillPlan.bar.map((skill) => `<span>${skill}</span>`).join("")}</div>
-      <ol class="compact-list">${listItems(guide.skillPlan.priority)}</ol>
-    </section>
-    <section class="detail-section two-column-detail">
-      <article>
-        <div class="section-title">
-          <h4>巅峰路线</h4>
-          <span>盘面模板</span>
-        </div>
-        <ol class="compact-list">${listItems(guide.paragonPlan.boardRoute)}</ol>
-        <p>${guide.paragonPlan.rule}</p>
-        <div class="tag-row">${guide.paragonPlan.glyphPriority.map((tag) => `<span>${tag}</span>`).join("")}</div>
-      </article>
-      <article>
-        <div class="section-title">
-          <h4>装备策略</h4>
-          <span>词缀优先级</span>
-        </div>
-        <div class="tag-row">${guide.gearPlan.statPriority.map((tag) => `<span>${tag}</span>`).join("")}</div>
-        <ol class="compact-list">${listItems(guide.gearPlan.slotPriority)}</ol>
-      </article>
-    </section>
-    <section class="detail-section two-column-detail">
-      <article>
-        <div class="section-title">
-          <h4>装备命中理由</h4>
-          <span>当前推荐</span>
-        </div>
-        <ul class="gear-reason-list">${gearReasons}</ul>
-      </article>
-      <article>
-        <div class="section-title">
-          <h4>打法与开荒</h4>
-          <span>循环/迁移</span>
-        </div>
-        <ol class="compact-list">${listItems(guide.rotation)}</ol>
-        <ol class="compact-list muted-list">${listItems(guide.leveling)}</ol>
-      </article>
-    </section>
-    <section class="detail-section">
-      <div class="section-title">
-        <h4>数据完整度</h4>
-        <span>可审计边界</span>
-      </div>
-      <div class="data-badges">${dataCompleteness}</div>
-      <p class="sim-warning">${state.simulations.zhWarning || state.simulations.warning}</p>
-    </section>
   `;
   bindImageFallbacks($("[data-sim-result]"));
+}
+
+function renderGearSlot(slot) {
+  return `
+    <article class="gear-slot-card ${slot.core ? "is-core" : ""}">
+      <div class="gear-slot-card__top">
+        <span>${slot.zhSlotName}</span>
+        <strong>${slot.replaceable ? "可替换" : "核心不可替换"}</strong>
+      </div>
+      <div class="gear-slot-card__main">
+        ${renderIcon(slot.target, `${slot.target.zhName}图标`)}
+        <div>
+          <h4>${slot.target.zhName}</h4>
+          <p>${slot.target.description}</p>
+        </div>
+      </div>
+      <div class="gear-slot-card__flags">
+        <span>${slot.priority}</span>
+        <span>${slot.aspect.name}</span>
+      </div>
+      <dl class="gear-lines">
+        <div><dt>词缀</dt><dd>${slot.affixes.join(" / ")}</dd></div>
+        <div><dt>淬炼</dt><dd>${slot.tempers.join(" / ")}</dd></div>
+        <div><dt>精造</dt><dd>${slot.masterwork.join(" / ")}</dd></div>
+        <div><dt>宝石</dt><dd>${slot.sockets.join(" / ")}</dd></div>
+      </dl>
+      <div class="slot-alternatives">
+        <strong>替换方案</strong>
+        <ul>${slot.alternatives.map((alt) => `<li><b>${alt.zhName}</b><span>${alt.reason} ${alt.tradeoff}</span></li>`).join("")}</ul>
+      </div>
+    </article>
+  `;
+}
+
+function renderGuideDetailSection(title, subtitle, body, key) {
+  return `
+    <section class="guide-section" data-guide-section="${key}">
+      <div class="section-title">
+        <h4>${title}</h4>
+        <span>${subtitle}</span>
+      </div>
+      ${body}
+    </section>
+  `;
+}
+
+function renderSkillTree(skillTree) {
+  return `
+    <div class="skill-layout">
+      <div class="skill-bar-large">
+        ${skillTree.skillBar.map((skill) => `
+          <article>
+            <span>${skill.slot}</span>
+            <strong>${skill.name}</strong>
+            <em>${skill.role} · ${skill.points} 点</em>
+          </article>
+        `).join("")}
+      </div>
+      <ol class="timeline-list">
+        ${skillTree.pointOrder.map((item) => `
+          <li>
+            <span>${item.step}</span>
+            <div><strong>${item.levelRange} · ${item.skill}</strong><p>${item.points}。${item.reason}</p></div>
+          </li>
+        `).join("")}
+      </ol>
+    </div>
+  `;
+}
+
+function renderParagon(paragon) {
+  return `
+    <div class="paragon-layout">
+      <div class="paragon-boards">
+        ${paragon.boardOrder.map((board) => `
+          <article>
+            <span>${board.order}</span>
+            <strong>${board.name}</strong>
+            <p>${board.goal}</p>
+            <em>${board.glyph} · ${board.rotate}</em>
+          </article>
+        `).join("")}
+      </div>
+      <ol class="timeline-list">
+        ${paragon.clickOrder.map((item) => `
+          <li>
+            <span>${item.step}</span>
+            <div><strong>${item.board} · ${item.node}</strong><p>${item.reason}</p></div>
+          </li>
+        `).join("")}
+      </ol>
+    </div>
+  `;
+}
+
+function renderGameplay(gameplay) {
+  const blocks = [
+    ["起手", gameplay.opener],
+    ["循环", gameplay.loop],
+    ["首领", gameplay.boss],
+    ["防御", gameplay.defense],
+    ["速刷", gameplay.speedFarm],
+    ["常见错误", gameplay.commonMistakes]
+  ];
+  return `
+    <div class="gameplay-grid">
+      ${blocks.map(([title, lines]) => `
+        <article>
+          <h5>${title}</h5>
+          <ol>${listItems(lines)}</ol>
+        </article>
+      `).join("")}
+    </div>
+  `;
+}
+
+function renderBuildGuideDetail() {
+  const panel = $("[data-build-guide-detail]");
+  if (!panel) return;
+  const guide = allBuildGuides().find((item) => item.id === state.selectedGuideId) || allBuildGuides()[0];
+  if (!guide) {
+    panel.innerHTML = `
+      <div class="empty-panel">
+        <p class="panel-kicker">BD 未加载</p>
+        <h3>没有可展示的构筑档案</h3>
+      </div>
+    `;
+    return;
+  }
+  state.selectedGuideId = guide.id;
+
+  const navItems = [
+    ["overview", "总览"],
+    ["gear", "装备"],
+    ["skills", "技能"],
+    ["paragon", "巅峰"],
+    ["gameplay", "打法"],
+    ["variants", "替换"],
+    ["sources", "来源"]
+  ];
+
+  panel.innerHTML = `
+    <div class="guide-detail-shell">
+      <header class="guide-hero" data-guide-section="overview">
+        <a class="guide-back" href="#builds">返回 BD 大厅</a>
+        <div class="guide-hero__main">
+          <div>
+            <p class="panel-kicker">${guide.taxonomy.seasonName} · ${guide.taxonomy.className} · ${guide.taxonomy.modeName}</p>
+            <h2>${guide.taxonomy.archetypeName}</h2>
+            <p>${guide.summary.oneLine}</p>
+            <div class="guide-card__tags">${renderTags(guide.taxonomy.tags)}</div>
+          </div>
+          <div class="guide-hero__score">
+            <strong>${guide.ceiling.tier}</strong>
+            <span>${guide.ceiling.label}</span>
+          </div>
+        </div>
+        <div class="guide-kpi-grid">
+          <span><b>${guide.formationDifficulty.label}</b>成型难度</span>
+          <span><b>${guide.taxonomy.stage}</b>适用阶段</span>
+          <span><b>${guide.gearSlots.length}</b>装备位置</span>
+          <span><b>${guide.coreUniques.length}</b>核心暗金</span>
+        </div>
+      </header>
+
+      <nav class="guide-section-nav" aria-label="BD 分区导航">
+        ${navItems.map(([key, label]) => `<button type="button" data-guide-jump="${key}">${label}</button>`).join("")}
+      </nav>
+
+      ${renderGuideDetailSection("核心装备", "暗金与威能", `
+        <div class="core-item-strip">${renderCoreUniques(guide, 5)}</div>
+        <div class="guide-two-col">
+          <article>
+            <h5>优点</h5>
+            <ul>${listItems(guide.summary.pros)}</ul>
+          </article>
+          <article>
+            <h5>短板</h5>
+            <ul>${listItems(guide.summary.cons)}</ul>
+          </article>
+        </div>
+      `, "overview")}
+
+      ${renderGuideDetailSection("全身装备", "每个位置、替换件和精造方向", `
+        <div class="gear-slot-grid">${guide.gearSlots.map(renderGearSlot).join("")}</div>
+      `, "gear")}
+
+      ${renderGuideDetailSection("技能加点", `${guide.skillTree.core} · 按等级段执行`, renderSkillTree(guide.skillTree), "skills")}
+
+      ${renderGuideDetailSection("巅峰点击顺序", "先雕文孔和传奇节点，再补稀有与魔法节点", renderParagon(guide.paragon), "paragon")}
+
+      ${renderGuideDetailSection("打法", "起手、循环、首领、防御和常见错误", renderGameplay(guide.gameplay), "gameplay")}
+
+      ${renderGuideDetailSection("替换与变体", "缺件、冲层和高容错版本", `
+        <div class="variant-grid">
+          ${guide.variants.map((variant) => `
+            <article>
+              <h5>${variant.name}</h5>
+              <p>${variant.useCase}</p>
+              <dl>
+                <div><dt>换下</dt><dd>${variant.swapOut}</dd></div>
+                <div><dt>换上</dt><dd>${variant.swapIn}</dd></div>
+              </dl>
+              <span>${variant.notes}</span>
+            </article>
+          `).join("")}
+        </div>
+      `, "variants")}
+
+      ${renderGuideDetailSection("来源与状态", `${guide.gameVersion.patch} 构建 #${guide.gameVersion.build}`, `
+        <div class="source-status-grid">
+          <article><strong>作者</strong><span>${guide.source.authorName}</span></article>
+          <article><strong>更新时间</strong><span>${guide.source.updatedAt}</span></article>
+          <article><strong>已确认</strong><span>${guide.dataQuality.officialFields.join(" / ")}</span></article>
+          <article><strong>待补全</strong><span>${guide.dataQuality.needsValidation.join(" / ")}</span></article>
+        </div>
+        <div class="source-actions">
+          <a href="${guide.gameVersion.sourceUrl}" target="_blank" rel="noreferrer">查看官方补丁来源</a>
+        </div>
+      `, "sources")}
+    </div>
+  `;
+  bindImageFallbacks(panel);
 }
 
 function renderClasses() {
@@ -637,7 +865,7 @@ function renderForecast() {
     </div>
     <div class="forecast-table">
       <div class="forecast-row forecast-row-head">
-        <span>职业</span><span>冲层</span><span>速刷</span><span>日常</span><span>150层预测</span>
+        <span>职业</span><span>冲层</span><span>速刷</span><span>日常</span><span>150层参考</span>
       </div>
       ${rows.map(({ item, push, speed, daily }) => `
         <div class="forecast-row">
@@ -645,7 +873,7 @@ function renderForecast() {
           <span>${push.archetypeName}</span>
           <span>${speed.archetypeName}</span>
           <span>${daily.archetypeName}</span>
-          <em>${push.predictedPit150Minutes} 分 · ${percent(push.confidence)}</em>
+          <em>${push.predictedPit150Minutes} 分参考</em>
         </div>
       `).join("")}
     </div>
@@ -733,10 +961,17 @@ function bindInteractions() {
     state.equipmentFilters.visible += 48;
     renderEquipment();
   });
+
+  document.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-guide-jump]");
+    if (!button) return;
+    const section = $(`[data-guide-section="${button.dataset.guideJump}"]`);
+    section?.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
 }
 
 async function init() {
-  const [version, classes, plans, archetypes, uniques, equipment, simulations, sources] = await Promise.all([
+  const [version, classes, plans, archetypes, uniques, equipment, simulations, buildGuides, sources] = await Promise.all([
     loadJson(paths.version),
     loadJson(paths.classes),
     loadJson(paths.plans),
@@ -744,6 +979,7 @@ async function init() {
     loadJson(paths.uniques),
     loadJson(paths.equipment),
     loadJson(paths.simulations),
+    loadJson(paths.buildGuides),
     loadJson(paths.sources)
   ]);
 
@@ -752,12 +988,13 @@ async function init() {
   state.archetypes = archetypes;
   state.equipment = equipment.items;
   state.simulations = simulations;
+  state.buildGuides = buildGuides;
 
   $("[data-live-patch]").textContent = `${version.effectiveLiveVersion.patch} 当前`;
   $("[data-version-line]").textContent = `${version.effectiveLiveVersion.patch} 当前 / ${version.publishedUpcomingVersion.patch} 预览`;
   $("[data-class-count]").textContent = classes.length;
   $("[data-unique-count]").textContent = uniques.itemCount;
-  $("[data-build-count]").textContent = archetypes.reduce((total, item) => total + item.archetypes.length, 0);
+  $("[data-build-count]").textContent = buildGuides.buildCount || archetypes.reduce((total, item) => total + item.archetypes.length, 0);
 
   renderSelects();
   renderSimulator();

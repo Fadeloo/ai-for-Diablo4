@@ -23,6 +23,7 @@ const sources = await readJson("data/sources/source-registry.json");
 const features = await readJson("data/features/feature-map.json");
 const equipmentLibrary = await readJson("data/equipment/equipment-library.json");
 const simulations = await readJson("data/generated/build-simulations.json");
+const buildGuides = await readJson("data/generated/build-guides.json");
 const iconIndex = await readJson("data/generated/d4builds-icon-index.json");
 
 assert(version.effectiveLiveVersion.patch === "3.0.4", "Expected live patch 3.0.4");
@@ -90,6 +91,42 @@ for (const row of simulations.rows) {
       assert(build.guide?.dataCompleteness?.equipmentAffixes, `Build guide needs data status for ${row.classId}/${mode}/${build.archetypeId}`);
     }
   }
+}
+
+const archetypeCount = archetypes.reduce((total, group) => total + group.archetypes.length, 0);
+const expectedBuildGuideCount = simulations.seasons.length * archetypeCount * 3;
+assert(buildGuides.scope === "structured_build_guides_for_diablo4_guide_site", "Build guide scope mismatch");
+assert(buildGuides.buildCount === buildGuides.builds.length, "Build guide count mismatch");
+assert(buildGuides.builds.length === expectedBuildGuideCount, `Expected ${expectedBuildGuideCount} structured build guides`);
+assert(buildGuides.slotOrder.length >= 11, "Build guides need full gear slot order");
+
+const guideIds = new Set();
+for (const guide of buildGuides.builds) {
+  assert(!guideIds.has(guide.id), `Duplicate build guide id: ${guide.id}`);
+  guideIds.add(guide.id);
+  assert(classIds.includes(guide.taxonomy.classId), `Unknown build guide class: ${guide.id}`);
+  assert(["pit_push", "speed_farm", "daily"].includes(guide.taxonomy.mode), `Unknown build guide mode: ${guide.id}`);
+  assert(guide.title && guide.summary?.oneLine, `Build guide needs Chinese title and summary: ${guide.id}`);
+  assert(guide.formationDifficulty?.label && guide.formationDifficulty?.reasons?.length >= 2, `Build guide needs formation difficulty: ${guide.id}`);
+  assert(guide.ceiling?.tier && typeof guide.ceiling.pit150Minutes === "number", `Build guide needs ceiling reference: ${guide.id}`);
+  assert(guide.gearSlots?.length === buildGuides.slotOrder.length, `Build guide needs every gear slot: ${guide.id}`);
+  assert(guide.gearSlots.every((slot) => slot.zhSlotName && typeof slot.replaceable === "boolean" && slot.target?.zhName), `Each gear slot needs replacement status and target item: ${guide.id}`);
+  assert(guide.gearSlots.every((slot) => slot.affixes?.length >= 3 && slot.alternatives?.length >= 2), `Each gear slot needs affixes and alternatives: ${guide.id}`);
+  assert(guide.coreUniques?.length >= 2 || guide.coreAspects?.length >= 4, `Build guide needs core uniques/aspects: ${guide.id}`);
+  assert(guide.skillTree?.skillBar?.length === 6, `Build guide needs six skill bar entries: ${guide.id}`);
+  assert(guide.skillTree?.pointOrder?.length >= 10, `Build guide needs skill point order: ${guide.id}`);
+  assert(guide.paragon?.boardOrder?.length >= 4, `Build guide needs paragon boards: ${guide.id}`);
+  assert(guide.paragon?.clickOrder?.length >= 10, `Build guide needs paragon click order: ${guide.id}`);
+  assert(guide.gameplay?.opener?.length && guide.gameplay?.loop?.length && guide.gameplay?.boss?.length, `Build guide needs gameplay sections: ${guide.id}`);
+  assert(guide.variants?.length >= 3, `Build guide needs replacement variants: ${guide.id}`);
+}
+
+const frontendText = [
+  await readFile(path.join(PROJECT_ROOT, "index.html"), "utf8"),
+  await readFile(path.join(PROJECT_ROOT, "public/app.js"), "utf8")
+].join("\n");
+for (const forbidden of ["模型分", "先选目标", "rationale", "完整 BD 细节", "模型预估"]) {
+  assert(!frontendText.includes(forbidden), `Frontend still contains non-guide copy: ${forbidden}`);
 }
 
 const sample = calculateExpectedDps({
