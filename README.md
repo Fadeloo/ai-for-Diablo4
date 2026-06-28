@@ -22,7 +22,7 @@
 - `data/generated/d4builds-icon-index.json`：278 条唯一装备的第三方外部图标 URL 索引，不下载或提交图标文件。
 - `data/builds/`：职业流派原型和赛季开荒计划。
 - `data/generated/build-simulations.json`：未来三个赛季窗口的冲层、速刷、日常配装矩阵，用于 150 层速度参考页。
-- `data/generated/build-guides.json`：243 套结构化 BD 档案，覆盖三赛季、全职业、多流派和三种用途，含装备槽位、替换件、技能加点顺序、巅峰点击顺序、核心暗金/威能、打法和变体；其中 27 套 S14 BD 已接入暗黑核或 Mobalytics 社区来源覆盖，包含 18 套同赛季社区参考和 9 套跨赛季参考。
+- `data/generated/build-guides.json`：243 套结构化 BD 档案，覆盖三赛季、全职业、多流派和三种用途，含装备槽位、替换件、技能加点顺序、巅峰点击顺序、核心暗金/威能、打法和变体；其中 30 套 S14 BD 已接入暗黑核或 Mobalytics 社区来源覆盖，包含 21 套同赛季社区参考和 9 套跨赛季参考。
 - `scripts/lib/zh-localization.mjs`：中文显示层，给装备名、固定词缀、资源、来源、模型状态和赛季说明生成中文字段。
 - `data/features/feature-map.json`：攻略项目功能地图和当前状态。
 - `src/damage/calculate.js`：可解释的伤害期望值模型。

@@ -2414,5 +2414,303 @@
       {"name": "凯西米成型点", "useCase": "拿到凯西米的传承后。", "swapOut": "传奇裤子", "swapIn": "凯西米的传承", "notes": "这是从日常过渡到完整血浪的分界线。"},
       {"name": "资源稳定版", "useCase": "血浪循环断档或资源不足。", "swapOut": "一处纯伤害戒指", "swapIn": "资源威能或无星夜空之戒", "notes": "牺牲爆发，换日常手感。"}
     ]
+  },
+  {
+    "id": "s14-druid-storm_earth-pit_push",
+    "sourceReference": {
+      "site": "Mobalytics",
+      "url": "https://mobalytics.gg/diablo-4/builds/druid-zaior-pulverize-druid",
+      "sourceSeason": "S14 死亡觉醒",
+      "referenceTitle": "S14 Pulverize Druid",
+      "asOf": "2026-06-28",
+      "note": "Mobalytics 页面标注为 S14 Pulverize Druid，2026-06-25 更新，含装备、技能、巅峰、Spirit Boons、变体、开荒/中期/终局分段和玩法说明；本站按中文资料页结构整理。"
+    },
+    "title": "S14 死亡觉醒 德鲁伊 · 震波粉碎冲层",
+    "archetypeName": "震波粉碎",
+    "summary": {
+      "oneLine": "德鲁伊「震波粉碎」冲层 BD，围绕粉碎、震波威能、熊人形态、灰熊狂怒和净化光明使者建立高范围清场与稳定首领输出。",
+      "pros": ["成型后范围伤害极高", "来源标注可用于冲层、速刷和开荒", "核心技能手感直接，适合新手入门"],
+      "cons": ["冷却、资源和熊人覆盖不足时手感断档", "终局上限依赖净化光明使者和震波威能", "巅峰坐标仍需 Planner 级来源回填"],
+      "requirements": ["武器：净化光明使者或高装等双手武器", "护符：震波威能", "核心：粉碎", "终极：灰熊狂怒"],
+      "statPriority": ["粉碎等级", "大地技能伤害", "暴击几率", "冷却缩减", "资源生成", "生命上限"]
+    },
+    "gearSlots": [
+      {
+        "slotId": "helm",
+        "target": {"type": "legendary", "zhName": "传奇头盔 + 剥削者威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "剥削者威能", "role": "控制后增伤和精英推进。", "sourceStatus": "Mobalytics Pulverize 装备栏"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["冷却缩减", "生命上限", "护甲", "全元素抗性"],
+        "alternatives": [
+          {"zhName": "谐角之冠", "reason": "有神话暗金时提高全技能和减伤。", "tradeoff": "失去剥削者威能位。"},
+          {"zhName": "传奇头盔 + 防御威能", "reason": "抗性或护甲不足时过渡。", "tradeoff": "控制后增伤下降。"}
+        ]
+      },
+      {
+        "slotId": "chest",
+        "target": {"type": "legendary", "zhName": "传奇胸甲 + 弹道威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "弹道威能", "role": "拥有强固时提高大地技能等级。", "sourceStatus": "Mobalytics Pulverize 装备栏"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["生命上限", "护甲", "减伤", "全元素抗性"],
+        "alternatives": [
+          {"zhName": "贪婪怒火", "reason": "需要熊人常驻与胸甲暗金过渡时使用。", "tradeoff": "失去弹道威能位。"},
+          {"zhName": "泰瑞尔之力", "reason": "抗性和高压弹幕环境使用。", "tradeoff": "粉碎技能等级下降。"}
+        ]
+      },
+      {
+        "slotId": "gloves",
+        "target": {"type": "legendary", "zhName": "传奇手套 + 熊人恐怖威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "熊人恐怖威能", "role": "把粉碎转为大地技能并追加地刺联动。", "sourceStatus": "Mobalytics Pulverize 装备栏"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["粉碎等级", "暴击几率", "攻击速度", "幸运一击几率"],
+        "alternatives": [
+          {"zhName": "命运之拳", "reason": "过渡或高波动娱乐用。", "tradeoff": "粉碎大地联动和稳定性下降。"},
+          {"zhName": "传奇手套 + 大地技能威能", "reason": "缺熊人恐怖威能时暂用。", "tradeoff": "不是完整粉碎机制。"}
+        ]
+      },
+      {
+        "slotId": "pants",
+        "target": {"type": "legendary", "zhName": "传奇裤子 + 愈合石威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "愈合石威能", "role": "大地壁垒和高层防御续航。", "sourceStatus": "Mobalytics Pulverize 装备栏"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["生命上限", "护甲", "强固生成", "全元素抗性"],
+        "alternatives": [
+          {"zhName": "提鲍特的意志", "reason": "需要不可阻挡资源和爆发时使用。", "tradeoff": "壁垒续航下降。"},
+          {"zhName": "鲁莽", "reason": "屏障容错过渡。", "tradeoff": "粉碎联动下降。"}
+        ]
+      },
+      {
+        "slotId": "boots",
+        "target": {"type": "legendary", "zhName": "传奇靴子 + 变质之石威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "变质之石威能", "role": "大地技能和移动节奏补强。", "sourceStatus": "Mobalytics Pulverize 装备栏"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["移动速度", "闪避冷却", "全元素抗性", "灵力消耗降低"],
+        "alternatives": [
+          {"zhName": "闪烁步履", "reason": "需要终极冷却循环和速刷移动时使用。", "tradeoff": "大地威能位损失。"},
+          {"zhName": "传奇靴子 + 移动威能", "reason": "低层过渡。", "tradeoff": "冲层收益较低。"}
+        ]
+      },
+      {
+        "slotId": "amulet",
+        "target": {"type": "legendary", "zhName": "传奇护符 + 震波威能", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "震波威能", "role": "粉碎向前释放震波，是清场和冲层核心。", "sourceStatus": "Mobalytics Pulverize 页面强调 Shockwave Pulverize"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["冷却缩减", "粉碎等级", "大地技能伤害", "移动速度"],
+        "alternatives": [
+          {"zhName": "传奇护符 + 自负威能", "reason": "屏障覆盖稳定时过渡。", "tradeoff": "粉碎震波范围和上限大幅下降。"},
+          {"zhName": "塞利格的融心", "reason": "极端生存压力下尝试。", "tradeoff": "损失核心震波位。"}
+        ]
+      },
+      {
+        "slotId": "ring1",
+        "target": {"type": "legendary", "zhName": "传奇戒指 + 变形债务威能", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "变形债务威能", "role": "中毒与变形联动，补首领和精英伤害。", "sourceStatus": "Mobalytics Pulverize 装备栏"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["暴击几率", "资源生成", "幸运一击几率", "冷却缩减"],
+        "alternatives": [
+          {"zhName": "无星夜空之戒", "reason": "灵力消耗压力大时使用。", "tradeoff": "失去变形债务联动。"},
+          {"zhName": "猎手巅峰", "reason": "变形击杀和资源过渡。", "tradeoff": "冲层单体稳定性下降。"}
+        ]
+      },
+      {
+        "slotId": "ring2",
+        "target": {"type": "legendary", "zhName": "传奇戒指 + 报复威能", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "报复威能", "role": "强固越高核心技能伤害越高。", "sourceStatus": "Mobalytics Pulverize 装备栏"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["暴击几率", "资源生成", "强固生成", "幸运一击几率"],
+        "alternatives": [
+          {"zhName": "雷锤之戒", "reason": "自然魔法和大地/风暴混合过渡。", "tradeoff": "强固转伤害下降。"},
+          {"zhName": "传奇戒指 + 资源威能", "reason": "缺灵力循环时使用。", "tradeoff": "上限下降。"}
+        ]
+      },
+      {
+        "slotId": "twoHand",
+        "target": {"type": "unique", "zhName": "净化光明使者"},
+        "aspect": {"name": "暗金特效位", "role": "终局粉碎武器，来源页面作为 End Game 核心之一。", "sourceStatus": "Mobalytics Pulverize 终局说明"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["武器伤害", "粉碎等级", "大地技能伤害", "暴击伤害"],
+        "alternatives": [
+          {"zhName": "双手法杖 + 熊人重击威能", "reason": "来源装备栏的传奇双手位过渡。", "tradeoff": "失去终局暗金武器收益。"},
+          {"zhName": "石化蜥蜴", "reason": "高装等大地武器过渡。", "tradeoff": "粉碎专属收益下降。"}
+        ]
+      },
+      {
+        "slotId": "mainHand",
+        "target": {"type": "legendary", "zhName": "不使用：双手武器方案", "image": "./public/assets/icon-weapon.png"},
+        "aspect": {"name": "空槽位", "role": "来源 BD 使用双手武器，不占用主手。", "sourceStatus": "Mobalytics Pulverize 装备栏"},
+        "required": false,
+        "core": false,
+        "replaceable": true,
+        "affixes": ["不占用", "双手武器伤害优先", "粉碎等级", "大地技能伤害"],
+        "alternatives": [
+          {"zhName": "单手武器 + 震波威能", "reason": "缺双手武器时过渡。", "tradeoff": "震波位通常应放护符或双手高倍率位。"},
+          {"zhName": "单手武器 + 资源威能", "reason": "开荒缺灵力时使用。", "tradeoff": "冲层伤害下降。"}
+        ]
+      },
+      {
+        "slotId": "offHand",
+        "target": {"type": "legendary", "zhName": "不使用：双手武器方案", "image": "./public/assets/icon-weapon.png"},
+        "aspect": {"name": "空槽位", "role": "来源 BD 使用双手武器，不占用副手。", "sourceStatus": "Mobalytics Pulverize 装备栏"},
+        "required": false,
+        "core": false,
+        "replaceable": true,
+        "affixes": ["不占用", "双手武器伤害优先", "冷却缩减", "资源循环"],
+        "alternatives": [
+          {"zhName": "图腾 + 冷却威能", "reason": "开荒单手/副手过渡。", "tradeoff": "双手武器伤害下降。"},
+          {"zhName": "图腾 + 防御威能", "reason": "抗性不足时过渡。", "tradeoff": "粉碎爆发下降。"}
+        ]
+      }
+    ],
+    "skillTree": {
+      "core": "粉碎",
+      "skillBar": [
+        {"slot": 1, "name": "突进爪击", "role": "位移、起手和灵力填补", "points": 1},
+        {"slot": 2, "name": "粉碎", "role": "主攻和震波清场", "points": 5},
+        {"slot": 3, "name": "大地壁垒", "role": "屏障、解控和强固", "points": 1},
+        {"slot": 4, "name": "挫志咆哮", "role": "高压减伤", "points": 1},
+        {"slot": 5, "name": "践踏", "role": "位移、强固和开路", "points": 1},
+        {"slot": 6, "name": "灰熊狂怒", "role": "终局爆发；开荒可用浩劫替换", "points": 1}
+      ],
+      "pointOrder": [
+        {"levelRange": "1-6", "skill": "突进爪击", "points": "+1 并点强化", "reason": "来源页面强调 Dash Claw 用于移动和起手。"},
+        {"levelRange": "7-14", "skill": "粉碎", "points": "+5 并点强化", "reason": "主攻技能优先成型。"},
+        {"levelRange": "15-20", "skill": "大地壁垒", "points": "+1 至解控/屏障分支", "reason": "建立强固和高层容错。"},
+        {"levelRange": "21-26", "skill": "挫志咆哮", "points": "+1 至强化", "reason": "熊人近战冲层需要减伤窗口。"},
+        {"levelRange": "27-32", "skill": "践踏", "points": "+1 至强固分支", "reason": "补位移、开路和强固。"},
+        {"levelRange": "33-38", "skill": "灰熊狂怒", "points": "+1", "reason": "终局爆发技能；装备未齐时可用浩劫开荒。"},
+        {"levelRange": "39-48", "skill": "大地/粉碎被动", "points": "+3 至 +6", "reason": "强化粉碎的大地标签和震波收益。"},
+        {"levelRange": "49-60", "skill": "强固与生存被动", "points": "+3 至 +6", "reason": "报复威能和高层生存都依赖强固。"},
+        {"levelRange": "60-80", "skill": "资源/冷却被动", "points": "按装备微调", "reason": "解决粉碎断档和灰熊狂怒覆盖。"},
+        {"levelRange": "80+", "skill": "终局重分配", "points": "按净化光明使者和震波威能调整", "reason": "核心件到位后转为完整冲层点法。"}
+      ],
+      "passives": ["大地之力", "强固收益", "熊人减伤", "自然魔法伤害", "资源循环"],
+      "notes": ["Spirit Boons 按来源页单独区块整理，精确数值和点击位置仍需 Planner 数据回填。", "开荒期来源提示浩劫帮助巨大；终局以灰熊狂怒作为主爆发。"]
+    },
+    "paragon": {
+      "rule": "Mobalytics 页面列出起始盘、Thunderstruck、Survival Instinct、Ancestral Guidance、Tectonic、Earthen Devastation 等巅峰方向；本站按粉碎冲层优先级整理点击顺序，精确坐标待 Planner 级来源回填。",
+      "boardOrder": [
+        {"order": 1, "name": "起始盘", "goal": "打开核心雕文孔和生存通路", "glyph": "Keeper", "rotate": "默认方向"},
+        {"order": 2, "name": "Thunderstruck", "goal": "自然魔法和风暴/大地混合收益", "glyph": "Spirit", "rotate": "向雕文孔短路"},
+        {"order": 3, "name": "Survival Instinct", "goal": "熊人高层生存与强固", "glyph": "Territorial", "rotate": "向传奇节点短路"},
+        {"order": 4, "name": "Ancestral Guidance", "goal": "资源消耗后的核心技能增伤", "glyph": "Undaunted", "rotate": "向传奇节点短路"},
+        {"order": 5, "name": "Tectonic", "goal": "大地技能暴击和稳定输出", "glyph": "Earth and Sky", "rotate": "向大地稀有节点短路"},
+        {"order": 6, "name": "Earthen Devastation", "goal": "大地毁灭和粉碎收尾补强", "glyph": "Exploit", "rotate": "按抗性缺口调整"}
+      ],
+      "glyphs": [
+        {"name": "Keeper", "priority": 1, "socket": "起始盘", "note": "先升到半径阈值。"},
+        {"name": "Spirit", "priority": 2, "socket": "Thunderstruck", "note": "补资源与自然魔法收益。"},
+        {"name": "Territorial", "priority": 3, "socket": "Survival Instinct", "note": "贴身粉碎需要近距离减伤。"},
+        {"name": "Undaunted", "priority": 4, "socket": "Ancestral Guidance", "note": "强固期间提高输出和硬度。"},
+        {"name": "Earth and Sky", "priority": 5, "socket": "Tectonic", "note": "大地与风暴标签收益。"},
+        {"name": "Exploit", "priority": 6, "socket": "Earthen Devastation", "note": "补易伤和精英推进。"}
+      ],
+      "clickOrder": [
+        {"board": "起始盘", "node": "Keeper 雕文孔", "reason": "先建立粉碎主路径。"},
+        {"board": "起始盘", "node": "生命、护甲和意力稀有节点", "reason": "熊人近战冲层先补基础防御。"},
+        {"board": "Thunderstruck", "node": "Spirit 雕文孔", "reason": "补资源和自然魔法收益。"},
+        {"board": "Thunderstruck", "node": "自然魔法稀有节点", "reason": "粉碎转大地后吃自然魔法标签。"},
+        {"board": "Survival Instinct", "node": "传奇节点", "reason": "高层熊人硬度优先。"},
+        {"board": "Survival Instinct", "node": "Territorial 雕文孔", "reason": "贴身粉碎需要近距离减伤。"},
+        {"board": "Ancestral Guidance", "node": "传奇节点", "reason": "资源消耗后强化核心技能。"},
+        {"board": "Tectonic", "node": "Earth and Sky 雕文孔", "reason": "大地技能和风暴辅助收益。"},
+        {"board": "Earthen Devastation", "node": "大地毁灭路径", "reason": "补粉碎终局伤害。"},
+        {"board": "任意盘", "node": "抗性、护甲、生命和资源补点", "reason": "满抗和强固稳定前不贪远端小伤害点。"}
+      ]
+    },
+    "gameplay": {
+      "opener": ["突进爪击进场或调整角度。", "大地壁垒确保屏障、解控和强固。", "怪群成团后开启灰熊狂怒。", "用粉碎把震波打穿怪群。"],
+      "loop": ["粉碎只打密集怪群或精英包，避免对零散小怪空耗灵力。", "大地壁垒和挫志咆哮错开使用，维持强固和减伤。", "践踏用于开路、补强固或脱离危险。", "灰熊狂怒留给精英、事件和首领，不要进图空放。"],
+      "boss": ["首领前保留灰熊狂怒、大地壁垒和足够灵力。", "先建立强固，再进入粉碎震波窗口。", "冷却未好时用突进爪击和走位等下一轮。"],
+      "defense": ["熊人近战必须优先满抗、护甲和生命。", "强固覆盖不足时粉碎伤害和生存都会下降。", "挫志咆哮不要和大地壁垒同时空交。"],
+      "speedFarm": ["速刷时用突进爪击和践踏走路线，粉碎只打大包。", "冷却缩减不足时降低拉怪规模。"],
+      "commonMistakes": ["没有震波威能就按完整粉碎推进。", "灵力不足仍连续空放粉碎。", "强固断档后硬吃高层精英词缀。", "灰熊狂怒交给零散小怪。"]
+    },
+    "variants": [
+      {"name": "来源终局粉碎", "useCase": "净化光明使者、震波威能和灰熊狂怒成型后冲层。", "swapOut": "无", "swapIn": "按上方 11 槽位配置", "notes": "适合高层和首领，优先冷却、资源和强固覆盖。"},
+      {"name": "来源开荒浩劫版", "useCase": "装备未齐、灰熊狂怒覆盖不足时。", "swapOut": "灰熊狂怒", "swapIn": "浩劫", "notes": "来源提示浩劫在早期帮助巨大，但终局仍建议回到灰熊狂怒。"},
+      {"name": "缺净化光明使者", "useCase": "终局暗金武器未掉落。", "swapOut": "净化光明使者", "swapIn": "双手法杖 + 熊人重击威能", "notes": "保留粉碎主体，等待暗金武器后再冲高层。"},
+      {"name": "高层生存", "useCase": "抗性、护甲或强固不足。", "swapOut": "一处纯伤害词缀", "swapIn": "生命、护甲、全抗或强固生成", "notes": "粉碎近战容错比纸面伤害更重要。"}
+    ]
+  },
+  {
+    "id": "s14-druid-storm_earth-speed_farm",
+    "extends": "s14-druid-storm_earth-pit_push",
+    "title": "S14 死亡觉醒 德鲁伊 · 震波粉碎速刷",
+    "archetypeName": "震波粉碎",
+    "summary": {
+      "oneLine": "德鲁伊「震波粉碎」速刷 BD，沿用粉碎和震波核心，把靴子、戒指和终极选择向路线移动、连续清包和资源稳定倾斜。",
+      "pros": ["大范围清包直接", "新手友好", "日常材料和中低层天坑效率高"],
+      "cons": ["极限冲层需要切回冲层版", "资源不足时会断粉碎", "低密度地图速度一般"],
+      "requirements": ["护符：震波威能", "核心：粉碎", "冷却缩减和灵力循环"],
+      "statPriority": ["移动速度", "资源生成", "冷却缩减", "粉碎等级", "攻击速度"]
+    },
+    "gearSlots": [
+      {"slotId": "boots", "target": {"type": "unique", "zhName": "闪烁步履"}, "aspect": {"name": "暗金特效位", "role": "速刷移动和终极回转。", "sourceStatus": "Mobalytics Pulverize 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["移动速度", "闪避冷却", "攻击缩短闪避冷却", "全元素抗性"], "alternatives": [{"zhName": "传奇靴子 + 变质之石威能", "reason": "需要冲层大地联动时换回。", "tradeoff": "移动和终极循环下降。"}, {"zhName": "传奇靴子 + 移动威能", "reason": "低层过渡。", "tradeoff": "暗金收益下降。"}]},
+      {"slotId": "ring1", "target": {"type": "legendary", "zhName": "传奇戒指 + 资源威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "资源威能", "role": "低层连续粉碎续航。", "sourceStatus": "Mobalytics Pulverize 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["资源生成", "暴击几率", "幸运一击几率", "冷却缩减"], "alternatives": [{"zhName": "传奇戒指 + 变形债务威能", "reason": "需要冲层单体时换回。", "tradeoff": "续航下降。"}, {"zhName": "无星夜空之戒", "reason": "资源压力大时使用。", "tradeoff": "需要暗金掉落。"}]}
+    ],
+    "gameplay": {
+      "opener": ["进图用突进爪击和践踏找密集路线。", "低层先打粉碎震波清大包。", "浩劫或灰熊狂怒留给事件和精英包。"],
+      "loop": ["粉碎只打大包，零散怪直接跳过。", "闪烁步履和践踏缩短空跑。", "资源戒指保证连续粉碎，不等完整冲层爆发。", "低层不必每波都开灰熊狂怒。"],
+      "boss": ["速刷首领打一轮终极和粉碎震波。", "灵力不足时先用资源位补循环。", "高层首领切回冲层版。"],
+      "defense": ["速刷版防御较低，危险词缀优先移动。", "硬核角色保留冲层裤子和防御词缀。", "抗性不满不要过度换速度件。"],
+      "speedFarm": ["目标是路线效率和怪群密度。", "低层材料不追求完整强固循环。"],
+      "commonMistakes": ["为了单个小怪停下来粉碎。", "换掉资源位后连续断灵力。", "把速刷版拿去硬打 150。"]
+    },
+    "variants": [
+      {"name": "极速清包", "useCase": "材料、低层天坑和梦魇。", "swapOut": "变质之石靴和冲层戒指", "swapIn": "闪烁步履和资源戒指", "notes": "牺牲高层强度，换路线和连续粉碎。"},
+      {"name": "浩劫速刷", "useCase": "装备未齐或灰熊狂怒覆盖差。", "swapOut": "灰熊狂怒", "swapIn": "浩劫", "notes": "低层启动更顺，首领上限较低。"},
+      {"name": "安全速刷", "useCase": "硬核或危险词缀。", "swapOut": "一处移动/伤害词缀", "swapIn": "生命、护甲或全抗", "notes": "降低速度，保留容错。"}
+    ]
+  },
+  {
+    "id": "s14-druid-storm_earth-daily",
+    "extends": "s14-druid-storm_earth-pit_push",
+    "title": "S14 死亡觉醒 德鲁伊 · 震波粉碎日常",
+    "archetypeName": "震波粉碎",
+    "summary": {
+      "oneLine": "德鲁伊「震波粉碎」日常 BD，用传奇双手武器、资源戒指和防御胸裤降低门槛，先保证粉碎、震波、强固和资源循环。",
+      "pros": ["低门槛可玩", "开荒到终局路径清楚", "容错高于纯速刷版"],
+      "cons": ["没有震波威能不算完整流派", "没有净化光明使者时上限较低", "灰熊狂怒和资源词缀未齐时会断档"],
+      "requirements": ["先找震波威能", "双手武器优先高装等和粉碎等级", "用资源戒指解决灵力"],
+      "statPriority": ["生命上限", "全元素抗性", "资源生成", "粉碎等级", "冷却缩减"]
+    },
+    "gearSlots": [
+      {"slotId": "helm", "target": {"type": "legendary", "zhName": "传奇头盔 + 防御威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "防御威能", "role": "开荒和日常抗性补齐。", "sourceStatus": "Mobalytics Pulverize 日常变体整理"}, "required": false, "core": false, "replaceable": true, "affixes": ["生命上限", "护甲", "全元素抗性", "冷却缩减"], "alternatives": [{"zhName": "传奇头盔 + 剥削者威能", "reason": "进入冲层时换回。", "tradeoff": "日常容错下降。"}, {"zhName": "谐角之冠", "reason": "有神话暗金时使用。", "tradeoff": "获取难度高。"}]},
+      {"slotId": "chest", "target": {"type": "legendary", "zhName": "传奇胸甲 + 防御威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "防御威能", "role": "缺弹道威能或词缀未齐时补硬度。", "sourceStatus": "Mobalytics Pulverize 日常变体整理"}, "required": false, "core": false, "replaceable": true, "affixes": ["生命上限", "护甲", "减伤", "全元素抗性"], "alternatives": [{"zhName": "传奇胸甲 + 弹道威能", "reason": "强固覆盖稳定后切回。", "tradeoff": "防御下降。"}, {"zhName": "贪婪怒火", "reason": "熊人常驻过渡。", "tradeoff": "需要暗金掉落。"}]},
+      {"slotId": "pants", "target": {"type": "legendary", "zhName": "传奇裤子 + 防御威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "防御威能", "role": "日常硬度和抗性补齐。", "sourceStatus": "Mobalytics Pulverize 日常变体整理"}, "required": false, "core": false, "replaceable": true, "affixes": ["生命上限", "护甲", "全元素抗性", "强固生成"], "alternatives": [{"zhName": "传奇裤子 + 愈合石威能", "reason": "大地壁垒循环成型后换回。", "tradeoff": "抗性补齐压力上升。"}, {"zhName": "鲁莽", "reason": "屏障过渡。", "tradeoff": "冲层联动下降。"}]},
+      {"slotId": "ring1", "target": {"type": "legendary", "zhName": "传奇戒指 + 资源威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "资源威能", "role": "开荒和日常连续粉碎。", "sourceStatus": "Mobalytics Pulverize 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["资源生成", "暴击几率", "幸运一击几率", "冷却缩减"], "alternatives": [{"zhName": "传奇戒指 + 变形债务威能", "reason": "伤害成型后切回。", "tradeoff": "资源压力上升。"}, {"zhName": "无星夜空之戒", "reason": "有暗金时提高续航。", "tradeoff": "获取难度高。"}]},
+      {"slotId": "twoHand", "target": {"type": "legendary", "zhName": "双手法杖 + 熊人重击威能", "image": "./public/assets/icon-weapon.png"}, "aspect": {"name": "熊人重击威能", "role": "缺净化光明使者时的粉碎过渡。", "sourceStatus": "Mobalytics Pulverize 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["武器伤害", "粉碎等级", "大地技能伤害", "暴击伤害"], "alternatives": [{"zhName": "净化光明使者", "reason": "拿到后切回终局来源版。", "tradeoff": "获取前上限较低。"}, {"zhName": "石化蜥蜴", "reason": "高装等大地武器过渡。", "tradeoff": "粉碎专属收益下降。"}]}
+    ],
+    "gameplay": {
+      "opener": ["先用高装等双手武器和震波威能推进难度。", "大地壁垒后再进怪群粉碎。", "危险精英前保留挫志咆哮。"],
+      "loop": ["日常版本先保证强固、抗性和资源。", "粉碎用于密集怪群，突进爪击和践踏处理路线。", "灵力不足时降低拉怪规模或换资源戒指。", "净化光明使者、震波护符和关键冷却到位后转冲层版。"],
+      "boss": ["保留灰熊狂怒和大地壁垒。", "强固和灵力都足够时再打粉碎窗口。", "日常首领不追求极限秒杀。"],
+      "defense": ["抗性、护甲、生命优先于纯输出。", "没有强固时不要站桩硬吃精英词缀。", "大地壁垒留给危险窗口。"],
+      "speedFarm": ["低层可切速刷靴和资源戒指。", "材料刷取以路线效率为主。"],
+      "commonMistakes": ["没有震波威能还按完整流派打。", "过早牺牲防御词缀。", "灵力不足仍连续空放粉碎。"]
+    },
+    "variants": [
+      {"name": "低门槛粉碎", "useCase": "刚进终局或核心暗金未齐。", "swapOut": "净化光明使者和弹道胸甲", "swapIn": "传奇双手武器和防御胸甲", "notes": "先稳定刷装备，不按冲层速度预期。"},
+      {"name": "震波成型点", "useCase": "拿到震波威能后。", "swapOut": "普通增伤护符", "swapIn": "传奇护符 + 震波威能", "notes": "这是粉碎从过渡变成真正清场流派的分界线。"},
+      {"name": "资源稳定版", "useCase": "粉碎断灵力。", "swapOut": "一处伤害戒指", "swapIn": "资源威能或无星夜空之戒", "notes": "牺牲爆发，换日常手感。"}
+    ]
   }
 ]

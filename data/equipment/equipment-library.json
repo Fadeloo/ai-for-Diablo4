@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T15:09:51.194Z",
+  "generatedAt": "2026-06-28T15:20:14.522Z",
   "source": {
     "id": "blizzard_patch_3_1",
     "url": "https://news.blizzard.com/en-us/article/24287406/diablo-iv-patch-notes",
@@ -6705,7 +6705,7 @@
     {
       "id": "the-basilisk",
       "name": "The Basilisk",
-      "zhName": "布阿斯伊尔伊斯凯",
+      "zhName": "石化蜥蜴",
       "rarity": "unique",
       "classRestriction": "Druid",
       "zhClassRestriction": "德鲁伊",
@@ -6774,7 +6774,7 @@
     {
       "id": "unsung-ascetics-wraps",
       "name": "Unsung Ascetic's Wraps",
-      "zhName": "无名阿斯克埃特伊克裹手",
+      "zhName": "无名苦修者裹手",
       "rarity": "unique",
       "classRestriction": "Druid",
       "zhClassRestriction": "德鲁伊",

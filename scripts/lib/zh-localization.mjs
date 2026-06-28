@@ -55,6 +55,8 @@ const exactItemNames = new Map([
   ["Strike of Stormhorn", "风暴角之击"],
   ["Kilt of Blackwing", "黑翼褶裙"],
   ["Shroud of Khanduras", "坎杜拉斯罩衣"],
+  ["The Basilisk", "石化蜥蜴"],
+  ["Unsung Ascetic's Wraps", "无名苦修者裹手"],
   ["Rod of Kepeleke", "凯佩莱凯之杖"],
   ["Thundergod's Blessing", "雷神的祝福"],
   ["Yen's Blessing", "延的祝福"]
