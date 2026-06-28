@@ -10,13 +10,20 @@ const paths = {
   sources: "./data/sources/source-registry.json"
 };
 
+const viewIds = ["home", "builds", "equipment", "classes", "damage", "forecast", "sources"];
+const routeAliases = {
+  simulator: "builds"
+};
+
 const state = {
   classes: [],
   plans: [],
   archetypes: [],
   equipment: [],
   simulations: null,
+  activeView: "home",
   selectedClassId: "barbarian",
+  selectedEquipmentId: null,
   sim: {
     seasonId: "s14",
     classId: "barbarian",
@@ -97,6 +104,20 @@ const dataStatusLabels = {
   external_url_reference: "外部地址引用"
 };
 
+const dataStatusFieldLabels = {
+  guaranteedAffixes: "固定词缀",
+  fullAffixRanges: "完整词缀范围",
+  uniquePower: "暗金特效",
+  slot: "装备槽位",
+  icon: "图标来源"
+};
+
+const modeLabels = {
+  pit_push: "冲层",
+  speed_farm: "速刷",
+  daily: "日常"
+};
+
 function $(selector) {
   return document.querySelector(selector);
 }
@@ -105,6 +126,39 @@ async function loadJson(path) {
   const response = await fetch(path);
   if (!response.ok) throw new Error(`无法加载 ${path}`);
   return response.json();
+}
+
+function normalizeView(viewId) {
+  const normalized = routeAliases[viewId] || viewId;
+  return viewIds.includes(normalized) ? normalized : "home";
+}
+
+function setView(viewId, options = {}) {
+  const normalized = normalizeView(viewId);
+  state.activeView = normalized;
+  document.body.dataset.view = normalized;
+
+  document.querySelectorAll(".view[data-view]").forEach((view) => {
+    view.classList.toggle("is-active", view.dataset.view === normalized);
+  });
+  document.querySelectorAll("[data-view-link]").forEach((link) => {
+    const target = normalizeView(link.getAttribute("href")?.replace("#", "") || "home");
+    if (target === normalized) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+
+  if (options.replaceHash && window.location.hash !== `#${normalized}`) {
+    history.replaceState(null, "", `#${normalized}`);
+  }
+  window.scrollTo(0, 0);
+}
+
+function bindNavigation() {
+  window.addEventListener("hashchange", () => setView(window.location.hash.slice(1)));
+  setView(window.location.hash.slice(1) || "home", { replaceHash: true });
 }
 
 function formatNumber(value) {
@@ -116,11 +170,11 @@ function percent(value) {
 }
 
 function iconSource(item) {
-  return item.externalImage || item.image || `./public/assets/icon-${item.visualType}.png`;
+  return item.externalImage || item.image || `./public/assets/icon-${item.visualType || "weapon"}.png`;
 }
 
 function fallbackIcon(item) {
-  return item.image || `./public/assets/icon-${item.visualType}.png`;
+  return item.image || `./public/assets/icon-${item.visualType || "weapon"}.png`;
 }
 
 function renderIcon(item, alt) {
@@ -128,11 +182,17 @@ function renderIcon(item, alt) {
 }
 
 function itemName(item) {
-  return item.zhName || item.name;
+  return item.zhName || item.name || item.id || "未知装备";
+}
+
+function normalizeAffixName(affix) {
+  if (typeof affix === "string") return affix;
+  return affix.zhName || affix.name || "待回填词缀";
 }
 
 function itemAffixes(item) {
-  return item.zhGuaranteedAffixes || item.guaranteedAffixes?.map((affix) => affix.zhName || affix.name) || [];
+  if (item.zhGuaranteedAffixes?.length) return item.zhGuaranteedAffixes;
+  return item.guaranteedAffixes?.map(normalizeAffixName) || [];
 }
 
 function statLabel(value) {
@@ -145,6 +205,22 @@ function resourceLabel(value) {
 
 function statusLabel(value) {
   return dataStatusLabels[value] || value;
+}
+
+function className(classId) {
+  return state.classes.find((item) => item.id === classId)?.zhName ?? classId;
+}
+
+function modeName(modeId) {
+  return modeLabels[modeId] || modeId;
+}
+
+function equipmentClassLabel(item) {
+  return item.zhClassRestriction || (item.classRestriction === "All Classes" ? "全职业" : item.classRestriction);
+}
+
+function equipmentTypeLabel(item) {
+  return item.zhVisualType || item.visualType || "装备";
 }
 
 function versionLineLabel(value) {
@@ -162,18 +238,18 @@ function versionLineLabel(value) {
     November: "11",
     December: "12"
   };
-  const match = value.match(/^(.+?) Build #(\d+) \(All Platforms\)—([A-Za-z]+) (\d{1,2}), (\d{4})$/);
-  if (!match) return value;
+  const match = value?.match(/^(.+?) Build #(\d+) \(All Platforms\)—([A-Za-z]+) (\d{1,2}), (\d{4})$/);
+  if (!match) return value || "来源版本待回填";
   const [, patch, build, month, day, year] = match;
   return `${patch} 构建 #${build}（全平台）— ${year}-${monthMap[month] ?? month}-${day.padStart(2, "0")}`;
 }
 
 function listItems(items) {
-  return items.map((item) => `<li>${item}</li>`).join("");
+  return (items || []).map((item) => `<li>${item}</li>`).join("");
 }
 
 function bindImageFallbacks(root) {
-  root.querySelectorAll("img[data-fallback]").forEach((img) => {
+  root?.querySelectorAll("img[data-fallback]").forEach((img) => {
     img.addEventListener("error", () => {
       if (img.src.endsWith(img.dataset.fallback)) return;
       img.src = img.dataset.fallback;
@@ -238,10 +314,6 @@ function renderDamage() {
   `;
 }
 
-function className(classId) {
-  return state.classes.find((item) => item.id === classId)?.zhName ?? classId;
-}
-
 function renderSelects() {
   const classOptions = state.classes
     .map((item) => `<option value="${item.id}">${item.zhName}</option>`)
@@ -262,84 +334,125 @@ function renderSimulator() {
   );
   if (!row) return;
   const mode = row.modes[state.sim.mode];
+  if (!mode.topBuilds[state.sim.buildIndex]) state.sim.buildIndex = 0;
   const best = mode.topBuilds[state.sim.buildIndex] ?? mode.topBuilds[0];
-  const items = best.recommendedItems
-    .slice(0, 4)
+  const guide = best.guide;
+
+  $("[data-build-candidates]").innerHTML = `
+    <div class="side-panel-title">
+      <span>${row.zhName} · ${mode.modeName}</span>
+      <strong>${mode.topBuilds.length} 套候选</strong>
+    </div>
+    ${mode.topBuilds.map((build, index) => `
+      <button class="build-candidate" type="button" data-build-index="${index}" aria-selected="${index === state.sim.buildIndex}">
+        <span>${String(index + 1).padStart(2, "0")}</span>
+        <strong>${build.archetypeName}</strong>
+        <em>${build.predictedPit150Minutes} 分 · 置信度 ${percent(build.confidence)}</em>
+      </button>
+    `).join("")}
+  `;
+
+  const recommendedItems = best.recommendedItems
+    .slice(0, 6)
     .map((item) => `
       <article class="sim-item">
         ${renderIcon(item, `${itemName(item)}图标`)}
-        <strong>${itemName(item)}</strong>
-        <span>${itemAffixes(item).join(" / ")}</span>
+        <div>
+          <strong>${itemName(item)}</strong>
+          <span>${itemAffixes(item).join(" / ") || "词缀待回填"}</span>
+        </div>
       </article>
     `)
     .join("");
-  const buildTabs = mode.topBuilds
-    .map((build, index) => `
-      <button class="build-tab" type="button" data-build-index="${index}" aria-selected="${build.archetypeId === best.archetypeId}">
-        <strong>${build.archetypeName}</strong>
-        <span>${build.predictedPit150Minutes} 分 · ${percent(build.confidence)}</span>
-      </button>
+  const gearReasons = guide.gearPlan.recommendedItems
+    .map((item) => `
+      <li>
+        <strong>${item.zhName}</strong>
+        <span>${item.zhVisualType} · ${item.reason}</span>
+      </li>
     `)
     .join("");
-  const guide = best.guide;
   const dataCompleteness = Object.values(guide.dataCompleteness)
     .map((line) => `<span>${line}</span>`)
     .join("");
 
   $("[data-sim-result]").innerHTML = `
-    <div class="sim-head">
+    <div class="detail-head">
       <div>
-        <p class="panel-kicker">${row.zhName} · ${mode.modeName}</p>
+        <p class="panel-kicker">${className(row.classId)} · ${modeName(state.sim.mode)}</p>
         <h3>${best.archetypeName}</h3>
       </div>
-      <div class="sim-score">
+      <div class="score-tile">
         <strong>${best.predictedPit150Minutes}</strong>
         <span>150层分钟</span>
       </div>
     </div>
-    <div class="sim-forecast-line">
+    <div class="stat-strip">
       <span>模型分 ${best.score}</span>
       <span>置信度 ${percent(best.confidence)}</span>
       <span>${row.zhModelStatus || row.modelStatus}</span>
     </div>
-    <div class="build-tabs">${buildTabs}</div>
-    <p class="sim-rationale">${best.rationale.join(" ")}</p>
-    <div class="sim-items">${items}</div>
-    <section class="build-manual" aria-label="构筑详情">
-      <div class="manual-summary">
-        <h4>构筑手册</h4>
-        <p>${guide.summary}</p>
+    <p class="detail-summary">${guide.summary}</p>
+    <p class="detail-rationale">${best.rationale.join(" ")}</p>
+    <section class="detail-section">
+      <div class="section-title">
+        <h4>关键装备</h4>
+        <span>推荐优先级</span>
       </div>
-      <div class="manual-grid">
-        <article>
-          <h5>技能加点</h5>
-          <p class="manual-kicker">${guide.skillPlan.core}</p>
-          <div class="skill-bar">${guide.skillPlan.bar.map((skill) => `<span>${skill}</span>`).join("")}</div>
-          <ol>${listItems(guide.skillPlan.priority)}</ol>
-        </article>
-        <article>
-          <h5>巅峰路线</h5>
-          <ol>${listItems(guide.paragonPlan.boardRoute)}</ol>
-          <p>${guide.paragonPlan.rule}</p>
-          <div class="tag-row">${guide.paragonPlan.glyphPriority.map((tag) => `<span>${tag}</span>`).join("")}</div>
-        </article>
-        <article>
-          <h5>装备策略</h5>
-          <ol>${listItems(guide.gearPlan.slotPriority)}</ol>
-          <div class="gear-picks">
-            ${guide.gearPlan.recommendedItems.map((item) => `<span>${item.zhName}：${item.reason}</span>`).join("")}
-          </div>
-        </article>
-        <article>
-          <h5>打法循环</h5>
-          <ol>${listItems(guide.rotation)}</ol>
-          <h5>开荒迁移</h5>
-          <ol>${listItems(guide.leveling)}</ol>
-        </article>
+      <div class="sim-items">${recommendedItems}</div>
+    </section>
+    <section class="detail-section">
+      <div class="section-title">
+        <h4>技能加点</h4>
+        <span>${guide.skillPlan.core}</span>
+      </div>
+      <div class="skill-bar">${guide.skillPlan.bar.map((skill) => `<span>${skill}</span>`).join("")}</div>
+      <ol class="compact-list">${listItems(guide.skillPlan.priority)}</ol>
+    </section>
+    <section class="detail-section two-column-detail">
+      <article>
+        <div class="section-title">
+          <h4>巅峰路线</h4>
+          <span>盘面模板</span>
+        </div>
+        <ol class="compact-list">${listItems(guide.paragonPlan.boardRoute)}</ol>
+        <p>${guide.paragonPlan.rule}</p>
+        <div class="tag-row">${guide.paragonPlan.glyphPriority.map((tag) => `<span>${tag}</span>`).join("")}</div>
+      </article>
+      <article>
+        <div class="section-title">
+          <h4>装备策略</h4>
+          <span>词缀优先级</span>
+        </div>
+        <div class="tag-row">${guide.gearPlan.statPriority.map((tag) => `<span>${tag}</span>`).join("")}</div>
+        <ol class="compact-list">${listItems(guide.gearPlan.slotPriority)}</ol>
+      </article>
+    </section>
+    <section class="detail-section two-column-detail">
+      <article>
+        <div class="section-title">
+          <h4>装备命中理由</h4>
+          <span>当前推荐</span>
+        </div>
+        <ul class="gear-reason-list">${gearReasons}</ul>
+      </article>
+      <article>
+        <div class="section-title">
+          <h4>打法与开荒</h4>
+          <span>循环/迁移</span>
+        </div>
+        <ol class="compact-list">${listItems(guide.rotation)}</ol>
+        <ol class="compact-list muted-list">${listItems(guide.leveling)}</ol>
+      </article>
+    </section>
+    <section class="detail-section">
+      <div class="section-title">
+        <h4>数据完整度</h4>
+        <span>可审计边界</span>
       </div>
       <div class="data-badges">${dataCompleteness}</div>
+      <p class="sim-warning">${state.simulations.zhWarning || state.simulations.warning}</p>
     </section>
-    <p class="sim-warning">${state.simulations.zhWarning || state.simulations.warning}</p>
   `;
   bindImageFallbacks($("[data-sim-result]"));
 }
@@ -353,15 +466,6 @@ function renderClasses() {
       </button>
     `)
     .join("");
-
-  rail.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-class-id]");
-    if (!button) return;
-    state.selectedClassId = button.dataset.classId;
-    renderSelectedClass();
-    renderClasses();
-  }, { once: true });
-
   renderSelectedClass();
 }
 
@@ -370,6 +474,9 @@ function renderSelectedClass() {
   const plan = state.plans.find((item) => item.classId === selected.id);
   const archetypes = state.archetypes.find((item) => item.classId === selected.id)?.archetypes ?? [];
 
+  document.querySelectorAll("[data-class-id]").forEach((button) => {
+    button.setAttribute("aria-selected", String(button.dataset.classId === selected.id));
+  });
   $("[data-class-resource]").textContent = selected.primaryResources.map(resourceLabel).join(" / ");
   $("[data-class-title]").textContent = selected.zhName;
   $("[data-class-plan]").innerHTML = (plan?.plan ?? [])
@@ -385,10 +492,10 @@ function renderSelectedClass() {
     .join("");
 }
 
-function renderEquipment() {
+function filteredEquipmentRows() {
   const { classId, mode, query } = state.equipmentFilters;
   const normalizedQuery = query.trim().toLowerCase();
-  const filtered = state.equipment
+  return state.equipment
     .filter((item) => classId === "all" || item.classRestriction === "All Classes" || item.classRestriction.toLowerCase() === classId)
     .filter((item) => mode === "all" || item.modeFit.includes(mode))
     .filter((item) => {
@@ -403,61 +510,112 @@ function renderEquipment() {
         item.buildRole,
         item.zhBuildRole,
         item.categories.join(" "),
-        item.guaranteedAffixes.map((affix) => affix.name).join(" "),
+        item.guaranteedAffixes.map(normalizeAffixName).join(" "),
         (item.zhGuaranteedAffixes ?? []).join(" ")
       ].join(" ").toLowerCase().includes(normalizedQuery);
     });
-  const rows = filtered.slice(0, state.equipmentFilters.visible);
+}
 
-  $("[data-equipment-meta]").textContent = `显示 ${rows.length} / ${filtered.length} 条，资料库总计 ${state.equipment.length} 条。展开卡片可查看来源、用途、数据状态和图标引用。`;
+function renderEquipment() {
+  const filtered = filteredEquipmentRows();
+  const rows = filtered.slice(0, state.equipmentFilters.visible);
+  if (!filtered.some((item) => item.id === state.selectedEquipmentId)) {
+    state.selectedEquipmentId = rows[0]?.id ?? null;
+  }
+  const selected = state.equipment.find((item) => item.id === state.selectedEquipmentId) ?? rows[0];
+
+  $("[data-equipment-meta]").textContent =
+    `显示 ${rows.length} / ${filtered.length} 条，资料库总计 ${state.equipment.length} 条。点击左侧装备，右侧查看完整来源、用途、状态和词缀。`;
   $("[data-equipment-results]").innerHTML = rows
     .map((item) => `
-      <details class="equipment-card">
-        <summary>
-          ${renderIcon(item, `${itemName(item)}图标`)}
-          <span>
-            <small>${item.zhClassRestriction || (item.classRestriction === "All Classes" ? "全职业" : item.classRestriction)} · ${item.zhVisualType || item.visualType}</small>
-            <strong>${itemName(item)}</strong>
-            <em>${item.zhBuildRole || item.buildRole} · ${(item.zhModeFit || item.modeFit).join(" / ")}</em>
-          </span>
-        </summary>
-        <div class="equipment-detail">
-          <section>
-            <h4>固定词缀</h4>
-            <ul>
-              ${item.guaranteedAffixes.map((affix, index) => `
-                <li>
-                  <strong>${itemAffixes(item)[index]}</strong>
-                  <span>槽位 ${affix.slots.join(" / ")} · ${statLabel(affix.categoryId)}</span>
-                </li>
-              `).join("")}
-            </ul>
-          </section>
-          <section>
-            <h4>配装用途</h4>
-            <p>${item.zhBuildRole || item.buildRole}</p>
-            <div class="tag-row">${(item.zhModeFit || item.modeFit).map((fit) => `<span>${fit}</span>`).join("")}</div>
-          </section>
-          <section>
-            <h4>数据状态</h4>
-            <p>固定词缀：${statusLabel(item.dataStatus.guaranteedAffixes)}</p>
-            <p>完整词缀范围：${statusLabel(item.dataStatus.fullAffixRanges)}</p>
-            <p>暗金特效：${statusLabel(item.dataStatus.uniquePower)}</p>
-            <p>装备槽位：${statusLabel(item.dataStatus.slot)}</p>
-          </section>
-          <section>
-            <h4>来源</h4>
-            <p>${versionLineLabel(item.source.versionLine)}</p>
-            <a href="${item.source.url}" target="_blank" rel="noreferrer">查看补丁来源</a>
-            ${item.externalImage ? `<a href="${item.externalImage}" target="_blank" rel="noreferrer">查看图标来源</a>` : ""}
-          </section>
-        </div>
-      </details>
+      <button class="equipment-row" type="button" data-equipment-id="${item.id}" aria-selected="${item.id === selected?.id}">
+        ${renderIcon(item, `${itemName(item)}图标`)}
+        <span>
+          <small>${equipmentClassLabel(item)} · ${equipmentTypeLabel(item)}</small>
+          <strong>${itemName(item)}</strong>
+          <em>${item.zhBuildRole || item.buildRole} · ${(item.zhModeFit || item.modeFit).join(" / ")}</em>
+        </span>
+        <b>查看</b>
+      </button>
     `)
     .join("");
   const moreButton = $("[data-equipment-more]");
   moreButton.hidden = rows.length >= filtered.length;
+  renderEquipmentDetail(selected);
   bindImageFallbacks($("[data-equipment-results]"));
+}
+
+function renderEquipmentDetail(item) {
+  const panel = $("[data-equipment-detail]");
+  if (!item) {
+    panel.innerHTML = `
+      <div class="empty-panel">
+        <p class="panel-kicker">没有匹配装备</p>
+        <h3>调整筛选条件</h3>
+        <p>当前职业、用途或搜索词没有命中装备。</p>
+      </div>
+    `;
+    return;
+  }
+
+  const affixes = item.guaranteedAffixes
+    .map((affix, index) => {
+      const label = itemAffixes(item)[index] || normalizeAffixName(affix);
+      const slots = Array.isArray(affix.slots) ? affix.slots.join(" / ") : "待回填";
+      return `
+        <li>
+          <strong>${label}</strong>
+          <span>槽位 ${slots} · ${statLabel(affix.categoryId || "uncategorized")}</span>
+        </li>
+      `;
+    })
+    .join("");
+  const statuses = Object.entries(item.dataStatus || {})
+    .map(([key, value]) => `
+      <div class="status-row">
+        <span>${dataStatusFieldLabels[key] || key}</span>
+        <strong>${statusLabel(value)}</strong>
+      </div>
+    `)
+    .join("");
+
+  panel.innerHTML = `
+    <div class="equipment-detail-hero">
+      ${renderIcon(item, `${itemName(item)}图标`)}
+      <div>
+        <p class="panel-kicker">${equipmentClassLabel(item)} · ${equipmentTypeLabel(item)}</p>
+        <h3>${itemName(item)}</h3>
+        <p>${item.zhBuildRole || item.buildRole}</p>
+      </div>
+    </div>
+    <div class="tag-row">${(item.zhModeFit || item.modeFit).map((fit) => `<span>${fit}</span>`).join("")}</div>
+    <section class="detail-section">
+      <div class="section-title">
+        <h4>固定词缀</h4>
+        <span>${item.guaranteedAffixes.length} 条</span>
+      </div>
+      <ul class="affix-list">${affixes}</ul>
+    </section>
+    <section class="detail-section">
+      <div class="section-title">
+        <h4>数据状态</h4>
+        <span>资料完整度</span>
+      </div>
+      <div class="status-grid">${statuses}</div>
+    </section>
+    <section class="detail-section">
+      <div class="section-title">
+        <h4>来源</h4>
+        <span>${item.source.id}</span>
+      </div>
+      <p>${versionLineLabel(item.source.versionLine)}</p>
+      <div class="source-actions">
+        <a href="${item.source.url}" target="_blank" rel="noreferrer">查看补丁来源</a>
+        ${item.externalImage ? `<a href="${item.externalImage}" target="_blank" rel="noreferrer">查看图标来源</a>` : ""}
+      </div>
+    </section>
+  `;
+  bindImageFallbacks(panel);
 }
 
 function renderForecast() {
@@ -507,11 +665,6 @@ function renderSources(sources) {
 }
 
 function bindInteractions() {
-  const header = $("[data-header]");
-  const updateHeader = () => header.classList.toggle("is-solid", window.scrollY > 24);
-  window.addEventListener("scroll", updateHeader, { passive: true });
-  updateHeader();
-
   const form = $("[data-damage-form]");
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -537,27 +690,44 @@ function bindInteractions() {
     state.sim.buildIndex = 0;
     renderSimulator();
   });
-  $("[data-sim-result]").addEventListener("click", (event) => {
+  $("[data-build-candidates]").addEventListener("click", (event) => {
     const button = event.target.closest("[data-build-index]");
     if (!button) return;
     state.sim.buildIndex = Number(button.dataset.buildIndex);
     renderSimulator();
   });
 
+  $("[data-class-rail]").addEventListener("click", (event) => {
+    const button = event.target.closest("[data-class-id]");
+    if (!button) return;
+    state.selectedClassId = button.dataset.classId;
+    renderSelectedClass();
+  });
+
   $("[data-equipment-search]").addEventListener("input", (event) => {
     state.equipmentFilters.query = event.target.value;
     state.equipmentFilters.visible = 48;
+    state.selectedEquipmentId = null;
     renderEquipment();
   });
   $("[data-equipment-class]").addEventListener("change", (event) => {
     state.equipmentFilters.classId = event.target.value;
     state.equipmentFilters.visible = 48;
+    state.selectedEquipmentId = null;
     renderEquipment();
   });
   $("[data-equipment-mode]").addEventListener("change", (event) => {
     state.equipmentFilters.mode = event.target.value;
     state.equipmentFilters.visible = 48;
+    state.selectedEquipmentId = null;
     renderEquipment();
+  });
+  $("[data-equipment-results]").addEventListener("click", (event) => {
+    const button = event.target.closest("[data-equipment-id]");
+    if (!button) return;
+    state.selectedEquipmentId = button.dataset.equipmentId;
+    renderEquipment();
+    $("[data-equipment-detail]")?.scrollTo(0, 0);
   });
   $("[data-equipment-more]").addEventListener("click", () => {
     state.equipmentFilters.visible += 48;
@@ -597,6 +767,7 @@ async function init() {
   renderForecast();
   renderSources(sources);
   bindInteractions();
+  bindNavigation();
 }
 
 init().catch((error) => {
