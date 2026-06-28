@@ -1,5 +1,6 @@
 import { calculateExpectedDps } from "../src/damage/calculate.js";
 import { summarizeGearScore } from "../src/build/score.js";
+import { zh } from "./lib/zh-localization.mjs";
 
 const sampleDamage = calculateExpectedDps({
   weaponDamage: 1800,
@@ -26,4 +27,36 @@ const sampleGear = summarizeGearScore(
   }
 );
 
-console.log(JSON.stringify({ sampleDamage, sampleGear }, null, 2));
+const breakdownLabels = {
+  baseSkillDamage: "基础技能伤害",
+  primaryStatFactor: "主属性乘区",
+  additiveFactor: "加伤池",
+  independentMultiplier: "独立乘区",
+  criticalFactor: "暴击期望",
+  vulnerableFactor: "易伤期望",
+  overpowerFactor: "压制期望"
+};
+
+const output = {
+  伤害样例: {
+    期望每秒伤害: sampleDamage.expectedDps,
+    单次命中: {
+      最终伤害: sampleDamage.hit.finalDamage,
+      拆分: Object.fromEntries(
+        Object.entries(sampleDamage.hit.breakdown).map(([key, value]) => [breakdownLabels[key] ?? key, value])
+      ),
+      假设: sampleDamage.hit.assumptions
+    }
+  },
+  装备评分样例: {
+    总分: sampleGear.totalScore,
+    词缀: sampleGear.scoredAffixes.map((affix) => ({
+      名称: zh.affix(affix.name),
+      分类: zh.stat(affix.categoryId),
+      归一化数值: affix.normalizedValue,
+      得分: affix.score
+    }))
+  }
+};
+
+console.log(JSON.stringify(output, null, 2));

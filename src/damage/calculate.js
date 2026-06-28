@@ -1,6 +1,6 @@
 function toFraction(value, label) {
   if (typeof value !== "number" || Number.isNaN(value)) {
-    throw new TypeError(`${label} must be a number`);
+    throw new TypeError(`${label} 必须是数字`);
   }
   return Math.abs(value) > 1 ? value / 100 : value;
 }
@@ -24,10 +24,10 @@ export function calculateHitDamage(input) {
   const weaponDamage = Number(input.weaponDamage ?? 0);
   const skillCoefficient = Number(input.skillCoefficient ?? 1);
   if (weaponDamage <= 0) {
-    throw new RangeError("weaponDamage must be greater than 0");
+    throw new RangeError("武器伤害必须大于 0");
   }
   if (skillCoefficient <= 0) {
-    throw new RangeError("skillCoefficient must be greater than 0");
+    throw new RangeError("技能系数必须大于 0");
   }
 
   const baseSkillDamage = weaponDamage * skillCoefficient;
@@ -81,9 +81,9 @@ export function calculateHitDamage(input) {
       overpowerFactor
     },
     assumptions: [
-      "Primary stat uses the common 1% skill damage per 10 main stat model.",
-      "Critical, vulnerable, and overpower are modeled as expected event multipliers.",
-      "Per-skill hidden coefficients, caps, snapshots, and server-side ordering require in-game validation."
+      "主属性按常见的每 10 点主属性提高 1% 技能伤害模型处理。",
+      "暴击、易伤和压制按事件期望乘区建模。",
+      "单技能隐藏系数、上限、快照机制和服务器结算顺序仍需要游戏内验证。"
     ]
   };
 }
@@ -92,7 +92,7 @@ export function calculateExpectedDps(input) {
   const hit = calculateHitDamage(input);
   const attacksPerSecond = Number(input.attacksPerSecond ?? 1);
   if (attacksPerSecond <= 0) {
-    throw new RangeError("attacksPerSecond must be greater than 0");
+    throw new RangeError("每秒攻击次数必须大于 0");
   }
   return {
     expectedDps: hit.finalDamage * attacksPerSecond,

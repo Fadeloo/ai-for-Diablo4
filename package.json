@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Diablo IV strategy data, guide content, build planning, and damage calculation core.",
+  "description": "暗黑4攻略数据、构筑规划和伤害计算核心。",
   "scripts": {
     "build:assets": "node scripts/create-hero-asset.mjs && node scripts/create-item-icons.mjs",
     "build:data": "node scripts/build-equipment-library.mjs && node scripts/generate-build-simulations.mjs",

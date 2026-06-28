@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { zh } from "./lib/zh-localization.mjs";
 
 const root = path.resolve(new URL(".", import.meta.url).pathname, "..");
 const uniquePath = path.join(root, "data/generated/official-3.1.0-guaranteed-unique-affixes.json");
@@ -86,17 +87,23 @@ const items = uniqueData.items.map((item) => {
   return {
     id: slugify(item.name),
     name: item.name,
+    zhName: zh.itemName(item.name),
     rarity: "unique",
     classRestriction: item.classRestriction,
+    zhClassRestriction: zh.classRestriction(item.classRestriction),
     visualType,
+    zhVisualType: zh.visualType(visualType),
     image: `./public/assets/icon-${visualType}.png`,
     externalImage: externalIcon?.iconUrl ?? null,
     externalImageSource: externalIcon?.iconUrl ? iconIndex.source : null,
     externalImageMatchType: externalIcon?.matchType ?? "none",
     guaranteedAffixes,
+    zhGuaranteedAffixes: guaranteedAffixes.map((affix) => zh.affix(affix.name)),
     categories,
     buildRole: buildRole(categories),
+    zhBuildRole: zh.buildRole(buildRole(categories)),
     modeFit: modeFit(categories),
+    zhModeFit: modeFit(categories).map((mode) => zh.mode(mode)),
     source: uniqueData.source,
     dataStatus: {
       guaranteedAffixes: "official_3_1_0_patch",

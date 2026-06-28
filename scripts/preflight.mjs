@@ -24,6 +24,7 @@ const REQUIRED_FILES = [
   "scripts/build-equipment-library.mjs",
   "scripts/generate-build-simulations.mjs",
   "scripts/fetch-d4builds-icons.mjs",
+  "scripts/lib/zh-localization.mjs",
   "scripts/create-item-icons.mjs",
   "scripts/verify.mjs"
 ];

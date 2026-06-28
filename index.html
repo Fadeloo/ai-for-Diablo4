@@ -9,15 +9,15 @@
   </head>
   <body>
     <header class="site-header" data-header>
-      <a class="brand" href="#home" aria-label="Harris‘s Diablo 4 home">Harris‘s Diablo 4</a>
-      <nav class="nav-links" aria-label="Primary">
+      <a class="brand" href="#home" aria-label="Harris‘s Diablo 4 首页">Harris‘s Diablo 4</a>
+      <nav class="nav-links" aria-label="主导航">
         <a href="#simulator">模拟</a>
         <a href="#classes">职业</a>
         <a href="#equipment">装备库</a>
         <a href="#forecast">150层</a>
         <a href="#sources">来源</a>
       </nav>
-      <a class="version-link" href="#sources" data-live-patch>3.0.4 live</a>
+      <a class="version-link" href="#sources" data-live-patch>3.0.4 当前</a>
     </header>
 
     <main>
@@ -25,7 +25,7 @@
         <img class="hero-image" src="./public/assets/hero-sanctuary.png" alt="暗黑风格装备陈列场景">
         <div class="hero-scrim" aria-hidden="true"></div>
         <div class="hero-copy">
-          <p class="eyebrow" data-version-line>3.0.4 live / 3.1.0 preview</p>
+          <p class="eyebrow" data-version-line>3.0.4 当前 / 3.1.0 预览</p>
           <h1 id="hero-title">Harris‘s Diablo 4</h1>
           <p class="hero-subtitle">配装模拟、装备检索、三赛季构筑预测和 150 层速度预估，全部带来源和置信度。</p>
           <div class="hero-actions">
@@ -51,9 +51,9 @@
 
       <section class="section simulator-section" id="simulator" aria-labelledby="simulator-title">
         <div class="section-copy">
-          <p class="eyebrow">Build simulator</p>
-          <h2 id="simulator-title">用 AI 规则模型先筛一轮配装。</h2>
-          <p>选择赛季、职业和用途，模型会结合流派标签与官方 3.1.0 装备词缀种子，给出冲层、速刷、日常的候选配装和 150 层速度预估。</p>
+          <p class="eyebrow">配装模拟器</p>
+          <h2 id="simulator-title">用人工智能规则模型先筛一轮配装。</h2>
+          <p>选择赛季、职业和用途，模型会结合流派标签与官方 3.1.0 装备固定词缀种子，给出冲层、速刷、日常的候选配装和 150 层速度预估。</p>
         </div>
         <div class="simulator-console">
           <div class="sim-controls">
@@ -80,15 +80,15 @@
 
       <section class="section class-section" id="classes" aria-labelledby="classes-title">
         <div class="section-copy">
-          <p class="eyebrow">Season launch map</p>
+          <p class="eyebrow">赛季开荒路线</p>
           <h2 id="classes-title">先选职业，再决定掉落怎么用。</h2>
           <p>这里把每个职业的开荒优先级、过渡路线和构筑轴放在同一个视口里，适合补丁上线后快速改权重。</p>
         </div>
         <div class="class-workbench" aria-live="polite">
           <div class="class-rail" data-class-rail></div>
           <div class="class-panel">
-            <p class="panel-kicker" data-class-resource>Resource</p>
-            <h3 data-class-title>Barbarian</h3>
+            <p class="panel-kicker" data-class-resource>资源</p>
+            <h3 data-class-title>野蛮人</h3>
             <ol class="plan-list" data-class-plan></ol>
             <div class="archetype-grid" data-archetypes></div>
           </div>
@@ -97,9 +97,9 @@
 
       <section class="section damage-section" id="damage" aria-labelledby="damage-title">
         <div class="section-copy">
-          <p class="eyebrow">Damage lab</p>
+          <p class="eyebrow">伤害实验室</p>
           <h2 id="damage-title">把词缀收益拆开看。</h2>
-          <p>输入武器伤害、技能系数、主属性和关键事件覆盖率，页面会输出期望 DPS 与乘区拆分。</p>
+          <p>输入武器伤害、技能系数、主属性和关键事件覆盖率，页面会输出期望每秒伤害与乘区拆分。</p>
         </div>
         <form class="damage-lab" data-damage-form>
           <label>
@@ -141,9 +141,9 @@
 
       <section class="section equipment-section" id="equipment" aria-labelledby="equipment-title">
         <div class="section-copy">
-          <p class="eyebrow">Equipment library</p>
+          <p class="eyebrow">装备资料库</p>
           <h2 id="equipment-title">先有可追溯装备库，再做推荐。</h2>
-          <p>当前已收录官方 3.1.0 补丁页中的 278 条唯一装备 guaranteed affix，并通过外部 URL 显示真实图标。完整词缀范围和暗金特效仍在数据回填队列中。</p>
+          <p>当前已收录官方 3.1.0 补丁页中的 278 条唯一装备固定词缀，并通过外部地址显示真实图标。完整词缀范围和暗金特效仍在数据回填队列中。</p>
         </div>
         <div class="equipment-board">
           <div class="equipment-controls">
@@ -163,7 +163,7 @@
 
       <section class="section forecast-section" id="forecast" aria-labelledby="forecast-title">
         <div class="section-copy">
-          <p class="eyebrow">Pit 150 forecast</p>
+          <p class="eyebrow">150 层预测</p>
           <h2 id="forecast-title">150 层速度预测不是排行榜。</h2>
           <p>这是模型预估：S14 受官方 3.1.0 资料影响，S15/S16 是更低置信度推演。赛季上线后需要用真实冲层和速刷成绩校准。</p>
         </div>
@@ -172,15 +172,15 @@
 
       <section class="section source-section" id="sources" aria-labelledby="sources-title">
         <div class="section-copy">
-          <p class="eyebrow">Source discipline</p>
+          <p class="eyebrow">来源纪律</p>
           <h2 id="sources-title">只把可追溯的内容放进计算器。</h2>
-          <p>当前在线版本是 2026-06-10 的 3.0.4；3.1.0 在 2026-06-28 仍是未来补丁，所以页面明确分开 live 与 preview。</p>
+          <p>当前在线版本是 2026-06-10 的 3.0.4；3.1.0 在 2026-06-28 仍是未来补丁，所以页面明确分开当前版本与预览版本。</p>
         </div>
         <div class="source-list" data-source-list></div>
       </section>
     </main>
 
-    <aside class="ask-bar" aria-label="Build question">
+    <aside class="ask-bar" aria-label="构筑提问">
       <span class="ask-label">问构筑</span>
       <input data-ask-input type="text" placeholder="例如：死灵开荒优先什么？" aria-label="输入构筑问题">
       <button class="button button-primary" data-ask-button type="button">回答</button>

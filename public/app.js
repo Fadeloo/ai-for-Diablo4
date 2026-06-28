@@ -29,13 +29,70 @@ const state = {
   }
 };
 
+const statLabels = {
+  weapon_damage: "武器伤害",
+  skill_rank: "技能等级",
+  resource: "资源循环",
+  critical_strike: "暴击",
+  additive_damage: "加伤池",
+  cooldown_reduction: "冷却缩减",
+  survivability: "生存",
+  all_damage_multiplier: "全伤害乘区",
+  elemental_damage_multiplier: "元素伤害乘区",
+  attack_speed: "攻击速度",
+  overpower: "压制",
+  vulnerable: "易伤",
+  thorns: "荆棘",
+  mobility: "机动性",
+  lucky_hit: "幸运一击"
+};
+
+const resourceLabels = {
+  Fury: "怒气",
+  Spirit: "灵力",
+  Essence: "精魂",
+  Corpses: "亡骸",
+  Energy: "能量",
+  "Combo Points": "连击点数",
+  Mana: "法力",
+  Vigor: "活力",
+  "Class-specific resource pending source lock": "职业资源待资料锁定"
+};
+
+const sourceLabels = {
+  blizzard_patch_3_0: "《暗黑破坏神 IV》3.0 补丁说明",
+  blizzard_patch_3_1: "《暗黑破坏神 IV》3.1.0 补丁说明",
+  blizzard_season_death_awakening: "死亡觉醒赛季官方介绍",
+  maxroll_damage_guide: "Maxroll 暗黑4深度伤害机制指南",
+  wowhead_damage_buckets: "Wowhead 暗黑4伤害乘区指南",
+  d4builds_database: "D4Builds 数据库",
+  d4builds_sunderarmor_icons: "D4Builds 唯一装备图标引用",
+  d4lf_repo: "d4lf 开源工具仓库"
+};
+
+const sourceCategoryLabels = {
+  official_patch_notes: "官方补丁说明",
+  official_season_overview: "官方赛季说明",
+  community_mechanics: "社区机制资料",
+  community_database: "社区数据库",
+  community_visual_reference: "社区图标引用",
+  open_source_tooling: "开源工具"
+};
+
+const trustLabels = {
+  official: "官方",
+  community_verified: "社区验证",
+  needs_validation: "待验证",
+  needs_license_review: "需授权确认"
+};
+
 function $(selector) {
   return document.querySelector(selector);
 }
 
 async function loadJson(path) {
   const response = await fetch(path);
-  if (!response.ok) throw new Error(`Failed to load ${path}`);
+  if (!response.ok) throw new Error(`无法加载 ${path}`);
   return response.json();
 }
 
@@ -57,6 +114,22 @@ function fallbackIcon(item) {
 
 function renderIcon(item, alt) {
   return `<img src="${iconSource(item)}" data-fallback="${fallbackIcon(item)}" alt="${alt}">`;
+}
+
+function itemName(item) {
+  return item.zhName || item.name;
+}
+
+function itemAffixes(item) {
+  return item.zhGuaranteedAffixes || item.guaranteedAffixes?.map((affix) => affix.zhName || affix.name) || [];
+}
+
+function statLabel(value) {
+  return statLabels[value] || value;
+}
+
+function resourceLabel(value) {
+  return resourceLabels[value] || value;
 }
 
 function bindImageFallbacks(root) {
@@ -120,7 +193,7 @@ function renderDamage() {
     .join("");
 
   output.innerHTML = `
-    <div class="damage-total">${formatNumber(result.expectedDps)} DPS</div>
+    <div class="damage-total">${formatNumber(result.expectedDps)} 每秒伤害</div>
     ${rows}
   `;
 }
@@ -138,7 +211,7 @@ function renderSelects() {
   $("[data-equipment-class]").innerHTML = `<option value="all">全部职业</option><option value="All Classes">全职业</option>${classOptions}`;
 
   $("[data-sim-season]").innerHTML = state.simulations.seasons
-    .map((season) => `<option value="${season.id}">${season.label}</option>`)
+    .map((season) => `<option value="${season.id}">${season.zhLabel || season.label}</option>`)
     .join("");
   $("[data-sim-season]").value = state.sim.seasonId;
 }
@@ -155,9 +228,9 @@ function renderSimulator() {
     .slice(0, 4)
     .map((item) => `
       <article class="sim-item">
-        ${renderIcon(item, `${item.name} icon`)}
-        <strong>${item.name}</strong>
-        <span>${item.guaranteedAffixes.join(" / ")}</span>
+        ${renderIcon(item, `${itemName(item)}图标`)}
+        <strong>${itemName(item)}</strong>
+        <span>${itemAffixes(item).join(" / ")}</span>
       </article>
     `)
     .join("");
@@ -176,14 +249,14 @@ function renderSimulator() {
     <div class="sim-forecast-line">
       <span>模型分 ${best.score}</span>
       <span>置信度 ${percent(best.confidence)}</span>
-      <span>${row.modelStatus}</span>
+      <span>${row.zhModelStatus || row.modelStatus}</span>
     </div>
     <p class="sim-rationale">${best.rationale.join(" ")}</p>
     <div class="sim-items">${items}</div>
     <div class="sim-secondary">
       ${secondary.map((build) => `<span>${build.archetypeName} · ${build.predictedPit150Minutes} 分</span>`).join("")}
     </div>
-    <p class="sim-warning">${state.simulations.warning}</p>
+    <p class="sim-warning">${state.simulations.zhWarning || state.simulations.warning}</p>
   `;
   bindImageFallbacks($("[data-sim-result]"));
 }
@@ -215,8 +288,8 @@ function renderSelectedClass() {
   const plan = state.plans.find((item) => item.classId === selected.id);
   const archetypes = state.archetypes.find((item) => item.classId === selected.id)?.archetypes ?? [];
 
-  $("[data-class-resource]").textContent = selected.primaryResources.join(" / ");
-  $("[data-class-title]").textContent = `${selected.zhName} · ${selected.displayName}`;
+  $("[data-class-resource]").textContent = selected.primaryResources.map(resourceLabel).join(" / ");
+  $("[data-class-title]").textContent = selected.zhName;
   $("[data-class-plan]").innerHTML = (plan?.plan ?? [])
     .map((line) => `<li>${line}</li>`)
     .join("");
@@ -224,7 +297,7 @@ function renderSelectedClass() {
     .map((item) => `
       <article class="archetype">
         <strong>${item.zhName}</strong>
-        <span>${item.primaryStats.join(" / ")}</span>
+        <span>${item.primaryStats.map(statLabel).join(" / ")}</span>
       </article>
     `)
     .join("");
@@ -240,27 +313,32 @@ function renderEquipment() {
       if (!normalizedQuery) return true;
       return [
         item.name,
+        item.zhName,
         item.classRestriction,
+        item.zhClassRestriction,
         item.visualType,
+        item.zhVisualType,
         item.buildRole,
+        item.zhBuildRole,
         item.categories.join(" "),
-        item.guaranteedAffixes.map((affix) => affix.name).join(" ")
+        item.guaranteedAffixes.map((affix) => affix.name).join(" "),
+        (item.zhGuaranteedAffixes ?? []).join(" ")
       ].join(" ").toLowerCase().includes(normalizedQuery);
     })
     .slice(0, 36);
 
-  $("[data-equipment-meta]").textContent = `显示 ${rows.length} / ${state.equipment.length} 条。当前库是官方 guaranteed affix 种子，不是完整装备库。`;
+  $("[data-equipment-meta]").textContent = `显示 ${rows.length} / ${state.equipment.length} 条。当前库是官方固定词缀种子，不是完整装备库。`;
   $("[data-equipment-results]").innerHTML = rows
     .map((item) => `
       <article class="equipment-card">
-        ${renderIcon(item, `${item.name} icon`)}
+        ${renderIcon(item, `${itemName(item)}图标`)}
         <div>
-          <p>${item.classRestriction === "All Classes" ? "全职业" : item.classRestriction}</p>
-          <h3>${item.name}</h3>
+          <p>${item.zhClassRestriction || (item.classRestriction === "All Classes" ? "全职业" : item.classRestriction)}</p>
+          <h3>${itemName(item)}</h3>
           <ul>
-            ${item.guaranteedAffixes.map((affix) => `<li>${affix.name}</li>`).join("")}
+            ${itemAffixes(item).map((affix) => `<li>${affix}</li>`).join("")}
           </ul>
-          <span>${item.buildRole} · ${item.modeFit.map((fit) => fit.replace("_", " ")).join(" / ")}</span>
+          <span>${item.zhBuildRole || item.buildRole} · ${(item.zhModeFit || item.modeFit).join(" / ")}</span>
         </div>
       </article>
     `)
@@ -282,8 +360,8 @@ function renderForecast() {
 
   $("[data-forecast-board]").innerHTML = `
     <div class="forecast-header">
-      <h3>${season.label}</h3>
-      <p>${season.assumption}</p>
+      <h3>${season.zhLabel || season.label}</h3>
+      <p>${season.zhAssumption || season.assumption}</p>
     </div>
     <div class="forecast-table">
       <div class="forecast-row forecast-row-head">
@@ -306,9 +384,9 @@ function renderSources(sources) {
   $("[data-source-list]").innerHTML = sources.slice(0, 8)
     .map((source) => `
       <div class="source-row">
-        <span>${source.category}</span>
-        <a href="${source.url}" target="_blank" rel="noreferrer">${source.name}</a>
-        <em>${source.trustLevel}</em>
+        <span>${sourceCategoryLabels[source.category] || source.category}</span>
+        <a href="${source.url}" target="_blank" rel="noreferrer">${sourceLabels[source.id] || source.name}</a>
+        <em>${trustLabels[source.trustLevel] || source.trustLevel}</em>
       </div>
     `)
     .join("");
@@ -393,8 +471,8 @@ async function init() {
   state.equipment = equipment.items;
   state.simulations = simulations;
 
-  $("[data-live-patch]").textContent = `${version.effectiveLiveVersion.patch} live`;
-  $("[data-version-line]").textContent = `${version.effectiveLiveVersion.patch} live / ${version.publishedUpcomingVersion.patch} preview`;
+  $("[data-live-patch]").textContent = `${version.effectiveLiveVersion.patch} 当前`;
+  $("[data-version-line]").textContent = `${version.effectiveLiveVersion.patch} 当前 / ${version.publishedUpcomingVersion.patch} 预览`;
   $("[data-class-count]").textContent = classes.length;
   $("[data-unique-count]").textContent = uniques.itemCount;
   $("[data-build-count]").textContent = archetypes.reduce((total, item) => total + item.archetypes.length, 0);

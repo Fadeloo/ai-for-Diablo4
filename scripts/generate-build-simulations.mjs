@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { zh } from "./lib/zh-localization.mjs";
 
 const root = path.resolve(new URL(".", import.meta.url).pathname, "..");
 const classPath = path.join(root, "data/classes/classes.json");
@@ -122,14 +123,16 @@ function scoreArchetype(archetype, mode, classId, seasonIndex, equipmentItems) {
     recommendedItems: synergyItems.map(({ item }) => ({
       id: item.id,
       name: item.name,
+      zhName: item.zhName,
       visualType: item.visualType,
       image: item.image,
       externalImage: item.externalImage,
-      guaranteedAffixes: item.guaranteedAffixes.map((affix) => affix.name)
+      guaranteedAffixes: item.guaranteedAffixes.map((affix) => affix.name),
+      zhGuaranteedAffixes: item.zhGuaranteedAffixes
     })),
     rationale: [
-      `${profile.zhName}模型优先 ${archetype.primaryStats.slice(0, 3).join(" / ")}。`,
-      `装备协同来自官方 3.1.0 guaranteed affix 种子，完整暗金特效仍待回填。`
+      `${profile.zhName}模型优先 ${archetype.primaryStats.slice(0, 3).map((stat) => zh.stat(stat)).join(" / ")}。`,
+      "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
     ]
   };
 }
@@ -175,9 +178,18 @@ const payload = {
   generatedAt: new Date().toISOString(),
   scope: "next_three_season_build_and_pit150_prediction_matrix",
   warning: "Predictions are model output, not facts. Update with live leaderboard and patch data after each season starts.",
-  seasons,
+  zhWarning: zh.warning(),
+  seasons: seasons.map((season) => ({
+    ...season,
+    zhLabel: zh.seasonLabel(season.label),
+    zhAssumption: zh.seasonAssumption(season.assumption)
+  })),
   modeProfiles,
-  rows
+  rows: rows.map((row) => ({
+    ...row,
+    zhModelStatus: zh.modelStatus(row.modelStatus),
+    zhAssumption: zh.seasonAssumption(row.assumption)
+  }))
 };
 
 await mkdir(path.dirname(output), { recursive: true });

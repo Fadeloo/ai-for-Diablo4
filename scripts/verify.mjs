@@ -60,6 +60,9 @@ assert(equipmentLibrary.itemCount === equipmentLibrary.items.length, "Equipment 
 assert(equipmentLibrary.itemCount > 100, "Equipment library seed should contain more than 100 records");
 assert(equipmentLibrary.limitations.some((line) => line.includes("not the full Diablo IV equipment database")), "Equipment library must disclose incomplete scope");
 assert(equipmentLibrary.items.every((item) => item.image && item.guaranteedAffixes.length > 0), "Each equipment record needs an image path and guaranteed affixes");
+assert(equipmentLibrary.items.every((item) => item.zhName && !/[A-Za-z]/.test(item.zhName)), "Each equipment record needs a Chinese display name");
+assert(equipmentLibrary.items.every((item) => item.zhGuaranteedAffixes?.length === item.guaranteedAffixes.length), "Each equipment affix needs a Chinese display label");
+assert(equipmentLibrary.items.every((item) => item.zhGuaranteedAffixes.every((label) => !/[A-Za-z]/.test(label))), "Chinese affix labels must not contain English words");
 
 assert(iconIndex.source.usage === "external_url_reference_only_no_asset_download", "Icon index must store URLs only");
 assert(iconIndex.itemCount === equipmentLibrary.itemCount, "Icon index must cover the equipment seed");
@@ -68,13 +71,17 @@ assert(iconIndex.items.every((item) => item.iconUrl?.startsWith("https://sundera
 assert(equipmentLibrary.items.every((item) => item.externalImage?.startsWith("https://sunderarmor.com/DIABLO4/Uniques/2/")), "Each equipment item should expose an external icon URL");
 
 assert(simulations.seasons.length === 3, "Build simulator should cover the next three season windows");
+assert(simulations.seasons.every((season) => season.zhLabel && season.zhAssumption), "Each modeled season needs Chinese display text");
+assert(simulations.zhWarning && !/[A-Za-z]/.test(simulations.zhWarning), "Build simulator warning needs Chinese display text");
 assert(simulations.rows.length === simulations.seasons.length * classes.length, "Simulation rows must cover every class in every modeled season");
 for (const row of simulations.rows) {
   assert(classIds.includes(row.classId), `Unknown simulation class: ${row.classId}`);
+  assert(row.zhModelStatus && !/[A-Za-z]/.test(row.zhModelStatus), `Simulation row needs Chinese model status: ${row.classId}`);
   for (const mode of ["pit_push", "speed_farm", "daily"]) {
     const modeResult = row.modes[mode];
     assert(modeResult?.topBuilds?.length > 0, `Missing top builds for ${row.classId}/${mode}`);
     assert(typeof modeResult.topBuilds[0].predictedPit150Minutes === "number", `Missing Pit 150 prediction for ${row.classId}/${mode}`);
+    assert(modeResult.topBuilds[0].recommendedItems.every((item) => item.zhName && item.zhGuaranteedAffixes?.length), `Recommended items need Chinese text for ${row.classId}/${mode}`);
   }
 }
 
