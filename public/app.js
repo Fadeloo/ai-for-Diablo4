@@ -151,6 +151,45 @@ const verificationLevelLabels = {
   projection_template: "未来赛季推演模板"
 };
 
+const sourceQualityOptions = [
+  {
+    id: "all",
+    label: "全部 BD",
+    shortLabel: "全部",
+    description: "同时显示社区来源、结构化模板和推演记录。"
+  },
+  {
+    id: "community",
+    label: "社区可抄",
+    shortLabel: "实战可抄",
+    description: "同赛季或跨赛季社区来源，优先用于抄作业。"
+  },
+  {
+    id: "community_reference",
+    label: "同赛季社区参考",
+    shortLabel: "同赛季社区",
+    description: "当前赛季社区构筑来源，可信度最高。"
+  },
+  {
+    id: "cross_season_reference",
+    label: "跨赛季社区参考",
+    shortLabel: "跨赛季参考",
+    description: "旧赛季社区构筑迁移，需要按补丁调整。"
+  },
+  {
+    id: "official_seed_template",
+    label: "官方词缀模板",
+    shortLabel: "官方模板",
+    description: "基于官方词缀种子生成，等待实战回填。"
+  },
+  {
+    id: "projection_template",
+    label: "未来赛季推演",
+    shortLabel: "未来推演",
+    description: "用于赛季预判，不等同已验证 BD。"
+  }
+];
+
 const modeLabels = {
   pit_push: "冲层",
   speed_farm: "速刷",
@@ -461,6 +500,13 @@ function renderSelects() {
     .map((season) => `<option value="${season.id}">${season.zhLabel || season.label}</option>`)
     .join("");
   $("[data-sim-season]").value = state.sim.seasonId;
+  const sourceSelect = $("[data-sim-source]");
+  if (sourceSelect) {
+    sourceSelect.innerHTML = sourceQualityOptions
+      .map((option) => `<option value="${option.id}">${option.label}</option>`)
+      .join("");
+    sourceSelect.value = state.sim.sourceQuality;
+  }
   const classSeason = $("[data-class-season]");
   if (classSeason) {
     classSeason.innerHTML = state.simulations.seasons
@@ -555,20 +601,8 @@ function syncAspectFilterControls() {
 }
 
 function filteredGuides() {
-  const query = normalizedText(state.sim.query);
-  const rows = allBuildGuides()
-    .filter((guide) => guide.taxonomy.seasonId === state.sim.seasonId)
-    .filter((guide) => state.sim.classId === "all" || guide.taxonomy.classId === state.sim.classId)
-    .filter((guide) => state.sim.mode === "all" || guide.taxonomy.mode === state.sim.mode)
-    .filter((guide) => {
-      if (state.sim.sourceQuality === "community") return Boolean(guide.source.references?.length);
-      if (state.sim.sourceQuality === "structured") return !guide.source.references?.length;
-      return true;
-    })
-    .filter((guide) => {
-      if (!query) return true;
-      return buildGuideSearchText(guide).includes(query);
-    });
+  const rows = baseFilteredGuides()
+    .filter((guide) => guideMatchesSourceQuality(guide, state.sim.sourceQuality));
 
   const sorters = {
     source: sortGuidesForPlayer,
@@ -608,6 +642,34 @@ function guideSourceRank(guide) {
     projection_template: 3
   };
   return ranks[guide.source.verificationLevel] ?? 4;
+}
+
+function sourceQualityOption(id) {
+  return sourceQualityOptions.find((option) => option.id === id) || sourceQualityOptions[0];
+}
+
+function guideMatchesSourceQuality(guide, sourceQuality) {
+  if (sourceQuality === "all") return true;
+  if (sourceQuality === "community") {
+    return ["community_reference", "cross_season_reference"].includes(guide.source.verificationLevel);
+  }
+  if (sourceQuality === "structured") {
+    return !["community_reference", "cross_season_reference"].includes(guide.source.verificationLevel);
+  }
+  return guide.source.verificationLevel === sourceQuality;
+}
+
+function guideMatchesBuildQuery(guide, query) {
+  return !query || buildGuideSearchText(guide).includes(query);
+}
+
+function baseFilteredGuides() {
+  const query = normalizedText(state.sim.query);
+  return allBuildGuides()
+    .filter((guide) => guide.taxonomy.seasonId === state.sim.seasonId)
+    .filter((guide) => state.sim.classId === "all" || guide.taxonomy.classId === state.sim.classId)
+    .filter((guide) => state.sim.mode === "all" || guide.taxonomy.mode === state.sim.mode)
+    .filter((guide) => guideMatchesBuildQuery(guide, query));
 }
 
 function sortGuidesForPlayer(a, b) {
@@ -913,17 +975,37 @@ function renderBuildClassRail() {
   }).join("");
 }
 
+function renderBuildSourceRail() {
+  const rail = $("[data-build-source-rail]");
+  if (!rail) return;
+  const baseGuides = baseFilteredGuides().sort(sortGuidesForPlayer);
+  rail.innerHTML = sourceQualityOptions.map((option) => {
+    const sourceGuides = baseGuides.filter((guide) => guideMatchesSourceQuality(guide, option.id));
+    const bestGuide = sourceGuides[0];
+    const isActive = state.sim.sourceQuality === option.id;
+    return `
+      <button class="build-source-card" type="button" data-build-source-quality="${option.id}" aria-selected="${isActive}" ${sourceGuides.length ? "" : "disabled"}>
+        <span>${option.shortLabel}</span>
+        <strong>${sourceGuides.length}</strong>
+        <em>${bestGuide ? `${bestGuide.taxonomy.className} · ${bestGuide.taxonomy.archetypeName}` : "暂无匹配"}</em>
+        <small>${option.description}</small>
+      </button>
+    `;
+  }).join("");
+}
+
 function renderSimulator() {
   const guides = filteredGuides();
   const selected = guides[state.sim.buildIndex] || guides[0] || null;
   renderBuildClassRail();
+  renderBuildSourceRail();
   if (!guides.some((guide) => guide.id === state.selectedGuideId)) {
     state.selectedGuideId = selected?.id || null;
   }
 
   $("[data-build-list]").innerHTML = `
     <div class="build-list-title">
-      <span>${className(state.sim.classId)} · ${modeName(state.sim.mode)}</span>
+      <span>${className(state.sim.classId)} · ${modeName(state.sim.mode)} · ${sourceQualityOption(state.sim.sourceQuality).shortLabel}</span>
       <strong>${guides.length} 套 BD</strong>
       <em>${guides.filter((guide) => guide.source.references?.length).length} 套社区来源</em>
     </div>
@@ -954,8 +1036,8 @@ function renderSimulator() {
     <div class="library-head">
       <div>
         <p class="panel-kicker">BD 大厅</p>
-        <h3>${className(state.sim.classId)} · ${modeLabel}</h3>
-        <p>按资料来源、成型难度、适用阶段和上限比较流派。每张卡进入完整 BD 详情页，详情页按装备、技能、巅峰、打法和替换件分区阅读。</p>
+        <h3>${className(state.sim.classId)} · ${modeLabel} · ${sourceQualityOption(state.sim.sourceQuality).label}</h3>
+        <p>按资料来源、成型难度、适用阶段和上限比较流派。社区可抄优先用于实战，模板和未来推演只作为赛季预判或数据缺口提示。</p>
       </div>
       <div class="library-stats">
         <span><b>${guides.length}</b>套流派</span>
@@ -1987,6 +2069,14 @@ function bindInteractions() {
   $("[data-sim-source]").addEventListener("change", (event) => {
     state.sim.sourceQuality = event.target.value;
     state.sim.buildIndex = 0;
+    renderSimulator();
+  });
+  $("[data-build-source-rail]").addEventListener("click", (event) => {
+    const button = event.target.closest("[data-build-source-quality]");
+    if (!button || button.disabled) return;
+    state.sim.sourceQuality = button.dataset.buildSourceQuality;
+    state.sim.buildIndex = 0;
+    syncBuildFilterControls();
     renderSimulator();
   });
   $("[data-build-sort]").addEventListener("change", (event) => {

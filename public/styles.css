@@ -478,7 +478,7 @@ h4 {
 
 .build-library-shell {
   display: grid;
-  grid-template-rows: auto auto minmax(0, 1fr);
+  grid-template-rows: auto auto auto minmax(0, 1fr);
   overflow: hidden;
 }
 
@@ -570,6 +570,66 @@ h4 {
   min-height: 42px;
   padding: 9px 11px;
   width: 100%;
+}
+
+.build-source-rail {
+  background:
+    linear-gradient(180deg, rgba(23, 12, 8, 0.7), rgba(8, 4, 3, 0.78));
+  border-bottom: 1px solid rgba(214, 173, 99, 0.22);
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  padding: 12px 16px 16px;
+}
+
+.build-source-card {
+  background: linear-gradient(180deg, rgba(242, 240, 234, 0.04), rgba(10, 6, 4, 0.72));
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  color: var(--muted);
+  cursor: pointer;
+  display: grid;
+  gap: 5px;
+  min-height: 120px;
+  padding: 12px;
+  text-align: left;
+  transition: border-color var(--transition), background-color var(--transition), opacity var(--transition);
+}
+
+.build-source-card:hover,
+.build-source-card[aria-selected="true"] {
+  background: linear-gradient(180deg, rgba(164, 32, 24, 0.22), rgba(214, 173, 99, 0.11));
+  border-color: rgba(240, 207, 143, 0.5);
+}
+
+.build-source-card:disabled {
+  cursor: not-allowed;
+  opacity: 0.46;
+}
+
+.build-source-card span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.build-source-card strong {
+  color: #fff7df;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.build-source-card em,
+.build-source-card small {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.build-source-card em {
+  color: var(--bone);
+  font-weight: 750;
 }
 
 .build-library-layout {
@@ -2713,6 +2773,7 @@ h4 {
   }
 
   .build-filters,
+  .build-source-rail,
   .equipment-controls,
   .aspect-controls {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2828,6 +2889,7 @@ h4 {
   .hero-metrics,
   .build-class-rail,
   .build-filters,
+  .build-source-rail,
   .equipment-controls,
   .aspect-controls,
   .detail-head,
