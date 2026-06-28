@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T06:54:24.187Z",
+  "generatedAt": "2026-06-28T13:21:43.237Z",
   "scope": "next_three_season_build_and_pit150_prediction_matrix",
   "warning": "Predictions are model output, not facts. Update with live leaderboard and patch data after each season starts.",
   "zhWarning": "预测结果是模型输出，不是事实榜单。每个赛季上线后需要用真实冲层、速刷成绩和热修补丁继续校准。",
@@ -667,7 +667,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -785,7 +785,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -851,7 +851,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -969,7 +969,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -1034,7 +1034,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -1150,7 +1150,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -1830,7 +1830,7 @@
                 {
                   "id": "ifehs-dire-totem",
                   "name": "Ifeh's Dire Totem",
-                  "zhName": "伊弗埃赫斯恐怖特欧特埃姆",
+                  "zhName": "伊弗埃赫恐怖特欧特埃姆",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ifeh's_dire_totem.png",
@@ -1926,7 +1926,7 @@
                     },
                     {
                       "id": "ifehs-dire-totem",
-                      "zhName": "伊弗埃赫斯恐怖特欧特埃姆",
+                      "zhName": "伊弗埃赫恐怖特欧特埃姆",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 毒素伤害乘区。"
                     },
@@ -2011,7 +2011,7 @@
                 {
                   "id": "ifehs-dire-totem",
                   "name": "Ifeh's Dire Totem",
-                  "zhName": "伊弗埃赫斯恐怖特欧特埃姆",
+                  "zhName": "伊弗埃赫恐怖特欧特埃姆",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ifeh's_dire_totem.png",
@@ -2107,7 +2107,7 @@
                     },
                     {
                       "id": "ifehs-dire-totem",
-                      "zhName": "伊弗埃赫斯恐怖特欧特埃姆",
+                      "zhName": "伊弗埃赫恐怖特欧特埃姆",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 毒素伤害乘区。"
                     },
@@ -2192,7 +2192,7 @@
                 {
                   "id": "ifehs-dire-totem",
                   "name": "Ifeh's Dire Totem",
-                  "zhName": "伊弗埃赫斯恐怖特欧特埃姆",
+                  "zhName": "伊弗埃赫恐怖特欧特埃姆",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ifeh's_dire_totem.png",
@@ -2288,7 +2288,7 @@
                     },
                     {
                       "id": "ifehs-dire-totem",
-                      "zhName": "伊弗埃赫斯恐怖特欧特埃姆",
+                      "zhName": "伊弗埃赫恐怖特欧特埃姆",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 毒素伤害乘区。"
                     },
@@ -2351,7 +2351,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -2467,7 +2467,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -2532,7 +2532,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -2648,7 +2648,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -2713,7 +2713,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -2829,7 +2829,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -3503,7 +3503,7 @@
                 {
                   "id": "sanguivor-blade-of-zir",
                   "name": "Sanguivor, Blade of Zir",
-                  "zhName": "斯阿恩格乌伊维欧尔刃兹伊尔",
+                  "zhName": "鲜血吞噬者刃齐尔",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sanguivor,_blade_of_zir.png",
@@ -3599,7 +3599,7 @@
                     },
                     {
                       "id": "sanguivor-blade-of-zir",
-                      "zhName": "斯阿恩格乌伊维欧尔刃兹伊尔",
+                      "zhName": "鲜血吞噬者刃齐尔",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 物理伤害乘区。"
                     },
@@ -3684,7 +3684,7 @@
                 {
                   "id": "sanguivor-blade-of-zir",
                   "name": "Sanguivor, Blade of Zir",
-                  "zhName": "斯阿恩格乌伊维欧尔刃兹伊尔",
+                  "zhName": "鲜血吞噬者刃齐尔",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sanguivor,_blade_of_zir.png",
@@ -3780,7 +3780,7 @@
                     },
                     {
                       "id": "sanguivor-blade-of-zir",
-                      "zhName": "斯阿恩格乌伊维欧尔刃兹伊尔",
+                      "zhName": "鲜血吞噬者刃齐尔",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 物理伤害乘区。"
                     },
@@ -3865,7 +3865,7 @@
                 {
                   "id": "sanguivor-blade-of-zir",
                   "name": "Sanguivor, Blade of Zir",
-                  "zhName": "斯阿恩格乌伊维欧尔刃兹伊尔",
+                  "zhName": "鲜血吞噬者刃齐尔",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sanguivor,_blade_of_zir.png",
@@ -3961,7 +3961,7 @@
                     },
                     {
                       "id": "sanguivor-blade-of-zir",
-                      "zhName": "斯阿恩格乌伊维欧尔刃兹伊尔",
+                      "zhName": "鲜血吞噬者刃齐尔",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 物理伤害乘区。"
                     },
@@ -4024,7 +4024,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -4140,7 +4140,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -4205,7 +4205,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -4321,7 +4321,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -4386,7 +4386,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -4502,7 +4502,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -4609,7 +4609,7 @@
                 {
                   "id": "bloodless-scream",
                   "name": "Bloodless Scream",
-                  "zhName": "布尔欧欧德尔埃斯斯斯克尔埃阿姆",
+                  "zhName": "无血尖啸",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/bloodless_scream.png",
@@ -4625,7 +4625,7 @@
                 {
                   "id": "mace-of-king-leoric",
                   "name": "Mace of King Leoric",
-                  "zhName": "姆阿克埃凯伊恩格尔埃欧尔伊克",
+                  "zhName": "钉锤国王李奥瑞克",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/mace_of_king_leoric.png",
@@ -4705,13 +4705,13 @@
                     },
                     {
                       "id": "bloodless-scream",
-                      "zhName": "布尔欧欧德尔埃斯斯斯克尔埃阿姆",
+                      "zhName": "无血尖啸",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 黑暗技能等级。"
                     },
                     {
                       "id": "mace-of-king-leoric",
-                      "zhName": "姆阿克埃凯伊恩格尔埃欧尔伊克",
+                      "zhName": "钉锤国王李奥瑞克",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 傀儡等级。"
                     }
@@ -4790,7 +4790,7 @@
                 {
                   "id": "bloodless-scream",
                   "name": "Bloodless Scream",
-                  "zhName": "布尔欧欧德尔埃斯斯斯克尔埃阿姆",
+                  "zhName": "无血尖啸",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/bloodless_scream.png",
@@ -4806,7 +4806,7 @@
                 {
                   "id": "mace-of-king-leoric",
                   "name": "Mace of King Leoric",
-                  "zhName": "姆阿克埃凯伊恩格尔埃欧尔伊克",
+                  "zhName": "钉锤国王李奥瑞克",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/mace_of_king_leoric.png",
@@ -4886,13 +4886,13 @@
                     },
                     {
                       "id": "bloodless-scream",
-                      "zhName": "布尔欧欧德尔埃斯斯斯克尔埃阿姆",
+                      "zhName": "无血尖啸",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 黑暗技能等级。"
                     },
                     {
                       "id": "mace-of-king-leoric",
-                      "zhName": "姆阿克埃凯伊恩格尔埃欧尔伊克",
+                      "zhName": "钉锤国王李奥瑞克",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 傀儡等级。"
                     }
@@ -4971,7 +4971,7 @@
                 {
                   "id": "bloodless-scream",
                   "name": "Bloodless Scream",
-                  "zhName": "布尔欧欧德尔埃斯斯斯克尔埃阿姆",
+                  "zhName": "无血尖啸",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/bloodless_scream.png",
@@ -4987,7 +4987,7 @@
                 {
                   "id": "mace-of-king-leoric",
                   "name": "Mace of King Leoric",
-                  "zhName": "姆阿克埃凯伊恩格尔埃欧尔伊克",
+                  "zhName": "钉锤国王李奥瑞克",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/mace_of_king_leoric.png",
@@ -5067,13 +5067,13 @@
                     },
                     {
                       "id": "bloodless-scream",
-                      "zhName": "布尔欧欧德尔埃斯斯斯克尔埃阿姆",
+                      "zhName": "无血尖啸",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 黑暗技能等级。"
                     },
                     {
                       "id": "mace-of-king-leoric",
-                      "zhName": "姆阿克埃凯伊恩格尔埃欧尔伊克",
+                      "zhName": "钉锤国王李奥瑞克",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 傀儡等级。"
                     }
@@ -5697,7 +5697,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -5713,7 +5713,7 @@
                 {
                   "id": "sunbrand",
                   "name": "Sunbrand",
-                  "zhName": "斯乌恩布尔阿恩德",
+                  "zhName": "日痕烙印",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sunbrand.png",
@@ -5813,13 +5813,13 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
                     {
                       "id": "sunbrand",
-                      "zhName": "斯乌恩布尔阿恩德",
+                      "zhName": "日痕烙印",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -5878,7 +5878,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -5894,7 +5894,7 @@
                 {
                   "id": "sunbrand",
                   "name": "Sunbrand",
-                  "zhName": "斯乌恩布尔阿恩德",
+                  "zhName": "日痕烙印",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sunbrand.png",
@@ -5994,13 +5994,13 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
                     {
                       "id": "sunbrand",
-                      "zhName": "斯乌恩布尔阿恩德",
+                      "zhName": "日痕烙印",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -6059,7 +6059,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -6075,7 +6075,7 @@
                 {
                   "id": "sunbrand",
                   "name": "Sunbrand",
-                  "zhName": "斯乌恩布尔阿恩德",
+                  "zhName": "日痕烙印",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sunbrand.png",
@@ -6175,13 +6175,13 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
                     {
                       "id": "sunbrand",
-                      "zhName": "斯乌恩布尔阿恩德",
+                      "zhName": "日痕烙印",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -6266,7 +6266,7 @@
                 {
                   "id": "sunbrand",
                   "name": "Sunbrand",
-                  "zhName": "斯乌恩布尔阿恩德",
+                  "zhName": "日痕烙印",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sunbrand.png",
@@ -6298,7 +6298,7 @@
                 {
                   "id": "heralds-morningstar",
                   "name": "Herald's Morningstar",
-                  "zhName": "赫埃尔阿尔德斯姆欧尔恩伊恩格斯特阿尔",
+                  "zhName": "先驱晨星",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/herald's_morningstar.png",
@@ -6372,7 +6372,7 @@
                     },
                     {
                       "id": "sunbrand",
-                      "zhName": "斯乌恩布尔阿恩德",
+                      "zhName": "日痕烙印",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -6384,7 +6384,7 @@
                     },
                     {
                       "id": "heralds-morningstar",
-                      "zhName": "赫埃尔阿尔德斯姆欧尔恩伊恩格斯特阿尔",
+                      "zhName": "先驱晨星",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 祝福之锤等级。"
                     }
@@ -6447,7 +6447,7 @@
                 {
                   "id": "sunbrand",
                   "name": "Sunbrand",
-                  "zhName": "斯乌恩布尔阿恩德",
+                  "zhName": "日痕烙印",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sunbrand.png",
@@ -6479,7 +6479,7 @@
                 {
                   "id": "heralds-morningstar",
                   "name": "Herald's Morningstar",
-                  "zhName": "赫埃尔阿尔德斯姆欧尔恩伊恩格斯特阿尔",
+                  "zhName": "先驱晨星",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/herald's_morningstar.png",
@@ -6553,7 +6553,7 @@
                     },
                     {
                       "id": "sunbrand",
-                      "zhName": "斯乌恩布尔阿恩德",
+                      "zhName": "日痕烙印",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -6565,7 +6565,7 @@
                     },
                     {
                       "id": "heralds-morningstar",
-                      "zhName": "赫埃尔阿尔德斯姆欧尔恩伊恩格斯特阿尔",
+                      "zhName": "先驱晨星",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 祝福之锤等级。"
                     }
@@ -6628,7 +6628,7 @@
                 {
                   "id": "sunbrand",
                   "name": "Sunbrand",
-                  "zhName": "斯乌恩布尔阿恩德",
+                  "zhName": "日痕烙印",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sunbrand.png",
@@ -6660,7 +6660,7 @@
                 {
                   "id": "heralds-morningstar",
                   "name": "Herald's Morningstar",
-                  "zhName": "赫埃尔阿尔德斯姆欧尔恩伊恩格斯特阿尔",
+                  "zhName": "先驱晨星",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/herald's_morningstar.png",
@@ -6734,7 +6734,7 @@
                     },
                     {
                       "id": "sunbrand",
-                      "zhName": "斯乌恩布尔阿恩德",
+                      "zhName": "日痕烙印",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -6746,7 +6746,7 @@
                     },
                     {
                       "id": "heralds-morningstar",
-                      "zhName": "赫埃尔阿尔德斯姆欧尔恩伊恩格斯特阿尔",
+                      "zhName": "先驱晨星",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 祝福之锤等级。"
                     }
@@ -7370,7 +7370,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -7386,7 +7386,7 @@
                 {
                   "id": "misericorde",
                   "name": "Misericorde",
-                  "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                  "zhName": "慈悲短剑",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/misericorde.png",
@@ -7486,13 +7486,13 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
                     {
                       "id": "misericorde",
-                      "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                      "zhName": "慈悲短剑",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -7551,7 +7551,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -7567,7 +7567,7 @@
                 {
                   "id": "misericorde",
                   "name": "Misericorde",
-                  "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                  "zhName": "慈悲短剑",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/misericorde.png",
@@ -7667,13 +7667,13 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
                     {
                       "id": "misericorde",
-                      "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                      "zhName": "慈悲短剑",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -7732,7 +7732,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -7748,7 +7748,7 @@
                 {
                   "id": "misericorde",
                   "name": "Misericorde",
-                  "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                  "zhName": "慈悲短剑",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/misericorde.png",
@@ -7848,13 +7848,13 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
                     {
                       "id": "misericorde",
-                      "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                      "zhName": "慈悲短剑",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -7939,7 +7939,7 @@
                 {
                   "id": "ashearas-khanjar",
                   "name": "Asheara's Khanjar",
-                  "zhName": "阿斯赫埃阿尔阿斯坎贾尔",
+                  "zhName": "艾席拉坎贾尔",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/asheara's_khanjar.png",
@@ -7971,7 +7971,7 @@
                 {
                   "id": "misericorde",
                   "name": "Misericorde",
-                  "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                  "zhName": "慈悲短剑",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/misericorde.png",
@@ -8045,7 +8045,7 @@
                     },
                     {
                       "id": "ashearas-khanjar",
-                      "zhName": "阿斯赫埃阿尔阿斯坎贾尔",
+                      "zhName": "艾席拉坎贾尔",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -8057,7 +8057,7 @@
                     },
                     {
                       "id": "misericorde",
-                      "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                      "zhName": "慈悲短剑",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     }
@@ -8120,7 +8120,7 @@
                 {
                   "id": "ashearas-khanjar",
                   "name": "Asheara's Khanjar",
-                  "zhName": "阿斯赫埃阿尔阿斯坎贾尔",
+                  "zhName": "艾席拉坎贾尔",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/asheara's_khanjar.png",
@@ -8152,7 +8152,7 @@
                 {
                   "id": "misericorde",
                   "name": "Misericorde",
-                  "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                  "zhName": "慈悲短剑",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/misericorde.png",
@@ -8226,7 +8226,7 @@
                     },
                     {
                       "id": "ashearas-khanjar",
-                      "zhName": "阿斯赫埃阿尔阿斯坎贾尔",
+                      "zhName": "艾席拉坎贾尔",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -8238,7 +8238,7 @@
                     },
                     {
                       "id": "misericorde",
-                      "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                      "zhName": "慈悲短剑",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     }
@@ -8301,7 +8301,7 @@
                 {
                   "id": "ashearas-khanjar",
                   "name": "Asheara's Khanjar",
-                  "zhName": "阿斯赫埃阿尔阿斯坎贾尔",
+                  "zhName": "艾席拉坎贾尔",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/asheara's_khanjar.png",
@@ -8333,7 +8333,7 @@
                 {
                   "id": "misericorde",
                   "name": "Misericorde",
-                  "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                  "zhName": "慈悲短剑",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/misericorde.png",
@@ -8407,7 +8407,7 @@
                     },
                     {
                       "id": "ashearas-khanjar",
-                      "zhName": "阿斯赫埃阿尔阿斯坎贾尔",
+                      "zhName": "艾席拉坎贾尔",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -8419,7 +8419,7 @@
                     },
                     {
                       "id": "misericorde",
-                      "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                      "zhName": "慈悲短剑",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     }
@@ -9043,7 +9043,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -9159,7 +9159,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -9224,7 +9224,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -9340,7 +9340,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -9405,7 +9405,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -9521,7 +9521,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -10195,7 +10195,7 @@
                 {
                   "id": "wushe-nak-pa",
                   "name": "Wushe Nak Pa",
-                  "zhName": "沃乌斯赫埃恩阿凯普阿",
+                  "zhName": "乌蛇纳克帕",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
@@ -10291,7 +10291,7 @@
                     },
                     {
                       "id": "wushe-nak-pa",
-                      "zhName": "沃乌斯赫埃恩阿凯普阿",
+                      "zhName": "乌蛇纳克帕",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     },
@@ -10376,7 +10376,7 @@
                 {
                   "id": "wushe-nak-pa",
                   "name": "Wushe Nak Pa",
-                  "zhName": "沃乌斯赫埃恩阿凯普阿",
+                  "zhName": "乌蛇纳克帕",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
@@ -10472,7 +10472,7 @@
                     },
                     {
                       "id": "wushe-nak-pa",
-                      "zhName": "沃乌斯赫埃恩阿凯普阿",
+                      "zhName": "乌蛇纳克帕",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     },
@@ -10557,7 +10557,7 @@
                 {
                   "id": "wushe-nak-pa",
                   "name": "Wushe Nak Pa",
-                  "zhName": "沃乌斯赫埃恩阿凯普阿",
+                  "zhName": "乌蛇纳克帕",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
@@ -10653,7 +10653,7 @@
                     },
                     {
                       "id": "wushe-nak-pa",
-                      "zhName": "沃乌斯赫埃恩阿凯普阿",
+                      "zhName": "乌蛇纳克帕",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     },
@@ -10716,7 +10716,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -10764,7 +10764,7 @@
                 {
                   "id": "wushe-nak-pa",
                   "name": "Wushe Nak Pa",
-                  "zhName": "沃乌斯赫埃恩阿凯普阿",
+                  "zhName": "乌蛇纳克帕",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
@@ -10832,7 +10832,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -10850,7 +10850,7 @@
                     },
                     {
                       "id": "wushe-nak-pa",
-                      "zhName": "沃乌斯赫埃恩阿凯普阿",
+                      "zhName": "乌蛇纳克帕",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     }
@@ -10897,7 +10897,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -10945,7 +10945,7 @@
                 {
                   "id": "wushe-nak-pa",
                   "name": "Wushe Nak Pa",
-                  "zhName": "沃乌斯赫埃恩阿凯普阿",
+                  "zhName": "乌蛇纳克帕",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
@@ -11013,7 +11013,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -11031,7 +11031,7 @@
                     },
                     {
                       "id": "wushe-nak-pa",
-                      "zhName": "沃乌斯赫埃恩阿凯普阿",
+                      "zhName": "乌蛇纳克帕",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     }
@@ -11078,7 +11078,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -11126,7 +11126,7 @@
                 {
                   "id": "wushe-nak-pa",
                   "name": "Wushe Nak Pa",
-                  "zhName": "沃乌斯赫埃恩阿凯普阿",
+                  "zhName": "乌蛇纳克帕",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
@@ -11194,7 +11194,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -11212,7 +11212,7 @@
                     },
                     {
                       "id": "wushe-nak-pa",
-                      "zhName": "沃乌斯赫埃恩阿凯普阿",
+                      "zhName": "乌蛇纳克帕",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     }
@@ -11317,7 +11317,7 @@
                 {
                   "id": "sepazontec",
                   "name": "Sepazontec",
-                  "zhName": "斯埃普阿兹欧恩特埃克",
+                  "zhName": "塞帕宗泰克",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sepazontec.png",
@@ -11403,7 +11403,7 @@
                     },
                     {
                       "id": "sepazontec",
-                      "zhName": "斯埃普阿兹欧恩特埃克",
+                      "zhName": "塞帕宗泰克",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     }
@@ -11498,7 +11498,7 @@
                 {
                   "id": "sepazontec",
                   "name": "Sepazontec",
-                  "zhName": "斯埃普阿兹欧恩特埃克",
+                  "zhName": "塞帕宗泰克",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sepazontec.png",
@@ -11584,7 +11584,7 @@
                     },
                     {
                       "id": "sepazontec",
-                      "zhName": "斯埃普阿兹欧恩特埃克",
+                      "zhName": "塞帕宗泰克",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     }
@@ -11679,7 +11679,7 @@
                 {
                   "id": "sepazontec",
                   "name": "Sepazontec",
-                  "zhName": "斯埃普阿兹欧恩特埃克",
+                  "zhName": "塞帕宗泰克",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sepazontec.png",
@@ -11765,7 +11765,7 @@
                     },
                     {
                       "id": "sepazontec",
-                      "zhName": "斯埃普阿兹欧恩特埃克",
+                      "zhName": "塞帕宗泰克",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     }
@@ -12389,7 +12389,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -12505,7 +12505,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -12570,7 +12570,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -12686,7 +12686,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -12751,7 +12751,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -12867,7 +12867,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -14069,7 +14069,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -14187,7 +14187,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -14253,7 +14253,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -14371,7 +14371,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -14436,7 +14436,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -14552,7 +14552,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -15232,7 +15232,7 @@
                 {
                   "id": "ifehs-dire-totem",
                   "name": "Ifeh's Dire Totem",
-                  "zhName": "伊弗埃赫斯恐怖特欧特埃姆",
+                  "zhName": "伊弗埃赫恐怖特欧特埃姆",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ifeh's_dire_totem.png",
@@ -15328,7 +15328,7 @@
                     },
                     {
                       "id": "ifehs-dire-totem",
-                      "zhName": "伊弗埃赫斯恐怖特欧特埃姆",
+                      "zhName": "伊弗埃赫恐怖特欧特埃姆",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 毒素伤害乘区。"
                     },
@@ -15413,7 +15413,7 @@
                 {
                   "id": "ifehs-dire-totem",
                   "name": "Ifeh's Dire Totem",
-                  "zhName": "伊弗埃赫斯恐怖特欧特埃姆",
+                  "zhName": "伊弗埃赫恐怖特欧特埃姆",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ifeh's_dire_totem.png",
@@ -15509,7 +15509,7 @@
                     },
                     {
                       "id": "ifehs-dire-totem",
-                      "zhName": "伊弗埃赫斯恐怖特欧特埃姆",
+                      "zhName": "伊弗埃赫恐怖特欧特埃姆",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 毒素伤害乘区。"
                     },
@@ -15594,7 +15594,7 @@
                 {
                   "id": "ifehs-dire-totem",
                   "name": "Ifeh's Dire Totem",
-                  "zhName": "伊弗埃赫斯恐怖特欧特埃姆",
+                  "zhName": "伊弗埃赫恐怖特欧特埃姆",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ifeh's_dire_totem.png",
@@ -15690,7 +15690,7 @@
                     },
                     {
                       "id": "ifehs-dire-totem",
-                      "zhName": "伊弗埃赫斯恐怖特欧特埃姆",
+                      "zhName": "伊弗埃赫恐怖特欧特埃姆",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 毒素伤害乘区。"
                     },
@@ -15753,7 +15753,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -15869,7 +15869,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -15934,7 +15934,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -16050,7 +16050,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -16115,7 +16115,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -16231,7 +16231,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -16905,7 +16905,7 @@
                 {
                   "id": "sanguivor-blade-of-zir",
                   "name": "Sanguivor, Blade of Zir",
-                  "zhName": "斯阿恩格乌伊维欧尔刃兹伊尔",
+                  "zhName": "鲜血吞噬者刃齐尔",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sanguivor,_blade_of_zir.png",
@@ -17001,7 +17001,7 @@
                     },
                     {
                       "id": "sanguivor-blade-of-zir",
-                      "zhName": "斯阿恩格乌伊维欧尔刃兹伊尔",
+                      "zhName": "鲜血吞噬者刃齐尔",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 物理伤害乘区。"
                     },
@@ -17086,7 +17086,7 @@
                 {
                   "id": "sanguivor-blade-of-zir",
                   "name": "Sanguivor, Blade of Zir",
-                  "zhName": "斯阿恩格乌伊维欧尔刃兹伊尔",
+                  "zhName": "鲜血吞噬者刃齐尔",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sanguivor,_blade_of_zir.png",
@@ -17182,7 +17182,7 @@
                     },
                     {
                       "id": "sanguivor-blade-of-zir",
-                      "zhName": "斯阿恩格乌伊维欧尔刃兹伊尔",
+                      "zhName": "鲜血吞噬者刃齐尔",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 物理伤害乘区。"
                     },
@@ -17267,7 +17267,7 @@
                 {
                   "id": "sanguivor-blade-of-zir",
                   "name": "Sanguivor, Blade of Zir",
-                  "zhName": "斯阿恩格乌伊维欧尔刃兹伊尔",
+                  "zhName": "鲜血吞噬者刃齐尔",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sanguivor,_blade_of_zir.png",
@@ -17363,7 +17363,7 @@
                     },
                     {
                       "id": "sanguivor-blade-of-zir",
-                      "zhName": "斯阿恩格乌伊维欧尔刃兹伊尔",
+                      "zhName": "鲜血吞噬者刃齐尔",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 物理伤害乘区。"
                     },
@@ -17426,7 +17426,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -17542,7 +17542,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -17607,7 +17607,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -17723,7 +17723,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -17788,7 +17788,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -17904,7 +17904,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -18011,7 +18011,7 @@
                 {
                   "id": "bloodless-scream",
                   "name": "Bloodless Scream",
-                  "zhName": "布尔欧欧德尔埃斯斯斯克尔埃阿姆",
+                  "zhName": "无血尖啸",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/bloodless_scream.png",
@@ -18027,7 +18027,7 @@
                 {
                   "id": "mace-of-king-leoric",
                   "name": "Mace of King Leoric",
-                  "zhName": "姆阿克埃凯伊恩格尔埃欧尔伊克",
+                  "zhName": "钉锤国王李奥瑞克",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/mace_of_king_leoric.png",
@@ -18107,13 +18107,13 @@
                     },
                     {
                       "id": "bloodless-scream",
-                      "zhName": "布尔欧欧德尔埃斯斯斯克尔埃阿姆",
+                      "zhName": "无血尖啸",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 黑暗技能等级。"
                     },
                     {
                       "id": "mace-of-king-leoric",
-                      "zhName": "姆阿克埃凯伊恩格尔埃欧尔伊克",
+                      "zhName": "钉锤国王李奥瑞克",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 傀儡等级。"
                     }
@@ -18192,7 +18192,7 @@
                 {
                   "id": "bloodless-scream",
                   "name": "Bloodless Scream",
-                  "zhName": "布尔欧欧德尔埃斯斯斯克尔埃阿姆",
+                  "zhName": "无血尖啸",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/bloodless_scream.png",
@@ -18208,7 +18208,7 @@
                 {
                   "id": "mace-of-king-leoric",
                   "name": "Mace of King Leoric",
-                  "zhName": "姆阿克埃凯伊恩格尔埃欧尔伊克",
+                  "zhName": "钉锤国王李奥瑞克",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/mace_of_king_leoric.png",
@@ -18288,13 +18288,13 @@
                     },
                     {
                       "id": "bloodless-scream",
-                      "zhName": "布尔欧欧德尔埃斯斯斯克尔埃阿姆",
+                      "zhName": "无血尖啸",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 黑暗技能等级。"
                     },
                     {
                       "id": "mace-of-king-leoric",
-                      "zhName": "姆阿克埃凯伊恩格尔埃欧尔伊克",
+                      "zhName": "钉锤国王李奥瑞克",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 傀儡等级。"
                     }
@@ -18373,7 +18373,7 @@
                 {
                   "id": "bloodless-scream",
                   "name": "Bloodless Scream",
-                  "zhName": "布尔欧欧德尔埃斯斯斯克尔埃阿姆",
+                  "zhName": "无血尖啸",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/bloodless_scream.png",
@@ -18389,7 +18389,7 @@
                 {
                   "id": "mace-of-king-leoric",
                   "name": "Mace of King Leoric",
-                  "zhName": "姆阿克埃凯伊恩格尔埃欧尔伊克",
+                  "zhName": "钉锤国王李奥瑞克",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/mace_of_king_leoric.png",
@@ -18469,13 +18469,13 @@
                     },
                     {
                       "id": "bloodless-scream",
-                      "zhName": "布尔欧欧德尔埃斯斯斯克尔埃阿姆",
+                      "zhName": "无血尖啸",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 黑暗技能等级。"
                     },
                     {
                       "id": "mace-of-king-leoric",
-                      "zhName": "姆阿克埃凯伊恩格尔埃欧尔伊克",
+                      "zhName": "钉锤国王李奥瑞克",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 傀儡等级。"
                     }
@@ -19099,7 +19099,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -19115,7 +19115,7 @@
                 {
                   "id": "sunbrand",
                   "name": "Sunbrand",
-                  "zhName": "斯乌恩布尔阿恩德",
+                  "zhName": "日痕烙印",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sunbrand.png",
@@ -19215,13 +19215,13 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
                     {
                       "id": "sunbrand",
-                      "zhName": "斯乌恩布尔阿恩德",
+                      "zhName": "日痕烙印",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -19280,7 +19280,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -19296,7 +19296,7 @@
                 {
                   "id": "sunbrand",
                   "name": "Sunbrand",
-                  "zhName": "斯乌恩布尔阿恩德",
+                  "zhName": "日痕烙印",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sunbrand.png",
@@ -19396,13 +19396,13 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
                     {
                       "id": "sunbrand",
-                      "zhName": "斯乌恩布尔阿恩德",
+                      "zhName": "日痕烙印",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -19461,7 +19461,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -19477,7 +19477,7 @@
                 {
                   "id": "sunbrand",
                   "name": "Sunbrand",
-                  "zhName": "斯乌恩布尔阿恩德",
+                  "zhName": "日痕烙印",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sunbrand.png",
@@ -19577,13 +19577,13 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
                     {
                       "id": "sunbrand",
-                      "zhName": "斯乌恩布尔阿恩德",
+                      "zhName": "日痕烙印",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -19668,7 +19668,7 @@
                 {
                   "id": "sunbrand",
                   "name": "Sunbrand",
-                  "zhName": "斯乌恩布尔阿恩德",
+                  "zhName": "日痕烙印",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sunbrand.png",
@@ -19700,7 +19700,7 @@
                 {
                   "id": "heralds-morningstar",
                   "name": "Herald's Morningstar",
-                  "zhName": "赫埃尔阿尔德斯姆欧尔恩伊恩格斯特阿尔",
+                  "zhName": "先驱晨星",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/herald's_morningstar.png",
@@ -19774,7 +19774,7 @@
                     },
                     {
                       "id": "sunbrand",
-                      "zhName": "斯乌恩布尔阿恩德",
+                      "zhName": "日痕烙印",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -19786,7 +19786,7 @@
                     },
                     {
                       "id": "heralds-morningstar",
-                      "zhName": "赫埃尔阿尔德斯姆欧尔恩伊恩格斯特阿尔",
+                      "zhName": "先驱晨星",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 祝福之锤等级。"
                     }
@@ -19849,7 +19849,7 @@
                 {
                   "id": "sunbrand",
                   "name": "Sunbrand",
-                  "zhName": "斯乌恩布尔阿恩德",
+                  "zhName": "日痕烙印",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sunbrand.png",
@@ -19881,7 +19881,7 @@
                 {
                   "id": "heralds-morningstar",
                   "name": "Herald's Morningstar",
-                  "zhName": "赫埃尔阿尔德斯姆欧尔恩伊恩格斯特阿尔",
+                  "zhName": "先驱晨星",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/herald's_morningstar.png",
@@ -19955,7 +19955,7 @@
                     },
                     {
                       "id": "sunbrand",
-                      "zhName": "斯乌恩布尔阿恩德",
+                      "zhName": "日痕烙印",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -19967,7 +19967,7 @@
                     },
                     {
                       "id": "heralds-morningstar",
-                      "zhName": "赫埃尔阿尔德斯姆欧尔恩伊恩格斯特阿尔",
+                      "zhName": "先驱晨星",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 祝福之锤等级。"
                     }
@@ -20030,7 +20030,7 @@
                 {
                   "id": "sunbrand",
                   "name": "Sunbrand",
-                  "zhName": "斯乌恩布尔阿恩德",
+                  "zhName": "日痕烙印",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sunbrand.png",
@@ -20062,7 +20062,7 @@
                 {
                   "id": "heralds-morningstar",
                   "name": "Herald's Morningstar",
-                  "zhName": "赫埃尔阿尔德斯姆欧尔恩伊恩格斯特阿尔",
+                  "zhName": "先驱晨星",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/herald's_morningstar.png",
@@ -20136,7 +20136,7 @@
                     },
                     {
                       "id": "sunbrand",
-                      "zhName": "斯乌恩布尔阿恩德",
+                      "zhName": "日痕烙印",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -20148,7 +20148,7 @@
                     },
                     {
                       "id": "heralds-morningstar",
-                      "zhName": "赫埃尔阿尔德斯姆欧尔恩伊恩格斯特阿尔",
+                      "zhName": "先驱晨星",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 祝福之锤等级。"
                     }
@@ -20772,7 +20772,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -20788,7 +20788,7 @@
                 {
                   "id": "misericorde",
                   "name": "Misericorde",
-                  "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                  "zhName": "慈悲短剑",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/misericorde.png",
@@ -20888,13 +20888,13 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
                     {
                       "id": "misericorde",
-                      "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                      "zhName": "慈悲短剑",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -20953,7 +20953,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -20969,7 +20969,7 @@
                 {
                   "id": "misericorde",
                   "name": "Misericorde",
-                  "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                  "zhName": "慈悲短剑",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/misericorde.png",
@@ -21069,13 +21069,13 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
                     {
                       "id": "misericorde",
-                      "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                      "zhName": "慈悲短剑",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -21134,7 +21134,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -21150,7 +21150,7 @@
                 {
                   "id": "misericorde",
                   "name": "Misericorde",
-                  "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                  "zhName": "慈悲短剑",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/misericorde.png",
@@ -21250,13 +21250,13 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
                     {
                       "id": "misericorde",
-                      "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                      "zhName": "慈悲短剑",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -21341,7 +21341,7 @@
                 {
                   "id": "ashearas-khanjar",
                   "name": "Asheara's Khanjar",
-                  "zhName": "阿斯赫埃阿尔阿斯坎贾尔",
+                  "zhName": "艾席拉坎贾尔",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/asheara's_khanjar.png",
@@ -21373,7 +21373,7 @@
                 {
                   "id": "misericorde",
                   "name": "Misericorde",
-                  "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                  "zhName": "慈悲短剑",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/misericorde.png",
@@ -21447,7 +21447,7 @@
                     },
                     {
                       "id": "ashearas-khanjar",
-                      "zhName": "阿斯赫埃阿尔阿斯坎贾尔",
+                      "zhName": "艾席拉坎贾尔",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -21459,7 +21459,7 @@
                     },
                     {
                       "id": "misericorde",
-                      "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                      "zhName": "慈悲短剑",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     }
@@ -21522,7 +21522,7 @@
                 {
                   "id": "ashearas-khanjar",
                   "name": "Asheara's Khanjar",
-                  "zhName": "阿斯赫埃阿尔阿斯坎贾尔",
+                  "zhName": "艾席拉坎贾尔",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/asheara's_khanjar.png",
@@ -21554,7 +21554,7 @@
                 {
                   "id": "misericorde",
                   "name": "Misericorde",
-                  "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                  "zhName": "慈悲短剑",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/misericorde.png",
@@ -21628,7 +21628,7 @@
                     },
                     {
                       "id": "ashearas-khanjar",
-                      "zhName": "阿斯赫埃阿尔阿斯坎贾尔",
+                      "zhName": "艾席拉坎贾尔",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -21640,7 +21640,7 @@
                     },
                     {
                       "id": "misericorde",
-                      "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                      "zhName": "慈悲短剑",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     }
@@ -21703,7 +21703,7 @@
                 {
                   "id": "ashearas-khanjar",
                   "name": "Asheara's Khanjar",
-                  "zhName": "阿斯赫埃阿尔阿斯坎贾尔",
+                  "zhName": "艾席拉坎贾尔",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/asheara's_khanjar.png",
@@ -21735,7 +21735,7 @@
                 {
                   "id": "misericorde",
                   "name": "Misericorde",
-                  "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                  "zhName": "慈悲短剑",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/misericorde.png",
@@ -21809,7 +21809,7 @@
                     },
                     {
                       "id": "ashearas-khanjar",
-                      "zhName": "阿斯赫埃阿尔阿斯坎贾尔",
+                      "zhName": "艾席拉坎贾尔",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -21821,7 +21821,7 @@
                     },
                     {
                       "id": "misericorde",
-                      "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                      "zhName": "慈悲短剑",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     }
@@ -22445,7 +22445,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -22561,7 +22561,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -22626,7 +22626,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -22742,7 +22742,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -22807,7 +22807,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -22923,7 +22923,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -23597,7 +23597,7 @@
                 {
                   "id": "wushe-nak-pa",
                   "name": "Wushe Nak Pa",
-                  "zhName": "沃乌斯赫埃恩阿凯普阿",
+                  "zhName": "乌蛇纳克帕",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
@@ -23693,7 +23693,7 @@
                     },
                     {
                       "id": "wushe-nak-pa",
-                      "zhName": "沃乌斯赫埃恩阿凯普阿",
+                      "zhName": "乌蛇纳克帕",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     },
@@ -23778,7 +23778,7 @@
                 {
                   "id": "wushe-nak-pa",
                   "name": "Wushe Nak Pa",
-                  "zhName": "沃乌斯赫埃恩阿凯普阿",
+                  "zhName": "乌蛇纳克帕",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
@@ -23874,7 +23874,7 @@
                     },
                     {
                       "id": "wushe-nak-pa",
-                      "zhName": "沃乌斯赫埃恩阿凯普阿",
+                      "zhName": "乌蛇纳克帕",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     },
@@ -23959,7 +23959,7 @@
                 {
                   "id": "wushe-nak-pa",
                   "name": "Wushe Nak Pa",
-                  "zhName": "沃乌斯赫埃恩阿凯普阿",
+                  "zhName": "乌蛇纳克帕",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
@@ -24055,7 +24055,7 @@
                     },
                     {
                       "id": "wushe-nak-pa",
-                      "zhName": "沃乌斯赫埃恩阿凯普阿",
+                      "zhName": "乌蛇纳克帕",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     },
@@ -24118,7 +24118,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -24166,7 +24166,7 @@
                 {
                   "id": "wushe-nak-pa",
                   "name": "Wushe Nak Pa",
-                  "zhName": "沃乌斯赫埃恩阿凯普阿",
+                  "zhName": "乌蛇纳克帕",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
@@ -24234,7 +24234,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -24252,7 +24252,7 @@
                     },
                     {
                       "id": "wushe-nak-pa",
-                      "zhName": "沃乌斯赫埃恩阿凯普阿",
+                      "zhName": "乌蛇纳克帕",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     }
@@ -24299,7 +24299,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -24347,7 +24347,7 @@
                 {
                   "id": "wushe-nak-pa",
                   "name": "Wushe Nak Pa",
-                  "zhName": "沃乌斯赫埃恩阿凯普阿",
+                  "zhName": "乌蛇纳克帕",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
@@ -24415,7 +24415,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -24433,7 +24433,7 @@
                     },
                     {
                       "id": "wushe-nak-pa",
-                      "zhName": "沃乌斯赫埃恩阿凯普阿",
+                      "zhName": "乌蛇纳克帕",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     }
@@ -24480,7 +24480,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -24528,7 +24528,7 @@
                 {
                   "id": "wushe-nak-pa",
                   "name": "Wushe Nak Pa",
-                  "zhName": "沃乌斯赫埃恩阿凯普阿",
+                  "zhName": "乌蛇纳克帕",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
@@ -24596,7 +24596,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -24614,7 +24614,7 @@
                     },
                     {
                       "id": "wushe-nak-pa",
-                      "zhName": "沃乌斯赫埃恩阿凯普阿",
+                      "zhName": "乌蛇纳克帕",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     }
@@ -24719,7 +24719,7 @@
                 {
                   "id": "sepazontec",
                   "name": "Sepazontec",
-                  "zhName": "斯埃普阿兹欧恩特埃克",
+                  "zhName": "塞帕宗泰克",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sepazontec.png",
@@ -24805,7 +24805,7 @@
                     },
                     {
                       "id": "sepazontec",
-                      "zhName": "斯埃普阿兹欧恩特埃克",
+                      "zhName": "塞帕宗泰克",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     }
@@ -24900,7 +24900,7 @@
                 {
                   "id": "sepazontec",
                   "name": "Sepazontec",
-                  "zhName": "斯埃普阿兹欧恩特埃克",
+                  "zhName": "塞帕宗泰克",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sepazontec.png",
@@ -24986,7 +24986,7 @@
                     },
                     {
                       "id": "sepazontec",
-                      "zhName": "斯埃普阿兹欧恩特埃克",
+                      "zhName": "塞帕宗泰克",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     }
@@ -25081,7 +25081,7 @@
                 {
                   "id": "sepazontec",
                   "name": "Sepazontec",
-                  "zhName": "斯埃普阿兹欧恩特埃克",
+                  "zhName": "塞帕宗泰克",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sepazontec.png",
@@ -25167,7 +25167,7 @@
                     },
                     {
                       "id": "sepazontec",
-                      "zhName": "斯埃普阿兹欧恩特埃克",
+                      "zhName": "塞帕宗泰克",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     }
@@ -25791,7 +25791,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -25907,7 +25907,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -25972,7 +25972,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -26088,7 +26088,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -26153,7 +26153,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -26269,7 +26269,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -27471,7 +27471,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -27589,7 +27589,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -27655,7 +27655,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -27773,7 +27773,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -27838,7 +27838,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -27954,7 +27954,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -28634,7 +28634,7 @@
                 {
                   "id": "ifehs-dire-totem",
                   "name": "Ifeh's Dire Totem",
-                  "zhName": "伊弗埃赫斯恐怖特欧特埃姆",
+                  "zhName": "伊弗埃赫恐怖特欧特埃姆",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ifeh's_dire_totem.png",
@@ -28730,7 +28730,7 @@
                     },
                     {
                       "id": "ifehs-dire-totem",
-                      "zhName": "伊弗埃赫斯恐怖特欧特埃姆",
+                      "zhName": "伊弗埃赫恐怖特欧特埃姆",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 毒素伤害乘区。"
                     },
@@ -28815,7 +28815,7 @@
                 {
                   "id": "ifehs-dire-totem",
                   "name": "Ifeh's Dire Totem",
-                  "zhName": "伊弗埃赫斯恐怖特欧特埃姆",
+                  "zhName": "伊弗埃赫恐怖特欧特埃姆",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ifeh's_dire_totem.png",
@@ -28911,7 +28911,7 @@
                     },
                     {
                       "id": "ifehs-dire-totem",
-                      "zhName": "伊弗埃赫斯恐怖特欧特埃姆",
+                      "zhName": "伊弗埃赫恐怖特欧特埃姆",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 毒素伤害乘区。"
                     },
@@ -28996,7 +28996,7 @@
                 {
                   "id": "ifehs-dire-totem",
                   "name": "Ifeh's Dire Totem",
-                  "zhName": "伊弗埃赫斯恐怖特欧特埃姆",
+                  "zhName": "伊弗埃赫恐怖特欧特埃姆",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ifeh's_dire_totem.png",
@@ -29092,7 +29092,7 @@
                     },
                     {
                       "id": "ifehs-dire-totem",
-                      "zhName": "伊弗埃赫斯恐怖特欧特埃姆",
+                      "zhName": "伊弗埃赫恐怖特欧特埃姆",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 毒素伤害乘区。"
                     },
@@ -29155,7 +29155,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -29271,7 +29271,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -29336,7 +29336,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -29452,7 +29452,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -29517,7 +29517,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -29633,7 +29633,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -30307,7 +30307,7 @@
                 {
                   "id": "sanguivor-blade-of-zir",
                   "name": "Sanguivor, Blade of Zir",
-                  "zhName": "斯阿恩格乌伊维欧尔刃兹伊尔",
+                  "zhName": "鲜血吞噬者刃齐尔",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sanguivor,_blade_of_zir.png",
@@ -30403,7 +30403,7 @@
                     },
                     {
                       "id": "sanguivor-blade-of-zir",
-                      "zhName": "斯阿恩格乌伊维欧尔刃兹伊尔",
+                      "zhName": "鲜血吞噬者刃齐尔",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 物理伤害乘区。"
                     },
@@ -30488,7 +30488,7 @@
                 {
                   "id": "sanguivor-blade-of-zir",
                   "name": "Sanguivor, Blade of Zir",
-                  "zhName": "斯阿恩格乌伊维欧尔刃兹伊尔",
+                  "zhName": "鲜血吞噬者刃齐尔",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sanguivor,_blade_of_zir.png",
@@ -30584,7 +30584,7 @@
                     },
                     {
                       "id": "sanguivor-blade-of-zir",
-                      "zhName": "斯阿恩格乌伊维欧尔刃兹伊尔",
+                      "zhName": "鲜血吞噬者刃齐尔",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 物理伤害乘区。"
                     },
@@ -30669,7 +30669,7 @@
                 {
                   "id": "sanguivor-blade-of-zir",
                   "name": "Sanguivor, Blade of Zir",
-                  "zhName": "斯阿恩格乌伊维欧尔刃兹伊尔",
+                  "zhName": "鲜血吞噬者刃齐尔",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sanguivor,_blade_of_zir.png",
@@ -30765,7 +30765,7 @@
                     },
                     {
                       "id": "sanguivor-blade-of-zir",
-                      "zhName": "斯阿恩格乌伊维欧尔刃兹伊尔",
+                      "zhName": "鲜血吞噬者刃齐尔",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 物理伤害乘区。"
                     },
@@ -30828,7 +30828,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -30944,7 +30944,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -31009,7 +31009,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -31125,7 +31125,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -31190,7 +31190,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -31306,7 +31306,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -31413,7 +31413,7 @@
                 {
                   "id": "bloodless-scream",
                   "name": "Bloodless Scream",
-                  "zhName": "布尔欧欧德尔埃斯斯斯克尔埃阿姆",
+                  "zhName": "无血尖啸",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/bloodless_scream.png",
@@ -31429,7 +31429,7 @@
                 {
                   "id": "mace-of-king-leoric",
                   "name": "Mace of King Leoric",
-                  "zhName": "姆阿克埃凯伊恩格尔埃欧尔伊克",
+                  "zhName": "钉锤国王李奥瑞克",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/mace_of_king_leoric.png",
@@ -31509,13 +31509,13 @@
                     },
                     {
                       "id": "bloodless-scream",
-                      "zhName": "布尔欧欧德尔埃斯斯斯克尔埃阿姆",
+                      "zhName": "无血尖啸",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 黑暗技能等级。"
                     },
                     {
                       "id": "mace-of-king-leoric",
-                      "zhName": "姆阿克埃凯伊恩格尔埃欧尔伊克",
+                      "zhName": "钉锤国王李奥瑞克",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 傀儡等级。"
                     }
@@ -31594,7 +31594,7 @@
                 {
                   "id": "bloodless-scream",
                   "name": "Bloodless Scream",
-                  "zhName": "布尔欧欧德尔埃斯斯斯克尔埃阿姆",
+                  "zhName": "无血尖啸",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/bloodless_scream.png",
@@ -31610,7 +31610,7 @@
                 {
                   "id": "mace-of-king-leoric",
                   "name": "Mace of King Leoric",
-                  "zhName": "姆阿克埃凯伊恩格尔埃欧尔伊克",
+                  "zhName": "钉锤国王李奥瑞克",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/mace_of_king_leoric.png",
@@ -31690,13 +31690,13 @@
                     },
                     {
                       "id": "bloodless-scream",
-                      "zhName": "布尔欧欧德尔埃斯斯斯克尔埃阿姆",
+                      "zhName": "无血尖啸",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 黑暗技能等级。"
                     },
                     {
                       "id": "mace-of-king-leoric",
-                      "zhName": "姆阿克埃凯伊恩格尔埃欧尔伊克",
+                      "zhName": "钉锤国王李奥瑞克",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 傀儡等级。"
                     }
@@ -31775,7 +31775,7 @@
                 {
                   "id": "bloodless-scream",
                   "name": "Bloodless Scream",
-                  "zhName": "布尔欧欧德尔埃斯斯斯克尔埃阿姆",
+                  "zhName": "无血尖啸",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/bloodless_scream.png",
@@ -31791,7 +31791,7 @@
                 {
                   "id": "mace-of-king-leoric",
                   "name": "Mace of King Leoric",
-                  "zhName": "姆阿克埃凯伊恩格尔埃欧尔伊克",
+                  "zhName": "钉锤国王李奥瑞克",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/mace_of_king_leoric.png",
@@ -31871,13 +31871,13 @@
                     },
                     {
                       "id": "bloodless-scream",
-                      "zhName": "布尔欧欧德尔埃斯斯斯克尔埃阿姆",
+                      "zhName": "无血尖啸",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 黑暗技能等级。"
                     },
                     {
                       "id": "mace-of-king-leoric",
-                      "zhName": "姆阿克埃凯伊恩格尔埃欧尔伊克",
+                      "zhName": "钉锤国王李奥瑞克",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 傀儡等级。"
                     }
@@ -32501,7 +32501,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -32517,7 +32517,7 @@
                 {
                   "id": "sunbrand",
                   "name": "Sunbrand",
-                  "zhName": "斯乌恩布尔阿恩德",
+                  "zhName": "日痕烙印",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sunbrand.png",
@@ -32617,13 +32617,13 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
                     {
                       "id": "sunbrand",
-                      "zhName": "斯乌恩布尔阿恩德",
+                      "zhName": "日痕烙印",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -32682,7 +32682,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -32698,7 +32698,7 @@
                 {
                   "id": "sunbrand",
                   "name": "Sunbrand",
-                  "zhName": "斯乌恩布尔阿恩德",
+                  "zhName": "日痕烙印",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sunbrand.png",
@@ -32798,13 +32798,13 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
                     {
                       "id": "sunbrand",
-                      "zhName": "斯乌恩布尔阿恩德",
+                      "zhName": "日痕烙印",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -32863,7 +32863,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -32879,7 +32879,7 @@
                 {
                   "id": "sunbrand",
                   "name": "Sunbrand",
-                  "zhName": "斯乌恩布尔阿恩德",
+                  "zhName": "日痕烙印",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sunbrand.png",
@@ -32979,13 +32979,13 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
                     {
                       "id": "sunbrand",
-                      "zhName": "斯乌恩布尔阿恩德",
+                      "zhName": "日痕烙印",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -33070,7 +33070,7 @@
                 {
                   "id": "sunbrand",
                   "name": "Sunbrand",
-                  "zhName": "斯乌恩布尔阿恩德",
+                  "zhName": "日痕烙印",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sunbrand.png",
@@ -33102,7 +33102,7 @@
                 {
                   "id": "heralds-morningstar",
                   "name": "Herald's Morningstar",
-                  "zhName": "赫埃尔阿尔德斯姆欧尔恩伊恩格斯特阿尔",
+                  "zhName": "先驱晨星",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/herald's_morningstar.png",
@@ -33176,7 +33176,7 @@
                     },
                     {
                       "id": "sunbrand",
-                      "zhName": "斯乌恩布尔阿恩德",
+                      "zhName": "日痕烙印",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -33188,7 +33188,7 @@
                     },
                     {
                       "id": "heralds-morningstar",
-                      "zhName": "赫埃尔阿尔德斯姆欧尔恩伊恩格斯特阿尔",
+                      "zhName": "先驱晨星",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 祝福之锤等级。"
                     }
@@ -33251,7 +33251,7 @@
                 {
                   "id": "sunbrand",
                   "name": "Sunbrand",
-                  "zhName": "斯乌恩布尔阿恩德",
+                  "zhName": "日痕烙印",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sunbrand.png",
@@ -33283,7 +33283,7 @@
                 {
                   "id": "heralds-morningstar",
                   "name": "Herald's Morningstar",
-                  "zhName": "赫埃尔阿尔德斯姆欧尔恩伊恩格斯特阿尔",
+                  "zhName": "先驱晨星",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/herald's_morningstar.png",
@@ -33357,7 +33357,7 @@
                     },
                     {
                       "id": "sunbrand",
-                      "zhName": "斯乌恩布尔阿恩德",
+                      "zhName": "日痕烙印",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -33369,7 +33369,7 @@
                     },
                     {
                       "id": "heralds-morningstar",
-                      "zhName": "赫埃尔阿尔德斯姆欧尔恩伊恩格斯特阿尔",
+                      "zhName": "先驱晨星",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 祝福之锤等级。"
                     }
@@ -33432,7 +33432,7 @@
                 {
                   "id": "sunbrand",
                   "name": "Sunbrand",
-                  "zhName": "斯乌恩布尔阿恩德",
+                  "zhName": "日痕烙印",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sunbrand.png",
@@ -33464,7 +33464,7 @@
                 {
                   "id": "heralds-morningstar",
                   "name": "Herald's Morningstar",
-                  "zhName": "赫埃尔阿尔德斯姆欧尔恩伊恩格斯特阿尔",
+                  "zhName": "先驱晨星",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/herald's_morningstar.png",
@@ -33538,7 +33538,7 @@
                     },
                     {
                       "id": "sunbrand",
-                      "zhName": "斯乌恩布尔阿恩德",
+                      "zhName": "日痕烙印",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -33550,7 +33550,7 @@
                     },
                     {
                       "id": "heralds-morningstar",
-                      "zhName": "赫埃尔阿尔德斯姆欧尔恩伊恩格斯特阿尔",
+                      "zhName": "先驱晨星",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 祝福之锤等级。"
                     }
@@ -34174,7 +34174,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -34190,7 +34190,7 @@
                 {
                   "id": "misericorde",
                   "name": "Misericorde",
-                  "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                  "zhName": "慈悲短剑",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/misericorde.png",
@@ -34290,13 +34290,13 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
                     {
                       "id": "misericorde",
-                      "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                      "zhName": "慈悲短剑",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -34355,7 +34355,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -34371,7 +34371,7 @@
                 {
                   "id": "misericorde",
                   "name": "Misericorde",
-                  "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                  "zhName": "慈悲短剑",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/misericorde.png",
@@ -34471,13 +34471,13 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
                     {
                       "id": "misericorde",
-                      "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                      "zhName": "慈悲短剑",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -34536,7 +34536,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -34552,7 +34552,7 @@
                 {
                   "id": "misericorde",
                   "name": "Misericorde",
-                  "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                  "zhName": "慈悲短剑",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/misericorde.png",
@@ -34652,13 +34652,13 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
                     {
                       "id": "misericorde",
-                      "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                      "zhName": "慈悲短剑",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -34743,7 +34743,7 @@
                 {
                   "id": "ashearas-khanjar",
                   "name": "Asheara's Khanjar",
-                  "zhName": "阿斯赫埃阿尔阿斯坎贾尔",
+                  "zhName": "艾席拉坎贾尔",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/asheara's_khanjar.png",
@@ -34775,7 +34775,7 @@
                 {
                   "id": "misericorde",
                   "name": "Misericorde",
-                  "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                  "zhName": "慈悲短剑",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/misericorde.png",
@@ -34849,7 +34849,7 @@
                     },
                     {
                       "id": "ashearas-khanjar",
-                      "zhName": "阿斯赫埃阿尔阿斯坎贾尔",
+                      "zhName": "艾席拉坎贾尔",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -34861,7 +34861,7 @@
                     },
                     {
                       "id": "misericorde",
-                      "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                      "zhName": "慈悲短剑",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     }
@@ -34924,7 +34924,7 @@
                 {
                   "id": "ashearas-khanjar",
                   "name": "Asheara's Khanjar",
-                  "zhName": "阿斯赫埃阿尔阿斯坎贾尔",
+                  "zhName": "艾席拉坎贾尔",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/asheara's_khanjar.png",
@@ -34956,7 +34956,7 @@
                 {
                   "id": "misericorde",
                   "name": "Misericorde",
-                  "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                  "zhName": "慈悲短剑",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/misericorde.png",
@@ -35030,7 +35030,7 @@
                     },
                     {
                       "id": "ashearas-khanjar",
-                      "zhName": "阿斯赫埃阿尔阿斯坎贾尔",
+                      "zhName": "艾席拉坎贾尔",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -35042,7 +35042,7 @@
                     },
                     {
                       "id": "misericorde",
-                      "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                      "zhName": "慈悲短剑",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     }
@@ -35105,7 +35105,7 @@
                 {
                   "id": "ashearas-khanjar",
                   "name": "Asheara's Khanjar",
-                  "zhName": "阿斯赫埃阿尔阿斯坎贾尔",
+                  "zhName": "艾席拉坎贾尔",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/asheara's_khanjar.png",
@@ -35137,7 +35137,7 @@
                 {
                   "id": "misericorde",
                   "name": "Misericorde",
-                  "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                  "zhName": "慈悲短剑",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/misericorde.png",
@@ -35211,7 +35211,7 @@
                     },
                     {
                       "id": "ashearas-khanjar",
-                      "zhName": "阿斯赫埃阿尔阿斯坎贾尔",
+                      "zhName": "艾席拉坎贾尔",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -35223,7 +35223,7 @@
                     },
                     {
                       "id": "misericorde",
-                      "zhName": "姆伊斯埃尔伊克欧尔德埃",
+                      "zhName": "慈悲短剑",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     }
@@ -35847,7 +35847,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -35963,7 +35963,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -36028,7 +36028,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -36144,7 +36144,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -36209,7 +36209,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -36325,7 +36325,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -36999,7 +36999,7 @@
                 {
                   "id": "wushe-nak-pa",
                   "name": "Wushe Nak Pa",
-                  "zhName": "沃乌斯赫埃恩阿凯普阿",
+                  "zhName": "乌蛇纳克帕",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
@@ -37095,7 +37095,7 @@
                     },
                     {
                       "id": "wushe-nak-pa",
-                      "zhName": "沃乌斯赫埃恩阿凯普阿",
+                      "zhName": "乌蛇纳克帕",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     },
@@ -37180,7 +37180,7 @@
                 {
                   "id": "wushe-nak-pa",
                   "name": "Wushe Nak Pa",
-                  "zhName": "沃乌斯赫埃恩阿凯普阿",
+                  "zhName": "乌蛇纳克帕",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
@@ -37276,7 +37276,7 @@
                     },
                     {
                       "id": "wushe-nak-pa",
-                      "zhName": "沃乌斯赫埃恩阿凯普阿",
+                      "zhName": "乌蛇纳克帕",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     },
@@ -37361,7 +37361,7 @@
                 {
                   "id": "wushe-nak-pa",
                   "name": "Wushe Nak Pa",
-                  "zhName": "沃乌斯赫埃恩阿凯普阿",
+                  "zhName": "乌蛇纳克帕",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
@@ -37457,7 +37457,7 @@
                     },
                     {
                       "id": "wushe-nak-pa",
-                      "zhName": "沃乌斯赫埃恩阿凯普阿",
+                      "zhName": "乌蛇纳克帕",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     },
@@ -37520,7 +37520,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -37568,7 +37568,7 @@
                 {
                   "id": "wushe-nak-pa",
                   "name": "Wushe Nak Pa",
-                  "zhName": "沃乌斯赫埃恩阿凯普阿",
+                  "zhName": "乌蛇纳克帕",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
@@ -37636,7 +37636,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -37654,7 +37654,7 @@
                     },
                     {
                       "id": "wushe-nak-pa",
-                      "zhName": "沃乌斯赫埃恩阿凯普阿",
+                      "zhName": "乌蛇纳克帕",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     }
@@ -37701,7 +37701,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -37749,7 +37749,7 @@
                 {
                   "id": "wushe-nak-pa",
                   "name": "Wushe Nak Pa",
-                  "zhName": "沃乌斯赫埃恩阿凯普阿",
+                  "zhName": "乌蛇纳克帕",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
@@ -37817,7 +37817,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -37835,7 +37835,7 @@
                     },
                     {
                       "id": "wushe-nak-pa",
-                      "zhName": "沃乌斯赫埃恩阿凯普阿",
+                      "zhName": "乌蛇纳克帕",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     }
@@ -37882,7 +37882,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -37930,7 +37930,7 @@
                 {
                   "id": "wushe-nak-pa",
                   "name": "Wushe Nak Pa",
-                  "zhName": "沃乌斯赫埃恩阿凯普阿",
+                  "zhName": "乌蛇纳克帕",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/wushe_nak_pa.png",
@@ -37998,7 +37998,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -38016,7 +38016,7 @@
                     },
                     {
                       "id": "wushe-nak-pa",
-                      "zhName": "沃乌斯赫埃恩阿凯普阿",
+                      "zhName": "乌蛇纳克帕",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     }
@@ -38121,7 +38121,7 @@
                 {
                   "id": "sepazontec",
                   "name": "Sepazontec",
-                  "zhName": "斯埃普阿兹欧恩特埃克",
+                  "zhName": "塞帕宗泰克",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sepazontec.png",
@@ -38207,7 +38207,7 @@
                     },
                     {
                       "id": "sepazontec",
-                      "zhName": "斯埃普阿兹欧恩特埃克",
+                      "zhName": "塞帕宗泰克",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     }
@@ -38302,7 +38302,7 @@
                 {
                   "id": "sepazontec",
                   "name": "Sepazontec",
-                  "zhName": "斯埃普阿兹欧恩特埃克",
+                  "zhName": "塞帕宗泰克",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sepazontec.png",
@@ -38388,7 +38388,7 @@
                     },
                     {
                       "id": "sepazontec",
-                      "zhName": "斯埃普阿兹欧恩特埃克",
+                      "zhName": "塞帕宗泰克",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     }
@@ -38483,7 +38483,7 @@
                 {
                   "id": "sepazontec",
                   "name": "Sepazontec",
-                  "zhName": "斯埃普阿兹欧恩特埃克",
+                  "zhName": "塞帕宗泰克",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sepazontec.png",
@@ -38569,7 +38569,7 @@
                     },
                     {
                       "id": "sepazontec",
-                      "zhName": "斯埃普阿兹欧恩特埃克",
+                      "zhName": "塞帕宗泰克",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     }
@@ -39193,7 +39193,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -39309,7 +39309,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -39374,7 +39374,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -39490,7 +39490,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },
@@ -39555,7 +39555,7 @@
                 {
                   "id": "thousand-eye-reaver",
                   "name": "Thousand-Eye Reaver",
-                  "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                  "zhName": "千眼掠夺者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/thousand-eye_reaver.png",
@@ -39671,7 +39671,7 @@
                   "recommendedItems": [
                     {
                       "id": "thousand-eye-reaver",
-                      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+                      "zhName": "千眼掠夺者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 攻击速度。"
                     },

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T06:54:24.134Z",
+  "generatedAt": "2026-06-28T13:21:43.181Z",
   "source": {
     "id": "blizzard_patch_3_1",
     "url": "https://news.blizzard.com/en-us/article/24287406/diablo-iv-patch-notes",
@@ -1052,7 +1052,7 @@
     {
       "id": "locrans-talisman",
       "name": "Locran's Talisman",
-      "zhName": "洛克兰的护符",
+      "zhName": "洛克兰护符",
       "rarity": "unique",
       "classRestriction": "All Classes",
       "zhClassRestriction": "全职业",
@@ -1397,7 +1397,7 @@
     {
       "id": "rakanoths-wake",
       "name": "Rakanoth's Wake",
-      "zhName": "拉卡诺斯的苏醒",
+      "zhName": "拉卡诺斯苏醒",
       "rarity": "unique",
       "classRestriction": "All Classes",
       "zhClassRestriction": "全职业",
@@ -1875,7 +1875,7 @@
     {
       "id": "signet-of-pelghain",
       "name": "Signet of Pelghain",
-      "zhName": "印戒普埃尔格赫阿伊恩",
+      "zhName": "印戒佩尔盖恩",
       "rarity": "unique",
       "classRestriction": "All Classes",
       "zhClassRestriction": "全职业",
@@ -2289,7 +2289,7 @@
     {
       "id": "thousand-eye-reaver",
       "name": "Thousand-Eye Reaver",
-      "zhName": "特赫欧乌斯阿恩德埃伊埃尔埃阿维埃尔",
+      "zhName": "千眼掠夺者",
       "rarity": "unique",
       "classRestriction": "All Classes",
       "zhClassRestriction": "全职业",
@@ -2358,7 +2358,7 @@
     {
       "id": "thundergods-blessing",
       "name": "Thundergod's Blessing",
-      "zhName": "特赫乌恩德埃尔格欧德斯布尔埃斯斯伊恩格",
+      "zhName": "雷神祝福",
       "rarity": "unique",
       "classRestriction": "All Classes",
       "zhClassRestriction": "全职业",
@@ -2427,7 +2427,7 @@
     {
       "id": "tibaults-will",
       "name": "Tibault's Will",
-      "zhName": "特伊布阿乌尔特斯意志",
+      "zhName": "提鲍特意志",
       "rarity": "unique",
       "classRestriction": "All Classes",
       "zhClassRestriction": "全职业",
@@ -2703,7 +2703,7 @@
     {
       "id": "xfals-corroded-signet",
       "name": "X'Fal's Corroded Signet",
-      "zhName": "克斯弗阿尔斯克欧尔尔欧德埃德印戒",
+      "zhName": "艾克斯法尔腐蚀印戒",
       "rarity": "unique",
       "classRestriction": "All Classes",
       "zhClassRestriction": "全职业",
@@ -2772,7 +2772,7 @@
     {
       "id": "yens-blessing",
       "name": "Yen's Blessing",
-      "zhName": "延的布尔埃斯斯伊恩格",
+      "zhName": "延祝福",
       "rarity": "unique",
       "classRestriction": "All Classes",
       "zhClassRestriction": "全职业",
@@ -2979,7 +2979,7 @@
     {
       "id": "arreats-bearing",
       "name": "Arreat's Bearing",
-      "zhName": "阿尔尔埃阿特斯承载",
+      "zhName": "亚瑞特承载",
       "rarity": "unique",
       "classRestriction": "Barbarian",
       "zhClassRestriction": "野蛮人",
@@ -3186,7 +3186,7 @@
     {
       "id": "chainscourged-mail",
       "name": "Chainscourged Mail",
-      "zhName": "克赫阿伊恩斯克欧乌尔格埃德姆阿伊尔",
+      "zhName": "锁链灾蚀甲胄",
       "rarity": "unique",
       "classRestriction": "Barbarian",
       "zhClassRestriction": "野蛮人",
@@ -3255,7 +3255,7 @@
     {
       "id": "dark-stalkers-medallion",
       "name": "Dark Stalker's Medallion",
-      "zhName": "黑暗斯特阿尔凯埃尔斯姆埃德阿尔尔伊欧恩",
+      "zhName": "黑暗潜猎者徽章",
       "rarity": "unique",
       "classRestriction": "Barbarian",
       "zhClassRestriction": "野蛮人",
@@ -3324,7 +3324,7 @@
     {
       "id": "emblem-of-staalbreak",
       "name": "Emblem of Staalbreak",
-      "zhName": "埃姆布尔埃姆斯特阿阿尔布尔埃阿凯",
+      "zhName": "徽记斯塔尔破碎",
       "rarity": "unique",
       "classRestriction": "Barbarian",
       "zhClassRestriction": "野蛮人",
@@ -3462,7 +3462,7 @@
     {
       "id": "gohrs-devastating-grips",
       "name": "Gohr's Devastating Grips",
-      "zhName": "戈尔的毁灭握套",
+      "zhName": "格欧赫尔毁灭握套",
       "rarity": "unique",
       "classRestriction": "Barbarian",
       "zhClassRestriction": "野蛮人",
@@ -3600,7 +3600,7 @@
     {
       "id": "hooves-of-the-mountain-god",
       "name": "Hooves of the Mountain God",
-      "zhName": "赫欧欧维埃斯姆欧乌恩特阿伊恩格欧德",
+      "zhName": "蹄山岳神",
       "rarity": "unique",
       "classRestriction": "Barbarian",
       "zhClassRestriction": "野蛮人",
@@ -3669,7 +3669,7 @@
     {
       "id": "mantle-of-mountains-fury",
       "name": "Mantle of Mountain's Fury",
-      "zhName": "披肩姆欧乌恩特阿伊恩斯怒火",
+      "zhName": "披肩山岳怒火",
       "rarity": "unique",
       "classRestriction": "Barbarian",
       "zhClassRestriction": "野蛮人",
@@ -3738,7 +3738,7 @@
     {
       "id": "might-of-qual-kehk",
       "name": "Might of Qual-Kehk",
-      "zhName": "姆伊格赫特丘乌阿尔凯埃赫凯",
+      "zhName": "力量夸尔凯克",
       "rarity": "unique",
       "classRestriction": "Barbarian",
       "zhClassRestriction": "野蛮人",
@@ -3807,7 +3807,7 @@
     {
       "id": "nomads-longing-heart",
       "name": "Nomad's Longing Heart",
-      "zhName": "恩欧姆阿德斯尔欧恩格伊恩格赫埃阿尔特",
+      "zhName": "游牧者渴望之心",
       "rarity": "unique",
       "classRestriction": "Barbarian",
       "zhClassRestriction": "野蛮人",
@@ -3945,7 +3945,7 @@
     {
       "id": "rage-of-harrogath",
       "name": "Rage of Harrogath",
-      "zhName": "怒火赫阿尔尔欧格阿特赫",
+      "zhName": "怒火哈洛加斯",
       "rarity": "unique",
       "classRestriction": "Barbarian",
       "zhClassRestriction": "野蛮人",
@@ -4014,7 +4014,7 @@
     {
       "id": "ramaladnis-magnum-opus",
       "name": "Ramaladni's Magnum Opus",
-      "zhName": "拉玛兰迪的巨作作品",
+      "zhName": "尔阿姆阿尔阿德恩伊巨作作品",
       "rarity": "unique",
       "classRestriction": "Barbarian",
       "zhClassRestriction": "野蛮人",
@@ -4083,7 +4083,7 @@
     {
       "id": "ring-of-red-furor",
       "name": "Ring of Red Furor",
-      "zhName": "戒指尔埃德弗乌尔欧尔",
+      "zhName": "戒指赤红狂怒",
       "rarity": "unique",
       "classRestriction": "Barbarian",
       "zhClassRestriction": "野蛮人",
@@ -4152,7 +4152,7 @@
     {
       "id": "ring-of-the-ravenous",
       "name": "Ring of the Ravenous",
-      "zhName": "戒指尔阿维埃恩欧乌斯",
+      "zhName": "戒指贪食者",
       "rarity": "unique",
       "classRestriction": "Barbarian",
       "zhClassRestriction": "野蛮人",
@@ -4290,7 +4290,7 @@
     {
       "id": "the-open-eye-of-gorgorra",
       "name": "The Open Eye of Gorgorra",
-      "zhName": "欧普埃恩埃伊埃格欧尔格欧尔尔阿",
+      "zhName": "睁开眼戈尔戈拉",
       "rarity": "unique",
       "classRestriction": "Barbarian",
       "zhClassRestriction": "野蛮人",
@@ -4635,7 +4635,7 @@
     {
       "id": "ugly-bastard-helm",
       "name": "Ugly Bastard Helm",
-      "zhName": "乌格尔伊布阿斯特阿尔德赫埃尔姆",
+      "zhName": "丑陋恶徒头盔",
       "rarity": "unique",
       "classRestriction": "Barbarian",
       "zhClassRestriction": "野蛮人",
@@ -4704,7 +4704,7 @@
     {
       "id": "unbroken-chain",
       "name": "Unbroken Chain",
-      "zhName": "乌恩布尔欧凯埃恩克赫阿伊恩",
+      "zhName": "不破锁链",
       "rarity": "unique",
       "classRestriction": "Barbarian",
       "zhClassRestriction": "野蛮人",
@@ -4842,7 +4842,7 @@
     {
       "id": "airidahs-inexorable-will",
       "name": "Airidah's Inexorable Will",
-      "zhName": "阿伊尔伊德阿赫斯无情意志",
+      "zhName": "艾蕊达无情意志",
       "rarity": "unique",
       "classRestriction": "Druid",
       "zhClassRestriction": "德鲁伊",
@@ -5463,7 +5463,7 @@
     {
       "id": "gathlens-birthright",
       "name": "Gathlen's Birthright",
-      "zhName": "格阿特赫尔埃恩斯生来权柄",
+      "zhName": "盖瑟伦生来权柄",
       "rarity": "unique",
       "classRestriction": "Druid",
       "zhClassRestriction": "德鲁伊",
@@ -5601,7 +5601,7 @@
     {
       "id": "greenwalkers-oath",
       "name": "Greenwalker's Oath",
-      "zhName": "格尔埃埃恩沃阿尔凯埃尔斯欧阿特赫",
+      "zhName": "绿行者誓约",
       "rarity": "unique",
       "classRestriction": "Druid",
       "zhClassRestriction": "德鲁伊",
@@ -5670,7 +5670,7 @@
     {
       "id": "greenwalkers-signet",
       "name": "Greenwalker's Signet",
-      "zhName": "格尔埃埃恩沃阿尔凯埃尔斯印戒",
+      "zhName": "绿行者印戒",
       "rarity": "unique",
       "classRestriction": "Druid",
       "zhClassRestriction": "德鲁伊",
@@ -5739,7 +5739,7 @@
     {
       "id": "heart-of-azgar",
       "name": "Heart of Azgar",
-      "zhName": "赫埃阿尔特阿兹格阿尔",
+      "zhName": "之心阿兹加尔",
       "rarity": "unique",
       "classRestriction": "Druid",
       "zhClassRestriction": "德鲁伊",
@@ -5808,7 +5808,7 @@
     {
       "id": "hunters-zenith",
       "name": "Hunter's Zenith",
-      "zhName": "赫乌恩特埃尔斯巅峰",
+      "zhName": "猎手巅峰",
       "rarity": "unique",
       "classRestriction": "Druid",
       "zhClassRestriction": "德鲁伊",
@@ -5877,7 +5877,7 @@
     {
       "id": "ifehs-dire-totem",
       "name": "Ifeh's Dire Totem",
-      "zhName": "伊弗埃赫斯恐怖特欧特埃姆",
+      "zhName": "伊弗埃赫恐怖特欧特埃姆",
       "rarity": "unique",
       "classRestriction": "Druid",
       "zhClassRestriction": "德鲁伊",
@@ -6153,7 +6153,7 @@
     {
       "id": "mad-wolfs-glee",
       "name": "Mad Wolf's Glee",
-      "zhName": "狂乱沃欧尔弗斯格尔埃埃",
+      "zhName": "狂乱狼欢愉",
       "rarity": "unique",
       "classRestriction": "Druid",
       "zhClassRestriction": "德鲁伊",
@@ -6498,7 +6498,7 @@
     {
       "id": "purified-lightbringer",
       "name": "Purified Lightbringer",
-      "zhName": "普乌尔伊弗伊埃德尔伊格赫特布尔伊恩格埃尔",
+      "zhName": "净化光明使者",
       "rarity": "unique",
       "classRestriction": "Druid",
       "zhClassRestriction": "德鲁伊",
@@ -6567,7 +6567,7 @@
     {
       "id": "stone-of-vehemen",
       "name": "Stone of Vehemen",
-      "zhName": "石维埃赫埃姆埃恩",
+      "zhName": "石维赫门",
       "rarity": "unique",
       "classRestriction": "Druid",
       "zhClassRestriction": "德鲁伊",
@@ -6636,7 +6636,7 @@
     {
       "id": "storms-companion",
       "name": "Storm's Companion",
-      "zhName": "斯特欧尔姆斯同伴",
+      "zhName": "风暴同伴",
       "rarity": "unique",
       "classRestriction": "Druid",
       "zhClassRestriction": "德鲁伊",
@@ -6774,7 +6774,7 @@
     {
       "id": "unsung-ascetics-wraps",
       "name": "Unsung Ascetic's Wraps",
-      "zhName": "无名苦修者裹手",
+      "zhName": "无名阿斯克埃特伊克裹手",
       "rarity": "unique",
       "classRestriction": "Druid",
       "zhClassRestriction": "德鲁伊",
@@ -7050,7 +7050,7 @@
     {
       "id": "blood-moon-breeches",
       "name": "Blood Moon Breeches",
-      "zhName": "鲜血月亮布尔埃埃克赫埃斯",
+      "zhName": "鲜血月亮长裤",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -7188,7 +7188,7 @@
     {
       "id": "bloodless-scream",
       "name": "Bloodless Scream",
-      "zhName": "布尔欧欧德尔埃斯斯斯克尔埃阿姆",
+      "zhName": "无血尖啸",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -7257,7 +7257,7 @@
     {
       "id": "cruors-embrace",
       "name": "Cruor's Embrace",
-      "zhName": "克尔乌欧尔斯拥抱",
+      "zhName": "凝血拥抱",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -7326,7 +7326,7 @@
     {
       "id": "deathgrip",
       "name": "Deathgrip",
-      "zhName": "德埃阿特赫格尔伊普",
+      "zhName": "死亡之握",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -7395,7 +7395,7 @@
     {
       "id": "deathless-visage",
       "name": "Deathless Visage",
-      "zhName": "德埃阿特赫尔埃斯斯维伊斯阿格埃",
+      "zhName": "不死维伊斯阿格埃",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -7464,7 +7464,7 @@
     {
       "id": "ebonpiercer",
       "name": "Ebonpiercer",
-      "zhName": "埃布欧恩普伊埃尔克埃尔",
+      "zhName": "黑檀穿刺",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -7533,7 +7533,7 @@
     {
       "id": "gospel-of-the-devotee",
       "name": "Gospel of the Devotee",
-      "zhName": "格欧斯普埃尔德埃维欧特埃埃",
+      "zhName": "福音虔信者",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -7602,7 +7602,7 @@
     {
       "id": "gravewalkers-hand",
       "name": "Gravewalker's Hand",
-      "zhName": "格尔阿维埃沃阿尔凯埃尔斯赫阿恩德",
+      "zhName": "格尔阿维埃沃阿尔凯埃尔手",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -7671,7 +7671,7 @@
     {
       "id": "hangmans-hand",
       "name": "Hangman's Hand",
-      "zhName": "赫阿恩格姆阿恩斯赫阿恩德",
+      "zhName": "赫阿恩格姆阿恩手",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -7809,7 +7809,7 @@
     {
       "id": "kessimes-legacy",
       "name": "Kessime's Legacy",
-      "zhName": "凯埃斯斯伊姆埃斯尔埃格阿克伊",
+      "zhName": "凯埃斯斯伊姆埃尔埃格阿克伊",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -7947,7 +7947,7 @@
     {
       "id": "mace-of-king-leoric",
       "name": "Mace of King Leoric",
-      "zhName": "姆阿克埃凯伊恩格尔埃欧尔伊克",
+      "zhName": "钉锤国王李奥瑞克",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -8223,7 +8223,7 @@
     {
       "id": "path-of-tragoul",
       "name": "Path of Trag'Oul",
-      "zhName": "道路特尔阿格欧乌尔",
+      "zhName": "道路塔格奥",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -8292,7 +8292,7 @@
     {
       "id": "red-blessing",
       "name": "Red Blessing",
-      "zhName": "尔埃德布尔埃斯斯伊恩格",
+      "zhName": "赤红祝福",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -8361,7 +8361,7 @@
     {
       "id": "ring-of-the-sacrilegious-soul",
       "name": "Ring of the Sacrilegious Soul",
-      "zhName": "戒指斯阿克尔伊尔埃格伊欧乌斯灵魂",
+      "zhName": "戒指渎圣灵魂",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -8430,7 +8430,7 @@
     {
       "id": "sanguivor-blade-of-zir",
       "name": "Sanguivor, Blade of Zir",
-      "zhName": "斯阿恩格乌伊维欧尔刃兹伊尔",
+      "zhName": "鲜血吞噬者刃齐尔",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -8499,7 +8499,7 @@
     {
       "id": "the-gloom-ward",
       "name": "The Gloom Ward",
-      "zhName": "格尔欧欧姆沃阿尔德",
+      "zhName": "幽暗守护",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -8568,7 +8568,7 @@
     {
       "id": "the-hand-of-naz",
       "name": "The Hand of Naz",
-      "zhName": "赫阿恩德恩阿兹",
+      "zhName": "手恩阿兹",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -8637,7 +8637,7 @@
     {
       "id": "the-mortacrux",
       "name": "The Mortacrux",
-      "zhName": "姆欧尔特阿克尔乌克斯",
+      "zhName": "摩塔克鲁斯",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -8706,7 +8706,7 @@
     {
       "id": "the-undercrown",
       "name": "The Undercrown",
-      "zhName": "乌恩德埃尔克尔欧沃恩",
+      "zhName": "幽冥王冠",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -8913,7 +8913,7 @@
     {
       "id": "will-of-rathma",
       "name": "Will of Rathma",
-      "zhName": "意志尔阿特赫姆阿",
+      "zhName": "意志拉斯玛",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -9120,7 +9120,7 @@
     {
       "id": "bastion-of-sir-matthias",
       "name": "Bastion of Sir Matthias",
-      "zhName": "布阿斯特伊欧恩斯伊尔姆阿特特赫伊阿斯",
+      "zhName": "堡垒爵士马蒂亚斯",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -9189,7 +9189,7 @@
     {
       "id": "cathedrals-song",
       "name": "Cathedral's Song",
-      "zhName": "克阿特赫埃德尔阿尔斯斯欧恩格",
+      "zhName": "大教堂颂歌",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -9327,7 +9327,7 @@
     {
       "id": "gate-of-the-red-dawn",
       "name": "Gate of the Red Dawn",
-      "zhName": "格阿特埃尔埃德德阿沃恩",
+      "zhName": "格阿特埃赤红德阿沃恩",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -9396,7 +9396,7 @@
     {
       "id": "griswolds-opus",
       "name": "Griswold's Opus",
-      "zhName": "格尔伊斯沃欧尔德斯作品",
+      "zhName": "格尔伊斯沃欧尔德作品",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -9465,7 +9465,7 @@
     {
       "id": "herald-of-zakarum",
       "name": "Herald of Zakarum",
-      "zhName": "赫埃尔阿尔德兹阿凯阿尔乌姆",
+      "zhName": "先驱兹阿凯阿尔乌姆",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -9534,7 +9534,7 @@
     {
       "id": "heralds-morningstar",
       "name": "Herald's Morningstar",
-      "zhName": "赫埃尔阿尔德斯姆欧尔恩伊恩格斯特阿尔",
+      "zhName": "先驱晨星",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -9603,7 +9603,7 @@
     {
       "id": "judgment-of-auriel",
       "name": "Judgment of Auriel",
-      "zhName": "杰乌德格姆埃恩特阿乌尔伊埃尔",
+      "zhName": "审判奥莉尔",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -9672,7 +9672,7 @@
     {
       "id": "judicants-glaivehelm",
       "name": "Judicant's Glaivehelm",
-      "zhName": "杰乌德伊克阿恩特斯格尔阿伊维埃赫埃尔姆",
+      "zhName": "裁决者刃盔",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -9741,7 +9741,7 @@
     {
       "id": "lights-rebuke",
       "name": "Light's Rebuke",
-      "zhName": "尔伊格赫特斯尔埃布乌凯埃",
+      "zhName": "圣光斥责",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -9810,7 +9810,7 @@
     {
       "id": "mantle-of-the-grey",
       "name": "Mantle of the Grey",
-      "zhName": "披肩格尔埃伊",
+      "zhName": "披肩灰烬",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -9879,7 +9879,7 @@
     {
       "id": "march-of-the-stalwart-soul",
       "name": "March of the Stalwart Soul",
-      "zhName": "姆阿尔克赫斯特阿尔沃阿尔特灵魂",
+      "zhName": "进军坚定者灵魂",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -9948,7 +9948,7 @@
     {
       "id": "red-sermon",
       "name": "Red Sermon",
-      "zhName": "尔埃德斯埃尔姆欧恩",
+      "zhName": "赤红布道",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -10017,7 +10017,7 @@
     {
       "id": "sanctis-of-kethamar",
       "name": "Sanctis of Kethamar",
-      "zhName": "斯阿恩克特伊斯凯埃特赫阿姆阿尔",
+      "zhName": "圣祷凯萨玛尔",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -10086,7 +10086,7 @@
     {
       "id": "seal-of-the-second-trumpet",
       "name": "Seal of the Second Trumpet",
-      "zhName": "斯埃阿尔斯埃克欧恩德特尔乌姆普埃特",
+      "zhName": "圣印第二号角",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -10155,7 +10155,7 @@
     {
       "id": "sunbrand",
       "name": "Sunbrand",
-      "zhName": "斯乌恩布尔阿恩德",
+      "zhName": "日痕烙印",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -10224,7 +10224,7 @@
     {
       "id": "sundered-night",
       "name": "Sundered Night",
-      "zhName": "斯乌恩德埃尔埃德恩伊格赫特",
+      "zhName": "割裂夜魇",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -10293,7 +10293,7 @@
     {
       "id": "supplication",
       "name": "Supplication",
-      "zhName": "斯乌普普尔伊克阿特伊欧恩",
+      "zhName": "祈请",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -10362,7 +10362,7 @@
     {
       "id": "ward-of-the-white-dove",
       "name": "Ward of the White Dove",
-      "zhName": "沃阿尔德沃赫伊特埃德欧维埃",
+      "zhName": "守护沃赫伊特埃德欧维埃",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -10431,7 +10431,7 @@
     {
       "id": "wreath-of-auric-laurel",
       "name": "Wreath of Auric Laurel",
-      "zhName": "沃尔埃阿特赫阿乌尔伊克尔阿乌尔埃尔",
+      "zhName": "花冠金辉月桂",
       "rarity": "unique",
       "classRestriction": "Paladin",
       "zhClassRestriction": "圣骑士",
@@ -10500,7 +10500,7 @@
     {
       "id": "ashearas-khanjar",
       "name": "Asheara's Khanjar",
-      "zhName": "阿斯赫埃阿尔阿斯坎贾尔",
+      "zhName": "艾席拉坎贾尔",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -10569,7 +10569,7 @@
     {
       "id": "assassins-stride",
       "name": "Assassin's Stride",
-      "zhName": "阿斯斯阿斯斯伊恩斯步伐",
+      "zhName": "刺客步伐",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -10776,7 +10776,7 @@
     {
       "id": "cassias-grace",
       "name": "Cassia's Grace",
-      "zhName": "克阿斯斯伊阿斯格尔阿克埃",
+      "zhName": "卡西亚恩典",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -10845,7 +10845,7 @@
     {
       "id": "condemnation",
       "name": "Condemnation",
-      "zhName": "克欧恩德埃姆恩阿特伊欧恩",
+      "zhName": "定罪",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -10983,7 +10983,7 @@
     {
       "id": "deaths-pavane",
       "name": "Death's Pavane",
-      "zhName": "死亡普阿维阿恩埃",
+      "zhName": "死亡帕凡舞",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -11052,7 +11052,7 @@
     {
       "id": "deathmask-of-nirmitruq",
       "name": "Deathmask of Nirmitruq",
-      "zhName": "德埃阿特赫姆阿斯凯恩伊尔姆伊特尔乌丘",
+      "zhName": "死亡面具尼尔米特鲁克",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -11121,7 +11121,7 @@
     {
       "id": "desperate-march",
       "name": "Desperate March",
-      "zhName": "德埃斯普埃尔阿特埃姆阿尔克赫",
+      "zhName": "绝境进军",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -11259,7 +11259,7 @@
     {
       "id": "etnas-lost-dagger",
       "name": "Etna's Lost Dagger",
-      "zhName": "埃特恩阿斯遗失匕首",
+      "zhName": "埃特纳遗失匕首",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -11397,7 +11397,7 @@
     {
       "id": "fist-of-the-iron-rose",
       "name": "Fist of the Iron Rose",
-      "zhName": "弗伊斯特伊尔欧恩玫瑰",
+      "zhName": "拳钢铁玫瑰",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -11466,7 +11466,7 @@
     {
       "id": "gladiators-triumph",
       "name": "Gladiator's Triumph",
-      "zhName": "格尔阿德伊阿特欧尔斯特尔伊乌姆普赫",
+      "zhName": "角斗士凯旋",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -11604,7 +11604,7 @@
     {
       "id": "misericorde",
       "name": "Misericorde",
-      "zhName": "姆伊斯埃尔伊克欧尔德埃",
+      "zhName": "慈悲短剑",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -11742,7 +11742,7 @@
     {
       "id": "pitfighters-gull",
       "name": "Pitfighter's Gull",
-      "zhName": "普伊特弗伊格赫特埃尔斯格乌尔尔",
+      "zhName": "斗坑勇士海鸥",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -11880,7 +11880,7 @@
     {
       "id": "scoundrels-kiss",
       "name": "Scoundrel's Kiss",
-      "zhName": "恶棍的之吻",
+      "zhName": "恶棍之吻",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -11949,7 +11949,7 @@
     {
       "id": "scoundrels-leathers",
       "name": "Scoundrel's Leathers",
-      "zhName": "恶棍的尔埃阿特赫埃尔斯",
+      "zhName": "恶棍皮甲",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -12018,7 +12018,7 @@
     {
       "id": "sea-lords-fine-gloves",
       "name": "Sea Lord's Fine Gloves",
-      "zhName": "海洋尔欧尔德斯精制手套",
+      "zhName": "海洋领主精制手套",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -12156,7 +12156,7 @@
     {
       "id": "shrouded-gift",
       "name": "Shrouded Gift",
-      "zhName": "斯赫尔欧乌德埃德格伊弗特",
+      "zhName": "遮蔽馈赠",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -12294,7 +12294,7 @@
     {
       "id": "the-maestro",
       "name": "The Maestro",
-      "zhName": "姆阿埃斯特尔欧",
+      "zhName": "大师",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -12708,7 +12708,7 @@
     {
       "id": "blue-rose",
       "name": "Blue Rose",
-      "zhName": "布尔乌埃玫瑰",
+      "zhName": "蓝色玫瑰",
       "rarity": "unique",
       "classRestriction": "Sorcerer",
       "zhClassRestriction": "法师",
@@ -12777,7 +12777,7 @@
     {
       "id": "drognans-anguish",
       "name": "Drognan's Anguish",
-      "zhName": "德尔欧格恩阿恩斯阿恩格乌伊斯赫",
+      "zhName": "卓格南痛苦",
       "rarity": "unique",
       "classRestriction": "Sorcerer",
       "zhClassRestriction": "法师",
@@ -12915,7 +12915,7 @@
     {
       "id": "esadoras-overflowing-cameo",
       "name": "Esadora's Overflowing Cameo",
-      "zhName": "埃斯阿德欧尔阿斯欧维埃尔弗尔欧沃伊恩格克阿姆埃欧",
+      "zhName": "艾莎朵拉溢流浮雕饰物",
       "rarity": "unique",
       "classRestriction": "Sorcerer",
       "zhClassRestriction": "法师",
@@ -13191,7 +13191,7 @@
     {
       "id": "flameweaver",
       "name": "Flameweaver",
-      "zhName": "弗尔阿姆埃沃埃阿维埃尔",
+      "zhName": "织焰者",
       "rarity": "unique",
       "classRestriction": "Sorcerer",
       "zhClassRestriction": "法师",
@@ -13398,7 +13398,7 @@
     {
       "id": "gift-of-frost",
       "name": "Gift of Frost",
-      "zhName": "格伊弗特弗尔欧斯特",
+      "zhName": "馈赠冰霜",
       "rarity": "unique",
       "classRestriction": "Sorcerer",
       "zhClassRestriction": "法师",
@@ -13467,7 +13467,7 @@
     {
       "id": "hail-of-verglas",
       "name": "Hail of Verglas",
-      "zhName": "赫阿伊尔维埃尔格尔阿斯",
+      "zhName": "冰雹薄冰",
       "rarity": "unique",
       "classRestriction": "Sorcerer",
       "zhClassRestriction": "法师",
@@ -13536,7 +13536,7 @@
     {
       "id": "iceheart-brais",
       "name": "Iceheart Brais",
-      "zhName": "伊克埃赫埃阿尔特布尔阿伊斯",
+      "zhName": "冰心短裤",
       "rarity": "unique",
       "classRestriction": "Sorcerer",
       "zhClassRestriction": "法师",
@@ -13674,7 +13674,7 @@
     {
       "id": "molten-band",
       "name": "Molten Band",
-      "zhName": "姆欧尔特埃恩指环",
+      "zhName": "熔火指环",
       "rarity": "unique",
       "classRestriction": "Sorcerer",
       "zhClassRestriction": "法师",
@@ -13812,7 +13812,7 @@
     {
       "id": "ophidian-iris",
       "name": "Ophidian Iris",
-      "zhName": "欧普赫伊德伊阿恩虹膜",
+      "zhName": "蛇形虹膜",
       "rarity": "unique",
       "classRestriction": "Sorcerer",
       "zhClassRestriction": "法师",
@@ -14088,7 +14088,7 @@
     {
       "id": "rimeblood",
       "name": "Rimeblood",
-      "zhName": "尔伊姆埃布尔欧欧德",
+      "zhName": "霜血",
       "rarity": "unique",
       "classRestriction": "Sorcerer",
       "zhClassRestriction": "法师",
@@ -14157,7 +14157,7 @@
     {
       "id": "shanars-resonance",
       "name": "Shanar's Resonance",
-      "zhName": "斯赫阿恩阿尔斯共鸣",
+      "zhName": "沙纳尔共鸣",
       "rarity": "unique",
       "classRestriction": "Sorcerer",
       "zhClassRestriction": "法师",
@@ -14226,7 +14226,7 @@
     {
       "id": "sidhe-bindings",
       "name": "Sidhe Bindings",
-      "zhName": "斯伊德赫埃布伊恩德伊恩格斯",
+      "zhName": "希德束缚",
       "rarity": "unique",
       "classRestriction": "Sorcerer",
       "zhClassRestriction": "法师",
@@ -14433,7 +14433,7 @@
     {
       "id": "staff-of-zerae",
       "name": "Staff of Zerae",
-      "zhName": "法杖兹埃尔阿埃",
+      "zhName": "法杖泽瑞",
       "rarity": "unique",
       "classRestriction": "Sorcerer",
       "zhClassRestriction": "法师",
@@ -14640,7 +14640,7 @@
     {
       "id": "tal-rashas-iridescent-loop",
       "name": "Tal Rasha's Iridescent Loop",
-      "zhName": "特阿尔尔阿斯赫阿斯伊尔伊德埃斯克埃恩特尔欧欧普",
+      "zhName": "塔尔拉夏虹彩环",
       "rarity": "unique",
       "classRestriction": "Sorcerer",
       "zhClassRestriction": "法师",
@@ -14778,7 +14778,7 @@
     {
       "id": "vision-of-the-firestorm",
       "name": "Vision of the Firestorm",
-      "zhName": "维伊斯伊欧恩弗伊尔埃斯特欧尔姆",
+      "zhName": "幻视火焰风暴",
       "rarity": "unique",
       "classRestriction": "Sorcerer",
       "zhClassRestriction": "法师",
@@ -14916,7 +14916,7 @@
     {
       "id": "balazans-maxtlatl",
       "name": "Balazan's Maxtlatl",
-      "zhName": "布阿尔阿兹阿恩斯玛克斯特拉特",
+      "zhName": "巴拉赞玛克斯特拉特",
       "rarity": "unique",
       "classRestriction": "Spiritborn",
       "zhClassRestriction": "魂灵师",
@@ -15054,7 +15054,7 @@
     {
       "id": "craze-of-the-dead-god",
       "name": "Craze of the Dead God",
-      "zhName": "克尔阿兹埃德埃阿德格欧德",
+      "zhName": "狂热亡者神",
       "rarity": "unique",
       "classRestriction": "Spiritborn",
       "zhClassRestriction": "魂灵师",
@@ -15123,7 +15123,7 @@
     {
       "id": "echo-of-kwatli",
       "name": "Echo of Kwatli",
-      "zhName": "埃克赫欧凯沃阿特尔伊",
+      "zhName": "回声夸特利",
       "rarity": "unique",
       "classRestriction": "Spiritborn",
       "zhClassRestriction": "魂灵师",
@@ -15261,7 +15261,7 @@
     {
       "id": "hesha-e-kesungi",
       "name": "Hesha e Kesungi",
-      "zhName": "赫埃斯赫阿埃凯森吉",
+      "zhName": "赫莎埃凯森吉",
       "rarity": "unique",
       "classRestriction": "Spiritborn",
       "zhClassRestriction": "魂灵师",
@@ -15399,7 +15399,7 @@
     {
       "id": "loyaltys-mantle",
       "name": "Loyalty's Mantle",
-      "zhName": "尔欧伊阿尔特伊斯披肩",
+      "zhName": "忠诚披肩",
       "rarity": "unique",
       "classRestriction": "Spiritborn",
       "zhClassRestriction": "魂灵师",
@@ -15537,7 +15537,7 @@
     {
       "id": "path-of-the-emissary",
       "name": "Path of the Emissary",
-      "zhName": "道路埃姆伊斯斯阿尔伊",
+      "zhName": "道路使者",
       "rarity": "unique",
       "classRestriction": "Spiritborn",
       "zhClassRestriction": "魂灵师",
@@ -15606,7 +15606,7 @@
     {
       "id": "peacemongers-signet",
       "name": "Peacemonger's Signet",
-      "zhName": "普埃阿克埃姆欧恩格埃尔斯印戒",
+      "zhName": "调停者印戒",
       "rarity": "unique",
       "classRestriction": "Spiritborn",
       "zhClassRestriction": "魂灵师",
@@ -15675,7 +15675,7 @@
     {
       "id": "protean-heart",
       "name": "Protean Heart",
-      "zhName": "普尔欧特埃阿恩赫埃阿尔特",
+      "zhName": "变形之心",
       "rarity": "unique",
       "classRestriction": "Spiritborn",
       "zhClassRestriction": "魂灵师",
@@ -15744,7 +15744,7 @@
     {
       "id": "protection-of-the-prime",
       "name": "Protection of the Prime",
-      "zhName": "普尔欧特埃克特伊欧恩普尔伊姆埃",
+      "zhName": "庇护始源",
       "rarity": "unique",
       "classRestriction": "Spiritborn",
       "zhClassRestriction": "魂灵师",
@@ -15882,7 +15882,7 @@
     {
       "id": "ring-of-the-midnight-sun",
       "name": "Ring of the Midnight Sun",
-      "zhName": "戒指姆伊德恩伊格赫特斯乌恩",
+      "zhName": "戒指午夜太阳",
       "rarity": "unique",
       "classRestriction": "Spiritborn",
       "zhClassRestriction": "魂灵师",
@@ -16158,7 +16158,7 @@
     {
       "id": "sepazontec",
       "name": "Sepazontec",
-      "zhName": "斯埃普阿兹欧恩特埃克",
+      "zhName": "塞帕宗泰克",
       "rarity": "unique",
       "classRestriction": "Spiritborn",
       "zhClassRestriction": "魂灵师",
@@ -16227,7 +16227,7 @@
     {
       "id": "sunbirds-gorget",
       "name": "Sunbird's Gorget",
-      "zhName": "斯乌恩布伊尔德斯格欧尔格埃特",
+      "zhName": "太阳鸟颈甲",
       "rarity": "unique",
       "classRestriction": "Spiritborn",
       "zhClassRestriction": "魂灵师",
@@ -16296,7 +16296,7 @@
     {
       "id": "sunstained-war-crozier",
       "name": "Sunstained War-Crozier",
-      "zhName": "斯乌恩斯特阿伊恩埃德沃阿尔克尔欧兹伊埃尔",
+      "zhName": "日痕战争权杖",
       "rarity": "unique",
       "classRestriction": "Spiritborn",
       "zhClassRestriction": "魂灵师",
@@ -16365,7 +16365,7 @@
     {
       "id": "widows-web",
       "name": "Widow's Web",
-      "zhName": "沃伊德欧沃斯沃埃布",
+      "zhName": "沃伊德欧沃沃埃布",
       "rarity": "unique",
       "classRestriction": "Spiritborn",
       "zhClassRestriction": "魂灵师",
@@ -16503,7 +16503,7 @@
     {
       "id": "wushe-nak-pa",
       "name": "Wushe Nak Pa",
-      "zhName": "沃乌斯赫埃恩阿凯普阿",
+      "zhName": "乌蛇纳克帕",
       "rarity": "unique",
       "classRestriction": "Spiritborn",
       "zhClassRestriction": "魂灵师",
@@ -16572,7 +16572,7 @@
     {
       "id": "aegroms-schism",
       "name": "Ae'grom's Schism",
-      "zhName": "阿埃格尔欧姆斯裂隙",
+      "zhName": "埃格罗姆裂隙",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -16710,7 +16710,7 @@
     {
       "id": "bindings-of-attrition",
       "name": "Bindings of Attrition",
-      "zhName": "布伊恩德伊恩格斯阿特特尔伊特伊欧恩",
+      "zhName": "束缚耗损",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -16779,7 +16779,7 @@
     {
       "id": "bridle-of-torbaalos",
       "name": "Bridle of Tor'Baalos",
-      "zhName": "布尔伊德尔埃特欧尔布阿阿尔欧斯",
+      "zhName": "缰绳托巴洛斯",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -16986,7 +16986,7 @@
     {
       "id": "dirge-of-odium",
       "name": "Dirge of Odium",
-      "zhName": "德伊尔格埃欧德伊乌姆",
+      "zhName": "德伊尔格埃憎恶",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -17124,7 +17124,7 @@
     {
       "id": "eye-of-baal",
       "name": "Eye of Baal",
-      "zhName": "埃伊埃布阿阿尔",
+      "zhName": "眼巴尔",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -17193,7 +17193,7 @@
     {
       "id": "fleshwrit-carapace",
       "name": "Fleshwrit Carapace",
-      "zhName": "弗尔埃斯赫沃尔伊特克阿尔阿普阿克埃",
+      "zhName": "血肉铭刻甲壳",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -17262,7 +17262,7 @@
     {
       "id": "footfalls-of-the-waning-world",
       "name": "Footfalls of the Waning World",
-      "zhName": "弗欧欧特弗阿尔尔斯沃阿恩伊恩格沃欧尔尔德",
+      "zhName": "足音衰落世界",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -17331,7 +17331,7 @@
     {
       "id": "gauntlets-of-sheol",
       "name": "Gauntlets of Sheol",
-      "zhName": "铁手套斯赫埃欧尔",
+      "zhName": "铁手套阴府",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -17400,7 +17400,7 @@
     {
       "id": "hand-of-apotheosis",
       "name": "Hand of Apotheosis",
-      "zhName": "赫阿恩德阿普欧特赫埃欧斯伊斯",
+      "zhName": "手升神",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -17469,7 +17469,7 @@
     {
       "id": "hands-of-the-worldbreaker",
       "name": "Hands of the Worldbreaker",
-      "zhName": "赫阿恩德斯沃欧尔尔德布尔埃阿凯埃尔",
+      "zhName": "双手碎世者",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -17538,7 +17538,7 @@
     {
       "id": "hecaton-chasm",
       "name": "Hecaton Chasm",
-      "zhName": "赫埃克阿特欧恩克赫阿斯姆",
+      "zhName": "百臂裂谷",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -17607,7 +17607,7 @@
     {
       "id": "hellbrand-signet",
       "name": "Hellbrand Signet",
-      "zhName": "赫埃尔尔布尔阿恩德印戒",
+      "zhName": "地狱烙印印戒",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -17676,7 +17676,7 @@
     {
       "id": "hellhounds-sabatons",
       "name": "Hellhound's Sabatons",
-      "zhName": "赫埃尔尔赫欧乌恩德斯重靴",
+      "zhName": "地狱犬重靴",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -18021,7 +18021,7 @@
     {
       "id": "molochs-beating-flame",
       "name": "Moloch's Beating Flame",
-      "zhName": "姆欧尔欧克赫斯布埃阿特伊恩格弗尔阿姆埃",
+      "zhName": "摩洛克跃动火焰",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -18090,7 +18090,7 @@
     {
       "id": "morlu-fleshward",
       "name": "Morlu Fleshward",
-      "zhName": "姆欧尔尔乌弗尔埃斯赫沃阿尔德",
+      "zhName": "莫鲁血肉守卫",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -18159,7 +18159,7 @@
     {
       "id": "nails-of-the-gore-crowned",
       "name": "Nails of the Gore-Crowned",
-      "zhName": "恩阿伊尔斯格欧尔埃克尔欧沃恩埃德",
+      "zhName": "钉刺血污冠冕",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -18228,7 +18228,7 @@
     {
       "id": "night-terror",
       "name": "Night Terror",
-      "zhName": "恩伊格赫特特埃尔尔欧尔",
+      "zhName": "夜魇恐惧",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -18297,7 +18297,7 @@
     {
       "id": "rictus-of-terror",
       "name": "Rictus of Terror",
-      "zhName": "尔伊克特乌斯特埃尔尔欧尔",
+      "zhName": "裂笑恐惧",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -18366,7 +18366,7 @@
     {
       "id": "sashes-of-the-wretched",
       "name": "Sashes of the Wretched",
-      "zhName": "斯阿斯赫埃斯沃尔埃特克赫埃德",
+      "zhName": "束带卑污者",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -18504,7 +18504,7 @@
     {
       "id": "scourge-of-duriel",
       "name": "Scourge of Duriel",
-      "zhName": "灾祸德乌尔伊埃尔",
+      "zhName": "灾祸都瑞尔",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -18573,7 +18573,7 @@
     {
       "id": "seal-of-the-ophanim",
       "name": "Seal of the Ophanim",
-      "zhName": "斯埃阿尔欧普赫阿恩伊姆",
+      "zhName": "圣印座天使",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -18642,7 +18642,7 @@
     {
       "id": "seed-of-horazon",
       "name": "Seed of Horazon",
-      "zhName": "斯埃埃德赫欧尔阿兹欧恩",
+      "zhName": "种子赫拉迪姆",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -18780,7 +18780,7 @@
     {
       "id": "spine-of-tathamet",
       "name": "Spine of Tathamet",
-      "zhName": "斯普伊恩埃特阿特赫阿姆埃特",
+      "zhName": "脊骨塔萨梅特",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -18849,7 +18849,7 @@
     {
       "id": "the-blade-of-sight-aflame",
       "name": "The Blade of Sight Aflame",
-      "zhName": "刃斯伊格赫特阿弗尔阿姆埃",
+      "zhName": "刃视界燃焰",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -18918,7 +18918,7 @@
     {
       "id": "the-eightfold-idol",
       "name": "The Eightfold Idol",
-      "zhName": "埃伊格赫特弗欧尔德神像",
+      "zhName": "八重神像",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -18987,7 +18987,7 @@
     {
       "id": "the-fecund-seal",
       "name": "The Fecund Seal",
-      "zhName": "弗埃克乌恩德斯埃阿尔",
+      "zhName": "丰饶圣印",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -19056,7 +19056,7 @@
     {
       "id": "the-hemat-stone",
       "name": "The Hemat Stone",
-      "zhName": "赫埃姆阿特石",
+      "zhName": "血色石",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
@@ -19125,7 +19125,7 @@
     {
       "id": "thrice-woven-nightmare",
       "name": "Thrice-Woven Nightmare",
-      "zhName": "特赫尔伊克埃沃欧维埃恩恩伊格赫特姆阿尔埃",
+      "zhName": "三重编织梦魇",
       "rarity": "unique",
       "classRestriction": "Warlock",
       "zhClassRestriction": "术士",
