@@ -507,6 +507,89 @@ function gameplayFor({ mode, archetype, simBuild }) {
   };
 }
 
+function progressionFor({ mode, archetype, simBuild, gearSlots, skillTree, paragon }) {
+  const levelingLines = simBuild?.guide?.leveling || [
+    "1-35 级：用顺手主力技能和高装等武器开荒。",
+    "35-60 级：补资源、抗性和防御，准备进入终局。",
+    "60 级后：围绕核心暗金、威能、雕文等级和抗性上限重构。",
+    "终局：按冲层、速刷或日常用途切换装备和打法。"
+  ];
+  const coreSlots = gearSlots.filter((slot) => slot.required || slot.core).slice(0, 4);
+  const replaceableSlots = gearSlots.filter((slot) => slot.replaceable).slice(0, 4);
+  const coreLine = coreSlots.length
+    ? coreSlots.map((slot) => `${slot.zhSlotName}：${slot.target.zhName}`).join(" / ")
+    : "先按装备区补齐核心暗金或核心威能";
+  const replacementLine = replaceableSlots.length
+    ? replaceableSlots.map((slot) => slot.zhSlotName).join(" / ")
+    : "非核心部位";
+  const firstSkill = skillTree.pointOrder?.[0];
+  const coreSkill = skillTree.pointOrder?.[1] || firstSkill;
+  const defensiveSkill = skillTree.pointOrder?.[2] || coreSkill;
+  const paragonFirst = paragon.clickOrder?.[0];
+  const paragonSecond = paragon.clickOrder?.[3] || paragon.clickOrder?.[1];
+  const modeGoal = {
+    daily: "保持容错和资源循环，优先稳定完成日常和补装备。",
+    speed_farm: "压缩停顿时间，优先移动、冷却和清图效率。",
+    pit_push: "牺牲部分速度换单体、防御和稳定爆发，准备挑战高层。"
+  }[mode];
+  const stages = [
+    {
+      stageId: "leveling_1_35",
+      title: "1-35 级开荒",
+      levelRange: "1-35",
+      objective: levelingLines[0],
+      gearFocus: "武器装等和主词缀优先，不强行锁死终局暗金。",
+      skillFocus: firstSkill ? `${firstSkill.levelRange}：${firstSkill.skill}，${firstSkill.reason}` : "先点资源入口和主力输出。",
+      paragonFocus: "未进入巅峰前先保证技能手感、抗性和资源。",
+      gameplayFocus: "不要贪终局循环，优先清怪稳定和不死亡。",
+      swapRule: `可用高装等传奇替代${replacementLine}。`
+    },
+    {
+      stageId: "transition_35_60",
+      title: "35-60 级过渡",
+      levelRange: "35-60",
+      objective: levelingLines[1],
+      gearFocus: `开始保留能承载核心威能的底材；优先补${statLabels(archetype).slice(0, 3).join(" / ")}。`,
+      skillFocus: coreSkill ? `${coreSkill.levelRange}：${coreSkill.skill}，${coreSkill.reason}` : "主力技能点满后补防御和资源。",
+      paragonFocus: paragonFirst ? `${paragonFirst.board}：${paragonFirst.node}。` : "准备起始盘到雕文孔的路线。",
+      gameplayFocus: "缺资源时先降难度刷词缀，不要硬打高压内容。",
+      swapRule: "核心暗金没出时，用传奇底材和同类威能过渡。"
+    },
+    {
+      stageId: "endgame_setup",
+      title: "60+ 终局成型",
+      levelRange: "60+",
+      objective: levelingLines[2],
+      gearFocus: coreLine,
+      skillFocus: defensiveSkill ? `${defensiveSkill.levelRange}：${defensiveSkill.skill}，${defensiveSkill.reason}` : "补齐防御、资源和关键被动。",
+      paragonFocus: paragonSecond ? `${paragonSecond.board}：${paragonSecond.node}。` : "先拿雕文孔、传奇节点和关键稀有节点。",
+      gameplayFocus: "把抗性、护甲和防御窗口稳定后，再追求伤害精造。",
+      swapRule: "硬需求位优先保留，可替换位按抗性和掉落动态调整。"
+    },
+    {
+      stageId: "mode_specialize",
+      title: `${modeProfiles[mode].zhName}专精`,
+      levelRange: modeProfiles[mode].stage,
+      objective: modeGoal,
+      gearFocus: mode === "pit_push" ? "单体、防御、减伤和核心乘区优先。" : mode === "speed_farm" ? "移动速度、冷却缩减和起手清图效率优先。" : "资源循环、生命、抗性和低成本替换优先。",
+      skillFocus: "按技能分区完成最终点法，核心暗金到位后再重分配临时点。",
+      paragonFocus: "按巅峰分区补齐点数阶段，抗性和护甲不达标时提前走防御节点。",
+      gameplayFocus: modeProfiles[mode].suitability,
+      swapRule: "在替换矩阵中逐槽位切换，不直接改动硬需求位。"
+    }
+  ];
+  return {
+    sourceStatus: simBuild?.guide?.dataCompleteness?.skillRanks || "开荒路线为结构化模板，等待更多实战来源校准。",
+    checkpoints: [
+      { label: "先点技能", value: firstSkill ? `${firstSkill.levelRange} ${firstSkill.skill}` : "资源入口" },
+      { label: "先拿巅峰", value: paragonFirst ? `${paragonFirst.board} ${paragonFirst.node}` : "起始盘雕文孔" },
+      { label: "核心装备", value: coreLine },
+      { label: "可替换位", value: replacementLine }
+    ],
+    stages
+  };
+}
+
 function variantsFor({ mode, gearSlots, archetype }) {
   const coreSlot = gearSlots.find((slot) => !slot.replaceable) || gearSlots[0];
   return [
@@ -545,6 +628,10 @@ function guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentIt
   const gearSlots = gearSlotsFor({ equipmentItems, classInfo, archetype, mode });
   const formationDifficulty = difficultyFor({ archetype, mode, gearSlots, seasonIndex, classInfo });
   const ceiling = ceilingFor(performance, mode);
+  const skillTree = skillTreeFor({ classInfo, archetype, simBuild });
+  const paragon = paragonFor({ archetype, simBuild });
+  const gameplay = gameplayFor({ mode, archetype, simBuild });
+  const progression = progressionFor({ mode, archetype, simBuild, gearSlots, skillTree, paragon });
   const coreUniques = gearSlots
     .filter((slot) => slot.core && slot.target.type === "unique")
     .slice(0, 5)
@@ -621,9 +708,10 @@ function guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentIt
     coreUniques,
     coreAspects,
     gearSlots,
-    skillTree: skillTreeFor({ classInfo, archetype, simBuild }),
-    paragon: paragonFor({ archetype, simBuild }),
-    gameplay: gameplayFor({ mode, archetype, simBuild }),
+    skillTree,
+    paragon,
+    gameplay,
+    progression,
     variants: variantsFor({ mode, gearSlots, archetype }),
     dataQuality: {
       officialFields: ["3.1.0 唯一装备固定词缀", "补丁版本和构建号"],

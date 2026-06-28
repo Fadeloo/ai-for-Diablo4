@@ -34,7 +34,7 @@ data/generated/site-coverage.json
 
 `npm run build:data` 会先刷新装备库和赛季构筑矩阵，再生成结构化 BD 档案。
 
-`data/builds/community-build-overrides.json` 用来把可追溯社区 BD 覆盖到生成档案上。覆盖字段可以替换装备槽位、核心威能、技能加点、巅峰点击顺序、打法、来源引用和数据质量状态。没有覆盖的 BD 继续使用本站结构化模板。
+`data/builds/community-build-overrides.json` 用来把可追溯社区 BD 覆盖到生成档案上。覆盖字段可以替换装备槽位、核心威能、技能加点、巅峰点击顺序、开荒路线、打法、来源引用和数据质量状态。没有覆盖的 BD 继续使用本站结构化模板。
 
 `data/generated/site-coverage.json` 从生成后的 BD、装备库和来源登记表汇总玩家可见的覆盖状态。来源页读取它展示 BD 数、社区参考数、模板数、装备字段缺口和存储层用途；`npm run verify` 会校验这些统计和真实数据一致。
 
@@ -54,6 +54,7 @@ data/generated/site-coverage.json
 - `ceiling`：150 层速度参考、梯队和说明。
 - `gearSlots`：全身装备位置。每个位置包含目标装备或威能、是否核心、是否可替换、词缀、淬炼、精造、宝石和替换件。
 - `coreUniques` / `coreAspects`：核心暗金和核心威能位。
+- `progression`：1-35、35-60、60+、用途专精的开荒到成型路线，绑定装备、技能、巅峰、打法和替换规则。
 - `skillTree`：技能栏、加点顺序、被动和说明。
 - `paragon`：巅峰盘顺序、雕文和点击顺序。
 - `gameplay`：起手、循环、首领、防御、速刷和常见错误。
@@ -66,7 +67,7 @@ data/generated/site-coverage.json
 
 - `#builds` 读取 `build-guides.json`，按 `seasonId`、`classId`、`mode` 展示 BD 大厅卡片。
 - `#bd/<guideId>` 打开独立 BD 详情页。
-- 详情页直接读取 `gearSlots`、`skillTree`、`paragon`、`gameplay` 和 `variants`，不展示生成过程或评分理由。
+- 详情页直接读取 `gearSlots`、`progression`、`skillTree`、`paragon`、`gameplay` 和 `variants`，不展示生成过程或评分理由。
 - `#forecast` 仍读取 `build-simulations.json`，只作为 150 层速度参考页使用。
 
 ## 数据边界

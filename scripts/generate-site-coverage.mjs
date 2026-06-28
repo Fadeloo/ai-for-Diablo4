@@ -42,6 +42,7 @@ const frontendDataContracts = [
     source: "build-guides.builds[id]",
     fields: [
       "gearSlots",
+      "progression",
       "skillTree",
       "paragon",
       "gameplay",
@@ -125,6 +126,7 @@ const buildIntegrity = {
   skillRouteBuilds: builds.filter((guide) => (guide.skillTree?.skillBar || []).length === 6 && (guide.skillTree?.pointOrder || []).length >= 10).length,
   paragonRouteBuilds: builds.filter((guide) => (guide.paragon?.boardOrder || []).length >= 4 && (guide.paragon?.clickOrder || []).length >= 10).length,
   gameplayBuilds: builds.filter((guide) => guide.gameplay?.opener?.length && guide.gameplay?.loop?.length && guide.gameplay?.boss?.length).length,
+  progressionBuilds: builds.filter((guide) => (guide.progression?.stages || []).length >= 4 && (guide.progression?.checkpoints || []).length >= 4).length,
   replacementBuilds: builds.filter((guide) => (guide.gearSlots || []).every((slot) => (slot.alternatives || []).length >= 1)).length,
   bySeasonClassMode: seasons.map((season) => ({
     seasonId: season.id,

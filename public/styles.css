@@ -2141,6 +2141,138 @@ h4 {
   margin: 0;
 }
 
+.progression-plan {
+  background:
+    linear-gradient(180deg, rgba(18, 10, 7, 0.78), rgba(6, 3, 2, 0.82));
+  border: 1px solid rgba(214, 173, 99, 0.22);
+  display: grid;
+  gap: 14px;
+  padding: 14px;
+}
+
+.progression-plan__head {
+  align-items: start;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, auto);
+}
+
+.progression-plan__head span,
+.progression-checkpoints span,
+.progression-stage-title span,
+.progression-label {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.progression-plan__head strong {
+  color: #fff7df;
+  display: block;
+  font-size: 18px;
+  line-height: 1.3;
+  margin-top: 4px;
+}
+
+.progression-plan__head em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 750;
+  justify-self: end;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.progression-checkpoints {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.progression-checkpoints article {
+  background: rgba(8, 4, 3, 0.56);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+  gap: 6px;
+  min-height: 72px;
+  padding: 10px;
+}
+
+.progression-checkpoints strong {
+  color: var(--bone);
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.progression-stage-table {
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+}
+
+.progression-stage-row {
+  border-bottom: 1px solid rgba(214, 173, 99, 0.14);
+  display: grid;
+  grid-template-columns: 128px minmax(170px, 1fr) minmax(170px, 1fr) minmax(210px, 1.2fr) minmax(210px, 1.2fr);
+  min-width: 0;
+}
+
+.progression-stage-row:last-child {
+  border-bottom: 0;
+}
+
+.progression-stage-row--head {
+  background: rgba(214, 173, 99, 0.08);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+  min-height: 36px;
+}
+
+.progression-stage-row--head span {
+  border-right: 1px solid rgba(214, 173, 99, 0.14);
+  padding: 9px 10px;
+}
+
+.progression-stage-row > div {
+  border-right: 1px solid rgba(214, 173, 99, 0.12);
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  padding: 10px;
+}
+
+.progression-stage-row > div:last-child {
+  border-right: 0;
+}
+
+.progression-stage-title {
+  align-content: start;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.progression-stage-title strong {
+  color: #fff7df;
+  font-size: 14px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.progression-stage-row p,
+.progression-stage-row em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.5;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.progression-label {
+  display: none;
+}
+
 .guide-section-nav {
   background: rgba(8, 4, 3, 0.82);
   border: 1px solid rgba(214, 173, 99, 0.22);
@@ -4482,6 +4614,41 @@ h4 {
     grid-template-columns: minmax(150px, 0.78fr) repeat(3, minmax(170px, 1fr));
   }
 
+  .progression-checkpoints {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .progression-stage-table {
+    border: 0;
+    gap: 10px;
+  }
+
+  .progression-stage-row--head {
+    display: none;
+  }
+
+  .progression-stage-row {
+    border: 1px solid rgba(214, 173, 99, 0.18);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .progression-stage-title {
+    grid-column: 1 / -1;
+  }
+
+  .progression-stage-row > div {
+    border-right: 0;
+    border-bottom: 1px solid rgba(214, 173, 99, 0.12);
+  }
+
+  .progression-stage-row > div:last-child {
+    border-bottom: 0;
+  }
+
+  .progression-label {
+    display: block;
+  }
+
   .build-list-title {
     grid-column: 1 / -1;
   }
@@ -4760,6 +4927,9 @@ h4 {
   .guide-card__quickfacts,
   .guide-hero__main,
   .guide-version-switcher header,
+  .progression-plan__head,
+  .progression-checkpoints,
+  .progression-stage-row,
   .gear-summary-matrix > header,
   .replacement-matrix > header,
   .route-matrix__head,
@@ -4821,6 +4991,11 @@ h4 {
 
   .recommended-build-cell:last-child {
     border-bottom: 0;
+  }
+
+  .progression-plan__head em {
+    justify-self: start;
+    text-align: left;
   }
 
   .build-manual-panel > header em {

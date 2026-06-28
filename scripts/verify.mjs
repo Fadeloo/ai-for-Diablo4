@@ -174,6 +174,7 @@ assert(siteCoverage.buildIntegrity?.completeGearSlotBuilds === buildGuides.build
 assert(siteCoverage.buildIntegrity?.skillRouteBuilds === buildGuides.builds.length, "Site coverage must prove every BD has skill routes");
 assert(siteCoverage.buildIntegrity?.paragonRouteBuilds === buildGuides.builds.length, "Site coverage must prove every BD has paragon routes");
 assert(siteCoverage.buildIntegrity?.gameplayBuilds === buildGuides.builds.length, "Site coverage must prove every BD has gameplay instructions");
+assert(siteCoverage.buildIntegrity?.progressionBuilds === buildGuides.builds.length, "Site coverage must prove every BD has progression instructions");
 assert(siteCoverage.buildIntegrity?.replacementBuilds === buildGuides.builds.length, "Site coverage must prove every BD has replacement data");
 
 const guideIds = new Set();
@@ -194,6 +195,9 @@ for (const guide of buildGuides.builds) {
   assert(guide.gearSlots.every((slot) => !suspiciousTransliteration.test(slot.target.zhName)), `Build guide gear names should be readable Chinese: ${guide.id}`);
   assert(guide.gearSlots.every((slot) => slot.affixes?.length >= 3 && slot.alternatives?.length >= 2), `Each gear slot needs affixes and alternatives: ${guide.id}`);
   assert(guide.gearSlots.every((slot) => slot.upgradePath?.length >= 3 && (slot.dataStatus || slot.aspect?.sourceStatus)), `Each gear slot needs upgrade path and source status: ${guide.id}`);
+  assert(guide.progression?.stages?.length >= 4, `Build guide needs leveling-to-endgame progression stages: ${guide.id}`);
+  assert(guide.progression?.checkpoints?.length >= 4, `Build guide needs progression checkpoints: ${guide.id}`);
+  assert(guide.progression.stages.every((stage) => stage.levelRange && stage.gearFocus && stage.skillFocus && stage.paragonFocus && stage.gameplayFocus && stage.swapRule), `Each progression stage needs gear, skill, paragon, gameplay and swap rules: ${guide.id}`);
   for (const slot of guide.gearSlots) {
     verifyEquipmentReference(slot.target, `${guide.id}/${slot.slotId}`);
     for (const alternative of slot.alternatives) verifyEquipmentReference(alternative, `${guide.id}/${slot.slotId}/alternative`);
@@ -244,6 +248,8 @@ assert(frontendText.includes("guide-version-tabs"), "BD detail must expose visib
 assert(frontendText.includes("renderBuildManualPanel"), "BD overview must render a copy-ready execution manual");
 assert(frontendText.includes("build-manual-panel"), "BD overview must expose gear, skill, paragon and gameplay before long sections");
 assert(frontendText.includes("manual-gear-row"), "BD execution manual must expose all gear slots as jump targets");
+assert(frontendText.includes("renderProgressionPlan"), "BD detail must render leveling-to-endgame progression");
+assert(frontendText.includes("progression-plan"), "BD detail must expose progression stages and checkpoints");
 assert(frontendText.includes("renderGearSummaryMatrix"), "BD gear section must render a complete 11-slot gear summary matrix");
 assert(frontendText.includes("gear-summary-matrix"), "BD gear section must expose target items, replacement status and affix direction before long cards");
 assert(frontendText.includes("renderRouteOverview"), "BD overview must render skill and paragon execution route overview");

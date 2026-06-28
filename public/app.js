@@ -2024,6 +2024,66 @@ function renderGameplayOverview(guide) {
   `;
 }
 
+function renderProgressionPlan(progression) {
+  if (!progression?.stages?.length) {
+    return `<p class="empty-copy">开荒到成型路线待来源回填。</p>`;
+  }
+  return `
+    <section class="progression-plan" aria-label="开荒到成型路线">
+      <header class="progression-plan__head">
+        <div>
+          <span>开荒到成型路线</span>
+          <strong>从升级、过渡、终局到用途专精</strong>
+        </div>
+        <em>${displayText(progression.sourceStatus || "结构化路线")}</em>
+      </header>
+      <div class="progression-checkpoints" aria-label="关键检查点">
+        ${(progression.checkpoints || []).map((checkpoint) => `
+          <article>
+            <span>${displayText(checkpoint.label)}</span>
+            <strong>${displayText(checkpoint.value)}</strong>
+          </article>
+        `).join("")}
+      </div>
+      <div class="progression-stage-table">
+        <div class="progression-stage-row progression-stage-row--head" aria-hidden="true">
+          <span>阶段</span>
+          <span>目标</span>
+          <span>装备</span>
+          <span>技能 / 巅峰</span>
+          <span>打法和替换</span>
+        </div>
+        ${progression.stages.map((stage) => `
+          <article class="progression-stage-row">
+            <div class="progression-stage-title">
+              <span>${displayText(stage.levelRange)}</span>
+              <strong>${displayText(stage.title)}</strong>
+            </div>
+            <div>
+              <b class="progression-label">目标</b>
+              <p>${displayText(stage.objective)}</p>
+            </div>
+            <div>
+              <b class="progression-label">装备</b>
+              <p>${displayText(stage.gearFocus)}</p>
+            </div>
+            <div>
+              <b class="progression-label">技能 / 巅峰</b>
+              <p>${displayText(stage.skillFocus)}</p>
+              <em>${displayText(stage.paragonFocus)}</em>
+            </div>
+            <div>
+              <b class="progression-label">打法和替换</b>
+              <p>${displayText(stage.gameplayFocus)}</p>
+              <em>${displayText(stage.swapRule)}</em>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderGuideDetailSection(title, subtitle, body, key) {
   return `
     <section class="guide-section" data-guide-section="${key}">
@@ -2372,6 +2432,7 @@ function renderBuildGuideDetail() {
 
   const navItems = [
     ["overview", "总览"],
+    ["progression", "开荒"],
     ["gear", "装备"],
     ["skills", "技能"],
     ["paragon", "巅峰"],
@@ -2454,6 +2515,8 @@ function renderBuildGuideDetail() {
               </article>
             </div>
           `, "overview")}
+
+          ${renderGuideDetailSection("开荒到成型", "升级、过渡、终局和用途专精", renderProgressionPlan(guide.progression), "progression")}
 
           ${renderGuideDetailSection("全身装备", "每个位置、替换件和精造方向", `
             ${renderGearSummaryMatrix(guide)}
@@ -3101,7 +3164,7 @@ function renderCoverage() {
         <article>
           <strong>${buildIntegrity.completeGearSlotBuilds || 0}</strong>
           <span>完整 11 槽 BD</span>
-          <p>技能 ${buildIntegrity.skillRouteBuilds || 0} 套、巅峰 ${buildIntegrity.paragonRouteBuilds || 0} 套、打法 ${buildIntegrity.gameplayBuilds || 0} 套通过结构校验。</p>
+          <p>开荒 ${buildIntegrity.progressionBuilds || 0} 套、技能 ${buildIntegrity.skillRouteBuilds || 0} 套、巅峰 ${buildIntegrity.paragonRouteBuilds || 0} 套、打法 ${buildIntegrity.gameplayBuilds || 0} 套通过结构校验。</p>
         </article>
       </div>
       <div class="storage-layer-grid">

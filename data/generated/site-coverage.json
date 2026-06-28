@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T19:27:05.010Z",
+  "generatedAt": "2026-06-28T19:36:08.652Z",
   "scope": "player_site_data_coverage_and_storage_usage",
   "asOf": "2026-06-28",
   "storageLayers": [
@@ -71,6 +71,7 @@
       "source": "build-guides.builds[id]",
       "fields": [
         "gearSlots",
+        "progression",
         "skillTree",
         "paragon",
         "gameplay",
@@ -114,6 +115,7 @@
     "skillRouteBuilds": 252,
     "paragonRouteBuilds": 252,
     "gameplayBuilds": 252,
+    "progressionBuilds": 252,
     "replacementBuilds": 252,
     "bySeasonClassMode": [
       {
