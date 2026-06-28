@@ -78,8 +78,10 @@ const sourceLabels = {
   blizzard_patch_3_0: "《暗黑破坏神 IV》3.0 补丁说明",
   blizzard_patch_3_1: "《暗黑破坏神 IV》3.1.0 补丁说明",
   blizzard_season_death_awakening: "死亡觉醒赛季官方介绍",
+  blizzard_lord_of_hatred: "《憎恨之王》官方资料",
   maxroll_damage_guide: "Maxroll 暗黑4深度伤害机制指南",
   wowhead_damage_buckets: "Wowhead 暗黑4伤害乘区指南",
+  mobalytics_diablo4_builds: "Mobalytics 暗黑4构筑资料",
   d4builds_database: "D4Builds 数据库",
   d4builds_sunderarmor_icons: "D4Builds 唯一装备图标引用",
   d4lf_repo: "d4lf 开源工具仓库"
@@ -88,7 +90,9 @@ const sourceLabels = {
 const sourceCategoryLabels = {
   official_patch_notes: "官方补丁说明",
   official_season_overview: "官方赛季说明",
+  official_expansion_overview: "官方资料片说明",
   community_mechanics: "社区机制资料",
+  community_build_guide: "社区构筑资料",
   community_database: "社区数据库",
   community_visual_reference: "社区图标引用",
   open_source_tooling: "开源工具"
@@ -114,6 +118,13 @@ const dataStatusFieldLabels = {
   uniquePower: "暗金特效",
   slot: "装备槽位",
   icon: "图标来源"
+};
+
+const verificationLevelLabels = {
+  community_reference: "同赛季社区参考",
+  cross_season_reference: "跨赛季社区参考",
+  official_seed_template: "官方词缀结构化模板",
+  projection_template: "未来赛季推演模板"
 };
 
 const modeLabels = {
@@ -379,7 +390,7 @@ function filteredGuides() {
 }
 
 function guideSourceLabel(guide) {
-  return guide.source.references?.length ? "社区参考" : "结构化模板";
+  return verificationLevelLabels[guide.source.verificationLevel] || (guide.source.references?.length ? "社区参考" : "结构化模板");
 }
 
 function renderTags(tags, limit = 8) {
@@ -717,9 +728,12 @@ function renderBuildGuideDetail() {
       ${renderGuideDetailSection("来源与状态", `${guide.gameVersion.patch} 构建 #${guide.gameVersion.build}`, `
         <div class="source-status-grid">
           <article><strong>作者</strong><span>${guide.source.authorName}</span></article>
+          <article><strong>数据状态</strong><span>${guideSourceLabel(guide)}</span></article>
           <article><strong>更新时间</strong><span>${guide.source.updatedAt}</span></article>
           <article><strong>已确认</strong><span>${guide.dataQuality.officialFields.join(" / ")}</span></article>
+          <article><strong>社区校验</strong><span>${guide.dataQuality.communityVerified.join(" / ")}</span></article>
           <article><strong>待补全</strong><span>${guide.dataQuality.needsValidation.join(" / ")}</span></article>
+          <article><strong>缺失字段</strong><span>${guide.dataQuality.missing.join(" / ")}</span></article>
         </div>
         ${renderSourceReferences(guide)}
         <div class="source-actions">
@@ -969,13 +983,6 @@ function bindInteractions() {
     state.sim.buildIndex = 0;
     renderSimulator();
   });
-  $("[data-build-candidates]").addEventListener("click", (event) => {
-    const button = event.target.closest("[data-build-index]");
-    if (!button) return;
-    state.sim.buildIndex = Number(button.dataset.buildIndex);
-    renderSimulator();
-  });
-
   $("[data-class-rail]").addEventListener("click", (event) => {
     const button = event.target.closest("[data-class-id]");
     if (!button) return;

@@ -41,6 +41,21 @@
     "notes": "Use for season-specific guide context, not for item stat formulas."
   },
   {
+    "id": "blizzard_lord_of_hatred",
+    "name": "Diablo IV: Lord of Hatred",
+    "category": "official_expansion_overview",
+    "trustLevel": "official",
+    "url": "https://diablo4.blizzard.com/en-gb/lord-of-hatred",
+    "lastChecked": "2026-06-28",
+    "use": [
+      "class_roster",
+      "paladin_class_confirmation",
+      "warlock_class_confirmation",
+      "eight_class_count"
+    ],
+    "notes": "Official expansion page lists two new classes, Paladin and Warlock, and presents all eight playable classes for the 2026 baseline."
+  },
+  {
     "id": "maxroll_damage_guide",
     "name": "Maxroll Diablo IV In-Depth Damage Guide",
     "category": "community_mechanics",
@@ -52,6 +67,21 @@
       "mechanic_explanation"
     ],
     "notes": "Community mechanics source. Keep formula assumptions explicit and verify representative samples in-game."
+  },
+  {
+    "id": "mobalytics_diablo4_builds",
+    "name": "Mobalytics Diablo 4 Build Guides",
+    "category": "community_build_guide",
+    "trustLevel": "community_verified",
+    "url": "https://mobalytics.gg/diablo-4/builds",
+    "lastChecked": "2026-06-28",
+    "use": [
+      "community_build_gear_slots",
+      "community_skill_rotation",
+      "community_paragon_priority",
+      "variant_cross_check"
+    ],
+    "notes": "Use only as attributed community guide data. Keep item slots, rotations and paragon notes tied to each referenced build page."
   },
   {
     "id": "wowhead_damage_buckets",

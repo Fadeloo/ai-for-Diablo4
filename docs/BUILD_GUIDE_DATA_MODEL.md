@@ -28,7 +28,7 @@ data/generated/build-guides.json
 
 ## 核心结构
 
-每套 BD 以 `builds[]` 中的一个对象表示，当前覆盖 `3` 个赛季窗口、`8` 个职业、`27` 个职业流派、`3` 个用途，共 `243` 套。
+每套 BD 以 `builds[]` 中的一个对象表示，当前覆盖 `3` 个赛季窗口、`8` 个职业、`27` 个职业流派、`3` 个用途，共 `243` 套。其中 `6` 套 S14 BD 已有社区来源覆盖，其余继续标记为结构化模板。
 
 关键字段：
 
@@ -44,6 +44,7 @@ data/generated/build-guides.json
 - `variants`：标准成型、缺核心暗金、高层生存等替换方案。
 - `dataQuality`：官方已确认、社区验证、待补全和缺失项。
 - `source.references`：社区 BD、官方补丁或后续榜单来源链接。
+- `source.verificationLevel`：前端展示的数据状态，当前枚举为 `community_reference`、`cross_season_reference`、`official_seed_template` 和 `projection_template`。
 
 ## 前端使用
 

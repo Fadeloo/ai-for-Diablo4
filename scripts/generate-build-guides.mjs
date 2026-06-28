@@ -489,6 +489,12 @@ function variantsFor({ mode, gearSlots, archetype }) {
   ];
 }
 
+function communityVerificationLevel(guide, override) {
+  const sourceSeason = override.sourceReference.sourceSeason || "";
+  const currentSeasonCode = guide.taxonomy.seasonId.toUpperCase();
+  return sourceSeason.includes(currentSeasonCode) ? "community_reference" : "cross_season_reference";
+}
+
 function guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentItems, simBuild }) {
   const performance = simBuild || synthesizePerformance({ classInfo, archetype, mode, seasonIndex });
   const gearSlots = gearSlotsFor({ equipmentItems, classInfo, archetype, mode });
@@ -561,6 +567,7 @@ function guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentIt
     source: {
       authorName: "Harris‘s Diablo 4",
       trust: seasonIndex === 0 ? "官方词缀种子 + 本站结构化整理" : "未来赛季推演 + 本站结构化整理",
+      verificationLevel: seasonIndex === 0 ? "official_seed_template" : "projection_template",
       createdAt: "2026-06-28",
       updatedAt: "2026-06-28",
       videos: [],
@@ -586,7 +593,35 @@ function withSteps(items) {
   return items.map((item, index) => ({ step: index + 1, ...item }));
 }
 
-function applyCommunityOverride(guide, override) {
+function resolvePatchedTarget(slot, patchTarget, equipmentByZhName) {
+  if (!patchTarget) return slot.target;
+  const nameChanged = Boolean(patchTarget.zhName && patchTarget.zhName !== slot.target.zhName);
+  const matchedItem = patchTarget.zhName ? equipmentByZhName.get(patchTarget.zhName) : null;
+  const hasExplicitItemId = Object.hasOwn(patchTarget, "itemId");
+  const itemId = hasExplicitItemId ? patchTarget.itemId : (matchedItem?.id ?? (nameChanged ? null : slot.target.itemId));
+  let externalImage = slot.target.externalImage;
+  if (Object.hasOwn(patchTarget, "externalImage")) {
+    externalImage = patchTarget.externalImage;
+  } else if (matchedItem?.externalImage) {
+    externalImage = matchedItem.externalImage;
+  } else if (nameChanged) {
+    externalImage = null;
+  }
+  const description = patchTarget.description
+    ?? (matchedItem
+      ? `${matchedItem.zhBuildRole || "暗金组件"}，固定词缀：${(matchedItem.zhGuaranteedAffixes || []).join(" / ") || "待回填"}。`
+      : slot.target.description);
+  return {
+    ...slot.target,
+    ...patchTarget,
+    itemId,
+    image: patchTarget.image || matchedItem?.image || slot.target.image,
+    externalImage,
+    description
+  };
+}
+
+function applyCommunityOverride(guide, override, equipmentByZhName) {
   const slotOverrides = new Map((override.gearSlots || []).map((slot) => [slot.slotId, slot]));
   const gearSlots = guide.gearSlots.map((slot) => {
     const patch = slotOverrides.get(slot.slotId);
@@ -596,12 +631,7 @@ function applyCommunityOverride(guide, override) {
       required: patch.required ?? slot.required,
       core: patch.core ?? slot.core,
       replaceable: patch.replaceable ?? slot.replaceable,
-      target: {
-        ...slot.target,
-        ...patch.target,
-        image: patch.target?.image || slot.target.image,
-        externalImage: patch.target ? (patch.target.externalImage ?? null) : slot.target.externalImage
-      },
+      target: resolvePatchedTarget(slot, patch.target, equipmentByZhName),
       aspect: {
         ...slot.aspect,
         ...patch.aspect
@@ -656,6 +686,7 @@ function applyCommunityOverride(guide, override) {
       ...guide.source,
       authorName: `${override.sourceReference.site} 社区参考`,
       trust: "社区 BD 参考 + 官方词缀种子",
+      verificationLevel: communityVerificationLevel(guide, override),
       updatedAt: override.sourceReference.asOf,
       references: [
         {
@@ -695,8 +726,8 @@ function applyCommunityOverride(guide, override) {
     },
     variants: [
       {
-        name: "暗黑核参考版",
-        useCase: "按社区 Planner 示例展示的冲层结构查看。",
+        name: `${override.sourceReference.site}参考版`,
+        useCase: "按社区资料页展示的构筑结构查看。",
         swapOut: "模板槽位",
         swapIn: "社区覆盖槽位",
         notes: override.sourceReference.note
@@ -705,7 +736,7 @@ function applyCommunityOverride(guide, override) {
     ],
     dataQuality: {
       officialFields: ["3.1.0 唯一装备固定词缀", "补丁版本和构建号"],
-      communityVerified: ["暗黑核示例 BD 槽位", "社区 Planner 技能/巅峰/打法结构参考"],
+      communityVerified: [`${override.sourceReference.site}装备槽位`, `${override.sourceReference.site}技能/巅峰/打法结构参考`],
       needsValidation: ["S14 实战榜单校准", "暗金特效完整数值", "巅峰盘坐标"],
       missing: ["视频实战样本回填", "赛季热修后的重新评分"]
     }
@@ -763,6 +794,7 @@ const [classes, archetypeGroups, equipment, simulations, overrides] = await Prom
 const simMap = simulationLookup(simulations);
 const expandedOverrides = expandCommunityOverrides(overrides);
 const overrideMap = new Map(expandedOverrides.map((override) => [override.id, override]));
+const equipmentByZhName = new Map(equipment.items.map((item) => [item.zhName, item]));
 const builds = [];
 
 for (const [seasonIndex, season] of simulations.seasons.entries()) {
@@ -772,7 +804,7 @@ for (const [seasonIndex, season] of simulations.seasons.entries()) {
       for (const mode of Object.keys(modeProfiles)) {
         const simBuild = simMap.get(`${season.id}:${classInfo.id}:${mode}:${archetype.id}`);
         const guide = guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentItems: equipment.items, simBuild });
-        builds.push(overrideMap.has(guide.id) ? applyCommunityOverride(guide, overrideMap.get(guide.id)) : guide);
+        builds.push(overrideMap.has(guide.id) ? applyCommunityOverride(guide, overrideMap.get(guide.id), equipmentByZhName) : guide);
       }
     }
   }

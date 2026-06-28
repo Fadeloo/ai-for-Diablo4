@@ -261,5 +261,267 @@
       "speedFarm": ["日常材料可换移动靴或回能戒指。", "梦魇/低层不需要完整冲层威能。"],
       "commonMistakes": ["过早追求冲层伤害导致被秒。", "缺怒气循环还堆纯输出。", "核心暗金没齐就按 150 层打法推进。"]
     }
+  },
+  {
+    "id": "s14-druid-shapeshift-pit_push",
+    "sourceReference": {
+      "site": "Mobalytics",
+      "url": "https://mobalytics.gg/diablo-4/builds/druid-screamheart-dolmen-stone-claw",
+      "sourceSeason": "S14 死亡觉醒",
+      "referenceTitle": "S14 Screamheart Sonic Shred Druid",
+      "asOf": "2026-06-28",
+      "note": "Mobalytics 页面标注为 S14 德鲁伊 Sonic Shred，含装备、技能循环、技能树、巅峰雕文和变体说明；本站按中文资料页结构整理。"
+    },
+    "title": "S14 死亡觉醒 德鲁伊 · 音速撕裂冲层",
+    "archetypeName": "音速撕裂",
+    "summary": {
+      "oneLine": "德鲁伊「音速撕裂」冲层 BD，围绕撕裂高速位移、飓风覆盖、灰熊狂怒、月蚀类暗金和图腾联动建立单体与清场。",
+      "pros": ["高速贴脸输出", "技能循环清晰", "S14 社区页面含冲层和速刷标签"],
+      "cons": ["依赖盈月和图腾", "需要维持飓风与减伤覆盖", "近战高层容错要求高"],
+      "requirements": ["主手：盈月", "副手：伊菲的可怖图腾", "戒指：无星夜空之戒", "护符：邪恶新月"],
+      "statPriority": ["撕裂等级", "暴击几率", "攻速", "冷却缩减", "移动速度"]
+    },
+    "gearSlots": [
+      {
+        "slotId": "helm",
+        "target": {"type": "unique", "zhName": "谐角之冠", "image": "./public/assets/icon-utility.png", "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/harlequin_crest.png"},
+        "aspect": {"name": "暗金特效位", "role": "全技能、减伤和冲层上限", "sourceStatus": "Mobalytics S14 Sonic Shred 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["全技能等级", "冷却缩减", "生命上限", "资源生成"],
+        "alternatives": [
+          {"zhName": "传奇头盔 + 强健威能", "reason": "没有谐角之冠时补防御。", "tradeoff": "全技能和减伤下降。"},
+          {"zhName": "传奇头盔 + 防御威能", "reason": "开荒日常保命。", "tradeoff": "冲层上限下降。"}
+        ]
+      },
+      {
+        "slotId": "chest",
+        "target": {"type": "unique", "zhName": "灵魂烙印", "image": "./public/assets/icon-armor.png", "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/soulbrand.png"},
+        "aspect": {"name": "暗金特效位", "role": "药水屏障和近战容错", "sourceStatus": "Mobalytics S14 Sonic Shred 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["生命上限", "减伤", "护甲", "全元素抗性"],
+        "alternatives": [
+          {"zhName": "传奇胸甲 + 衰弱毒素威能", "reason": "需要毒素减伤时使用。", "tradeoff": "损失暗金屏障手感。"},
+          {"zhName": "泰瑞尔之力", "reason": "抗性和远程弹幕压力大时使用。", "tradeoff": "技能联动下降。"}
+        ]
+      },
+      {
+        "slotId": "gloves",
+        "target": {"type": "legendary", "zhName": "传奇手套 + 衰弱毒素威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "衰弱毒素威能", "role": "中毒敌人减伤，支撑近战贴脸", "sourceStatus": "Mobalytics S14 Sonic Shred 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["撕裂等级", "攻击速度", "暴击几率", "幸运一击"],
+        "alternatives": [
+          {"zhName": "传奇手套 + 神经毒素威能", "reason": "日常控制和毒素联动。", "tradeoff": "减伤稳定性下降。"},
+          {"zhName": "命运之拳", "reason": "过渡或娱乐使用。", "tradeoff": "输出波动大。"}
+        ]
+      },
+      {
+        "slotId": "pants",
+        "target": {"type": "unique", "zhName": "黑暗嚎叫", "image": "./public/assets/icon-utility.png", "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/dark_howl.png"},
+        "aspect": {"name": "暗金特效位", "role": "挫志咆哮联动和近战减伤", "sourceStatus": "Mobalytics S14 Sonic Shred 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["挫志咆哮等级", "生命上限", "减伤", "全元素抗性"],
+        "alternatives": [
+          {"zhName": "提鲍特的意志", "reason": "需要不可阻挡窗口、资源和爆发时使用。", "tradeoff": "挫志咆哮联动下降。"},
+          {"zhName": "传奇裤子 + 防御威能", "reason": "缺暗金时补护甲和生命。", "tradeoff": "上限较低。"}
+        ]
+      },
+      {
+        "slotId": "boots",
+        "target": {"type": "legendary", "zhName": "传奇靴子 + 变形者威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "变形者威能", "role": "撕裂位移、变形增益和速刷手感", "sourceStatus": "Mobalytics S14 Sonic Shred 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["移动速度", "闪避冷却", "全元素抗性", "灵力消耗降低"],
+        "alternatives": [
+          {"zhName": "雷神的祝福", "reason": "需要闪电和移动联动时使用。", "tradeoff": "变形联动下降。"},
+          {"zhName": "传奇靴子 + 移动威能", "reason": "低层速刷过渡。", "tradeoff": "高层伤害下降。"}
+        ]
+      },
+      {
+        "slotId": "amulet",
+        "target": {"type": "unique", "zhName": "邪恶新月", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "暗金特效位", "role": "撕裂和狼人爆发核心", "sourceStatus": "Mobalytics S14 Sonic Shred 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["移动速度", "冷却缩减", "撕裂等级", "暴击几率"],
+        "alternatives": [
+          {"zhName": "传奇护符 + 自负威能", "reason": "有稳定屏障时过渡。", "tradeoff": "核心暗金联动下降。"},
+          {"zhName": "艾瑞达的挽歌", "reason": "聚怪或控制变体可用。", "tradeoff": "主攻爆发下降。"}
+        ]
+      },
+      {
+        "slotId": "ring1",
+        "target": {"type": "unique", "zhName": "无星夜空之戒", "image": "./public/assets/icon-jewelry.png", "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ring_of_starless_skies.png"},
+        "aspect": {"name": "暗金特效位", "role": "灵力消耗与持续输出核心", "sourceStatus": "Mobalytics S14 Sonic Shred 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["暴击几率", "资源消耗降低", "攻击速度", "幸运一击"],
+        "alternatives": [
+          {"zhName": "传奇戒指 + 资源威能", "reason": "缺无星时维持灵力。", "tradeoff": "持续输出下降。"},
+          {"zhName": "钻石心智印记", "reason": "暴击或资源过渡。", "tradeoff": "上限较低。"}
+        ]
+      },
+      {
+        "slotId": "ring2",
+        "target": {"type": "legendary", "zhName": "传奇戒指 + 大德鲁伊威能", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "大德鲁伊威能", "role": "德鲁伊核心标签联动与增伤", "sourceStatus": "Mobalytics S14 Sonic Shred 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["暴击几率", "攻击速度", "冷却缩减", "幸运一击"],
+        "alternatives": [
+          {"zhName": "传奇戒指 + 自负威能", "reason": "屏障覆盖稳定时使用。", "tradeoff": "流派联动下降。"},
+          {"zhName": "传奇戒指 + 神经毒素威能", "reason": "日常控制和毒素联动。", "tradeoff": "爆发下降。"}
+        ]
+      },
+      {
+        "slotId": "twoHand",
+        "target": {"type": "legendary", "zhName": "不使用：单手武器 + 副手图腾方案", "image": "./public/assets/icon-weapon.png"},
+        "aspect": {"name": "空槽说明", "role": "该社区方案使用主手盈月与副手图腾，不走双手武器", "sourceStatus": "Mobalytics S14 Sonic Shred 装备位"},
+        "required": false,
+        "core": false,
+        "replaceable": true,
+        "affixes": ["无", "保持主手与副手组合", "不占用双手位"],
+        "alternatives": [
+          {"zhName": "双手武器 + 碾碎威能", "reason": "缺盈月和图腾时过渡。", "tradeoff": "偏离来源 BD。"},
+          {"zhName": "双手法杖 + 风暴威能", "reason": "只做升级过渡。", "tradeoff": "撕裂核心联动缺失。"}
+        ]
+      },
+      {
+        "slotId": "mainHand",
+        "target": {"type": "unique", "zhName": "盈月", "image": "./public/assets/icon-weapon.png", "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/waxing_gibbous.png"},
+        "aspect": {"name": "暗金特效位", "role": "狼人撕裂暴击和隐身爆发核心", "sourceStatus": "Mobalytics S14 Sonic Shred 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["武器伤害", "撕裂伤害", "暴击伤害", "攻击速度"],
+        "alternatives": [
+          {"zhName": "传奇单手斧 + 侵攻威能", "reason": "缺盈月时用高装等过渡。", "tradeoff": "爆发窗口下降。"},
+          {"zhName": "屠夫的切肉刀", "reason": "控制过渡。", "tradeoff": "伤害上限下降。"}
+        ]
+      },
+      {
+        "slotId": "offHand",
+        "target": {"type": "unique", "zhName": "伊菲的可怖图腾", "image": "./public/assets/icon-utility.png"},
+        "aspect": {"name": "暗金特效位", "role": "撕裂/风暴联动与副手核心", "sourceStatus": "Mobalytics S14 Sonic Shred 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["冷却缩减", "暴击几率", "幸运一击", "灵力生成"],
+        "alternatives": [
+          {"zhName": "传奇图腾 + 风暴威能", "reason": "缺图腾时保持冷却和暴击。", "tradeoff": "核心暗金联动下降。"},
+          {"zhName": "传奇图腾 + 资源威能", "reason": "灵力不足时过渡。", "tradeoff": "爆发下降。"}
+        ]
+      }
+    ],
+    "skillTree": {
+      "core": "撕裂",
+      "skillBar": [
+        {"slot": 1, "name": "闪电风暴", "role": "触发与远程补刀", "points": 1},
+        {"slot": 2, "name": "飓风", "role": "持续范围和减伤联动", "points": 1},
+        {"slot": 3, "name": "灰熊狂怒", "role": "终极爆发", "points": 1},
+        {"slot": 4, "name": "挫志咆哮", "role": "高压减伤", "points": 1},
+        {"slot": 5, "name": "撕裂", "role": "主攻和位移", "points": 5},
+        {"slot": 6, "name": "旋风护甲", "role": "被动减伤和抗性", "points": 1}
+      ],
+      "pointOrder": [
+        {"levelRange": "1-8", "skill": "撕裂", "points": "+5 并点强化", "reason": "主攻和移动手感优先成型。"},
+        {"levelRange": "9-13", "skill": "飓风", "points": "+1 至强化", "reason": "建立持续范围、触发和防御覆盖。"},
+        {"levelRange": "14-18", "skill": "旋风护甲", "points": "+1", "reason": "补抗性和被动减伤。"},
+        {"levelRange": "19-23", "skill": "挫志咆哮", "points": "+1 至强化", "reason": "来源页面强调保持减伤覆盖。"},
+        {"levelRange": "24-28", "skill": "闪电风暴", "points": "+1", "reason": "补风暴标签和远程触发。"},
+        {"levelRange": "29-33", "skill": "灰熊狂怒", "points": "+1", "reason": "精英和首领爆发窗口。"},
+        {"levelRange": "34-42", "skill": "狼人/变形被动", "points": "+3 至 +6", "reason": "强化撕裂、暴击和攻速。"},
+        {"levelRange": "43-50", "skill": "防御被动", "points": "+3 至 +6", "reason": "补近战生存和抗性。"},
+        {"levelRange": "50-80", "skill": "风暴与毒素联动", "points": "按装备微调", "reason": "衰弱毒素与飓风覆盖后补联动。"},
+        {"levelRange": "80+", "skill": "终局重分配", "points": "补满乘区与防御", "reason": "按盈月、图腾、无星到位情况微调。"}
+      ]
+    },
+    "paragon": {
+      "rule": "Mobalytics 页面列出雕文优先级：灵魂、迸发、天地、尖牙利爪、守护者；传奇节点以生存本能为核心方向之一。",
+      "clickOrder": [
+        {"board": "起始盘", "node": "雕文孔", "reason": "先插入灵魂雕文，建立主属性和伤害入口。"},
+        {"board": "起始盘", "node": "生命/护甲稀有节点", "reason": "近战冲层先补容错。"},
+        {"board": "雷霆打击盘", "node": "迸发雕文", "reason": "补风暴与闪电相关收益。"},
+        {"board": "雷霆打击盘", "node": "传奇节点路径", "reason": "围绕风暴联动走短路径。"},
+        {"board": "生存本能盘", "node": "生存本能传奇节点", "reason": "提高近战冲层硬度。"},
+        {"board": "生存本能盘", "node": "天地雕文", "reason": "补自然魔法和双标签伤害。"},
+        {"board": "屠戮欲望盘", "node": "尖牙利爪雕文", "reason": "强化狼人撕裂标签。"},
+        {"board": "屠戮欲望盘", "node": "攻速/暴击稀有节点", "reason": "提升盈月爆发窗口。"},
+        {"board": "内在野兽盘", "node": "守护者雕文", "reason": "补防御与高层稳定。"},
+        {"board": "任意盘", "node": "抗性、护甲、生命小点", "reason": "冲层前按装备缺口补齐。"}
+      ]
+    },
+    "gameplay": {
+      "opener": ["进图先保持飓风覆盖，再用撕裂进入怪群。", "精英包前开启灰熊狂怒，利用盈月窗口打爆发。", "高压词缀前先交挫志咆哮。"],
+      "loop": ["用撕裂作为主攻和位移，不为零散小怪停留。", "飓风尽量保持全程覆盖，用来带出范围和防御联动。", "挫志咆哮在危险窗口保留，不要空交。", "灵力不足时用无星和图腾联动维持节奏。"],
+      "boss": ["首领阶段保留灰熊狂怒。", "贴身输出时观察地面词缀，挫志咆哮用于硬吃窗口。", "没有飓风和防御覆盖时不要贪完整撕裂循环。"],
+      "defense": ["近战高层优先保证抗性、护甲和生命。", "灵魂烙印提供屏障容错，但不能替代走位。", "挫志咆哮冷却未好时降低拉怪规模。"],
+      "speedFarm": ["低层按路线连续撕裂位移。", "装备成型后可把胸甲或戒指换成移动/伤害威能。"],
+      "commonMistakes": ["缺盈月和图腾仍按冲层打法推进。", "飓风断档导致伤害和防御都下降。", "把挫志咆哮当作起手技能空交。"]
+    }
+  },
+  {
+    "id": "s14-druid-shapeshift-speed_farm",
+    "extends": "s14-druid-shapeshift-pit_push",
+    "title": "S14 死亡觉醒 德鲁伊 · 音速撕裂速刷",
+    "archetypeName": "音速撕裂",
+    "summary": {
+      "oneLine": "德鲁伊「音速撕裂」速刷 BD，沿用 Mobalytics Sonic Shred 主体装备，把目标从极限冲层改为路线速度、撕裂位移和低层材料效率。",
+      "pros": ["路线速度快", "主攻和位移同键", "冲层装备可直接复用"],
+      "cons": ["极限生存低于冲层版", "缺盈月速度明显下降", "需要熟悉近战路线"],
+      "requirements": ["主手：盈月", "副手：伊菲的可怖图腾", "戒指：无星夜空之戒"],
+      "statPriority": ["移动速度", "攻击速度", "撕裂等级", "冷却缩减", "暴击几率"]
+    },
+    "gearSlots": [
+      {"slotId": "chest", "target": {"type": "legendary", "zhName": "传奇胸甲 + 自负威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "自负威能", "role": "屏障覆盖下提高速刷伤害", "sourceStatus": "Mobalytics Sonic Shred 速刷变体整理"}, "required": false, "core": false, "replaceable": true, "affixes": ["生命上限", "护甲", "移动路线容错", "全元素抗性"], "alternatives": [{"zhName": "灵魂烙印", "reason": "需要高层容错时换回。", "tradeoff": "清图速度下降。"}, {"zhName": "传奇胸甲 + 衰弱毒素威能", "reason": "危险词缀较多时使用。", "tradeoff": "爆发下降。"}]},
+      {"slotId": "boots", "target": {"type": "unique", "zhName": "雷神的祝福", "image": "./public/assets/icon-utility.png"}, "aspect": {"name": "暗金特效位", "role": "移动和闪电速刷联动", "sourceStatus": "Mobalytics Sonic Shred 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["移动速度", "闪避冷却", "攻击速度", "全元素抗性"], "alternatives": [{"zhName": "传奇靴子 + 变形者威能", "reason": "需要冲层稳定时换回。", "tradeoff": "速刷机动下降。"}, {"zhName": "传奇靴子 + 移动威能", "reason": "低层材料过渡。", "tradeoff": "伤害较低。"}]}
+    ],
+    "gameplay": {
+      "opener": ["进图直接找密集路线，飓风起手后撕裂穿怪。", "灰熊狂怒只交给精英包或事件首领。", "挫志咆哮留给危险精英，不为小怪空交。"],
+      "loop": ["连续撕裂位移，拉两到三波怪后爆发。", "飓风断档就先补覆盖，不停在空地读技能。", "低层优先移动速度和路线效率。", "遇到零散小怪直接跳过。"],
+      "boss": ["速刷首领只打一轮灰熊狂怒窗口。", "灵力不足时等无星和图腾节奏再爆发。", "需要 150 层首领时切回冲层版。"],
+      "defense": ["速刷版防御位更少，危险词缀先移动。", "硬核角色保留灵魂烙印。", "抗性不足时不要换掉胸甲防御。"],
+      "speedFarm": ["主目标是连续位移和怪群密度。", "低层材料不追求完整防御循环。"],
+      "commonMistakes": ["为了单个精英停留过久。", "飓风断档还继续高速拉怪。", "把防御件全换掉后挑战高层。"]
+    }
+  },
+  {
+    "id": "s14-druid-shapeshift-daily",
+    "extends": "s14-druid-shapeshift-pit_push",
+    "title": "S14 死亡觉醒 德鲁伊 · 音速撕裂日常",
+    "archetypeName": "音速撕裂",
+    "summary": {
+      "oneLine": "德鲁伊「音速撕裂」日常 BD，保留撕裂、飓风和防御咆哮核心，用可替换传奇件降低成型门槛。",
+      "pros": ["日常手感好", "缺神话暗金也能过渡", "升级到终局路径清晰"],
+      "cons": ["冲层上限低于完整暗金版", "首领爆发依赖装备", "近战仍要补抗性"],
+      "requirements": ["先找盈月或高装等单手武器", "图腾位优先冷却和暴击", "无星可后置"],
+      "statPriority": ["生命上限", "移动速度", "撕裂等级", "灵力生成", "全元素抗性"]
+    },
+    "gearSlots": [
+      {"slotId": "helm", "target": {"type": "legendary", "zhName": "传奇头盔 + 强健威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "强健威能", "role": "狼人日常防御", "sourceStatus": "Mobalytics Sonic Shred 日常变体整理"}, "required": false, "core": false, "replaceable": true, "affixes": ["生命上限", "护甲", "全元素抗性", "冷却缩减"], "alternatives": [{"zhName": "谐角之冠", "reason": "拿到后切换冲层版。", "tradeoff": "获取难度高。"}, {"zhName": "传奇头盔 + 防御威能", "reason": "抗性不足时使用。", "tradeoff": "伤害下降。"}]},
+      {"slotId": "chest", "target": {"type": "legendary", "zhName": "传奇胸甲 + 衰弱毒素威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "衰弱毒素威能", "role": "日常近战减伤", "sourceStatus": "Mobalytics Sonic Shred 日常变体整理"}, "required": false, "core": false, "replaceable": true, "affixes": ["护甲", "生命上限", "减伤", "全元素抗性"], "alternatives": [{"zhName": "灵魂烙印", "reason": "进入高层后提高容错。", "tradeoff": "需要暗金掉落。"}, {"zhName": "泰瑞尔之力", "reason": "补抗性缺口。", "tradeoff": "伤害下降。"}]},
+      {"slotId": "ring1", "target": {"type": "legendary", "zhName": "传奇戒指 + 资源威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "资源威能", "role": "缺无星时的灵力过渡", "sourceStatus": "Mobalytics Sonic Shred 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["资源生成", "暴击几率", "攻击速度", "幸运一击"], "alternatives": [{"zhName": "无星夜空之戒", "reason": "拿到后切换完整版本。", "tradeoff": "获取难度高。"}, {"zhName": "钻石心智印记", "reason": "暴击过渡。", "tradeoff": "资源稳定性下降。"}]}
+    ],
+    "gameplay": {
+      "opener": ["先用最高装等武器推进难度。", "飓风覆盖后再用撕裂进怪群。", "危险精英前留挫志咆哮。"],
+      "loop": ["撕裂清怪，灵力不足时降低拉怪规模。", "飓风和旋风护甲用于保持日常容错。", "装备未齐时优先生命、抗性和资源。", "盈月、图腾、无星齐后转冲层版。"],
+      "boss": ["日常首领保留灰熊狂怒。", "缺无星时不要连续空放撕裂。", "高压首领先保证防御覆盖。"],
+      "defense": ["近战日常优先护甲、抗性、生命。", "挫志咆哮不要空交。", "没有灵魂烙印时更依赖走位。"],
+      "speedFarm": ["材料和低层可以换移动靴。", "不需要完整冲层暗金即可刷日常。"],
+      "commonMistakes": ["过早追求冲层伤害导致暴毙。", "缺灵力循环还高速拉怪。", "没有盈月就按完整爆发窗口打。"]
+    }
   }
 ]

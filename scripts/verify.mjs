@@ -94,6 +94,14 @@ assert(iconIndex.itemCount === equipmentLibrary.itemCount, "Icon index must cove
 assert(iconIndex.matchedCount === iconIndex.itemCount, "Every seeded equipment item should have an external icon URL");
 assert(iconIndex.items.every((item) => item.iconUrl?.startsWith("https://sunderarmor.com/DIABLO4/Uniques/2/")), "External icon URLs must use the expected HTTPS asset host path");
 assert(equipmentLibrary.items.every((item) => item.externalImage?.startsWith("https://sunderarmor.com/DIABLO4/Uniques/2/")), "Each equipment item should expose an external icon URL");
+const equipmentById = new Map(equipmentLibrary.items.map((item) => [item.id, item]));
+
+function verifyEquipmentReference(reference, context) {
+  if (!reference?.itemId) return;
+  const item = equipmentById.get(reference.itemId);
+  assert(item, `Unknown equipment itemId in ${context}: ${reference.itemId}`);
+  assert(item.zhName === reference.zhName, `Equipment itemId/name mismatch in ${context}: ${reference.itemId} is ${item.zhName}, rendered as ${reference.zhName}`);
+}
 
 assert(simulations.seasons.length === 3, "Build simulator should cover the next three season windows");
 assert(simulations.seasons.every((season) => season.zhLabel && season.zhAssumption), "Each modeled season needs Chinese display text");
@@ -138,7 +146,17 @@ for (const guide of buildGuides.builds) {
   assert(guide.gearSlots.every((slot) => slot.zhSlotName && typeof slot.replaceable === "boolean" && slot.target?.zhName), `Each gear slot needs replacement status and target item: ${guide.id}`);
   assert(guide.gearSlots.every((slot) => !suspiciousTransliteration.test(slot.target.zhName)), `Build guide gear names should be readable Chinese: ${guide.id}`);
   assert(guide.gearSlots.every((slot) => slot.affixes?.length >= 3 && slot.alternatives?.length >= 2), `Each gear slot needs affixes and alternatives: ${guide.id}`);
+  for (const slot of guide.gearSlots) {
+    verifyEquipmentReference(slot.target, `${guide.id}/${slot.slotId}`);
+    for (const alternative of slot.alternatives) verifyEquipmentReference(alternative, `${guide.id}/${slot.slotId}/alternative`);
+  }
   assert(guide.coreUniques?.length >= 2 || guide.coreAspects?.length >= 4, `Build guide needs core uniques/aspects: ${guide.id}`);
+  for (const coreUnique of guide.coreUniques || []) {
+    verifyEquipmentReference(coreUnique, `${guide.id}/coreUniques/${coreUnique.slotId}`);
+    const slot = guide.gearSlots.find((item) => item.slotId === coreUnique.slotId);
+    assert(slot?.target.zhName === coreUnique.zhName, `Core unique summary must match gear slot target name: ${guide.id}/${coreUnique.slotId}`);
+    assert((slot?.target.itemId ?? null) === (coreUnique.itemId ?? null), `Core unique summary must match gear slot target itemId: ${guide.id}/${coreUnique.slotId}`);
+  }
   assert(guide.skillTree?.skillBar?.length === 6, `Build guide needs six skill bar entries: ${guide.id}`);
   assert(guide.skillTree?.pointOrder?.length >= 10, `Build guide needs skill point order: ${guide.id}`);
   assert(guide.paragon?.boardOrder?.length >= 4, `Build guide needs paragon boards: ${guide.id}`);
