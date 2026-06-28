@@ -370,6 +370,7 @@ public/
 | `VariantPanel` | 替换与变体 | variants | 变体列表 |
 | `EquipmentBrowser` | 装备搜索筛选 | equipment/filterState | 装备列表 |
 | `EquipmentDetailPanel` | 装备详情 | item/relatedGuides | 明细 |
+| `EquipmentUsageMatrix` | 装备使用矩阵 | item/relatedGuides | 该装备在各 BD 中的职业、流派、用途、部位、核心/替换状态和来源 |
 | `ClassGuidePage` | 职业开荒、赛季切换、完整流派矩阵 | class/plans/archetypes/guides | 职业页 |
 | `ForecastTable` | 150 层矩阵 | simulations | 排名表 |
 | `DamageWorkbench` | 伤害计算 | form/damage model | 拆分结果 |

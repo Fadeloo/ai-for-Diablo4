@@ -3343,6 +3343,76 @@ h4 {
   overflow-wrap: anywhere;
 }
 
+.equipment-usage-matrix {
+  border: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.equipment-usage-row {
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.equipment-usage-row--head {
+  display: none;
+}
+
+.equipment-usage-row > div,
+.equipment-usage-row > a {
+  border-bottom: 1px solid rgba(214, 173, 99, 0.12);
+  border-right: 0;
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  padding: 10px;
+}
+
+.equipment-usage-row > a {
+  align-content: center;
+  background: rgba(214, 173, 99, 0.1);
+  border-bottom: 0;
+  color: var(--bone);
+  font-size: 12px;
+  font-weight: 800;
+  justify-content: stretch;
+  text-align: center;
+  text-decoration: none;
+}
+
+.equipment-usage-row > a:hover {
+  background: rgba(214, 173, 99, 0.16);
+}
+
+.equipment-usage-label {
+  color: var(--gold);
+  display: block;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.equipment-usage-row strong,
+.equipment-usage-row b {
+  color: var(--bone);
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.equipment-usage-row b {
+  display: block;
+}
+
+.equipment-usage-row em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
 .affix-list {
   display: grid;
   gap: 10px;
@@ -4047,6 +4117,35 @@ h4 {
     gap: 10px;
   }
 
+  .equipment-usage-matrix {
+    border: 0;
+    gap: 10px;
+  }
+
+  .equipment-usage-row--head {
+    display: none;
+  }
+
+  .equipment-usage-row {
+    border: 1px solid rgba(214, 173, 99, 0.18);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .equipment-usage-row > div,
+  .equipment-usage-row > a {
+    border-right: 0;
+    border-bottom: 1px solid rgba(214, 173, 99, 0.12);
+  }
+
+  .equipment-usage-row > a {
+    border-bottom: 0;
+    justify-content: stretch;
+  }
+
+  .equipment-usage-label {
+    display: block;
+  }
+
   .gear-summary-row--head {
     display: none;
   }
@@ -4207,6 +4306,10 @@ h4 {
   .forecast-header,
   .forecast-row,
   .source-row {
+    grid-template-columns: 1fr;
+  }
+
+  .equipment-usage-row {
     grid-template-columns: 1fr;
   }
 

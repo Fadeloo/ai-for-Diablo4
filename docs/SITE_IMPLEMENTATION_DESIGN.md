@@ -150,6 +150,7 @@ BD 详情 #bd/<guideId>
 | `VariantPanel` | 替换方案 | `guide.variants` | 缺件与速刷方案 |
 | `EquipmentBrowser` | 装备检索 | `equipment.items`、filters | 列表和分页 |
 | `EquipmentDetailPanel` | 装备详情 | `item`、`relatedGuides` | 固定词缀、来源、相关 BD |
+| `EquipmentUsageMatrix` | 装备使用矩阵 | `item`、所有关联 guides | 展示装备在各 BD 中的职业、流派、用途、部位、核心/替换状态和来源 |
 | `AspectBrowser` | 威能检索 | `aspect-index.aspects`、filters | 列表、详情和相关 BD |
 | `AspectDetailPanel` | 威能详情 | `aspect` | 常见部位、核心度、替换状态、关联 BD |
 | `ClassStartPlan` | 职业开荒 | `classes`、`season-start-plans` | 阶段路线、赛季切换和完整流派矩阵 |

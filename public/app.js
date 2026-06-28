@@ -881,6 +881,39 @@ function guideUsesItem(guide, item) {
   });
 }
 
+function itemMatchesReference(reference, item) {
+  const itemId = item.id;
+  const zhName = normalizedText(item.zhName);
+  const englishName = normalizedText(item.name);
+  const referenceNames = [reference?.zhName, reference?.name].map(normalizedText);
+  return reference?.itemId === itemId || referenceNames.includes(zhName) || referenceNames.includes(englishName);
+}
+
+function guideItemUsages(guide, item) {
+  const usages = [];
+  for (const slot of guide.gearSlots || []) {
+    if (itemMatchesReference(slot.target, item)) {
+      usages.push({
+        slotName: slot.zhSlotName,
+        useType: "目标装备",
+        status: gearSlotStatus(slot),
+        aspect: gearAspectDisplay(slot)
+      });
+    }
+    for (const alternative of slot.alternatives || []) {
+      if (itemMatchesReference(alternative, item)) {
+        usages.push({
+          slotName: slot.zhSlotName,
+          useType: "替换方案",
+          status: slot.required ? "替换需谨慎" : "可替换",
+          aspect: displayText(`${alternative.reason || ""} ${alternative.tradeoff || ""}`.trim())
+        });
+      }
+    }
+  }
+  return usages;
+}
+
 function allRelatedGuidesForItem(item) {
   if (!item?.id) return [];
   if (relatedGuideCache.has(item.id)) return relatedGuideCache.get(item.id);
@@ -916,6 +949,56 @@ function renderGuideMiniLinks(guides, emptyText) {
           <em>${guideSourceLabel(guide)} · ${guide.ceiling.displayTier || guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</em>
         </a>
       `).join("")}
+    </div>
+  `;
+}
+
+function renderEquipmentUsageMatrix(item) {
+  const guides = allRelatedGuidesForItem(item);
+  if (!guides.length) {
+    return `<p class="empty-copy">当前装备还没有进入已结构化 BD；后续资料回填后会自动关联。</p>`;
+  }
+  return `
+    <div class="equipment-usage-matrix">
+      <div class="equipment-usage-row equipment-usage-row--head" aria-hidden="true">
+        <span>职业 / 流派</span>
+        <span>用途 / 阶段</span>
+        <span>使用部位</span>
+        <span>定位</span>
+        <span>上限 / 来源</span>
+        <span>操作</span>
+      </div>
+      ${guides.map((guide) => {
+        const usages = guideItemUsages(guide, item);
+        return `
+          <article class="equipment-usage-row">
+            <div>
+              <span class="equipment-usage-label">职业 / 流派</span>
+              <strong>${guide.taxonomy.className} · ${guide.taxonomy.archetypeName}</strong>
+              <em>${guide.taxonomy.seasonName}</em>
+            </div>
+            <div>
+              <span class="equipment-usage-label">用途 / 阶段</span>
+              <strong>${guide.taxonomy.modeName}</strong>
+              <em>${guide.taxonomy.stage}</em>
+            </div>
+            <div>
+              <span class="equipment-usage-label">使用部位</span>
+              ${usages.map((usage) => `<b>${usage.slotName} · ${usage.useType}</b>`).join("")}
+            </div>
+            <div>
+              <span class="equipment-usage-label">定位</span>
+              ${usages.map((usage) => `<strong>${usage.status}</strong><em>${usage.aspect}</em>`).join("")}
+            </div>
+            <div>
+              <span class="equipment-usage-label">上限 / 来源</span>
+              <strong>${guide.ceiling.displayTier || guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</strong>
+              <em>${guideSourceLabel(guide)}</em>
+            </div>
+            <a href="${guideUrl(guide)}">查看 BD</a>
+          </article>
+        `;
+      }).join("")}
     </div>
   `;
 }
@@ -2467,8 +2550,15 @@ function renderEquipmentDetail(item) {
     </section>
     <section class="detail-section">
       <div class="section-title">
-        <h4>相关 BD</h4>
+        <h4>BD 使用矩阵</h4>
         <span>${relatedGuideCount(item)} 套</span>
+      </div>
+      ${renderEquipmentUsageMatrix(item)}
+    </section>
+    <section class="detail-section">
+      <div class="section-title">
+        <h4>相关 BD 快捷入口</h4>
+        <span>${relatedGuides.length} 套优先展示</span>
       </div>
       ${renderGuideMiniLinks(relatedGuides, "当前装备还没有进入已结构化 BD；后续资料回填后会自动关联。")}
     </section>

@@ -218,6 +218,8 @@ for (const forbidden of ["模型分", "先选目标", "rationale", "完整 BD �
 }
 assert(frontendText.includes("renderSeasonBuildMatrix"), "BD library must render a season build matrix by class, archetype and mode");
 assert(frontendText.includes("season-build-matrix"), "BD library must expose daily/speed/push comparisons before individual cards");
+assert(frontendText.includes("renderEquipmentUsageMatrix"), "Equipment detail must render a usage matrix for related builds");
+assert(frontendText.includes("equipment-usage-matrix"), "Equipment detail must expose class, build, mode, slot and replacement status for related builds");
 assert(frontendText.includes("renderLoadoutBoard"), "BD detail must render a paper-doll loadout board");
 assert(frontendText.includes("loadout-paper-doll"), "BD detail must expose a fixed 11-slot paper-doll layout");
 assert(frontendText.includes("renderBuildVersionSwitcher"), "BD detail must render same-archetype daily/speed/push version switching");
