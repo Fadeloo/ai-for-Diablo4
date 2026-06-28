@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T14:55:57.965Z",
+  "generatedAt": "2026-06-28T15:09:51.194Z",
   "source": {
     "id": "blizzard_patch_3_1",
     "url": "https://news.blizzard.com/en-us/article/24287406/diablo-iv-patch-notes",
@@ -6015,7 +6015,7 @@
     {
       "id": "khamsin-steppewalkers",
       "name": "Khamsin Steppewalkers",
-      "zhName": "凯赫阿姆斯伊恩斯特埃普普埃沃阿尔凯埃尔斯",
+      "zhName": "哈姆辛踏沙者",
       "rarity": "unique",
       "classRestriction": "Druid",
       "zhClassRestriction": "德鲁伊",
@@ -6084,7 +6084,7 @@
     {
       "id": "kilt-of-blackwing",
       "name": "Kilt of Blackwing",
-      "zhName": "凯伊尔特布尔阿克凯沃伊恩格",
+      "zhName": "黑翼褶裙",
       "rarity": "unique",
       "classRestriction": "Druid",
       "zhClassRestriction": "德鲁伊",
@@ -7602,7 +7602,7 @@
     {
       "id": "gravewalkers-hand",
       "name": "Gravewalker's Hand",
-      "zhName": "格尔阿维埃沃阿尔凯埃尔手",
+      "zhName": "墓行者之手",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -7809,7 +7809,7 @@
     {
       "id": "kessimes-legacy",
       "name": "Kessime's Legacy",
-      "zhName": "凯埃斯斯伊姆埃尔埃格阿克伊",
+      "zhName": "凯西米的传承",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -11673,7 +11673,7 @@
     {
       "id": "orphan-maker",
       "name": "Orphan Maker",
-      "zhName": "欧尔普赫阿恩姆阿凯埃尔",
+      "zhName": "孤儿制造者",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -12087,7 +12087,7 @@
     {
       "id": "shroud-of-khanduras",
       "name": "Shroud of Khanduras",
-      "zhName": "罩衣凯赫阿恩德乌尔阿斯",
+      "zhName": "坎杜拉斯罩衣",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -12570,7 +12570,7 @@
     {
       "id": "writhing-band-of-trickery",
       "name": "Writhing Band of Trickery",
-      "zhName": "扭动指环特尔伊克凯埃尔伊",
+      "zhName": "诡诈扭曲指环",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -14571,7 +14571,7 @@
     {
       "id": "strike-of-stormhorn",
       "name": "Strike of Stormhorn",
-      "zhName": "斯特尔伊凯埃斯特欧尔姆赫欧尔恩",
+      "zhName": "风暴角之击",
       "rarity": "unique",
       "classRestriction": "Sorcerer",
       "zhClassRestriction": "法师",

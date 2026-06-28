@@ -2113,5 +2113,306 @@
       "speedFarm": ["低层可换移动靴和资源戒指。", "装备成型后切换速刷版。"],
       "commonMistakes": ["没有鹰角弓就硬推高层。", "不练站位导致穿透射击只命中单体。", "能量不足还连续空放。"]
     }
+  },
+  {
+    "id": "s14-necromancer-blood_overpower-pit_push",
+    "sourceReference": {
+      "site": "Mobalytics",
+      "url": "https://mobalytics.gg/diablo-4/builds/necromancer-blood-wave",
+      "sourceSeason": "S14 死亡觉醒",
+      "referenceTitle": "S14 Updated Ultimate Bloodwave Necromancer",
+      "asOf": "2026-06-28",
+      "note": "Mobalytics 页面标注为 S14 Ultimate Bloodwave Necromancer，2026-06-28 更新，含装备、技能循环、亡者之书、技能树、巅峰雕文、FAQ 和变体说明；本站按中文资料页结构整理。"
+    },
+    "title": "S14 死亡觉醒 死灵法师 · 终极血浪冲层",
+    "archetypeName": "终极血浪",
+    "summary": {
+      "oneLine": "死灵法师「终极血浪」冲层 BD，围绕血浪满屏清场、灵魂裂隙同步释放、收割循环、骨牢控制、血雾保命和衰老减冷却建立推进节奏。",
+      "pros": ["清场范围极大", "首领爆发快", "操作门槛低于高频点杀流派"],
+      "cons": ["大体型怪物和低密度地图会拖慢节奏", "高度依赖冷却缩减和终极冷却缩减", "凯西米的传承缺失时不是完整血浪体系"],
+      "requirements": ["裤子：凯西米的传承", "来源位或副手：潮汐威能需要校准", "尽可能多的冷却缩减与终极技能冷却缩减"],
+      "statPriority": ["冷却缩减", "终极技能冷却缩减", "血浪等级", "压制伤害", "生命上限", "资源循环"]
+    },
+    "gearSlots": [
+      {
+        "slotId": "helm",
+        "target": {"type": "legendary", "zhName": "传奇头盔 + 诅咒光环威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "诅咒光环威能", "role": "自动诅咒覆盖，帮助衰老减冷却进入循环。", "sourceStatus": "Mobalytics Bloodwave 装备栏"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["冷却缩减", "生命上限", "护甲", "全元素抗性"],
+        "alternatives": [
+          {"zhName": "谐角之冠", "reason": "有神话暗金时提高技能等级和通用硬度。", "tradeoff": "失去自动诅咒威能位。"},
+          {"zhName": "传奇头盔 + 防御威能", "reason": "抗性或护甲不足时过渡。", "tradeoff": "减冷却节奏下降。"}
+        ]
+      },
+      {
+        "slotId": "chest",
+        "target": {"type": "unique", "zhName": "伪死之衣"},
+        "aspect": {"name": "神话暗金位", "role": "隐身、通用属性和速刷路线效率。", "sourceStatus": "Mobalytics Bloodwave 装备栏"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["全属性", "全元素抗性", "生命上限", "移动速度"],
+        "alternatives": [
+          {"zhName": "传奇胸甲 + 至高狂怒威能", "reason": "来源变体给出的非神话胸甲方案。", "tradeoff": "失去伪死之衣的路线和通用属性。"},
+          {"zhName": "泰瑞尔之力", "reason": "抗性和生存压力过高时使用。", "tradeoff": "清图速度下降。"}
+        ]
+      },
+      {
+        "slotId": "gloves",
+        "target": {"type": "legendary", "zhName": "传奇手套 + 潮汐威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "潮汐威能", "role": "血浪多段和清场核心。", "sourceStatus": "Mobalytics Bloodwave 装备栏"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["血浪等级", "攻击速度", "幸运一击几率", "暴击几率"],
+        "alternatives": [
+          {"zhName": "命运之拳", "reason": "来源变体给出的高波动手套。", "tradeoff": "血浪稳定性下降。"},
+          {"zhName": "传奇手套 + 血系威能", "reason": "缺潮汐威能时保留血浪等级过渡。", "tradeoff": "清屏能力明显下降。"}
+        ]
+      },
+      {
+        "slotId": "pants",
+        "target": {"type": "unique", "zhName": "凯西米的传承"},
+        "aspect": {"name": "暗金特效位", "role": "血浪体系的硬需求，决定血浪推进和回收收益。", "sourceStatus": "Mobalytics FAQ 列为必须拥有"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["主属性", "冷却缩减", "生命上限", "全元素抗性"],
+        "alternatives": [
+          {"zhName": "鲁莽", "reason": "来源变体给出的屏障过渡。", "tradeoff": "不再是完整血浪体系。"},
+          {"zhName": "传奇裤子 + 防御威能", "reason": "掉落前只用于日常过渡。", "tradeoff": "冲层上限大幅下降。"}
+        ]
+      },
+      {
+        "slotId": "boots",
+        "target": {"type": "legendary", "zhName": "传奇靴子 + 屠戮威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "屠戮威能", "role": "击杀后移动和推进节奏。", "sourceStatus": "Mobalytics Bloodwave 装备栏"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["移动速度", "闪避冷却", "全元素抗性", "护甲"],
+        "alternatives": [
+          {"zhName": "拉卡诺斯的苏醒", "reason": "来源变体给出的安全移动方案。", "tradeoff": "失去屠戮威能推进节奏。"},
+          {"zhName": "传奇靴子 + 移动威能", "reason": "低层或开荒过渡。", "tradeoff": "高层收益较低。"}
+        ]
+      },
+      {
+        "slotId": "amulet",
+        "target": {"type": "legendary", "zhName": "传奇护符 + 潮汐归航威能", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "潮汐归航威能", "role": "血浪回航和覆盖范围核心。", "sourceStatus": "Mobalytics Bloodwave 装备栏"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["终极技能冷却缩减", "冷却缩减", "血系伤害", "移动速度"],
+        "alternatives": [
+          {"zhName": "传奇护符 + 终极暗影威能", "reason": "来源变体给出的护符替换。", "tradeoff": "血浪回航联动下降。"},
+          {"zhName": "塞利格的融心", "reason": "高压生存时尝试。", "tradeoff": "损失核心血浪威能位。"}
+        ]
+      },
+      {
+        "slotId": "ring1",
+        "target": {"type": "legendary", "zhName": "传奇戒指 + 快血威能", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "快血威能", "role": "血球与终极冷却循环。", "sourceStatus": "Mobalytics Bloodwave 装备栏"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["冷却缩减", "终极技能冷却缩减", "暴击几率", "资源生成"],
+        "alternatives": [
+          {"zhName": "传奇戒指 + 血刺威能", "reason": "来源变体可与副手威能互换。", "tradeoff": "终极冷却回转下降。"},
+          {"zhName": "无星夜空之戒", "reason": "资源压力大时提高持续输出。", "tradeoff": "可能失去关键减冷却联动。"}
+        ]
+      },
+      {
+        "slotId": "ring2",
+        "target": {"type": "legendary", "zhName": "传奇戒指 + 终极暗影威能", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "终极暗影威能", "role": "把终极窗口转为暗影伤害联动。", "sourceStatus": "Mobalytics Bloodwave 装备栏"},
+        "required": true,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["冷却缩减", "终极技能冷却缩减", "幸运一击几率", "暴击几率"],
+        "alternatives": [
+          {"zhName": "传奇戒指 + 快血威能", "reason": "来源变体给出的戒指互换方案。", "tradeoff": "暗影终极收益下降。"},
+          {"zhName": "传奇戒指 + 资源威能", "reason": "日常和缺词缀时保循环。", "tradeoff": "冲层爆发下降。"}
+        ]
+      },
+      {
+        "slotId": "twoHand",
+        "target": {"type": "legendary", "zhName": "不使用：单手武器 + 副手方案", "image": "./public/assets/icon-weapon.png"},
+        "aspect": {"name": "空槽位", "role": "来源 BD 使用单手武器加副手，不占用双手位。", "sourceStatus": "Mobalytics Bloodwave 装备栏"},
+        "required": false,
+        "core": false,
+        "replaceable": true,
+        "affixes": ["不占用", "单手武器词缀优先", "副手冷却缩减", "血浪循环"],
+        "alternatives": [
+          {"zhName": "双手镰刀 + 抓握血脉威能", "reason": "只作过渡高装等武器。", "tradeoff": "失去副手冷却缩减和来源结构。"},
+          {"zhName": "双手杖 + 浴血威能", "reason": "开荒期没有合适副手时使用。", "tradeoff": "终局循环下降。"}
+        ]
+      },
+      {
+        "slotId": "mainHand",
+        "target": {"type": "legendary", "zhName": "单手武器 + 抓握血脉威能", "image": "./public/assets/icon-weapon.png"},
+        "aspect": {"name": "抓握血脉威能", "role": "尸体触须/控制后的暴击爆发窗口。", "sourceStatus": "Mobalytics Bloodwave 装备栏"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["武器伤害", "压制伤害", "血浪伤害", "暴击伤害"],
+        "alternatives": [
+          {"zhName": "单手武器 + 浴血威能", "reason": "来源变体给出的武器替换。", "tradeoff": "抓握血脉暴击窗口下降。"},
+          {"zhName": "黑河", "reason": "高装等过渡或尸体资源变体。", "tradeoff": "偏离来源血浪结构。"}
+        ]
+      },
+      {
+        "slotId": "offHand",
+        "target": {"type": "legendary", "zhName": "副手法器 + 血刺威能", "image": "./public/assets/icon-weapon.png"},
+        "aspect": {"name": "血刺威能", "role": "血球和血系投射联动。", "sourceStatus": "Mobalytics 装备栏为血刺威能；FAQ 同时强调来源位需要潮汐威能，本站保留装备栏并在变体提示可互换。"},
+        "required": true,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["冷却缩减", "灵魂裂隙冷却缩减", "压制伤害", "幸运一击几率"],
+        "alternatives": [
+          {"zhName": "副手法器 + 潮汐威能", "reason": "按来源 FAQ 校准潮汐威能来源位。", "tradeoff": "需要把血刺或潮汐从其他槽位调换。"},
+          {"zhName": "无盖之墙", "reason": "需要屏障和防御过渡。", "tradeoff": "血浪核心联动下降。"}
+        ]
+      }
+    ],
+    "skillTree": {
+      "core": "血浪",
+      "skillBar": [
+        {"slot": 1, "name": "收割", "role": "基础触发和近战循环", "points": 1},
+        {"slot": 2, "name": "血浪", "role": "主攻与清屏终极", "points": 1},
+        {"slot": 3, "name": "灵魂裂隙", "role": "终极同步爆发和资源/护盾窗口", "points": 1},
+        {"slot": 4, "name": "骨牢", "role": "控制、阻挡和聚怪", "points": 1},
+        {"slot": 5, "name": "血雾", "role": "保命、脱离危险和触发伪死之衣", "points": 1},
+        {"slot": 6, "name": "衰老", "role": "诅咒和冷却缩减", "points": 1}
+      ],
+      "pointOrder": [
+        {"levelRange": "1-6", "skill": "收割", "points": "+1 并点强化", "reason": "先建立基础触发和近身安全入口。"},
+        {"levelRange": "7-12", "skill": "衰老", "points": "+1 至强化", "reason": "尽早建立减冷却和控制收益。"},
+        {"levelRange": "13-18", "skill": "血雾", "points": "+1 至保命分支", "reason": "处理危险词缀并触发伪死之衣。"},
+        {"levelRange": "19-24", "skill": "骨牢", "points": "+1 至控制分支", "reason": "给血浪提供聚怪和阻挡空间。"},
+        {"levelRange": "25-32", "skill": "血浪", "points": "+1 并补终极相关被动", "reason": "确定主输出窗口。"},
+        {"levelRange": "33-40", "skill": "灵魂裂隙", "points": "+1 并补终极冷却", "reason": "来源提示血浪要与灵魂裂隙同步释放。"},
+        {"levelRange": "41-50", "skill": "血潮 / 不完美平衡", "points": "+3 至 +6", "reason": "提高血系和终极伤害。"},
+        {"levelRange": "51-60", "skill": "增伤 / 死亡逼近 / 死神追击", "points": "补满关键被动", "reason": "补移动和增伤。"},
+        {"levelRange": "60-80", "skill": "食肉者 / 尸体触须 / 死灵坚毅", "points": "按装备微调", "reason": "围绕控制、尸体和防御补齐。"},
+        {"levelRange": "80+", "skill": "终局重分配", "points": "按冷却与抗性缺口调整", "reason": "冷却缩减到位后转入完整血浪循环。"}
+      ],
+      "passives": ["血潮", "不完美平衡", "增伤", "死亡逼近", "死神追击", "死灵坚毅"],
+      "notes": ["亡者之书：突击者牺牲、暗影法师牺牲、鲜血魔像牺牲。", "符文提示：关键符文 Empty -> Vehe，调整符文可在 Igni、Yul、Tam、Cir 之间切换。"]
+    },
+    "paragon": {
+      "rule": "来源页面给出 7 盘与雕文顺序：起始盘 Eliminator，Bone Graft 放 Essence，Blood Begets Blood 放 Sacrificial，Bloodbath 放 Dominate，Flesh-Eater 放 Amplify，Frailty 放 Corporeal，Scent of Death 放 Territorial；精确节点坐标仍需 Planner 级来源回填。",
+      "boardOrder": [
+        {"order": 1, "name": "起始盘", "goal": "先打开血浪主路径和雕文孔", "glyph": "Eliminator", "rotate": "默认方向"},
+        {"order": 2, "name": "Bone Graft", "goal": "补资源、骨系通路和冷却相关路径", "glyph": "Essence", "rotate": "向雕文孔短路"},
+        {"order": 3, "name": "Blood Begets Blood", "goal": "血球、献祭和血系联动", "glyph": "Sacrificial", "rotate": "向传奇节点短路"},
+        {"order": 4, "name": "Bloodbath", "goal": "压制和血浪伤害", "glyph": "Dominate", "rotate": "向压制节点短路"},
+        {"order": 5, "name": "Flesh-Eater", "goal": "尸体消耗后爆发窗口", "glyph": "Amplify", "rotate": "向传奇节点短路"},
+        {"order": 6, "name": "Frailty", "goal": "诅咒覆盖和减伤", "glyph": "Corporeal", "rotate": "向防御节点短路"},
+        {"order": 7, "name": "Scent of Death", "goal": "尸体密度、减伤和收尾补强", "glyph": "Territorial", "rotate": "按抗性缺口调整"}
+      ],
+      "glyphs": [
+        {"name": "Eliminator", "priority": 1, "socket": "起始盘", "note": "先升到半径阈值。"},
+        {"name": "Essence", "priority": 2, "socket": "Bone Graft", "note": "补资源与循环。"},
+        {"name": "Sacrificial", "priority": 3, "socket": "Blood Begets Blood", "note": "配合亡者之书全牺牲。"},
+        {"name": "Dominate", "priority": 4, "socket": "Bloodbath", "note": "压制收益。"},
+        {"name": "Amplify", "priority": 5, "socket": "Flesh-Eater", "note": "诅咒增伤。"},
+        {"name": "Corporeal", "priority": 6, "socket": "Frailty", "note": "防御和肉身收益。"},
+        {"name": "Territorial", "priority": 7, "socket": "Scent of Death", "note": "近距离减伤。"}
+      ],
+      "clickOrder": [
+        {"board": "起始盘", "node": "Eliminator 雕文孔", "reason": "先建立血浪主伤害雕文。"},
+        {"board": "起始盘", "node": "生命、护甲和主属性稀有节点", "reason": "补进入高层前的基础防御。"},
+        {"board": "Bone Graft", "node": "Essence 雕文孔", "reason": "解决资源和终极循环。"},
+        {"board": "Blood Begets Blood", "node": "Sacrificial 雕文孔", "reason": "全牺牲亡者之书收益在这里放大。"},
+        {"board": "Blood Begets Blood", "node": "血球和血系稀有节点", "reason": "配合快血威能和血浪回转。"},
+        {"board": "Bloodbath", "node": "Dominate 雕文孔", "reason": "压制伤害是血浪高层关键收益。"},
+        {"board": "Flesh-Eater", "node": "Amplify 雕文孔", "reason": "诅咒覆盖后提高爆发。"},
+        {"board": "Frailty", "node": "Corporeal 雕文孔", "reason": "高层补近战和硬度。"},
+        {"board": "Scent of Death", "node": "Territorial 雕文孔", "reason": "贴怪使用收割和血浪时提高安全。"},
+        {"board": "任意盘", "node": "抗性、护甲、生命和冷却补点", "reason": "按装备缺口收尾，满抗前不要贪小伤害点。"}
+      ]
+    },
+    "gameplay": {
+      "opener": ["进图先让诅咒覆盖目标，或手动补衰老。", "血浪前同步释放灵魂裂隙。", "用骨牢控制危险精英或阻断怪物路线。", "怪群密集后打出血浪满屏清场。"],
+      "loop": ["血浪和灵魂裂隙尽量同步，不要错开爆发窗口。", "收割用于填补空档和维持近身触发。", "衰老在血浪前后都要覆盖，用于降低冷却。", "骨牢只在需要控场、挡怪或保护自己时使用。"],
+      "boss": ["首领前保留血浪、灵魂裂隙和衰老。", "先衰老，再灵魂裂隙，随后血浪打爆发。", "冷却未回好时不要硬站桩，等待下一轮血浪。"],
+      "defense": ["血雾用于喘息、脱离危险或触发伪死之衣。", "大型怪物和低密度场景不要贪连发，先拉位置。", "护甲、抗性、生命不够时优先降层刷冷却词缀。"],
+      "speedFarm": ["低层优先路线效率，血浪打密集包，不为零散小怪停留。", "冷却缩减足够后可以连续推进事件和精英包。"],
+      "commonMistakes": ["没有凯西米的传承就按完整血浪冲层。", "血浪和灵魂裂隙错开导致爆发分散。", "忽视冷却缩减，导致每波怪都在等终极。", "骨牢乱放挡住自己的路线。"]
+    },
+    "variants": [
+      {"name": "来源标准血浪", "useCase": "按 Mobalytics S14 血浪页面装备栏整理。", "swapOut": "无", "swapIn": "11 槽位按上方配置", "notes": "适合已拥有凯西米的传承、潮汐威能和足够冷却缩减后冲层。"},
+      {"name": "副手潮汐校准", "useCase": "按来源 FAQ 强调的来源位潮汐威能调整。", "swapOut": "副手法器 + 血刺威能", "swapIn": "副手法器 + 潮汐威能", "notes": "需要把血刺或潮汐与手套、戒指位互换，避免丢核心威能。"},
+      {"name": "缺伪死之衣", "useCase": "没有神话胸甲时过渡。", "swapOut": "伪死之衣", "swapIn": "传奇胸甲 + 至高狂怒威能", "notes": "通用属性和路线效率下降，但仍保留血浪主体。"},
+      {"name": "高层冷却优先", "useCase": "血浪断档时使用。", "swapOut": "一处纯伤害词缀", "swapIn": "冷却缩减或终极技能冷却缩减", "notes": "血浪频率通常比纸面单次伤害更重要。"}
+    ]
+  },
+  {
+    "id": "s14-necromancer-blood_overpower-speed_farm",
+    "extends": "s14-necromancer-blood_overpower-pit_push",
+    "title": "S14 死亡觉醒 死灵法师 · 终极血浪速刷",
+    "archetypeName": "终极血浪",
+    "summary": {
+      "oneLine": "死灵法师「终极血浪」速刷 BD，保留血浪、凯西米的传承和冷却循环，把靴子、副手与戒指调整为路线效率和连续清图。",
+      "pros": ["清屏速度快", "首领一轮爆发强", "日常材料和中低层天坑效率高"],
+      "cons": ["极限高层需要切回更硬的冲层版", "冷却缩减不足会明显断档", "大体型怪和低密度地图仍会拖慢"],
+      "requirements": ["裤子：凯西米的传承", "冷却缩减与终极冷却缩减", "副手或手套保留潮汐威能"],
+      "statPriority": ["移动速度", "冷却缩减", "终极技能冷却缩减", "血浪等级", "资源生成"]
+    },
+    "gearSlots": [
+      {"slotId": "boots", "target": {"type": "unique", "zhName": "拉卡诺斯的苏醒"}, "aspect": {"name": "暗金特效位", "role": "速刷移动、安全和路线推进。", "sourceStatus": "Mobalytics Bloodwave 变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["移动速度", "全伤害乘区", "闪避冷却", "全元素抗性"], "alternatives": [{"zhName": "传奇靴子 + 屠戮威能", "reason": "需要冲层标准位时换回。", "tradeoff": "路线安全下降。"}, {"zhName": "传奇靴子 + 移动威能", "reason": "低层过渡。", "tradeoff": "暗金收益下降。"}]},
+      {"slotId": "ring2", "target": {"type": "legendary", "zhName": "传奇戒指 + 快血威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "快血威能", "role": "低层连续血浪和终极回转。", "sourceStatus": "Mobalytics Bloodwave 变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["冷却缩减", "资源生成", "暴击几率", "幸运一击几率"], "alternatives": [{"zhName": "传奇戒指 + 终极暗影威能", "reason": "高层或首领伤害需要时换回。", "tradeoff": "连续清图冷却下降。"}, {"zhName": "无星夜空之戒", "reason": "资源压力大时使用。", "tradeoff": "终极联动下降。"}]},
+      {"slotId": "offHand", "target": {"type": "legendary", "zhName": "副手法器 + 潮汐威能", "image": "./public/assets/icon-weapon.png"}, "aspect": {"name": "潮汐威能", "role": "按来源 FAQ 校准来源位，提高血浪连续覆盖。", "sourceStatus": "Mobalytics Bloodwave FAQ 必备项整理"}, "required": true, "core": true, "replaceable": false, "affixes": ["冷却缩减", "灵魂裂隙冷却缩减", "压制伤害", "幸运一击几率"], "alternatives": [{"zhName": "副手法器 + 血刺威能", "reason": "需要按装备栏标准版还原时换回。", "tradeoff": "FAQ 提到的潮汐来源位需要挪到其他槽。"}, {"zhName": "无盖之墙", "reason": "低压安全过渡。", "tradeoff": "血浪频率下降。"}]}
+    ],
+    "gameplay": {
+      "opener": ["进图优先找密集路线。", "衰老覆盖后血浪和灵魂裂隙同步启动。", "低层不为零散怪停留。"],
+      "loop": ["拉两到三波怪后血浪清屏。", "拉卡诺斯的苏醒用于缩短空跑和规避危险。", "快血戒指帮助低层连续回转终极。", "冷却没有回好时用收割和路线移动填空档。"],
+      "boss": ["速刷首领只打一轮血浪和灵魂裂隙。", "单体血量高时切回冲层 ring2。", "冷却不齐不要硬等，先清下一组怪。"],
+      "defense": ["速刷版防御较低，危险词缀优先血雾或移动。", "硬核角色保留冲层靴子和防御词缀。", "抗性没满不要过度换速度件。"],
+      "speedFarm": ["目标是路线效率、事件推进和精英密度。", "血浪留给密集包，收割处理残血。"],
+      "commonMistakes": ["为了单个精英停步等血浪。", "把潮汐威能换掉导致清场明显下降。", "冷却缩减不足仍追求纯伤害词缀。"]
+    },
+    "variants": [
+      {"name": "极速清图", "useCase": "材料、低层天坑和梦魇刷取。", "swapOut": "屠戮靴和终极暗影戒指", "swapIn": "拉卡诺斯的苏醒和快血戒指", "notes": "降低高层爆发，换连续血浪和路线效率。"},
+      {"name": "安全速刷", "useCase": "硬核或词缀危险地图。", "swapOut": "一处移动/伤害词缀", "swapIn": "生命、护甲或全抗", "notes": "速度略降但死亡风险更低。"},
+      {"name": "首领速杀", "useCase": "低层首领和事件结尾。", "swapOut": "快血戒指", "swapIn": "终极暗影威能", "notes": "保留一轮爆发，不追求连续清屏。"}
+    ]
+  },
+  {
+    "id": "s14-necromancer-blood_overpower-daily",
+    "extends": "s14-necromancer-blood_overpower-pit_push",
+    "title": "S14 死亡觉醒 死灵法师 · 终极血浪日常",
+    "archetypeName": "终极血浪",
+    "summary": {
+      "oneLine": "死灵法师「终极血浪」日常 BD，用传奇防御件和资源位降低门槛，但仍把凯西米的传承、血浪、衰老和冷却缩减作为成型方向。",
+      "pros": ["日常容错高", "缺神话暗金可过渡", "技能循环清晰"],
+      "cons": ["没有凯西米的传承不是完整血浪", "冲层上限低于完整来源版", "冷却缩减不足时手感断档"],
+      "requirements": ["先找凯西米的传承", "用传奇胸甲和防御词缀过渡", "戒指优先冷却与资源"],
+      "statPriority": ["生命上限", "全元素抗性", "冷却缩减", "资源生成", "血浪等级"]
+    },
+    "gearSlots": [
+      {"slotId": "helm", "target": {"type": "legendary", "zhName": "传奇头盔 + 防御威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "防御威能", "role": "日常抗性、生命和护甲过渡。", "sourceStatus": "Mobalytics Bloodwave 日常变体整理"}, "required": false, "core": false, "replaceable": true, "affixes": ["生命上限", "护甲", "全元素抗性", "冷却缩减"], "alternatives": [{"zhName": "传奇头盔 + 诅咒光环威能", "reason": "进入完整循环时换回。", "tradeoff": "日常硬度下降。"}, {"zhName": "谐角之冠", "reason": "有神话暗金时直接使用。", "tradeoff": "获取难度高。"}]},
+      {"slotId": "chest", "target": {"type": "legendary", "zhName": "传奇胸甲 + 防御威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "防御威能", "role": "缺伪死之衣时补硬度。", "sourceStatus": "Mobalytics Bloodwave 日常变体整理"}, "required": false, "core": false, "replaceable": true, "affixes": ["生命上限", "护甲", "减伤", "全元素抗性"], "alternatives": [{"zhName": "伪死之衣", "reason": "拿到后切回来源标准版。", "tradeoff": "获取难度高。"}, {"zhName": "泰瑞尔之力", "reason": "抗性压力大时使用。", "tradeoff": "速度较慢。"}]},
+      {"slotId": "boots", "target": {"type": "legendary", "zhName": "传奇靴子 + 移动威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "移动威能", "role": "日常路线和过渡。", "sourceStatus": "Mobalytics Bloodwave 日常变体整理"}, "required": false, "core": false, "replaceable": true, "affixes": ["移动速度", "闪避冷却", "全元素抗性", "护甲"], "alternatives": [{"zhName": "传奇靴子 + 屠戮威能", "reason": "进入完整版本时换回。", "tradeoff": "获取合适威能和词缀需要时间。"}, {"zhName": "拉卡诺斯的苏醒", "reason": "有暗金时提高安全移动。", "tradeoff": "威能位损失。"}]},
+      {"slotId": "ring1", "target": {"type": "legendary", "zhName": "传奇戒指 + 资源威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "资源威能", "role": "缺冷却和核心词缀时维持日常循环。", "sourceStatus": "Mobalytics Bloodwave 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["资源生成", "冷却缩减", "暴击几率", "幸运一击几率"], "alternatives": [{"zhName": "传奇戒指 + 快血威能", "reason": "冷却词缀成型后切回来源版。", "tradeoff": "过渡期可能断资源。"}, {"zhName": "无星夜空之戒", "reason": "资源压力大时使用。", "tradeoff": "终极回转下降。"}]},
+      {"slotId": "mainHand", "target": {"type": "legendary", "zhName": "单手武器 + 浴血威能", "image": "./public/assets/icon-weapon.png"}, "aspect": {"name": "浴血威能", "role": "日常血系伤害过渡。", "sourceStatus": "Mobalytics Bloodwave 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["武器伤害", "血浪伤害", "压制伤害", "暴击伤害"], "alternatives": [{"zhName": "单手武器 + 抓握血脉威能", "reason": "成型后切回来源冲层版。", "tradeoff": "过渡期暴击窗口要求更高。"}, {"zhName": "黑河", "reason": "高装等过渡。", "tradeoff": "偏离血浪来源结构。"}]}
+    ],
+    "gameplay": {
+      "opener": ["先用最高装等武器和抗性装备推进难度。", "衰老覆盖后用血浪清密集怪。", "没有凯西米前不要按完整血浪预期冲高层。"],
+      "loop": ["日常版本先保证冷却和生存。", "血浪未回好时用收割填补空档。", "骨牢只用于危险精英或保护自己。", "凯西米、潮汐和冷却词缀到位后转冲层版。"],
+      "boss": ["保留血浪、灵魂裂隙和衰老。", "资源不足时先等一轮循环。", "日常首领不追求极限秒杀。"],
+      "defense": ["抗性、护甲、生命优先于纯输出。", "血雾留给危险词缀和失误。", "缺伪死之衣时不要贪站桩。"],
+      "speedFarm": ["低层可以直接切速刷靴和快血戒。", "材料刷取以路线效率为主。"],
+      "commonMistakes": ["没有凯西米的传承就硬推高层。", "戒指全换伤害导致冷却和资源断档。", "过早牺牲胸甲防御。"]
+    },
+    "variants": [
+      {"name": "低门槛日常", "useCase": "刚进终局或神话暗金未齐。", "swapOut": "伪死之衣和诅咒头", "swapIn": "传奇胸甲、传奇头盔和防御威能", "notes": "先活下来并凑冷却，之后再补来源标准位。"},
+      {"name": "凯西米成型点", "useCase": "拿到凯西米的传承后。", "swapOut": "传奇裤子", "swapIn": "凯西米的传承", "notes": "这是从日常过渡到完整血浪的分界线。"},
+      {"name": "资源稳定版", "useCase": "血浪循环断档或资源不足。", "swapOut": "一处纯伤害戒指", "swapIn": "资源威能或无星夜空之戒", "notes": "牺牲爆发，换日常手感。"}
+    ]
   }
 ]

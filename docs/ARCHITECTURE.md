@@ -1,6 +1,6 @@
 # Harris's Diablo 4 架构设计
 
-继续开发前的实施基线见 `docs/SITE_IMPLEMENTATION_DESIGN.md`。它定义页面拆分、组件接口、数据契约、AI 分析流程和验收标准。完整产品蓝图见 `docs/PRODUCT_BLUEPRINT.md`。本文保留当前工程架构和脚本分层，作为实现入口。
+继续开发前的总控设计见 `docs/SYSTEM_DESIGN.md`，实施基线见 `docs/SITE_IMPLEMENTATION_DESIGN.md`。它们定义页面拆分、组件接口、数据契约、AI 分析流程和验收标准。完整产品蓝图见 `docs/PRODUCT_BLUEPRINT.md`。本文保留当前工程架构和脚本分层，作为实现入口。
 
 ## 目标
 

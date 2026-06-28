@@ -701,7 +701,7 @@ function applyCommunityOverride(guide, override, equipmentByZhName) {
         {
           date: override.sourceReference.asOf,
           title: "接入社区 BD 覆盖",
-          body: "装备槽位、核心暗金/威能、技能、巅峰和打法按暗黑核 Planner 示例结构覆盖。"
+          body: "装备槽位、核心暗金/威能、技能、巅峰和打法按社区资料页结构覆盖。"
         },
         ...guide.source.changelog
       ]
@@ -732,6 +732,7 @@ function applyCommunityOverride(guide, override, equipmentByZhName) {
         swapIn: "社区覆盖槽位",
         notes: override.sourceReference.note
       },
+      ...(override.variants || []),
       ...guide.variants
     ],
     dataQuality: {

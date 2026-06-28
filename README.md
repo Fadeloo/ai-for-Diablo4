@@ -13,6 +13,7 @@
 
 - `index.html`：`Harris‘s Diablo 4` 前端入口，按暴雪官网式暗黑资料站结构组织首页和功能入口。
 - `public/`：前端样式、交互脚本、本地生成的英雄图和装备类型图标。
+- `docs/SYSTEM_DESIGN.md`：继续实现前的总控设计，定义页面、组件、数据契约、来源导入、AI 分析和验收标准。
 - `docs/PRODUCT_BLUEPRINT.md`：整体产品架构、页面组件、功能路径、数据存储和导入管线蓝图。
 - `data/metadata/version-baseline.json`：版本、日期和目标数据状态。
 - `data/sources/source-registry.json`：官方与社区来源登记，含可信度和用途。
@@ -21,7 +22,7 @@
 - `data/generated/d4builds-icon-index.json`：278 条唯一装备的第三方外部图标 URL 索引，不下载或提交图标文件。
 - `data/builds/`：职业流派原型和赛季开荒计划。
 - `data/generated/build-simulations.json`：未来三个赛季窗口的冲层、速刷、日常配装矩阵，用于 150 层速度参考页。
-- `data/generated/build-guides.json`：243 套结构化 BD 档案，覆盖三赛季、全职业、多流派和三种用途，含装备槽位、替换件、技能加点顺序、巅峰点击顺序、核心暗金/威能、打法和变体；其中 6 套已接入暗黑核或 Mobalytics 社区来源覆盖。
+- `data/generated/build-guides.json`：243 套结构化 BD 档案，覆盖三赛季、全职业、多流派和三种用途，含装备槽位、替换件、技能加点顺序、巅峰点击顺序、核心暗金/威能、打法和变体；其中 27 套 S14 BD 已接入暗黑核或 Mobalytics 社区来源覆盖，包含 18 套同赛季社区参考和 9 套跨赛季参考。
 - `scripts/lib/zh-localization.mjs`：中文显示层，给装备名、固定词缀、资源、来源、模型状态和赛季说明生成中文字段。
 - `data/features/feature-map.json`：攻略项目功能地图和当前状态。
 - `src/damage/calculate.js`：可解释的伤害期望值模型。
