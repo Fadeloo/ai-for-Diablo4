@@ -44,6 +44,8 @@ const state = {
   }
 };
 
+const relatedGuideCache = new Map();
+
 const statLabels = {
   weapon_damage: "武器伤害",
   primary_core_stat: "主属性",
@@ -111,6 +113,7 @@ const dataStatusLabels = {
   official_3_1_0_patch: "官方 3.1.0 补丁",
   needs_source_backfill: "待数据源回填",
   inferred_or_unknown: "推断或未知",
+  inferred_from_name_and_visual_type: "按名称和类型推断",
   external_url_reference: "外部地址引用"
 };
 
@@ -262,7 +265,8 @@ function equipmentClassLabel(item) {
 }
 
 function equipmentTypeLabel(item) {
-  return item.zhVisualType || item.visualType || "装备";
+  if (item.zhSlotCandidates?.length) return item.zhSlotCandidates.join(" / ");
+  return item.zhPrimarySlot || item.zhVisualType || item.visualType || "装备";
 }
 
 function versionLineLabel(value) {
@@ -507,11 +511,28 @@ function guideUsesItem(guide, item) {
   });
 }
 
-function relatedGuidesForItem(item, limit = 6) {
-  return allBuildGuides()
+function allRelatedGuidesForItem(item) {
+  if (!item?.id) return [];
+  if (relatedGuideCache.has(item.id)) return relatedGuideCache.get(item.id);
+  const guides = allBuildGuides()
     .filter((guide) => guideUsesItem(guide, item))
-    .sort(sortGuidesForPlayer)
-    .slice(0, limit);
+    .sort(sortGuidesForPlayer);
+  relatedGuideCache.set(item.id, guides);
+  return guides;
+}
+
+function relatedGuidesForItem(item, limit = 6) {
+  return allRelatedGuidesForItem(item).slice(0, limit);
+}
+
+function relatedGuideCount(item) {
+  return allRelatedGuidesForItem(item).length;
+}
+
+function sortEquipmentForPlayer(a, b) {
+  return relatedGuideCount(b) - relatedGuideCount(a)
+    || String(equipmentTypeLabel(a)).localeCompare(String(equipmentTypeLabel(b)), "zh-CN")
+    || String(itemName(a)).localeCompare(String(itemName(b)), "zh-CN");
 }
 
 function renderGuideMiniLinks(guides, emptyText) {
@@ -981,37 +1002,45 @@ function filteredEquipmentRows() {
         item.zhClassRestriction,
         item.visualType,
         item.zhVisualType,
+        item.primarySlot,
+        item.zhPrimarySlot,
+        (item.slotCandidates || []).join(" "),
+        (item.zhSlotCandidates || []).join(" "),
         item.buildRole,
         item.zhBuildRole,
         item.categories.join(" "),
         item.guaranteedAffixes.map(normalizeAffixName).join(" "),
         (item.zhGuaranteedAffixes ?? []).join(" ")
       ].join(" ").toLowerCase().includes(normalizedQuery);
-    });
+    })
+    .sort(sortEquipmentForPlayer);
 }
 
 function renderEquipment() {
   const filtered = filteredEquipmentRows();
   const rows = filtered.slice(0, state.equipmentFilters.visible);
   if (!filtered.some((item) => item.id === state.selectedEquipmentId)) {
-    state.selectedEquipmentId = rows[0]?.id ?? null;
+    state.selectedEquipmentId = rows.find((item) => relatedGuideCount(item) > 0)?.id ?? rows[0]?.id ?? null;
   }
   const selected = state.equipment.find((item) => item.id === state.selectedEquipmentId) ?? rows[0];
 
   $("[data-equipment-meta]").textContent =
-    `显示 ${rows.length} / ${filtered.length} 条，资料库总计 ${state.equipment.length} 条。点击左侧装备，右侧查看完整来源、用途、状态和词缀。`;
+    `显示 ${rows.length} / ${filtered.length} 条，资料库总计 ${state.equipment.length} 条。列表优先显示已进入 BD 的装备，点击后查看部位、词缀、来源和相关 BD。`;
   $("[data-equipment-results]").innerHTML = rows
-    .map((item) => `
+    .map((item) => {
+      const relatedCount = relatedGuideCount(item);
+      return `
       <button class="equipment-row" type="button" data-equipment-id="${item.id}" aria-selected="${item.id === selected?.id}">
         ${renderIcon(item, `${itemName(item)}图标`)}
         <span>
           <small>${equipmentClassLabel(item)} · ${equipmentTypeLabel(item)}</small>
           <strong>${itemName(item)}</strong>
-          <em>${item.zhBuildRole || item.buildRole} · ${(item.zhModeFit || item.modeFit).join(" / ")}</em>
+          <em>${item.zhBuildRole || item.buildRole} · ${(item.zhModeFit || item.modeFit).join(" / ")} · ${relatedCount} 套 BD</em>
         </span>
-        <b>查看</b>
+        <b>${relatedCount ? "关联" : "查看"}</b>
       </button>
-    `)
+    `;
+    })
     .join("");
   const moreButton = $("[data-equipment-more]");
   moreButton.hidden = rows.length >= filtered.length;
@@ -1066,6 +1095,18 @@ function renderEquipmentDetail(item) {
     <div class="tag-row">${(item.zhModeFit || item.modeFit).map((fit) => `<span>${fit}</span>`).join("")}</div>
     <section class="detail-section">
       <div class="section-title">
+        <h4>装备位置与用途</h4>
+        <span>${statusLabel(item.dataStatus?.slot)}</span>
+      </div>
+      <div class="equipment-info-grid">
+        <article><strong>推断部位</strong><span>${equipmentTypeLabel(item)}</span></article>
+        <article><strong>职业限制</strong><span>${equipmentClassLabel(item)}</span></article>
+        <article><strong>构筑用途</strong><span>${item.zhBuildRole || item.buildRole}</span></article>
+        <article><strong>适用场景</strong><span>${(item.zhModeFit || item.modeFit).join(" / ")}</span></article>
+      </div>
+    </section>
+    <section class="detail-section">
+      <div class="section-title">
         <h4>固定词缀</h4>
         <span>${item.guaranteedAffixes.length} 条</span>
       </div>
@@ -1081,7 +1122,7 @@ function renderEquipmentDetail(item) {
     <section class="detail-section">
       <div class="section-title">
         <h4>相关 BD</h4>
-        <span>${relatedGuides.length} 套</span>
+        <span>${relatedGuideCount(item)} 套</span>
       </div>
       ${renderGuideMiniLinks(relatedGuides, "当前装备还没有进入已结构化 BD；后续资料回填后会自动关联。")}
     </section>

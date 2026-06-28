@@ -86,7 +86,10 @@ assert(equipmentLibrary.items.every((item) => item.image && item.guaranteedAffix
 assert(equipmentLibrary.items.every((item) => item.zhName && !/[A-Za-z]/.test(item.zhName)), "Each equipment record needs a Chinese display name");
 assert(equipmentLibrary.items.every((item) => item.zhGuaranteedAffixes?.length === item.guaranteedAffixes.length), "Each equipment affix needs a Chinese display label");
 assert(equipmentLibrary.items.every((item) => item.zhGuaranteedAffixes.every((label) => !/[A-Za-z]/.test(label))), "Chinese affix labels must not contain English words");
-const suspiciousTransliteration = /[阿埃伊欧乌]{2,}|姆欧|特赫|克赫|恩欧|尔欧|布尔欧|弗尔|斯赫|格赫|德埃|赫埃|姆伊|普阿|斯乌|沃乌/;
+assert(equipmentLibrary.items.every((item) => item.primarySlot && item.zhPrimarySlot), "Each equipment record needs an inferred primary slot");
+assert(equipmentLibrary.items.every((item) => item.slotCandidates?.length >= 1 && item.zhSlotCandidates?.length === item.slotCandidates.length), "Each equipment record needs Chinese slot candidates");
+assert(equipmentLibrary.items.every((item) => item.dataStatus?.slot === "inferred_from_name_and_visual_type"), "Equipment slot status must disclose inferred source");
+const suspiciousTransliteration = /[阿埃伊欧乌]{2,}|姆欧|特赫|克赫|恩欧|尔欧|布尔欧|弗尔|斯赫|格赫|德埃|赫埃|姆伊|普阿|斯乌|沃乌|尔伊|埃恩|德伊|斯克埃|布尔埃|特欧|姆阿|弗伊|克埃|欧恩|乌恩|伊恩弗|赫欧|阿尔埃|维阿恩|恩阿兹|欧尔德|沃埃|沃伊/;
 assert(equipmentLibrary.items.every((item) => !suspiciousTransliteration.test(item.zhName)), "Equipment Chinese names should not contain obvious letter-by-letter transliteration residue");
 
 assert(iconIndex.source.usage === "external_url_reference_only_no_asset_download", "Icon index must store URLs only");

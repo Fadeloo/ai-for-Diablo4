@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T15:32:12.084Z",
+  "generatedAt": "2026-06-28T16:23:08.543Z",
   "scope": "next_three_season_build_and_pit150_prediction_matrix",
   "warning": "Predictions are model output, not facts. Update with live leaderboard and patch data after each season starts.",
   "zhWarning": "预测结果是模型输出，不是事实榜单。每个赛季上线后需要用真实冲层、速刷成绩和热修补丁继续校准。",
@@ -683,7 +683,7 @@
                 {
                   "id": "sabre-of-tsasgal",
                   "name": "Sabre of Tsasgal",
-                  "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                  "zhName": "塔斯加尔军刀",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sabre_of_tsasgal.png",
@@ -791,7 +791,7 @@
                     },
                     {
                       "id": "sabre-of-tsasgal",
-                      "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                      "zhName": "塔斯加尔军刀",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -867,7 +867,7 @@
                 {
                   "id": "sabre-of-tsasgal",
                   "name": "Sabre of Tsasgal",
-                  "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                  "zhName": "塔斯加尔军刀",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sabre_of_tsasgal.png",
@@ -975,7 +975,7 @@
                     },
                     {
                       "id": "sabre-of-tsasgal",
-                      "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                      "zhName": "塔斯加尔军刀",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -1050,7 +1050,7 @@
                 {
                   "id": "sabre-of-tsasgal",
                   "name": "Sabre of Tsasgal",
-                  "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                  "zhName": "塔斯加尔军刀",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sabre_of_tsasgal.png",
@@ -1156,7 +1156,7 @@
                     },
                     {
                       "id": "sabre-of-tsasgal",
-                      "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                      "zhName": "塔斯加尔军刀",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -1242,7 +1242,7 @@
                 {
                   "id": "sabre-of-tsasgal",
                   "name": "Sabre of Tsasgal",
-                  "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                  "zhName": "塔斯加尔军刀",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sabre_of_tsasgal.png",
@@ -1350,7 +1350,7 @@
                     },
                     {
                       "id": "sabre-of-tsasgal",
-                      "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                      "zhName": "塔斯加尔军刀",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -1426,7 +1426,7 @@
                 {
                   "id": "sabre-of-tsasgal",
                   "name": "Sabre of Tsasgal",
-                  "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                  "zhName": "塔斯加尔军刀",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sabre_of_tsasgal.png",
@@ -1534,7 +1534,7 @@
                     },
                     {
                       "id": "sabre-of-tsasgal",
-                      "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                      "zhName": "塔斯加尔军刀",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -1609,7 +1609,7 @@
                 {
                   "id": "sabre-of-tsasgal",
                   "name": "Sabre of Tsasgal",
-                  "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                  "zhName": "塔斯加尔军刀",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sabre_of_tsasgal.png",
@@ -1715,7 +1715,7 @@
                     },
                     {
                       "id": "sabre-of-tsasgal",
-                      "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                      "zhName": "塔斯加尔军刀",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -1830,7 +1830,7 @@
                 {
                   "id": "ifehs-dire-totem",
                   "name": "Ifeh's Dire Totem",
-                  "zhName": "伊弗埃赫恐怖特欧特埃姆",
+                  "zhName": "伊菲的恐怖图腾",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ifeh's_dire_totem.png",
@@ -1926,7 +1926,7 @@
                     },
                     {
                       "id": "ifehs-dire-totem",
-                      "zhName": "伊弗埃赫恐怖特欧特埃姆",
+                      "zhName": "伊菲的恐怖图腾",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 毒素伤害乘区。"
                     },
@@ -2011,7 +2011,7 @@
                 {
                   "id": "ifehs-dire-totem",
                   "name": "Ifeh's Dire Totem",
-                  "zhName": "伊弗埃赫恐怖特欧特埃姆",
+                  "zhName": "伊菲的恐怖图腾",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ifeh's_dire_totem.png",
@@ -2107,7 +2107,7 @@
                     },
                     {
                       "id": "ifehs-dire-totem",
-                      "zhName": "伊弗埃赫恐怖特欧特埃姆",
+                      "zhName": "伊菲的恐怖图腾",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 毒素伤害乘区。"
                     },
@@ -2192,7 +2192,7 @@
                 {
                   "id": "ifehs-dire-totem",
                   "name": "Ifeh's Dire Totem",
-                  "zhName": "伊弗埃赫恐怖特欧特埃姆",
+                  "zhName": "伊菲的恐怖图腾",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ifeh's_dire_totem.png",
@@ -2288,7 +2288,7 @@
                     },
                     {
                       "id": "ifehs-dire-totem",
-                      "zhName": "伊弗埃赫恐怖特欧特埃姆",
+                      "zhName": "伊菲的恐怖图腾",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 毒素伤害乘区。"
                     },
@@ -3503,7 +3503,7 @@
                 {
                   "id": "sanguivor-blade-of-zir",
                   "name": "Sanguivor, Blade of Zir",
-                  "zhName": "鲜血吞噬者刃齐尔",
+                  "zhName": "齐尔之刃·鲜血吞噬者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sanguivor,_blade_of_zir.png",
@@ -3599,7 +3599,7 @@
                     },
                     {
                       "id": "sanguivor-blade-of-zir",
-                      "zhName": "鲜血吞噬者刃齐尔",
+                      "zhName": "齐尔之刃·鲜血吞噬者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 物理伤害乘区。"
                     },
@@ -3684,7 +3684,7 @@
                 {
                   "id": "sanguivor-blade-of-zir",
                   "name": "Sanguivor, Blade of Zir",
-                  "zhName": "鲜血吞噬者刃齐尔",
+                  "zhName": "齐尔之刃·鲜血吞噬者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sanguivor,_blade_of_zir.png",
@@ -3780,7 +3780,7 @@
                     },
                     {
                       "id": "sanguivor-blade-of-zir",
-                      "zhName": "鲜血吞噬者刃齐尔",
+                      "zhName": "齐尔之刃·鲜血吞噬者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 物理伤害乘区。"
                     },
@@ -3865,7 +3865,7 @@
                 {
                   "id": "sanguivor-blade-of-zir",
                   "name": "Sanguivor, Blade of Zir",
-                  "zhName": "鲜血吞噬者刃齐尔",
+                  "zhName": "齐尔之刃·鲜血吞噬者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sanguivor,_blade_of_zir.png",
@@ -3961,7 +3961,7 @@
                     },
                     {
                       "id": "sanguivor-blade-of-zir",
-                      "zhName": "鲜血吞噬者刃齐尔",
+                      "zhName": "齐尔之刃·鲜血吞噬者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 物理伤害乘区。"
                     },
@@ -8522,7 +8522,7 @@
                 {
                   "id": "orsivane",
                   "name": "Orsivane",
-                  "zhName": "欧尔斯伊维阿恩埃",
+                  "zhName": "奥西维恩",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/orsivane.png",
@@ -8618,7 +8618,7 @@
                     },
                     {
                       "id": "orsivane",
-                      "zhName": "欧尔斯伊维阿恩埃",
+                      "zhName": "奥西维恩",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     },
@@ -8703,7 +8703,7 @@
                 {
                   "id": "orsivane",
                   "name": "Orsivane",
-                  "zhName": "欧尔斯伊维阿恩埃",
+                  "zhName": "奥西维恩",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/orsivane.png",
@@ -8799,7 +8799,7 @@
                     },
                     {
                       "id": "orsivane",
-                      "zhName": "欧尔斯伊维阿恩埃",
+                      "zhName": "奥西维恩",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     },
@@ -8884,7 +8884,7 @@
                 {
                   "id": "orsivane",
                   "name": "Orsivane",
-                  "zhName": "欧尔斯伊维阿恩埃",
+                  "zhName": "奥西维恩",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/orsivane.png",
@@ -8980,7 +8980,7 @@
                     },
                     {
                       "id": "orsivane",
-                      "zhName": "欧尔斯伊维阿恩埃",
+                      "zhName": "奥西维恩",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     },
@@ -9059,7 +9059,7 @@
                 {
                   "id": "fang-of-the-vipermagi",
                   "name": "Fang of the Vipermagi",
-                  "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                  "zhName": "蛇法师之牙",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/fang_of_the_vipermagi.png",
@@ -9165,7 +9165,7 @@
                     },
                     {
                       "id": "fang-of-the-vipermagi",
-                      "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                      "zhName": "蛇法师之牙",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -9240,7 +9240,7 @@
                 {
                   "id": "fang-of-the-vipermagi",
                   "name": "Fang of the Vipermagi",
-                  "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                  "zhName": "蛇法师之牙",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/fang_of_the_vipermagi.png",
@@ -9346,7 +9346,7 @@
                     },
                     {
                       "id": "fang-of-the-vipermagi",
-                      "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                      "zhName": "蛇法师之牙",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -9421,7 +9421,7 @@
                 {
                   "id": "fang-of-the-vipermagi",
                   "name": "Fang of the Vipermagi",
-                  "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                  "zhName": "蛇法师之牙",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/fang_of_the_vipermagi.png",
@@ -9527,7 +9527,7 @@
                     },
                     {
                       "id": "fang-of-the-vipermagi",
-                      "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                      "zhName": "蛇法师之牙",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -9612,7 +9612,7 @@
                 {
                   "id": "fang-of-the-vipermagi",
                   "name": "Fang of the Vipermagi",
-                  "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                  "zhName": "蛇法师之牙",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/fang_of_the_vipermagi.png",
@@ -9718,7 +9718,7 @@
                     },
                     {
                       "id": "fang-of-the-vipermagi",
-                      "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                      "zhName": "蛇法师之牙",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -9793,7 +9793,7 @@
                 {
                   "id": "fang-of-the-vipermagi",
                   "name": "Fang of the Vipermagi",
-                  "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                  "zhName": "蛇法师之牙",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/fang_of_the_vipermagi.png",
@@ -9899,7 +9899,7 @@
                     },
                     {
                       "id": "fang-of-the-vipermagi",
-                      "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                      "zhName": "蛇法师之牙",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -9974,7 +9974,7 @@
                 {
                   "id": "fang-of-the-vipermagi",
                   "name": "Fang of the Vipermagi",
-                  "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                  "zhName": "蛇法师之牙",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/fang_of_the_vipermagi.png",
@@ -10080,7 +10080,7 @@
                     },
                     {
                       "id": "fang-of-the-vipermagi",
-                      "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                      "zhName": "蛇法师之牙",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -12958,7 +12958,7 @@
                 {
                   "id": "scepter-of-the-three",
                   "name": "Scepter of the Three",
-                  "zhName": "斯克埃普特埃尔三",
+                  "zhName": "三者权杖",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/scepter_of_the_three.png",
@@ -13064,7 +13064,7 @@
                     },
                     {
                       "id": "scepter-of-the-three",
-                      "zhName": "斯克埃普特埃尔三",
+                      "zhName": "三者权杖",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -13139,7 +13139,7 @@
                 {
                   "id": "scepter-of-the-three",
                   "name": "Scepter of the Three",
-                  "zhName": "斯克埃普特埃尔三",
+                  "zhName": "三者权杖",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/scepter_of_the_three.png",
@@ -13245,7 +13245,7 @@
                     },
                     {
                       "id": "scepter-of-the-three",
-                      "zhName": "斯克埃普特埃尔三",
+                      "zhName": "三者权杖",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -13320,7 +13320,7 @@
                 {
                   "id": "scepter-of-the-three",
                   "name": "Scepter of the Three",
-                  "zhName": "斯克埃普特埃尔三",
+                  "zhName": "三者权杖",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/scepter_of_the_three.png",
@@ -13426,7 +13426,7 @@
                     },
                     {
                       "id": "scepter-of-the-three",
-                      "zhName": "斯克埃普特埃尔三",
+                      "zhName": "三者权杖",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -14085,7 +14085,7 @@
                 {
                   "id": "sabre-of-tsasgal",
                   "name": "Sabre of Tsasgal",
-                  "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                  "zhName": "塔斯加尔军刀",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sabre_of_tsasgal.png",
@@ -14193,7 +14193,7 @@
                     },
                     {
                       "id": "sabre-of-tsasgal",
-                      "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                      "zhName": "塔斯加尔军刀",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -14269,7 +14269,7 @@
                 {
                   "id": "sabre-of-tsasgal",
                   "name": "Sabre of Tsasgal",
-                  "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                  "zhName": "塔斯加尔军刀",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sabre_of_tsasgal.png",
@@ -14377,7 +14377,7 @@
                     },
                     {
                       "id": "sabre-of-tsasgal",
-                      "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                      "zhName": "塔斯加尔军刀",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -14452,7 +14452,7 @@
                 {
                   "id": "sabre-of-tsasgal",
                   "name": "Sabre of Tsasgal",
-                  "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                  "zhName": "塔斯加尔军刀",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sabre_of_tsasgal.png",
@@ -14558,7 +14558,7 @@
                     },
                     {
                       "id": "sabre-of-tsasgal",
-                      "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                      "zhName": "塔斯加尔军刀",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -14644,7 +14644,7 @@
                 {
                   "id": "sabre-of-tsasgal",
                   "name": "Sabre of Tsasgal",
-                  "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                  "zhName": "塔斯加尔军刀",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sabre_of_tsasgal.png",
@@ -14752,7 +14752,7 @@
                     },
                     {
                       "id": "sabre-of-tsasgal",
-                      "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                      "zhName": "塔斯加尔军刀",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -14828,7 +14828,7 @@
                 {
                   "id": "sabre-of-tsasgal",
                   "name": "Sabre of Tsasgal",
-                  "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                  "zhName": "塔斯加尔军刀",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sabre_of_tsasgal.png",
@@ -14936,7 +14936,7 @@
                     },
                     {
                       "id": "sabre-of-tsasgal",
-                      "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                      "zhName": "塔斯加尔军刀",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -15011,7 +15011,7 @@
                 {
                   "id": "sabre-of-tsasgal",
                   "name": "Sabre of Tsasgal",
-                  "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                  "zhName": "塔斯加尔军刀",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sabre_of_tsasgal.png",
@@ -15117,7 +15117,7 @@
                     },
                     {
                       "id": "sabre-of-tsasgal",
-                      "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                      "zhName": "塔斯加尔军刀",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -15232,7 +15232,7 @@
                 {
                   "id": "ifehs-dire-totem",
                   "name": "Ifeh's Dire Totem",
-                  "zhName": "伊弗埃赫恐怖特欧特埃姆",
+                  "zhName": "伊菲的恐怖图腾",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ifeh's_dire_totem.png",
@@ -15328,7 +15328,7 @@
                     },
                     {
                       "id": "ifehs-dire-totem",
-                      "zhName": "伊弗埃赫恐怖特欧特埃姆",
+                      "zhName": "伊菲的恐怖图腾",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 毒素伤害乘区。"
                     },
@@ -15413,7 +15413,7 @@
                 {
                   "id": "ifehs-dire-totem",
                   "name": "Ifeh's Dire Totem",
-                  "zhName": "伊弗埃赫恐怖特欧特埃姆",
+                  "zhName": "伊菲的恐怖图腾",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ifeh's_dire_totem.png",
@@ -15509,7 +15509,7 @@
                     },
                     {
                       "id": "ifehs-dire-totem",
-                      "zhName": "伊弗埃赫恐怖特欧特埃姆",
+                      "zhName": "伊菲的恐怖图腾",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 毒素伤害乘区。"
                     },
@@ -15594,7 +15594,7 @@
                 {
                   "id": "ifehs-dire-totem",
                   "name": "Ifeh's Dire Totem",
-                  "zhName": "伊弗埃赫恐怖特欧特埃姆",
+                  "zhName": "伊菲的恐怖图腾",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ifeh's_dire_totem.png",
@@ -15690,7 +15690,7 @@
                     },
                     {
                       "id": "ifehs-dire-totem",
-                      "zhName": "伊弗埃赫恐怖特欧特埃姆",
+                      "zhName": "伊菲的恐怖图腾",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 毒素伤害乘区。"
                     },
@@ -16905,7 +16905,7 @@
                 {
                   "id": "sanguivor-blade-of-zir",
                   "name": "Sanguivor, Blade of Zir",
-                  "zhName": "鲜血吞噬者刃齐尔",
+                  "zhName": "齐尔之刃·鲜血吞噬者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sanguivor,_blade_of_zir.png",
@@ -17001,7 +17001,7 @@
                     },
                     {
                       "id": "sanguivor-blade-of-zir",
-                      "zhName": "鲜血吞噬者刃齐尔",
+                      "zhName": "齐尔之刃·鲜血吞噬者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 物理伤害乘区。"
                     },
@@ -17086,7 +17086,7 @@
                 {
                   "id": "sanguivor-blade-of-zir",
                   "name": "Sanguivor, Blade of Zir",
-                  "zhName": "鲜血吞噬者刃齐尔",
+                  "zhName": "齐尔之刃·鲜血吞噬者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sanguivor,_blade_of_zir.png",
@@ -17182,7 +17182,7 @@
                     },
                     {
                       "id": "sanguivor-blade-of-zir",
-                      "zhName": "鲜血吞噬者刃齐尔",
+                      "zhName": "齐尔之刃·鲜血吞噬者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 物理伤害乘区。"
                     },
@@ -17267,7 +17267,7 @@
                 {
                   "id": "sanguivor-blade-of-zir",
                   "name": "Sanguivor, Blade of Zir",
-                  "zhName": "鲜血吞噬者刃齐尔",
+                  "zhName": "齐尔之刃·鲜血吞噬者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sanguivor,_blade_of_zir.png",
@@ -17363,7 +17363,7 @@
                     },
                     {
                       "id": "sanguivor-blade-of-zir",
-                      "zhName": "鲜血吞噬者刃齐尔",
+                      "zhName": "齐尔之刃·鲜血吞噬者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 物理伤害乘区。"
                     },
@@ -21924,7 +21924,7 @@
                 {
                   "id": "orsivane",
                   "name": "Orsivane",
-                  "zhName": "欧尔斯伊维阿恩埃",
+                  "zhName": "奥西维恩",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/orsivane.png",
@@ -22020,7 +22020,7 @@
                     },
                     {
                       "id": "orsivane",
-                      "zhName": "欧尔斯伊维阿恩埃",
+                      "zhName": "奥西维恩",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     },
@@ -22105,7 +22105,7 @@
                 {
                   "id": "orsivane",
                   "name": "Orsivane",
-                  "zhName": "欧尔斯伊维阿恩埃",
+                  "zhName": "奥西维恩",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/orsivane.png",
@@ -22201,7 +22201,7 @@
                     },
                     {
                       "id": "orsivane",
-                      "zhName": "欧尔斯伊维阿恩埃",
+                      "zhName": "奥西维恩",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     },
@@ -22286,7 +22286,7 @@
                 {
                   "id": "orsivane",
                   "name": "Orsivane",
-                  "zhName": "欧尔斯伊维阿恩埃",
+                  "zhName": "奥西维恩",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/orsivane.png",
@@ -22382,7 +22382,7 @@
                     },
                     {
                       "id": "orsivane",
-                      "zhName": "欧尔斯伊维阿恩埃",
+                      "zhName": "奥西维恩",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     },
@@ -22461,7 +22461,7 @@
                 {
                   "id": "fang-of-the-vipermagi",
                   "name": "Fang of the Vipermagi",
-                  "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                  "zhName": "蛇法师之牙",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/fang_of_the_vipermagi.png",
@@ -22567,7 +22567,7 @@
                     },
                     {
                       "id": "fang-of-the-vipermagi",
-                      "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                      "zhName": "蛇法师之牙",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -22642,7 +22642,7 @@
                 {
                   "id": "fang-of-the-vipermagi",
                   "name": "Fang of the Vipermagi",
-                  "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                  "zhName": "蛇法师之牙",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/fang_of_the_vipermagi.png",
@@ -22748,7 +22748,7 @@
                     },
                     {
                       "id": "fang-of-the-vipermagi",
-                      "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                      "zhName": "蛇法师之牙",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -22823,7 +22823,7 @@
                 {
                   "id": "fang-of-the-vipermagi",
                   "name": "Fang of the Vipermagi",
-                  "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                  "zhName": "蛇法师之牙",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/fang_of_the_vipermagi.png",
@@ -22929,7 +22929,7 @@
                     },
                     {
                       "id": "fang-of-the-vipermagi",
-                      "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                      "zhName": "蛇法师之牙",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -23014,7 +23014,7 @@
                 {
                   "id": "fang-of-the-vipermagi",
                   "name": "Fang of the Vipermagi",
-                  "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                  "zhName": "蛇法师之牙",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/fang_of_the_vipermagi.png",
@@ -23120,7 +23120,7 @@
                     },
                     {
                       "id": "fang-of-the-vipermagi",
-                      "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                      "zhName": "蛇法师之牙",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -23195,7 +23195,7 @@
                 {
                   "id": "fang-of-the-vipermagi",
                   "name": "Fang of the Vipermagi",
-                  "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                  "zhName": "蛇法师之牙",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/fang_of_the_vipermagi.png",
@@ -23301,7 +23301,7 @@
                     },
                     {
                       "id": "fang-of-the-vipermagi",
-                      "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                      "zhName": "蛇法师之牙",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -23376,7 +23376,7 @@
                 {
                   "id": "fang-of-the-vipermagi",
                   "name": "Fang of the Vipermagi",
-                  "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                  "zhName": "蛇法师之牙",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/fang_of_the_vipermagi.png",
@@ -23482,7 +23482,7 @@
                     },
                     {
                       "id": "fang-of-the-vipermagi",
-                      "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                      "zhName": "蛇法师之牙",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -26360,7 +26360,7 @@
                 {
                   "id": "scepter-of-the-three",
                   "name": "Scepter of the Three",
-                  "zhName": "斯克埃普特埃尔三",
+                  "zhName": "三者权杖",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/scepter_of_the_three.png",
@@ -26466,7 +26466,7 @@
                     },
                     {
                       "id": "scepter-of-the-three",
-                      "zhName": "斯克埃普特埃尔三",
+                      "zhName": "三者权杖",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -26541,7 +26541,7 @@
                 {
                   "id": "scepter-of-the-three",
                   "name": "Scepter of the Three",
-                  "zhName": "斯克埃普特埃尔三",
+                  "zhName": "三者权杖",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/scepter_of_the_three.png",
@@ -26647,7 +26647,7 @@
                     },
                     {
                       "id": "scepter-of-the-three",
-                      "zhName": "斯克埃普特埃尔三",
+                      "zhName": "三者权杖",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -26722,7 +26722,7 @@
                 {
                   "id": "scepter-of-the-three",
                   "name": "Scepter of the Three",
-                  "zhName": "斯克埃普特埃尔三",
+                  "zhName": "三者权杖",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/scepter_of_the_three.png",
@@ -26828,7 +26828,7 @@
                     },
                     {
                       "id": "scepter-of-the-three",
-                      "zhName": "斯克埃普特埃尔三",
+                      "zhName": "三者权杖",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -27487,7 +27487,7 @@
                 {
                   "id": "sabre-of-tsasgal",
                   "name": "Sabre of Tsasgal",
-                  "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                  "zhName": "塔斯加尔军刀",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sabre_of_tsasgal.png",
@@ -27595,7 +27595,7 @@
                     },
                     {
                       "id": "sabre-of-tsasgal",
-                      "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                      "zhName": "塔斯加尔军刀",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -27671,7 +27671,7 @@
                 {
                   "id": "sabre-of-tsasgal",
                   "name": "Sabre of Tsasgal",
-                  "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                  "zhName": "塔斯加尔军刀",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sabre_of_tsasgal.png",
@@ -27779,7 +27779,7 @@
                     },
                     {
                       "id": "sabre-of-tsasgal",
-                      "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                      "zhName": "塔斯加尔军刀",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -27854,7 +27854,7 @@
                 {
                   "id": "sabre-of-tsasgal",
                   "name": "Sabre of Tsasgal",
-                  "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                  "zhName": "塔斯加尔军刀",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sabre_of_tsasgal.png",
@@ -27960,7 +27960,7 @@
                     },
                     {
                       "id": "sabre-of-tsasgal",
-                      "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                      "zhName": "塔斯加尔军刀",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -28046,7 +28046,7 @@
                 {
                   "id": "sabre-of-tsasgal",
                   "name": "Sabre of Tsasgal",
-                  "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                  "zhName": "塔斯加尔军刀",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sabre_of_tsasgal.png",
@@ -28154,7 +28154,7 @@
                     },
                     {
                       "id": "sabre-of-tsasgal",
-                      "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                      "zhName": "塔斯加尔军刀",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -28230,7 +28230,7 @@
                 {
                   "id": "sabre-of-tsasgal",
                   "name": "Sabre of Tsasgal",
-                  "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                  "zhName": "塔斯加尔军刀",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sabre_of_tsasgal.png",
@@ -28338,7 +28338,7 @@
                     },
                     {
                       "id": "sabre-of-tsasgal",
-                      "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                      "zhName": "塔斯加尔军刀",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -28413,7 +28413,7 @@
                 {
                   "id": "sabre-of-tsasgal",
                   "name": "Sabre of Tsasgal",
-                  "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                  "zhName": "塔斯加尔军刀",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sabre_of_tsasgal.png",
@@ -28519,7 +28519,7 @@
                     },
                     {
                       "id": "sabre-of-tsasgal",
-                      "zhName": "斯阿布尔埃特斯阿斯格阿尔",
+                      "zhName": "塔斯加尔军刀",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -28634,7 +28634,7 @@
                 {
                   "id": "ifehs-dire-totem",
                   "name": "Ifeh's Dire Totem",
-                  "zhName": "伊弗埃赫恐怖特欧特埃姆",
+                  "zhName": "伊菲的恐怖图腾",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ifeh's_dire_totem.png",
@@ -28730,7 +28730,7 @@
                     },
                     {
                       "id": "ifehs-dire-totem",
-                      "zhName": "伊弗埃赫恐怖特欧特埃姆",
+                      "zhName": "伊菲的恐怖图腾",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 毒素伤害乘区。"
                     },
@@ -28815,7 +28815,7 @@
                 {
                   "id": "ifehs-dire-totem",
                   "name": "Ifeh's Dire Totem",
-                  "zhName": "伊弗埃赫恐怖特欧特埃姆",
+                  "zhName": "伊菲的恐怖图腾",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ifeh's_dire_totem.png",
@@ -28911,7 +28911,7 @@
                     },
                     {
                       "id": "ifehs-dire-totem",
-                      "zhName": "伊弗埃赫恐怖特欧特埃姆",
+                      "zhName": "伊菲的恐怖图腾",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 毒素伤害乘区。"
                     },
@@ -28996,7 +28996,7 @@
                 {
                   "id": "ifehs-dire-totem",
                   "name": "Ifeh's Dire Totem",
-                  "zhName": "伊弗埃赫恐怖特欧特埃姆",
+                  "zhName": "伊菲的恐怖图腾",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ifeh's_dire_totem.png",
@@ -29092,7 +29092,7 @@
                     },
                     {
                       "id": "ifehs-dire-totem",
-                      "zhName": "伊弗埃赫恐怖特欧特埃姆",
+                      "zhName": "伊菲的恐怖图腾",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 毒素伤害乘区。"
                     },
@@ -30307,7 +30307,7 @@
                 {
                   "id": "sanguivor-blade-of-zir",
                   "name": "Sanguivor, Blade of Zir",
-                  "zhName": "鲜血吞噬者刃齐尔",
+                  "zhName": "齐尔之刃·鲜血吞噬者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sanguivor,_blade_of_zir.png",
@@ -30403,7 +30403,7 @@
                     },
                     {
                       "id": "sanguivor-blade-of-zir",
-                      "zhName": "鲜血吞噬者刃齐尔",
+                      "zhName": "齐尔之刃·鲜血吞噬者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 物理伤害乘区。"
                     },
@@ -30488,7 +30488,7 @@
                 {
                   "id": "sanguivor-blade-of-zir",
                   "name": "Sanguivor, Blade of Zir",
-                  "zhName": "鲜血吞噬者刃齐尔",
+                  "zhName": "齐尔之刃·鲜血吞噬者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sanguivor,_blade_of_zir.png",
@@ -30584,7 +30584,7 @@
                     },
                     {
                       "id": "sanguivor-blade-of-zir",
-                      "zhName": "鲜血吞噬者刃齐尔",
+                      "zhName": "齐尔之刃·鲜血吞噬者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 物理伤害乘区。"
                     },
@@ -30669,7 +30669,7 @@
                 {
                   "id": "sanguivor-blade-of-zir",
                   "name": "Sanguivor, Blade of Zir",
-                  "zhName": "鲜血吞噬者刃齐尔",
+                  "zhName": "齐尔之刃·鲜血吞噬者",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/sanguivor,_blade_of_zir.png",
@@ -30765,7 +30765,7 @@
                     },
                     {
                       "id": "sanguivor-blade-of-zir",
-                      "zhName": "鲜血吞噬者刃齐尔",
+                      "zhName": "齐尔之刃·鲜血吞噬者",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 物理伤害乘区。"
                     },
@@ -35326,7 +35326,7 @@
                 {
                   "id": "orsivane",
                   "name": "Orsivane",
-                  "zhName": "欧尔斯伊维阿恩埃",
+                  "zhName": "奥西维恩",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/orsivane.png",
@@ -35422,7 +35422,7 @@
                     },
                     {
                       "id": "orsivane",
-                      "zhName": "欧尔斯伊维阿恩埃",
+                      "zhName": "奥西维恩",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     },
@@ -35507,7 +35507,7 @@
                 {
                   "id": "orsivane",
                   "name": "Orsivane",
-                  "zhName": "欧尔斯伊维阿恩埃",
+                  "zhName": "奥西维恩",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/orsivane.png",
@@ -35603,7 +35603,7 @@
                     },
                     {
                       "id": "orsivane",
-                      "zhName": "欧尔斯伊维阿恩埃",
+                      "zhName": "奥西维恩",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     },
@@ -35688,7 +35688,7 @@
                 {
                   "id": "orsivane",
                   "name": "Orsivane",
-                  "zhName": "欧尔斯伊维阿恩埃",
+                  "zhName": "奥西维恩",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/orsivane.png",
@@ -35784,7 +35784,7 @@
                     },
                     {
                       "id": "orsivane",
-                      "zhName": "欧尔斯伊维阿恩埃",
+                      "zhName": "奥西维恩",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 全伤害乘区。"
                     },
@@ -35863,7 +35863,7 @@
                 {
                   "id": "fang-of-the-vipermagi",
                   "name": "Fang of the Vipermagi",
-                  "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                  "zhName": "蛇法师之牙",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/fang_of_the_vipermagi.png",
@@ -35969,7 +35969,7 @@
                     },
                     {
                       "id": "fang-of-the-vipermagi",
-                      "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                      "zhName": "蛇法师之牙",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -36044,7 +36044,7 @@
                 {
                   "id": "fang-of-the-vipermagi",
                   "name": "Fang of the Vipermagi",
-                  "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                  "zhName": "蛇法师之牙",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/fang_of_the_vipermagi.png",
@@ -36150,7 +36150,7 @@
                     },
                     {
                       "id": "fang-of-the-vipermagi",
-                      "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                      "zhName": "蛇法师之牙",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -36225,7 +36225,7 @@
                 {
                   "id": "fang-of-the-vipermagi",
                   "name": "Fang of the Vipermagi",
-                  "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                  "zhName": "蛇法师之牙",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/fang_of_the_vipermagi.png",
@@ -36331,7 +36331,7 @@
                     },
                     {
                       "id": "fang-of-the-vipermagi",
-                      "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                      "zhName": "蛇法师之牙",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -36416,7 +36416,7 @@
                 {
                   "id": "fang-of-the-vipermagi",
                   "name": "Fang of the Vipermagi",
-                  "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                  "zhName": "蛇法师之牙",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/fang_of_the_vipermagi.png",
@@ -36522,7 +36522,7 @@
                     },
                     {
                       "id": "fang-of-the-vipermagi",
-                      "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                      "zhName": "蛇法师之牙",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -36597,7 +36597,7 @@
                 {
                   "id": "fang-of-the-vipermagi",
                   "name": "Fang of the Vipermagi",
-                  "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                  "zhName": "蛇法师之牙",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/fang_of_the_vipermagi.png",
@@ -36703,7 +36703,7 @@
                     },
                     {
                       "id": "fang-of-the-vipermagi",
-                      "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                      "zhName": "蛇法师之牙",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -36778,7 +36778,7 @@
                 {
                   "id": "fang-of-the-vipermagi",
                   "name": "Fang of the Vipermagi",
-                  "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                  "zhName": "蛇法师之牙",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/fang_of_the_vipermagi.png",
@@ -36884,7 +36884,7 @@
                     },
                     {
                       "id": "fang-of-the-vipermagi",
-                      "zhName": "弗阿恩格维伊普埃尔姆阿格伊",
+                      "zhName": "蛇法师之牙",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 冷却时间缩减。"
                     },
@@ -39762,7 +39762,7 @@
                 {
                   "id": "scepter-of-the-three",
                   "name": "Scepter of the Three",
-                  "zhName": "斯克埃普特埃尔三",
+                  "zhName": "三者权杖",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/scepter_of_the_three.png",
@@ -39868,7 +39868,7 @@
                     },
                     {
                       "id": "scepter-of-the-three",
-                      "zhName": "斯克埃普特埃尔三",
+                      "zhName": "三者权杖",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -39943,7 +39943,7 @@
                 {
                   "id": "scepter-of-the-three",
                   "name": "Scepter of the Three",
-                  "zhName": "斯克埃普特埃尔三",
+                  "zhName": "三者权杖",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/scepter_of_the_three.png",
@@ -40049,7 +40049,7 @@
                     },
                     {
                       "id": "scepter-of-the-three",
-                      "zhName": "斯克埃普特埃尔三",
+                      "zhName": "三者权杖",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -40124,7 +40124,7 @@
                 {
                   "id": "scepter-of-the-three",
                   "name": "Scepter of the Three",
-                  "zhName": "斯克埃普特埃尔三",
+                  "zhName": "三者权杖",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/scepter_of_the_three.png",
@@ -40230,7 +40230,7 @@
                     },
                     {
                       "id": "scepter-of-the-three",
-                      "zhName": "斯克埃普特埃尔三",
+                      "zhName": "三者权杖",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },

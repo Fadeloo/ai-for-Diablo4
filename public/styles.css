@@ -1551,6 +1551,33 @@ h4 {
   margin: 8px 0 0;
 }
 
+.equipment-info-grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.equipment-info-grid article {
+  background: rgba(12, 7, 5, 0.52);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  padding: 10px;
+}
+
+.equipment-info-grid strong {
+  color: var(--gold);
+  font-size: 12px;
+}
+
+.equipment-info-grid span {
+  color: var(--bone);
+  font-size: 13px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
 .affix-list {
   display: grid;
   gap: 10px;
@@ -2057,6 +2084,7 @@ h4 {
   .gameplay-grid,
   .variant-grid,
   .source-status-grid,
+  .equipment-info-grid,
   .status-grid,
   .damage-lab,
   .forecast-header,

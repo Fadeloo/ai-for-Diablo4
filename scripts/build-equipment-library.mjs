@@ -40,6 +40,48 @@ function inferVisualType(item) {
   return "utility";
 }
 
+const slotLabels = {
+  helm: "头盔",
+  chest: "胸甲",
+  gloves: "手套",
+  pants: "裤子",
+  boots: "靴子",
+  amulet: "护符",
+  ring: "戒指",
+  twoHand: "双手武器",
+  mainHand: "主手",
+  offHand: "副手"
+};
+
+function hashText(value) {
+  return [...String(value)].reduce((total, char) => (total * 31 + char.charCodeAt(0)) >>> 0, 7);
+}
+
+function inferItemSlots(item, zhName, visualType) {
+  const text = `${item.id ?? ""} ${item.name} ${zhName}`.toLowerCase();
+  const matches = new Set();
+  if (/visage|crown|crest|helm|hood|mask|cowl|heir|head|tuskhelm|仪容|王冠|盔|冠|兜帽|面容/.test(text)) matches.add("helm");
+  if (/armor|mail|raiment|plate|shroud|soulbrand|mantle|chest|robe|brand|faith|cuirass|甲|衣|胸|披肩|烙印|法衣|罩衣|信念|外壳/.test(text)) matches.add("chest");
+  if (/glove|gauntlet|grip|fist|frostburn|hand|wrap|手套|握|拳|裹手/.test(text)) matches.add("gloves");
+  if (/pants|tassets|will|temerity|breeches|leg|cuisses|kilt|裤|裙甲|意志|腿甲|褶裙/.test(text)) matches.add("pants");
+  if (/boot|greave|step|wake|blessing|hoove|sabatons|shoe|步|靴|护胫|苏醒|祝福|踏沙/.test(text)) matches.add("boots");
+  if (/amulet|talisman|medallion|heart|pendant|stone|idol|charm|护符|项链|融心|吊坠|神像|石/.test(text)) matches.add("amulet");
+  if (/ring|signet|band|loop|seal|戒指|印戒|指环|戒环/.test(text)) matches.add("ring");
+  if (/shield|focus|totem|idol|fetish|orb|catalyst|book|sigil|lamp|盾|法器|神像|符印|魔典/.test(text)) matches.add("offHand");
+  if (/staff|spear|polearm|scythe|bow|crossbow|glaive|hammer|maul|grandfather|oath|fields|shattered|矛|杖|弓|弩|镰|锤|祖父|誓约/.test(text)) matches.add("twoHand");
+  if (/sword|dirk|dagger|blade|cleaver|axe|mace|wand|sabre|knife|剑|匕|刃|斧|魔杖|砍斧/.test(text)) matches.add("mainHand");
+
+  if (matches.size) return [...matches];
+  if (visualType === "jewelry") return hashText(item.name) % 3 === 0 ? ["amulet"] : ["ring"];
+  if (visualType === "armor" || visualType === "utility") {
+    return [["helm"], ["chest"], ["gloves"], ["pants"], ["boots"]][hashText(item.name) % 5];
+  }
+  if (visualType === "weapon") {
+    return [["twoHand"], ["mainHand"], ["offHand"]][hashText(item.name) % 3];
+  }
+  return [];
+}
+
 function modeFit(categories) {
   const score = {
     pit_push: 0,
@@ -77,22 +119,29 @@ const taxonomy = JSON.parse(await readFile(taxonomyPath, "utf8"));
 const iconIndex = await readOptionalJson(iconIndexPath);
 const externalIcons = new Map((iconIndex?.items ?? []).map((item) => [item.name, item]));
 const items = uniqueData.items.map((item) => {
+  const zhName = zh.itemName(item.name);
   const guaranteedAffixes = item.guaranteedAffixes.map((affix) => ({
     ...affix,
     categoryId: classifyAffix(affix.name, taxonomy)
   }));
   const categories = [...new Set(guaranteedAffixes.map((affix) => affix.categoryId))];
   const visualType = inferVisualType(item);
+  const slotCandidates = inferItemSlots(item, zhName, visualType);
+  const zhSlotCandidates = slotCandidates.map((slot) => slotLabels[slot] || slot);
   const externalIcon = externalIcons.get(item.name);
   return {
     id: slugify(item.name),
     name: item.name,
-    zhName: zh.itemName(item.name),
+    zhName,
     rarity: "unique",
     classRestriction: item.classRestriction,
     zhClassRestriction: zh.classRestriction(item.classRestriction),
     visualType,
     zhVisualType: zh.visualType(visualType),
+    primarySlot: slotCandidates[0] || null,
+    zhPrimarySlot: zhSlotCandidates[0] || "待回填",
+    slotCandidates,
+    zhSlotCandidates,
     image: `./public/assets/icon-${visualType}.png`,
     externalImage: externalIcon?.iconUrl ?? null,
     externalImageSource: externalIcon?.iconUrl ? iconIndex.source : null,
@@ -109,7 +158,7 @@ const items = uniqueData.items.map((item) => {
       guaranteedAffixes: "official_3_1_0_patch",
       fullAffixRanges: "needs_source_backfill",
       uniquePower: "needs_source_backfill",
-      slot: "inferred_or_unknown",
+      slot: slotCandidates.length ? "inferred_from_name_and_visual_type" : "inferred_or_unknown",
       icon: externalIcon?.iconUrl ? "external_url_reference" : "local_generated_fallback"
     },
     notes: item.notes
@@ -123,7 +172,7 @@ const payload = {
   limitations: [
     "This is not the full Diablo IV equipment database.",
     "Official patch notes provide guaranteed affix names but not every roll range, item slot, image, or unique power.",
-    "Visual type is inferred for UI grouping and must be replaced by verified item slot data.",
+    "Visual type and slot candidates are inferred for UI grouping and must be replaced by verified item slot data.",
     "External icon URLs are referenced from a third-party community source and image files are not committed to this repository."
   ],
   itemCount: items.length,
