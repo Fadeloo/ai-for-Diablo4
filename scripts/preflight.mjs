@@ -10,10 +10,19 @@ const REQUIRED_FILES = [
   "public/styles.css",
   "public/app.js",
   "public/assets/hero-sanctuary.png",
+  "public/assets/icon-weapon.png",
+  "public/assets/icon-armor.png",
+  "public/assets/icon-jewelry.png",
+  "public/assets/icon-utility.png",
   "data/metadata/version-baseline.json",
   "data/sources/source-registry.json",
   "data/classes/classes.json",
+  "data/equipment/equipment-library.json",
+  "data/generated/build-simulations.json",
   "src/damage/calculate.js",
+  "scripts/build-equipment-library.mjs",
+  "scripts/generate-build-simulations.mjs",
+  "scripts/create-item-icons.mjs",
   "scripts/verify.mjs"
 ];
 

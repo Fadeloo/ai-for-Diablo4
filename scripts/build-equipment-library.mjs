@@ -1,0 +1,111 @@
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
+
+const root = path.resolve(new URL(".", import.meta.url).pathname, "..");
+const uniquePath = path.join(root, "data/generated/official-3.1.0-guaranteed-unique-affixes.json");
+const taxonomyPath = path.join(root, "data/equipment/affix-taxonomy.json");
+const output = path.join(root, "data/equipment/equipment-library.json");
+
+function slugify(value) {
+  return value
+    .toLowerCase()
+    .replace(/['’]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function classifyAffix(name, taxonomy) {
+  const rule = taxonomy.rules.find((item) => {
+    if (item.match && item.match === name) return true;
+    if (item.matchPrefix && name.startsWith(item.matchPrefix)) return true;
+    if (item.matchSuffix && name.endsWith(item.matchSuffix)) return true;
+    return false;
+  });
+  return rule?.categoryId ?? "uncategorized";
+}
+
+function inferVisualType(item) {
+  const text = `${item.name} ${item.guaranteedAffixes.map((affix) => affix.name).join(" ")}`.toLowerCase();
+  if (text.includes("weapon damage") || /(sword|staff|dirk|cleaver|blade|spear|mace|glaive|reaver|hammer|wand|bow)/.test(text)) {
+    return "weapon";
+  }
+  if (/(ring|talisman|amulet|signet|seal|band|loop|heart|idol|stone|eye)/.test(text)) {
+    return "jewelry";
+  }
+  if (/(helm|crown|visage|gauntlet|grip|glove|pants|tassets|boots|greaves|sabatons|chest|mail|mantle|raiment|shroud|brand|cowl|bindings|carapace)/.test(text)) {
+    return "armor";
+  }
+  return "utility";
+}
+
+function modeFit(categories) {
+  const score = {
+    pit_push: 0,
+    speed_farm: 0,
+    daily: 0
+  };
+  for (const category of categories) {
+    if (["weapon_damage", "all_damage_multiplier", "elemental_damage_multiplier", "critical_strike", "vulnerable", "overpower"].includes(category)) score.pit_push += 2;
+    if (["attack_speed", "mobility", "cooldown_reduction", "resource", "lucky_hit"].includes(category)) score.speed_farm += 2;
+    if (["survivability", "resource", "mobility", "skill_rank"].includes(category)) score.daily += 2;
+  }
+  return Object.entries(score)
+    .sort((a, b) => b[1] - a[1])
+    .map(([mode]) => mode);
+}
+
+function buildRole(categories) {
+  if (categories.includes("weapon_damage") || categories.includes("all_damage_multiplier")) return "damage_core";
+  if (categories.includes("survivability")) return "defense_core";
+  if (categories.includes("resource") || categories.includes("cooldown_reduction")) return "rotation_core";
+  if (categories.includes("mobility") || categories.includes("attack_speed")) return "farm_speed";
+  return "specialized";
+}
+
+const uniqueData = JSON.parse(await readFile(uniquePath, "utf8"));
+const taxonomy = JSON.parse(await readFile(taxonomyPath, "utf8"));
+const items = uniqueData.items.map((item) => {
+  const guaranteedAffixes = item.guaranteedAffixes.map((affix) => ({
+    ...affix,
+    categoryId: classifyAffix(affix.name, taxonomy)
+  }));
+  const categories = [...new Set(guaranteedAffixes.map((affix) => affix.categoryId))];
+  const visualType = inferVisualType(item);
+  return {
+    id: slugify(item.name),
+    name: item.name,
+    rarity: "unique",
+    classRestriction: item.classRestriction,
+    visualType,
+    image: `./public/assets/icon-${visualType}.png`,
+    guaranteedAffixes,
+    categories,
+    buildRole: buildRole(categories),
+    modeFit: modeFit(categories),
+    source: uniqueData.source,
+    dataStatus: {
+      guaranteedAffixes: "official_3_1_0_patch",
+      fullAffixRanges: "needs_source_backfill",
+      uniquePower: "needs_source_backfill",
+      slot: "inferred_or_unknown"
+    },
+    notes: item.notes
+  };
+});
+
+const payload = {
+  generatedAt: new Date().toISOString(),
+  source: uniqueData.source,
+  scope: "equipment_library_seed_from_official_unique_guaranteed_affixes",
+  limitations: [
+    "This is not the full Diablo IV equipment database.",
+    "Official patch notes provide guaranteed affix names but not every roll range, item slot, image, or unique power.",
+    "Visual type is inferred for UI grouping and must be replaced by verified item slot data."
+  ],
+  itemCount: items.length,
+  items
+};
+
+await mkdir(path.dirname(output), { recursive: true });
+await writeFile(output, `${JSON.stringify(payload, null, 2)}\n`);
+console.log(`Wrote ${items.length} equipment records to ${path.relative(root, output)}`);

@@ -21,6 +21,8 @@ const archetypes = await readJson("data/builds/archetypes.json");
 const seasonPlans = await readJson("data/builds/season-start-plans.json");
 const sources = await readJson("data/sources/source-registry.json");
 const features = await readJson("data/features/feature-map.json");
+const equipmentLibrary = await readJson("data/equipment/equipment-library.json");
+const simulations = await readJson("data/generated/build-simulations.json");
 
 assert(version.effectiveLiveVersion.patch === "3.0.4", "Expected live patch 3.0.4");
 assert(version.publishedUpcomingVersion.patch === "3.1.0", "Expected upcoming patch 3.1.0");
@@ -52,6 +54,23 @@ assert(features.length >= 8, "Feature map should cover core guide modules");
 assert(features.some((feature) => feature.id === "equipment_database"), "Feature map must include equipment database");
 assert(features.some((feature) => feature.id === "damage_calculation"), "Feature map must include damage calculation");
 
+assert(equipmentLibrary.scope === "equipment_library_seed_from_official_unique_guaranteed_affixes", "Equipment library scope mismatch");
+assert(equipmentLibrary.itemCount === equipmentLibrary.items.length, "Equipment item count mismatch");
+assert(equipmentLibrary.itemCount > 100, "Equipment library seed should contain more than 100 records");
+assert(equipmentLibrary.limitations.some((line) => line.includes("not the full Diablo IV equipment database")), "Equipment library must disclose incomplete scope");
+assert(equipmentLibrary.items.every((item) => item.image && item.guaranteedAffixes.length > 0), "Each equipment record needs an image path and guaranteed affixes");
+
+assert(simulations.seasons.length === 3, "Build simulator should cover the next three season windows");
+assert(simulations.rows.length === simulations.seasons.length * classes.length, "Simulation rows must cover every class in every modeled season");
+for (const row of simulations.rows) {
+  assert(classIds.includes(row.classId), `Unknown simulation class: ${row.classId}`);
+  for (const mode of ["pit_push", "speed_farm", "daily"]) {
+    const modeResult = row.modes[mode];
+    assert(modeResult?.topBuilds?.length > 0, `Missing top builds for ${row.classId}/${mode}`);
+    assert(typeof modeResult.topBuilds[0].predictedPit150Minutes === "number", `Missing Pit 150 prediction for ${row.classId}/${mode}`);
+  }
+}
+
 const sample = calculateExpectedDps({
   weaponDamage: 1000,
   skillCoefficient: 1,
@@ -72,7 +91,16 @@ if (existsSync(path.join(PROJECT_ROOT, generatedPath))) {
   assert(generated.items.every((item) => item.guaranteedAffixes.length > 0), "Each generated item needs guaranteed affixes");
 }
 
-for (const frontendFile of ["index.html", "public/styles.css", "public/app.js", "public/assets/hero-sanctuary.png"]) {
+for (const frontendFile of [
+  "index.html",
+  "public/styles.css",
+  "public/app.js",
+  "public/assets/hero-sanctuary.png",
+  "public/assets/icon-weapon.png",
+  "public/assets/icon-armor.png",
+  "public/assets/icon-jewelry.png",
+  "public/assets/icon-utility.png"
+]) {
   assert(existsSync(path.join(PROJECT_ROOT, frontendFile)), `Missing frontend file: ${frontendFile}`);
 }
 

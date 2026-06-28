@@ -5,7 +5,8 @@
   "type": "module",
   "description": "Diablo IV strategy data, guide content, build planning, and damage calculation core.",
   "scripts": {
-    "build:assets": "node scripts/create-hero-asset.mjs",
+    "build:assets": "node scripts/create-hero-asset.mjs && node scripts/create-item-icons.mjs",
+    "build:data": "node scripts/build-equipment-library.mjs && node scripts/generate-build-simulations.mjs",
     "dev": "node scripts/serve.mjs",
     "preflight": "node scripts/preflight.mjs",
     "fetch:patch": "node scripts/fetch-official-patch.mjs",

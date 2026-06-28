@@ -15,7 +15,7 @@
     "id": "equipment_database",
     "zhName": "装备与词缀数据库",
     "status": "partial_official_unique_affix_seed",
-    "primaryFiles": ["data/equipment/slots.json", "data/equipment/stat-categories.json", "data/equipment/affix-taxonomy.json", "data/generated/official-3.1.0-guaranteed-unique-affixes.json"]
+    "primaryFiles": ["data/equipment/slots.json", "data/equipment/stat-categories.json", "data/equipment/affix-taxonomy.json", "data/generated/official-3.1.0-guaranteed-unique-affixes.json", "data/equipment/equipment-library.json"]
   },
   {
     "id": "damage_calculation",
@@ -32,8 +32,8 @@
   {
     "id": "gear_scoring",
     "zhName": "装备评分与配装筛选",
-    "status": "seeded",
-    "primaryFiles": ["src/build/score.js", "data/equipment/affix-taxonomy.json"]
+    "status": "seeded_with_three_season_prediction_matrix",
+    "primaryFiles": ["src/build/score.js", "data/equipment/affix-taxonomy.json", "data/generated/build-simulations.json", "scripts/generate-build-simulations.mjs"]
   },
   {
     "id": "paragon_and_glyphs",
@@ -56,7 +56,7 @@
   {
     "id": "frontend_or_bot",
     "zhName": "前端/机器人/交互查询",
-    "status": "seeded_static_frontend",
-    "primaryFiles": ["index.html", "public/styles.css", "public/app.js", "public/assets/hero-sanctuary.png", "scripts/serve.mjs"]
+    "status": "seeded_static_frontend_with_build_simulator",
+    "primaryFiles": ["index.html", "public/styles.css", "public/app.js", "public/assets/hero-sanctuary.png", "public/assets/icon-weapon.png", "public/assets/icon-armor.png", "public/assets/icon-jewelry.png", "public/assets/icon-utility.png", "scripts/serve.mjs"]
   }
 ]

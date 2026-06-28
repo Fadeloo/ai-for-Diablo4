@@ -36,14 +36,16 @@ a {
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
   letter-spacing: normal;
 }
 
 button:focus-visible,
 a:focus-visible,
-input:focus-visible {
+input:focus-visible,
+select:focus-visible {
   outline: 2px solid var(--bone);
   outline-offset: 3px;
 }
@@ -64,6 +66,12 @@ input:focus-visible {
 .site-header.is-solid {
   background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(14px);
+  color: var(--carbon);
+}
+
+.site-header.is-solid .brand,
+.site-header.is-solid .version-link,
+.site-header.is-solid .nav-links a {
   color: var(--carbon);
 }
 
@@ -259,6 +267,8 @@ h3 {
 .class-section,
 .damage-section,
 .equipment-section,
+.simulator-section,
+.forecast-section,
 .source-section {
   display: grid;
   gap: 40px;
@@ -366,8 +376,174 @@ h3 {
 }
 
 .damage-section,
+.simulator-section,
+.forecast-section,
 .source-section {
   background: #090909;
+}
+
+.simulator-section {
+  background:
+    linear-gradient(180deg, rgba(179, 38, 30, 0.12), rgba(5, 5, 5, 0) 34%),
+    #070707;
+}
+
+.simulator-console,
+.forecast-board {
+  align-self: center;
+}
+
+.simulator-console {
+  border: 1px solid rgba(242, 240, 234, 0.14);
+  background: rgba(16, 16, 16, 0.86);
+  display: grid;
+  gap: 0;
+  min-height: 560px;
+}
+
+.sim-controls,
+.equipment-controls {
+  border-bottom: 1px solid rgba(242, 240, 234, 0.12);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 18px;
+}
+
+.sim-controls label {
+  display: grid;
+  gap: 6px;
+}
+
+.sim-controls span {
+  color: var(--steel);
+  font-size: 12px;
+}
+
+.sim-controls select,
+.equipment-controls select,
+.equipment-controls input {
+  background: rgba(242, 240, 234, 0.92);
+  border: 0;
+  border-radius: var(--radius);
+  color: var(--carbon);
+  min-height: 40px;
+  padding: 8px 10px;
+  width: 100%;
+}
+
+.sim-result {
+  display: grid;
+  gap: 22px;
+  padding: 24px;
+}
+
+.sim-head {
+  align-items: start;
+  border-bottom: 1px solid rgba(242, 240, 234, 0.14);
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr auto;
+  padding-bottom: 22px;
+}
+
+.sim-score {
+  border-left: 1px solid rgba(242, 240, 234, 0.18);
+  min-width: 132px;
+  padding-left: 22px;
+  text-align: right;
+}
+
+.sim-score strong {
+  display: block;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.sim-score span,
+.sim-forecast-line span,
+.sim-secondary span,
+.sim-warning,
+.equipment-meta,
+.equipment-card p,
+.equipment-card span {
+  color: var(--steel);
+  font-size: 12px;
+}
+
+.sim-forecast-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sim-forecast-line span,
+.sim-secondary span {
+  border: 1px solid rgba(242, 240, 234, 0.14);
+  border-radius: var(--radius);
+  padding: 7px 9px;
+}
+
+.sim-rationale {
+  color: rgba(242, 240, 234, 0.82);
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.sim-items {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sim-item {
+  align-items: center;
+  background: rgba(242, 240, 234, 0.06);
+  border: 1px solid rgba(242, 240, 234, 0.12);
+  border-radius: var(--radius);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 56px 1fr;
+  min-height: 80px;
+  padding: 10px;
+}
+
+.sim-item img,
+.equipment-card img {
+  background: rgba(193, 162, 96, 0.12);
+  border: 1px solid rgba(193, 162, 96, 0.32);
+  border-radius: var(--radius);
+  display: block;
+  height: 56px;
+  object-fit: cover;
+  width: 56px;
+}
+
+.sim-item strong,
+.sim-item span {
+  display: block;
+  grid-column: 2;
+}
+
+.sim-item strong {
+  color: var(--bone);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.sim-item span {
+  color: var(--steel);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.sim-secondary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .damage-lab {
@@ -444,20 +620,15 @@ h3 {
   height: 100%;
 }
 
-.equipment-section {
-  background: var(--white);
-  color: var(--carbon);
-}
-
-.equipment-section .section-copy p:not(.eyebrow),
-.equipment-section .eyebrow {
-  color: var(--graphite);
-}
-
 .equipment-board {
+  align-self: center;
+  border: 1px solid rgba(242, 240, 234, 0.14);
+  background: rgba(16, 16, 16, 0.9);
   display: grid;
-  gap: 32px;
-  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.72fr);
+  gap: 0;
+  max-height: 690px;
+  min-height: 560px;
+  overflow: hidden;
 }
 
 .count-list,
@@ -491,6 +662,142 @@ h3 {
 .stat-pill span {
   color: var(--graphite);
   font-size: 12px;
+}
+
+.equipment-section {
+  background: #111;
+  color: var(--bone);
+}
+
+.equipment-section .section-copy p:not(.eyebrow),
+.equipment-section .eyebrow {
+  color: var(--steel);
+}
+
+.equipment-controls {
+  grid-template-columns: 1.4fr minmax(128px, 0.7fr) minmax(128px, 0.7fr);
+}
+
+.equipment-meta {
+  border-bottom: 1px solid rgba(242, 240, 234, 0.1);
+  padding: 12px 18px;
+}
+
+.equipment-results {
+  display: grid;
+  gap: 0;
+  max-height: 570px;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.equipment-card {
+  align-items: start;
+  border-bottom: 1px solid rgba(242, 240, 234, 0.1);
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 64px 1fr;
+  min-height: 130px;
+  padding: 16px 18px;
+}
+
+.equipment-card h3 {
+  color: var(--bone);
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.equipment-card p {
+  color: var(--gold);
+  margin: 0 0 6px;
+}
+
+.equipment-card ul {
+  color: rgba(242, 240, 234, 0.8);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.equipment-card li {
+  background: rgba(242, 240, 234, 0.07);
+  border: 1px solid rgba(242, 240, 234, 0.12);
+  border-radius: var(--radius);
+  font-size: 12px;
+  line-height: 1.2;
+  padding: 6px 8px;
+}
+
+.forecast-section {
+  background:
+    linear-gradient(180deg, #070707 0%, #111 56%, #080808 100%);
+}
+
+.forecast-board {
+  border: 1px solid rgba(242, 240, 234, 0.14);
+  background: rgba(16, 16, 16, 0.9);
+}
+
+.forecast-header {
+  align-items: end;
+  border-bottom: 1px solid rgba(242, 240, 234, 0.12);
+  display: grid;
+  gap: 20px;
+  grid-template-columns: auto 1fr;
+  padding: 18px;
+}
+
+.forecast-header h3 {
+  font-size: 24px;
+}
+
+.forecast-header p {
+  color: var(--steel);
+  font-size: 13px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.forecast-table {
+  display: grid;
+}
+
+.forecast-row {
+  align-items: center;
+  border-bottom: 1px solid rgba(242, 240, 234, 0.1);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(80px, 0.75fr) repeat(3, minmax(92px, 1fr)) minmax(108px, 0.9fr);
+  min-height: 54px;
+  padding: 10px 18px;
+}
+
+.forecast-row-head {
+  background: rgba(242, 240, 234, 0.06);
+  color: var(--steel);
+  font-size: 12px;
+  min-height: 40px;
+}
+
+.forecast-row strong {
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.forecast-row span {
+  color: rgba(242, 240, 234, 0.82);
+  font-size: 13px;
+}
+
+.forecast-row em {
+  color: var(--bone);
+  font-size: 13px;
+  font-style: normal;
+  text-align: right;
 }
 
 .source-row {
@@ -554,6 +861,8 @@ h3 {
   .class-section,
   .damage-section,
   .equipment-section,
+  .simulator-section,
+  .forecast-section,
   .source-section {
     grid-template-columns: 1fr;
     padding: 88px 20px 96px;
@@ -572,6 +881,59 @@ h3 {
   .class-workbench,
   .equipment-board {
     grid-template-columns: 1fr;
+  }
+
+  .simulator-console,
+  .equipment-board,
+  .forecast-board {
+    min-height: auto;
+  }
+
+  .sim-controls,
+  .equipment-controls,
+  .sim-head,
+  .sim-items,
+  .forecast-header,
+  .forecast-row {
+    grid-template-columns: 1fr;
+  }
+
+  .sim-score {
+    border-left: 0;
+    border-top: 1px solid rgba(242, 240, 234, 0.18);
+    padding-left: 0;
+    padding-top: 18px;
+    text-align: left;
+  }
+
+  .equipment-board {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .equipment-results {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .equipment-card {
+    grid-template-columns: 56px 1fr;
+    padding: 14px;
+  }
+
+  .forecast-row {
+    align-items: start;
+    gap: 6px;
+    min-height: auto;
+    padding: 14px 18px;
+  }
+
+  .forecast-row-head {
+    display: none;
+  }
+
+  .forecast-row em {
+    text-align: left;
   }
 
   .hero-actions {

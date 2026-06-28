@@ -4,6 +4,8 @@ const paths = {
   plans: "./data/builds/season-start-plans.json",
   archetypes: "./data/builds/archetypes.json",
   uniques: "./data/generated/official-3.1.0-guaranteed-unique-affixes.json",
+  equipment: "./data/equipment/equipment-library.json",
+  simulations: "./data/generated/build-simulations.json",
   categories: "./data/equipment/stat-categories.json",
   sources: "./data/sources/source-registry.json"
 };
@@ -12,7 +14,19 @@ const state = {
   classes: [],
   plans: [],
   archetypes: [],
-  selectedClassId: "barbarian"
+  equipment: [],
+  simulations: null,
+  selectedClassId: "barbarian",
+  sim: {
+    seasonId: "s14",
+    classId: "barbarian",
+    mode: "pit_push"
+  },
+  equipmentFilters: {
+    classId: "all",
+    mode: "all",
+    query: ""
+  }
 };
 
 function $(selector) {
@@ -30,7 +44,7 @@ function formatNumber(value) {
 }
 
 function percent(value) {
-  return `${(value * 100).toFixed(1)}%`;
+  return `${(value * 100).toFixed(0)}%`;
 }
 
 function calculateDamage(form) {
@@ -90,6 +104,68 @@ function renderDamage() {
   `;
 }
 
+function className(classId) {
+  return state.classes.find((item) => item.id === classId)?.zhName ?? classId;
+}
+
+function renderSelects() {
+  const classOptions = state.classes
+    .map((item) => `<option value="${item.id}">${item.zhName}</option>`)
+    .join("");
+  $("[data-sim-class]").innerHTML = classOptions;
+  $("[data-sim-class]").value = state.sim.classId;
+  $("[data-equipment-class]").innerHTML = `<option value="all">全部职业</option><option value="All Classes">全职业</option>${classOptions}`;
+
+  $("[data-sim-season]").innerHTML = state.simulations.seasons
+    .map((season) => `<option value="${season.id}">${season.label}</option>`)
+    .join("");
+  $("[data-sim-season]").value = state.sim.seasonId;
+}
+
+function renderSimulator() {
+  const row = state.simulations.rows.find(
+    (item) => item.seasonId === state.sim.seasonId && item.classId === state.sim.classId
+  );
+  if (!row) return;
+  const mode = row.modes[state.sim.mode];
+  const best = mode.topBuilds[0];
+  const secondary = mode.topBuilds.slice(1);
+  const items = best.recommendedItems
+    .slice(0, 4)
+    .map((item) => `
+      <article class="sim-item">
+        <img src="./public/assets/icon-${item.visualType}.png" alt="">
+        <strong>${item.name}</strong>
+        <span>${item.guaranteedAffixes.join(" / ")}</span>
+      </article>
+    `)
+    .join("");
+
+  $("[data-sim-result]").innerHTML = `
+    <div class="sim-head">
+      <div>
+        <p class="panel-kicker">${row.zhName} · ${mode.modeName}</p>
+        <h3>${best.archetypeName}</h3>
+      </div>
+      <div class="sim-score">
+        <strong>${best.predictedPit150Minutes}</strong>
+        <span>150层分钟</span>
+      </div>
+    </div>
+    <div class="sim-forecast-line">
+      <span>模型分 ${best.score}</span>
+      <span>置信度 ${percent(best.confidence)}</span>
+      <span>${row.modelStatus}</span>
+    </div>
+    <p class="sim-rationale">${best.rationale.join(" ")}</p>
+    <div class="sim-items">${items}</div>
+    <div class="sim-secondary">
+      ${secondary.map((build) => `<span>${build.archetypeName} · ${build.predictedPit150Minutes} 分</span>`).join("")}
+    </div>
+    <p class="sim-warning">${state.simulations.warning}</p>
+  `;
+}
+
 function renderClasses() {
   const rail = $("[data-class-rail]");
   rail.innerHTML = state.classes
@@ -132,37 +208,79 @@ function renderSelectedClass() {
     .join("");
 }
 
-function renderUniqueCounts(uniques) {
-  const counts = uniques.items.reduce((acc, item) => {
-    acc[item.classRestriction] = (acc[item.classRestriction] ?? 0) + 1;
-    return acc;
-  }, {});
-  const max = Math.max(...Object.values(counts));
-  $("[data-unique-counts]").innerHTML = Object.entries(counts)
-    .map(([label, count]) => `
-      <div class="count-row">
-        <span>${label}</span>
-        <div class="bar-track"><i class="bar-fill" style="width:${(count / max) * 100}%"></i></div>
-        <strong>${count}</strong>
-      </div>
+function renderEquipment() {
+  const { classId, mode, query } = state.equipmentFilters;
+  const normalizedQuery = query.trim().toLowerCase();
+  const rows = state.equipment
+    .filter((item) => classId === "all" || item.classRestriction === "All Classes" || item.classRestriction.toLowerCase() === classId)
+    .filter((item) => mode === "all" || item.modeFit.includes(mode))
+    .filter((item) => {
+      if (!normalizedQuery) return true;
+      return [
+        item.name,
+        item.classRestriction,
+        item.visualType,
+        item.buildRole,
+        item.categories.join(" "),
+        item.guaranteedAffixes.map((affix) => affix.name).join(" ")
+      ].join(" ").toLowerCase().includes(normalizedQuery);
+    })
+    .slice(0, 36);
+
+  $("[data-equipment-meta]").textContent = `显示 ${rows.length} / ${state.equipment.length} 条。当前库是官方 guaranteed affix 种子，不是完整装备库。`;
+  $("[data-equipment-results]").innerHTML = rows
+    .map((item) => `
+      <article class="equipment-card">
+        <img src="./public/assets/icon-${item.visualType}.png" alt="${item.visualType} icon">
+        <div>
+          <p>${item.classRestriction === "All Classes" ? "全职业" : item.classRestriction}</p>
+          <h3>${item.name}</h3>
+          <ul>
+            ${item.guaranteedAffixes.map((affix) => `<li>${affix.name}</li>`).join("")}
+          </ul>
+          <span>${item.buildRole} · ${item.modeFit.map((fit) => fit.replace("_", " ")).join(" / ")}</span>
+        </div>
+      </article>
     `)
     .join("");
 }
 
-function renderTaxonomy(categories) {
-  $("[data-stat-taxonomy]").innerHTML = categories
-    .slice(0, 10)
-    .map((item) => `
-      <div class="stat-pill">
-        <strong>${item.zhName}</strong>
-        <span>${item.calculationRole}</span>
+function renderForecast() {
+  const season = state.simulations.seasons.find((item) => item.id === state.sim.seasonId) ?? state.simulations.seasons[0];
+  const rows = state.simulations.rows
+    .filter((item) => item.seasonId === season.id)
+    .map((item) => {
+      const push = item.modes.pit_push.topBuilds[0];
+      const speed = item.modes.speed_farm.topBuilds[0];
+      const daily = item.modes.daily.topBuilds[0];
+      return { item, push, speed, daily };
+    })
+    .sort((a, b) => a.push.predictedPit150Minutes - b.push.predictedPit150Minutes);
+
+  $("[data-forecast-board]").innerHTML = `
+    <div class="forecast-header">
+      <h3>${season.label}</h3>
+      <p>${season.assumption}</p>
+    </div>
+    <div class="forecast-table">
+      <div class="forecast-row forecast-row-head">
+        <span>职业</span><span>冲层</span><span>速刷</span><span>日常</span><span>150层预测</span>
       </div>
-    `)
-    .join("");
+      ${rows.map(({ item, push, speed, daily }) => `
+        <div class="forecast-row">
+          <strong>${item.zhName}</strong>
+          <span>${push.archetypeName}</span>
+          <span>${speed.archetypeName}</span>
+          <span>${daily.archetypeName}</span>
+          <em>${push.predictedPit150Minutes} 分 · ${percent(push.confidence)}</em>
+        </div>
+      `).join("")}
+    </div>
+  `;
 }
 
 function renderSources(sources) {
-  $("[data-source-list]").innerHTML = sources.slice(0, 6)
+  $("[data-source-list]").innerHTML = sources.slice(0, 8)
     .map((source) => `
       <div class="source-row">
         <span>${source.category}</span>
@@ -175,8 +293,12 @@ function renderSources(sources) {
 
 function answerQuestion() {
   const selected = state.classes.find((item) => item.id === state.selectedClassId) ?? state.classes[0];
+  const row = state.simulations?.rows.find((item) => item.seasonId === state.sim.seasonId && item.classId === selected.id);
+  const best = row?.modes.pit_push.topBuilds[0];
   const plan = state.plans.find((item) => item.classId === selected.id)?.plan ?? [];
-  const answer = plan[0] ? `${selected.zhName}：${plan[0]}` : "先选职业，再查看开荒重点。";
+  const answer = best
+    ? `${selected.zhName}：当前模型冲层优先 ${best.archetypeName}，150层约 ${best.predictedPit150Minutes} 分；开荒重点是 ${plan[0] ?? "先保证资源和生存"}。`
+    : `${selected.zhName}：${plan[0] ?? "先选职业，再查看开荒重点。"}`;
   $("[data-ask-answer]").textContent = answer;
 }
 
@@ -193,6 +315,37 @@ function bindInteractions() {
   });
   form.addEventListener("input", renderDamage);
 
+  $("[data-sim-season]").addEventListener("change", (event) => {
+    state.sim.seasonId = event.target.value;
+    renderSimulator();
+    renderForecast();
+    answerQuestion();
+  });
+  $("[data-sim-class]").addEventListener("change", (event) => {
+    state.sim.classId = event.target.value;
+    state.selectedClassId = event.target.value;
+    renderSimulator();
+    renderSelectedClass();
+    answerQuestion();
+  });
+  $("[data-sim-mode]").addEventListener("change", (event) => {
+    state.sim.mode = event.target.value;
+    renderSimulator();
+  });
+
+  $("[data-equipment-search]").addEventListener("input", (event) => {
+    state.equipmentFilters.query = event.target.value;
+    renderEquipment();
+  });
+  $("[data-equipment-class]").addEventListener("change", (event) => {
+    state.equipmentFilters.classId = event.target.value;
+    renderEquipment();
+  });
+  $("[data-equipment-mode]").addEventListener("change", (event) => {
+    state.equipmentFilters.mode = event.target.value;
+    renderEquipment();
+  });
+
   $("[data-ask-button]").addEventListener("click", answerQuestion);
   $("[data-ask-input]").addEventListener("keydown", (event) => {
     if (event.key === "Enter") answerQuestion();
@@ -200,19 +353,22 @@ function bindInteractions() {
 }
 
 async function init() {
-  const [version, classes, plans, archetypes, uniques, categories, sources] = await Promise.all([
+  const [version, classes, plans, archetypes, uniques, equipment, simulations, sources] = await Promise.all([
     loadJson(paths.version),
     loadJson(paths.classes),
     loadJson(paths.plans),
     loadJson(paths.archetypes),
     loadJson(paths.uniques),
-    loadJson(paths.categories),
+    loadJson(paths.equipment),
+    loadJson(paths.simulations),
     loadJson(paths.sources)
   ]);
 
   state.classes = classes;
   state.plans = plans;
   state.archetypes = archetypes;
+  state.equipment = equipment.items;
+  state.simulations = simulations;
 
   $("[data-live-patch]").textContent = `${version.effectiveLiveVersion.patch} live`;
   $("[data-version-line]").textContent = `${version.effectiveLiveVersion.patch} live / ${version.publishedUpcomingVersion.patch} preview`;
@@ -220,10 +376,12 @@ async function init() {
   $("[data-unique-count]").textContent = uniques.itemCount;
   $("[data-build-count]").textContent = archetypes.reduce((total, item) => total + item.archetypes.length, 0);
 
+  renderSelects();
+  renderSimulator();
   renderClasses();
   renderDamage();
-  renderUniqueCounts(uniques);
-  renderTaxonomy(categories);
+  renderEquipment();
+  renderForecast();
   renderSources(sources);
   answerQuestion();
   bindInteractions();
