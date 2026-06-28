@@ -18,6 +18,7 @@ const version = await readJson("data/metadata/version-baseline.json");
 const classes = await readJson("data/classes/classes.json");
 const categories = await readJson("data/equipment/stat-categories.json");
 const archetypes = await readJson("data/builds/archetypes.json");
+const communityOverrides = await readJson("data/builds/community-build-overrides.json");
 const seasonPlans = await readJson("data/builds/season-start-plans.json");
 const sources = await readJson("data/sources/source-registry.json");
 const features = await readJson("data/features/feature-map.json");
@@ -101,6 +102,7 @@ assert(buildGuides.scope === "structured_build_guides_for_diablo4_guide_site", "
 assert(buildGuides.buildCount === buildGuides.builds.length, "Build guide count mismatch");
 assert(buildGuides.builds.length === expectedBuildGuideCount, `Expected ${expectedBuildGuideCount} structured build guides`);
 assert(buildGuides.slotOrder.length >= 11, "Build guides need full gear slot order");
+assert(communityOverrides.length >= 1, "Need at least one community build override");
 
 const guideIds = new Set();
 for (const guide of buildGuides.builds) {
@@ -122,6 +124,13 @@ for (const guide of buildGuides.builds) {
   assert(guide.paragon?.clickOrder?.length >= 10, `Build guide needs paragon click order: ${guide.id}`);
   assert(guide.gameplay?.opener?.length && guide.gameplay?.loop?.length && guide.gameplay?.boss?.length, `Build guide needs gameplay sections: ${guide.id}`);
   assert(guide.variants?.length >= 3, `Build guide needs replacement variants: ${guide.id}`);
+}
+
+for (const override of communityOverrides) {
+  const guide = buildGuides.builds.find((item) => item.id === override.id);
+  assert(guide, `Community override target missing from generated guides: ${override.id}`);
+  assert(guide.source?.references?.some((reference) => reference.url === override.sourceReference.url), `Community override source reference missing: ${override.id}`);
+  assert(guide.dataQuality?.communityVerified?.length >= 1, `Community override needs community data quality marker: ${override.id}`);
 }
 
 const frontendText = [

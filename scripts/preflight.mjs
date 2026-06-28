@@ -17,6 +17,7 @@ const REQUIRED_FILES = [
   "data/metadata/version-baseline.json",
   "data/sources/source-registry.json",
   "data/classes/classes.json",
+  "data/builds/community-build-overrides.json",
   "data/equipment/equipment-library.json",
   "data/generated/build-simulations.json",
   "data/generated/build-guides.json",

@@ -877,7 +877,8 @@ h4 {
 .guide-card__tags,
 .guide-card__items,
 .gear-slot-card__flags,
-.core-item-strip {
+.core-item-strip,
+.core-aspect-strip {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -933,6 +934,48 @@ h4 {
   font-size: 12px;
   line-height: 1.25;
   overflow-wrap: anywhere;
+}
+
+.mini-aspect,
+.source-pill {
+  background: rgba(214, 173, 99, 0.1);
+  border: 1px solid rgba(214, 173, 99, 0.24);
+  color: var(--muted);
+  display: grid;
+  gap: 3px;
+  min-height: 52px;
+  padding: 8px 10px;
+}
+
+.mini-aspect {
+  flex: 1 1 190px;
+}
+
+.mini-aspect b,
+.source-pill {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.mini-aspect strong {
+  color: var(--bone);
+  font-size: 13px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.mini-aspect em {
+  color: var(--dim);
+  font-size: 12px;
+  font-style: normal;
+}
+
+.source-pill {
+  display: inline-grid;
+  justify-self: start;
+  margin-top: 12px;
+  min-height: 0;
 }
 
 .build-guide-view {
@@ -1300,6 +1343,39 @@ h4 {
 .source-status-grid strong {
   color: var(--gold);
   font-size: 12px;
+}
+
+.reference-list {
+  display: grid;
+  gap: 10px;
+}
+
+.reference-list article {
+  background: rgba(8, 4, 3, 0.48);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  gap: 7px;
+  padding: 12px;
+}
+
+.reference-list strong {
+  color: var(--bone);
+  font-size: 14px;
+}
+
+.reference-list span,
+.reference-list p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.reference-list a {
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 800;
+  justify-self: start;
 }
 
 .equipment-layout {
@@ -1882,7 +1958,17 @@ h4 {
     grid-template-columns: 1fr;
   }
 
+  .core-aspect-strip {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
   .mini-item {
+    flex: none;
+    width: 100%;
+  }
+
+  .mini-aspect {
     flex: none;
     width: 100%;
   }

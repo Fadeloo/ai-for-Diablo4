@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T13:21:43.181Z",
+  "generatedAt": "2026-06-28T13:32:06.313Z",
   "source": {
     "id": "blizzard_patch_3_1",
     "url": "https://news.blizzard.com/en-us/article/24287406/diablo-iv-patch-notes",
@@ -2427,7 +2427,7 @@
     {
       "id": "tibaults-will",
       "name": "Tibault's Will",
-      "zhName": "提鲍特意志",
+      "zhName": "提鲍特的意志",
       "rarity": "unique",
       "classRestriction": "All Classes",
       "zhClassRestriction": "全职业",
@@ -3462,7 +3462,7 @@
     {
       "id": "gohrs-devastating-grips",
       "name": "Gohr's Devastating Grips",
-      "zhName": "格欧赫尔毁灭握套",
+      "zhName": "戈尔的毁灭之握",
       "rarity": "unique",
       "classRestriction": "Barbarian",
       "zhClassRestriction": "野蛮人",
@@ -3876,7 +3876,7 @@
     {
       "id": "overkill",
       "name": "Overkill",
-      "zhName": "欧维埃尔凯伊尔尔",
+      "zhName": "压制",
       "rarity": "unique",
       "classRestriction": "Barbarian",
       "zhClassRestriction": "野蛮人",
@@ -4014,7 +4014,7 @@
     {
       "id": "ramaladnis-magnum-opus",
       "name": "Ramaladni's Magnum Opus",
-      "zhName": "尔阿姆阿尔阿德恩伊巨作作品",
+      "zhName": "拉玛兰迪的杰作",
       "rarity": "unique",
       "classRestriction": "Barbarian",
       "zhClassRestriction": "野蛮人",

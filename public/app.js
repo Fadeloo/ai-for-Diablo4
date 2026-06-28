@@ -387,6 +387,37 @@ function renderCoreUniques(guide, limit = 4) {
     .join("");
 }
 
+function renderCoreAspects(guide, limit = 8) {
+  return guide.coreAspects.slice(0, limit)
+    .map((aspect) => `
+      <span class="mini-aspect">
+        <b>${aspect.zhSlotName}</b>
+        <strong>${aspect.name}</strong>
+        <em>${aspect.replaceable ? "可替换" : "核心"}</em>
+      </span>
+    `)
+    .join("");
+}
+
+function renderSourceReferences(guide) {
+  const references = guide.source.references || [];
+  if (!references.length) {
+    return `<p>当前 BD 由本站结构化数据生成，等待社区实战和榜单回填。</p>`;
+  }
+  return `
+    <div class="reference-list">
+      ${references.map((reference) => `
+        <article>
+          <strong>${reference.site} · ${reference.title}</strong>
+          <span>${reference.sourceSeason}</span>
+          <p>${reference.note}</p>
+          <a href="${reference.url}" target="_blank" rel="noreferrer">查看来源页面</a>
+        </article>
+      `).join("")}
+    </div>
+  `;
+}
+
 function renderBuildLibraryCard(guide) {
   return `
     <article class="guide-card">
@@ -611,6 +642,7 @@ function renderBuildGuideDetail() {
             <h2>${guide.taxonomy.archetypeName}</h2>
             <p>${guide.summary.oneLine}</p>
             <div class="guide-card__tags">${renderTags(guide.taxonomy.tags)}</div>
+            <div class="source-pill">${guide.source.trust}</div>
           </div>
           <div class="guide-hero__score">
             <strong>${guide.ceiling.tier}</strong>
@@ -631,6 +663,7 @@ function renderBuildGuideDetail() {
 
       ${renderGuideDetailSection("核心装备", "暗金与威能", `
         <div class="core-item-strip">${renderCoreUniques(guide, 5)}</div>
+        <div class="core-aspect-strip">${renderCoreAspects(guide)}</div>
         <div class="guide-two-col">
           <article>
             <h5>优点</h5>
@@ -676,6 +709,7 @@ function renderBuildGuideDetail() {
           <article><strong>已确认</strong><span>${guide.dataQuality.officialFields.join(" / ")}</span></article>
           <article><strong>待补全</strong><span>${guide.dataQuality.needsValidation.join(" / ")}</span></article>
         </div>
+        ${renderSourceReferences(guide)}
         <div class="source-actions">
           <a href="${guide.gameVersion.sourceUrl}" target="_blank" rel="noreferrer">查看官方补丁来源</a>
         </div>

@@ -11,6 +11,7 @@ data/classes/classes.json
 data/builds/archetypes.json
 data/equipment/equipment-library.json
 data/generated/build-simulations.json
+data/builds/community-build-overrides.json
         |
         v
 scripts/generate-build-guides.mjs
@@ -20,6 +21,8 @@ data/generated/build-guides.json
 ```
 
 `npm run build:data` 会先刷新装备库和赛季构筑矩阵，再生成结构化 BD 档案。
+
+`data/builds/community-build-overrides.json` 用来把可追溯社区 BD 覆盖到生成档案上。覆盖字段可以替换装备槽位、核心威能、技能加点、巅峰点击顺序、打法、来源引用和数据质量状态。没有覆盖的 BD 继续使用本站结构化模板。
 
 ## 核心结构
 
@@ -38,6 +41,7 @@ data/generated/build-guides.json
 - `gameplay`：起手、循环、首领、防御、速刷和常见错误。
 - `variants`：标准成型、缺核心暗金、高层生存等替换方案。
 - `dataQuality`：官方已确认、社区验证、待补全和缺失项。
+- `source.references`：社区 BD、官方补丁或后续榜单来源链接。
 
 ## 前端使用
 

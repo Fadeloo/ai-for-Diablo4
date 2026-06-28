@@ -1,0 +1,213 @@
+[
+  {
+    "id": "s14-barbarian-weapon_core-pit_push",
+    "sourceReference": {
+      "site": "暗黑核",
+      "url": "https://www.d2core.com/d4/planner?bd=1SZ2",
+      "sourceSeason": "S13 清算赛季",
+      "referenceTitle": "《溶解旋风2.0》150层",
+      "asOf": "2026-06-28",
+      "note": "该覆盖用于把暗黑核 Planner 的槽位、技能、巅峰和打法展示结构接入本站；赛季和数值仍需 S14 实战校准。"
+    },
+    "title": "S14 死亡觉醒 野蛮人 · 溶解旋风冲层",
+    "archetypeName": "溶解旋风",
+    "summary": {
+      "oneLine": "野蛮人「溶解旋风」冲层 BD，围绕旋风斩持续引导、怒气循环、战吼增伤和核心暗金建立清场与首领输出。",
+      "pros": ["旋风斩手感稳定", "装备槽位清晰", "有 150 层参考结构"],
+      "cons": ["依赖关键暗金和怒气循环", "高层需要熟悉拉怪与爆发窗口", "S14 仍需实战榜单校准"],
+      "requirements": ["手套：戈尔的毁灭之握", "裤子：提鲍特的意志", "护符：塞利格的融心", "戒指：无星夜空之戒"],
+      "statPriority": ["武器伤害", "旋风斩等级", "怒气生成", "冷却缩减", "暴击"]
+    },
+    "gearSlots": [
+      {
+        "slotId": "helm",
+        "target": {"type": "legendary", "zhName": "传奇头盔 + 格林铁砧之威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "格林铁砧之威能", "role": "冲层伤害与范围联动", "sourceStatus": "暗黑核示例 BD 槽位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["冷却缩减", "生命上限", "护甲", "全元素抗性"],
+        "alternatives": [
+          {"zhName": "谐角之冠", "reason": "缺专属威能时提高全技能和容错。", "tradeoff": "旋风斩联动下降。"},
+          {"zhName": "传奇头盔 + 防御威能", "reason": "开荒期补护甲和抗性。", "tradeoff": "冲层伤害下降。"}
+        ]
+      },
+      {
+        "slotId": "chest",
+        "target": {"type": "legendary", "zhName": "传奇胸甲 + 彼消我长之威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "彼消我长之威能", "role": "高层防御和伤害转换", "sourceStatus": "暗黑核示例 BD 槽位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["生命上限", "护甲", "减伤", "全元素抗性"],
+        "alternatives": [
+          {"zhName": "泰瑞尔之力", "reason": "提高抗性和硬度。", "tradeoff": "损失部分专属联动。"},
+          {"zhName": "传奇胸甲 + 护主威能", "reason": "缺威能时用通用防御过渡。", "tradeoff": "上限较低。"}
+        ]
+      },
+      {
+        "slotId": "gloves",
+        "target": {"type": "unique", "zhName": "戈尔的毁灭之握", "image": "./public/assets/icon-armor.png", "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/gohr's_devastating_grips.png"},
+        "aspect": {"name": "暗金特效位", "role": "旋风斩爆炸与清场核心", "sourceStatus": "暗黑核示例 BD 槽位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["旋风斩等级", "攻击速度", "暴击几率", "幸运一击"],
+        "alternatives": [
+          {"zhName": "传奇手套 + 主攻威能", "reason": "缺戈尔时保留旋风斩等级和暴击。", "tradeoff": "清场爆炸能力明显下降。"},
+          {"zhName": "命运之拳", "reason": "娱乐或过渡用。", "tradeoff": "稳定性较差。"}
+        ]
+      },
+      {
+        "slotId": "pants",
+        "target": {"type": "unique", "zhName": "提鲍特的意志", "image": "./public/assets/icon-utility.png", "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/tibault's_will.png"},
+        "aspect": {"name": "暗金特效位", "role": "不可阻挡窗口、资源和增伤", "sourceStatus": "暗黑核示例 BD 槽位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["资源生成", "生命上限", "减伤", "全元素抗性"],
+        "alternatives": [
+          {"zhName": "传奇裤子 + 防御威能", "reason": "缺提鲍特时先保证生存。", "tradeoff": "爆发和资源循环下降。"},
+          {"zhName": "鲁莽", "reason": "需要屏障容错时可过渡。", "tradeoff": "冲层上限下降。"}
+        ]
+      },
+      {
+        "slotId": "boots",
+        "target": {"type": "legendary", "zhName": "传奇靴子 + 愤怒掌控之威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "愤怒掌控之威能", "role": "怒气维持和旋风斩窗口", "sourceStatus": "暗黑核示例 BD 槽位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["移动速度", "怒气生成", "全元素抗性", "闪避冷却"],
+        "alternatives": [
+          {"zhName": "闪烁步履", "reason": "速刷时补移动和终极循环。", "tradeoff": "高层怒气稳定性下降。"},
+          {"zhName": "忏悔者护胫", "reason": "需要控制联动时可用。", "tradeoff": "移动和资源较弱。"}
+        ]
+      },
+      {
+        "slotId": "amulet",
+        "target": {"type": "unique", "zhName": "塞利格的融心", "image": "./public/assets/icon-jewelry.png", "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/melted_heart_of_selig.png"},
+        "aspect": {"name": "暗金特效位", "role": "高层防御和资源护盾", "sourceStatus": "暗黑核示例 BD 槽位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["资源上限", "资源生成", "生命上限", "移动速度"],
+        "alternatives": [
+          {"zhName": "传奇护符 + 引导之威能", "reason": "缺塞利格时保留引导伤害。", "tradeoff": "高层容错明显下降。"},
+          {"zhName": "放逐领主的护符", "reason": "压制变体可尝试。", "tradeoff": "偏离旋风斩持续引导。"}
+        ]
+      },
+      {
+        "slotId": "ring1",
+        "target": {"type": "unique", "zhName": "无星夜空之戒", "image": "./public/assets/icon-jewelry.png", "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ring_of_starless_skies.png"},
+        "aspect": {"name": "暗金特效位", "role": "怒气消耗和持续输出核心", "sourceStatus": "暗黑核示例 BD 槽位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["暴击几率", "资源消耗降低", "幸运一击", "攻击速度"],
+        "alternatives": [
+          {"zhName": "传奇戒指 + 资源威能", "reason": "缺无星时先维持怒气。", "tradeoff": "持续输出下降。"},
+          {"zhName": "赤红狂怒之戒", "reason": "偏爆发变体可用。", "tradeoff": "循环稳定性下降。"}
+        ]
+      },
+      {
+        "slotId": "ring2",
+        "target": {"type": "legendary", "zhName": "传奇戒指 + 潮汐威能", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "潮汐威能", "role": "范围清场和高层推进", "sourceStatus": "暗黑核示例 BD 槽位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["暴击几率", "资源生成", "冷却缩减", "幸运一击"],
+        "alternatives": [
+          {"zhName": "传奇戒指 + 回能威能", "reason": "怒气不足时优先换。", "tradeoff": "清场速度下降。"},
+          {"zhName": "贪食者之戒", "reason": "过渡期补输出。", "tradeoff": "高层适配性一般。"}
+        ]
+      },
+      {
+        "slotId": "twoHand",
+        "target": {"type": "legendary", "zhName": "双手钝击武器 + 碾碎威能", "image": "./public/assets/icon-weapon.png"},
+        "aspect": {"name": "碾碎威能", "role": "双手位主乘区", "sourceStatus": "暗黑核示例 BD 槽位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["武器伤害", "旋风斩伤害", "易伤伤害", "暴击伤害"],
+        "alternatives": [
+          {"zhName": "地狱锤", "reason": "缺威能底材时可用高装等暗金过渡。", "tradeoff": "威能乘区缺失。"},
+          {"zhName": "祖父", "reason": "暴击伤害变体可试。", "tradeoff": "资源联动下降。"}
+        ]
+      },
+      {
+        "slotId": "mainHand",
+        "target": {"type": "legendary", "zhName": "双持武器 + 无尽怒火之威能", "image": "./public/assets/icon-weapon.png"},
+        "aspect": {"name": "无尽怒火之威能", "role": "怒气与持续输出", "sourceStatus": "暗黑核示例 BD 槽位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["武器伤害", "怒气生成", "暴击伤害", "核心技能伤害"],
+        "alternatives": [
+          {"zhName": "压制", "reason": "需要爆发时过渡。", "tradeoff": "怒气循环弱。"},
+          {"zhName": "第三刃", "reason": "单手高装等过渡。", "tradeoff": "与旋风斩联动较弱。"}
+        ]
+      },
+      {
+        "slotId": "offHand",
+        "target": {"type": "unique", "zhName": "拉玛兰迪的杰作", "image": "./public/assets/icon-weapon.png", "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/ramaladni's_magnum_opus.png"},
+        "aspect": {"name": "暗金特效位", "role": "怒气转伤害核心", "sourceStatus": "暗黑核示例 BD 槽位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["武器伤害", "怒气上限", "攻击速度", "核心技能伤害"],
+        "alternatives": [
+          {"zhName": "传奇劈砍武器 + 触发威能", "reason": "缺拉玛兰迪时保留主词缀。", "tradeoff": "怒气转伤害缺失。"},
+          {"zhName": "无情之心", "reason": "高装等过渡。", "tradeoff": "上限较低。"}
+        ]
+      }
+    ],
+    "skillTree": {
+      "core": "旋风斩",
+      "skillBar": [
+        {"slot": 1, "name": "猛击/基础生成", "role": "触发与补怒", "points": 1},
+        {"slot": 2, "name": "旋风斩", "role": "主攻", "points": 5},
+        {"slot": 3, "name": "集结呐喊", "role": "资源与移动", "points": 1},
+        {"slot": 4, "name": "战吼", "role": "增伤", "points": 1},
+        {"slot": 5, "name": "挑战怒吼", "role": "防御", "points": 1},
+        {"slot": 6, "name": "狂战士之怒", "role": "终极爆发", "points": 1}
+      ],
+      "pointOrder": [
+        {"levelRange": "1-3", "skill": "基础生成", "points": "+1 并点强化", "reason": "先保证怒气入口。"},
+        {"levelRange": "4-12", "skill": "旋风斩", "points": "+5", "reason": "主力技能优先点满。"},
+        {"levelRange": "13-17", "skill": "集结呐喊", "points": "+1 至强化", "reason": "补怒气、移速和不可阻挡窗口。"},
+        {"levelRange": "18-22", "skill": "战吼", "points": "+1 至强化", "reason": "建立爆发增伤。"},
+        {"levelRange": "23-27", "skill": "挑战怒吼", "points": "+1 至强化", "reason": "高层防御核心。"},
+        {"levelRange": "28-33", "skill": "狂战士之怒", "points": "+1", "reason": "精英和首领爆发窗口。"},
+        {"levelRange": "34-40", "skill": "怒气/狂暴被动", "points": "+3 至 +6", "reason": "减少旋风斩断档。"},
+        {"levelRange": "41-50", "skill": "战吼与防御被动", "points": "+3 至 +6", "reason": "补坚韧和覆盖率。"},
+        {"levelRange": "50-80", "skill": "旋风斩相关被动", "points": "按装备微调", "reason": "核心暗金到位后转入冲层点法。"},
+        {"levelRange": "80+", "skill": "终局重分配", "points": "补满乘区与防御", "reason": "按抗性、护甲和怒气缺口调整。"}
+      ]
+    },
+    "paragon": {
+      "rule": "暗黑核示例强调：传奇节点 > 雕文 > 稀有节点 > 雕文属性加成 > 伤害魔法节点 > 力量 > 减伤/抗性/护甲。",
+      "clickOrder": [
+        {"board": "起始盘", "node": "雕文孔路径", "reason": "先走最短路径打开雕文孔。"},
+        {"board": "起始盘", "node": "核心雕文", "reason": "优先放入旋风斩/武器伤害相关雕文。"},
+        {"board": "第二盘", "node": "传奇节点", "reason": "先拿直接乘区，不绕远端小点。"},
+        {"board": "第二盘", "node": "雕文孔", "reason": "第二枚雕文补武器伤害或易伤。"},
+        {"board": "第二盘", "node": "稀有节点", "reason": "拿伤害、怒气和精英伤害。"},
+        {"board": "第三盘", "node": "传奇节点", "reason": "补怒气循环和狂暴窗口。"},
+        {"board": "第三盘", "node": "雕文属性加成", "reason": "雕文等级足够后补半径属性。"},
+        {"board": "第四盘", "node": "伤害魔法节点", "reason": "核心路径完成后再补小点。"},
+        {"board": "任意盘", "node": "力量节点", "reason": "满足雕文阈值和主属性。"},
+        {"board": "任意盘", "node": "减伤/抗性/护甲", "reason": "冲层前按装备缺口补齐。"}
+      ]
+    },
+    "gameplay": {
+      "opener": ["进图先保持战吼冷却节奏，不要空转怒气。", "精英包前开集结呐喊和战吼，再开始旋风斩引导。", "高层先拉怪成团，再交狂战士之怒。"],
+      "loop": ["保持旋风斩引导，怒气低时用战吼和基础生成补循环。", "战吼不要同时交空，至少留一层处理危险词缀。", "戈尔手套爆炸窗口尽量打在精英包或密集怪群。", "无星和塞利格到位后再提高层数。"],
+      "boss": ["首领前保留狂战士之怒。", "怒气满时进入旋风斩爆发窗口。", "无防御技能时停止贪输出，先躲机制。"],
+      "defense": ["抗性和护甲没达标前不建议硬冲 150。", "塞利格提供容错，但怒气被打空时要立刻拉开。", "挑战怒吼优先覆盖精英词缀爆发。"],
+      "speedFarm": ["速刷可把胸甲或靴子换成移动/冷却威能。", "低层以路线和拉怪为先，不需要完整爆发循环。"],
+      "commonMistakes": ["缺无星或塞利格就硬打高层。", "战吼全交后被精英词缀反打。", "巅峰先点远端小点，延误传奇节点和雕文孔。"]
+    }
+  }
+]

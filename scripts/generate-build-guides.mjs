@@ -7,6 +7,7 @@ const classPath = path.join(root, "data/classes/classes.json");
 const archetypePath = path.join(root, "data/builds/archetypes.json");
 const equipmentPath = path.join(root, "data/equipment/equipment-library.json");
 const simulationsPath = path.join(root, "data/generated/build-simulations.json");
+const overridePath = path.join(root, "data/builds/community-build-overrides.json");
 const output = path.join(root, "data/generated/build-guides.json");
 
 const modeProfiles = {
@@ -114,6 +115,14 @@ function hashText(value) {
 
 function readJson(filePath) {
   return readFile(filePath, "utf8").then((content) => JSON.parse(content));
+}
+
+async function readOptionalJson(filePath, fallback) {
+  try {
+    return await readJson(filePath);
+  } catch {
+    return fallback;
+  }
 }
 
 function isClassCompatible(item, classInfo) {
@@ -573,14 +582,146 @@ function guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentIt
   };
 }
 
-const [classes, archetypeGroups, equipment, simulations] = await Promise.all([
+function withSteps(items) {
+  return items.map((item, index) => ({ step: index + 1, ...item }));
+}
+
+function applyCommunityOverride(guide, override) {
+  const slotOverrides = new Map((override.gearSlots || []).map((slot) => [slot.slotId, slot]));
+  const gearSlots = guide.gearSlots.map((slot) => {
+    const patch = slotOverrides.get(slot.slotId);
+    if (!patch) return slot;
+    return {
+      ...slot,
+      required: patch.required ?? slot.required,
+      core: patch.core ?? slot.core,
+      replaceable: patch.replaceable ?? slot.replaceable,
+      target: {
+        ...slot.target,
+        ...patch.target,
+        image: patch.target?.image || slot.target.image,
+        externalImage: patch.target ? (patch.target.externalImage ?? null) : slot.target.externalImage
+      },
+      aspect: {
+        ...slot.aspect,
+        ...patch.aspect
+      },
+      affixes: patch.affixes || slot.affixes,
+      alternatives: (patch.alternatives || slot.alternatives).map((alternative) => ({
+        type: alternative.type || "community_reference",
+        itemId: alternative.itemId ?? null,
+        ...alternative
+      })),
+      notes: [
+        patch.replaceable === false ? "社区参考：该位置承担核心联动，不建议替换。" : "社区参考：可按缺件和抗性替换。",
+        patch.aspect?.sourceStatus || slot.aspect.sourceStatus
+      ]
+    };
+  });
+  const coreUniques = gearSlots
+    .filter((slot) => slot.core && slot.target.type === "unique")
+    .slice(0, 6)
+    .map((slot) => ({
+      slotId: slot.slotId,
+      zhSlotName: slot.zhSlotName,
+      itemId: slot.target.itemId,
+      zhName: slot.target.zhName,
+      image: slot.target.image,
+      externalImage: slot.target.externalImage
+    }));
+  const coreAspects = gearSlots
+    .filter((slot) => slot.core)
+    .slice(0, 8)
+    .map((slot) => ({
+      slotId: slot.slotId,
+      zhSlotName: slot.zhSlotName,
+      name: slot.aspect.name,
+      role: slot.aspect.role,
+      required: slot.required,
+      replaceable: slot.replaceable
+    }));
+  return {
+    ...guide,
+    title: override.title || guide.title,
+    taxonomy: {
+      ...guide.taxonomy,
+      archetypeName: override.archetypeName || guide.taxonomy.archetypeName,
+      tags: uniqueStrings([guide.taxonomy.className, override.archetypeName || guide.taxonomy.archetypeName, guide.taxonomy.modeName, "社区参考", ...guide.summary.statPriority], 8)
+    },
+    summary: {
+      ...guide.summary,
+      ...override.summary
+    },
+    source: {
+      ...guide.source,
+      authorName: `${override.sourceReference.site} 社区参考`,
+      trust: "社区 BD 参考 + 官方词缀种子",
+      updatedAt: override.sourceReference.asOf,
+      references: [
+        {
+          title: override.sourceReference.referenceTitle,
+          url: override.sourceReference.url,
+          site: override.sourceReference.site,
+          sourceSeason: override.sourceReference.sourceSeason,
+          note: override.sourceReference.note
+        }
+      ],
+      changelog: [
+        {
+          date: override.sourceReference.asOf,
+          title: "接入社区 BD 覆盖",
+          body: "装备槽位、核心暗金/威能、技能、巅峰和打法按暗黑核 Planner 示例结构覆盖。"
+        },
+        ...guide.source.changelog
+      ]
+    },
+    coreUniques,
+    coreAspects,
+    gearSlots,
+    skillTree: {
+      ...guide.skillTree,
+      ...override.skillTree,
+      pointOrder: override.skillTree?.pointOrder ? withSteps(override.skillTree.pointOrder) : guide.skillTree.pointOrder
+    },
+    paragon: {
+      ...guide.paragon,
+      ...override.paragon,
+      clickOrder: override.paragon?.clickOrder ? withSteps(override.paragon.clickOrder) : guide.paragon.clickOrder,
+      notes: override.paragon?.rule ? [override.paragon.rule, ...guide.paragon.notes] : guide.paragon.notes
+    },
+    gameplay: {
+      ...guide.gameplay,
+      ...override.gameplay
+    },
+    variants: [
+      {
+        name: "暗黑核参考版",
+        useCase: "按社区 Planner 示例展示的冲层结构查看。",
+        swapOut: "模板槽位",
+        swapIn: "社区覆盖槽位",
+        notes: override.sourceReference.note
+      },
+      ...guide.variants
+    ],
+    dataQuality: {
+      officialFields: ["3.1.0 唯一装备固定词缀", "补丁版本和构建号"],
+      communityVerified: ["暗黑核示例 BD 槽位", "社区 Planner 技能/巅峰/打法结构参考"],
+      needsValidation: ["S14 实战榜单校准", "暗金特效完整数值", "巅峰盘坐标"],
+      missing: ["视频实战样本回填", "赛季热修后的重新评分"]
+    }
+  };
+}
+
+const [classes, archetypeGroups, equipment, simulations, overrides] = await Promise.all([
   readJson(classPath),
   readJson(archetypePath),
   readJson(equipmentPath),
-  readJson(simulationsPath)
+  readJson(simulationsPath),
+  readOptionalJson(overridePath, [])
 ]);
 
 const simMap = simulationLookup(simulations);
+const overrideMap = new Map(overrides.map((override) => [override.id, override]));
 const builds = [];
 
 for (const [seasonIndex, season] of simulations.seasons.entries()) {
@@ -589,7 +730,8 @@ for (const [seasonIndex, season] of simulations.seasons.entries()) {
     for (const archetype of archetypes) {
       for (const mode of Object.keys(modeProfiles)) {
         const simBuild = simMap.get(`${season.id}:${classInfo.id}:${mode}:${archetype.id}`);
-        builds.push(guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentItems: equipment.items, simBuild }));
+        const guide = guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentItems: equipment.items, simBuild });
+        builds.push(overrideMap.has(guide.id) ? applyCommunityOverride(guide, overrideMap.get(guide.id)) : guide);
       }
     }
   }
@@ -613,7 +755,8 @@ const payload = {
       "data/classes/classes.json",
       "data/builds/archetypes.json",
       "data/equipment/equipment-library.json",
-      "data/generated/build-simulations.json"
+      "data/generated/build-simulations.json",
+      "data/builds/community-build-overrides.json"
     ],
     generatedFile: "data/generated/build-guides.json",
     frontendUse: "前端按赛季、职业、用途筛选 build-guides；BD 详情页直接读取结构化槽位、技能、巅峰和打法字段。"
