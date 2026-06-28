@@ -57,6 +57,46 @@ function hashText(value) {
   return [...String(value)].reduce((total, char) => (total * 31 + char.charCodeAt(0)) >>> 0, 7);
 }
 
+function parseGameVersion(source) {
+  const versionLine = source?.versionLine || "";
+  const monthMap = {
+    January: "01",
+    February: "02",
+    March: "03",
+    April: "04",
+    May: "05",
+    June: "06",
+    July: "07",
+    August: "08",
+    September: "09",
+    October: "10",
+    November: "11",
+    December: "12"
+  };
+  const match = versionLine.match(/^(.+?) Build #(\d+) \(All Platforms\)—([A-Za-z]+) (\d{1,2}), (\d{4})$/);
+  if (!match) {
+    return {
+      patch: null,
+      build: null,
+      platforms: "All Platforms",
+      releaseDate: null,
+      asOf: "2026-06-28",
+      sourceId: source?.id,
+      sourceUrl: source?.url
+    };
+  }
+  const [, patch, build, month, day, year] = match;
+  return {
+    patch,
+    build,
+    platforms: "All Platforms",
+    releaseDate: `${year}-${monthMap[month] ?? month}-${day.padStart(2, "0")}`,
+    asOf: "2026-06-28",
+    sourceId: source.id,
+    sourceUrl: source.url
+  };
+}
+
 function inferItemSlots(item, zhName, visualType) {
   const text = `${item.id ?? ""} ${item.name} ${zhName}`.toLowerCase();
   const matches = new Set();
@@ -118,6 +158,7 @@ const uniqueData = JSON.parse(await readFile(uniquePath, "utf8"));
 const taxonomy = JSON.parse(await readFile(taxonomyPath, "utf8"));
 const iconIndex = await readOptionalJson(iconIndexPath);
 const externalIcons = new Map((iconIndex?.items ?? []).map((item) => [item.name, item]));
+const gameVersion = parseGameVersion(uniqueData.source);
 const items = uniqueData.items.map((item) => {
   const zhName = zh.itemName(item.name);
   const guaranteedAffixes = item.guaranteedAffixes.map((affix) => ({
@@ -148,16 +189,31 @@ const items = uniqueData.items.map((item) => {
     externalImageMatchType: externalIcon?.matchType ?? "none",
     guaranteedAffixes,
     zhGuaranteedAffixes: guaranteedAffixes.map((affix) => zh.affix(affix.name)),
+    fullAffixRanges: [],
+    zhFullAffixRanges: [],
+    uniquePower: null,
+    zhUniquePower: "暗金特效待来源回填",
+    dropSource: {
+      status: "needs_source_backfill",
+      zhText: "掉落来源待来源回填"
+    },
+    verifiedSlot: null,
     categories,
     buildRole: buildRole(categories),
     zhBuildRole: zh.buildRole(buildRole(categories)),
     modeFit: modeFit(categories),
     zhModeFit: modeFit(categories).map((mode) => zh.mode(mode)),
-    source: uniqueData.source,
+    source: {
+      ...uniqueData.source,
+      gameVersion
+    },
+    gameVersion,
     dataStatus: {
       guaranteedAffixes: "official_3_1_0_patch",
       fullAffixRanges: "needs_source_backfill",
       uniquePower: "needs_source_backfill",
+      dropSource: "needs_source_backfill",
+      verifiedSlot: "needs_source_backfill",
       slot: slotCandidates.length ? "inferred_from_name_and_visual_type" : "inferred_or_unknown",
       icon: externalIcon?.iconUrl ? "external_url_reference" : "local_generated_fallback"
     },
@@ -168,7 +224,15 @@ const items = uniqueData.items.map((item) => {
 const payload = {
   generatedAt: new Date().toISOString(),
   source: uniqueData.source,
+  gameVersion,
   scope: "equipment_library_seed_from_official_unique_guaranteed_affixes",
+  coverage: {
+    uniquePower: 0,
+    fullAffixRanges: 0,
+    verifiedSlot: 0,
+    dropSource: 0,
+    guaranteedAffixes: items.length
+  },
   limitations: [
     "This is not the full Diablo IV equipment database.",
     "Official patch notes provide guaranteed affix names but not every roll range, item slot, image, or unique power.",

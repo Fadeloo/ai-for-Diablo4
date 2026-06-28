@@ -39,6 +39,9 @@ const state = {
   equipmentFilters: {
     classId: "all",
     mode: "all",
+    slot: "all",
+    status: "all",
+    related: "all",
     query: "",
     visible: 48
   }
@@ -114,13 +117,16 @@ const dataStatusLabels = {
   needs_source_backfill: "待数据源回填",
   inferred_or_unknown: "推断或未知",
   inferred_from_name_and_visual_type: "按名称和类型推断",
-  external_url_reference: "外部地址引用"
+  external_url_reference: "外部地址引用",
+  local_generated_fallback: "本地回退图标"
 };
 
 const dataStatusFieldLabels = {
   guaranteedAffixes: "固定词缀",
   fullAffixRanges: "完整词缀范围",
   uniquePower: "暗金特效",
+  dropSource: "掉落来源",
+  verifiedSlot: "官方槽位",
   slot: "装备槽位",
   icon: "图标来源"
 };
@@ -153,13 +159,22 @@ function parseRoute(route) {
   if (clean.startsWith("bd/")) {
     return {
       view: "bd",
-      guideId: decodeURIComponent(clean.slice(3))
+      guideId: decodeURIComponent(clean.slice(3)),
+      itemId: null
+    };
+  }
+  if (clean.startsWith("item/")) {
+    return {
+      view: "equipment",
+      guideId: null,
+      itemId: decodeURIComponent(clean.slice(5))
     };
   }
   const normalized = routeAliases[clean] || clean;
   return {
     view: viewIds.includes(normalized) ? normalized : "home",
-    guideId: null
+    guideId: null,
+    itemId: null
   };
 }
 
@@ -176,6 +191,19 @@ function setView(route, options = {}) {
   const normalized = parsed.view;
   state.activeView = normalized;
   if (parsed.guideId) state.selectedGuideId = parsed.guideId;
+  if (parsed.itemId) {
+    state.selectedEquipmentId = parsed.itemId;
+    state.equipmentFilters = {
+      ...state.equipmentFilters,
+      classId: "all",
+      mode: "all",
+      slot: "all",
+      status: "all",
+      related: "all",
+      query: "",
+      visible: Math.max(state.equipmentFilters.visible, 48)
+    };
+  }
   document.body.dataset.view = normalized;
 
   document.querySelectorAll(".view[data-view]").forEach((view) => {
@@ -191,8 +219,14 @@ function setView(route, options = {}) {
   });
 
   if (normalized === "bd") renderBuildGuideDetail();
+  if (normalized === "equipment") {
+    syncEquipmentFilterControls();
+    renderEquipment();
+  }
 
-  const desiredHash = normalized === "bd" && state.selectedGuideId
+  const desiredHash = parsed.itemId
+    ? `#item/${encodeURIComponent(parsed.itemId)}`
+    : normalized === "bd" && state.selectedGuideId
     ? `#bd/${encodeURIComponent(state.selectedGuideId)}`
     : `#${normalized}`;
   if (options.replaceHash && window.location.hash !== desiredHash) {
@@ -379,6 +413,37 @@ function renderSelects() {
     .map((season) => `<option value="${season.id}">${season.zhLabel || season.label}</option>`)
     .join("");
   $("[data-sim-season]").value = state.sim.seasonId;
+
+  const slotSelect = $("[data-equipment-slot]");
+  if (slotSelect) {
+    const seenSlots = new Set();
+    const slotOptions = (state.buildGuides?.slotOrder || [])
+      .filter((slot) => {
+        if (!slot.baseSlot || seenSlots.has(slot.baseSlot)) return false;
+        seenSlots.add(slot.baseSlot);
+        return true;
+      })
+      .map((slot) => `<option value="${slot.baseSlot}">${slot.baseSlot === "ring" ? "戒指" : slot.zhName}</option>`)
+      .join("");
+    slotSelect.innerHTML = `<option value="all">全部部位</option>${slotOptions}`;
+  }
+  const statusSelect = $("[data-equipment-status]");
+  if (statusSelect) {
+    statusSelect.innerHTML = `
+      <option value="all">全部状态</option>
+      <option value="needs_source_backfill">待来源回填</option>
+      <option value="inferred_from_name_and_visual_type">部位推断</option>
+      <option value="external_url_reference">外部图标</option>
+    `;
+  }
+  const relatedSelect = $("[data-equipment-related]");
+  if (relatedSelect) {
+    relatedSelect.innerHTML = `
+      <option value="all">全部关联</option>
+      <option value="used">已进入 BD</option>
+      <option value="unused">暂无 BD 使用</option>
+    `;
+  }
 }
 
 function allBuildGuides() {
@@ -387,6 +452,26 @@ function allBuildGuides() {
 
 function guideUrl(guide) {
   return `#bd/${encodeURIComponent(guide.id)}`;
+}
+
+function itemUrl(itemOrId) {
+  const id = typeof itemOrId === "string" ? itemOrId : itemOrId?.id;
+  return id ? `#item/${encodeURIComponent(id)}` : "#equipment";
+}
+
+function syncEquipmentFilterControls() {
+  const search = $("[data-equipment-search]");
+  const classSelect = $("[data-equipment-class]");
+  const mode = $("[data-equipment-mode]");
+  const slot = $("[data-equipment-slot]");
+  const status = $("[data-equipment-status]");
+  const related = $("[data-equipment-related]");
+  if (search) search.value = state.equipmentFilters.query;
+  if (classSelect) classSelect.value = state.equipmentFilters.classId;
+  if (mode) mode.value = state.equipmentFilters.mode;
+  if (slot) slot.value = state.equipmentFilters.slot;
+  if (status) status.value = state.equipmentFilters.status;
+  if (related) related.value = state.equipmentFilters.related;
 }
 
 function filteredGuides() {
@@ -543,7 +628,7 @@ function renderGuideMiniLinks(guides, emptyText) {
         <a class="guide-mini-link" href="${guideUrl(guide)}">
           <span>${guide.taxonomy.className} · ${guide.taxonomy.modeName}</span>
           <strong>${guide.taxonomy.archetypeName}</strong>
-          <em>${guideSourceLabel(guide)} · ${guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</em>
+          <em>${guideSourceLabel(guide)} · ${guide.ceiling.displayTier || guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</em>
         </a>
       `).join("")}
     </div>
@@ -557,10 +642,10 @@ function renderTags(tags, limit = 8) {
 function renderCoreUniques(guide, limit = 4) {
   return guide.coreUniques.slice(0, limit)
     .map((item) => `
-      <span class="mini-item">
+      <a class="mini-item" href="${item.itemId ? itemUrl(item.itemId) : "#equipment"}">
         ${renderIcon(item, `${item.zhName}图标`)}
         <b>${item.zhName}</b>
-      </span>
+      </a>
     `)
     .join("");
 }
@@ -587,9 +672,48 @@ function renderSourceReferences(guide) {
       ${references.map((reference) => `
         <article>
           <strong>${reference.site} · ${reference.title}</strong>
-          <span>${reference.sourceSeason}</span>
+          <span>${reference.sourceSeason} · ${reference.asOf || "日期待回填"}</span>
           <p>${reference.note}</p>
           <a href="${reference.url}" target="_blank" rel="noreferrer">查看来源页面</a>
+        </article>
+      `).join("")}
+    </div>
+  `;
+}
+
+function renderSuitability(guide) {
+  const entries = [
+    ["开荒", guide.suitability?.leveling],
+    ["速刷", guide.suitability?.speedFarm],
+    ["冲层", guide.suitability?.pitPush],
+    ["首领", guide.suitability?.bossing],
+    ["硬核", guide.suitability?.hardcore],
+    ["手柄", guide.suitability?.controller]
+  ];
+  return `
+    <div class="suitability-grid">
+      ${entries.map(([label, value]) => `
+        <article>
+          <strong>${label}</strong>
+          <span>${value || "待评估"}</span>
+        </article>
+      `).join("")}
+    </div>
+    ${guide.suitability?.notes?.length ? `<p class="guide-note">${guide.suitability.notes.join(" ")}</p>` : ""}
+  `;
+}
+
+function renderCeilingEvidence(guide) {
+  const evidence = guide.ceiling?.evidence || [];
+  if (!evidence.length) return `<p class="empty-copy">150 层参考仍待榜单或实战样本校准。</p>`;
+  return `
+    <div class="evidence-list">
+      ${evidence.map((item) => `
+        <article>
+          <strong>${item.zhLabel || item.label || "证据"}</strong>
+          <span>${item.zhStatus || item.status || "待校准"}</span>
+          <p>${item.zhDetail || item.detail || ""}</p>
+          ${item.url ? `<a href="${item.url}" target="_blank" rel="noreferrer">查看来源</a>` : ""}
         </article>
       `).join("")}
     </div>
@@ -605,7 +729,7 @@ function renderBuildLibraryCard(guide) {
           <p class="panel-kicker">${guide.taxonomy.className} · ${guide.taxonomy.modeName}</p>
           <h3>${guide.taxonomy.archetypeName}</h3>
         </div>
-        <strong>${guide.ceiling.tier}</strong>
+        <strong>${guide.ceiling.displayTier || guide.ceiling.tier}</strong>
       </div>
       <p>${guide.summary.oneLine}</p>
       <div class="guide-card__tags">${renderTags(guide.taxonomy.stageTags)}</div>
@@ -615,7 +739,7 @@ function renderBuildLibraryCard(guide) {
       </div>
       <div class="guide-card__metrics">
         <span><b>${guide.formationDifficulty.label}</b>成型难度</span>
-        <span><b>${guide.ceiling.pit150Minutes} 分</b>150 层参考</span>
+        <span><b>${guide.ceiling.pit150Minutes} 分</b>${["community_reference", "cross_season_reference"].includes(guide.ceiling.sourceStatus) ? "150 层参考" : "模板参考"}</span>
         <span><b>${guide.gearSlots.length}</b>装备位置</span>
       </div>
       <div class="guide-card__items">${renderCoreUniques(guide, 3)}</div>
@@ -659,7 +783,7 @@ function renderSimulator() {
       <a class="build-list-link guide-link" href="${guideUrl(guide)}" aria-selected="${index === state.sim.buildIndex}">
         <span>${String(index + 1).padStart(2, "0")}</span>
         <strong>${guide.taxonomy.archetypeName}</strong>
-        <em>${guideSourceLabel(guide)} · ${guide.taxonomy.stageTags.join(" / ")} · 成型${guide.formationDifficulty.label} · ${guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</em>
+        <em>${guideSourceLabel(guide)} · ${guide.taxonomy.stageTags.join(" / ")} · 成型${guide.formationDifficulty.label} · ${guide.ceiling.displayTier || guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</em>
       </a>
     `).join("")}
   `;
@@ -698,34 +822,54 @@ function renderSimulator() {
   bindImageFallbacks($("[data-sim-result]"));
 }
 
+function renderTargetLink(target) {
+  if (!target?.itemId) return `<strong>${target?.zhName || "待回填装备"}</strong>`;
+  return `<a href="${itemUrl(target.itemId)}">${target.zhName}</a>`;
+}
+
 function renderGearSlot(slot) {
+  const upgradePath = slot.upgradePath || [];
+  const sourceStatus = slot.aspect?.sourceStatus || slot.dataStatus || "资料状态待回填";
+  const alternatives = (slot.alternatives || []).map((alt) => {
+    const name = alt.itemId ? `<a href="${itemUrl(alt.itemId)}">${alt.zhName}</a>` : `<b>${alt.zhName}</b>`;
+    return `<li>${name}<span>${alt.reason} ${alt.tradeoff}</span></li>`;
+  }).join("");
   return `
     <article class="gear-slot-card ${slot.core ? "is-core" : ""}">
       <div class="gear-slot-card__top">
         <span>${slot.zhSlotName}</span>
-        <strong>${slot.replaceable ? "可替换" : "核心不可替换"}</strong>
+        <strong>${slot.required ? "硬需求" : slot.replaceable ? "可替换" : "核心位"}</strong>
       </div>
       <div class="gear-slot-card__main">
         ${renderIcon(slot.target, `${slot.target.zhName}图标`)}
         <div>
-          <h4>${slot.target.zhName}</h4>
+          <h4>${renderTargetLink(slot.target)}</h4>
           <p>${slot.target.description}</p>
         </div>
       </div>
       <div class="gear-slot-card__flags">
         <span>${slot.priority}</span>
         <span>${slot.aspect.name}</span>
+        <span>${slot.aspect.role}</span>
       </div>
       <dl class="gear-lines">
+        <div><dt>数据状态</dt><dd>${sourceStatus}</dd></div>
         <div><dt>词缀</dt><dd>${slot.affixes.join(" / ")}</dd></div>
         <div><dt>淬炼</dt><dd>${slot.tempers.join(" / ")}</dd></div>
         <div><dt>精造</dt><dd>${slot.masterwork.join(" / ")}</dd></div>
         <div><dt>宝石</dt><dd>${slot.sockets.join(" / ")}</dd></div>
       </dl>
+      ${upgradePath.length ? `
+        <div class="slot-upgrade-path">
+          <strong>成型顺序</strong>
+          <ol>${upgradePath.map((step) => `<li>${step}</li>`).join("")}</ol>
+        </div>
+      ` : ""}
       <div class="slot-alternatives">
         <strong>替换方案</strong>
-        <ul>${slot.alternatives.map((alt) => `<li><b>${alt.zhName}</b><span>${alt.reason} ${alt.tradeoff}</span></li>`).join("")}</ul>
+        <ul>${alternatives}</ul>
       </div>
+      ${slot.notes?.length ? `<p class="slot-note">${slot.notes.join(" ")}</p>` : ""}
     </article>
   `;
 }
@@ -745,23 +889,41 @@ function renderGuideDetailSection(title, subtitle, body, key) {
 function renderSkillTree(skillTree) {
   return `
     <div class="skill-layout">
-      <div class="skill-bar-large">
-        ${skillTree.skillBar.map((skill) => `
-          <article>
-            <span>${skill.slot}</span>
-            <strong>${skill.name}</strong>
-            <em>${skill.role} · ${skill.points} 点</em>
-          </article>
-        `).join("")}
+      <div class="skill-side-panel">
+        <div class="skill-bar-large">
+          ${skillTree.skillBar.map((skill) => `
+            <article>
+              <span>${skill.slot}</span>
+              <strong>${skill.name}</strong>
+              <em>${skill.role} · ${skill.points} 点</em>
+            </article>
+          `).join("")}
+        </div>
+        <div class="route-note-card">
+          <strong>职业机制</strong>
+          <p>${skillTree.classMechanic || "职业机制待来源回填，先按技能栏和装备触发条件执行。"}</p>
+        </div>
+        <div class="route-note-card">
+          <strong>被动优先级</strong>
+          <p>${(skillTree.passives || []).join(" / ")}</p>
+        </div>
       </div>
-      <ol class="timeline-list">
-        ${skillTree.pointOrder.map((item) => `
-          <li>
-            <span>${item.step}</span>
-            <div><strong>${item.levelRange} · ${item.skill}</strong><p>${item.points}。${item.reason}</p></div>
-          </li>
-        `).join("")}
-      </ol>
+      <div class="route-main-panel">
+        <ol class="timeline-list">
+          ${skillTree.pointOrder.map((item) => `
+            <li>
+              <span>${item.step}</span>
+              <div><strong>${item.levelRange} · ${item.skill}</strong><p>${item.points}。${item.reason}</p></div>
+            </li>
+          `).join("")}
+        </ol>
+        ${skillTree.notes?.length ? `
+          <div class="route-note-card">
+            <strong>加点规则</strong>
+            <ul>${listItems(skillTree.notes)}</ul>
+          </div>
+        ` : ""}
+      </div>
     </div>
   `;
 }
@@ -769,24 +931,55 @@ function renderSkillTree(skillTree) {
 function renderParagon(paragon) {
   return `
     <div class="paragon-layout">
-      <div class="paragon-boards">
-        ${paragon.boardOrder.map((board) => `
-          <article>
-            <span>${board.order}</span>
-            <strong>${board.name}</strong>
-            <p>${board.goal}</p>
-            <em>${board.glyph} · ${board.rotate}</em>
-          </article>
-        `).join("")}
+      <div class="paragon-side-panel">
+        <div class="paragon-boards">
+          ${paragon.boardOrder.map((board) => `
+            <article>
+              <span>${board.order}</span>
+              <strong>${board.name}</strong>
+              <p>${board.goal}</p>
+              <em>${board.glyph} · ${board.rotate}</em>
+            </article>
+          `).join("")}
+        </div>
+        ${paragon.glyphs?.length ? `
+          <div class="glyph-grid">
+            ${paragon.glyphs.map((glyph) => `
+              <article>
+                <strong>${glyph.priority}. ${glyph.name}</strong>
+                <span>${glyph.socket}</span>
+                <p>${glyph.note}</p>
+              </article>
+            `).join("")}
+          </div>
+        ` : ""}
       </div>
-      <ol class="timeline-list">
-        ${paragon.clickOrder.map((item) => `
-          <li>
-            <span>${item.step}</span>
-            <div><strong>${item.board} · ${item.node}</strong><p>${item.reason}</p></div>
-          </li>
-        `).join("")}
-      </ol>
+      <div class="route-main-panel">
+        ${paragon.pointBands?.length ? `
+          <div class="point-band-grid">
+            ${paragon.pointBands.map((band) => `
+              <article>
+                <strong>${band.points} 点</strong>
+                <span>${band.goal}</span>
+              </article>
+            `).join("")}
+          </div>
+        ` : ""}
+        <ol class="timeline-list">
+          ${paragon.clickOrder.map((item) => `
+            <li>
+              <span>${item.step}</span>
+              <div><strong>${item.board} · ${item.node}</strong><p>${item.reason}</p></div>
+            </li>
+          `).join("")}
+        </ol>
+        ${paragon.notes?.length ? `
+          <div class="route-note-card">
+            <strong>巅峰规则</strong>
+            <ul>${listItems(paragon.notes)}</ul>
+          </div>
+        ` : ""}
+      </div>
     </div>
   `;
 }
@@ -847,11 +1040,12 @@ function renderBuildGuideDetail() {
             <h2>${guide.taxonomy.archetypeName}</h2>
             <p>${guide.summary.oneLine}</p>
             <div class="guide-card__tags">${renderTags(guide.taxonomy.tags)}</div>
-            <div class="source-pill">${guide.source.trust}</div>
+            <div class="source-pill">${guideSourceLabel(guide)} · ${guide.source.trust}</div>
           </div>
           <div class="guide-hero__score">
-            <strong>${guide.ceiling.tier}</strong>
+            <strong>${guide.ceiling.displayTier || guide.ceiling.tier}</strong>
             <span>${guide.ceiling.label}</span>
+            <em>${Math.round((guide.ceiling.confidence || 0) * 100)}% 置信度</em>
           </div>
         </div>
         <div class="guide-kpi-grid">
@@ -862,66 +1056,93 @@ function renderBuildGuideDetail() {
         </div>
       </header>
 
-      <nav class="guide-section-nav" aria-label="BD 分区导航">
-        ${navItems.map(([key, label]) => `<button type="button" data-guide-jump="${key}">${label}</button>`).join("")}
-      </nav>
+      <div class="guide-detail-layout">
+        <aside class="guide-sidebar">
+          <nav class="guide-section-nav" aria-label="BD 分区导航">
+            ${navItems.map(([key, label]) => `<button type="button" data-guide-jump="${key}">${label}</button>`).join("")}
+          </nav>
+          <div class="guide-sidebar-card">
+            <strong>资料状态</strong>
+            <span>${guideSourceLabel(guide)}</span>
+            <p>${guide.ceiling.evidenceLabel || guide.ceiling.label}</p>
+          </div>
+          <div class="guide-sidebar-card">
+            <strong>核心需求</strong>
+            <ul>${listItems(guide.summary.requirements?.length ? guide.summary.requirements : ["核心装备待来源回填"])}</ul>
+          </div>
+        </aside>
 
-      ${renderGuideDetailSection("核心装备", "暗金与威能", `
-        <div class="core-item-strip">${renderCoreUniques(guide, 5)}</div>
-        <div class="core-aspect-strip">${renderCoreAspects(guide)}</div>
-        <div class="guide-two-col">
-          <article>
-            <h5>优点</h5>
-            <ul>${listItems(guide.summary.pros)}</ul>
-          </article>
-          <article>
-            <h5>短板</h5>
-            <ul>${listItems(guide.summary.cons)}</ul>
-          </article>
+        <div class="guide-main-sections">
+          ${renderGuideDetailSection("总览", "定位、强弱项和适用阶段", `
+            ${renderSuitability(guide)}
+            <div class="core-item-strip">${renderCoreUniques(guide, 5)}</div>
+            <div class="core-aspect-strip">${renderCoreAspects(guide)}</div>
+            <div class="guide-two-col">
+              <article>
+                <h5>优点</h5>
+                <ul>${listItems(guide.summary.pros)}</ul>
+              </article>
+              <article>
+                <h5>短板</h5>
+                <ul>${listItems(guide.summary.cons)}</ul>
+              </article>
+            </div>
+            <div class="guide-two-col">
+              <article>
+                <h5>成型难度</h5>
+                <ul>${listItems(guide.formationDifficulty.reasons)}</ul>
+              </article>
+              <article>
+                <h5>150 层证据</h5>
+                ${renderCeilingEvidence(guide)}
+              </article>
+            </div>
+          `, "overview")}
+
+          ${renderGuideDetailSection("全身装备", "每个位置、替换件和精造方向", `
+            <div class="gear-slot-grid">${guide.gearSlots.map(renderGearSlot).join("")}</div>
+          `, "gear")}
+
+          ${renderGuideDetailSection("技能加点", `${guide.skillTree.core} · 按等级段执行`, renderSkillTree(guide.skillTree), "skills")}
+
+          ${renderGuideDetailSection("巅峰点击顺序", "先雕文孔和传奇节点，再补稀有与魔法节点", renderParagon(guide.paragon), "paragon")}
+
+          ${renderGuideDetailSection("打法", "起手、循环、首领、防御和常见错误", renderGameplay(guide.gameplay), "gameplay")}
+
+          ${renderGuideDetailSection("替换与变体", "缺件、冲层和高容错版本", `
+            <div class="variant-grid">
+              ${guide.variants.map((variant) => `
+                <article>
+                  <h5>${variant.name}</h5>
+                  <p>${variant.useCase}</p>
+                  <dl>
+                    <div><dt>换下</dt><dd>${variant.swapOut}</dd></div>
+                    <div><dt>换上</dt><dd>${variant.swapIn}</dd></div>
+                  </dl>
+                  <span>${variant.notes}</span>
+                </article>
+              `).join("")}
+            </div>
+          `, "variants")}
+
+          ${renderGuideDetailSection("来源与状态", `${guide.gameVersion.patch} 构建 #${guide.gameVersion.build}`, `
+            <div class="source-status-grid">
+              <article><strong>作者</strong><span>${guide.source.authorName}</span></article>
+              <article><strong>数据状态</strong><span>${guideSourceLabel(guide)}</span></article>
+              <article><strong>更新时间</strong><span>${guide.source.updatedAt}</span></article>
+              <article><strong>预测状态</strong><span>${guide.ceiling.evidenceLabel || "待实战样本校准"}</span></article>
+              <article><strong>已确认</strong><span>${guide.dataQuality.officialFields.join(" / ")}</span></article>
+              <article><strong>社区校验</strong><span>${guide.dataQuality.communityVerified.join(" / ")}</span></article>
+              <article><strong>待补全</strong><span>${guide.dataQuality.needsValidation.join(" / ")}</span></article>
+              <article><strong>缺失字段</strong><span>${guide.dataQuality.missing.join(" / ")}</span></article>
+            </div>
+            ${renderSourceReferences(guide)}
+            <div class="source-actions">
+              <a href="${guide.gameVersion.sourceUrl}" target="_blank" rel="noreferrer">查看官方补丁来源</a>
+            </div>
+          `, "sources")}
         </div>
-      `, "overview")}
-
-      ${renderGuideDetailSection("全身装备", "每个位置、替换件和精造方向", `
-        <div class="gear-slot-grid">${guide.gearSlots.map(renderGearSlot).join("")}</div>
-      `, "gear")}
-
-      ${renderGuideDetailSection("技能加点", `${guide.skillTree.core} · 按等级段执行`, renderSkillTree(guide.skillTree), "skills")}
-
-      ${renderGuideDetailSection("巅峰点击顺序", "先雕文孔和传奇节点，再补稀有与魔法节点", renderParagon(guide.paragon), "paragon")}
-
-      ${renderGuideDetailSection("打法", "起手、循环、首领、防御和常见错误", renderGameplay(guide.gameplay), "gameplay")}
-
-      ${renderGuideDetailSection("替换与变体", "缺件、冲层和高容错版本", `
-        <div class="variant-grid">
-          ${guide.variants.map((variant) => `
-            <article>
-              <h5>${variant.name}</h5>
-              <p>${variant.useCase}</p>
-              <dl>
-                <div><dt>换下</dt><dd>${variant.swapOut}</dd></div>
-                <div><dt>换上</dt><dd>${variant.swapIn}</dd></div>
-              </dl>
-              <span>${variant.notes}</span>
-            </article>
-          `).join("")}
-        </div>
-      `, "variants")}
-
-      ${renderGuideDetailSection("来源与状态", `${guide.gameVersion.patch} 构建 #${guide.gameVersion.build}`, `
-        <div class="source-status-grid">
-          <article><strong>作者</strong><span>${guide.source.authorName}</span></article>
-          <article><strong>数据状态</strong><span>${guideSourceLabel(guide)}</span></article>
-          <article><strong>更新时间</strong><span>${guide.source.updatedAt}</span></article>
-          <article><strong>已确认</strong><span>${guide.dataQuality.officialFields.join(" / ")}</span></article>
-          <article><strong>社区校验</strong><span>${guide.dataQuality.communityVerified.join(" / ")}</span></article>
-          <article><strong>待补全</strong><span>${guide.dataQuality.needsValidation.join(" / ")}</span></article>
-          <article><strong>缺失字段</strong><span>${guide.dataQuality.missing.join(" / ")}</span></article>
-        </div>
-        ${renderSourceReferences(guide)}
-        <div class="source-actions">
-          <a href="${guide.gameVersion.sourceUrl}" target="_blank" rel="noreferrer">查看官方补丁来源</a>
-        </div>
-      `, "sources")}
+      </div>
     </div>
   `;
   bindImageFallbacks(panel);
@@ -988,11 +1209,18 @@ function renderSelectedClass() {
 }
 
 function filteredEquipmentRows() {
-  const { classId, mode, query } = state.equipmentFilters;
+  const { classId, mode, slot, status, related, query } = state.equipmentFilters;
   const normalizedQuery = query.trim().toLowerCase();
   return state.equipment
     .filter((item) => classId === "all" || item.classRestriction === "All Classes" || item.classRestriction.toLowerCase() === classId)
     .filter((item) => mode === "all" || item.modeFit.includes(mode))
+    .filter((item) => slot === "all" || item.slotCandidates?.includes(slot))
+    .filter((item) => status === "all" || Object.values(item.dataStatus || {}).includes(status))
+    .filter((item) => {
+      if (related === "all") return true;
+      const count = relatedGuideCount(item);
+      return related === "used" ? count > 0 : count === 0;
+    })
     .filter((item) => {
       if (!normalizedQuery) return true;
       return [
@@ -1082,6 +1310,11 @@ function renderEquipmentDetail(item) {
     `)
     .join("");
   const relatedGuides = relatedGuidesForItem(item);
+  const versionInfo = item.gameVersion || item.source?.gameVersion;
+  const platformText = versionInfo?.platforms === "All Platforms" ? "全平台" : (versionInfo?.platforms || "全平台");
+  const versionText = versionInfo?.patch
+    ? `${versionInfo.patch} 构建 #${versionInfo.build}（${platformText}）— ${versionInfo.releaseDate || "日期待回填"}`
+    : versionLineLabel(item.source.versionLine);
 
   panel.innerHTML = `
     <div class="equipment-detail-hero">
@@ -1103,6 +1336,8 @@ function renderEquipmentDetail(item) {
         <article><strong>职业限制</strong><span>${equipmentClassLabel(item)}</span></article>
         <article><strong>构筑用途</strong><span>${item.zhBuildRole || item.buildRole}</span></article>
         <article><strong>适用场景</strong><span>${(item.zhModeFit || item.modeFit).join(" / ")}</span></article>
+        <article><strong>掉落来源</strong><span>${item.dropSource?.zhText || "待来源回填"}</span></article>
+        <article><strong>暗金特效</strong><span>${item.zhUniquePower || "待来源回填"}</span></article>
       </div>
     </section>
     <section class="detail-section">
@@ -1131,8 +1366,9 @@ function renderEquipmentDetail(item) {
         <h4>来源</h4>
         <span>${item.source.id}</span>
       </div>
-      <p>${versionLineLabel(item.source.versionLine)}</p>
+      <p>${versionText}</p>
       <div class="source-actions">
+        <a href="${itemUrl(item)}">打开独立装备页</a>
         <a href="${item.source.url}" target="_blank" rel="noreferrer">查看补丁来源</a>
         ${item.externalImage ? `<a href="${item.externalImage}" target="_blank" rel="noreferrer">查看图标来源</a>` : ""}
       </div>
@@ -1263,11 +1499,34 @@ function bindInteractions() {
     state.selectedEquipmentId = null;
     renderEquipment();
   });
+  $("[data-equipment-slot]").addEventListener("change", (event) => {
+    state.equipmentFilters.slot = event.target.value;
+    state.equipmentFilters.visible = 48;
+    state.selectedEquipmentId = null;
+    renderEquipment();
+  });
+  $("[data-equipment-status]").addEventListener("change", (event) => {
+    state.equipmentFilters.status = event.target.value;
+    state.equipmentFilters.visible = 48;
+    state.selectedEquipmentId = null;
+    renderEquipment();
+  });
+  $("[data-equipment-related]").addEventListener("change", (event) => {
+    state.equipmentFilters.related = event.target.value;
+    state.equipmentFilters.visible = 48;
+    state.selectedEquipmentId = null;
+    renderEquipment();
+  });
   $("[data-equipment-results]").addEventListener("click", (event) => {
     const button = event.target.closest("[data-equipment-id]");
     if (!button) return;
     state.selectedEquipmentId = button.dataset.equipmentId;
-    renderEquipment();
+    const hash = itemUrl(state.selectedEquipmentId);
+    if (window.location.hash === hash) {
+      renderEquipment();
+    } else {
+      window.location.hash = hash;
+    }
     $("[data-equipment-detail]")?.scrollTo(0, 0);
   });
   $("[data-equipment-more]").addEventListener("click", () => {

@@ -308,6 +308,12 @@ function gearSlotsFor({ equipmentItems, classInfo, archetype, mode }) {
       masterwork: affixes.slice(0, 2),
       sockets: socketLines(slot),
       alternatives: alternativeFor(slot, selected, pool, archetype, usedIds, index),
+      upgradePath: [
+        `开荒：先用高装等${slot.group === "武器" ? "武器" : slot.zhName}和主词缀过渡。`,
+        `成型：补齐${affixes.slice(0, 2).join(" / ")}。`,
+        core ? "终局：该位置优先精造命中核心词缀。" : "终局：核心位稳定后再投入精造资源。"
+      ],
+      dataStatus: selected ? "官方固定词缀已接入，暗金特效和范围待回填" : "传奇威能模板，待全量威能库核验",
       notes: [
         replaceable ? "可替换：先保证主词缀和抗性，再追求最优暗金。" : "不建议替换：此位承担主要伤害或循环。",
         core ? "优先在该部位投入精造资源。" : "作为成型后的补强部位。"
@@ -365,9 +371,41 @@ function ceilingFor(performance, mode) {
   return {
     pit150Minutes: minutes,
     tier,
-    label: `${tier} · 150 层 ${minutes} 分参考`,
+    displayTier: `${tier} 模板`,
+    label: `模板参考 · 150 层 ${minutes} 分`,
+    evidenceLabel: "未接入真实榜单，按官方词缀和构筑模板估算",
+    sourceStatus: "template_reference",
+    confidence: performance.confidence ?? 0.48,
+    evidence: [
+      {
+        type: "official_affix_seed",
+        zhLabel: "官方词缀种子",
+        zhStatus: "已接入",
+        zhDetail: "使用 3.1.0 补丁中的唯一装备固定词缀作为装备协同输入。"
+      },
+      {
+        type: "leaderboard_sample",
+        zhLabel: "真实榜单样本",
+        zhStatus: "待回填",
+        zhDetail: "没有同赛季 150 层通关样本时，不把速度写成已验证排行。"
+      }
+    ],
     note: mode === "pit_push" ? "冲层上限按单体、容错和爆发窗口评估。" : mode === "speed_farm" ? "速刷上限按清图速度和移动效率评估。" : "日常上限按稳定性和成型成本评估。"
   };
+}
+
+function classMechanicText(classInfo, archetype) {
+  const mechanic = {
+    barbarian: "武器专精、狂暴和战吼覆盖决定爆发窗口；缺怒气时先补资源而不是硬堆伤害。",
+    druid: "灵力循环、变形/自然标签和同伴触发决定手感；防御技能用于承接高压词缀。",
+    necromancer: "精魂、尸体和亡者之书取舍会改变循环；召唤流先保证仆从存活。",
+    paladin: "光环、盾牌和职业资源仍待官方完整资料回填，当前按防御光环和核心技能模板处理。",
+    rogue: "能量、连击点、灌注和位移窗口决定爆发节奏；高层不要在无防御时贴脸。",
+    sorcerer: "法力、附魔、屏障和元素标签决定循环；屏障覆盖不足时优先降层补防御。",
+    spiritborn: "活力、灵兽标签和 Spirit Hall 选择决定输出轴；机动流需要防御技能兜底。",
+    warlock: "职业资源和召唤/诅咒机制仍待官方完整资料回填，当前按持续伤害与召唤模板处理。"
+  };
+  return `${mechanic[classInfo.id] || "职业机制待来源回填。"} 本 BD 围绕「${archetype.zhName}」展开。`;
 }
 
 function skillTreeFor({ classInfo, archetype, simBuild }) {
@@ -387,6 +425,7 @@ function skillTreeFor({ classInfo, archetype, simBuild }) {
   ];
   return {
     core: simPlan?.core || archetype.zhName,
+    classMechanic: classMechanicText(classInfo, archetype),
     skillBar: bar.map((name, index) => ({
       slot: index + 1,
       name,
@@ -440,6 +479,12 @@ function paragonFor({ archetype, simBuild }) {
       socket: boards[index]?.name || "补强盘",
       note: index === 0 ? "优先升到可触发半径" : "按装备缺口调整顺序"
     })),
+    pointBands: [
+      { points: 50, goal: "打开起始盘雕文孔，补生命、护甲和主属性通路。" },
+      { points: 100, goal: "接入第二盘传奇节点和第二个雕文孔。" },
+      { points: 150, goal: "补第三盘资源/冷却/易伤路径，修正循环断档。" },
+      { points: 200, goal: "补齐防御稀有节点后再投入远端伤害小点。" }
+    ],
     clickOrder: clickOrder.map(([board, node, reason], index) => ({
       step: index + 1,
       board,
@@ -622,6 +667,7 @@ function resolvePatchedTarget(slot, patchTarget, equipmentByZhName) {
 }
 
 function applyCommunityOverride(guide, override, equipmentByZhName) {
+  const overrideLevel = communityVerificationLevel(guide, override);
   const slotOverrides = new Map((override.gearSlots || []).map((slot) => [slot.slotId, slot]));
   const gearSlots = guide.gearSlots.map((slot) => {
     const patch = slotOverrides.get(slot.slotId);
@@ -673,6 +719,24 @@ function applyCommunityOverride(guide, override, equipmentByZhName) {
   return {
     ...guide,
     title: override.title || guide.title,
+    ceiling: {
+      ...guide.ceiling,
+      displayTier: guide.ceiling.tier,
+      label: `${guide.ceiling.tier} · 150 层 ${guide.ceiling.pit150Minutes} 分参考`,
+      evidenceLabel: `${override.sourceReference.site}社区资料结构参考，速度仍需同赛季榜单校准`,
+      sourceStatus: overrideLevel,
+      confidence: Math.max(guide.ceiling.confidence || 0.5, 0.68),
+      evidence: [
+        {
+          type: "community_build_reference",
+          zhLabel: "社区 BD 来源",
+          zhStatus: overrideLevel === "community_reference" ? "同赛季参考" : "跨赛季参考",
+          zhDetail: override.sourceReference.note,
+          url: override.sourceReference.url
+        },
+        ...(guide.ceiling.evidence || [])
+      ]
+    },
     taxonomy: {
       ...guide.taxonomy,
       archetypeName: override.archetypeName || guide.taxonomy.archetypeName,
@@ -686,7 +750,7 @@ function applyCommunityOverride(guide, override, equipmentByZhName) {
       ...guide.source,
       authorName: `${override.sourceReference.site} 社区参考`,
       trust: "社区 BD 参考 + 官方词缀种子",
-      verificationLevel: communityVerificationLevel(guide, override),
+      verificationLevel: overrideLevel,
       updatedAt: override.sourceReference.asOf,
       references: [
         {
@@ -694,6 +758,7 @@ function applyCommunityOverride(guide, override, equipmentByZhName) {
           url: override.sourceReference.url,
           site: override.sourceReference.site,
           sourceSeason: override.sourceReference.sourceSeason,
+          asOf: override.sourceReference.asOf,
           note: override.sourceReference.note
         }
       ],

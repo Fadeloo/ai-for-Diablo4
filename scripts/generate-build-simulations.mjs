@@ -357,9 +357,19 @@ function scoreArchetype(archetype, mode, classInfo, seasonIndex, equipmentItems)
       guaranteedAffixes: item.guaranteedAffixes.map((affix) => affix.name),
       zhGuaranteedAffixes: item.zhGuaranteedAffixes
     })),
-    rationale: [
-      `${profile.zhName}模型优先 ${archetype.primaryStats.slice(0, 3).map((stat) => zh.stat(stat)).join(" / ")}。`,
-      "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+    evidence: [
+      {
+        type: "stat_priority",
+        zhLabel: "词缀优先级",
+        zhStatus: "结构化模板",
+        zhDetail: `${profile.zhName}优先 ${archetype.primaryStats.slice(0, 3).map((stat) => zh.stat(stat)).join(" / ")}。`
+      },
+      {
+        type: "equipment_seed",
+        zhLabel: "装备协同",
+        zhStatus: "官方词缀种子",
+        zhDetail: "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+      }
     ],
     guide: buildGuide({ archetype, mode, classInfo, profile, synergyItems, seasonIndex })
   };
@@ -384,7 +394,7 @@ for (const [seasonIndex, season] of seasons.entries()) {
         pit150SpeedPrediction: {
           bestMinutes: ranked[0]?.predictedPit150Minutes ?? null,
           classRankScore: ranked[0]?.score ?? null,
-          caveat: "Not a leaderboard result. This is a model estimate pending live clear data."
+          caveat: "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
         }
       };
     }
@@ -405,7 +415,7 @@ for (const [seasonIndex, season] of seasons.entries()) {
 const payload = {
   generatedAt: new Date().toISOString(),
   scope: "next_three_season_build_and_pit150_prediction_matrix",
-  warning: "Predictions are model output, not facts. Update with live leaderboard and patch data after each season starts.",
+  warning: "预测不是事实榜单；每个赛季开始后必须用真实通关、速刷和热修补丁数据更新。",
   zhWarning: zh.warning(),
   seasons: seasons.map((season) => ({
     ...season,

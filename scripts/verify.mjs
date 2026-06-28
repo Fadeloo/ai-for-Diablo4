@@ -79,6 +79,8 @@ assert(features.some((feature) => feature.id === "equipment_database"), "Feature
 assert(features.some((feature) => feature.id === "damage_calculation"), "Feature map must include damage calculation");
 
 assert(equipmentLibrary.scope === "equipment_library_seed_from_official_unique_guaranteed_affixes", "Equipment library scope mismatch");
+assert(equipmentLibrary.gameVersion?.patch === "3.1.0" && equipmentLibrary.gameVersion?.build === "72578", "Equipment library needs structured game version");
+assert(equipmentLibrary.coverage?.guaranteedAffixes === equipmentLibrary.items.length, "Equipment coverage must count guaranteed affixes");
 assert(equipmentLibrary.itemCount === equipmentLibrary.items.length, "Equipment item count mismatch");
 assert(equipmentLibrary.itemCount > 100, "Equipment library seed should contain more than 100 records");
 assert(equipmentLibrary.limitations.some((line) => line.includes("not the full Diablo IV equipment database")), "Equipment library must disclose incomplete scope");
@@ -89,6 +91,11 @@ assert(equipmentLibrary.items.every((item) => item.zhGuaranteedAffixes.every((la
 assert(equipmentLibrary.items.every((item) => item.primarySlot && item.zhPrimarySlot), "Each equipment record needs an inferred primary slot");
 assert(equipmentLibrary.items.every((item) => item.slotCandidates?.length >= 1 && item.zhSlotCandidates?.length === item.slotCandidates.length), "Each equipment record needs Chinese slot candidates");
 assert(equipmentLibrary.items.every((item) => item.dataStatus?.slot === "inferred_from_name_and_visual_type"), "Equipment slot status must disclose inferred source");
+assert(equipmentLibrary.items.every((item) => item.gameVersion?.patch === "3.1.0" && item.gameVersion?.build === "72578"), "Each equipment record needs structured version data");
+assert(equipmentLibrary.items.every((item) => Array.isArray(item.fullAffixRanges) && item.dataStatus?.fullAffixRanges === "needs_source_backfill"), "Each equipment record must disclose missing affix ranges");
+assert(equipmentLibrary.items.every((item) => item.zhUniquePower && item.dataStatus?.uniquePower === "needs_source_backfill"), "Each equipment record must disclose missing unique power");
+assert(equipmentLibrary.items.every((item) => item.dropSource?.zhText && item.dataStatus?.dropSource === "needs_source_backfill"), "Each equipment record must disclose missing drop source");
+assert(equipmentLibrary.items.every((item) => item.verifiedSlot === null && item.dataStatus?.verifiedSlot === "needs_source_backfill"), "Each equipment record must disclose missing verified slot");
 const suspiciousTransliteration = /[阿埃伊欧乌]{2,}|姆欧|特赫|克赫|恩欧|尔欧|布尔欧|弗尔|斯赫|格赫|德埃|赫埃|姆伊|普阿|斯乌|沃乌|尔伊|埃恩|德伊|斯克埃|布尔埃|特欧|姆阿|弗伊|克埃|欧恩|乌恩|伊恩弗|赫欧|阿尔埃|维阿恩|恩阿兹|欧尔德|沃埃|沃伊/;
 assert(equipmentLibrary.items.every((item) => !suspiciousTransliteration.test(item.zhName)), "Equipment Chinese names should not contain obvious letter-by-letter transliteration residue");
 
@@ -145,10 +152,15 @@ for (const guide of buildGuides.builds) {
   assert(guide.title && guide.summary?.oneLine, `Build guide needs Chinese title and summary: ${guide.id}`);
   assert(guide.formationDifficulty?.label && guide.formationDifficulty?.reasons?.length >= 2, `Build guide needs formation difficulty: ${guide.id}`);
   assert(guide.ceiling?.tier && typeof guide.ceiling.pit150Minutes === "number", `Build guide needs ceiling reference: ${guide.id}`);
+  assert(guide.ceiling?.confidence > 0 && guide.ceiling?.sourceStatus && guide.ceiling?.evidence?.length >= 2, `Build guide needs ceiling evidence and confidence: ${guide.id}`);
+  if (!["community_reference", "cross_season_reference"].includes(guide.ceiling.sourceStatus)) {
+    assert(guide.ceiling.displayTier?.includes("模板") && guide.ceiling.label?.includes("模板参考"), `Template guide ceiling must be labeled as template reference: ${guide.id}`);
+  }
   assert(guide.gearSlots?.length === buildGuides.slotOrder.length, `Build guide needs every gear slot: ${guide.id}`);
   assert(guide.gearSlots.every((slot) => slot.zhSlotName && typeof slot.replaceable === "boolean" && slot.target?.zhName), `Each gear slot needs replacement status and target item: ${guide.id}`);
   assert(guide.gearSlots.every((slot) => !suspiciousTransliteration.test(slot.target.zhName)), `Build guide gear names should be readable Chinese: ${guide.id}`);
   assert(guide.gearSlots.every((slot) => slot.affixes?.length >= 3 && slot.alternatives?.length >= 2), `Each gear slot needs affixes and alternatives: ${guide.id}`);
+  assert(guide.gearSlots.every((slot) => slot.upgradePath?.length >= 3 && (slot.dataStatus || slot.aspect?.sourceStatus)), `Each gear slot needs upgrade path and source status: ${guide.id}`);
   for (const slot of guide.gearSlots) {
     verifyEquipmentReference(slot.target, `${guide.id}/${slot.slotId}`);
     for (const alternative of slot.alternatives) verifyEquipmentReference(alternative, `${guide.id}/${slot.slotId}/alternative`);
@@ -162,8 +174,10 @@ for (const guide of buildGuides.builds) {
   }
   assert(guide.skillTree?.skillBar?.length === 6, `Build guide needs six skill bar entries: ${guide.id}`);
   assert(guide.skillTree?.pointOrder?.length >= 10, `Build guide needs skill point order: ${guide.id}`);
+  assert(guide.skillTree?.classMechanic, `Build guide needs class mechanic text: ${guide.id}`);
   assert(guide.paragon?.boardOrder?.length >= 4, `Build guide needs paragon boards: ${guide.id}`);
   assert(guide.paragon?.clickOrder?.length >= 10, `Build guide needs paragon click order: ${guide.id}`);
+  assert(guide.paragon?.pointBands?.length >= 4, `Build guide needs paragon point-band transitions: ${guide.id}`);
   assert(guide.gameplay?.opener?.length && guide.gameplay?.loop?.length && guide.gameplay?.boss?.length, `Build guide needs gameplay sections: ${guide.id}`);
   assert(guide.variants?.length >= 3, `Build guide needs replacement variants: ${guide.id}`);
 }
@@ -171,7 +185,7 @@ for (const guide of buildGuides.builds) {
 for (const override of expandCommunityOverrides(communityOverrides)) {
   const guide = buildGuides.builds.find((item) => item.id === override.id);
   assert(guide, `Community override target missing from generated guides: ${override.id}`);
-  assert(guide.source?.references?.some((reference) => reference.url === override.sourceReference.url), `Community override source reference missing: ${override.id}`);
+  assert(guide.source?.references?.some((reference) => reference.url === override.sourceReference.url && reference.asOf && reference.sourceSeason), `Community override source reference missing date or season: ${override.id}`);
   assert(guide.dataQuality?.communityVerified?.length >= 1, `Community override needs community data quality marker: ${override.id}`);
 }
 
@@ -182,6 +196,12 @@ const frontendText = [
 for (const forbidden of ["模型分", "先选目标", "rationale", "完整 BD 细节", "模型预估"]) {
   assert(!frontendText.includes(forbidden), `Frontend still contains non-guide copy: ${forbidden}`);
 }
+
+const generatedText = [
+  await readFile(path.join(PROJECT_ROOT, "data/generated/build-simulations.json"), "utf8"),
+  await readFile(path.join(PROJECT_ROOT, "data/generated/build-guides.json"), "utf8")
+].join("\n");
+assert(!generatedText.includes("\"rationale\""), "Generated player data must not expose rationale fields");
 
 const sample = calculateExpectedDps({
   weaponDamage: 1000,

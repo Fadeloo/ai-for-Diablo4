@@ -81,7 +81,7 @@ BD 详情 #bd/<guideId>
   ├─ 筛选：职业、部位、用途、词缀、来源状态
   ├─ 装备列表：图标、名称、固定词缀、用途
   ├─ 装备详情：完整字段、来源、相关 BD
-  └─ 后续 #item/<itemId> 独立装备页
+  └─ #item/<itemId> 独立装备页
 
 职业开荒 #classes
   ├─ 职业定位
@@ -171,6 +171,7 @@ data/
 
 - `source-registry.json` 是所有来源的白名单。新增事实来源先登记，再导入数据。
 - `equipment-library.json` 是前端装备库主数据。当前范围是官方 3.1.0 唯一装备固定词缀种子，不声明为全量装备库。
+- 装备记录必须带结构化 `gameVersion`，以及 `uniquePower`、`fullAffixRanges`、`dropSource`、`verifiedSlot` 的字段级状态。缺失字段显示为待来源回填，不能让玩家误以为页面漏渲染。
 - `community-build-overrides.json` 是真实社区 BD 的人工结构化入口，支持 `extends` 复用冲层、速刷、日常变体。
 - `build-guides.json` 是前端 BD 主数据，只由脚本生成。
 - `build-simulations.json` 是三赛季预测矩阵，只作为参考，不作为事实榜单。
@@ -201,6 +202,13 @@ data/
   "paragon": {},
   "gameplay": {},
   "variants": [],
+  "ceiling": {
+    "tier": "T1",
+    "displayTier": "T1 模板",
+    "sourceStatus": "template_reference",
+    "confidence": 0.62,
+    "evidence": []
+  },
   "source": {
     "verificationLevel": "community_reference",
     "references": []
@@ -253,13 +261,17 @@ data/
 - `image`
 - `externalImage`
 - `source`
+- `gameVersion`
+- `uniquePower`
+- `zhUniquePower`
+- `fullAffixRanges`
+- `dropSource`
+- `verifiedSlot`
 - `dataStatus`
 
 后续全量化时新增：
 
-- `uniquePower`
 - `uniquePowerRanges`
-- `dropSource`
 - `codexOrBossSource`
 - `tradeable`
 - `seasonIntroduced`
@@ -389,7 +401,7 @@ AI 输出禁止项：
 - `252` 套结构化 BD。
 - `278` 条官方 3.1.0 唯一装备固定词缀种子。
 - `33` 套 S14 社区来源 BD：`24` 套同赛季社区参考、`9` 套跨赛季社区参考，覆盖野蛮人、德鲁伊、死灵、游侠、法师、魂灵师的代表流派。
-- `#home`、`#builds`、`#bd/<guideId>`、`#equipment`、`#classes`、`#damage`、`#forecast`、`#sources` hash 路由。
+- `#home`、`#builds`、`#bd/<guideId>`、`#equipment`、`#item/<itemId>`、`#classes`、`#damage`、`#forecast`、`#sources` hash 路由。
 
 不足：
 
@@ -428,7 +440,8 @@ AI 输出禁止项：
 | `BuildLibraryList` | `#builds` | 左侧 BD 列表，负责比较和进入详情 |
 | `BuildCard` | `#builds` | 展示流派摘要、标签、资料状态和 6 技能栏 |
 | `BuildDetailPage` | `#bd/<guideId>` | 继续作为唯一完整 BD 页面，展示装备、技能、巅峰、打法、变体和来源 |
-| `EquipmentBrowser` | `#equipment` | 继续作为装备库入口，后续再拆 `#item/<itemId>` |
+| `EquipmentBrowser` | `#equipment` | 装备库入口，支持职业、用途、部位、状态和 BD 关联筛选 |
+| `EquipmentDetailPage` | `#item/<itemId>` | 独立装备详情入口，可直接分享指定装备 |
 
 ### 10.3 数据读取与状态
 
@@ -438,6 +451,8 @@ AI 输出禁止项：
 - 浏览器端不得生成新的 BD、不得把预测写成事实、不得展示 AI 推理过程。
 - `#equipment` 读取 `data/equipment/equipment-library.json` 的 `primarySlot`、`slotCandidates` 和中文部位候选；这些部位来自名称和类型推断，必须用状态 `按名称和类型推断` 展示，不能标成官方槽位。
 - 装备与 BD 的关联由前端按 `gearSlots[].target.itemId` 和替换件 `alternatives[].itemId` 反查，列表优先显示已进入 BD 的装备，并在详情中展示相关 BD 链接。
+- `#item/<itemId>` 必须直接打开装备详情，并重置筛选到不会隐藏该装备的状态。
+- 无同赛季或跨赛季社区来源的 BD，150 层只显示 `模板参考`；只有带 `references[].url/asOf/sourceSeason` 的社区覆盖才能显示社区证据。
 
 ### 10.4 验收补充
 
@@ -448,3 +463,5 @@ AI 输出禁止项：
 - 桌面端 `#builds`、`#bd/<guideId>`、`#equipment` 能正常渲染截图。
 - 装备库仍明确显示数据边界，不声明为全量装备库。
 - 装备库每条记录必须有中文部位候选，详情页必须显示部位、用途、适用场景和相关 BD。
+- 装备详情必须显示暗金特效、完整词缀范围、掉落来源、官方槽位的待回填状态。
+- 生成数据中不得保留 `rationale` 字段；玩家页面只展示证据、来源、状态和缺口。

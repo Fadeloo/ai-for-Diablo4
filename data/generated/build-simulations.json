@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-28T16:23:08.543Z",
+  "generatedAt": "2026-06-28T16:39:06.661Z",
   "scope": "next_three_season_build_and_pit150_prediction_matrix",
-  "warning": "Predictions are model output, not facts. Update with live leaderboard and patch data after each season starts.",
+  "warning": "预测不是事实榜单；每个赛季开始后必须用真实通关、速刷和热修补丁数据更新。",
   "zhWarning": "预测结果是模型输出，不是事实榜单。每个赛季上线后需要用真实冲层、速刷成绩和热修补丁继续校准。",
   "seasons": [
     {
@@ -170,9 +170,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 武器伤害 / 技能等级 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 武器伤害 / 技能等级 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「武器核心技」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -354,9 +364,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 加伤池 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 加伤池 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「流血持续伤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -537,9 +557,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 荆棘 / 生存 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 荆棘 / 生存 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「荆棘反伤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -645,7 +675,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 6.5,
             "classRankScore": 91,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -729,9 +759,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 武器伤害 / 技能等级 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 武器伤害 / 技能等级 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「武器核心技」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -913,9 +953,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 加伤池 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 加伤池 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「流血持续伤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -1096,9 +1146,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 荆棘 / 生存 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 荆棘 / 生存 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「荆棘反伤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -1204,7 +1264,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.5,
             "classRankScore": 77,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -1288,9 +1348,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 加伤池 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 加伤池 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「流血持续伤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -1472,9 +1542,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 武器伤害 / 技能等级 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 武器伤害 / 技能等级 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「武器核心技」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -1655,9 +1735,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 荆棘 / 生存 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 荆棘 / 生存 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「荆棘反伤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -1763,7 +1853,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.6,
             "classRankScore": 83,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -1860,9 +1950,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 生存 / 全伤害乘区 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 生存 / 全伤害乘区 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「变形」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -2041,9 +2141,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 元素伤害乘区 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 元素伤害乘区 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「风暴/大地」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -2222,9 +2332,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 冷却缩减 / 攻击速度。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 冷却缩减 / 攻击速度。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「同伴」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -2330,7 +2450,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 7.7,
             "classRankScore": 85,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -2413,9 +2533,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 冷却缩减 / 攻击速度。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 冷却缩减 / 攻击速度。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「同伴」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -2594,9 +2724,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 元素伤害乘区 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 元素伤害乘区 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「风暴/大地」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -2775,9 +2915,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 生存 / 全伤害乘区 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 生存 / 全伤害乘区 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「变形」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -2883,7 +3033,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.6,
             "classRankScore": 77,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -2966,9 +3116,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 冷却缩减 / 攻击速度。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 冷却缩减 / 攻击速度。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「同伴」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -3147,9 +3307,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 元素伤害乘区 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 元素伤害乘区 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「风暴/大地」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -3328,9 +3498,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 生存 / 全伤害乘区 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 生存 / 全伤害乘区 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「变形」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -3436,7 +3616,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 10,
             "classRankScore": 76,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -3533,9 +3713,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 暴击 / 易伤 / 技能等级。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 暴击 / 易伤 / 技能等级。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「白骨暴击」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -3714,9 +3904,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 压制 / 生存 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 压制 / 生存 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「鲜血压制」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -3895,9 +4095,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 攻击速度 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 攻击速度 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「召唤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -4003,7 +4213,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 7.7,
             "classRankScore": 85,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -4086,9 +4296,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 加伤池 / 冷却缩减 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 加伤池 / 冷却缩减 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「暗影持续伤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -4267,9 +4487,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 攻击速度 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 攻击速度 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「召唤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -4448,9 +4678,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 压制 / 生存 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 压制 / 生存 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「鲜血压制」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -4556,7 +4796,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 9.6,
             "classRankScore": 71,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -4639,9 +4879,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 攻击速度 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 攻击速度 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「召唤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -4820,9 +5070,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 压制 / 生存 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 压制 / 生存 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「鲜血压制」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -5001,9 +5261,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 加伤池 / 冷却缩减 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 加伤池 / 冷却缩减 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「暗影持续伤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -5109,7 +5379,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 9,
             "classRankScore": 81,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -5206,9 +5476,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 生存 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 生存 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「盾击」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -5387,9 +5667,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 武器伤害 / 技能等级 / 攻击速度。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 武器伤害 / 技能等级 / 攻击速度。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「祝福之锤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -5568,9 +5858,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 冷却缩减 / 生存 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 冷却缩减 / 生存 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「光环/重装」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -5676,7 +5976,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8,
             "classRankScore": 85,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -5759,9 +6059,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 武器伤害 / 技能等级 / 攻击速度。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 武器伤害 / 技能等级 / 攻击速度。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「祝福之锤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -5940,9 +6250,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 冷却缩减 / 生存 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 冷却缩减 / 生存 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「光环/重装」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -6121,9 +6441,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 生存 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 生存 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「盾击」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -6229,7 +6559,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 9.8,
             "classRankScore": 72,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -6312,9 +6642,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 冷却缩减 / 生存 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 冷却缩减 / 生存 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「光环/重装」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -6493,9 +6833,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 生存 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 生存 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「盾击」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -6674,9 +7024,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 武器伤害 / 技能等级 / 攻击速度。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 武器伤害 / 技能等级 / 攻击速度。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「祝福之锤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -6782,7 +7142,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.6,
             "classRankScore": 85,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -6879,9 +7239,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 易伤 / 暴击 / 机动性。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 易伤 / 暴击 / 机动性。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「射手」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -7060,9 +7430,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 冷却缩减 / 元素伤害乘区 / 幸运一击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 冷却缩减 / 元素伤害乘区 / 幸运一击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「陷阱/灌注」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -7241,9 +7621,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 攻击速度 / 资源循环 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 攻击速度 / 资源循环 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「近战」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -7349,7 +7739,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 9,
             "classRankScore": 77,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -7432,9 +7822,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 攻击速度 / 资源循环 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 攻击速度 / 资源循环 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「近战」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -7613,9 +8013,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 易伤 / 暴击 / 机动性。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 易伤 / 暴击 / 机动性。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「射手」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -7794,9 +8204,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 冷却缩减 / 元素伤害乘区 / 幸运一击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 冷却缩减 / 元素伤害乘区 / 幸运一击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「陷阱/灌注」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -7902,7 +8322,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 7,
             "classRankScore": 85,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -7985,9 +8405,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 攻击速度 / 资源循环 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 攻击速度 / 资源循环 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「近战」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -8166,9 +8596,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 易伤 / 暴击 / 机动性。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 易伤 / 暴击 / 机动性。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「射手」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -8347,9 +8787,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 冷却缩减 / 元素伤害乘区 / 幸运一击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 冷却缩减 / 元素伤害乘区 / 幸运一击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「陷阱/灌注」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -8455,7 +8905,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.8,
             "classRankScore": 82,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -8552,9 +9002,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 冷却缩减 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 冷却缩减 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「召唤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -8733,9 +9193,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 元素伤害乘区 / 资源循环 / 技能等级。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 元素伤害乘区 / 资源循环 / 技能等级。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「火焰」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -8914,9 +9384,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 易伤 / 冷却缩减 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 易伤 / 冷却缩减 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「冰霜」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -9022,7 +9502,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.2,
             "classRankScore": 82,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -9105,9 +9585,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 攻击速度 / 暴击 / 幸运一击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 攻击速度 / 暴击 / 幸运一击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「电击」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -9286,9 +9776,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 冷却缩减 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 冷却缩减 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「召唤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -9467,9 +9967,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 元素伤害乘区 / 资源循环 / 技能等级。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 元素伤害乘区 / 资源循环 / 技能等级。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「火焰」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -9575,7 +10085,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 7.9,
             "classRankScore": 81,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -9658,9 +10168,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 易伤 / 冷却缩减 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 易伤 / 冷却缩减 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「冰霜」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -9839,9 +10359,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 冷却缩减 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 冷却缩减 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「召唤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -10020,9 +10550,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 元素伤害乘区 / 资源循环 / 技能等级。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 元素伤害乘区 / 资源循环 / 技能等级。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「火焰」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -10128,7 +10668,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 10,
             "classRankScore": 76,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -10225,9 +10765,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 元素伤害乘区 / 机动性 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 元素伤害乘区 / 机动性 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「日炎风暴」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -10406,9 +10956,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 生存 / 压制 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 生存 / 压制 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「猩猩坚韧」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -10587,9 +11147,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 攻击速度 / 机动性 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 攻击速度 / 机动性 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「美洲豹/雄鹰」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -10695,7 +11265,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8,
             "classRankScore": 84,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -10778,9 +11348,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 攻击速度 / 机动性 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 攻击速度 / 机动性 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「美洲豹/雄鹰」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -10959,9 +11539,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 元素伤害乘区 / 机动性 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 元素伤害乘区 / 机动性 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「日炎风暴」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -11140,9 +11730,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 加伤池 / 幸运一击 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 加伤池 / 幸运一击 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「蜈蚣持续伤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -11248,7 +11848,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 6.7,
             "classRankScore": 88,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -11331,9 +11931,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 生存 / 压制 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 生存 / 压制 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「猩猩坚韧」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -11512,9 +12122,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 攻击速度 / 机动性 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 攻击速度 / 机动性 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「美洲豹/雄鹰」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -11693,9 +12313,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 加伤池 / 幸运一击 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 加伤池 / 幸运一击 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「蜈蚣持续伤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -11801,7 +12431,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 9.4,
             "classRankScore": 80,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -11898,9 +12528,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 元素伤害乘区 / 武器伤害 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 元素伤害乘区 / 武器伤害 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「地狱火」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -12079,9 +12719,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 冷却缩减 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 冷却缩减 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「恶魔学」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -12260,9 +12910,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 加伤池 / 全伤害乘区 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 加伤池 / 全伤害乘区 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「毁灭持续伤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -12368,7 +13028,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 7.3,
             "classRankScore": 89,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -12451,9 +13111,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 资源循环 / 幸运一击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 资源循环 / 幸运一击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「深渊/符印」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -12632,9 +13302,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 加伤池 / 全伤害乘区 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 加伤池 / 全伤害乘区 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「毁灭持续伤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -12813,9 +13493,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 冷却缩减 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 冷却缩减 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「恶魔学」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -12921,7 +13611,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 9.6,
             "classRankScore": 73,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -13004,9 +13694,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 冷却缩减 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 冷却缩减 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「恶魔学」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -13185,9 +13885,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 资源循环 / 幸运一击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 资源循环 / 幸运一击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「深渊/符印」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -13366,9 +14076,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 加伤池 / 全伤害乘区 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 加伤池 / 全伤害乘区 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「毁灭持续伤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -13474,7 +14194,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.8,
             "classRankScore": 84,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -13572,9 +14292,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 武器伤害 / 技能等级 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 武器伤害 / 技能等级 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「武器核心技」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -13756,9 +14486,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 加伤池 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 加伤池 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「流血持续伤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -13939,9 +14679,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 荆棘 / 生存 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 荆棘 / 生存 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「荆棘反伤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -14047,7 +14797,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 6.7,
             "classRankScore": 90,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -14131,9 +14881,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 武器伤害 / 技能等级 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 武器伤害 / 技能等级 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「武器核心技」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -14315,9 +15075,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 加伤池 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 加伤池 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「流血持续伤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -14498,9 +15268,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 荆棘 / 生存 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 荆棘 / 生存 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「荆棘反伤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -14606,7 +15386,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.6,
             "classRankScore": 76,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -14690,9 +15470,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 加伤池 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 加伤池 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「流血持续伤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -14874,9 +15664,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 武器伤害 / 技能等级 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 武器伤害 / 技能等级 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「武器核心技」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -15057,9 +15857,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 荆棘 / 生存 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 荆棘 / 生存 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「荆棘反伤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -15165,7 +15975,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.8,
             "classRankScore": 82,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -15262,9 +16072,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 生存 / 全伤害乘区 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 生存 / 全伤害乘区 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「变形」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -15443,9 +16263,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 元素伤害乘区 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 元素伤害乘区 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「风暴/大地」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -15624,9 +16454,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 冷却缩减 / 攻击速度。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 冷却缩减 / 攻击速度。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「同伴」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -15732,7 +16572,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.1,
             "classRankScore": 83,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -15815,9 +16655,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 冷却缩减 / 攻击速度。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 冷却缩减 / 攻击速度。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「同伴」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -15996,9 +16846,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 元素伤害乘区 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 元素伤害乘区 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「风暴/大地」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -16177,9 +17037,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 生存 / 全伤害乘区 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 生存 / 全伤害乘区 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「变形」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -16285,7 +17155,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.8,
             "classRankScore": 76,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -16368,9 +17238,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 元素伤害乘区 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 元素伤害乘区 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「风暴/大地」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -16549,9 +17429,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 冷却缩减 / 攻击速度。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 冷却缩减 / 攻击速度。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「同伴」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -16730,9 +17620,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 生存 / 全伤害乘区 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 生存 / 全伤害乘区 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「变形」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -16838,7 +17738,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 10.4,
             "classRankScore": 74,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -16935,9 +17835,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 暴击 / 易伤 / 技能等级。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 暴击 / 易伤 / 技能等级。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「白骨暴击」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -17116,9 +18026,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 压制 / 生存 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 压制 / 生存 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「鲜血压制」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -17297,9 +18217,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 攻击速度 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 攻击速度 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「召唤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -17405,7 +18335,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 7.8,
             "classRankScore": 84,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -17488,9 +18418,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 加伤池 / 冷却缩减 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 加伤池 / 冷却缩减 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「暗影持续伤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -17669,9 +18609,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 攻击速度 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 攻击速度 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「召唤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -17850,9 +18800,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 压制 / 生存 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 压制 / 生存 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「鲜血压制」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -17958,7 +18918,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 9.8,
             "classRankScore": 70,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -18041,9 +19001,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 攻击速度 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 攻击速度 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「召唤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -18222,9 +19192,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 压制 / 生存 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 压制 / 生存 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「鲜血压制」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -18403,9 +19383,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 加伤池 / 冷却缩减 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 加伤池 / 冷却缩减 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「暗影持续伤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -18511,7 +19501,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 9.2,
             "classRankScore": 80,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -18608,9 +19598,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 生存 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 生存 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「盾击」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -18789,9 +19789,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 武器伤害 / 技能等级 / 攻击速度。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 武器伤害 / 技能等级 / 攻击速度。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「祝福之锤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -18970,9 +19980,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 冷却缩减 / 生存 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 冷却缩减 / 生存 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「光环/重装」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -19078,7 +20098,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.3,
             "classRankScore": 83,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -19161,9 +20181,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 武器伤害 / 技能等级 / 攻击速度。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 武器伤害 / 技能等级 / 攻击速度。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「祝福之锤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -19342,9 +20372,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 冷却缩减 / 生存 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 冷却缩减 / 生存 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「光环/重装」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -19523,9 +20563,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 生存 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 生存 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「盾击」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -19631,7 +20681,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 10.1,
             "classRankScore": 70,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -19714,9 +20764,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 冷却缩减 / 生存 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 冷却缩减 / 生存 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「光环/重装」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -19895,9 +20955,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 生存 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 生存 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「盾击」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -20076,9 +21146,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 武器伤害 / 技能等级 / 攻击速度。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 武器伤害 / 技能等级 / 攻击速度。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「祝福之锤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -20184,7 +21264,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 9,
             "classRankScore": 83,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -20281,9 +21361,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 易伤 / 暴击 / 机动性。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 易伤 / 暴击 / 机动性。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「射手」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -20462,9 +21552,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 冷却缩减 / 元素伤害乘区 / 幸运一击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 冷却缩减 / 元素伤害乘区 / 幸运一击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「陷阱/灌注」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -20643,9 +21743,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 攻击速度 / 资源循环 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 攻击速度 / 资源循环 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「近战」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -20751,7 +21861,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 9.2,
             "classRankScore": 76,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -20834,9 +21944,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 攻击速度 / 资源循环 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 攻击速度 / 资源循环 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「近战」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -21015,9 +22135,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 易伤 / 暴击 / 机动性。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 易伤 / 暴击 / 机动性。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「射手」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -21196,9 +22326,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 冷却缩减 / 元素伤害乘区 / 幸运一击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 冷却缩减 / 元素伤害乘区 / 幸运一击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「陷阱/灌注」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -21304,7 +22444,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 7.2,
             "classRankScore": 84,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -21387,9 +22527,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 攻击速度 / 资源循环 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 攻击速度 / 资源循环 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「近战」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -21568,9 +22718,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 易伤 / 暴击 / 机动性。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 易伤 / 暴击 / 机动性。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「射手」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -21749,9 +22909,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 冷却缩减 / 元素伤害乘区 / 幸运一击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 冷却缩减 / 元素伤害乘区 / 幸运一击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「陷阱/灌注」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -21857,7 +23027,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.9,
             "classRankScore": 81,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -21954,9 +23124,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 冷却缩减 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 冷却缩减 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「召唤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -22135,9 +23315,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 元素伤害乘区 / 资源循环 / 技能等级。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 元素伤害乘区 / 资源循环 / 技能等级。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「火焰」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -22316,9 +23506,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 易伤 / 冷却缩减 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 易伤 / 冷却缩减 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「冰霜」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -22424,7 +23624,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.4,
             "classRankScore": 81,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -22507,9 +23707,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 攻击速度 / 暴击 / 幸运一击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 攻击速度 / 暴击 / 幸运一击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「电击」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -22688,9 +23898,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 冷却缩减 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 冷却缩减 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「召唤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -22869,9 +24089,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 元素伤害乘区 / 资源循环 / 技能等级。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 元素伤害乘区 / 资源循环 / 技能等级。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「火焰」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -22977,7 +24207,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8,
             "classRankScore": 80,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -23060,9 +24290,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 易伤 / 冷却缩减 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 易伤 / 冷却缩减 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「冰霜」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -23241,9 +24481,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 元素伤害乘区 / 资源循环 / 技能等级。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 元素伤害乘区 / 资源循环 / 技能等级。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「火焰」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -23422,9 +24672,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 冷却缩减 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 冷却缩减 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「召唤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -23530,7 +24790,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 10.3,
             "classRankScore": 74,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -23627,9 +24887,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 元素伤害乘区 / 机动性 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 元素伤害乘区 / 机动性 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「日炎风暴」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -23808,9 +25078,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 生存 / 压制 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 生存 / 压制 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「猩猩坚韧」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -23989,9 +25269,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 攻击速度 / 机动性 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 攻击速度 / 机动性 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「美洲豹/雄鹰」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -24097,7 +25387,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.4,
             "classRankScore": 82,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -24180,9 +25470,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 攻击速度 / 机动性 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 攻击速度 / 机动性 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「美洲豹/雄鹰」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -24361,9 +25661,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 元素伤害乘区 / 机动性 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 元素伤害乘区 / 机动性 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「日炎风暴」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -24542,9 +25852,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 加伤池 / 幸运一击 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 加伤池 / 幸运一击 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「蜈蚣持续伤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -24650,7 +25970,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 7.1,
             "classRankScore": 86,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -24733,9 +26053,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 生存 / 压制 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 生存 / 压制 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「猩猩坚韧」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -24914,9 +26244,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 攻击速度 / 机动性 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 攻击速度 / 机动性 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「美洲豹/雄鹰」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -25095,9 +26435,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 元素伤害乘区 / 机动性 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 元素伤害乘区 / 机动性 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「日炎风暴」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -25203,7 +26553,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 9.7,
             "classRankScore": 78,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -25300,9 +26650,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 元素伤害乘区 / 武器伤害 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 元素伤害乘区 / 武器伤害 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「地狱火」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -25481,9 +26841,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 冷却缩减 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 冷却缩减 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「恶魔学」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -25662,9 +27032,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 加伤池 / 全伤害乘区 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 加伤池 / 全伤害乘区 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「毁灭持续伤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -25770,7 +27150,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 7.7,
             "classRankScore": 87,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -25853,9 +27233,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 资源循环 / 幸运一击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 资源循环 / 幸运一击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「深渊/符印」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -26034,9 +27424,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 加伤池 / 全伤害乘区 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 加伤池 / 全伤害乘区 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「毁灭持续伤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -26215,9 +27615,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 冷却缩减 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 冷却缩减 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「恶魔学」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -26323,7 +27733,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 10,
             "classRankScore": 71,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -26406,9 +27816,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 冷却缩减 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 冷却缩减 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「恶魔学」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -26587,9 +28007,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 资源循环 / 幸运一击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 资源循环 / 幸运一击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「深渊/符印」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -26768,9 +28198,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 加伤池 / 全伤害乘区 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 加伤池 / 全伤害乘区 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「毁灭持续伤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -26876,7 +28316,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 9.2,
             "classRankScore": 82,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -26974,9 +28414,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 武器伤害 / 技能等级 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 武器伤害 / 技能等级 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「武器核心技」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -27158,9 +28608,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 加伤池 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 加伤池 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「流血持续伤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -27341,9 +28801,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 荆棘 / 生存 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 荆棘 / 生存 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「荆棘反伤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -27449,7 +28919,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 6.7,
             "classRankScore": 90,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -27533,9 +29003,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 武器伤害 / 技能等级 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 武器伤害 / 技能等级 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「武器核心技」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -27717,9 +29197,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 加伤池 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 加伤池 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「流血持续伤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -27900,9 +29390,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 荆棘 / 生存 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 荆棘 / 生存 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「荆棘反伤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -28008,7 +29508,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.6,
             "classRankScore": 76,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -28092,9 +29592,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 加伤池 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 加伤池 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「流血持续伤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -28276,9 +29786,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 武器伤害 / 技能等级 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 武器伤害 / 技能等级 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「武器核心技」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -28459,9 +29979,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 荆棘 / 生存 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 荆棘 / 生存 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "野蛮人「荆棘反伤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -28567,7 +30097,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.9,
             "classRankScore": 81,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -28664,9 +30194,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 生存 / 全伤害乘区 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 生存 / 全伤害乘区 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「变形」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -28845,9 +30385,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 元素伤害乘区 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 元素伤害乘区 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「风暴/大地」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -29026,9 +30576,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 冷却缩减 / 攻击速度。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 冷却缩减 / 攻击速度。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「同伴」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -29134,7 +30694,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.3,
             "classRankScore": 82,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -29217,9 +30777,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 冷却缩减 / 攻击速度。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 冷却缩减 / 攻击速度。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「同伴」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -29398,9 +30968,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 元素伤害乘区 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 元素伤害乘区 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「风暴/大地」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -29579,9 +31159,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 生存 / 全伤害乘区 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 生存 / 全伤害乘区 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「变形」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -29687,7 +31277,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 9,
             "classRankScore": 75,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -29770,9 +31360,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 冷却缩减 / 攻击速度。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 冷却缩减 / 攻击速度。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「同伴」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -29951,9 +31551,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 元素伤害乘区 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 元素伤害乘区 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「风暴/大地」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -30132,9 +31742,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 生存 / 全伤害乘区 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 生存 / 全伤害乘区 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "德鲁伊「变形」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -30240,7 +31860,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 10.6,
             "classRankScore": 73,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -30337,9 +31957,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 暴击 / 易伤 / 技能等级。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 暴击 / 易伤 / 技能等级。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「白骨暴击」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -30518,9 +32148,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 压制 / 生存 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 压制 / 生存 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「鲜血压制」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -30699,9 +32339,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 攻击速度 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 攻击速度 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「召唤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -30807,7 +32457,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8,
             "classRankScore": 83,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -30890,9 +32540,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 加伤池 / 冷却缩减 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 加伤池 / 冷却缩减 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「暗影持续伤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -31071,9 +32731,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 攻击速度 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 攻击速度 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「召唤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -31252,9 +32922,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 压制 / 生存 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 压制 / 生存 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「鲜血压制」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -31360,7 +33040,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 10,
             "classRankScore": 69,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -31443,9 +33123,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 攻击速度 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 攻击速度 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「召唤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -31624,9 +33314,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 压制 / 生存 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 压制 / 生存 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「鲜血压制」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -31805,9 +33505,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 加伤池 / 冷却缩减 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 加伤池 / 冷却缩减 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "死灵法师「暗影持续伤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -31913,7 +33623,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 9.6,
             "classRankScore": 78,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -32010,9 +33720,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 生存 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 生存 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「盾击」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -32191,9 +33911,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 武器伤害 / 技能等级 / 攻击速度。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 武器伤害 / 技能等级 / 攻击速度。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「祝福之锤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -32372,9 +34102,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 冷却缩减 / 生存 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 冷却缩减 / 生存 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「光环/重装」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -32480,7 +34220,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.7,
             "classRankScore": 81,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -32563,9 +34303,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 武器伤害 / 技能等级 / 攻击速度。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 武器伤害 / 技能等级 / 攻击速度。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「祝福之锤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -32744,9 +34494,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 冷却缩减 / 生存 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 冷却缩减 / 生存 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「光环/重装」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -32925,9 +34685,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 生存 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 生存 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「盾击」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -33033,7 +34803,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 10.3,
             "classRankScore": 69,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -33116,9 +34886,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 冷却缩减 / 生存 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 冷却缩减 / 生存 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「光环/重装」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -33297,9 +35077,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 生存 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 生存 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「盾击」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -33478,9 +35268,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 武器伤害 / 技能等级 / 攻击速度。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 武器伤害 / 技能等级 / 攻击速度。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "圣骑士「祝福之锤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -33586,7 +35386,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 9.2,
             "classRankScore": 82,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -33683,9 +35483,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 易伤 / 暴击 / 机动性。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 易伤 / 暴击 / 机动性。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「射手」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -33864,9 +35674,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 冷却缩减 / 元素伤害乘区 / 幸运一击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 冷却缩减 / 元素伤害乘区 / 幸运一击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「陷阱/灌注」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -34045,9 +35865,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 攻击速度 / 资源循环 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 攻击速度 / 资源循环 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「近战」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -34153,7 +35983,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 9.2,
             "classRankScore": 76,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -34236,9 +36066,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 攻击速度 / 资源循环 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 攻击速度 / 资源循环 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「近战」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -34417,9 +36257,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 易伤 / 暴击 / 机动性。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 易伤 / 暴击 / 机动性。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「射手」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -34598,9 +36448,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 冷却缩减 / 元素伤害乘区 / 幸运一击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 冷却缩减 / 元素伤害乘区 / 幸运一击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「陷阱/灌注」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -34706,7 +36566,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 7.4,
             "classRankScore": 83,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -34789,9 +36649,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 攻击速度 / 资源循环 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 攻击速度 / 资源循环 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「近战」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -34970,9 +36840,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 易伤 / 暴击 / 机动性。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 易伤 / 暴击 / 机动性。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「射手」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -35151,9 +37031,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 冷却缩减 / 元素伤害乘区 / 幸运一击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 冷却缩减 / 元素伤害乘区 / 幸运一击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "游侠「陷阱/灌注」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -35259,7 +37149,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 9.1,
             "classRankScore": 80,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -35356,9 +37246,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 冷却缩减 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 冷却缩减 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「召唤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -35537,9 +37437,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 元素伤害乘区 / 资源循环 / 技能等级。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 元素伤害乘区 / 资源循环 / 技能等级。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「火焰」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -35718,9 +37628,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 易伤 / 冷却缩减 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 易伤 / 冷却缩减 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「冰霜」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -35826,7 +37746,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.6,
             "classRankScore": 80,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -35909,9 +37829,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 攻击速度 / 暴击 / 幸运一击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 攻击速度 / 暴击 / 幸运一击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「电击」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -36090,9 +38020,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 冷却缩减 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 冷却缩减 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「召唤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -36271,9 +38211,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 元素伤害乘区 / 资源循环 / 技能等级。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 元素伤害乘区 / 资源循环 / 技能等级。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「火焰」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -36379,7 +38329,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.2,
             "classRankScore": 79,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -36462,9 +38412,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 易伤 / 冷却缩减 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 易伤 / 冷却缩减 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「冰霜」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -36643,9 +38603,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 元素伤害乘区 / 资源循环 / 技能等级。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 元素伤害乘区 / 资源循环 / 技能等级。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「火焰」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -36824,9 +38794,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 冷却缩减 / 全伤害乘区。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 冷却缩减 / 全伤害乘区。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "法师「召唤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -36932,7 +38912,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 10.5,
             "classRankScore": 73,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -37029,9 +39009,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 元素伤害乘区 / 机动性 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 元素伤害乘区 / 机动性 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「日炎风暴」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -37210,9 +39200,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 生存 / 压制 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 生存 / 压制 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「猩猩坚韧」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -37391,9 +39391,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 攻击速度 / 机动性 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 攻击速度 / 机动性 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「美洲豹/雄鹰」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -37499,7 +39509,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8.5,
             "classRankScore": 81,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -37582,9 +39592,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 攻击速度 / 机动性 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 攻击速度 / 机动性 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「美洲豹/雄鹰」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -37763,9 +39783,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 元素伤害乘区 / 机动性 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 元素伤害乘区 / 机动性 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「日炎风暴」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -37944,9 +39974,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 加伤池 / 幸运一击 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 加伤池 / 幸运一击 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「蜈蚣持续伤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -38052,7 +40092,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 7.3,
             "classRankScore": 85,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -38135,9 +40175,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 生存 / 压制 / 资源循环。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 生存 / 压制 / 资源循环。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「猩猩坚韧」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -38316,9 +40366,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 攻击速度 / 机动性 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 攻击速度 / 机动性 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「美洲豹/雄鹰」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -38497,9 +40557,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 加伤池 / 幸运一击 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 加伤池 / 幸运一击 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "魂灵师「蜈蚣持续伤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -38605,7 +40675,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 9.9,
             "classRankScore": 77,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },
@@ -38702,9 +40772,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 元素伤害乘区 / 武器伤害 / 暴击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 元素伤害乘区 / 武器伤害 / 暴击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「地狱火」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -38883,9 +40963,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 技能等级 / 冷却缩减 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 技能等级 / 冷却缩减 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「恶魔学」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -39064,9 +41154,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "冲层模型优先 加伤池 / 全伤害乘区 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "冲层优先 加伤池 / 全伤害乘区 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「毁灭持续伤」冲层方案。冲层版本优先生存、单体和稳定爆发，允许牺牲部分移动速度。",
@@ -39172,7 +41272,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 8,
             "classRankScore": 85,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "speed_farm": {
@@ -39255,9 +41355,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 资源循环 / 幸运一击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 资源循环 / 幸运一击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「深渊/符印」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -39436,9 +41546,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 加伤池 / 全伤害乘区 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 加伤池 / 全伤害乘区 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「毁灭持续伤」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -39617,9 +41737,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "速刷模型优先 技能等级 / 冷却缩减 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "速刷优先 技能等级 / 冷却缩减 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「恶魔学」速刷方案。速刷版本优先移动、冷却和起手速度，伤害只需要覆盖当前难度阈值。",
@@ -39725,7 +41855,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 10.3,
             "classRankScore": 69,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         },
         "daily": {
@@ -39808,9 +41938,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 冷却缩减 / 生存。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 冷却缩减 / 生存。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「恶魔学」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -39989,9 +42129,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 技能等级 / 资源循环 / 幸运一击。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 技能等级 / 资源循环 / 幸运一击。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「深渊/符印」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -40170,9 +42320,19 @@
                   ]
                 }
               ],
-              "rationale": [
-                "日常模型优先 加伤池 / 全伤害乘区 / 冷却缩减。",
-                "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+              "evidence": [
+                {
+                  "type": "stat_priority",
+                  "zhLabel": "词缀优先级",
+                  "zhStatus": "结构化模板",
+                  "zhDetail": "日常优先 加伤池 / 全伤害乘区 / 冷却缩减。"
+                },
+                {
+                  "type": "equipment_seed",
+                  "zhLabel": "装备协同",
+                  "zhStatus": "官方词缀种子",
+                  "zhDetail": "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+                }
               ],
               "guide": {
                 "summary": "术士「毁灭持续伤」日常方案。日常版本优先容错、资源循环和操作舒适度，不追求极限榜单速度。",
@@ -40278,7 +42438,7 @@
           "pit150SpeedPrediction": {
             "bestMinutes": 9.6,
             "classRankScore": 80,
-            "caveat": "Not a leaderboard result. This is a model estimate pending live clear data."
+            "caveat": "不是榜单结果；需要赛季开服后的真实通关和热修数据校准。"
           }
         }
       },

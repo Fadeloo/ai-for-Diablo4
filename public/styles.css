@@ -1067,6 +1067,26 @@ h4 {
   gap: 20px;
 }
 
+.guide-detail-layout {
+  align-items: start;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 230px minmax(0, 1fr);
+}
+
+.guide-sidebar {
+  display: grid;
+  gap: 12px;
+  position: sticky;
+  top: 84px;
+}
+
+.guide-main-sections {
+  display: grid;
+  gap: 20px;
+  min-width: 0;
+}
+
 .guide-hero {
   background:
     linear-gradient(120deg, rgba(45, 24, 15, 0.92), rgba(10, 5, 4, 0.96)),
@@ -1117,6 +1137,13 @@ h4 {
   font-size: 13px;
 }
 
+.guide-hero__score em {
+  color: var(--gold);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 800;
+}
+
 .guide-kpi-grid {
   display: grid;
   gap: 10px;
@@ -1126,12 +1153,9 @@ h4 {
 .guide-section-nav {
   background: rgba(8, 4, 3, 0.82);
   border: 1px solid rgba(214, 173, 99, 0.22);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1px;
+  display: grid;
+  gap: 6px;
   padding: 8px;
-  position: sticky;
-  top: 76px;
   z-index: 20;
 }
 
@@ -1144,6 +1168,7 @@ h4 {
   font-weight: 750;
   min-height: 36px;
   padding: 7px 12px;
+  text-align: left;
 }
 
 .guide-section-nav button:hover {
@@ -1159,6 +1184,40 @@ h4 {
   gap: 16px;
   padding: 20px;
   scroll-margin-top: 132px;
+}
+
+.guide-sidebar-card {
+  background: rgba(8, 4, 3, 0.58);
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+}
+
+.guide-sidebar-card strong,
+.route-note-card strong,
+.evidence-list strong,
+.suitability-grid strong,
+.point-band-grid strong,
+.glyph-grid strong {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.guide-sidebar-card span,
+.guide-sidebar-card p,
+.guide-sidebar-card li,
+.guide-note {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.guide-sidebar-card ul {
+  margin: 0;
+  padding-left: 18px;
 }
 
 .guide-two-col {
@@ -1295,6 +1354,44 @@ h4 {
   padding-top: 10px;
 }
 
+.slot-upgrade-path,
+.route-note-card {
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(214, 173, 99, 0.14);
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+}
+
+.slot-upgrade-path strong {
+  color: var(--gold);
+  font-size: 12px;
+}
+
+.slot-upgrade-path ol,
+.route-note-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.slot-upgrade-path li,
+.route-note-card li,
+.route-note-card p,
+.slot-note {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.gear-slot-card a,
+.slot-alternatives a {
+  color: #fff7df;
+  text-decoration: underline;
+  text-decoration-color: rgba(214, 173, 99, 0.4);
+  text-underline-offset: 3px;
+}
+
 .slot-alternatives strong {
   color: var(--gold);
   font-size: 12px;
@@ -1316,6 +1413,14 @@ h4 {
   display: grid;
   gap: 16px;
   grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+}
+
+.skill-side-panel,
+.paragon-side-panel,
+.route-main-panel {
+  display: grid;
+  gap: 10px;
+  align-self: start;
 }
 
 .skill-bar-large,
@@ -1386,6 +1491,62 @@ h4 {
   grid-template-columns: 34px minmax(0, 1fr);
   min-height: 64px;
   padding: 10px;
+}
+
+.suitability-grid,
+.point-band-grid,
+.glyph-grid,
+.evidence-list {
+  display: grid;
+  gap: 10px;
+}
+
+.suitability-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.point-band-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.glyph-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.evidence-list {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.suitability-grid article,
+.point-band-grid article,
+.glyph-grid article,
+.evidence-list article {
+  background: rgba(8, 4, 3, 0.46);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  padding: 10px;
+}
+
+.suitability-grid span,
+.point-band-grid span,
+.glyph-grid span,
+.evidence-list span,
+.glyph-grid p,
+.evidence-list p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.evidence-list a {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 800;
+  justify-self: start;
 }
 
 .gameplay-grid,
@@ -1475,7 +1636,7 @@ h4 {
 }
 
 .equipment-controls {
-  grid-template-columns: 1.35fr minmax(130px, 0.72fr) minmax(130px, 0.72fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .equipment-meta {
@@ -1957,10 +2118,20 @@ h4 {
   }
 
   .build-library-layout,
+  .guide-detail-layout,
   .equipment-layout,
   .class-workbench,
   .damage-workbench {
     grid-template-columns: 1fr;
+  }
+
+  .guide-sidebar {
+    position: static;
+  }
+
+  .guide-section-nav {
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .build-library-list,
@@ -1973,7 +2144,8 @@ h4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .build-filters {
+  .build-filters,
+  .equipment-controls {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
@@ -2012,6 +2184,9 @@ h4 {
   .class-build-actions,
   .guide-card-grid,
   .gear-slot-grid,
+  .suitability-grid,
+  .point-band-grid,
+  .glyph-grid,
   .gameplay-grid,
   .variant-grid,
   .source-status-grid {
@@ -2106,6 +2281,7 @@ h4 {
   }
 
   .build-library-layout,
+  .guide-detail-layout,
   .equipment-layout,
   .class-workbench,
   .damage-workbench {
@@ -2155,6 +2331,13 @@ h4 {
 
   .guide-section-nav {
     position: static;
+  }
+
+  .suitability-grid,
+  .point-band-grid,
+  .glyph-grid,
+  .evidence-list {
+    grid-template-columns: 1fr;
   }
 
   .core-item-strip {
