@@ -218,6 +218,8 @@ for (const forbidden of ["模型分", "先选目标", "rationale", "完整 BD �
 }
 assert(frontendText.includes("renderLoadoutBoard"), "BD detail must render a paper-doll loadout board");
 assert(frontendText.includes("loadout-paper-doll"), "BD detail must expose a fixed 11-slot paper-doll layout");
+assert(frontendText.includes("renderBuildVersionSwitcher"), "BD detail must render same-archetype daily/speed/push version switching");
+assert(frontendText.includes("guide-version-tabs"), "BD detail must expose visible version tabs near the hero");
 assert(frontendText.includes("renderRouteOverview"), "BD overview must render skill and paragon execution route overview");
 assert(frontendText.includes("route-overview__skillbar"), "BD overview must expose the six-skill route overview");
 assert(frontendText.includes("renderGameplayOverview"), "BD overview must render combat loop overview");

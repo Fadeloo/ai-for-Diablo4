@@ -356,6 +356,7 @@ public/
 | `BuildCard` | BD 大厅卡片 | guide | 详情链接 |
 | `BuildDetailPage` | BD 详情容器 | guideId | 完整详情 |
 | `BuildSummaryPanel` | 顶部概要和强弱项 | guide.summary | 摘要 |
+| `BuildVersionSwitcher` | 同流派版本切换 | 当前 guide、同赛季同职业同流派 guides | 日常、速刷、冲层版本入口和同职业社区 BD 参考 |
 | `GearSlotGrid` | 11 槽位布局 | gearSlots | 槽位网格 |
 | `GearSlotCard` | 单槽位装备明细 | gearSlot/item | 装备卡 |
 | `SkillRoutePanel` | 技能栏和加点顺序 | skillTree | 技能路线 |
@@ -374,6 +375,7 @@ public/
 - 任何外链都要带站点名、来源日期或当前整理日期。
 - 所有中文标签集中在 `labels.js` 或现有 label map 中，避免英文残留。
 - 列表卡片和详情页面不复用同一个大模板，防止信息过密。
+- `BuildVersionSwitcher` 只按 `seasonId + classId + archetypeId` 建组；不同流派只能作为同职业参考，不能伪装成同一 BD 的版本。
 
 ## 7. 视觉系统
 
@@ -764,7 +766,7 @@ git diff --check
 
 ```bash
 rg -n "候选配装|配装规划|先选目标|AI 思考|模型推理|问构筑|模拟器控制台|rationale" index.html public data/generated
-rg -n "(AKIA[0-9A-Z]{16}|ghp_|github_pat_|sk-|BEGIN PRIVATE KEY|xox[baprs]-)" -g "!tmp/**" .
+rg -n "(AKIA[0-9A-Z]{16}|g(hp|ithub_pat)_|s[k]-|BEGIN PRIVATE[ ]KEY|xox[baprs]-)" -g "!tmp/**" .
 ```
 
 视觉验证：

@@ -132,6 +132,7 @@ BD 详情 #bd/<guideId>
 | `BuildCard` | BD 大厅列表项 | `guide` | 进入 BD 详情 |
 | `BuildDetailLayout` | BD 详情页容器 | `guideId` | 渲染分区目录和详情 |
 | `BuildSummaryPanel` | 定位、难度、强弱项 | `guide.summary`、`ceiling` | 顶部摘要 |
+| `BuildVersionSwitcher` | 同流派版本切换 | 当前 `guide`、同赛季同职业同流派 guides | 在详情页首屏切换日常、速刷、冲层版本，并露出同职业社区 BD |
 | `LoadoutStrip` | 全身装备速览 | `guide.gearSlots` | 11 个槽位快速跳到装备区 |
 | `LoadoutBoard` | 纸娃娃式配装盘面 | `guide.gearSlots`、`coreUniques`、`coreAspects` | 首屏展示 11 个部位、核心/硬需求/可替换和暗金/威能 |
 | `RouteOverview` | 技能和巅峰执行路线总览 | `skillTree`、`paragon` | 总览区展示 6 技能栏、加点顺序、巅峰盘和点击主线 |
@@ -156,6 +157,7 @@ BD 详情 #bd/<guideId>
 
 - 任何组件不得在浏览器端“编造”构筑，只能展示已生成 JSON。
 - `BuildDetailLayout` 是唯一展示完整 BD 的地方，BD 大厅只保留摘要。
+- `BuildVersionSwitcher` 只在同一赛季、同一职业、同一流派内切换用途版本；它不能把不同流派混在同一组里。
 - 装备、技能、巅峰、打法都必须能单独阅读，不嵌套在同一张大卡里。
 - 详情页内所有外链都显示来源站点和日期。
 - 所有长文本都要在移动端换行，不能覆盖相邻装备卡。
@@ -299,6 +301,39 @@ data/
 - `seasonIntroduced`
 - `patchChanges`
 - `relatedBuildIds`
+
+### 5.3 数据生命周期和使用边界
+
+站点数据按这条链路进入玩家页面：
+
+```text
+外部来源
+  -> source-registry 登记来源、日期、可信度和授权边界
+  -> 原始/人工结构化数据：equipment-library、community-build-overrides、season-start-plans
+  -> 生成层：build-guides、aspect-index、build-simulations、site-coverage
+  -> 前端只读渲染：BD 大厅、BD 详情、装备库、威能库、职业页、预测页、来源页
+```
+
+字段使用规则：
+
+- 玩家页面只能读取生成后的 JSON 或已登记来源的静态 JSON，不在浏览器里生成新 BD。
+- 官方字段、社区字段、预测字段必须保留各自 `sourceStatus` 或 `verificationLevel`。
+- 装备库当前是唯一装备固定词缀种子，页面必须持续显示全量范围缺口。
+- `BuildVersionSwitcher` 使用 `seasonId + classId + archetypeId` 建组，按 `daily -> speed_farm -> pit_push` 排序；同职业其他社区 BD 只能作为“同职业可抄参考”展示。
+- `aspect-index` 来自 BD 装备槽位反查，不声明为官方全量威能库。
+- `site-coverage` 是来源页和首页展示资料边界的唯一摘要来源。
+
+后续服务化时，数据库实体也沿用这些边界：
+
+| 实体 | 主要字段 | 前端用途 |
+| --- | --- | --- |
+| `sources` | `id`、`url`、`trustLevel`、`asOf`、`licenseScope` | 所有事实字段的来源锚点 |
+| `items` | `id`、`slot`、`uniquePower`、`affixes`、`dropSource`、字段状态 | 装备库和 BD 装备槽 |
+| `aspects` | `id`、`name`、`allowedSlots`、`effect`、字段状态 | 威能索引和装备槽 |
+| `builds` | `seasonId`、`classId`、`archetypeId`、`mode`、`sourceStatus` | BD 大厅、详情和职业矩阵 |
+| `build_versions` | `buildId`、`mode`、`gearSlots`、`skillTree`、`paragon`、`gameplay` | 同流派版本切换 |
+| `leaderboard_samples` | `seasonId`、`classId`、`tier`、`clearTime`、`sourceId` | 150 层预测校准 |
+| `analysis_outputs` | `inputSnapshot`、`candidateBuildId`、`reviewStatus` | AI 候选审核，不直接展示给玩家 |
 
 ### 5.4 后端数据库演进
 

@@ -1319,6 +1319,108 @@ h4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.guide-version-switcher {
+  background:
+    linear-gradient(180deg, rgba(24, 12, 8, 0.74), rgba(6, 3, 2, 0.7));
+  border: 1px solid rgba(214, 173, 99, 0.24);
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+}
+
+.guide-version-switcher header {
+  align-items: start;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.guide-version-switcher header span,
+.guide-version-tab span,
+.guide-related-builds > strong,
+.guide-related-build span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.guide-version-switcher header strong {
+  color: #fff7df;
+  display: block;
+  font-size: 18px;
+  line-height: 1.3;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+
+.guide-version-switcher header em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 750;
+  justify-self: end;
+  text-align: right;
+}
+
+.guide-version-tabs,
+.guide-related-strip {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.guide-version-tab,
+.guide-related-build {
+  background: rgba(8, 4, 3, 0.52);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  color: inherit;
+  display: grid;
+  gap: 6px;
+  min-height: 112px;
+  padding: 12px;
+  text-decoration: none;
+  transition: border-color var(--transition), background-color var(--transition), box-shadow var(--transition);
+}
+
+.guide-version-tab:hover,
+.guide-related-build:hover,
+.guide-version-tab.is-active {
+  background: linear-gradient(180deg, rgba(164, 32, 24, 0.24), rgba(214, 173, 99, 0.1));
+  border-color: rgba(240, 207, 143, 0.46);
+}
+
+.guide-version-tab.is-active {
+  box-shadow: inset 0 0 0 1px rgba(240, 207, 143, 0.18);
+}
+
+.guide-version-tab strong,
+.guide-related-build strong {
+  color: var(--bone);
+  font-size: 14px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.guide-version-tab em,
+.guide-related-build em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.guide-related-builds {
+  border-top: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  gap: 10px;
+  padding-top: 12px;
+}
+
+.guide-related-build {
+  min-height: 96px;
+}
+
 .loadout-strip {
   display: grid;
   gap: 8px;
@@ -3311,6 +3413,8 @@ h4 {
   .build-atlas-grid,
   .coverage-grid,
   .storage-layer-grid,
+  .guide-version-tabs,
+  .guide-related-strip,
   .guide-card-grid,
   .gear-slot-grid,
   .route-overview__skillbar,
@@ -3408,6 +3512,9 @@ h4 {
   .class-build-mode-grid,
   .guide-card__metrics,
   .guide-hero__main,
+  .guide-version-switcher header,
+  .guide-version-tabs,
+  .guide-related-strip,
   .guide-kpi-grid,
   .loadout-strip,
   .execution-plan,
@@ -3548,6 +3655,11 @@ h4 {
     justify-items: start;
     padding-left: 0;
     padding-top: 14px;
+    text-align: left;
+  }
+
+  .guide-version-switcher header em {
+    justify-self: start;
     text-align: left;
   }
 

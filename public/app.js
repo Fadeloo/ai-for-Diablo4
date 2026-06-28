@@ -196,6 +196,8 @@ const modeLabels = {
   daily: "日常"
 };
 
+const buildVersionModeOrder = ["daily", "speed_farm", "pit_push"];
+
 function $(selector) {
   return document.querySelector(selector);
 }
@@ -742,6 +744,81 @@ function sortGuidesForPlayer(a, b) {
   return guideSourceRank(a) - guideSourceRank(b)
     || a.ceiling.pit150Minutes - b.ceiling.pit150Minutes
     || a.formationDifficulty.level - b.formationDifficulty.level;
+}
+
+function buildVersionModeIndex(mode) {
+  const index = buildVersionModeOrder.indexOf(mode);
+  return index === -1 ? buildVersionModeOrder.length : index;
+}
+
+function sortBuildVersions(a, b) {
+  return buildVersionModeIndex(a.taxonomy.mode) - buildVersionModeIndex(b.taxonomy.mode)
+    || guideSourceRank(a) - guideSourceRank(b)
+    || a.ceiling.pit150Minutes - b.ceiling.pit150Minutes;
+}
+
+function sameArchetypeVersions(guide) {
+  return allBuildGuides()
+    .filter((item) => item.taxonomy.seasonId === guide.taxonomy.seasonId)
+    .filter((item) => item.taxonomy.classId === guide.taxonomy.classId)
+    .filter((item) => item.taxonomy.archetypeId === guide.taxonomy.archetypeId)
+    .sort(sortBuildVersions);
+}
+
+function sameClassCommunityGuides(guide) {
+  return allBuildGuides()
+    .filter((item) => item.taxonomy.seasonId === guide.taxonomy.seasonId)
+    .filter((item) => item.taxonomy.classId === guide.taxonomy.classId)
+    .filter((item) => item.taxonomy.archetypeId !== guide.taxonomy.archetypeId)
+    .filter((item) => ["community_reference", "cross_season_reference"].includes(item.source.verificationLevel))
+    .sort(sortGuidesForPlayer)
+    .slice(0, 6);
+}
+
+function guideVersionMeta(guide) {
+  const tier = guide.ceiling.displayTier || guide.ceiling.tier;
+  const clearTime = Number.isFinite(guide.ceiling.pit150Minutes) ? `150 层 ${guide.ceiling.pit150Minutes} 分` : guide.ceiling.label;
+  return `${guide.formationDifficulty.label}成型 · ${guide.taxonomy.stage} · ${tier} · ${clearTime}`;
+}
+
+function renderBuildVersionSwitcher(guide) {
+  const versions = sameArchetypeVersions(guide);
+  const relatedGuides = sameClassCommunityGuides(guide);
+  const versionLabels = versions.map((item) => item.taxonomy.modeName).join(" / ");
+  return `
+    <section class="guide-version-switcher" aria-label="同流派版本切换">
+      <header>
+        <div>
+          <span>同流派版本</span>
+          <strong>${displayText(guide.taxonomy.archetypeName)} · ${versionLabels}</strong>
+        </div>
+        <em>当前：${guide.taxonomy.modeName} · ${guideSourceLabel(guide)}</em>
+      </header>
+      <div class="guide-version-tabs">
+        ${versions.map((item) => `
+          <a class="guide-version-tab ${item.id === guide.id ? "is-active" : ""}" href="${guideUrl(item)}"${item.id === guide.id ? " aria-current=\"page\"" : ""}>
+            <span>${item.taxonomy.modeName}</span>
+            <strong>${displayText(item.title || item.taxonomy.archetypeName)}</strong>
+            <em>${guideVersionMeta(item)}</em>
+          </a>
+        `).join("")}
+      </div>
+      ${relatedGuides.length ? `
+        <div class="guide-related-builds">
+          <strong>同职业可抄社区 BD</strong>
+          <div class="guide-related-strip">
+            ${relatedGuides.map((item) => `
+              <a class="guide-related-build" href="${guideUrl(item)}">
+                <span>${item.taxonomy.modeName} · ${guideSourceLabel(item)}</span>
+                <strong>${displayText(item.taxonomy.archetypeName)}</strong>
+                <em>${guideVersionMeta(item)}</em>
+              </a>
+            `).join("")}
+          </div>
+        </div>
+      ` : ""}
+    </section>
+  `;
 }
 
 function bestGuideForClassMode(classId, mode) {
@@ -1630,6 +1707,7 @@ function renderBuildGuideDetail() {
           <span><b>${guide.gearSlots.length}</b>装备位置</span>
           <span><b>${guide.coreUniques.length}</b>核心暗金</span>
         </div>
+        ${renderBuildVersionSwitcher(guide)}
         ${renderLoadoutBoard(guide)}
       </header>
 
