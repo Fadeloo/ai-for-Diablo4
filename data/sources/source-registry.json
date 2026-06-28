@@ -149,5 +149,20 @@
       "community_affix_range_cross_check"
     ],
     "notes": "Community database used as attributed reference for Chinese unique item text, drop bosses and equipment type. It is not an official Blizzard source; imported fields keep field-level community status."
+  },
+  {
+    "id": "d2core_aspect_database",
+    "name": "暗黑核 暗黑4传奇威能数据库",
+    "category": "community_database",
+    "trustLevel": "needs_validation",
+    "url": "https://www.d2core.com/d4/data/legendary",
+    "lastChecked": "2026-06-29",
+    "use": [
+      "community_aspect_effect_text",
+      "community_aspect_type_cross_check",
+      "community_aspect_slot_reference",
+      "community_aspect_icon_reference"
+    ],
+    "notes": "Community database used as attributed reference for matched legendary aspect effects and categories. Generic placeholder aspect names remain derived-only and are not forced into a concrete source match."
   }
 ]

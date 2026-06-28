@@ -1,8 +1,18 @@
 {
-  "generatedAt": "2026-06-28T19:56:01.012Z",
+  "generatedAt": "2026-06-28T20:04:12.869Z",
   "scope": "aspect_index_derived_from_structured_build_guides",
   "asOf": "2026-06-28",
   "sourceFile": "data/generated/build-guides.json",
+  "communityCoverage": {
+    "sourceId": "d2core_aspect_database",
+    "sourceUrl": "https://www.d2core.com/d4/data/legendary",
+    "matchedCount": 20,
+    "missingCount": 50,
+    "ambiguousCount": 1,
+    "sourceChineseCount": 363,
+    "d2coreBuild": "71886",
+    "generatedAt": "2026-06-28T20:00:23.561Z"
+  },
   "aspectCount": 71,
   "usageCount": 211,
   "ignoredNames": [
@@ -14,17 +24,20 @@
   "limitations": [
     "This is not the full official Diablo IV legendary aspect database.",
     "Only aspects already present in structured BD gear slots are indexed.",
-    "Template-generated aspect names remain marked through sourceLevels and sourceStatusSamples."
+    "Matched aspect effects are attributed to a community database.",
+    "Template-generated or ambiguous aspect names remain marked through sourceLevels and sourceStatusSamples."
   ],
   "zhLimitations": [
     "这不是官方全量传奇威能库。",
     "这里只汇总已结构化 BD 装备槽位里出现的威能。",
-    "模板生成的威能名称仍通过来源状态标注，不能当作官方事实。"
+    "已匹配的威能效果标注为社区数据库参考。",
+    "模板生成或歧义威能名称仍通过来源状态标注，不能当作官方事实。"
   ],
   "aspects": [
     {
       "id": "aspect-idx65r",
       "name": "资源威能",
+      "canonicalName": "资源威能",
       "usageCount": 17,
       "guideCount": 16,
       "classIds": [
@@ -95,6 +108,7 @@
         "Mobalytics Evade Storm Feathers 速刷变体整理",
         "Mobalytics Penetrating Shot 日常变体整理"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -479,6 +493,7 @@
     {
       "id": "aspect-jga3de",
       "name": "防御威能",
+      "canonicalName": "防御威能",
       "usageCount": 19,
       "guideCount": 9,
       "classIds": [
@@ -557,6 +572,7 @@
         "Mobalytics Pulverize 日常变体整理",
         "Mobalytics Pyro Bolts 日常变体整理"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -985,6 +1001,7 @@
     {
       "id": "aspect-79lh4t",
       "name": "模仿灌注威能",
+      "canonicalName": "模仿灌注威能",
       "usageCount": 7,
       "guideCount": 6,
       "classIds": [
@@ -1043,6 +1060,7 @@
         "Mobalytics Dance of Knives 终局构筑整理",
         "Mobalytics Penetrating Shot 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -1207,6 +1225,7 @@
     {
       "id": "aspect-em498l",
       "name": "潮汐威能",
+      "canonicalName": "潮汐威能",
       "usageCount": 6,
       "guideCount": 5,
       "classIds": [
@@ -1268,9 +1287,28 @@
         "Mobalytics Bloodwave 装备栏",
         "Mobalytics Bloodwave FAQ 必备项整理"
       ],
+      "database": {
+        "sourceId": "d2core_aspect_database",
+        "sourceName": "潮汐威能",
+        "sourceEnglishName": "Tidal Aspect",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "zhAspectType": "攻击",
+        "aspectType": "Offensive",
+        "zhEffect": "当你处于被强固状态时，你的压制上限提高 [2 - 4]。",
+        "zhAllowedSlots": [
+          "手套",
+          "护符",
+          "戒指",
+          "武器"
+        ],
+        "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002705.webp",
+        "matchedBy": "normalized_chinese_name"
+      },
       "dataStatus": {
-        "scope": "derived_from_build_gear_slots",
-        "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        "scope": "community_database_reference",
+        "zhText": "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
       },
       "buildUses": [
         {
@@ -1410,6 +1448,7 @@
     {
       "id": "aspect-bp8h4l",
       "name": "天力威能",
+      "canonicalName": "天力威能",
       "usageCount": 5,
       "guideCount": 5,
       "classIds": [
@@ -1459,6 +1498,7 @@
         "Mobalytics S14 Chain Lightning 装备位",
         "Mobalytics S14 Pyro Bolts 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -1579,6 +1619,7 @@
     {
       "id": "aspect-soyqze",
       "name": "抓握血脉威能",
+      "canonicalName": "抓握血脉威能",
       "usageCount": 5,
       "guideCount": 5,
       "classIds": [
@@ -1620,6 +1661,7 @@
         "Mobalytics Bloodwave 装备栏",
         "Mobalytics S14 Astral Bone Spirit 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -1740,6 +1782,7 @@
     {
       "id": "aspect-1hz0gk6",
       "name": "诅咒光环威能",
+      "canonicalName": "诅咒光环威能",
       "usageCount": 5,
       "guideCount": 5,
       "classIds": [
@@ -1789,6 +1832,7 @@
         "Mobalytics Bloodwave 装备栏",
         "Mobalytics S14 Astral Bone Spirit 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -1909,6 +1953,7 @@
     {
       "id": "aspect-khy72c",
       "name": "格林铁砧威能",
+      "canonicalName": "格林铁砧之威能",
       "usageCount": 4,
       "guideCount": 4,
       "classIds": [
@@ -1948,9 +1993,28 @@
         "Mobalytics Dance of Knives 终局构筑整理",
         "Mobalytics Penetrating Shot 装备位"
       ],
+      "database": {
+        "sourceId": "d2core_aspect_database",
+        "sourceName": "格林铁砧之威能",
+        "sourceEnglishName": "Aspect of Glynn's Anvil",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "zhAspectType": "防御",
+        "aspectType": "Defensive",
+        "zhEffect": "你的决断上限提高 2，并且每拥有一层决断会获得 [2.5 - 4]% 的伤害减免。",
+        "zhAllowedSlots": [
+          "头盔",
+          "胸甲",
+          "裤子",
+          "护符"
+        ],
+        "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/1207658646.webp",
+        "matchedBy": "normalized_chinese_name"
+      },
       "dataStatus": {
-        "scope": "derived_from_build_gear_slots",
-        "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        "scope": "community_database_reference",
+        "zhText": "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
       },
       "buildUses": [
         {
@@ -2046,6 +2110,7 @@
     {
       "id": "aspect-fu9mk0",
       "name": "移动威能",
+      "canonicalName": "移动威能",
       "usageCount": 4,
       "guideCount": 4,
       "classIds": [
@@ -2100,6 +2165,7 @@
         "Mobalytics Evade Storm Feathers 速刷变体整理",
         "Mobalytics Penetrating Shot 速刷变体整理"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -2198,6 +2264,7 @@
     {
       "id": "aspect-h2ur4o",
       "name": "自负威能",
+      "canonicalName": "自负威能",
       "usageCount": 4,
       "guideCount": 4,
       "classIds": [
@@ -2249,6 +2316,7 @@
         "Mobalytics S14 Chain Lightning 装备位",
         "Mobalytics Sonic Shred 速刷变体整理"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -2347,6 +2415,7 @@
     {
       "id": "aspect-1e60zle",
       "name": "衰弱毒素威能",
+      "canonicalName": "衰弱毒素之威能",
       "usageCount": 4,
       "guideCount": 3,
       "classIds": [
@@ -2396,9 +2465,28 @@
         "Mobalytics S14 Sonic Shred 装备位",
         "Mobalytics Sonic Shred 日常变体整理"
       ],
+      "database": {
+        "sourceId": "d2core_aspect_database",
+        "sourceName": "衰弱毒素之威能",
+        "sourceEnglishName": "Aspect of Debilitating Toxins",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "zhAspectType": "防御",
+        "aspectType": "Defensive",
+        "zhEffect": "你获得 [20.0 - 30.0]% 伤害减免，并且中毒的敌人对你造成的伤害降低 15%。",
+        "zhAllowedSlots": [
+          "头盔",
+          "胸甲",
+          "裤子",
+          "护符"
+        ],
+        "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/2656107442.webp",
+        "matchedBy": "normalized_chinese_name"
+      },
       "dataStatus": {
-        "scope": "derived_from_build_gear_slots",
-        "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        "scope": "community_database_reference",
+        "zhText": "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
       },
       "buildUses": [
         {
@@ -2494,6 +2582,7 @@
     {
       "id": "aspect-9x9r3m",
       "name": "无暇烈焰威能",
+      "canonicalName": "无暇烈焰威能",
       "usageCount": 4,
       "guideCount": 3,
       "classIds": [
@@ -2543,6 +2632,7 @@
         "Mobalytics Pyro Bolts 日常变体整理",
         "Mobalytics S14 Pyro Bolts 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -2641,6 +2731,7 @@
     {
       "id": "aspect-avhndt",
       "name": "凶暴威能",
+      "canonicalName": "凶暴威能",
       "usageCount": 4,
       "guideCount": 3,
       "classIds": [
@@ -2690,6 +2781,7 @@
         "Mobalytics Penetrating Shot 日常变体整理",
         "Mobalytics Penetrating Shot 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -2788,6 +2880,7 @@
     {
       "id": "aspect-cx8srv",
       "name": "报复威能",
+      "canonicalName": "报复威能",
       "usageCount": 3,
       "guideCount": 3,
       "classIds": [
@@ -2828,6 +2921,7 @@
       "sourceStatusSamples": [
         "Mobalytics Pulverize 装备栏"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -2904,6 +2998,7 @@
     {
       "id": "aspect-1g171y5",
       "name": "潮汐归航威能",
+      "canonicalName": "潮汐归航威能",
       "usageCount": 3,
       "guideCount": 3,
       "classIds": [
@@ -2944,6 +3039,7 @@
       "sourceStatusSamples": [
         "Mobalytics Bloodwave 装备栏"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -3020,6 +3116,7 @@
     {
       "id": "aspect-98lnek",
       "name": "大德鲁伊威能",
+      "canonicalName": "大德鲁伊的威能",
       "usageCount": 3,
       "guideCount": 3,
       "classIds": [
@@ -3060,9 +3157,28 @@
       "sourceStatusSamples": [
         "Mobalytics S14 Sonic Shred 装备位"
       ],
+      "database": {
+        "sourceId": "d2core_aspect_database",
+        "sourceName": "大德鲁伊的威能",
+        "sourceEnglishName": "Archdruid's Aspect",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "zhAspectType": "攻击",
+        "aspectType": "Offensive",
+        "zhEffect": "每个德鲁伊形态额外获得一项被动加成:\n• 人类: 对远距敌人造成的伤害提高 [40 - 55]%[x]。\n• 狼人: 对近距敌人造成的暴击伤害提高 [40 - 55]%[x]。\n• 熊人: 拥有决断时造成的伤害提高 [30 - 45]%[x]。",
+        "zhAllowedSlots": [
+          "手套",
+          "护符",
+          "戒指",
+          "武器"
+        ],
+        "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/799331585.webp",
+        "matchedBy": "normalized_chinese_name"
+      },
       "dataStatus": {
-        "scope": "derived_from_build_gear_slots",
-        "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        "scope": "community_database_reference",
+        "zhText": "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
       },
       "buildUses": [
         {
@@ -3136,6 +3252,7 @@
     {
       "id": "aspect-b2qy7j",
       "name": "反弹威能",
+      "canonicalName": "反弹威能",
       "usageCount": 3,
       "guideCount": 3,
       "classIds": [
@@ -3185,6 +3302,7 @@
         "Mobalytics Evade Storm Feathers 日常变体整理",
         "Mobalytics S14 Evade Storm Feathers 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -3261,6 +3379,7 @@
     {
       "id": "aspect-fs1dmg",
       "name": "禁制威能",
+      "canonicalName": "禁制威能",
       "usageCount": 3,
       "guideCount": 3,
       "classIds": [
@@ -3301,6 +3420,7 @@
       "sourceStatusSamples": [
         "Mobalytics S14 Evade Storm Feathers 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -3377,6 +3497,7 @@
     {
       "id": "aspect-jl1hhv",
       "name": "锯齿威能",
+      "canonicalName": "锯齿威能",
       "usageCount": 3,
       "guideCount": 3,
       "classIds": [
@@ -3417,6 +3538,7 @@
       "sourceStatusSamples": [
         "Mobalytics S14 Astral Bone Spirit 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -3493,6 +3615,7 @@
     {
       "id": "aspect-1bccp5p",
       "name": "狂烈斗士威能",
+      "canonicalName": "狂烈斗士威能",
       "usageCount": 3,
       "guideCount": 3,
       "classIds": [
@@ -3533,6 +3656,7 @@
       "sourceStatusSamples": [
         "Mobalytics S14 Astral Bone Spirit 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -3609,6 +3733,7 @@
     {
       "id": "aspect-1yg6twf",
       "name": "炼金优势威能",
+      "canonicalName": "炼金优势之威能",
       "usageCount": 3,
       "guideCount": 3,
       "classIds": [
@@ -3649,9 +3774,28 @@
       "sourceStatusSamples": [
         "Mobalytics Dance of Knives 终局构筑整理"
       ],
+      "database": {
+        "sourceId": "d2core_aspect_database",
+        "sourceName": "炼金优势之威能",
+        "sourceEnglishName": "Aspect of Alchemical Advantage",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "zhAspectType": "攻击",
+        "aspectType": "Offensive",
+        "zhEffect": "造成非物理伤害时，你的攻击速度和幸运一击几率提高 [4.0 - 6.0]%[+]，持续 8 秒，最多提高 [40.0 - 60.0]%[+]。",
+        "zhAllowedSlots": [
+          "手套",
+          "护符",
+          "戒指",
+          "武器"
+        ],
+        "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/2824844608.webp",
+        "matchedBy": "normalized_chinese_name"
+      },
       "dataStatus": {
-        "scope": "derived_from_build_gear_slots",
-        "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        "scope": "community_database_reference",
+        "zhText": "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
       },
       "buildUses": [
         {
@@ -3725,6 +3869,7 @@
     {
       "id": "aspect-fu71v7",
       "name": "碾碎威能",
+      "canonicalName": "碾碎威能",
       "usageCount": 3,
       "guideCount": 3,
       "classIds": [
@@ -3765,9 +3910,28 @@
       "sourceStatusSamples": [
         "暗黑核示例 BD 槽位"
       ],
+      "database": {
+        "sourceId": "d2core_aspect_database",
+        "sourceName": "碾碎威能",
+        "sourceEnglishName": "Crushing Aspect",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "zhAspectType": "攻击",
+        "aspectType": "Offensive",
+        "zhEffect": "处于强固状态下时，你造成的伤害提高 [45 - 65]%[x]。",
+        "zhAllowedSlots": [
+          "手套",
+          "护符",
+          "戒指",
+          "武器"
+        ],
+        "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/799330633.webp",
+        "matchedBy": "normalized_chinese_name"
+      },
       "dataStatus": {
-        "scope": "derived_from_build_gear_slots",
-        "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        "scope": "community_database_reference",
+        "zhText": "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
       },
       "buildUses": [
         {
@@ -3841,6 +4005,7 @@
     {
       "id": "aspect-pvvyu7",
       "name": "平原之力威能",
+      "canonicalName": "平原之力威能",
       "usageCount": 3,
       "guideCount": 3,
       "classIds": [
@@ -3881,6 +4046,7 @@
       "sourceStatusSamples": [
         "Mobalytics Sunbird 装备栏"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -3957,6 +4123,7 @@
     {
       "id": "aspect-exdnon",
       "name": "燃烧威能",
+      "canonicalName": "燃烧威能",
       "usageCount": 3,
       "guideCount": 3,
       "classIds": [
@@ -3997,6 +4164,7 @@
       "sourceStatusSamples": [
         "Mobalytics S14 Pyro Bolts 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -4073,6 +4241,7 @@
     {
       "id": "aspect-hmap7a",
       "name": "蠕动威能",
+      "canonicalName": "蠕动威能",
       "usageCount": 3,
       "guideCount": 3,
       "classIds": [
@@ -4113,9 +4282,28 @@
       "sourceStatusSamples": [
         "Mobalytics Dance of Knives 终局构筑整理"
       ],
+      "database": {
+        "sourceId": "d2core_aspect_database",
+        "sourceName": "蠕动威能",
+        "sourceEnglishName": "Writhing Aspect",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "zhAspectType": "攻击",
+        "aspectType": "Offensive",
+        "zhEffect": "敌人每受到一秒持续性伤害，其受到的持续性伤害就提高 [7.5 - 12.5]%，最高持续 10 秒。",
+        "zhAllowedSlots": [
+          "手套",
+          "护符",
+          "戒指",
+          "武器"
+        ],
+        "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870517992.webp",
+        "matchedBy": "normalized_chinese_name"
+      },
       "dataStatus": {
-        "scope": "derived_from_build_gear_slots",
-        "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        "scope": "community_database_reference",
+        "zhText": "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
       },
       "buildUses": [
         {
@@ -4189,6 +4377,7 @@
     {
       "id": "aspect-fxtilt",
       "name": "碎霜威能",
+      "canonicalName": "碎霜威能",
       "usageCount": 3,
       "guideCount": 3,
       "classIds": [
@@ -4229,6 +4418,7 @@
       "sourceStatusSamples": [
         "Mobalytics S14 Chain Lightning 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -4305,6 +4495,7 @@
     {
       "id": "aspect-c643qp",
       "name": "屠戮威能",
+      "canonicalName": "屠戮之威能",
       "usageCount": 3,
       "guideCount": 3,
       "classIds": [
@@ -4344,9 +4535,26 @@
         "Mobalytics Bloodwave 装备栏",
         "Mobalytics S14 Astral Bone Spirit 装备位"
       ],
+      "database": {
+        "sourceId": "d2core_aspect_database",
+        "sourceName": "屠戮之威能",
+        "sourceEnglishName": "Aspect of Slaughter",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "zhAspectType": "机动",
+        "aspectType": "Mobility",
+        "zhEffect": "你获得 [30.0 - 45.0]%[+] 移动速度加成。受到近距敌人的伤害会使你减速 30%，持续 2 秒。",
+        "zhAllowedSlots": [
+          "靴子",
+          "护符"
+        ],
+        "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/1064680277.webp",
+        "matchedBy": "normalized_chinese_name"
+      },
       "dataStatus": {
-        "scope": "derived_from_build_gear_slots",
-        "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        "scope": "community_database_reference",
+        "zhText": "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
       },
       "buildUses": [
         {
@@ -4420,6 +4628,7 @@
     {
       "id": "aspect-inynp9",
       "name": "违抗威能",
+      "canonicalName": "违抗之威能",
       "usageCount": 3,
       "guideCount": 3,
       "classIds": [
@@ -4460,9 +4669,28 @@
       "sourceStatusSamples": [
         "Mobalytics S14 Evade Storm Feathers 装备位"
       ],
+      "database": {
+        "sourceId": "d2core_aspect_database",
+        "sourceName": "违抗之威能",
+        "sourceEnglishName": "Aspect of Disobedience",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "zhAspectType": "防御",
+        "aspectType": "Defensive",
+        "zhEffect": "你的持续性伤害会使你获得 [1.0 - 1.5]% 伤害减免，持续 2 秒，最多叠加 30 次。",
+        "zhAllowedSlots": [
+          "头盔",
+          "胸甲",
+          "裤子",
+          "护符"
+        ],
+        "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/951808200.webp",
+        "matchedBy": "normalized_chinese_name"
+      },
       "dataStatus": {
-        "scope": "derived_from_build_gear_slots",
-        "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        "scope": "community_database_reference",
+        "zhText": "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
       },
       "buildUses": [
         {
@@ -4536,6 +4764,7 @@
     {
       "id": "aspect-1ohtc22",
       "name": "无尽怒火之威能",
+      "canonicalName": "无尽怒火之威能",
       "usageCount": 3,
       "guideCount": 3,
       "classIds": [
@@ -4576,9 +4805,28 @@
       "sourceStatusSamples": [
         "暗黑核示例 BD 槽位"
       ],
+      "database": {
+        "sourceId": "d2core_aspect_database",
+        "sourceName": "无尽怒火之威能",
+        "sourceEnglishName": "Aspect of Limitless Rage",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "zhAspectType": "攻击",
+        "aspectType": "Offensive",
+        "zhEffect": "你每生成一点怒气，就会使你的伤害提高 [1.00 - 1.50]%[x]。该加成在 4 秒后消失。",
+        "zhAllowedSlots": [
+          "手套",
+          "护符",
+          "戒指",
+          "武器"
+        ],
+        "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842503528.webp",
+        "matchedBy": "normalized_chinese_name"
+      },
       "dataStatus": {
-        "scope": "derived_from_build_gear_slots",
-        "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        "scope": "community_database_reference",
+        "zhText": "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
       },
       "buildUses": [
         {
@@ -4652,6 +4900,7 @@
     {
       "id": "aspect-1dybmhl",
       "name": "熊人恐怖威能",
+      "canonicalName": "熊人恐怖威能",
       "usageCount": 3,
       "guideCount": 3,
       "classIds": [
@@ -4692,6 +4941,7 @@
       "sourceStatusSamples": [
         "Mobalytics Pulverize 装备栏"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -4768,6 +5018,7 @@
     {
       "id": "aspect-chhxm2",
       "name": "引导威能",
+      "canonicalName": "引导之威能",
       "usageCount": 3,
       "guideCount": 3,
       "classIds": [
@@ -4808,9 +5059,28 @@
       "sourceStatusSamples": [
         "Mobalytics Dance of Knives 终局构筑整理"
       ],
+      "database": {
+        "sourceId": "d2core_aspect_database",
+        "sourceName": "引导之威能",
+        "sourceEnglishName": "Aspect of Channeling",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "zhAspectType": "攻击",
+        "aspectType": "Offensive",
+        "zhEffect": "引导技能期间，造成的伤害提高 [50 - 70]%[x]。",
+        "zhAllowedSlots": [
+          "手套",
+          "护符",
+          "戒指",
+          "武器"
+        ],
+        "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870518124.webp",
+        "matchedBy": "normalized_chinese_name"
+      },
       "dataStatus": {
-        "scope": "derived_from_build_gear_slots",
-        "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        "scope": "community_database_reference",
+        "zhText": "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
       },
       "buildUses": [
         {
@@ -4884,6 +5154,7 @@
     {
       "id": "aspect-fpcuwa",
       "name": "真视威能",
+      "canonicalName": "真视之威能",
       "usageCount": 3,
       "guideCount": 3,
       "classIds": [
@@ -4924,9 +5195,28 @@
       "sourceStatusSamples": [
         "Mobalytics Penetrating Shot 装备位"
       ],
+      "database": {
+        "sourceId": "d2core_aspect_database",
+        "sourceName": "真视之威能",
+        "sourceEnglishName": "Aspect of True Sight",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "zhAspectType": "攻击",
+        "aspectType": "Offensive",
+        "zhEffect": "你对被心眼标记的敌人造成的伤害提高 [120 - 200]%[x]。当心眼充满时，你造成的伤害提高 [60 - 100]%[x]。",
+        "zhAllowedSlots": [
+          "手套",
+          "护符",
+          "戒指",
+          "武器"
+        ],
+        "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/2259888338.webp",
+        "matchedBy": "normalized_chinese_name"
+      },
       "dataStatus": {
-        "scope": "derived_from_build_gear_slots",
-        "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        "scope": "community_database_reference",
+        "zhText": "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
       },
       "buildUses": [
         {
@@ -5000,6 +5290,7 @@
     {
       "id": "aspect-jlzzj2",
       "name": "震波威能",
+      "canonicalName": "震波威能",
       "usageCount": 3,
       "guideCount": 3,
       "classIds": [
@@ -5040,6 +5331,7 @@
       "sourceStatusSamples": [
         "Mobalytics Pulverize 页面强调 Shockwave Pulverize"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -5116,6 +5408,7 @@
     {
       "id": "aspect-crrzmg",
       "name": "快血威能",
+      "canonicalName": "快血威能",
       "usageCount": 3,
       "guideCount": 2,
       "classIds": [
@@ -5163,6 +5456,7 @@
         "Mobalytics Bloodwave 变体整理",
         "Mobalytics Bloodwave 装备栏"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -5239,6 +5533,7 @@
     {
       "id": "aspect-1nkxoq8",
       "name": "变形者威能",
+      "canonicalName": "变形者威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -5277,6 +5572,7 @@
       "sourceStatusSamples": [
         "Mobalytics S14 Sonic Shred 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -5331,6 +5627,7 @@
     {
       "id": "aspect-uzbghn",
       "name": "变质之石威能",
+      "canonicalName": "变质之石威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -5369,6 +5666,7 @@
       "sourceStatusSamples": [
         "Mobalytics Pulverize 装备栏"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -5423,6 +5721,7 @@
     {
       "id": "aspect-1g9hok5",
       "name": "剥削者威能",
+      "canonicalName": "剥削者的威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -5461,9 +5760,29 @@
       "sourceStatusSamples": [
         "Mobalytics Pulverize 装备栏"
       ],
+      "database": {
+        "sourceId": "d2core_aspect_database",
+        "sourceName": "剥削者的威能",
+        "sourceEnglishName": "Exploiter's Aspect",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "zhAspectType": "通用",
+        "aspectType": "Utility",
+        "zhEffect": "你的控制持续时间延长 50%[+]。对不可阻挡的敌人造成的伤害提高 [30 - 50]%[x]。",
+        "zhAllowedSlots": [
+          "头盔",
+          "胸甲",
+          "手套",
+          "靴子",
+          "护符"
+        ],
+        "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/2918666757.webp",
+        "matchedBy": "normalized_chinese_name"
+      },
       "dataStatus": {
-        "scope": "derived_from_build_gear_slots",
-        "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        "scope": "community_database_reference",
+        "zhText": "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
       },
       "buildUses": [
         {
@@ -5515,6 +5834,7 @@
     {
       "id": "aspect-1rhr0hy",
       "name": "不屈打击威能",
+      "canonicalName": "不屈打击威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -5553,6 +5873,7 @@
       "sourceStatusSamples": [
         "Mobalytics S14 Evade Storm Feathers 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -5607,6 +5928,7 @@
     {
       "id": "aspect-vcygbz",
       "name": "刺骨寒冰威能",
+      "canonicalName": "刺骨寒冰威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -5645,6 +5967,7 @@
       "sourceStatusSamples": [
         "Mobalytics Penetrating Shot 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -5699,6 +6022,7 @@
     {
       "id": "aspect-cpswnx",
       "name": "弹道威能",
+      "canonicalName": "弹道威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -5737,6 +6061,7 @@
       "sourceStatusSamples": [
         "Mobalytics Pulverize 装备栏"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -5791,6 +6116,7 @@
     {
       "id": "aspect-ud6ida",
       "name": "焚化者威能",
+      "canonicalName": "焚化者威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -5829,6 +6155,7 @@
       "sourceStatusSamples": [
         "Mobalytics S14 Pyro Bolts 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -5883,6 +6210,7 @@
     {
       "id": "aspect-83vxjr",
       "name": "愤怒掌控之威能",
+      "canonicalName": "愤怒掌控之威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -5921,9 +6249,29 @@
       "sourceStatusSamples": [
         "暗黑核示例 BD 槽位"
       ],
+      "database": {
+        "sourceId": "d2core_aspect_database",
+        "sourceName": "愤怒掌控之威能",
+        "sourceEnglishName": "Aspect of Anger Management",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "zhAspectType": "通用",
+        "aspectType": "Utility",
+        "zhEffect": "主要资源高于 50 时，造成的伤害提高 [15.0 - 20.0]%[x] 并获得狂暴，但会失去 3 主要资源回复速度。",
+        "zhAllowedSlots": [
+          "头盔",
+          "胸甲",
+          "手套",
+          "靴子",
+          "护符"
+        ],
+        "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/604495231.webp",
+        "matchedBy": "normalized_chinese_name"
+      },
       "dataStatus": {
-        "scope": "derived_from_build_gear_slots",
-        "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        "scope": "community_database_reference",
+        "zhText": "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
       },
       "buildUses": [
         {
@@ -5975,6 +6323,7 @@
     {
       "id": "aspect-k8hmwa",
       "name": "高速威能",
+      "canonicalName": "高速威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -6013,6 +6362,7 @@
       "sourceStatusSamples": [
         "Mobalytics Penetrating Shot 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -6067,6 +6417,7 @@
     {
       "id": "aspect-1v5nywv",
       "name": "格林铁砧之威能",
+      "canonicalName": "格林铁砧之威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -6105,9 +6456,28 @@
       "sourceStatusSamples": [
         "暗黑核示例 BD 槽位"
       ],
+      "database": {
+        "sourceId": "d2core_aspect_database",
+        "sourceName": "格林铁砧之威能",
+        "sourceEnglishName": "Aspect of Glynn's Anvil",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "zhAspectType": "防御",
+        "aspectType": "Defensive",
+        "zhEffect": "你的决断上限提高 2，并且每拥有一层决断会获得 [2.5 - 4]% 的伤害减免。",
+        "zhAllowedSlots": [
+          "头盔",
+          "胸甲",
+          "裤子",
+          "护符"
+        ],
+        "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/1207658646.webp",
+        "matchedBy": "normalized_chinese_name"
+      },
       "dataStatus": {
-        "scope": "derived_from_build_gear_slots",
-        "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        "scope": "community_database_reference",
+        "zhText": "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
       },
       "buildUses": [
         {
@@ -6159,6 +6529,7 @@
     {
       "id": "aspect-208f5t",
       "name": "晦暗治愈威能",
+      "canonicalName": "晦暗治愈威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -6197,6 +6568,7 @@
       "sourceStatusSamples": [
         "Mobalytics Dance of Knives 终局构筑整理"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -6251,6 +6623,7 @@
     {
       "id": "aspect-1fz994m",
       "name": "决斗者威能",
+      "canonicalName": "决斗者威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -6289,6 +6662,7 @@
       "sourceStatusSamples": [
         "Mobalytics Sunbird 装备栏"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -6343,6 +6717,7 @@
     {
       "id": "aspect-2p4tj3",
       "name": "束缚沼泽威能",
+      "canonicalName": "束缚沼泽威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -6381,6 +6756,7 @@
       "sourceStatusSamples": [
         "Mobalytics S14 Evade Storm Feathers 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -6435,6 +6811,7 @@
     {
       "id": "aspect-eh4oqf",
       "name": "湍流威能",
+      "canonicalName": "湍流威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -6473,6 +6850,7 @@
       "sourceStatusSamples": [
         "Mobalytics Sunbird 装备栏"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -6527,6 +6905,7 @@
     {
       "id": "aspect-1jo4nae",
       "name": "无情寒冰威能",
+      "canonicalName": "无情寒冰威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -6565,6 +6944,7 @@
       "sourceStatusSamples": [
         "Mobalytics S14 Chain Lightning 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -6619,6 +6999,7 @@
     {
       "id": "aspect-1mghqlu",
       "name": "邪恶占卜者威能",
+      "canonicalName": "邪恶占卜者威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -6657,6 +7038,7 @@
       "sourceStatusSamples": [
         "Mobalytics S14 Evade Storm Feathers 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -6711,6 +7093,7 @@
     {
       "id": "aspect-hmzw2l",
       "name": "血刺威能",
+      "canonicalName": "血刺威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -6749,6 +7132,7 @@
       "sourceStatusSamples": [
         "Mobalytics 装备栏为血刺威能；FAQ 同时强调来源位需要潮汐威能，本站保留装备栏并在变体提示可互换。"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -6803,6 +7187,7 @@
     {
       "id": "aspect-12ncy3s",
       "name": "愈合石威能",
+      "canonicalName": "愈合石威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -6841,6 +7226,7 @@
       "sourceStatusSamples": [
         "Mobalytics Pulverize 装备栏"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -6895,6 +7281,7 @@
     {
       "id": "aspect-bd6fo3",
       "name": "元素命运威能",
+      "canonicalName": "元素命运之威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -6933,9 +7320,28 @@
       "sourceStatusSamples": [
         "Mobalytics Dance of Knives 终局构筑整理"
       ],
+      "database": {
+        "sourceId": "d2core_aspect_database",
+        "sourceName": "元素命运之威能",
+        "sourceEnglishName": "Aspect of Elemental Fate",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "zhAspectType": "攻击",
+        "aspectType": "Offensive",
+        "zhEffect": "其中一组伤害类型的伤害提高 [40 - 60]%[x]，持续 7 秒。该效果会在 2 组伤害类型之间随机交替:\n•火焰、闪电、神圣和物理。\n•冰霜、毒素和暗影。\n命运可能眷顾你，给予至少一次相同的加成，最多叠加 6 次。达到最大值时，今天就是你的幸运日！",
+        "zhAllowedSlots": [
+          "手套",
+          "护符",
+          "戒指",
+          "武器"
+        ],
+        "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/4156673969.webp",
+        "matchedBy": "normalized_chinese_name"
+      },
       "dataStatus": {
-        "scope": "derived_from_build_gear_slots",
-        "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        "scope": "community_database_reference",
+        "zhText": "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
       },
       "buildUses": [
         {
@@ -6987,6 +7393,7 @@
     {
       "id": "aspect-avll0g",
       "name": "元素威能",
+      "canonicalName": "元素威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -7028,6 +7435,7 @@
         "Mobalytics Astral Bone Spirit 速刷变体整理",
         "Mobalytics Chain Lightning 日常变体整理"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -7082,6 +7490,7 @@
     {
       "id": "aspect-dk4y5z",
       "name": "早逝威能",
+      "canonicalName": "早逝威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -7120,6 +7529,7 @@
       "sourceStatusSamples": [
         "Mobalytics S14 Astral Bone Spirit 装备位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -7174,6 +7584,7 @@
     {
       "id": "aspect-1byet06",
       "name": "终极暗影威能",
+      "canonicalName": "终极暗影之威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -7212,9 +7623,28 @@
       "sourceStatusSamples": [
         "Mobalytics Bloodwave 装备栏"
       ],
+      "database": {
+        "sourceId": "d2core_aspect_database",
+        "sourceName": "终极暗影之威能",
+        "sourceEnglishName": "Aspect of Ultimate Shadow",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "zhAspectType": "攻击",
+        "aspectType": "Offensive",
+        "zhEffect": "你的亵渎之地造成的伤害提高 [80 - 120]%[x]，并且会使敌人减速 50%。",
+        "zhAllowedSlots": [
+          "手套",
+          "护符",
+          "戒指",
+          "武器"
+        ],
+        "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002763.webp",
+        "matchedBy": "normalized_chinese_name"
+      },
       "dataStatus": {
-        "scope": "derived_from_build_gear_slots",
-        "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        "scope": "community_database_reference",
+        "zhText": "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
       },
       "buildUses": [
         {
@@ -7266,6 +7696,7 @@
     {
       "id": "aspect-1cxpmi1",
       "name": "重定向之力威能",
+      "canonicalName": "重定向之力威能",
       "usageCount": 2,
       "guideCount": 2,
       "classIds": [
@@ -7304,6 +7735,7 @@
       "sourceStatusSamples": [
         "Mobalytics Sunbird 装备栏"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -7358,6 +7790,7 @@
     {
       "id": "aspect-xv69uu",
       "name": "彼消我长之威能",
+      "canonicalName": "彼消我长之威能",
       "usageCount": 1,
       "guideCount": 1,
       "classIds": [
@@ -7394,9 +7827,29 @@
       "sourceStatusSamples": [
         "暗黑核示例 BD 槽位"
       ],
+      "database": {
+        "sourceId": "d2core_aspect_database",
+        "sourceName": "彼消我长之威能",
+        "sourceEnglishName": "Aspect of Dominance",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "zhAspectType": "通用",
+        "aspectType": "Utility",
+        "zhEffect": "控制一名敌人会提供 [1 - 2] 层决断。",
+        "zhAllowedSlots": [
+          "头盔",
+          "胸甲",
+          "手套",
+          "靴子",
+          "护符"
+        ],
+        "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/3856291677.webp",
+        "matchedBy": "normalized_chinese_name"
+      },
       "dataStatus": {
-        "scope": "derived_from_build_gear_slots",
-        "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        "scope": "community_database_reference",
+        "zhText": "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
       },
       "buildUses": [
         {
@@ -7426,6 +7879,7 @@
     {
       "id": "aspect-1t6xrh0",
       "name": "变形债务威能",
+      "canonicalName": "变形债务威能",
       "usageCount": 1,
       "guideCount": 1,
       "classIds": [
@@ -7462,6 +7916,7 @@
       "sourceStatusSamples": [
         "Mobalytics Pulverize 装备栏"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -7494,6 +7949,7 @@
     {
       "id": "aspect-cvn3sq",
       "name": "护主威能",
+      "canonicalName": "护主威能",
       "usageCount": 1,
       "guideCount": 1,
       "classIds": [
@@ -7530,6 +7986,7 @@
       "sourceStatusSamples": [
         "暗黑核旋风参考衍生日常位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -7562,6 +8019,7 @@
     {
       "id": "aspect-blm8jm",
       "name": "回能威能",
+      "canonicalName": "回能威能",
       "usageCount": 1,
       "guideCount": 1,
       "classIds": [
@@ -7598,6 +8056,7 @@
       "sourceStatusSamples": [
         "暗黑核旋风参考衍生速刷位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -7630,6 +8089,7 @@
     {
       "id": "aspect-9ypkbk",
       "name": "疾行防御威能",
+      "canonicalName": "疾行防御威能",
       "usageCount": 1,
       "guideCount": 1,
       "classIds": [
@@ -7666,6 +8126,7 @@
       "sourceStatusSamples": [
         "暗黑核旋风参考衍生速刷位"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -7698,6 +8159,7 @@
     {
       "id": "aspect-9z5qgk",
       "name": "冷却/移动威能",
+      "canonicalName": "冷却/移动威能",
       "usageCount": 1,
       "guideCount": 1,
       "classIds": [
@@ -7734,6 +8196,7 @@
       "sourceStatusSamples": [
         "Mobalytics Chain Lightning 速刷变体整理"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -7766,6 +8229,7 @@
     {
       "id": "aspect-arjx1c",
       "name": "冷却威能",
+      "canonicalName": "冷却威能",
       "usageCount": 1,
       "guideCount": 1,
       "classIds": [
@@ -7802,6 +8266,7 @@
       "sourceStatusSamples": [
         "Mobalytics Pyro Bolts 速刷变体整理"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -7834,6 +8299,7 @@
     {
       "id": "aspect-cggg26",
       "name": "强健威能",
+      "canonicalName": "强健威能",
       "usageCount": 1,
       "guideCount": 1,
       "classIds": [
@@ -7870,6 +8336,7 @@
       "sourceStatusSamples": [
         "Mobalytics Sonic Shred 日常变体整理"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -7902,6 +8369,7 @@
     {
       "id": "aspect-opf6gs",
       "name": "森林之力威能",
+      "canonicalName": "森林之力威能",
       "usageCount": 1,
       "guideCount": 1,
       "classIds": [
@@ -7938,6 +8406,7 @@
       "sourceStatusSamples": [
         "Mobalytics Sunbird Starter 变体整理"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -7970,6 +8439,7 @@
     {
       "id": "aspect-1k4yppd",
       "name": "熊人重击威能",
+      "canonicalName": "熊人重击威能",
       "usageCount": 1,
       "guideCount": 1,
       "classIds": [
@@ -8006,6 +8476,7 @@
       "sourceStatusSamples": [
         "Mobalytics Pulverize 日常变体整理"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -8038,6 +8509,7 @@
     {
       "id": "aspect-10ukh24",
       "name": "迅捷迷雾威能",
+      "canonicalName": "迅捷迷雾威能",
       "usageCount": 1,
       "guideCount": 1,
       "classIds": [
@@ -8074,6 +8546,7 @@
       "sourceStatusSamples": [
         "Mobalytics Dance of Knives 速刷变体整理"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -8106,6 +8579,7 @@
     {
       "id": "aspect-vuzztl",
       "name": "引导之威能",
+      "canonicalName": "引导之威能",
       "usageCount": 1,
       "guideCount": 1,
       "classIds": [
@@ -8142,9 +8616,28 @@
       "sourceStatusSamples": [
         "暗黑核旋风参考衍生日常位"
       ],
+      "database": {
+        "sourceId": "d2core_aspect_database",
+        "sourceName": "引导之威能",
+        "sourceEnglishName": "Aspect of Channeling",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "zhAspectType": "攻击",
+        "aspectType": "Offensive",
+        "zhEffect": "引导技能期间，造成的伤害提高 [50 - 70]%[x]。",
+        "zhAllowedSlots": [
+          "手套",
+          "护符",
+          "戒指",
+          "武器"
+        ],
+        "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870518124.webp",
+        "matchedBy": "normalized_chinese_name"
+      },
       "dataStatus": {
-        "scope": "derived_from_build_gear_slots",
-        "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        "scope": "community_database_reference",
+        "zhText": "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
       },
       "buildUses": [
         {
@@ -8174,6 +8667,7 @@
     {
       "id": "aspect-eh8h67",
       "name": "浴血威能",
+      "canonicalName": "浴血威能",
       "usageCount": 1,
       "guideCount": 1,
       "classIds": [
@@ -8210,6 +8704,7 @@
       "sourceStatusSamples": [
         "Mobalytics Bloodwave 日常变体整理"
       ],
+      "database": null,
       "dataStatus": {
         "scope": "derived_from_build_gear_slots",
         "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
@@ -8242,6 +8737,7 @@
     {
       "id": "aspect-dgbf36",
       "name": "月升威能",
+      "canonicalName": "月升之威能",
       "usageCount": 1,
       "guideCount": 1,
       "classIds": [
@@ -8278,9 +8774,28 @@
       "sourceStatusSamples": [
         "Mobalytics Sunbird 装备栏"
       ],
+      "database": {
+        "sourceId": "d2core_aspect_database",
+        "sourceName": "月升之威能",
+        "sourceEnglishName": "Aspect of the Moonrise",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "zhAspectType": "攻击",
+        "aspectType": "Offensive",
+        "zhEffect": "使用基础技能对敌人造成伤害会使你的攻击速度提高 4%，持续 10 秒，该效果至多可叠加 5 次。在达到最大层数时进入吸血鬼血怒状态，获得 [40 - 60]%[x] 基础技能伤害和 15% 移动速度，持续 10 秒。",
+        "zhAllowedSlots": [
+          "手套",
+          "护符",
+          "戒指",
+          "武器"
+        ],
+        "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/4156673998.webp",
+        "matchedBy": "normalized_chinese_name"
+      },
       "dataStatus": {
-        "scope": "derived_from_build_gear_slots",
-        "zhText": "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        "scope": "community_database_reference",
+        "zhText": "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
       },
       "buildUses": [
         {

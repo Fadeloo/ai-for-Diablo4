@@ -3754,7 +3754,24 @@ h4 {
   align-items: start;
   display: grid;
   gap: 16px;
-  grid-template-columns: minmax(0, 1fr) 120px;
+  grid-template-columns: 76px minmax(0, 1fr) 120px;
+}
+
+.aspect-detail-hero > img,
+.aspect-detail-icon-fallback {
+  background: rgba(8, 4, 3, 0.58);
+  border: 1px solid rgba(214, 173, 99, 0.28);
+  height: 76px;
+  width: 76px;
+}
+
+.aspect-detail-icon-fallback {
+  align-items: center;
+  color: var(--gold);
+  display: inline-flex;
+  font-size: 28px;
+  font-weight: 900;
+  justify-content: center;
 }
 
 .aspect-detail-hero h3 {
@@ -3766,6 +3783,41 @@ h4 {
   font-size: 13px;
   line-height: 1.55;
   margin: 8px 0 0;
+}
+
+.aspect-alias {
+  color: var(--gold) !important;
+}
+
+.aspect-effect-panel {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1.35fr) minmax(220px, 0.65fr);
+}
+
+.aspect-effect-panel article {
+  background:
+    linear-gradient(180deg, rgba(92, 33, 24, 0.16), rgba(9, 6, 4, 0.82)),
+    rgba(12, 7, 5, 0.72);
+  border: 1px solid rgba(214, 173, 99, 0.22);
+  min-width: 0;
+  padding: 14px;
+}
+
+.aspect-effect-panel strong {
+  color: var(--gold);
+  display: block;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.aspect-effect-panel p {
+  color: var(--bone);
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 0;
+  overflow-wrap: anywhere;
+  white-space: pre-line;
 }
 
 .aspect-score {
@@ -4990,6 +5042,7 @@ h4 {
   .variant-grid,
   .source-status-grid,
   .aspect-detail-hero,
+  .aspect-effect-panel,
   .aspect-slot-grid,
   .equipment-info-grid,
   .unique-power-panel,

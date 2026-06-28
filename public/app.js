@@ -104,7 +104,8 @@ const sourceLabels = {
   d4builds_database: "D4Builds 数据库",
   d4builds_sunderarmor_icons: "D4Builds 唯一装备图标引用",
   d4lf_repo: "d4lf 开源工具仓库",
-  d2core_unique_item_database: "暗黑核暗金数据库"
+  d2core_unique_item_database: "暗黑核暗金数据库",
+  d2core_aspect_database: "暗黑核传奇威能数据库"
 };
 
 const sourceCategoryLabels = {
@@ -2966,6 +2967,10 @@ function aspectSourceLabel(aspect) {
 function aspectSearchText(aspect) {
   return [
     aspect.name,
+    aspect.canonicalName,
+    aspect.database?.zhEffect,
+    aspect.database?.zhAspectType,
+    ...(aspect.database?.zhAllowedSlots || []),
     ...(aspect.zhClasses || []),
     ...(aspect.zhModes || []),
     ...(aspect.zhSeasons || []),
@@ -3010,15 +3015,17 @@ function renderAspects() {
   const selected = state.aspects.find((aspect) => aspect.id === state.selectedAspectId) ?? rows[0];
 
   $("[data-aspect-meta]").textContent =
-    `显示 ${rows.length} / ${filtered.length} 条，索引总计 ${state.aspects.length} 条。该索引从 BD 装备槽位汇总，帮助查核心威能、使用部位、可替换状态和相关 BD。`;
+    `显示 ${rows.length} / ${filtered.length} 条，索引总计 ${state.aspects.length} 条。已匹配的条目会显示威能效果、类型和可用部位；未匹配条目继续标注为 BD 派生。`;
   $("[data-aspect-results]").innerHTML = rows
     .map((aspect) => {
       const topSlots = (aspect.slotUsage || []).slice(0, 3).map((slot) => `${slot.zhSlotName} ${slot.count}`).join(" / ");
+      const aspectName = aspect.canonicalName || aspect.name;
+      const sourceTag = aspect.database ? `${aspect.database.zhAspectType} · 暗黑核` : aspectSourceLabel(aspect);
       return `
         <button class="aspect-row" type="button" data-aspect-id="${aspect.id}" aria-selected="${aspect.id === selected?.id}">
           <span>
-            <small>${aspectSourceLabel(aspect)} · ${topSlots || "部位待回填"}</small>
-            <strong>${aspect.name}</strong>
+            <small>${sourceTag} · ${topSlots || "部位待回填"}</small>
+            <strong>${aspectName}</strong>
             <em>${aspect.guideCount} 套 BD · ${aspect.usageCount} 次使用 · ${(aspect.zhClasses || []).slice(0, 4).join(" / ")}</em>
           </span>
           <b>${aspect.guideCount}</b>
@@ -3047,6 +3054,8 @@ function renderAspectDetail(aspect) {
   const levelRows = Object.entries(aspect.sourceLevels || {})
     .map(([level, count]) => `<span>${sourceLevelText(level)} ${count}</span>`)
     .join("");
+  const database = aspect.database;
+  const aspectName = aspect.canonicalName || aspect.name;
   const slotRows = (aspect.slotUsage || []).map((slot) => `
     <article>
       <strong>${slot.zhSlotName}</strong>
@@ -3064,9 +3073,11 @@ function renderAspectDetail(aspect) {
 
   panel.innerHTML = `
     <div class="aspect-detail-hero">
+      ${database?.iconUrl ? `<img src="${database.iconUrl}" alt="${aspectName}图标">` : `<span class="aspect-detail-icon-fallback">威</span>`}
       <div>
-        <p class="panel-kicker">${aspectSourceLabel(aspect)} · ${aspect.zhModes.join(" / ")}</p>
-        <h3>${aspect.name}</h3>
+        <p class="panel-kicker">${database ? `${database.zhAspectType} · ${sourceLabels[database.sourceId] || database.sourceId}` : `${aspectSourceLabel(aspect)} · ${aspect.zhModes.join(" / ")}`}</p>
+        <h3>${aspectName}</h3>
+        ${aspectName !== aspect.name ? `<p class="aspect-alias">本站槽位名：${aspect.name}</p>` : ""}
         <p>${aspect.dataStatus?.zhText || "从 BD 装备槽位汇总。"}</p>
       </div>
       <div class="aspect-score">
@@ -3075,6 +3086,24 @@ function renderAspectDetail(aspect) {
       </div>
     </div>
     <div class="tag-row">${levelRows}</div>
+    <section class="detail-section">
+      <div class="section-title">
+        <h4>威能效果</h4>
+        <span>${database ? "社区数据库参考" : "待可审计来源"}</span>
+      </div>
+      ${database ? `
+        <div class="aspect-effect-panel">
+          <article>
+            <strong>效果</strong>
+            <p>${displayText(database.zhEffect)}</p>
+          </article>
+          <article>
+            <strong>可用部位</strong>
+            <p>${(database.zhAllowedSlots || []).join(" / ") || "来源未列出"}</p>
+          </article>
+        </div>
+      ` : `<p class="missing-data-note">该威能名称来自 BD 槽位汇总，尚未可靠匹配到完整威能数据库；暂不展示具体效果，避免误配。</p>`}
+    </section>
     <section class="detail-section">
       <div class="section-title">
         <h4>常见部位</h4>
@@ -3090,8 +3119,9 @@ function renderAspectDetail(aspect) {
       <div class="equipment-info-grid">
         <article><strong>职业</strong><span>${aspect.zhClasses.join(" / ")}</span></article>
         <article><strong>用途</strong><span>${aspect.zhModes.join(" / ")}</span></article>
+        <article><strong>威能类型</strong><span>${database?.zhAspectType || "待来源回填"}</span></article>
         <article><strong>数据范围</strong><span>${aspect.dataStatus?.zhText || "从 BD 汇总"}</span></article>
-        <article><strong>来源样本</strong><span>${(aspect.sourceStatusSamples || []).slice(0, 3).join(" / ") || "待回填"}</span></article>
+        <article><strong>来源样本</strong><span>${database ? (sourceLabels[database.sourceId] || database.sourceId) : ((aspect.sourceStatusSamples || []).slice(0, 3).join(" / ") || "待回填")}</span></article>
       </div>
     </section>
     <section class="detail-section">
@@ -3104,9 +3134,10 @@ function renderAspectDetail(aspect) {
     <section class="detail-section">
       <div class="section-title">
         <h4>数据边界</h4>
-        <span>不是全量威能库</span>
+        <span>${database ? "已匹配效果" : "不是全量威能库"}</span>
       </div>
-      <p>${aspect.dataStatus?.zhText || "该条目由结构化 BD 汇总。"} 后续需要接入官方或可审计的完整传奇威能数据库后，才能展示完整效果、数值范围和掉落位置。</p>
+      <p>${aspect.dataStatus?.zhText || "该条目由结构化 BD 汇总。"} ${database ? "该效果仍按社区来源展示，后续应以游戏内截图或官方资料继续校验。" : "后续需要接入官方或可审计的完整传奇威能数据库后，才能展示完整效果、数值范围和掉落位置。"}</p>
+      ${database?.pageUrl ? `<div class="source-actions"><a href="${database.pageUrl}" target="_blank" rel="noreferrer">查看威能来源</a></div>` : ""}
     </section>
   `;
 }

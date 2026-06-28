@@ -45,6 +45,7 @@ const sources = await readJson("data/sources/source-registry.json");
 const features = await readJson("data/features/feature-map.json");
 const equipmentLibrary = await readJson("data/equipment/equipment-library.json");
 const communityUniqueOverrides = await readJson("data/equipment/community-unique-overrides.json");
+const communityAspectOverrides = await readJson("data/aspects/community-aspect-overrides.json");
 const simulations = await readJson("data/generated/build-simulations.json");
 const buildGuides = await readJson("data/generated/build-guides.json");
 const aspectIndex = await readJson("data/generated/aspect-index.json");
@@ -83,6 +84,7 @@ assert(sources.some((source) => source.id === version.effectiveLiveVersion.sourc
 assert(sources.some((source) => source.id === version.publishedUpcomingVersion.sourceId), "Upcoming version source must be registered");
 assert(sources.some((source) => source.id === "blizzard_lord_of_hatred" && source.use?.includes("class_roster") && source.use?.includes("paladin_class_confirmation") && source.use?.includes("warlock_class_confirmation")), "Official class roster source must register Paladin and Warlock confirmation");
 assert(sources.some((source) => source.id === "d2core_unique_item_database" && source.use?.includes("community_unique_power_text") && source.use?.includes("community_equipment_slot_cross_check")), "D2Core unique item database source must be registered for community item fields");
+assert(sources.some((source) => source.id === "d2core_aspect_database" && source.use?.includes("community_aspect_effect_text") && source.use?.includes("community_aspect_type_cross_check")), "D2Core aspect database source must be registered for community aspect fields");
 assert(features.length >= 8, "Feature map should cover core guide modules");
 assert(features.some((feature) => feature.id === "equipment_database"), "Feature map must include equipment database");
 assert(features.some((feature) => feature.id === "damage_calculation"), "Feature map must include damage calculation");
@@ -164,7 +166,12 @@ assert(aspectIndex.scope === "aspect_index_derived_from_structured_build_guides"
 assert(aspectIndex.aspectCount === aspectIndex.aspects.length, "Aspect index count mismatch");
 assert(aspectIndex.aspectCount > 20, "Aspect index should contain structured aspect references");
 assert(aspectIndex.aspects.every((aspect) => aspect.id && aspect.name && aspect.guideCount > 0 && aspect.usageCount > 0), "Each aspect needs id, name and usage counts");
-assert(aspectIndex.aspects.every((aspect) => aspect.dataStatus?.scope === "derived_from_build_gear_slots"), "Each aspect must disclose derived scope");
+assert(communityAspectOverrides.match?.matchedCount >= 10, "Community aspect overrides should reliably match representative aspect records");
+assert(communityAspectOverrides.items.every((item) => item.source?.sourceId === "d2core_aspect_database" && item.zhEffect && item.zhAspectType), "Every community aspect override needs source, effect and type");
+assert(aspectIndex.communityCoverage?.sourceId === "d2core_aspect_database", "Aspect index must expose community source coverage");
+assert(aspectIndex.aspects.some((aspect) => aspect.dataStatus?.scope === "community_database_reference" && aspect.database?.zhEffect && aspect.database?.zhAllowedSlots?.length), "Aspect index should enrich matched aspects with community effect text and slots");
+assert(aspectIndex.aspects.some((aspect) => aspect.dataStatus?.scope === "derived_from_build_gear_slots" && !aspect.database), "Aspect index must keep unmatched template aspects clearly derived-only");
+assert(aspectIndex.aspects.every((aspect) => ["derived_from_build_gear_slots", "community_database_reference"].includes(aspect.dataStatus?.scope)), "Each aspect must disclose derived or community scope");
 assert(aspectIndex.aspects.every((aspect) => !(aspectIndex.ignoredNames || []).includes(aspect.name)), "Aspect index must not include placeholder aspect names");
 assert(aspectIndex.aspects.every((aspect) => aspect.slotUsage?.length >= 1 && aspect.buildUses?.length >= aspect.guideCount), "Each aspect needs slot usage and related builds");
 

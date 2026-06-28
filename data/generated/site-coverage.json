@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T19:56:01.012Z",
+  "generatedAt": "2026-06-28T20:04:12.869Z",
   "scope": "player_site_data_coverage_and_storage_usage",
   "asOf": "2026-06-28",
   "storageLayers": [
@@ -32,9 +32,10 @@
       "id": "aspect_index",
       "zhName": "威能索引层",
       "files": [
-        "data/generated/aspect-index.json"
+        "data/generated/aspect-index.json",
+        "data/aspects/community-aspect-overrides.json"
       ],
-      "frontendUse": "威能索引页展示威能槽位、核心度和相关 BD。"
+      "frontendUse": "威能索引页展示威能效果、可用部位、核心度和相关 BD；未匹配项保持 BD 派生状态。"
     },
     {
       "id": "forecast_matrix",
@@ -739,7 +740,8 @@
     "limitations": [
       "这不是官方全量传奇威能库。",
       "这里只汇总已结构化 BD 装备槽位里出现的威能。",
-      "模板生成的威能名称仍通过来源状态标注，不能当作官方事实。"
+      "已匹配的威能效果标注为社区数据库参考。",
+      "模板生成或歧义威能名称仍通过来源状态标注，不能当作官方事实。"
     ],
     "sourceLevels": {
       "community_reference": 50,
@@ -747,11 +749,11 @@
     }
   },
   "sourceCoverage": {
-    "total": 11,
+    "total": 12,
     "byTrustLevel": {
       "official": 4,
       "community_verified": 4,
-      "needs_validation": 2,
+      "needs_validation": 3,
       "needs_license_review": 1
     },
     "byCategory": {
@@ -760,7 +762,7 @@
       "official_expansion_overview": 1,
       "community_mechanics": 2,
       "community_build_guide": 1,
-      "community_database": 2,
+      "community_database": 3,
       "community_visual_reference": 1,
       "open_source_tooling": 1
     }

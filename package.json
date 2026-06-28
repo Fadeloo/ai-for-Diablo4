@@ -12,6 +12,7 @@
     "fetch:patch": "node scripts/fetch-official-patch.mjs",
     "fetch:icons": "node scripts/fetch-d4builds-icons.mjs",
     "fetch:d2core-uniques": "node scripts/import-d2core-unique-items.mjs",
+    "fetch:d2core-aspects": "node scripts/import-d2core-aspects.mjs",
     "sample": "node scripts/run-sample.mjs",
     "verify": "node scripts/verify.mjs"
   },

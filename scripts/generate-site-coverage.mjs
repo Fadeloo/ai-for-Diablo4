@@ -170,8 +170,8 @@ const payload = {
     {
       id: "aspect_index",
       zhName: "威能索引层",
-      files: ["data/generated/aspect-index.json"],
-      frontendUse: "威能索引页展示威能槽位、核心度和相关 BD。"
+      files: ["data/generated/aspect-index.json", "data/aspects/community-aspect-overrides.json"],
+      frontendUse: "威能索引页展示威能效果、可用部位、核心度和相关 BD；未匹配项保持 BD 派生状态。"
     },
     {
       id: "forecast_matrix",

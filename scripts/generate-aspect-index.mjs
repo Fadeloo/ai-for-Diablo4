@@ -3,11 +3,20 @@ import path from "node:path";
 
 const root = path.resolve(new URL(".", import.meta.url).pathname, "..");
 const output = path.join(root, "data/generated/aspect-index.json");
+const communityOverridePath = path.join(root, "data/aspects/community-aspect-overrides.json");
 
 const ignoredAspectNames = new Set(["暗金特效位", "神话暗金位", "空槽说明", "空槽位"]);
 
 async function readJson(relativePath) {
   return JSON.parse(await readFile(path.join(root, relativePath), "utf8"));
+}
+
+async function readOptionalJson(relativePath) {
+  try {
+    return await readJson(relativePath);
+  } catch {
+    return null;
+  }
 }
 
 function hashText(value) {
@@ -31,9 +40,12 @@ function sortedUnique(values) {
 }
 
 const buildGuides = await readJson("data/generated/build-guides.json");
+const communityOverrides = await readOptionalJson("data/aspects/community-aspect-overrides.json");
 const builds = buildGuides.builds || [];
 const slotOrder = buildGuides.slotOrder || [];
 const slotNameById = new Map(slotOrder.map((slot) => [slot.id, slot.zhName]));
+const communityByAspectId = new Map((communityOverrides?.items || []).map((item) => [item.aspectId, item]));
+const communityByAspectName = new Map((communityOverrides?.items || []).map((item) => [item.aspectName, item]));
 const rowsByName = new Map();
 
 for (const guide of builds) {
@@ -84,9 +96,12 @@ const aspects = [...rowsByName.entries()]
       })
       .sort((a, b) => b.count - a.count || a.zhSlotName.localeCompare(b.zhSlotName, "zh-CN"));
     const guideIds = sortedUnique(uses.map((usage) => usage.guideId));
+    const id = aspectId(name);
+    const community = communityByAspectId.get(id) || communityByAspectName.get(name) || null;
     return {
-      id: aspectId(name),
+      id,
       name,
+      canonicalName: community?.zhName || name,
       usageCount: uses.length,
       guideCount: guideIds.length,
       classIds: sortedUnique(uses.map((usage) => usage.classId)),
@@ -98,9 +113,25 @@ const aspects = [...rowsByName.entries()]
       sourceLevels: countBy(uses, (usage) => usage.sourceLevel),
       slotUsage,
       sourceStatusSamples: sortedUnique(uses.map((usage) => usage.sourceStatus)).slice(0, 8),
+      database: community ? {
+        sourceId: community.source.sourceId,
+        sourceName: community.source.sourceChineseName,
+        sourceEnglishName: community.source.sourceEnglishName,
+        pageUrl: community.source.pageUrl,
+        dataUrl: community.source.dataUrl,
+        d2coreBuild: community.source.d2coreBuild,
+        zhAspectType: community.zhAspectType,
+        aspectType: community.aspectType,
+        zhEffect: community.zhEffect,
+        zhAllowedSlots: community.zhAllowedSlots,
+        iconUrl: community.iconUrl,
+        matchedBy: community.source.matchedBy
+      } : null,
       dataStatus: {
-        scope: "derived_from_build_gear_slots",
-        zhText: "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
+        scope: community ? "community_database_reference" : "derived_from_build_gear_slots",
+        zhText: community
+          ? "威能效果、类型和可用部位来自暗黑核社区数据库；关联 BD 来自本站结构化 BD。"
+          : "从已结构化 BD 装备槽位汇总，不是官方全量威能库。"
       },
       buildUses: uses
         .sort((a, b) => {
@@ -119,18 +150,30 @@ const payload = {
   scope: "aspect_index_derived_from_structured_build_guides",
   asOf: buildGuides.asOf,
   sourceFile: "data/generated/build-guides.json",
+  communityCoverage: communityOverrides ? {
+    sourceId: communityOverrides.source.sourceId,
+    sourceUrl: communityOverrides.source.url,
+    matchedCount: communityOverrides.match.matchedCount,
+    missingCount: communityOverrides.match.missingCount,
+    ambiguousCount: communityOverrides.match.ambiguousCount,
+    sourceChineseCount: communityOverrides.match.sourceChineseCount,
+    d2coreBuild: communityOverrides.source.d2coreBuild,
+    generatedAt: communityOverrides.generatedAt
+  } : null,
   aspectCount: aspects.length,
   usageCount: aspects.reduce((total, aspect) => total + aspect.usageCount, 0),
   ignoredNames: [...ignoredAspectNames],
   limitations: [
     "This is not the full official Diablo IV legendary aspect database.",
     "Only aspects already present in structured BD gear slots are indexed.",
-    "Template-generated aspect names remain marked through sourceLevels and sourceStatusSamples."
+    "Matched aspect effects are attributed to a community database.",
+    "Template-generated or ambiguous aspect names remain marked through sourceLevels and sourceStatusSamples."
   ],
   zhLimitations: [
     "这不是官方全量传奇威能库。",
     "这里只汇总已结构化 BD 装备槽位里出现的威能。",
-    "模板生成的威能名称仍通过来源状态标注，不能当作官方事实。"
+    "已匹配的威能效果标注为社区数据库参考。",
+    "模板生成或歧义威能名称仍通过来源状态标注，不能当作官方事实。"
   ],
   aspects
 };

@@ -1,0 +1,1089 @@
+{
+  "generatedAt": "2026-06-28T20:00:23.561Z",
+  "scope": "community_aspect_overrides_from_d2core_database",
+  "source": {
+    "sourceId": "d2core_aspect_database",
+    "url": "https://www.d2core.com/d4/data/legendary",
+    "dataUrls": {
+      "enUS": "https://cloudstorage.d2core.com/data/d4/71886/aspect_enUS.json?env=prod&v=9",
+      "zhCN": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9"
+    },
+    "d2coreBuild": "71886",
+    "trustLevel": "needs_validation",
+    "usage": "community_aspect_effect_type_slot_cross_check"
+  },
+  "match": {
+    "aspectIndexCount": 71,
+    "sourceEnglishCount": 363,
+    "sourceChineseCount": 363,
+    "matchedCount": 20,
+    "missingCount": 50,
+    "ambiguousCount": 1,
+    "missing": [
+      {
+        "aspectId": "aspect-idx65r",
+        "aspectName": "资源威能",
+        "guideCount": 16,
+        "usageCount": 17
+      },
+      {
+        "aspectId": "aspect-jga3de",
+        "aspectName": "防御威能",
+        "guideCount": 9,
+        "usageCount": 19
+      },
+      {
+        "aspectId": "aspect-79lh4t",
+        "aspectName": "模仿灌注威能",
+        "guideCount": 6,
+        "usageCount": 7
+      },
+      {
+        "aspectId": "aspect-bp8h4l",
+        "aspectName": "天力威能",
+        "guideCount": 5,
+        "usageCount": 5
+      },
+      {
+        "aspectId": "aspect-soyqze",
+        "aspectName": "抓握血脉威能",
+        "guideCount": 5,
+        "usageCount": 5
+      },
+      {
+        "aspectId": "aspect-1hz0gk6",
+        "aspectName": "诅咒光环威能",
+        "guideCount": 5,
+        "usageCount": 5
+      },
+      {
+        "aspectId": "aspect-fu9mk0",
+        "aspectName": "移动威能",
+        "guideCount": 4,
+        "usageCount": 4
+      },
+      {
+        "aspectId": "aspect-h2ur4o",
+        "aspectName": "自负威能",
+        "guideCount": 4,
+        "usageCount": 4
+      },
+      {
+        "aspectId": "aspect-9x9r3m",
+        "aspectName": "无暇烈焰威能",
+        "guideCount": 3,
+        "usageCount": 4
+      },
+      {
+        "aspectId": "aspect-avhndt",
+        "aspectName": "凶暴威能",
+        "guideCount": 3,
+        "usageCount": 4
+      },
+      {
+        "aspectId": "aspect-cx8srv",
+        "aspectName": "报复威能",
+        "guideCount": 3,
+        "usageCount": 3
+      },
+      {
+        "aspectId": "aspect-1g171y5",
+        "aspectName": "潮汐归航威能",
+        "guideCount": 3,
+        "usageCount": 3
+      },
+      {
+        "aspectId": "aspect-b2qy7j",
+        "aspectName": "反弹威能",
+        "guideCount": 3,
+        "usageCount": 3
+      },
+      {
+        "aspectId": "aspect-fs1dmg",
+        "aspectName": "禁制威能",
+        "guideCount": 3,
+        "usageCount": 3
+      },
+      {
+        "aspectId": "aspect-jl1hhv",
+        "aspectName": "锯齿威能",
+        "guideCount": 3,
+        "usageCount": 3
+      },
+      {
+        "aspectId": "aspect-1bccp5p",
+        "aspectName": "狂烈斗士威能",
+        "guideCount": 3,
+        "usageCount": 3
+      },
+      {
+        "aspectId": "aspect-pvvyu7",
+        "aspectName": "平原之力威能",
+        "guideCount": 3,
+        "usageCount": 3
+      },
+      {
+        "aspectId": "aspect-exdnon",
+        "aspectName": "燃烧威能",
+        "guideCount": 3,
+        "usageCount": 3
+      },
+      {
+        "aspectId": "aspect-fxtilt",
+        "aspectName": "碎霜威能",
+        "guideCount": 3,
+        "usageCount": 3
+      },
+      {
+        "aspectId": "aspect-1dybmhl",
+        "aspectName": "熊人恐怖威能",
+        "guideCount": 3,
+        "usageCount": 3
+      },
+      {
+        "aspectId": "aspect-jlzzj2",
+        "aspectName": "震波威能",
+        "guideCount": 3,
+        "usageCount": 3
+      },
+      {
+        "aspectId": "aspect-crrzmg",
+        "aspectName": "快血威能",
+        "guideCount": 2,
+        "usageCount": 3
+      },
+      {
+        "aspectId": "aspect-uzbghn",
+        "aspectName": "变质之石威能",
+        "guideCount": 2,
+        "usageCount": 2
+      },
+      {
+        "aspectId": "aspect-1rhr0hy",
+        "aspectName": "不屈打击威能",
+        "guideCount": 2,
+        "usageCount": 2
+      },
+      {
+        "aspectId": "aspect-vcygbz",
+        "aspectName": "刺骨寒冰威能",
+        "guideCount": 2,
+        "usageCount": 2
+      },
+      {
+        "aspectId": "aspect-cpswnx",
+        "aspectName": "弹道威能",
+        "guideCount": 2,
+        "usageCount": 2
+      },
+      {
+        "aspectId": "aspect-ud6ida",
+        "aspectName": "焚化者威能",
+        "guideCount": 2,
+        "usageCount": 2
+      },
+      {
+        "aspectId": "aspect-k8hmwa",
+        "aspectName": "高速威能",
+        "guideCount": 2,
+        "usageCount": 2
+      },
+      {
+        "aspectId": "aspect-208f5t",
+        "aspectName": "晦暗治愈威能",
+        "guideCount": 2,
+        "usageCount": 2
+      },
+      {
+        "aspectId": "aspect-1fz994m",
+        "aspectName": "决斗者威能",
+        "guideCount": 2,
+        "usageCount": 2
+      },
+      {
+        "aspectId": "aspect-2p4tj3",
+        "aspectName": "束缚沼泽威能",
+        "guideCount": 2,
+        "usageCount": 2
+      },
+      {
+        "aspectId": "aspect-eh4oqf",
+        "aspectName": "湍流威能",
+        "guideCount": 2,
+        "usageCount": 2
+      },
+      {
+        "aspectId": "aspect-1jo4nae",
+        "aspectName": "无情寒冰威能",
+        "guideCount": 2,
+        "usageCount": 2
+      },
+      {
+        "aspectId": "aspect-1mghqlu",
+        "aspectName": "邪恶占卜者威能",
+        "guideCount": 2,
+        "usageCount": 2
+      },
+      {
+        "aspectId": "aspect-hmzw2l",
+        "aspectName": "血刺威能",
+        "guideCount": 2,
+        "usageCount": 2
+      },
+      {
+        "aspectId": "aspect-12ncy3s",
+        "aspectName": "愈合石威能",
+        "guideCount": 2,
+        "usageCount": 2
+      },
+      {
+        "aspectId": "aspect-avll0g",
+        "aspectName": "元素威能",
+        "guideCount": 2,
+        "usageCount": 2
+      },
+      {
+        "aspectId": "aspect-dk4y5z",
+        "aspectName": "早逝威能",
+        "guideCount": 2,
+        "usageCount": 2
+      },
+      {
+        "aspectId": "aspect-1cxpmi1",
+        "aspectName": "重定向之力威能",
+        "guideCount": 2,
+        "usageCount": 2
+      },
+      {
+        "aspectId": "aspect-1t6xrh0",
+        "aspectName": "变形债务威能",
+        "guideCount": 1,
+        "usageCount": 1
+      },
+      {
+        "aspectId": "aspect-cvn3sq",
+        "aspectName": "护主威能",
+        "guideCount": 1,
+        "usageCount": 1
+      },
+      {
+        "aspectId": "aspect-blm8jm",
+        "aspectName": "回能威能",
+        "guideCount": 1,
+        "usageCount": 1
+      },
+      {
+        "aspectId": "aspect-9ypkbk",
+        "aspectName": "疾行防御威能",
+        "guideCount": 1,
+        "usageCount": 1
+      },
+      {
+        "aspectId": "aspect-9z5qgk",
+        "aspectName": "冷却/移动威能",
+        "guideCount": 1,
+        "usageCount": 1
+      },
+      {
+        "aspectId": "aspect-arjx1c",
+        "aspectName": "冷却威能",
+        "guideCount": 1,
+        "usageCount": 1
+      },
+      {
+        "aspectId": "aspect-cggg26",
+        "aspectName": "强健威能",
+        "guideCount": 1,
+        "usageCount": 1
+      },
+      {
+        "aspectId": "aspect-opf6gs",
+        "aspectName": "森林之力威能",
+        "guideCount": 1,
+        "usageCount": 1
+      },
+      {
+        "aspectId": "aspect-1k4yppd",
+        "aspectName": "熊人重击威能",
+        "guideCount": 1,
+        "usageCount": 1
+      },
+      {
+        "aspectId": "aspect-10ukh24",
+        "aspectName": "迅捷迷雾威能",
+        "guideCount": 1,
+        "usageCount": 1
+      },
+      {
+        "aspectId": "aspect-eh8h67",
+        "aspectName": "浴血威能",
+        "guideCount": 1,
+        "usageCount": 1
+      }
+    ],
+    "ambiguous": [
+      {
+        "aspectId": "aspect-1nkxoq8",
+        "aspectName": "变形者威能",
+        "guideCount": 2,
+        "usageCount": 2,
+        "candidates": [
+          "变形者的威能",
+          "变形者之威能"
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "aspectId": "aspect-em498l",
+      "aspectName": "潮汐威能",
+      "sourceItemKey": "Affix_legendary_necro_109",
+      "sourceItemId": 1223790,
+      "sourceEnglishName": "Tidal Aspect",
+      "zhName": "潮汐威能",
+      "aspectType": "Offensive",
+      "zhAspectType": "攻击",
+      "sourceClasses": [
+        "Druid",
+        "Barbarian",
+        "Rogue",
+        "Necromancer",
+        "Paladin",
+        "Warlock"
+      ],
+      "zhClassName": "德鲁伊, 野蛮人, 游侠, 死灵法师, 圣骑士, 术士",
+      "zhEffect": "当你处于被强固状态时，你的压制上限提高 [2 - 4]。",
+      "enEffect": "Your Maximum Overpower is increased by [2 - 4] while you are Fortified.",
+      "zhAllowedSlots": [
+        "手套",
+        "护符",
+        "戒指",
+        "武器"
+      ],
+      "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002705.webp",
+      "source": {
+        "sourceId": "d2core_aspect_database",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "language": "zhCN",
+        "matchedBy": "normalized_chinese_name",
+        "sourceChineseName": "潮汐威能",
+        "sourceEnglishName": "Tidal Aspect"
+      }
+    },
+    {
+      "aspectId": "aspect-khy72c",
+      "aspectName": "格林铁砧威能",
+      "sourceItemKey": "Affix_legendary_paladin_031",
+      "sourceItemId": 2445175,
+      "sourceEnglishName": "Aspect of Glynn's Anvil",
+      "zhName": "格林铁砧之威能",
+      "aspectType": "Defensive",
+      "zhAspectType": "防御",
+      "sourceClasses": [
+        "Druid",
+        "Barbarian",
+        "Rogue",
+        "Necromancer",
+        "Spiritborn",
+        "Paladin"
+      ],
+      "zhClassName": "德鲁伊, 野蛮人, 游侠, 死灵法师, 灵巫, 圣骑士",
+      "zhEffect": "你的决断上限提高 2，并且每拥有一层决断会获得 [2.5 - 4]% 的伤害减免。",
+      "enEffect": "Your maximum Resolve is increased by 2 and you gain [2.5 - 4]% Damage Reduction per Resolve.",
+      "zhAllowedSlots": [
+        "头盔",
+        "胸甲",
+        "裤子",
+        "护符"
+      ],
+      "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/1207658646.webp",
+      "source": {
+        "sourceId": "d2core_aspect_database",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "language": "zhCN",
+        "matchedBy": "normalized_chinese_name",
+        "sourceChineseName": "格林铁砧之威能",
+        "sourceEnglishName": "Aspect of Glynn's Anvil"
+      }
+    },
+    {
+      "aspectId": "aspect-1e60zle",
+      "aspectName": "衰弱毒素威能",
+      "sourceItemKey": "Affix_legendary_rogue_104",
+      "sourceItemId": 1184010,
+      "sourceEnglishName": "Aspect of Debilitating Toxins",
+      "zhName": "衰弱毒素之威能",
+      "aspectType": "Defensive",
+      "zhAspectType": "防御",
+      "sourceClasses": [
+        "Druid",
+        "Rogue",
+        "Spiritborn"
+      ],
+      "zhClassName": "德鲁伊, 游侠, 灵巫",
+      "zhEffect": "你获得 [20.0 - 30.0]% 伤害减免，并且中毒的敌人对你造成的伤害降低 15%。",
+      "enEffect": "You gain [20.0 - 30.0]% Damage Reduction, and Poisoned enemies deal 15% less damage to you.",
+      "zhAllowedSlots": [
+        "头盔",
+        "胸甲",
+        "裤子",
+        "护符"
+      ],
+      "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/2656107442.webp",
+      "source": {
+        "sourceId": "d2core_aspect_database",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "language": "zhCN",
+        "matchedBy": "normalized_chinese_name",
+        "sourceChineseName": "衰弱毒素之威能",
+        "sourceEnglishName": "Aspect of Debilitating Toxins"
+      }
+    },
+    {
+      "aspectId": "aspect-98lnek",
+      "aspectName": "大德鲁伊威能",
+      "sourceItemKey": "Affix_legendary_druid_104_x2",
+      "sourceItemId": 2543915,
+      "sourceEnglishName": "Archdruid's Aspect",
+      "zhName": "大德鲁伊的威能",
+      "aspectType": "Offensive",
+      "zhAspectType": "攻击",
+      "sourceClasses": [
+        "Druid"
+      ],
+      "zhClassName": "德鲁伊",
+      "zhEffect": "每个德鲁伊形态额外获得一项被动加成:\n• 人类: 对远距敌人造成的伤害提高 [40 - 55]%[x]。\n• 狼人: 对近距敌人造成的暴击伤害提高 [40 - 55]%[x]。\n• 熊人: 拥有决断时造成的伤害提高 [30 - 45]%[x]。",
+      "enEffect": "Gain an additional passive bonus for each Druid form:\n• Human: [40 - 55]%[x] increased damage to Distant enemies.\n• Werewolf: [40 - 55]%[x] increased Critical Strike Damage to Close enemies.\n• Werebear: [30 - 45]%[x] increased damage while you have Resolve.",
+      "zhAllowedSlots": [
+        "手套",
+        "护符",
+        "戒指",
+        "武器"
+      ],
+      "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/799331585.webp",
+      "source": {
+        "sourceId": "d2core_aspect_database",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "language": "zhCN",
+        "matchedBy": "normalized_chinese_name",
+        "sourceChineseName": "大德鲁伊的威能",
+        "sourceEnglishName": "Archdruid's Aspect"
+      }
+    },
+    {
+      "aspectId": "aspect-1yg6twf",
+      "aspectName": "炼金优势威能",
+      "sourceItemKey": "Affix_legendary_rogue_142_x2",
+      "sourceItemId": 2574581,
+      "sourceEnglishName": "Aspect of Alchemical Advantage",
+      "zhName": "炼金优势之威能",
+      "aspectType": "Offensive",
+      "zhAspectType": "攻击",
+      "sourceClasses": [
+        "Rogue"
+      ],
+      "zhClassName": "游侠",
+      "zhEffect": "造成非物理伤害时，你的攻击速度和幸运一击几率提高 [4.0 - 6.0]%[+]，持续 8 秒，最多提高 [40.0 - 60.0]%[+]。",
+      "enEffect": "Dealing Non-Physical damage increases your Attack Speed and Lucky Hit Chance by [4.0 - 6.0]%[+] for 8 seconds, up to [40.0 - 60.0]%[+].",
+      "zhAllowedSlots": [
+        "手套",
+        "护符",
+        "戒指",
+        "武器"
+      ],
+      "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/2824844608.webp",
+      "source": {
+        "sourceId": "d2core_aspect_database",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "language": "zhCN",
+        "matchedBy": "normalized_chinese_name",
+        "sourceChineseName": "炼金优势之威能",
+        "sourceEnglishName": "Aspect of Alchemical Advantage"
+      }
+    },
+    {
+      "aspectId": "aspect-fu71v7",
+      "aspectName": "碾碎威能",
+      "sourceItemKey": "Affix_legendary_druid_049_x2",
+      "sourceItemId": 2542658,
+      "sourceEnglishName": "Crushing Aspect",
+      "zhName": "碾碎威能",
+      "aspectType": "Offensive",
+      "zhAspectType": "攻击",
+      "sourceClasses": [
+        "Druid",
+        "Barbarian",
+        "Rogue",
+        "Necromancer",
+        "Paladin",
+        "Warlock"
+      ],
+      "zhClassName": "德鲁伊, 野蛮人, 游侠, 死灵法师, 圣骑士, 术士",
+      "zhEffect": "处于强固状态下时，你造成的伤害提高 [45 - 65]%[x]。",
+      "enEffect": "While Fortified,&nbsp;you deal [45 - 65]%[x] increased damage.",
+      "zhAllowedSlots": [
+        "手套",
+        "护符",
+        "戒指",
+        "武器"
+      ],
+      "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/799330633.webp",
+      "source": {
+        "sourceId": "d2core_aspect_database",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "language": "zhCN",
+        "matchedBy": "normalized_chinese_name",
+        "sourceChineseName": "碾碎威能",
+        "sourceEnglishName": "Crushing Aspect"
+      }
+    },
+    {
+      "aspectId": "aspect-hmap7a",
+      "aspectName": "蠕动威能",
+      "sourceItemKey": "Affix_legendary_generic_134_x2",
+      "sourceItemId": 2574579,
+      "sourceEnglishName": "Writhing Aspect",
+      "zhName": "蠕动威能",
+      "aspectType": "Offensive",
+      "zhAspectType": "攻击",
+      "sourceClasses": [
+        "Sorcerer",
+        "Druid",
+        "Barbarian",
+        "Rogue",
+        "Necromancer",
+        "Spiritborn",
+        "Warlock"
+      ],
+      "zhClassName": "巫师, 德鲁伊, 野蛮人, 游侠, 死灵法师, 灵巫, 术士",
+      "zhEffect": "敌人每受到一秒持续性伤害，其受到的持续性伤害就提高 [7.5 - 12.5]%，最高持续 10 秒。",
+      "enEffect": "Enemies take [7.5 - 12.5]% increased Damage Over Time for every second they've been affected by a Damage Over Time, up to 10 seconds.",
+      "zhAllowedSlots": [
+        "手套",
+        "护符",
+        "戒指",
+        "武器"
+      ],
+      "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870517992.webp",
+      "source": {
+        "sourceId": "d2core_aspect_database",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "language": "zhCN",
+        "matchedBy": "normalized_chinese_name",
+        "sourceChineseName": "蠕动威能",
+        "sourceEnglishName": "Writhing Aspect"
+      }
+    },
+    {
+      "aspectId": "aspect-c643qp",
+      "aspectName": "屠戮威能",
+      "sourceItemKey": "Affix_legendary_generic_115",
+      "sourceItemId": 1602954,
+      "sourceEnglishName": "Aspect of Slaughter",
+      "zhName": "屠戮之威能",
+      "aspectType": "Mobility",
+      "zhAspectType": "机动",
+      "sourceClasses": [
+        "Sorcerer",
+        "Druid",
+        "Barbarian",
+        "Rogue",
+        "Necromancer",
+        "Spiritborn",
+        "Paladin",
+        "Warlock",
+        "Generic"
+      ],
+      "zhClassName": "全职业",
+      "zhEffect": "你获得 [30.0 - 45.0]%[+] 移动速度加成。受到近距敌人的伤害会使你减速 30%，持续 2 秒。",
+      "enEffect": "You gain [30.0 - 45.0]%[+] increased Movement Speed. Taking damage from Close enemies Slows you by 30% for 2 seconds.",
+      "zhAllowedSlots": [
+        "靴子",
+        "护符"
+      ],
+      "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/1064680277.webp",
+      "source": {
+        "sourceId": "d2core_aspect_database",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "language": "zhCN",
+        "matchedBy": "normalized_chinese_name",
+        "sourceChineseName": "屠戮之威能",
+        "sourceEnglishName": "Aspect of Slaughter"
+      }
+    },
+    {
+      "aspectId": "aspect-inynp9",
+      "aspectName": "违抗威能",
+      "sourceItemKey": "Affix_legendary_generic_036",
+      "sourceItemId": 578792,
+      "sourceEnglishName": "Aspect of Disobedience",
+      "zhName": "违抗之威能",
+      "aspectType": "Defensive",
+      "zhAspectType": "防御",
+      "sourceClasses": [
+        "Sorcerer",
+        "Druid",
+        "Barbarian",
+        "Rogue",
+        "Necromancer",
+        "Spiritborn",
+        "Paladin",
+        "Warlock",
+        "Generic"
+      ],
+      "zhClassName": "全职业",
+      "zhEffect": "你的持续性伤害会使你获得 [1.0 - 1.5]% 伤害减免，持续 2 秒，最多叠加 30 次。",
+      "enEffect": "Your Damage over Time grants you [1.0 - 1.5]% Damage Reduction for 2 seconds, stacking up to 30 times.",
+      "zhAllowedSlots": [
+        "头盔",
+        "胸甲",
+        "裤子",
+        "护符"
+      ],
+      "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/951808200.webp",
+      "source": {
+        "sourceId": "d2core_aspect_database",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "language": "zhCN",
+        "matchedBy": "normalized_chinese_name",
+        "sourceChineseName": "违抗之威能",
+        "sourceEnglishName": "Aspect of Disobedience"
+      }
+    },
+    {
+      "aspectId": "aspect-1ohtc22",
+      "aspectName": "无尽怒火之威能",
+      "sourceItemKey": "Affix_Legendary_Barb_110",
+      "sourceItemId": 578755,
+      "sourceEnglishName": "Aspect of Limitless Rage",
+      "zhName": "无尽怒火之威能",
+      "aspectType": "Offensive",
+      "zhAspectType": "攻击",
+      "sourceClasses": [
+        "Barbarian"
+      ],
+      "zhClassName": "野蛮人",
+      "zhEffect": "你每生成一点怒气，就会使你的伤害提高 [1.00 - 1.50]%[x]。该加成在 4 秒后消失。",
+      "enEffect": "Each point of Fury you generate increases your damage by [1.00 - 1.50]%[x]. This bonus is lost after 4 seconds.",
+      "zhAllowedSlots": [
+        "手套",
+        "护符",
+        "戒指",
+        "武器"
+      ],
+      "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842503528.webp",
+      "source": {
+        "sourceId": "d2core_aspect_database",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "language": "zhCN",
+        "matchedBy": "normalized_chinese_name",
+        "sourceChineseName": "无尽怒火之威能",
+        "sourceEnglishName": "Aspect of Limitless Rage"
+      }
+    },
+    {
+      "aspectId": "aspect-chhxm2",
+      "aspectName": "引导威能",
+      "sourceItemKey": "Affix_legendary_generic_135_x2",
+      "sourceItemId": 2574509,
+      "sourceEnglishName": "Aspect of Channeling",
+      "zhName": "引导之威能",
+      "aspectType": "Offensive",
+      "zhAspectType": "攻击",
+      "sourceClasses": [
+        "Sorcerer",
+        "Druid",
+        "Barbarian",
+        "Rogue",
+        "Necromancer",
+        "Paladin",
+        "Warlock"
+      ],
+      "zhClassName": "巫师, 德鲁伊, 野蛮人, 游侠, 死灵法师, 圣骑士, 术士",
+      "zhEffect": "引导技能期间，造成的伤害提高 [50 - 70]%[x]。",
+      "enEffect": "While channeling a Skill, all damage is increased by [50 - 70]%[x].",
+      "zhAllowedSlots": [
+        "手套",
+        "护符",
+        "戒指",
+        "武器"
+      ],
+      "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870518124.webp",
+      "source": {
+        "sourceId": "d2core_aspect_database",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "language": "zhCN",
+        "matchedBy": "normalized_chinese_name",
+        "sourceChineseName": "引导之威能",
+        "sourceEnglishName": "Aspect of Channeling"
+      }
+    },
+    {
+      "aspectId": "aspect-fpcuwa",
+      "aspectName": "真视威能",
+      "sourceItemKey": "Affix_S05_BSK_Rogue_002",
+      "sourceItemId": 1942672,
+      "sourceEnglishName": "Aspect of True Sight",
+      "zhName": "真视之威能",
+      "aspectType": "Offensive",
+      "zhAspectType": "攻击",
+      "sourceClasses": [
+        "Rogue"
+      ],
+      "zhClassName": "游侠",
+      "zhEffect": "你对被心眼标记的敌人造成的伤害提高 [120 - 200]%[x]。当心眼充满时，你造成的伤害提高 [60 - 100]%[x]。",
+      "enEffect": "You deal [120 - 200]%[x] increased damage to enemies marked by Inner Sight. While Inner Sight is full, you gain [60 - 100]%[x] increased damage.",
+      "zhAllowedSlots": [
+        "手套",
+        "护符",
+        "戒指",
+        "武器"
+      ],
+      "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/2259888338.webp",
+      "source": {
+        "sourceId": "d2core_aspect_database",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "language": "zhCN",
+        "matchedBy": "normalized_chinese_name",
+        "sourceChineseName": "真视之威能",
+        "sourceEnglishName": "Aspect of True Sight"
+      }
+    },
+    {
+      "aspectId": "aspect-1g9hok5",
+      "aspectName": "剥削者威能",
+      "sourceItemKey": "Affix_Legendary_Generic_111",
+      "sourceItemId": 1225581,
+      "sourceEnglishName": "Exploiter's Aspect",
+      "zhName": "剥削者的威能",
+      "aspectType": "Utility",
+      "zhAspectType": "通用",
+      "sourceClasses": [
+        "Sorcerer",
+        "Druid",
+        "Barbarian",
+        "Rogue",
+        "Necromancer",
+        "Spiritborn",
+        "Paladin",
+        "Warlock",
+        "Generic"
+      ],
+      "zhClassName": "全职业",
+      "zhEffect": "你的控制持续时间延长 50%[+]。对不可阻挡的敌人造成的伤害提高 [30 - 50]%[x]。",
+      "enEffect": "You have 50%[+] increased Crowd Control Duration. While enemies are Unstoppable, you deal [30 - 50]%[x] increased damage to them.",
+      "zhAllowedSlots": [
+        "头盔",
+        "胸甲",
+        "手套",
+        "靴子",
+        "护符"
+      ],
+      "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/2918666757.webp",
+      "source": {
+        "sourceId": "d2core_aspect_database",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "language": "zhCN",
+        "matchedBy": "normalized_chinese_name",
+        "sourceChineseName": "剥削者的威能",
+        "sourceEnglishName": "Exploiter's Aspect"
+      }
+    },
+    {
+      "aspectId": "aspect-83vxjr",
+      "aspectName": "愤怒掌控之威能",
+      "sourceItemKey": "Affix_S05_BSK_Barbarian_001_x2",
+      "sourceItemId": 2620618,
+      "sourceEnglishName": "Aspect of Anger Management",
+      "zhName": "愤怒掌控之威能",
+      "aspectType": "Utility",
+      "zhAspectType": "通用",
+      "sourceClasses": [
+        "Druid",
+        "Barbarian"
+      ],
+      "zhClassName": "德鲁伊, 野蛮人",
+      "zhEffect": "主要资源高于 50 时，造成的伤害提高 [15.0 - 20.0]%[x] 并获得狂暴，但会失去 3 主要资源回复速度。",
+      "enEffect": "While above 50 Primary Resource, deal [15.0 - 20.0]%[x] increased damage and gain Berserking, but lose 3 Primary Resource Regeneration.",
+      "zhAllowedSlots": [
+        "头盔",
+        "胸甲",
+        "手套",
+        "靴子",
+        "护符"
+      ],
+      "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/604495231.webp",
+      "source": {
+        "sourceId": "d2core_aspect_database",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "language": "zhCN",
+        "matchedBy": "normalized_chinese_name",
+        "sourceChineseName": "愤怒掌控之威能",
+        "sourceEnglishName": "Aspect of Anger Management"
+      }
+    },
+    {
+      "aspectId": "aspect-1v5nywv",
+      "aspectName": "格林铁砧之威能",
+      "sourceItemKey": "Affix_legendary_paladin_031",
+      "sourceItemId": 2445175,
+      "sourceEnglishName": "Aspect of Glynn's Anvil",
+      "zhName": "格林铁砧之威能",
+      "aspectType": "Defensive",
+      "zhAspectType": "防御",
+      "sourceClasses": [
+        "Druid",
+        "Barbarian",
+        "Rogue",
+        "Necromancer",
+        "Spiritborn",
+        "Paladin"
+      ],
+      "zhClassName": "德鲁伊, 野蛮人, 游侠, 死灵法师, 灵巫, 圣骑士",
+      "zhEffect": "你的决断上限提高 2，并且每拥有一层决断会获得 [2.5 - 4]% 的伤害减免。",
+      "enEffect": "Your maximum Resolve is increased by 2 and you gain [2.5 - 4]% Damage Reduction per Resolve.",
+      "zhAllowedSlots": [
+        "头盔",
+        "胸甲",
+        "裤子",
+        "护符"
+      ],
+      "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/1207658646.webp",
+      "source": {
+        "sourceId": "d2core_aspect_database",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "language": "zhCN",
+        "matchedBy": "normalized_chinese_name",
+        "sourceChineseName": "格林铁砧之威能",
+        "sourceEnglishName": "Aspect of Glynn's Anvil"
+      }
+    },
+    {
+      "aspectId": "aspect-bd6fo3",
+      "aspectName": "元素命运威能",
+      "sourceItemKey": "Affix_legendary_generic_114",
+      "sourceItemId": 1485369,
+      "sourceEnglishName": "Aspect of Elemental Fate",
+      "zhName": "元素命运之威能",
+      "aspectType": "Offensive",
+      "zhAspectType": "攻击",
+      "sourceClasses": [
+        "Sorcerer",
+        "Druid",
+        "Barbarian",
+        "Rogue",
+        "Necromancer",
+        "Spiritborn",
+        "Paladin",
+        "Warlock",
+        "Generic"
+      ],
+      "zhClassName": "全职业",
+      "zhEffect": "其中一组伤害类型的伤害提高 [40 - 60]%[x]，持续 7 秒。该效果会在 2 组伤害类型之间随机交替:\n•火焰、闪电、神圣和物理。\n•冰霜、毒素和暗影。\n命运可能眷顾你，给予至少一次相同的加成，最多叠加 6 次。达到最大值时，今天就是你的幸运日！",
+      "enEffect": "Gain [40 - 60]%[x] increased damage to a set of damage types for 7 seconds alternating randomly between 2 sets:\n•Fire, Lightning, Holy, and Physical.\n•Cold, Poison, and Shadow.\nFate can favor you granting the same bonus more than once, stacking up to 6 times. At Maximum, it's your lucky day!",
+      "zhAllowedSlots": [
+        "手套",
+        "护符",
+        "戒指",
+        "武器"
+      ],
+      "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/4156673969.webp",
+      "source": {
+        "sourceId": "d2core_aspect_database",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "language": "zhCN",
+        "matchedBy": "normalized_chinese_name",
+        "sourceChineseName": "元素命运之威能",
+        "sourceEnglishName": "Aspect of Elemental Fate"
+      }
+    },
+    {
+      "aspectId": "aspect-1byet06",
+      "aspectName": "终极暗影威能",
+      "sourceItemKey": "Affix_Legendary_Necro_121",
+      "sourceItemId": 616076,
+      "sourceEnglishName": "Aspect of Ultimate Shadow",
+      "zhName": "终极暗影之威能",
+      "aspectType": "Offensive",
+      "zhAspectType": "攻击",
+      "sourceClasses": [
+        "Necromancer"
+      ],
+      "zhClassName": "死灵法师",
+      "zhEffect": "你的亵渎之地造成的伤害提高 [80 - 120]%[x]，并且会使敌人减速 50%。",
+      "enEffect": "Your Desecrated Ground deals [80 - 120]%[x] increased damage and Slows enemies by 50%.",
+      "zhAllowedSlots": [
+        "手套",
+        "护符",
+        "戒指",
+        "武器"
+      ],
+      "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002763.webp",
+      "source": {
+        "sourceId": "d2core_aspect_database",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "language": "zhCN",
+        "matchedBy": "normalized_chinese_name",
+        "sourceChineseName": "终极暗影之威能",
+        "sourceEnglishName": "Aspect of Ultimate Shadow"
+      }
+    },
+    {
+      "aspectId": "aspect-xv69uu",
+      "aspectName": "彼消我长之威能",
+      "sourceItemKey": "Affix_legendary_paladin_053_x2",
+      "sourceItemId": 2622376,
+      "sourceEnglishName": "Aspect of Dominance",
+      "zhName": "彼消我长之威能",
+      "aspectType": "Utility",
+      "zhAspectType": "通用",
+      "sourceClasses": [
+        "Sorcerer",
+        "Druid",
+        "Barbarian",
+        "Rogue",
+        "Necromancer",
+        "Spiritborn",
+        "Paladin",
+        "Warlock",
+        "Generic"
+      ],
+      "zhClassName": "全职业",
+      "zhEffect": "控制一名敌人会提供 [1 - 2] 层决断。",
+      "enEffect": "Crowd Controlling an enemy grants [1 - 2] Resolve.",
+      "zhAllowedSlots": [
+        "头盔",
+        "胸甲",
+        "手套",
+        "靴子",
+        "护符"
+      ],
+      "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/3856291677.webp",
+      "source": {
+        "sourceId": "d2core_aspect_database",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "language": "zhCN",
+        "matchedBy": "normalized_chinese_name",
+        "sourceChineseName": "彼消我长之威能",
+        "sourceEnglishName": "Aspect of Dominance"
+      }
+    },
+    {
+      "aspectId": "aspect-vuzztl",
+      "aspectName": "引导之威能",
+      "sourceItemKey": "Affix_legendary_generic_135_x2",
+      "sourceItemId": 2574509,
+      "sourceEnglishName": "Aspect of Channeling",
+      "zhName": "引导之威能",
+      "aspectType": "Offensive",
+      "zhAspectType": "攻击",
+      "sourceClasses": [
+        "Sorcerer",
+        "Druid",
+        "Barbarian",
+        "Rogue",
+        "Necromancer",
+        "Paladin",
+        "Warlock"
+      ],
+      "zhClassName": "巫师, 德鲁伊, 野蛮人, 游侠, 死灵法师, 圣骑士, 术士",
+      "zhEffect": "引导技能期间，造成的伤害提高 [50 - 70]%[x]。",
+      "enEffect": "While channeling a Skill, all damage is increased by [50 - 70]%[x].",
+      "zhAllowedSlots": [
+        "手套",
+        "护符",
+        "戒指",
+        "武器"
+      ],
+      "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870518124.webp",
+      "source": {
+        "sourceId": "d2core_aspect_database",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "language": "zhCN",
+        "matchedBy": "normalized_chinese_name",
+        "sourceChineseName": "引导之威能",
+        "sourceEnglishName": "Aspect of Channeling"
+      }
+    },
+    {
+      "aspectId": "aspect-dgbf36",
+      "aspectName": "月升威能",
+      "sourceItemKey": "Affix_legendary_generic_120",
+      "sourceItemId": 1860795,
+      "sourceEnglishName": "Aspect of the Moonrise",
+      "zhName": "月升之威能",
+      "aspectType": "Offensive",
+      "zhAspectType": "攻击",
+      "sourceClasses": [
+        "Sorcerer",
+        "Druid",
+        "Barbarian",
+        "Rogue",
+        "Necromancer",
+        "Spiritborn",
+        "Paladin",
+        "Warlock",
+        "Generic"
+      ],
+      "zhClassName": "全职业",
+      "zhEffect": "使用基础技能对敌人造成伤害会使你的攻击速度提高 4%，持续 10 秒，该效果至多可叠加 5 次。在达到最大层数时进入吸血鬼血怒状态，获得 [40 - 60]%[x] 基础技能伤害和 15% 移动速度，持续 10 秒。",
+      "enEffect": "Damaging an enemy with a Basic Skill grants you 4% Attack Speed for 10 seconds, stacking up to 5 times. Upon reaching maximum stacks, you enter a Vampiric Bloodrage, gaining [40 - 60]%[x] Basic Skill damage and 15% Movement Speed for 10 seconds.",
+      "zhAllowedSlots": [
+        "手套",
+        "护符",
+        "戒指",
+        "武器"
+      ],
+      "iconUrl": "https://cloudstorage.d2core.com/data_img/d4/aspect/4156673998.webp",
+      "source": {
+        "sourceId": "d2core_aspect_database",
+        "pageUrl": "https://www.d2core.com/d4/data/legendary",
+        "dataUrl": "https://cloudstorage.d2core.com/data/d4/71886/aspect_zhCN.json?env=prod&v=9",
+        "d2coreBuild": "71886",
+        "language": "zhCN",
+        "matchedBy": "normalized_chinese_name",
+        "sourceChineseName": "月升之威能",
+        "sourceEnglishName": "Aspect of the Moonrise"
+      }
+    }
+  ]
+}
