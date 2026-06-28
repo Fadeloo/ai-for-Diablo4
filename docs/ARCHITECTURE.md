@@ -1,6 +1,6 @@
 # Harris's Diablo 4 架构设计
 
-继续开发前的总控设计见 `docs/SYSTEM_DESIGN.md`，实施基线见 `docs/SITE_IMPLEMENTATION_DESIGN.md`。它们定义页面拆分、组件接口、数据契约、AI 分析流程和验收标准。完整产品蓝图见 `docs/PRODUCT_BLUEPRINT.md`。本文保留当前工程架构和脚本分层，作为实现入口。
+继续开发前的总控设计见 `docs/SYSTEM_DESIGN.md`，实施基线见 `docs/SITE_IMPLEMENTATION_DESIGN.md`。正式玩家资料站重构见 `docs/PLAYER_SITE_REDESIGN_PLAN.md`，它定义信息架构、页面组件、数据存储、AI 边界、实施顺序和验收门禁。完整产品蓝图见 `docs/PRODUCT_BLUEPRINT.md`。本文保留当前工程架构和脚本分层，作为实现入口。
 
 ## 目标
 
@@ -30,7 +30,7 @@
 - `SiteShell`：顶部导航、版本状态、移动端折叠菜单。
 - `HeroStatus`：站点名称、版本基线、资料边界和关键入口。
 - `BuildFilters`：赛季、职业、用途、数据状态筛选。
-- `BuildCandidateList`：左侧候选 BD 列表，展示来源状态、用途和成型难度。
+- `BuildLibraryList`：BD 列表，展示来源状态、用途、成型难度和详情入口。
 - `BuildOverviewCard`：BD 摘要、核心装备、核心威能和 150 层参考。
 - `BuildGuideDetail`：独立 BD 详情页，按装备、技能、巅峰、打法、变体、来源分区。
 - `GearSlotGrid`：全身 11 个槽位，固定展示目标件、是否核心、是否可替换、替代方案。

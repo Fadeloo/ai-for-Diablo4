@@ -1,6 +1,6 @@
 # Harris's Diablo 4 产品与工程蓝图
 
-继续开发前的实施基线见 `docs/SITE_IMPLEMENTATION_DESIGN.md`，该文档是页面、组件、数据存储和 AI 分析流程的优先执行口径。
+继续开发前的实施基线见 `docs/SITE_IMPLEMENTATION_DESIGN.md`；正式页面重构按 `docs/PLAYER_SITE_REDESIGN_PLAN.md` 执行，该文档是信息架构、组件、数据存储、AI 边界和验收门禁的优先执行口径。
 
 ## 定位
 
@@ -28,7 +28,7 @@ BD 大厅
   ├─ 职业筛选
   ├─ 用途筛选：冲层 / 速刷 / 日常
   ├─ 数据状态筛选：社区参考 / 结构化模板
-  └─ 候选 BD 卡片
+  └─ BD 卡片
 BD 详情
   ├─ 总览：职业、赛季、用途、成型难度、150 层参考
   ├─ 装备：11 槽位、核心状态、替换件、词缀、淬炼、精造、宝石
@@ -66,7 +66,7 @@ BD 详情
 | 全站 | `SiteShell` | 顶部导航、当前版本、hash 路由状态 | `version-baseline.json` |
 | 首页 | `HeroStatus` | 品牌、版本边界、主入口、数据总数 | version / classes / guides / equipment |
 | BD 大厅 | `BuildFilters` | 赛季、职业、用途、来源状态筛选 | `build-guides.json` |
-| BD 大厅 | `BuildCandidateList` | 左侧候选列表，快速比较 | `build-guides.json` |
+| BD 大厅 | `BuildLibraryList` | BD 列表，快速比较 | `build-guides.json` |
 | BD 大厅 | `BuildLibraryCard` | 摘要、难度、150 层、核心暗金 | `build-guides.json` |
 | BD 详情 | `BuildGuideDetail` | 独立详情页容器和分区导航 | `build-guides.json` |
 | BD 详情 | `GearSlotGrid` | 11 槽位装备、替换、词缀、精造 | `builds[].gearSlots` |
