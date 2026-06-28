@@ -20,17 +20,20 @@ const state = {
   sim: {
     seasonId: "s14",
     classId: "barbarian",
-    mode: "pit_push"
+    mode: "pit_push",
+    buildIndex: 0
   },
   equipmentFilters: {
     classId: "all",
     mode: "all",
-    query: ""
+    query: "",
+    visible: 48
   }
 };
 
 const statLabels = {
   weapon_damage: "武器伤害",
+  primary_core_stat: "主属性",
   skill_rank: "技能等级",
   resource: "资源循环",
   critical_strike: "暴击",
@@ -44,7 +47,8 @@ const statLabels = {
   vulnerable: "易伤",
   thorns: "荆棘",
   mobility: "机动性",
-  lucky_hit: "幸运一击"
+  lucky_hit: "幸运一击",
+  uncategorized: "未分类"
 };
 
 const resourceLabels = {
@@ -84,6 +88,13 @@ const trustLabels = {
   community_verified: "社区验证",
   needs_validation: "待验证",
   needs_license_review: "需授权确认"
+};
+
+const dataStatusLabels = {
+  official_3_1_0_patch: "官方 3.1.0 补丁",
+  needs_source_backfill: "待数据源回填",
+  inferred_or_unknown: "推断或未知",
+  external_url_reference: "外部地址引用"
 };
 
 function $(selector) {
@@ -130,6 +141,35 @@ function statLabel(value) {
 
 function resourceLabel(value) {
   return resourceLabels[value] || value;
+}
+
+function statusLabel(value) {
+  return dataStatusLabels[value] || value;
+}
+
+function versionLineLabel(value) {
+  const monthMap = {
+    January: "01",
+    February: "02",
+    March: "03",
+    April: "04",
+    May: "05",
+    June: "06",
+    July: "07",
+    August: "08",
+    September: "09",
+    October: "10",
+    November: "11",
+    December: "12"
+  };
+  const match = value.match(/^(.+?) Build #(\d+) \(All Platforms\)—([A-Za-z]+) (\d{1,2}), (\d{4})$/);
+  if (!match) return value;
+  const [, patch, build, month, day, year] = match;
+  return `${patch} 构建 #${build}（全平台）— ${year}-${monthMap[month] ?? month}-${day.padStart(2, "0")}`;
+}
+
+function listItems(items) {
+  return items.map((item) => `<li>${item}</li>`).join("");
 }
 
 function bindImageFallbacks(root) {
@@ -222,8 +262,7 @@ function renderSimulator() {
   );
   if (!row) return;
   const mode = row.modes[state.sim.mode];
-  const best = mode.topBuilds[0];
-  const secondary = mode.topBuilds.slice(1);
+  const best = mode.topBuilds[state.sim.buildIndex] ?? mode.topBuilds[0];
   const items = best.recommendedItems
     .slice(0, 4)
     .map((item) => `
@@ -233,6 +272,18 @@ function renderSimulator() {
         <span>${itemAffixes(item).join(" / ")}</span>
       </article>
     `)
+    .join("");
+  const buildTabs = mode.topBuilds
+    .map((build, index) => `
+      <button class="build-tab" type="button" data-build-index="${index}" aria-selected="${build.archetypeId === best.archetypeId}">
+        <strong>${build.archetypeName}</strong>
+        <span>${build.predictedPit150Minutes} 分 · ${percent(build.confidence)}</span>
+      </button>
+    `)
+    .join("");
+  const guide = best.guide;
+  const dataCompleteness = Object.values(guide.dataCompleteness)
+    .map((line) => `<span>${line}</span>`)
     .join("");
 
   $("[data-sim-result]").innerHTML = `
@@ -251,11 +302,43 @@ function renderSimulator() {
       <span>置信度 ${percent(best.confidence)}</span>
       <span>${row.zhModelStatus || row.modelStatus}</span>
     </div>
+    <div class="build-tabs">${buildTabs}</div>
     <p class="sim-rationale">${best.rationale.join(" ")}</p>
     <div class="sim-items">${items}</div>
-    <div class="sim-secondary">
-      ${secondary.map((build) => `<span>${build.archetypeName} · ${build.predictedPit150Minutes} 分</span>`).join("")}
-    </div>
+    <section class="build-manual" aria-label="构筑详情">
+      <div class="manual-summary">
+        <h4>构筑手册</h4>
+        <p>${guide.summary}</p>
+      </div>
+      <div class="manual-grid">
+        <article>
+          <h5>技能加点</h5>
+          <p class="manual-kicker">${guide.skillPlan.core}</p>
+          <div class="skill-bar">${guide.skillPlan.bar.map((skill) => `<span>${skill}</span>`).join("")}</div>
+          <ol>${listItems(guide.skillPlan.priority)}</ol>
+        </article>
+        <article>
+          <h5>巅峰路线</h5>
+          <ol>${listItems(guide.paragonPlan.boardRoute)}</ol>
+          <p>${guide.paragonPlan.rule}</p>
+          <div class="tag-row">${guide.paragonPlan.glyphPriority.map((tag) => `<span>${tag}</span>`).join("")}</div>
+        </article>
+        <article>
+          <h5>装备策略</h5>
+          <ol>${listItems(guide.gearPlan.slotPriority)}</ol>
+          <div class="gear-picks">
+            ${guide.gearPlan.recommendedItems.map((item) => `<span>${item.zhName}：${item.reason}</span>`).join("")}
+          </div>
+        </article>
+        <article>
+          <h5>打法循环</h5>
+          <ol>${listItems(guide.rotation)}</ol>
+          <h5>开荒迁移</h5>
+          <ol>${listItems(guide.leveling)}</ol>
+        </article>
+      </div>
+      <div class="data-badges">${dataCompleteness}</div>
+    </section>
     <p class="sim-warning">${state.simulations.zhWarning || state.simulations.warning}</p>
   `;
   bindImageFallbacks($("[data-sim-result]"));
@@ -277,7 +360,6 @@ function renderClasses() {
     state.selectedClassId = button.dataset.classId;
     renderSelectedClass();
     renderClasses();
-    answerQuestion();
   }, { once: true });
 
   renderSelectedClass();
@@ -306,7 +388,7 @@ function renderSelectedClass() {
 function renderEquipment() {
   const { classId, mode, query } = state.equipmentFilters;
   const normalizedQuery = query.trim().toLowerCase();
-  const rows = state.equipment
+  const filtered = state.equipment
     .filter((item) => classId === "all" || item.classRestriction === "All Classes" || item.classRestriction.toLowerCase() === classId)
     .filter((item) => mode === "all" || item.modeFit.includes(mode))
     .filter((item) => {
@@ -324,25 +406,57 @@ function renderEquipment() {
         item.guaranteedAffixes.map((affix) => affix.name).join(" "),
         (item.zhGuaranteedAffixes ?? []).join(" ")
       ].join(" ").toLowerCase().includes(normalizedQuery);
-    })
-    .slice(0, 36);
+    });
+  const rows = filtered.slice(0, state.equipmentFilters.visible);
 
-  $("[data-equipment-meta]").textContent = `显示 ${rows.length} / ${state.equipment.length} 条。当前库是官方固定词缀种子，不是完整装备库。`;
+  $("[data-equipment-meta]").textContent = `显示 ${rows.length} / ${filtered.length} 条，资料库总计 ${state.equipment.length} 条。展开卡片可查看来源、用途、数据状态和图标引用。`;
   $("[data-equipment-results]").innerHTML = rows
     .map((item) => `
-      <article class="equipment-card">
-        ${renderIcon(item, `${itemName(item)}图标`)}
-        <div>
-          <p>${item.zhClassRestriction || (item.classRestriction === "All Classes" ? "全职业" : item.classRestriction)}</p>
-          <h3>${itemName(item)}</h3>
-          <ul>
-            ${itemAffixes(item).map((affix) => `<li>${affix}</li>`).join("")}
-          </ul>
-          <span>${item.zhBuildRole || item.buildRole} · ${(item.zhModeFit || item.modeFit).join(" / ")}</span>
+      <details class="equipment-card">
+        <summary>
+          ${renderIcon(item, `${itemName(item)}图标`)}
+          <span>
+            <small>${item.zhClassRestriction || (item.classRestriction === "All Classes" ? "全职业" : item.classRestriction)} · ${item.zhVisualType || item.visualType}</small>
+            <strong>${itemName(item)}</strong>
+            <em>${item.zhBuildRole || item.buildRole} · ${(item.zhModeFit || item.modeFit).join(" / ")}</em>
+          </span>
+        </summary>
+        <div class="equipment-detail">
+          <section>
+            <h4>固定词缀</h4>
+            <ul>
+              ${item.guaranteedAffixes.map((affix, index) => `
+                <li>
+                  <strong>${itemAffixes(item)[index]}</strong>
+                  <span>槽位 ${affix.slots.join(" / ")} · ${statLabel(affix.categoryId)}</span>
+                </li>
+              `).join("")}
+            </ul>
+          </section>
+          <section>
+            <h4>配装用途</h4>
+            <p>${item.zhBuildRole || item.buildRole}</p>
+            <div class="tag-row">${(item.zhModeFit || item.modeFit).map((fit) => `<span>${fit}</span>`).join("")}</div>
+          </section>
+          <section>
+            <h4>数据状态</h4>
+            <p>固定词缀：${statusLabel(item.dataStatus.guaranteedAffixes)}</p>
+            <p>完整词缀范围：${statusLabel(item.dataStatus.fullAffixRanges)}</p>
+            <p>暗金特效：${statusLabel(item.dataStatus.uniquePower)}</p>
+            <p>装备槽位：${statusLabel(item.dataStatus.slot)}</p>
+          </section>
+          <section>
+            <h4>来源</h4>
+            <p>${versionLineLabel(item.source.versionLine)}</p>
+            <a href="${item.source.url}" target="_blank" rel="noreferrer">查看补丁来源</a>
+            ${item.externalImage ? `<a href="${item.externalImage}" target="_blank" rel="noreferrer">查看图标来源</a>` : ""}
+          </section>
         </div>
-      </article>
+      </details>
     `)
     .join("");
+  const moreButton = $("[data-equipment-more]");
+  moreButton.hidden = rows.length >= filtered.length;
   bindImageFallbacks($("[data-equipment-results]"));
 }
 
@@ -392,17 +506,6 @@ function renderSources(sources) {
     .join("");
 }
 
-function answerQuestion() {
-  const selected = state.classes.find((item) => item.id === state.selectedClassId) ?? state.classes[0];
-  const row = state.simulations?.rows.find((item) => item.seasonId === state.sim.seasonId && item.classId === selected.id);
-  const best = row?.modes.pit_push.topBuilds[0];
-  const plan = state.plans.find((item) => item.classId === selected.id)?.plan ?? [];
-  const answer = best
-    ? `${selected.zhName}：当前模型冲层优先 ${best.archetypeName}，150层约 ${best.predictedPit150Minutes} 分；开荒重点是 ${plan[0] ?? "先保证资源和生存"}。`
-    : `${selected.zhName}：${plan[0] ?? "先选职业，再查看开荒重点。"}`;
-  $("[data-ask-answer]").textContent = answer;
-}
-
 function bindInteractions() {
   const header = $("[data-header]");
   const updateHeader = () => header.classList.toggle("is-solid", window.scrollY > 24);
@@ -418,38 +521,47 @@ function bindInteractions() {
 
   $("[data-sim-season]").addEventListener("change", (event) => {
     state.sim.seasonId = event.target.value;
+    state.sim.buildIndex = 0;
     renderSimulator();
     renderForecast();
-    answerQuestion();
   });
   $("[data-sim-class]").addEventListener("change", (event) => {
     state.sim.classId = event.target.value;
     state.selectedClassId = event.target.value;
+    state.sim.buildIndex = 0;
     renderSimulator();
     renderSelectedClass();
-    answerQuestion();
   });
   $("[data-sim-mode]").addEventListener("change", (event) => {
     state.sim.mode = event.target.value;
+    state.sim.buildIndex = 0;
+    renderSimulator();
+  });
+  $("[data-sim-result]").addEventListener("click", (event) => {
+    const button = event.target.closest("[data-build-index]");
+    if (!button) return;
+    state.sim.buildIndex = Number(button.dataset.buildIndex);
     renderSimulator();
   });
 
   $("[data-equipment-search]").addEventListener("input", (event) => {
     state.equipmentFilters.query = event.target.value;
+    state.equipmentFilters.visible = 48;
     renderEquipment();
   });
   $("[data-equipment-class]").addEventListener("change", (event) => {
     state.equipmentFilters.classId = event.target.value;
+    state.equipmentFilters.visible = 48;
     renderEquipment();
   });
   $("[data-equipment-mode]").addEventListener("change", (event) => {
     state.equipmentFilters.mode = event.target.value;
+    state.equipmentFilters.visible = 48;
     renderEquipment();
   });
-
-  $("[data-ask-button]").addEventListener("click", answerQuestion);
-  $("[data-ask-input]").addEventListener("keydown", (event) => {
-    if (event.key === "Enter") answerQuestion();
+  $("[data-equipment-more]").addEventListener("click", () => {
+    state.equipmentFilters.visible += 48;
+    renderEquipment();
   });
 }
 
@@ -484,7 +596,6 @@ async function init() {
   renderEquipment();
   renderForecast();
   renderSources(sources);
-  answerQuestion();
   bindInteractions();
 }
 

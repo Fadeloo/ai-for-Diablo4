@@ -181,8 +181,7 @@ h3 {
 }
 
 .hero-subtitle,
-.section-copy p:not(.eyebrow),
-.ask-bar p {
+.section-copy p:not(.eyebrow) {
   color: rgba(242, 240, 234, 0.78);
   font-size: 14px;
   line-height: 1.55;
@@ -465,9 +464,7 @@ h3 {
 .sim-forecast-line span,
 .sim-secondary span,
 .sim-warning,
-.equipment-meta,
-.equipment-card p,
-.equipment-card span {
+.equipment-meta {
   color: var(--steel);
   font-size: 12px;
 }
@@ -546,6 +543,126 @@ h3 {
   gap: 8px;
 }
 
+.build-tabs {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.build-tab {
+  background: rgba(242, 240, 234, 0.06);
+  border: 1px solid rgba(242, 240, 234, 0.12);
+  border-radius: var(--radius);
+  color: var(--bone);
+  cursor: pointer;
+  display: grid;
+  gap: 4px;
+  min-height: 58px;
+  padding: 9px 10px;
+  text-align: left;
+}
+
+.build-tab[aria-selected="true"],
+.build-tab:hover {
+  background: rgba(193, 162, 96, 0.18);
+  border-color: rgba(193, 162, 96, 0.45);
+}
+
+.build-tab strong {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.build-tab span {
+  color: var(--steel);
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.build-manual {
+  border-top: 1px solid rgba(242, 240, 234, 0.14);
+  display: grid;
+  gap: 18px;
+  padding-top: 20px;
+}
+
+.manual-summary h4,
+.manual-grid h5,
+.equipment-detail h4 {
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+
+.manual-summary p,
+.manual-grid p,
+.equipment-detail p,
+.equipment-detail a {
+  color: rgba(242, 240, 234, 0.78);
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.manual-grid {
+  display: grid;
+  gap: 18px 22px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.manual-grid article {
+  border-top: 1px solid rgba(242, 240, 234, 0.1);
+  padding-top: 14px;
+}
+
+.manual-grid ol,
+.equipment-detail ul {
+  color: rgba(242, 240, 234, 0.8);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.manual-grid li + li,
+.equipment-detail li + li {
+  margin-top: 6px;
+}
+
+.manual-kicker {
+  color: var(--bone) !important;
+  font-weight: 500;
+}
+
+.skill-bar,
+.tag-row,
+.data-badges,
+.gear-picks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-bar span,
+.tag-row span,
+.data-badges span,
+.gear-picks span {
+  background: rgba(242, 240, 234, 0.07);
+  border: 1px solid rgba(242, 240, 234, 0.12);
+  border-radius: var(--radius);
+  color: rgba(242, 240, 234, 0.82);
+  font-size: 12px;
+  line-height: 1.25;
+  padding: 6px 8px;
+}
+
+.data-badges span {
+  border-color: rgba(193, 162, 96, 0.28);
+  color: var(--steel);
+}
+
 .damage-lab {
   display: grid;
   gap: 12px;
@@ -562,8 +679,7 @@ h3 {
   font-size: 13px;
 }
 
-.damage-lab input,
-.ask-bar input {
+.damage-lab input {
   background: rgba(255, 255, 255, 0.92);
   border: 0;
   border-radius: var(--radius);
@@ -686,49 +802,84 @@ h3 {
 .equipment-results {
   display: grid;
   gap: 0;
-  max-height: 570px;
+  max-height: 512px;
   overflow: auto;
   overscroll-behavior: contain;
 }
 
 .equipment-card {
-  align-items: start;
   border-bottom: 1px solid rgba(242, 240, 234, 0.1);
+  display: block;
+  min-height: 94px;
+}
+
+.equipment-card summary {
+  align-items: center;
+  cursor: pointer;
   display: grid;
   gap: 14px;
-  grid-template-columns: 64px 1fr;
-  min-height: 130px;
-  padding: 16px 18px;
-}
-
-.equipment-card h3 {
-  color: var(--bone);
-  font-size: 18px;
-  line-height: 1.25;
-}
-
-.equipment-card p {
-  color: var(--gold);
-  margin: 0 0 6px;
-}
-
-.equipment-card ul {
-  color: rgba(242, 240, 234, 0.8);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+  grid-template-columns: 64px 1fr auto;
   list-style: none;
-  margin: 10px 0;
-  padding: 0;
+  min-height: 94px;
+  padding: 14px 18px;
 }
 
-.equipment-card li {
-  background: rgba(242, 240, 234, 0.07);
-  border: 1px solid rgba(242, 240, 234, 0.12);
-  border-radius: var(--radius);
+.equipment-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.equipment-card summary::after {
+  color: var(--steel);
+  content: "展开";
   font-size: 12px;
-  line-height: 1.2;
-  padding: 6px 8px;
+  justify-self: end;
+}
+
+.equipment-card[open] summary::after {
+  content: "收起";
+}
+
+.equipment-card strong {
+  color: var(--bone);
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.25;
+  margin: 3px 0;
+}
+
+.equipment-card small {
+  color: var(--gold);
+  display: block;
+  font-size: 12px;
+}
+
+.equipment-card em {
+  color: var(--steel);
+  display: block;
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.35;
+}
+
+.equipment-detail {
+  border-top: 1px solid rgba(242, 240, 234, 0.08);
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 0 18px 18px 96px;
+}
+
+.equipment-detail a {
+  color: var(--gold);
+  display: inline-block;
+  margin-right: 12px;
+  margin-top: 8px;
+}
+
+.equipment-more {
+  justify-self: stretch;
+  margin: 14px 18px 18px;
 }
 
 .forecast-section {
@@ -818,36 +969,6 @@ h3 {
   font-style: normal;
 }
 
-.ask-bar {
-  align-items: center;
-  background: rgba(255, 255, 255, 0.92);
-  border-radius: var(--radius) var(--radius) 0 0;
-  bottom: 0;
-  color: var(--carbon);
-  display: grid;
-  gap: 12px;
-  grid-template-columns: auto minmax(180px, 1fr) auto minmax(220px, 0.65fr);
-  left: 50%;
-  max-width: 980px;
-  min-height: 58px;
-  padding: 8px 12px;
-  position: fixed;
-  transform: translateX(-50%);
-  width: calc(100% - 32px);
-  z-index: 25;
-}
-
-.ask-label {
-  color: var(--graphite);
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.ask-bar p {
-  color: var(--graphite);
-  margin: 0;
-}
-
 @media (max-width: 900px) {
   .site-header {
     grid-template-columns: 1fr auto;
@@ -893,6 +1014,9 @@ h3 {
   .equipment-controls,
   .sim-head,
   .sim-items,
+  .build-tabs,
+  .manual-grid,
+  .equipment-detail,
   .forecast-header,
   .forecast-row {
     grid-template-columns: 1fr;
@@ -917,8 +1041,21 @@ h3 {
   }
 
   .equipment-card {
+    min-height: auto;
+  }
+
+  .equipment-card summary {
     grid-template-columns: 56px 1fr;
     padding: 14px;
+  }
+
+  .equipment-card summary::after {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .equipment-detail {
+    padding: 0 14px 16px;
   }
 
   .forecast-row {
@@ -977,23 +1114,6 @@ h3 {
     gap: 6px;
   }
 
-  .ask-bar {
-    grid-template-columns: minmax(0, 1fr) auto;
-    left: 0;
-    max-width: none;
-    min-height: 64px;
-    transform: none;
-    width: 100%;
-  }
-
-  .ask-label,
-  .ask-bar p {
-    display: none;
-  }
-
-  .ask-bar .button {
-    min-width: 96px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

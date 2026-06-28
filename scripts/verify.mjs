@@ -82,6 +82,13 @@ for (const row of simulations.rows) {
     assert(modeResult?.topBuilds?.length > 0, `Missing top builds for ${row.classId}/${mode}`);
     assert(typeof modeResult.topBuilds[0].predictedPit150Minutes === "number", `Missing Pit 150 prediction for ${row.classId}/${mode}`);
     assert(modeResult.topBuilds[0].recommendedItems.every((item) => item.zhName && item.zhGuaranteedAffixes?.length), `Recommended items need Chinese text for ${row.classId}/${mode}`);
+    for (const build of modeResult.topBuilds) {
+      assert(build.guide?.skillPlan?.priority?.length >= 6, `Build guide needs skill priorities for ${row.classId}/${mode}/${build.archetypeId}`);
+      assert(build.guide?.paragonPlan?.boardRoute?.length >= 4, `Build guide needs paragon route for ${row.classId}/${mode}/${build.archetypeId}`);
+      assert(build.guide?.gearPlan?.slotPriority?.length >= 4, `Build guide needs gear slot priorities for ${row.classId}/${mode}/${build.archetypeId}`);
+      assert(build.guide?.rotation?.length >= 4, `Build guide needs rotation steps for ${row.classId}/${mode}/${build.archetypeId}`);
+      assert(build.guide?.dataCompleteness?.equipmentAffixes, `Build guide needs data status for ${row.classId}/${mode}/${build.archetypeId}`);
+    }
   }
 }
 
