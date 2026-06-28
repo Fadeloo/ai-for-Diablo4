@@ -1892,6 +1892,102 @@ h4 {
   padding: 10px;
 }
 
+.combat-overview {
+  background:
+    linear-gradient(180deg, rgba(25, 12, 9, 0.74), rgba(7, 4, 3, 0.78));
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+}
+
+.combat-overview__head {
+  align-items: start;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.combat-overview__head span,
+.combat-overview article header span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.combat-overview__head strong,
+.combat-overview article header strong {
+  color: #fff7df;
+  display: block;
+  font-size: 16px;
+  margin-top: 4px;
+}
+
+.combat-overview__head button {
+  background: rgba(214, 173, 99, 0.1);
+  border: 1px solid rgba(214, 173, 99, 0.26);
+  color: var(--bone);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 750;
+  min-height: 32px;
+  padding: 6px 9px;
+}
+
+.combat-overview__head button:hover {
+  border-color: rgba(240, 207, 143, 0.48);
+}
+
+.combat-overview__grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.combat-overview article {
+  background: rgba(8, 4, 3, 0.46);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+}
+
+.combat-overview ol {
+  display: grid;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.combat-overview li {
+  align-items: start;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 26px minmax(0, 1fr);
+}
+
+.combat-overview li > span {
+  align-items: center;
+  background: rgba(164, 32, 24, 0.32);
+  border: 1px solid rgba(214, 173, 99, 0.28);
+  color: #fff7df;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 900;
+  height: 24px;
+  justify-content: center;
+  width: 24px;
+}
+
+.combat-overview p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
 .guide-two-col article,
 .variant-grid article,
 .source-status-grid article {
@@ -3219,6 +3315,7 @@ h4 {
   .gear-slot-grid,
   .route-overview__skillbar,
   .route-board-lane,
+  .combat-overview__grid,
   .execution-plan,
   .suitability-grid,
   .point-band-grid,
@@ -3291,6 +3388,8 @@ h4 {
   .route-overview__grid,
   .route-overview__skillbar,
   .route-board-lane,
+  .combat-overview__head,
+  .combat-overview__grid,
   .build-class-rail,
   .build-filters,
   .build-source-rail,

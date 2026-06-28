@@ -1395,6 +1395,61 @@ function renderRouteOverview(guide) {
   `;
 }
 
+function renderGameplayOverview(guide) {
+  const gameplay = guide.gameplay || {};
+  const panels = [
+    {
+      title: "起手",
+      kicker: "进场到第一轮爆发",
+      lines: gameplay.opener || []
+    },
+    {
+      title: "主循环",
+      kicker: "常规清怪和精英包",
+      lines: gameplay.loop || []
+    },
+    {
+      title: "首领 / 防御",
+      kicker: "高压窗口和保命",
+      lines: [...(gameplay.boss || []).slice(0, 2), ...(gameplay.defense || []).slice(0, 3)]
+    },
+    {
+      title: "速刷 / 避坑",
+      kicker: "低层效率和常见错误",
+      lines: [...(gameplay.speedFarm || []).slice(0, 2), ...(gameplay.commonMistakes || []).slice(0, 3)]
+    }
+  ];
+  return `
+    <section class="combat-overview" aria-label="战斗循环总览">
+      <header class="combat-overview__head">
+        <div>
+          <span>战斗循环总览</span>
+          <strong>起手、循环、防御和常见错误</strong>
+        </div>
+        <button type="button" data-guide-jump="gameplay">看完整打法</button>
+      </header>
+      <div class="combat-overview__grid">
+        ${panels.map((panel) => `
+          <article>
+            <header>
+              <span>${panel.kicker}</span>
+              <strong>${panel.title}</strong>
+            </header>
+            <ol>
+              ${panel.lines.map((line, index) => `
+                <li>
+                  <span>${index + 1}</span>
+                  <p>${displayText(line)}</p>
+                </li>
+              `).join("")}
+            </ol>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderGuideDetailSection(title, subtitle, body, key) {
   return `
     <section class="guide-section" data-guide-section="${key}">
@@ -1598,6 +1653,7 @@ function renderBuildGuideDetail() {
           ${renderGuideDetailSection("总览", "定位、强弱项和适用阶段", `
             ${renderExecutionPlan(guide)}
             ${renderRouteOverview(guide)}
+            ${renderGameplayOverview(guide)}
             ${renderSuitability(guide)}
             <div class="core-item-strip">${renderCoreUniques(guide, 5)}</div>
             <div class="core-aspect-strip">${renderCoreAspects(guide)}</div>

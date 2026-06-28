@@ -135,6 +135,7 @@ BD 详情 #bd/<guideId>
 | `LoadoutStrip` | 全身装备速览 | `guide.gearSlots` | 11 个槽位快速跳到装备区 |
 | `LoadoutBoard` | 纸娃娃式配装盘面 | `guide.gearSlots`、`coreUniques`、`coreAspects` | 首屏展示 11 个部位、核心/硬需求/可替换和暗金/威能 |
 | `RouteOverview` | 技能和巅峰执行路线总览 | `skillTree`、`paragon` | 总览区展示 6 技能栏、加点顺序、巅峰盘和点击主线 |
+| `CombatOverview` | 战斗循环总览 | `gameplay` | 总览区展示起手、主循环、首领/防御、速刷/误区 |
 | `GearSlotGrid` | 11 装备位 | `guide.gearSlots` | 展示目标件和替换路径 |
 | `GearSlotCard` | 单个装备槽位 | `gearSlot` | 图标、词缀、淬炼、宝石 |
 | `SkillRoutePanel` | 技能栏和加点 | `guide.skillTree` | 技能顺序和被动优先级 |

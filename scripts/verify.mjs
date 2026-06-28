@@ -220,6 +220,8 @@ assert(frontendText.includes("renderLoadoutBoard"), "BD detail must render a pap
 assert(frontendText.includes("loadout-paper-doll"), "BD detail must expose a fixed 11-slot paper-doll layout");
 assert(frontendText.includes("renderRouteOverview"), "BD overview must render skill and paragon execution route overview");
 assert(frontendText.includes("route-overview__skillbar"), "BD overview must expose the six-skill route overview");
+assert(frontendText.includes("renderGameplayOverview"), "BD overview must render combat loop overview");
+assert(frontendText.includes("combat-overview__grid"), "BD overview must expose opener, loop, defense and mistakes");
 
 const generatedText = [
   await readFile(path.join(PROJECT_ROOT, "data/generated/build-simulations.json"), "utf8"),
