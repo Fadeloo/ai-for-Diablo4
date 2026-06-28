@@ -1093,6 +1093,74 @@ function renderBuildAtlas(guides) {
   `;
 }
 
+function groupGuidesByArchetype(guides) {
+  const grouped = new Map();
+  for (const guide of guides) {
+    const key = `${guide.taxonomy.classId}:${guide.taxonomy.archetypeId}`;
+    if (!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push(guide);
+  }
+  return [...grouped.values()].sort((a, b) => {
+    const classCompare = (a[0]?.taxonomy.className || "").localeCompare(b[0]?.taxonomy.className || "", "zh-CN");
+    if (classCompare) return classCompare;
+    return (a[0]?.taxonomy.archetypeName || "").localeCompare(b[0]?.taxonomy.archetypeName || "", "zh-CN");
+  });
+}
+
+function renderSeasonBuildModeCell(guide, mode) {
+  if (!guide) {
+    return `
+      <div class="season-build-mode-cell is-empty">
+        <span>${modeLabels[mode] || mode}</span>
+        <strong>待回填</strong>
+        <em>当前筛选下暂无 BD</em>
+      </div>
+    `;
+  }
+  return `
+    <a class="season-build-mode-cell" href="${guideUrl(guide)}">
+      <span>${guide.taxonomy.modeName} · ${guideSourceLabel(guide)}</span>
+      <strong>${guide.formationDifficulty.label}成型 · ${guide.taxonomy.stage}</strong>
+      <em>${guide.ceiling.displayTier || guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</em>
+      <small>${guideCoreLine(guide)}</small>
+    </a>
+  `;
+}
+
+function renderSeasonBuildMatrix(guides) {
+  const groups = groupGuidesByArchetype(guides);
+  if (!groups.length) return "";
+  return `
+    <section class="season-build-matrix" aria-label="赛季流派对照矩阵">
+      <div class="section-title">
+        <h4>赛季流派对照矩阵</h4>
+        <span>按职业和流派比较日常、速刷、冲层版本</span>
+      </div>
+      <div class="season-build-matrix__table">
+        <div class="season-build-matrix__row season-build-matrix__row--head" aria-hidden="true">
+          <span>职业 / 流派</span>
+          ${buildVersionModeOrder.map((mode) => `<span>${modeLabels[mode] || mode}</span>`).join("")}
+        </div>
+        ${groups.map((archetypeGuides) => {
+          const first = archetypeGuides[0];
+          const guidesByMode = new Map(archetypeGuides.map((guide) => [guide.taxonomy.mode, guide]));
+          const communityCount = archetypeGuides.filter((guide) => guide.source.references?.length).length;
+          return `
+            <article class="season-build-matrix__row">
+              <header>
+                <span>${first.taxonomy.className}</span>
+                <strong>${first.taxonomy.archetypeName}</strong>
+                <em>${archetypeGuides.length} 个用途 · ${communityCount} 社区来源</em>
+              </header>
+              ${buildVersionModeOrder.map((mode) => renderSeasonBuildModeCell(guidesByMode.get(mode), mode)).join("")}
+            </article>
+          `;
+        }).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderBuildClassRail() {
   const rail = $("[data-build-class-rail]");
   if (!rail) return;
@@ -1189,6 +1257,7 @@ function renderSimulator() {
       </div>
     </div>
     ${renderBuildAtlas(guides)}
+    ${renderSeasonBuildMatrix(guides)}
     <div class="guide-card-grid">
       ${guides.map(renderBuildLibraryCard).join("")}
     </div>

@@ -129,6 +129,7 @@ BD 详情 #bd/<guideId>
 | `SourceBadge` | 统一显示资料可信度 | `verificationLevel`、`dataStatus` | 中文 badge 和 tooltip |
 | `BuildFilters` | BD 筛选条件 | seasons/classes/modes/sourceLevels | 更新 `state.sim` |
 | `BuildAtlas` | 全职业流派矩阵 | 当前赛季筛选后的 guides | 按职业汇总流派、社区来源、用途入口和上限 |
+| `SeasonBuildMatrix` | 赛季流派对照矩阵 | 当前筛选后的 guides | 按职业/流派展示日常、速刷、冲层版本的难度、阶段、上限和来源 |
 | `BuildCard` | BD 大厅列表项 | `guide` | 进入 BD 详情 |
 | `BuildDetailLayout` | BD 详情页容器 | `guideId` | 渲染分区目录和详情 |
 | `BuildSummaryPanel` | 定位、难度、强弱项 | `guide.summary`、`ceiling` | 顶部摘要 |

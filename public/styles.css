@@ -1049,6 +1049,109 @@ h4 {
   padding: 5px 7px;
 }
 
+.season-build-matrix {
+  background:
+    linear-gradient(180deg, rgba(18, 10, 7, 0.72), rgba(6, 3, 2, 0.78));
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+.season-build-matrix .section-title {
+  align-items: start;
+}
+
+.season-build-matrix .section-title span {
+  text-align: right;
+  white-space: normal;
+}
+
+.season-build-matrix__table {
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+}
+
+.season-build-matrix__row {
+  border-bottom: 1px solid rgba(214, 173, 99, 0.14);
+  display: grid;
+  grid-template-columns: minmax(170px, 0.9fr) repeat(3, minmax(180px, 1fr));
+  min-width: 0;
+}
+
+.season-build-matrix__row:last-child {
+  border-bottom: 0;
+}
+
+.season-build-matrix__row--head {
+  background: rgba(214, 173, 99, 0.08);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.season-build-matrix__row--head span {
+  border-right: 1px solid rgba(214, 173, 99, 0.14);
+  padding: 9px 10px;
+}
+
+.season-build-matrix__row header,
+.season-build-mode-cell {
+  border-right: 1px solid rgba(214, 173, 99, 0.12);
+  min-width: 0;
+  padding: 11px;
+}
+
+.season-build-matrix__row header {
+  display: grid;
+  gap: 5px;
+}
+
+.season-build-matrix__row header span,
+.season-build-mode-cell span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.season-build-matrix__row header strong,
+.season-build-mode-cell strong {
+  color: #fff7df;
+  font-size: 14px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.season-build-matrix__row header em,
+.season-build-mode-cell em,
+.season-build-mode-cell small {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.season-build-mode-cell {
+  color: inherit;
+  display: grid;
+  gap: 5px;
+  text-decoration: none;
+  transition: background-color var(--transition), border-color var(--transition);
+}
+
+.season-build-mode-cell:hover {
+  background: rgba(214, 173, 99, 0.08);
+}
+
+.season-build-mode-cell:last-child {
+  border-right: 0;
+}
+
+.season-build-mode-cell.is-empty {
+  opacity: 0.55;
+}
+
 .guide-card {
   background:
     linear-gradient(180deg, rgba(38, 24, 16, 0.88), rgba(9, 5, 4, 0.92));
@@ -4076,6 +4179,7 @@ h4 {
   .class-build-actions,
   .class-season-summary,
   .class-build-mode-grid,
+  .season-build-matrix__row,
   .guide-card__metrics,
   .guide-hero__main,
   .guide-version-switcher header,
@@ -4175,6 +4279,33 @@ h4 {
   .atlas-mode-list a,
   .class-build-family header {
     grid-template-columns: 1fr;
+  }
+
+  .season-build-matrix__table {
+    border: 0;
+    gap: 10px;
+  }
+
+  .season-build-matrix__row--head {
+    display: none;
+  }
+
+  .season-build-matrix__row {
+    border: 1px solid rgba(214, 173, 99, 0.18);
+  }
+
+  .season-build-matrix .section-title span {
+    text-align: left;
+  }
+
+  .season-build-matrix__row header,
+  .season-build-mode-cell {
+    border-right: 0;
+    border-bottom: 1px solid rgba(214, 173, 99, 0.12);
+  }
+
+  .season-build-mode-cell:last-child {
+    border-bottom: 0;
   }
 
   .atlas-mode-list a > em {

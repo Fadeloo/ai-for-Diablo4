@@ -216,6 +216,8 @@ const frontendText = [
 for (const forbidden of ["模型分", "先选目标", "rationale", "完整 BD 细节", "模型预估"]) {
   assert(!frontendText.includes(forbidden), `Frontend still contains non-guide copy: ${forbidden}`);
 }
+assert(frontendText.includes("renderSeasonBuildMatrix"), "BD library must render a season build matrix by class, archetype and mode");
+assert(frontendText.includes("season-build-matrix"), "BD library must expose daily/speed/push comparisons before individual cards");
 assert(frontendText.includes("renderLoadoutBoard"), "BD detail must render a paper-doll loadout board");
 assert(frontendText.includes("loadout-paper-doll"), "BD detail must expose a fixed 11-slot paper-doll layout");
 assert(frontendText.includes("renderBuildVersionSwitcher"), "BD detail must render same-archetype daily/speed/push version switching");

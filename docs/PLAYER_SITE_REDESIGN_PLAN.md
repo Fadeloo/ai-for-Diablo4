@@ -354,6 +354,7 @@ public/
 | `SourceBadge` | 统一资料可信度展示 | verification/dataStatus | badge |
 | `BuildFilters` | BD 筛选和排序 | guides/filterState | filterState |
 | `BuildCard` | BD 大厅卡片 | guide | 详情链接 |
+| `SeasonBuildMatrix` | 赛季流派对照矩阵 | guides/filterState | 职业/流派行，日常/速刷/冲层列，展示难度、阶段、上限和来源 |
 | `BuildDetailPage` | BD 详情容器 | guideId | 完整详情 |
 | `BuildSummaryPanel` | 顶部概要和强弱项 | guide.summary | 摘要 |
 | `BuildVersionSwitcher` | 同流派版本切换 | 当前 guide、同赛季同职业同流派 guides | 日常、速刷、冲层版本入口和同职业社区 BD 参考 |
