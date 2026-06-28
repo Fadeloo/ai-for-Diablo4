@@ -11,6 +11,8 @@
 
 ## 已初始化内容
 
+- `index.html`：`Harris‘s Diablo 4` 前端入口，参考 Tesla 式全屏产品页结构。
+- `public/`：前端样式、交互脚本和本地生成的英雄图资产。
 - `data/metadata/version-baseline.json`：版本、日期和目标数据状态。
 - `data/sources/source-registry.json`：官方与社区来源登记，含可信度和用途。
 - `data/classes/classes.json`：8 个职业的中文名称、资源、开荒优先级、构筑方向和资料状态。
@@ -26,6 +28,8 @@
 ## 常用命令
 
 ```bash
+npm run build:assets
+npm run dev
 npm run preflight
 npm run fetch:patch
 npm run sample

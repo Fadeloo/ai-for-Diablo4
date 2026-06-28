@@ -72,4 +72,8 @@ if (existsSync(path.join(PROJECT_ROOT, generatedPath))) {
   assert(generated.items.every((item) => item.guaranteedAffixes.length > 0), "Each generated item needs guaranteed affixes");
 }
 
+for (const frontendFile of ["index.html", "public/styles.css", "public/app.js", "public/assets/hero-sanctuary.png"]) {
+  assert(existsSync(path.join(PROJECT_ROOT, frontendFile)), `Missing frontend file: ${frontendFile}`);
+}
+
 console.log("verify ok");

@@ -56,7 +56,7 @@
   {
     "id": "frontend_or_bot",
     "zhName": "前端/机器人/交互查询",
-    "status": "planned",
-    "primaryFiles": []
+    "status": "seeded_static_frontend",
+    "primaryFiles": ["index.html", "public/styles.css", "public/app.js", "public/assets/hero-sanctuary.png", "scripts/serve.mjs"]
   }
 ]

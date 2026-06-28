@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Harris‘s Diablo 4：暗黑4开荒、配装、伤害计算和流派构筑工具。">
+    <title>Harris‘s Diablo 4</title>
+    <link rel="stylesheet" href="./public/styles.css">
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#home" aria-label="Harris‘s Diablo 4 home">Harris‘s Diablo 4</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#classes">职业</a>
+        <a href="#damage">伤害</a>
+        <a href="#equipment">装备</a>
+        <a href="#sources">来源</a>
+      </nav>
+      <a class="version-link" href="#sources" data-live-patch>3.0.4 live</a>
+    </header>
+
+    <main>
+      <section class="hero section" id="home" aria-labelledby="hero-title">
+        <img class="hero-image" src="./public/assets/hero-sanctuary.png" alt="暗黑风格装备陈列场景">
+        <div class="hero-scrim" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <p class="eyebrow" data-version-line>3.0.4 live / 3.1.0 preview</p>
+          <h1 id="hero-title">Harris‘s Diablo 4</h1>
+          <p class="hero-subtitle">开荒路线、配装筛选、伤害期望与流派构筑，压到一个可验证的数据面板里。</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#classes">打开构筑台</a>
+            <a class="button button-secondary" href="#damage">计算伤害</a>
+          </div>
+        </div>
+        <div class="hero-metrics" aria-label="项目数据概览">
+          <div>
+            <span data-class-count>8</span>
+            <p>职业覆盖</p>
+          </div>
+          <div>
+            <span data-unique-count>278</span>
+            <p>官方唯一词缀</p>
+          </div>
+          <div>
+            <span data-build-count>24</span>
+            <p>构筑原型</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section class-section" id="classes" aria-labelledby="classes-title">
+        <div class="section-copy">
+          <p class="eyebrow">Season launch map</p>
+          <h2 id="classes-title">先选职业，再决定掉落怎么用。</h2>
+          <p>这里把每个职业的开荒优先级、过渡路线和构筑轴放在同一个视口里，适合补丁上线后快速改权重。</p>
+        </div>
+        <div class="class-workbench" aria-live="polite">
+          <div class="class-rail" data-class-rail></div>
+          <div class="class-panel">
+            <p class="panel-kicker" data-class-resource>Resource</p>
+            <h3 data-class-title>Barbarian</h3>
+            <ol class="plan-list" data-class-plan></ol>
+            <div class="archetype-grid" data-archetypes></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section damage-section" id="damage" aria-labelledby="damage-title">
+        <div class="section-copy">
+          <p class="eyebrow">Damage lab</p>
+          <h2 id="damage-title">把词缀收益拆开看。</h2>
+          <p>输入武器伤害、技能系数、主属性和关键事件覆盖率，页面会输出期望 DPS 与乘区拆分。</p>
+        </div>
+        <form class="damage-lab" data-damage-form>
+          <label>
+            <span>武器伤害</span>
+            <input name="weaponDamage" type="number" min="1" step="1" value="1800">
+          </label>
+          <label>
+            <span>技能系数</span>
+            <input name="skillCoefficient" type="number" min="0.01" step="0.01" value="1.35">
+          </label>
+          <label>
+            <span>主属性</span>
+            <input name="primaryStat" type="number" min="0" step="10" value="1200">
+          </label>
+          <label>
+            <span>加伤池 %</span>
+            <input name="additive" type="number" step="1" value="75">
+          </label>
+          <label>
+            <span>独立乘区 %</span>
+            <input name="multiplier" type="number" step="1" value="38">
+          </label>
+          <label>
+            <span>暴击率 %</span>
+            <input name="critChance" type="number" min="0" max="100" step="1" value="35">
+          </label>
+          <label>
+            <span>易伤覆盖 %</span>
+            <input name="vulnerableUptime" type="number" min="0" max="100" step="1" value="70">
+          </label>
+          <label>
+            <span>每秒攻击</span>
+            <input name="aps" type="number" min="0.01" step="0.01" value="1.25">
+          </label>
+          <button class="button button-primary" type="submit">更新计算</button>
+        </form>
+        <div class="damage-output" data-damage-output aria-live="polite"></div>
+      </section>
+
+      <section class="section equipment-section" id="equipment" aria-labelledby="equipment-title">
+        <div class="section-copy">
+          <p class="eyebrow">Equipment intelligence</p>
+          <h2 id="equipment-title">3.1.0 唯一装备词缀种子。</h2>
+          <p>这些条目来自官方补丁页，用来驱动装备库的第一层校验；完整装备库继续按来源治理导入。</p>
+        </div>
+        <div class="equipment-board">
+          <div class="count-list" data-unique-counts></div>
+          <div class="stat-taxonomy" data-stat-taxonomy></div>
+        </div>
+      </section>
+
+      <section class="section source-section" id="sources" aria-labelledby="sources-title">
+        <div class="section-copy">
+          <p class="eyebrow">Source discipline</p>
+          <h2 id="sources-title">只把可追溯的内容放进计算器。</h2>
+          <p>当前在线版本是 2026-06-10 的 3.0.4；3.1.0 在 2026-06-28 仍是未来补丁，所以页面明确分开 live 与 preview。</p>
+        </div>
+        <div class="source-list" data-source-list></div>
+      </section>
+    </main>
+
+    <aside class="ask-bar" aria-label="Build question">
+      <span class="ask-label">问构筑</span>
+      <input data-ask-input type="text" placeholder="例如：死灵开荒优先什么？" aria-label="输入构筑问题">
+      <button class="button button-primary" data-ask-button type="button">回答</button>
+      <p data-ask-answer>选择职业后，这里会给出开荒重点。</p>
+    </aside>
+
+    <script src="./public/app.js" type="module"></script>
+  </body>
+</html>

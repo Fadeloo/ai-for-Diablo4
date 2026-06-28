@@ -6,6 +6,10 @@ import path from "node:path";
 const PROJECT_ROOT = path.resolve(new URL(".", import.meta.url).pathname, "..");
 const REQUIRED_FILES = [
   "package.json",
+  "index.html",
+  "public/styles.css",
+  "public/app.js",
+  "public/assets/hero-sanctuary.png",
   "data/metadata/version-baseline.json",
   "data/sources/source-registry.json",
   "data/classes/classes.json",

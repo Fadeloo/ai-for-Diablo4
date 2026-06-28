@@ -4,5 +4,6 @@ npm-debug.log*
 data/raw/
 coverage/
 dist/
+tmp/
 .env
 .env.*
