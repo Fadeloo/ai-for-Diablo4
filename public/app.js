@@ -7,6 +7,7 @@ const paths = {
   equipment: "./data/equipment/equipment-library.json",
   simulations: "./data/generated/build-simulations.json",
   buildGuides: "./data/generated/build-guides.json",
+  coverage: "./data/generated/site-coverage.json",
   categories: "./data/equipment/stat-categories.json",
   sources: "./data/sources/source-registry.json"
 };
@@ -23,14 +24,15 @@ const state = {
   equipment: [],
   simulations: null,
   buildGuides: null,
+  coverage: null,
   activeView: "home",
   selectedGuideId: null,
   selectedClassId: "barbarian",
   selectedEquipmentId: null,
   sim: {
     seasonId: "s14",
-    classId: "barbarian",
-    mode: "pit_push",
+    classId: "all",
+    mode: "all",
     buildIndex: 0,
     sourceQuality: "all",
     query: "",
@@ -287,10 +289,12 @@ function statusLabel(value) {
 }
 
 function className(classId) {
+  if (classId === "all") return "全部职业";
   return state.classes.find((item) => item.id === classId)?.zhName ?? classId;
 }
 
 function modeName(modeId) {
+  if (modeId === "all") return "全部用途";
   return modeLabels[modeId] || modeId;
 }
 
@@ -405,7 +409,7 @@ function renderSelects() {
   const classOptions = state.classes
     .map((item) => `<option value="${item.id}">${item.zhName}</option>`)
     .join("");
-  $("[data-sim-class]").innerHTML = classOptions;
+  $("[data-sim-class]").innerHTML = `<option value="all">全部职业</option>${classOptions}`;
   $("[data-sim-class]").value = state.sim.classId;
   $("[data-equipment-class]").innerHTML = `<option value="all">全部职业</option><option value="All Classes">全职业</option>${classOptions}`;
 
@@ -478,8 +482,8 @@ function filteredGuides() {
   const query = normalizedText(state.sim.query);
   const rows = allBuildGuides()
     .filter((guide) => guide.taxonomy.seasonId === state.sim.seasonId)
-    .filter((guide) => guide.taxonomy.classId === state.sim.classId)
-    .filter((guide) => guide.taxonomy.mode === state.sim.mode)
+    .filter((guide) => state.sim.classId === "all" || guide.taxonomy.classId === state.sim.classId)
+    .filter((guide) => state.sim.mode === "all" || guide.taxonomy.mode === state.sim.mode)
     .filter((guide) => {
       if (state.sim.sourceQuality === "community") return Boolean(guide.source.references?.length);
       if (state.sim.sourceQuality === "structured") return !guide.source.references?.length;
@@ -748,11 +752,79 @@ function renderBuildLibraryCard(guide) {
   `;
 }
 
+function groupGuidesByClass(guides) {
+  const grouped = new Map();
+  for (const guide of guides) {
+    if (!grouped.has(guide.taxonomy.classId)) grouped.set(guide.taxonomy.classId, []);
+    grouped.get(guide.taxonomy.classId).push(guide);
+  }
+  return [...grouped.values()].sort((a, b) => {
+    const aClass = a[0]?.taxonomy.className || "";
+    const bClass = b[0]?.taxonomy.className || "";
+    return aClass.localeCompare(bClass, "zh-CN");
+  });
+}
+
+function renderBuildAtlas(guides) {
+  const groups = groupGuidesByClass(guides);
+  if (!groups.length) return "";
+  return `
+    <section class="build-atlas" aria-label="职业流派矩阵">
+      <div class="section-title">
+        <h4>职业流派矩阵</h4>
+        <span>每个职业的用途、成型难度和 150 层参考</span>
+      </div>
+      <div class="build-atlas-grid">
+        ${groups.map((classGuides) => {
+          const first = classGuides[0];
+          const communityCount = classGuides.filter((guide) => guide.source.references?.length).length;
+          const archetypeNames = [...new Set(classGuides.map((guide) => guide.taxonomy.archetypeName))];
+          const bestByMode = Object.keys(modeLabels)
+            .map((mode) => classGuides.filter((guide) => guide.taxonomy.mode === mode).sort(sortGuidesForPlayer)[0])
+            .filter(Boolean);
+          const hardest = classGuides.reduce((max, guide) => Math.max(max, guide.formationDifficulty.level || 0), 0);
+          return `
+            <article class="atlas-class-card">
+              <header>
+                <div>
+                  <strong>${first.taxonomy.className}</strong>
+                  <span>${classGuides.length} 套 · ${archetypeNames.length} 个流派 · ${communityCount} 社区参考</span>
+                </div>
+                <em>最高难度 ${hardest}/5</em>
+              </header>
+              <div class="atlas-mode-list">
+                ${bestByMode.map((guide) => `
+                  <a href="${guideUrl(guide)}">
+                    <span>${guide.taxonomy.modeName}</span>
+                    <strong>${guide.taxonomy.archetypeName}</strong>
+                    <em>${guide.formationDifficulty.label} · ${guide.ceiling.displayTier || guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</em>
+                  </a>
+                `).join("")}
+              </div>
+              <div class="atlas-archetypes">
+                ${archetypeNames.slice(0, 8).map((name) => `<span>${name}</span>`).join("")}
+              </div>
+            </article>
+          `;
+        }).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderBuildClassRail() {
   const rail = $("[data-build-class-rail]");
   if (!rail) return;
   const seasonGuides = allBuildGuides().filter((guide) => guide.taxonomy.seasonId === state.sim.seasonId);
-  rail.innerHTML = state.classes.map((item) => {
+  const allCommunityCount = seasonGuides.filter((guide) => guide.source.references?.length).length;
+  const allTab = `
+    <button class="build-class-tab" type="button" data-build-class-id="all" aria-selected="${state.sim.classId === "all"}">
+      <span>全部</span>
+      <strong>${seasonGuides.length} 套</strong>
+      <em>${allCommunityCount} 社区</em>
+    </button>
+  `;
+  rail.innerHTML = allTab + state.classes.map((item) => {
     const classGuides = seasonGuides.filter((guide) => guide.taxonomy.classId === item.id);
     const communityCount = classGuides.filter((guide) => guide.source.references?.length).length;
     return `
@@ -815,6 +887,7 @@ function renderSimulator() {
         <span><b>${topGuide.ceiling.label}</b>最高参考</span>
       </div>
     </div>
+    ${renderBuildAtlas(guides)}
     <div class="guide-card-grid">
       ${guides.map(renderBuildLibraryCard).join("")}
     </div>
@@ -871,6 +944,60 @@ function renderGearSlot(slot) {
       </div>
       ${slot.notes?.length ? `<p class="slot-note">${slot.notes.join(" ")}</p>` : ""}
     </article>
+  `;
+}
+
+function renderLoadoutStrip(guide) {
+  return `
+    <div class="loadout-strip" aria-label="全身装备速览">
+      ${guide.gearSlots.map((slot) => `
+        <button class="loadout-slot ${slot.required ? "is-required" : slot.core ? "is-core" : ""}" type="button" data-guide-jump="gear">
+          ${renderIcon(slot.target, `${slot.zhSlotName}${slot.target.zhName}图标`)}
+          <span>${slot.zhSlotName}</span>
+          <strong>${slot.target.zhName}</strong>
+          <em>${slot.required ? "硬需求" : slot.replaceable ? "可替换" : "核心位"}</em>
+        </button>
+      `).join("")}
+    </div>
+  `;
+}
+
+function renderExecutionPlan(guide) {
+  const requiredSlots = guide.gearSlots.filter((slot) => slot.required).slice(0, 4);
+  const skillSteps = (guide.skillTree?.pointOrder || []).slice(0, 3);
+  const paragonSteps = (guide.paragon?.clickOrder || []).slice(0, 3);
+  const loopSteps = (guide.gameplay?.loop || []).slice(0, 3);
+  return `
+    <div class="execution-plan">
+      <article>
+        <span>1</span>
+        <div>
+          <strong>先凑核心位</strong>
+          <p>${requiredSlots.length ? requiredSlots.map((slot) => `${slot.zhSlotName}：${slot.target.zhName}`).join("；") : "先按装备区补齐核心暗金或核心威能。"}</p>
+        </div>
+      </article>
+      <article>
+        <span>2</span>
+        <div>
+          <strong>技能先按等级段点</strong>
+          <p>${skillSteps.map((step) => `${step.levelRange} ${step.skill}`).join("；")}</p>
+        </div>
+      </article>
+      <article>
+        <span>3</span>
+        <div>
+          <strong>巅峰先走关键节点</strong>
+          <p>${paragonSteps.map((step) => `${step.board}：${step.node}`).join("；")}</p>
+        </div>
+      </article>
+      <article>
+        <span>4</span>
+        <div>
+          <strong>按循环打，不齐装先降层</strong>
+          <p>${loopSteps.join("；")}</p>
+        </div>
+      </article>
+    </div>
   `;
 }
 
@@ -1054,6 +1181,7 @@ function renderBuildGuideDetail() {
           <span><b>${guide.gearSlots.length}</b>装备位置</span>
           <span><b>${guide.coreUniques.length}</b>核心暗金</span>
         </div>
+        ${renderLoadoutStrip(guide)}
       </header>
 
       <div class="guide-detail-layout">
@@ -1074,6 +1202,7 @@ function renderBuildGuideDetail() {
 
         <div class="guide-main-sections">
           ${renderGuideDetailSection("总览", "定位、强弱项和适用阶段", `
+            ${renderExecutionPlan(guide)}
             ${renderSuitability(guide)}
             <div class="core-item-strip">${renderCoreUniques(guide, 5)}</div>
             <div class="core-aspect-strip">${renderCoreAspects(guide)}</div>
@@ -1412,6 +1541,7 @@ function renderForecast() {
 }
 
 function renderSources(sources) {
+  renderCoverage();
   $("[data-source-list]").innerHTML = sources.slice(0, 8)
     .map((source) => `
       <div class="source-row">
@@ -1421,6 +1551,55 @@ function renderSources(sources) {
       </div>
     `)
     .join("");
+}
+
+function renderCoverage() {
+  const panel = $("[data-source-coverage]");
+  const coverage = state.coverage;
+  if (!panel || !coverage) return;
+  const buildCoverage = coverage.buildCoverage;
+  const equipmentCoverage = coverage.equipmentCoverage;
+  const sourceCoverage = coverage.sourceCoverage;
+  const sourceLevels = buildCoverage.byVerificationLevel || {};
+  panel.innerHTML = `
+    <section class="coverage-panel">
+      <div class="section-title">
+        <h4>数据覆盖与使用方式</h4>
+        <span>${coverage.asOf || "日期待回填"}</span>
+      </div>
+      <div class="coverage-grid">
+        <article>
+          <strong>${buildCoverage.total}</strong>
+          <span>BD 档案</span>
+          <p>${buildCoverage.communityReferenceCount} 套社区参考，${buildCoverage.templateCount} 套模板或推演。</p>
+        </article>
+        <article>
+          <strong>${equipmentCoverage.total}</strong>
+          <span>装备种子</span>
+          <p>固定词缀已接入；暗金特效、完整范围、掉落来源和官方槽位仍待回填。</p>
+        </article>
+        <article>
+          <strong>${sourceCoverage.total}</strong>
+          <span>登记来源</span>
+          <p>${sourceCoverage.byTrustLevel.official || 0} 个官方来源，${sourceCoverage.byTrustLevel.community_verified || 0} 个社区验证来源。</p>
+        </article>
+        <article>
+          <strong>${sourceLevels.community_reference || 0}</strong>
+          <span>同赛季社区 BD</span>
+          <p>${sourceLevels.cross_season_reference || 0} 套跨赛季参考必须继续等实战校准。</p>
+        </article>
+      </div>
+      <div class="storage-layer-grid">
+        ${coverage.storageLayers.map((layer) => `
+          <article>
+            <strong>${layer.zhName}</strong>
+            <span>${layer.files.join(" / ")}</span>
+            <p>${layer.frontendUse}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
 }
 
 function bindInteractions() {
@@ -1439,10 +1618,10 @@ function bindInteractions() {
   });
   $("[data-sim-class]").addEventListener("change", (event) => {
     state.sim.classId = event.target.value;
-    state.selectedClassId = event.target.value;
+    if (event.target.value !== "all") state.selectedClassId = event.target.value;
     state.sim.buildIndex = 0;
     renderSimulator();
-    renderSelectedClass();
+    if (event.target.value !== "all") renderSelectedClass();
   });
   $("[data-sim-mode]").addEventListener("change", (event) => {
     state.sim.mode = event.target.value;
@@ -1468,11 +1647,11 @@ function bindInteractions() {
     const button = event.target.closest("[data-build-class-id]");
     if (!button) return;
     state.sim.classId = button.dataset.buildClassId;
-    state.selectedClassId = button.dataset.buildClassId;
+    if (button.dataset.buildClassId !== "all") state.selectedClassId = button.dataset.buildClassId;
     state.sim.buildIndex = 0;
     syncBuildFilterControls();
     renderSimulator();
-    renderSelectedClass();
+    if (button.dataset.buildClassId !== "all") renderSelectedClass();
   });
   $("[data-class-rail]").addEventListener("click", (event) => {
     const button = event.target.closest("[data-class-id]");
@@ -1554,7 +1733,7 @@ function bindInteractions() {
 }
 
 async function init() {
-  const [version, classes, plans, archetypes, uniques, equipment, simulations, buildGuides, sources] = await Promise.all([
+  const [version, classes, plans, archetypes, uniques, equipment, simulations, buildGuides, coverage, sources] = await Promise.all([
     loadJson(paths.version),
     loadJson(paths.classes),
     loadJson(paths.plans),
@@ -1563,6 +1742,7 @@ async function init() {
     loadJson(paths.equipment),
     loadJson(paths.simulations),
     loadJson(paths.buildGuides),
+    loadJson(paths.coverage),
     loadJson(paths.sources)
   ]);
 
@@ -1572,6 +1752,7 @@ async function init() {
   state.equipment = equipment.items;
   state.simulations = simulations;
   state.buildGuides = buildGuides;
+  state.coverage = coverage;
 
   $("[data-live-patch]").textContent = `${version.effectiveLiveVersion.patch} 当前`;
   $("[data-version-line]").textContent = `${version.effectiveLiveVersion.patch} 当前 / ${version.publishedUpcomingVersion.patch} 预览`;

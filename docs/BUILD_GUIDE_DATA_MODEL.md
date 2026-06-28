@@ -18,11 +18,19 @@ scripts/generate-build-guides.mjs
         |
         v
 data/generated/build-guides.json
+        |
+        v
+scripts/generate-site-coverage.mjs
+        |
+        v
+data/generated/site-coverage.json
 ```
 
 `npm run build:data` 会先刷新装备库和赛季构筑矩阵，再生成结构化 BD 档案。
 
 `data/builds/community-build-overrides.json` 用来把可追溯社区 BD 覆盖到生成档案上。覆盖字段可以替换装备槽位、核心威能、技能加点、巅峰点击顺序、打法、来源引用和数据质量状态。没有覆盖的 BD 继续使用本站结构化模板。
+
+`data/generated/site-coverage.json` 从生成后的 BD、装备库和来源登记表汇总玩家可见的覆盖状态。来源页读取它展示 BD 数、社区参考数、模板数、装备字段缺口和存储层用途；`npm run verify` 会校验这些统计和真实数据一致。
 
 社区覆盖支持 `extends`：冲层版可以作为基础，速刷和日常版只覆盖变化的槽位、摘要和打法，生成脚本会合并出完整 11 个装备位。这样同一套真实 BD 的多用途变体可以共享来源和主体结构，同时避免复制粘贴导致槽位遗漏。
 

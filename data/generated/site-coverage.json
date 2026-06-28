@@ -1,0 +1,444 @@
+{
+  "generatedAt": "2026-06-28T16:39:06.828Z",
+  "scope": "player_site_data_coverage_and_storage_usage",
+  "asOf": "2026-06-28",
+  "storageLayers": [
+    {
+      "id": "source_registry",
+      "zhName": "来源登记层",
+      "files": [
+        "data/sources/source-registry.json"
+      ],
+      "frontendUse": "来源页展示可信度；导入脚本只引用已登记来源。"
+    },
+    {
+      "id": "equipment_library",
+      "zhName": "装备资料层",
+      "files": [
+        "data/equipment/equipment-library.json"
+      ],
+      "frontendUse": "装备库、装备详情页和 BD 装备槽位链接。"
+    },
+    {
+      "id": "build_guides",
+      "zhName": "BD 档案层",
+      "files": [
+        "data/generated/build-guides.json",
+        "data/builds/community-build-overrides.json"
+      ],
+      "frontendUse": "BD 大厅、BD 详情、职业入口和装备相关 BD。"
+    },
+    {
+      "id": "forecast_matrix",
+      "zhName": "预测矩阵层",
+      "files": [
+        "data/generated/build-simulations.json"
+      ],
+      "frontendUse": "150 层参考页；不得作为已验证榜单展示。"
+    }
+  ],
+  "buildCoverage": {
+    "total": 252,
+    "seasons": 3,
+    "classes": 8,
+    "byVerificationLevel": {
+      "cross_season_reference": 9,
+      "official_seed_template": 51,
+      "community_reference": 24,
+      "projection_template": 168
+    },
+    "communityReferenceCount": 33,
+    "templateCount": 219,
+    "classMatrix": [
+      {
+        "seasonId": "s14",
+        "zhLabel": "S14 死亡觉醒",
+        "classes": [
+          {
+            "classId": "barbarian",
+            "zhName": "野蛮人",
+            "buildCount": 9,
+            "archetypeCount": 3,
+            "communityReferenceCount": 3,
+            "templateCount": 6,
+            "modes": {
+              "pit_push": 3,
+              "speed_farm": 3,
+              "daily": 3
+            }
+          },
+          {
+            "classId": "druid",
+            "zhName": "德鲁伊",
+            "buildCount": 9,
+            "archetypeCount": 3,
+            "communityReferenceCount": 6,
+            "templateCount": 3,
+            "modes": {
+              "pit_push": 3,
+              "speed_farm": 3,
+              "daily": 3
+            }
+          },
+          {
+            "classId": "necromancer",
+            "zhName": "死灵法师",
+            "buildCount": 12,
+            "archetypeCount": 4,
+            "communityReferenceCount": 6,
+            "templateCount": 6,
+            "modes": {
+              "pit_push": 4,
+              "speed_farm": 4,
+              "daily": 4
+            }
+          },
+          {
+            "classId": "paladin",
+            "zhName": "圣骑士",
+            "buildCount": 9,
+            "archetypeCount": 3,
+            "communityReferenceCount": 0,
+            "templateCount": 9,
+            "modes": {
+              "pit_push": 3,
+              "speed_farm": 3,
+              "daily": 3
+            }
+          },
+          {
+            "classId": "rogue",
+            "zhName": "游侠",
+            "buildCount": 9,
+            "archetypeCount": 3,
+            "communityReferenceCount": 6,
+            "templateCount": 3,
+            "modes": {
+              "pit_push": 3,
+              "speed_farm": 3,
+              "daily": 3
+            }
+          },
+          {
+            "classId": "sorcerer",
+            "zhName": "法师",
+            "buildCount": 12,
+            "archetypeCount": 4,
+            "communityReferenceCount": 6,
+            "templateCount": 6,
+            "modes": {
+              "pit_push": 4,
+              "speed_farm": 4,
+              "daily": 4
+            }
+          },
+          {
+            "classId": "spiritborn",
+            "zhName": "魂灵师",
+            "buildCount": 12,
+            "archetypeCount": 4,
+            "communityReferenceCount": 6,
+            "templateCount": 6,
+            "modes": {
+              "pit_push": 4,
+              "speed_farm": 4,
+              "daily": 4
+            }
+          },
+          {
+            "classId": "warlock",
+            "zhName": "术士",
+            "buildCount": 12,
+            "archetypeCount": 4,
+            "communityReferenceCount": 0,
+            "templateCount": 12,
+            "modes": {
+              "pit_push": 4,
+              "speed_farm": 4,
+              "daily": 4
+            }
+          }
+        ]
+      },
+      {
+        "seasonId": "s15",
+        "zhLabel": "S15 推演",
+        "classes": [
+          {
+            "classId": "barbarian",
+            "zhName": "野蛮人",
+            "buildCount": 9,
+            "archetypeCount": 3,
+            "communityReferenceCount": 0,
+            "templateCount": 9,
+            "modes": {
+              "pit_push": 3,
+              "speed_farm": 3,
+              "daily": 3
+            }
+          },
+          {
+            "classId": "druid",
+            "zhName": "德鲁伊",
+            "buildCount": 9,
+            "archetypeCount": 3,
+            "communityReferenceCount": 0,
+            "templateCount": 9,
+            "modes": {
+              "pit_push": 3,
+              "speed_farm": 3,
+              "daily": 3
+            }
+          },
+          {
+            "classId": "necromancer",
+            "zhName": "死灵法师",
+            "buildCount": 12,
+            "archetypeCount": 4,
+            "communityReferenceCount": 0,
+            "templateCount": 12,
+            "modes": {
+              "pit_push": 4,
+              "speed_farm": 4,
+              "daily": 4
+            }
+          },
+          {
+            "classId": "paladin",
+            "zhName": "圣骑士",
+            "buildCount": 9,
+            "archetypeCount": 3,
+            "communityReferenceCount": 0,
+            "templateCount": 9,
+            "modes": {
+              "pit_push": 3,
+              "speed_farm": 3,
+              "daily": 3
+            }
+          },
+          {
+            "classId": "rogue",
+            "zhName": "游侠",
+            "buildCount": 9,
+            "archetypeCount": 3,
+            "communityReferenceCount": 0,
+            "templateCount": 9,
+            "modes": {
+              "pit_push": 3,
+              "speed_farm": 3,
+              "daily": 3
+            }
+          },
+          {
+            "classId": "sorcerer",
+            "zhName": "法师",
+            "buildCount": 12,
+            "archetypeCount": 4,
+            "communityReferenceCount": 0,
+            "templateCount": 12,
+            "modes": {
+              "pit_push": 4,
+              "speed_farm": 4,
+              "daily": 4
+            }
+          },
+          {
+            "classId": "spiritborn",
+            "zhName": "魂灵师",
+            "buildCount": 12,
+            "archetypeCount": 4,
+            "communityReferenceCount": 0,
+            "templateCount": 12,
+            "modes": {
+              "pit_push": 4,
+              "speed_farm": 4,
+              "daily": 4
+            }
+          },
+          {
+            "classId": "warlock",
+            "zhName": "术士",
+            "buildCount": 12,
+            "archetypeCount": 4,
+            "communityReferenceCount": 0,
+            "templateCount": 12,
+            "modes": {
+              "pit_push": 4,
+              "speed_farm": 4,
+              "daily": 4
+            }
+          }
+        ]
+      },
+      {
+        "seasonId": "s16",
+        "zhLabel": "S16 推演",
+        "classes": [
+          {
+            "classId": "barbarian",
+            "zhName": "野蛮人",
+            "buildCount": 9,
+            "archetypeCount": 3,
+            "communityReferenceCount": 0,
+            "templateCount": 9,
+            "modes": {
+              "pit_push": 3,
+              "speed_farm": 3,
+              "daily": 3
+            }
+          },
+          {
+            "classId": "druid",
+            "zhName": "德鲁伊",
+            "buildCount": 9,
+            "archetypeCount": 3,
+            "communityReferenceCount": 0,
+            "templateCount": 9,
+            "modes": {
+              "pit_push": 3,
+              "speed_farm": 3,
+              "daily": 3
+            }
+          },
+          {
+            "classId": "necromancer",
+            "zhName": "死灵法师",
+            "buildCount": 12,
+            "archetypeCount": 4,
+            "communityReferenceCount": 0,
+            "templateCount": 12,
+            "modes": {
+              "pit_push": 4,
+              "speed_farm": 4,
+              "daily": 4
+            }
+          },
+          {
+            "classId": "paladin",
+            "zhName": "圣骑士",
+            "buildCount": 9,
+            "archetypeCount": 3,
+            "communityReferenceCount": 0,
+            "templateCount": 9,
+            "modes": {
+              "pit_push": 3,
+              "speed_farm": 3,
+              "daily": 3
+            }
+          },
+          {
+            "classId": "rogue",
+            "zhName": "游侠",
+            "buildCount": 9,
+            "archetypeCount": 3,
+            "communityReferenceCount": 0,
+            "templateCount": 9,
+            "modes": {
+              "pit_push": 3,
+              "speed_farm": 3,
+              "daily": 3
+            }
+          },
+          {
+            "classId": "sorcerer",
+            "zhName": "法师",
+            "buildCount": 12,
+            "archetypeCount": 4,
+            "communityReferenceCount": 0,
+            "templateCount": 12,
+            "modes": {
+              "pit_push": 4,
+              "speed_farm": 4,
+              "daily": 4
+            }
+          },
+          {
+            "classId": "spiritborn",
+            "zhName": "魂灵师",
+            "buildCount": 12,
+            "archetypeCount": 4,
+            "communityReferenceCount": 0,
+            "templateCount": 12,
+            "modes": {
+              "pit_push": 4,
+              "speed_farm": 4,
+              "daily": 4
+            }
+          },
+          {
+            "classId": "warlock",
+            "zhName": "术士",
+            "buildCount": 12,
+            "archetypeCount": 4,
+            "communityReferenceCount": 0,
+            "templateCount": 12,
+            "modes": {
+              "pit_push": 4,
+              "speed_farm": 4,
+              "daily": 4
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "equipmentCoverage": {
+    "total": 278,
+    "scope": "equipment_library_seed_from_official_unique_guaranteed_affixes",
+    "coverage": {
+      "uniquePower": 0,
+      "fullAffixRanges": 0,
+      "verifiedSlot": 0,
+      "dropSource": 0,
+      "guaranteedAffixes": 278
+    },
+    "statusCounts": {
+      "uniquePower": {
+        "needs_source_backfill": 278
+      },
+      "fullAffixRanges": {
+        "needs_source_backfill": 278
+      },
+      "dropSource": {
+        "needs_source_backfill": 278
+      },
+      "verifiedSlot": {
+        "needs_source_backfill": 278
+      },
+      "slot": {
+        "inferred_from_name_and_visual_type": 278
+      }
+    },
+    "limitations": [
+      "This is not the full Diablo IV equipment database.",
+      "Official patch notes provide guaranteed affix names but not every roll range, item slot, image, or unique power.",
+      "Visual type and slot candidates are inferred for UI grouping and must be replaced by verified item slot data.",
+      "External icon URLs are referenced from a third-party community source and image files are not committed to this repository."
+    ]
+  },
+  "sourceCoverage": {
+    "total": 10,
+    "byTrustLevel": {
+      "official": 4,
+      "community_verified": 4,
+      "needs_validation": 1,
+      "needs_license_review": 1
+    },
+    "byCategory": {
+      "official_patch_notes": 2,
+      "official_season_overview": 1,
+      "official_expansion_overview": 1,
+      "community_mechanics": 2,
+      "community_build_guide": 1,
+      "community_database": 1,
+      "community_visual_reference": 1,
+      "open_source_tooling": 1
+    }
+  },
+  "playerFacingRules": [
+    "社区来源 BD 可以展示为参考，模板 BD 必须标为模板或推演。",
+    "装备库当前只声明唯一装备固定词缀种子，不声明为全量装备库。",
+    "暗金特效、完整词缀范围、掉落来源和官方槽位未回填时必须显示字段状态。",
+    "预测速度不能写成真实天梯结果。"
+  ]
+}

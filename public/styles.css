@@ -485,7 +485,7 @@ h4 {
   border-bottom: 1px solid rgba(214, 173, 99, 0.22);
   display: grid;
   gap: 1px;
-  grid-template-columns: repeat(8, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
   padding: 10px;
 }
 
@@ -880,6 +880,104 @@ h4 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.build-atlas {
+  background: rgba(8, 4, 3, 0.36);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+.build-atlas-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.atlas-class-card {
+  background: linear-gradient(180deg, rgba(28, 18, 12, 0.88), rgba(8, 4, 3, 0.9));
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  display: grid;
+  gap: 12px;
+  padding: 13px;
+}
+
+.atlas-class-card header {
+  align-items: start;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.atlas-class-card strong {
+  color: #fff7df;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.atlas-class-card span,
+.atlas-class-card em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
+}
+
+.atlas-class-card header em {
+  background: rgba(214, 173, 99, 0.1);
+  border: 1px solid rgba(214, 173, 99, 0.22);
+  color: var(--gold);
+  padding: 6px 8px;
+  white-space: nowrap;
+}
+
+.atlas-mode-list {
+  display: grid;
+  gap: 7px;
+}
+
+.atlas-mode-list a {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 48px minmax(0, 1fr) auto;
+  min-height: 42px;
+  padding: 8px;
+}
+
+.atlas-mode-list a:hover {
+  border-color: rgba(240, 207, 143, 0.42);
+}
+
+.atlas-mode-list a > span {
+  color: var(--gold);
+  font-weight: 800;
+}
+
+.atlas-mode-list a > strong {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.atlas-mode-list a > em {
+  text-align: right;
+}
+
+.atlas-archetypes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.atlas-archetypes span {
+  background: rgba(214, 173, 99, 0.08);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  color: rgba(242, 240, 234, 0.78);
+  padding: 5px 7px;
+}
+
 .guide-card {
   background:
     linear-gradient(180deg, rgba(38, 24, 16, 0.88), rgba(9, 5, 4, 0.92));
@@ -1150,6 +1248,64 @@ h4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.loadout-strip {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+
+.loadout-slot {
+  background: rgba(8, 4, 3, 0.58);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  color: inherit;
+  cursor: pointer;
+  display: grid;
+  gap: 5px;
+  justify-items: center;
+  min-height: 132px;
+  padding: 8px 6px;
+  text-align: center;
+  transition: border-color var(--transition), background-color var(--transition);
+}
+
+.loadout-slot:hover {
+  background: rgba(214, 173, 99, 0.09);
+  border-color: rgba(240, 207, 143, 0.44);
+}
+
+.loadout-slot.is-required {
+  border-color: rgba(240, 207, 143, 0.56);
+  box-shadow: inset 0 0 0 1px rgba(214, 173, 99, 0.08);
+}
+
+.loadout-slot img {
+  background: rgba(214, 173, 99, 0.12);
+  border: 1px solid rgba(214, 173, 99, 0.38);
+  display: block;
+  height: 42px;
+  object-fit: cover;
+  width: 42px;
+}
+
+.loadout-slot span {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.loadout-slot strong {
+  color: var(--bone);
+  font-size: 11px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.loadout-slot em {
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+}
+
 .guide-section-nav {
   background: rgba(8, 4, 3, 0.82);
   border: 1px solid rgba(214, 173, 99, 0.22);
@@ -1224,6 +1380,48 @@ h4 {
   display: grid;
   gap: 12px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.execution-plan {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.execution-plan article {
+  background: rgba(8, 4, 3, 0.5);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 34px minmax(0, 1fr);
+  min-height: 118px;
+  padding: 12px;
+}
+
+.execution-plan span {
+  align-items: center;
+  background: rgba(164, 32, 24, 0.36);
+  border: 1px solid rgba(240, 207, 143, 0.34);
+  color: #fff7df;
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 900;
+  height: 30px;
+  justify-content: center;
+  width: 30px;
+}
+
+.execution-plan strong {
+  color: var(--gold);
+  font-size: 13px;
+}
+
+.execution-plan p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  margin: 5px 0 0;
+  overflow-wrap: anywhere;
 }
 
 .guide-two-col article,
@@ -2029,6 +2227,75 @@ h4 {
   overflow: hidden;
 }
 
+.coverage-panel {
+  background:
+    linear-gradient(180deg, rgba(40, 26, 17, 0.72), rgba(14, 9, 7, 0.96));
+  border: 1px solid rgba(214, 173, 99, 0.26);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+  position: relative;
+}
+
+.coverage-panel::before {
+  background: linear-gradient(90deg, transparent, rgba(240, 207, 143, 0.38), transparent);
+  content: "";
+  height: 1px;
+  inset: 0 18px auto;
+  position: absolute;
+}
+
+.coverage-grid,
+.storage-layer-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.coverage-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.storage-layer-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.coverage-grid article,
+.storage-layer-grid article {
+  background: rgba(8, 4, 3, 0.48);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  gap: 7px;
+  padding: 13px;
+}
+
+.coverage-grid strong {
+  color: #fff7df;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.storage-layer-grid strong {
+  color: var(--gold);
+  font-size: 14px;
+}
+
+.coverage-grid span,
+.storage-layer-grid span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+  overflow-wrap: anywhere;
+}
+
+.coverage-grid p,
+.storage-layer-grid p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0;
+}
+
 .forecast-header {
   align-items: end;
   border-bottom: 1px solid rgba(214, 173, 99, 0.22);
@@ -2182,8 +2449,12 @@ h4 {
   .sim-items,
   .archetype-grid,
   .class-build-actions,
+  .build-atlas-grid,
+  .coverage-grid,
+  .storage-layer-grid,
   .guide-card-grid,
   .gear-slot-grid,
+  .execution-plan,
   .suitability-grid,
   .point-band-grid,
   .glyph-grid,
@@ -2196,6 +2467,10 @@ h4 {
   .skill-layout,
   .paragon-layout {
     grid-template-columns: 1fr;
+  }
+
+  .loadout-strip {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
 
@@ -2249,11 +2524,16 @@ h4 {
   .two-column-detail,
   .sim-items,
   .library-head,
+  .build-atlas-grid,
+  .coverage-grid,
+  .storage-layer-grid,
   .guide-card-grid,
   .class-build-actions,
   .guide-card__metrics,
   .guide-hero__main,
   .guide-kpi-grid,
+  .loadout-strip,
+  .execution-plan,
   .guide-two-col,
   .gear-slot-grid,
   .gameplay-grid,
@@ -2295,6 +2575,27 @@ h4 {
   .build-library-list,
   .class-rail {
     grid-template-columns: 1fr;
+  }
+
+  .atlas-class-card header,
+  .atlas-mode-list a {
+    grid-template-columns: 1fr;
+  }
+
+  .atlas-mode-list a > em {
+    text-align: left;
+  }
+
+  .loadout-slot {
+    align-items: center;
+    grid-template-columns: 42px minmax(0, 1fr) auto;
+    justify-items: start;
+    min-height: 70px;
+    text-align: left;
+  }
+
+  .loadout-slot img {
+    grid-row: 1 / span 3;
   }
 
   .build-library-content,
