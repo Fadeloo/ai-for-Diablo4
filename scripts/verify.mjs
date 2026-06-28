@@ -223,6 +223,8 @@ for (const forbidden of ["模型分", "先选目标", "rationale", "完整 BD �
 }
 assert(frontendText.includes("renderSeasonBuildMatrix"), "BD library must render a season build matrix by class, archetype and mode");
 assert(frontendText.includes("season-build-matrix"), "BD library must expose daily/speed/push comparisons before individual cards");
+assert(frontendText.includes("guide-card__quickfacts"), "BD library cards must expose executable gear, skill, paragon and gameplay facts");
+assert(frontendText.includes("技能第一步") && frontendText.includes("巅峰第一步") && frontendText.includes("打法循环"), "BD cards must preview skill, paragon and gameplay execution before detail navigation");
 assert(frontendText.includes("renderEquipmentUsageMatrix"), "Equipment detail must render a usage matrix for related builds");
 assert(frontendText.includes("equipment-usage-matrix"), "Equipment detail must expose class, build, mode, slot and replacement status for related builds");
 assert(frontendText.includes("renderLoadoutBoard"), "BD detail must render a paper-doll loadout board");

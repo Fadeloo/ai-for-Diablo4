@@ -1099,6 +1099,11 @@ function renderCeilingEvidence(guide) {
 
 function renderBuildLibraryCard(guide) {
   const skills = guide.skillTree?.skillBar || [];
+  const firstSkillStep = guide.skillTree?.pointOrder?.[0];
+  const firstParagonStep = guide.paragon?.clickOrder?.[0];
+  const firstLoop = guide.gameplay?.loop?.[0] || guide.gameplay?.opener?.[0];
+  const replaceableCount = guide.gearSlots.filter((slot) => slot.replaceable).length;
+  const requiredCount = guide.gearSlots.filter((slot) => slot.required).length;
   return `
     <article class="guide-card">
       <div class="guide-card__head">
@@ -1118,6 +1123,32 @@ function renderBuildLibraryCard(guide) {
         <span><b>${guide.formationDifficulty.label}</b>成型难度</span>
         <span><b>${guide.ceiling.pit150Minutes} 分</b>${["community_reference", "cross_season_reference"].includes(guide.ceiling.sourceStatus) ? "150 层参考" : "模板参考"}</span>
         <span><b>${guide.gearSlots.length}</b>装备位置</span>
+      </div>
+      <div class="guide-card__quickfacts" aria-label="BD 可执行摘要">
+        <article>
+          <span>核心件</span>
+          <strong>${guideCoreLine(guide)}</strong>
+        </article>
+        <article>
+          <span>装备替换</span>
+          <strong>${replaceableCount} 可替换 / ${requiredCount} 硬需求</strong>
+        </article>
+        <article>
+          <span>技能第一步</span>
+          <strong>${firstSkillStep ? `${displayText(firstSkillStep.levelRange)} · ${displayText(firstSkillStep.skill)}` : "待来源回填"}</strong>
+        </article>
+        <article>
+          <span>巅峰第一步</span>
+          <strong>${firstParagonStep ? `${displayText(firstParagonStep.board)} · ${displayText(firstParagonStep.node)}` : "待来源回填"}</strong>
+        </article>
+        <article>
+          <span>打法循环</span>
+          <strong>${displayText(firstLoop || "待来源回填")}</strong>
+        </article>
+        <article>
+          <span>资料状态</span>
+          <strong>${guideSourceLabel(guide)}</strong>
+        </article>
       </div>
       <div class="guide-card__items">${renderCoreUniques(guide, 3)}</div>
       <a class="button button-secondary" href="${guideUrl(guide)}">查看完整 BD</a>

@@ -130,7 +130,7 @@ BD 详情 #bd/<guideId>
 | `BuildFilters` | BD 筛选条件 | seasons/classes/modes/sourceLevels | 更新 `state.sim` |
 | `BuildAtlas` | 全职业流派矩阵 | 当前赛季筛选后的 guides | 按职业汇总流派、社区来源、用途入口和上限 |
 | `SeasonBuildMatrix` | 赛季流派对照矩阵 | 当前筛选后的 guides | 按职业/流派展示日常、速刷、冲层版本的难度、阶段、上限和来源 |
-| `BuildCard` | BD 大厅列表项 | `guide` | 进入 BD 详情 |
+| `BuildCard` | BD 大厅列表项 | `guide` | 展示核心件、装备替换、技能第一步、巅峰第一步、打法循环、成熟度并进入详情 |
 | `BuildDetailLayout` | BD 详情页容器 | `guideId` | 渲染分区目录和详情 |
 | `BuildSummaryPanel` | 定位、难度、强弱项 | `guide.summary`、`ceiling` | 顶部摘要 |
 | `BuildVersionSwitcher` | 同流派版本切换 | 当前 `guide`、同赛季同职业同流派 guides | 在详情页首屏切换日常、速刷、冲层版本，并露出同职业社区 BD |

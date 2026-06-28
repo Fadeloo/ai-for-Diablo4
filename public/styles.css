@@ -1253,6 +1253,34 @@ h4 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.guide-card__quickfacts {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.guide-card__quickfacts article {
+  background: rgba(8, 4, 3, 0.5);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+  gap: 4px;
+  min-height: 64px;
+  padding: 8px;
+}
+
+.guide-card__quickfacts span {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.guide-card__quickfacts strong {
+  color: var(--bone);
+  font-size: 12px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
 .guide-card .button {
   align-self: end;
   justify-self: start;
@@ -4455,6 +4483,7 @@ h4 {
   .class-build-mode-grid,
   .season-build-matrix__row,
   .guide-card__metrics,
+  .guide-card__quickfacts,
   .guide-hero__main,
   .guide-version-switcher header,
   .gear-summary-matrix > header,
