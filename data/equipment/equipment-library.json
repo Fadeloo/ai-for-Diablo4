@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T13:32:06.313Z",
+  "generatedAt": "2026-06-28T14:17:55.563Z",
   "source": {
     "id": "blizzard_patch_3_1",
     "url": "https://news.blizzard.com/en-us/article/24287406/diablo-iv-patch-notes",
@@ -1397,7 +1397,7 @@
     {
       "id": "rakanoths-wake",
       "name": "Rakanoth's Wake",
-      "zhName": "拉卡诺斯苏醒",
+      "zhName": "拉卡诺斯的苏醒",
       "rarity": "unique",
       "classRestriction": "All Classes",
       "zhClassRestriction": "全职业",
@@ -1669,7 +1669,7 @@
     {
       "id": "shard-of-verathiel",
       "name": "Shard of Verathiel",
-      "zhName": "裂片维拉希尔",
+      "zhName": "韦拉希尔碎片",
       "rarity": "unique",
       "classRestriction": "All Classes",
       "zhClassRestriction": "全职业",
@@ -2082,7 +2082,7 @@
     {
       "id": "temerity",
       "name": "Temerity",
-      "zhName": "特埃姆埃尔伊特伊",
+      "zhName": "鲁莽",
       "rarity": "unique",
       "classRestriction": "All Classes",
       "zhClassRestriction": "全职业",
@@ -7395,7 +7395,7 @@
     {
       "id": "deathless-visage",
       "name": "Deathless Visage",
-      "zhName": "不死维伊斯阿格埃",
+      "zhName": "不死面容",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -7740,7 +7740,7 @@
     {
       "id": "howl-from-below",
       "name": "Howl from Below",
-      "zhName": "嚎叫幽冥",
+      "zhName": "地下嚎叫",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -7878,7 +7878,7 @@
     {
       "id": "lidless-wall",
       "name": "Lidless Wall",
-      "zhName": "无盖墙",
+      "zhName": "无盖之墙",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",
@@ -8844,7 +8844,7 @@
     {
       "id": "vengeful-sinew",
       "name": "Vengeful Sinew",
-      "zhName": "维埃恩格埃弗乌尔斯伊恩埃沃",
+      "zhName": "复仇筋腱",
       "rarity": "unique",
       "classRestriction": "Necromancer",
       "zhClassRestriction": "死灵法师",

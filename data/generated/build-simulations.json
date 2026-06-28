@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T13:21:43.237Z",
+  "generatedAt": "2026-06-28T14:17:55.615Z",
   "scope": "next_three_season_build_and_pit150_prediction_matrix",
   "warning": "Predictions are model output, not facts. Update with live leaderboard and patch data after each season starts.",
   "zhWarning": "预测结果是模型输出，不是事实榜单。每个赛季上线后需要用真实冲层、速刷成绩和热修补丁继续校准。",
@@ -1258,7 +1258,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -1356,7 +1356,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -1442,7 +1442,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -1540,7 +1540,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -1625,7 +1625,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -1721,7 +1721,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -2920,7 +2920,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -3026,7 +3026,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -3101,7 +3101,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -3207,7 +3207,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -3282,7 +3282,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -3388,7 +3388,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -4593,7 +4593,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -4699,7 +4699,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -4774,7 +4774,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -4880,7 +4880,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -4955,7 +4955,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -5061,7 +5061,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -6282,7 +6282,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -6378,7 +6378,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -6463,7 +6463,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -6559,7 +6559,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -6644,7 +6644,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -6740,7 +6740,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -9628,7 +9628,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -9724,7 +9724,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -9809,7 +9809,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -9905,7 +9905,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -9990,7 +9990,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -10086,7 +10086,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -11285,7 +11285,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -11391,7 +11391,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -11466,7 +11466,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -11572,7 +11572,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -11647,7 +11647,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -11753,7 +11753,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -12974,7 +12974,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -13070,7 +13070,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -13155,7 +13155,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -13251,7 +13251,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -13336,7 +13336,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -13432,7 +13432,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -14660,7 +14660,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -14758,7 +14758,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -14844,7 +14844,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -14942,7 +14942,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -15027,7 +15027,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -15123,7 +15123,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -16322,7 +16322,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -16428,7 +16428,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -16503,7 +16503,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -16609,7 +16609,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -16684,7 +16684,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -16790,7 +16790,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -17995,7 +17995,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -18101,7 +18101,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -18176,7 +18176,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -18282,7 +18282,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -18357,7 +18357,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -18463,7 +18463,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -19684,7 +19684,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -19780,7 +19780,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -19865,7 +19865,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -19961,7 +19961,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -20046,7 +20046,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -20142,7 +20142,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -23030,7 +23030,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -23126,7 +23126,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -23211,7 +23211,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -23307,7 +23307,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -23392,7 +23392,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -23488,7 +23488,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -24687,7 +24687,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -24793,7 +24793,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -24868,7 +24868,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -24974,7 +24974,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -25049,7 +25049,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -25155,7 +25155,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -26376,7 +26376,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -26472,7 +26472,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -26557,7 +26557,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -26653,7 +26653,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -26738,7 +26738,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -26834,7 +26834,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -28062,7 +28062,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -28160,7 +28160,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -28246,7 +28246,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -28344,7 +28344,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -28429,7 +28429,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -28525,7 +28525,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -29724,7 +29724,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -29830,7 +29830,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -29905,7 +29905,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -30011,7 +30011,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -30086,7 +30086,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -30192,7 +30192,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -31397,7 +31397,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -31503,7 +31503,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -31578,7 +31578,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -31684,7 +31684,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -31759,7 +31759,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -31865,7 +31865,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -33086,7 +33086,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -33182,7 +33182,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -33267,7 +33267,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -33363,7 +33363,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -33448,7 +33448,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -33544,7 +33544,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -36432,7 +36432,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -36528,7 +36528,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -36613,7 +36613,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -36709,7 +36709,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -36794,7 +36794,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -36890,7 +36890,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -38089,7 +38089,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -38195,7 +38195,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -38270,7 +38270,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -38376,7 +38376,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -38451,7 +38451,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -38557,7 +38557,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -39778,7 +39778,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -39874,7 +39874,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -39959,7 +39959,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -40055,7 +40055,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },
@@ -40140,7 +40140,7 @@
                 {
                   "id": "shard-of-verathiel",
                   "name": "Shard of Verathiel",
-                  "zhName": "裂片维拉希尔",
+                  "zhName": "韦拉希尔碎片",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/shard_of_verathiel.png",
@@ -40236,7 +40236,7 @@
                     },
                     {
                       "id": "shard-of-verathiel",
-                      "zhName": "裂片维拉希尔",
+                      "zhName": "韦拉希尔碎片",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 基础技能等级。"
                     },

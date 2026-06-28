@@ -24,11 +24,19 @@ const exactItemNames = new Map([
   ["Overkill", "压制"],
   ["Ramaladni's Magnum Opus", "拉玛兰迪的杰作"],
   ["Tibault's Will", "提鲍特的意志"],
+  ["Temerity", "鲁莽"],
+  ["Rakanoth's Wake", "拉卡诺斯的苏醒"],
+  ["Shard of Verathiel", "韦拉希尔碎片"],
   ["Might of the Ursine", "熊族之力"],
   ["Mjölnic Ring", "雷锤之戒"],
   ["Staff of Endless Rage", "无尽怒火法杖"],
   ["Esu's Heirloom", "艾苏的传家宝"],
-  ["Nesekem, the Herald", "先驱者内塞克姆"]
+  ["Nesekem, the Herald", "先驱者内塞克姆"],
+  ["The Undercrown", "幽冥王冠"],
+  ["Vengeful Sinew", "复仇筋腱"],
+  ["Lidless Wall", "无盖之墙"],
+  ["Deathless Visage", "不死面容"],
+  ["Howl from Below", "地下嚎叫"]
 ]);
 
 const wordMap = new Map([

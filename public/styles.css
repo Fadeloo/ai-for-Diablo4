@@ -1530,6 +1530,43 @@ h4 {
   font-weight: 700;
 }
 
+.guide-mini-list {
+  display: grid;
+  gap: 8px;
+}
+
+.guide-mini-link {
+  background: rgba(12, 7, 5, 0.62);
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  transition: background-color var(--transition), border-color var(--transition);
+}
+
+.guide-mini-link:hover {
+  background: rgba(214, 173, 99, 0.1);
+  border-color: rgba(214, 173, 99, 0.42);
+}
+
+.guide-mini-link span,
+.guide-mini-link em,
+.empty-copy {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
+}
+
+.guide-mini-link strong {
+  color: var(--bone);
+  font-size: 14px;
+}
+
+.empty-copy {
+  margin: 0;
+}
+
 .empty-panel {
   align-self: center;
   justify-self: center;
@@ -1607,6 +1644,46 @@ h4 {
   display: block;
   font-size: 12px;
   line-height: 1.45;
+}
+
+.class-build-panel {
+  background: rgba(10, 6, 4, 0.58);
+  border: 1px solid rgba(214, 173, 99, 0.22);
+  display: grid;
+  gap: 14px;
+  grid-column: 1 / -1;
+  padding: 16px;
+}
+
+.class-build-actions {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.class-build-chip {
+  background: linear-gradient(180deg, rgba(214, 173, 99, 0.12), rgba(12, 7, 5, 0.68));
+  border: 1px solid rgba(214, 173, 99, 0.28);
+  display: grid;
+  gap: 4px;
+  min-height: 90px;
+  padding: 12px;
+}
+
+.class-build-chip:hover {
+  border-color: rgba(214, 173, 99, 0.55);
+}
+
+.class-build-chip span,
+.class-build-chip em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+}
+
+.class-build-chip strong {
+  color: var(--gold-bright);
+  font-size: 15px;
 }
 
 .damage-workbench {
@@ -1813,6 +1890,7 @@ h4 {
 
   .sim-items,
   .archetype-grid,
+  .class-build-actions,
   .guide-card-grid,
   .gear-slot-grid,
   .gameplay-grid,
@@ -1877,6 +1955,7 @@ h4 {
   .sim-items,
   .library-head,
   .guide-card-grid,
+  .class-build-actions,
   .guide-card__metrics,
   .guide-hero__main,
   .guide-kpi-grid,

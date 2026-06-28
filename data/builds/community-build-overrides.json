@@ -523,5 +523,270 @@
       "speedFarm": ["材料和低层可以换移动靴。", "不需要完整冲层暗金即可刷日常。"],
       "commonMistakes": ["过早追求冲层伤害导致暴毙。", "缺灵力循环还高速拉怪。", "没有盈月就按完整爆发窗口打。"]
     }
+  },
+  {
+    "id": "s14-necromancer-bone_crit-pit_push",
+    "sourceReference": {
+      "site": "Mobalytics",
+      "url": "https://mobalytics.gg/diablo-4/builds/necromancer-bone-spirit-1",
+      "sourceSeason": "S14 死亡觉醒",
+      "referenceTitle": "S14 Updated Astral Bone Spirit Necromancer",
+      "asOf": "2026-06-28",
+      "note": "Mobalytics 页面标注为 S14 Astral Bone Spirit Necromancer，含装备、技能循环、技能树、亡者之书、巅峰雕文和变体说明；本站按中文资料页结构整理。"
+    },
+    "title": "S14 死亡觉醒 死灵法师 · 星界骨魂冲层",
+    "archetypeName": "星界骨魂",
+    "summary": {
+      "oneLine": "死灵法师「星界骨魂」冲层 BD，围绕骨魂爆发、衰老诅咒、切割重置、凋零精英窗口、血矛压制准备和白骨风暴屏障建立单体与清场。",
+      "pros": ["爆发窗口清晰", "兼顾地下城和首领", "S14 社区页面含冲层与速刷标签"],
+      "cons": ["依赖精魂、冷却和幸运一击", "需要管理压制与骨魂释放窗口", "高层必须保持屏障和诅咒覆盖"],
+      "requirements": ["头盔：幽冥王冠", "胸甲：复仇筋腱", "副手：无盖之墙", "戒指：延迟灭绝"],
+      "statPriority": ["骨魂等级", "暴击几率", "幸运一击", "冷却缩减", "精魂上限"]
+    },
+    "gearSlots": [
+      {
+        "slotId": "helm",
+        "target": {"type": "unique", "zhName": "幽冥王冠"},
+        "aspect": {"name": "暗金特效位", "role": "骨魂与仆从/亡者书联动核心", "sourceStatus": "Mobalytics S14 Astral Bone Spirit 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["主属性", "仆从技能等级", "冷却缩减", "生命上限"],
+        "alternatives": [
+          {"zhName": "谐角之冠", "reason": "缺幽冥王冠时提高全技能和减伤。", "tradeoff": "骨魂专属联动下降。"},
+          {"zhName": "传奇头盔 + 防御威能", "reason": "开荒期补护甲、抗性和冷却。", "tradeoff": "冲层爆发下降。"}
+        ]
+      },
+      {
+        "slotId": "chest",
+        "target": {"type": "unique", "zhName": "复仇筋腱"},
+        "aspect": {"name": "暗金特效位", "role": "骨魂等级与冲层输出核心", "sourceStatus": "Mobalytics S14 Astral Bone Spirit 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["骨魂等级", "主属性", "生命上限", "减伤"],
+        "alternatives": [
+          {"zhName": "伪死之衣", "reason": "需要更高容错和通用属性时使用。", "tradeoff": "骨魂等级和专属收益下降。"},
+          {"zhName": "传奇胸甲 + 防御威能", "reason": "缺暗金时补护甲和抗性。", "tradeoff": "输出上限明显下降。"}
+        ]
+      },
+      {
+        "slotId": "gloves",
+        "target": {"type": "legendary", "zhName": "传奇手套 + 狂烈斗士威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "狂烈斗士威能", "role": "补骨魂爆发与精英窗口伤害", "sourceStatus": "Mobalytics S14 Astral Bone Spirit 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["骨魂等级", "暴击几率", "幸运一击", "攻击速度"],
+        "alternatives": [
+          {"zhName": "传奇手套 + 抓握血脉威能", "reason": "把抓握血脉从武器位移到手套时使用。", "tradeoff": "武器位威能需要同步调整。"},
+          {"zhName": "命运之拳", "reason": "过渡或娱乐高波动输出。", "tradeoff": "稳定性较差。"}
+        ]
+      },
+      {
+        "slotId": "pants",
+        "target": {"type": "legendary", "zhName": "传奇裤子 + 诅咒光环威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "诅咒光环威能", "role": "自动诅咒覆盖，降低衰老维护压力", "sourceStatus": "Mobalytics S14 Astral Bone Spirit 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["生命上限", "护甲", "全元素抗性", "减伤"],
+        "alternatives": [
+          {"zhName": "鲁莽", "reason": "需要屏障容错时使用。", "tradeoff": "诅咒自动覆盖下降。"},
+          {"zhName": "传奇裤子 + 防御威能", "reason": "抗性或护甲缺口大时过渡。", "tradeoff": "功能性下降。"}
+        ]
+      },
+      {
+        "slotId": "boots",
+        "target": {"type": "legendary", "zhName": "传奇靴子 + 屠戮威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "屠戮威能", "role": "击杀后移动与推进效率", "sourceStatus": "Mobalytics S14 Astral Bone Spirit 装备位"},
+        "required": false,
+        "core": false,
+        "replaceable": true,
+        "affixes": ["移动速度", "闪避冷却", "全元素抗性", "精魂消耗降低"],
+        "alternatives": [
+          {"zhName": "拉卡诺斯的苏醒", "reason": "速刷和安全移动时使用。", "tradeoff": "威能位损失。"},
+          {"zhName": "传奇靴子 + 移动威能", "reason": "日常材料刷取过渡。", "tradeoff": "高层上限下降。"}
+        ]
+      },
+      {
+        "slotId": "amulet",
+        "target": {"type": "legendary", "zhName": "传奇护符 + 锯齿威能", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "锯齿威能", "role": "提高骨魂暴击和核心爆发", "sourceStatus": "Mobalytics S14 Astral Bone Spirit 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["骨魂等级", "冷却缩减", "暴击几率", "精魂上限"],
+        "alternatives": [
+          {"zhName": "传奇护符 + 抓握血脉威能", "reason": "按装备词缀把主乘区换到护符时使用。", "tradeoff": "锯齿收益下降。"},
+          {"zhName": "塞利格的融心", "reason": "需要高层容错时可尝试。", "tradeoff": "骨魂爆发下降。"}
+        ]
+      },
+      {
+        "slotId": "ring1",
+        "target": {"type": "unique", "zhName": "延迟灭绝", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "暗金特效位", "role": "来源 BD 的骨魂核心戒指位", "sourceStatus": "Mobalytics S14 Astral Bone Spirit 装备位，本站装备库待回填"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["暴击几率", "幸运一击", "精魂上限", "冷却缩减"],
+        "alternatives": [
+          {"zhName": "传奇戒指 + 元素威能", "reason": "缺延迟灭绝时补周期增伤。", "tradeoff": "核心暗金联动下降。"},
+          {"zhName": "传奇戒指 + 锯齿威能", "reason": "需要重排威能位时使用。", "tradeoff": "护符或武器位要同步调整。"}
+        ]
+      },
+      {
+        "slotId": "ring2",
+        "target": {"type": "legendary", "zhName": "传奇戒指 + 早逝威能", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "早逝威能", "role": "压制准备后的爆发增伤", "sourceStatus": "Mobalytics S14 Astral Bone Spirit 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["暴击几率", "幸运一击", "精魂上限", "资源生成"],
+        "alternatives": [
+          {"zhName": "传奇戒指 + 元素威能", "reason": "速刷或缺压制窗口时更稳定。", "tradeoff": "压制爆发下降。"},
+          {"zhName": "传奇戒指 + 锯齿威能", "reason": "调整护符威能时承接暴击位。", "tradeoff": "戒指词缀压力更大。"}
+        ]
+      },
+      {
+        "slotId": "twoHand",
+        "target": {"type": "legendary", "zhName": "不使用：单手武器 + 副手盾牌方案", "image": "./public/assets/icon-weapon.png"},
+        "aspect": {"name": "空槽说明", "role": "该社区方案使用主手与无盖之墙，不走双手武器", "sourceStatus": "Mobalytics S14 Astral Bone Spirit 装备位"},
+        "required": false,
+        "core": false,
+        "replaceable": true,
+        "affixes": ["无", "保持主手与副手组合", "不占用双手位"],
+        "alternatives": [
+          {"zhName": "双手武器 + 抓握血脉威能", "reason": "缺无盖之墙时的过渡方案。", "tradeoff": "白骨风暴副手联动下降。"},
+          {"zhName": "双手镰刀 + 元素威能", "reason": "只做升级期高装等过渡。", "tradeoff": "偏离来源 BD。"}
+        ]
+      },
+      {
+        "slotId": "mainHand",
+        "target": {"type": "legendary", "zhName": "传奇单手武器 + 抓握血脉威能", "image": "./public/assets/icon-weapon.png"},
+        "aspect": {"name": "抓握血脉威能", "role": "触须/血脉窗口提供暴击爆发", "sourceStatus": "Mobalytics S14 Astral Bone Spirit 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["武器伤害", "骨魂伤害", "暴击伤害", "易伤伤害"],
+        "alternatives": [
+          {"zhName": "韦拉希尔碎片", "reason": "来源页面列为可替换武器方向。", "tradeoff": "技能循环和基础技能需求会变化。"},
+          {"zhName": "传奇单手武器 + 元素威能", "reason": "缺主威能底材时过渡。", "tradeoff": "爆发窗口下降。"}
+        ]
+      },
+      {
+        "slotId": "offHand",
+        "target": {"type": "unique", "zhName": "无盖之墙"},
+        "aspect": {"name": "暗金特效位", "role": "白骨风暴覆盖、屏障与幸运一击核心", "sourceStatus": "Mobalytics S14 Astral Bone Spirit 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["暴击几率", "冷却缩减", "幸运一击", "生命上限"],
+        "alternatives": [
+          {"zhName": "传奇盾牌 + 防御威能", "reason": "缺无盖之墙时补硬度。", "tradeoff": "白骨风暴覆盖和上限下降。"},
+          {"zhName": "传奇副手 + 资源威能", "reason": "精魂压力大时过渡。", "tradeoff": "防御和爆发下降。"}
+        ]
+      }
+    ],
+    "skillTree": {
+      "core": "骨魂",
+      "skillBar": [
+        {"slot": 1, "name": "衰老", "role": "诅咒、冷却和减伤", "points": 1},
+        {"slot": 2, "name": "切割", "role": "重置技能与触发增益", "points": 1},
+        {"slot": 3, "name": "凋零", "role": "精英和首领增伤窗口", "points": 1},
+        {"slot": 4, "name": "血矛", "role": "压制准备", "points": 1},
+        {"slot": 5, "name": "白骨风暴", "role": "幸运一击、屏障和减伤", "points": 1},
+        {"slot": 6, "name": "骨魂", "role": "主攻爆发", "points": 5}
+      ],
+      "pointOrder": [
+        {"levelRange": "1-4", "skill": "基础触发", "points": "+1 并点强化", "reason": "前期先建立精魂和触发入口。"},
+        {"levelRange": "5-12", "skill": "骨魂", "points": "+5 并点强化", "reason": "主力爆发优先点满。"},
+        {"levelRange": "13-17", "skill": "衰老", "points": "+1 至强化", "reason": "来源循环要求先用衰老诅咒敌人。"},
+        {"levelRange": "18-22", "skill": "切割", "points": "+1 至强化", "reason": "用于重置技能并激活技能增益。"},
+        {"levelRange": "23-27", "skill": "凋零", "points": "+1 至强化", "reason": "精英和首领阶段补伤害窗口。"},
+        {"levelRange": "28-32", "skill": "血矛", "points": "+1 至强化", "reason": "为后续 10 次技能使用准备压制窗口。"},
+        {"levelRange": "33-36", "skill": "白骨风暴", "points": "+1", "reason": "获得幸运一击、屏障生成和减伤。"},
+        {"levelRange": "37-45", "skill": "骨魂强化与精魂被动", "points": "+3 至 +6", "reason": "降低资源压力，提高骨魂爆发稳定性。"},
+        {"levelRange": "46-60", "skill": "锯齿、暴击和易伤被动", "points": "+6 至 +9", "reason": "把爆发窗口转化为实际首领伤害。"},
+        {"levelRange": "60+", "skill": "冷却、幸运一击和资源微调", "points": "按装备调整", "reason": "来源说明资源不足时提高衰老与资源相关点数。"}
+      ],
+      "notes": ["亡者之书：收割者牺牲、暗影法师牺牲、钢铁魔像牺牲。", "如果切割暴击已满，可把更多点数转给血矛、衰老或资源被动。"]
+    },
+    "paragon": {
+      "rule": "Mobalytics 页面列出雕文顺序：起始盘放增幅，虚弱放精魂，血生血放控制，血浴放形体，后续血生血放支配、血浴放歼灭。",
+      "clickOrder": [
+        {"board": "起始盘", "node": "增幅雕文", "reason": "先建立诅咒与爆发增伤入口。"},
+        {"board": "起始盘", "node": "核心稀有节点", "reason": "补主属性、生命和精魂路径。"},
+        {"board": "虚弱盘", "node": "精魂雕文", "reason": "缓解骨魂资源压力。"},
+        {"board": "虚弱盘", "node": "减伤与诅咒稀有节点", "reason": "提高衰老覆盖下的高层容错。"},
+        {"board": "血生血盘", "node": "控制雕文", "reason": "利用控制窗口提高精英输出。"},
+        {"board": "血生血盘", "node": "传奇节点路径", "reason": "围绕压制和爆发窗口走短路径。"},
+        {"board": "血浴盘", "node": "形体雕文", "reason": "补通用伤害和生存。"},
+        {"board": "血浴盘", "node": "血量/护甲稀有节点", "reason": "白骨风暴覆盖外仍需基础硬度。"},
+        {"board": "血生血盘", "node": "支配雕文", "reason": "第二轮补压制窗口收益。"},
+        {"board": "血浴盘", "node": "歼灭雕文", "reason": "终局补首领爆发和收尾伤害。"}
+      ]
+    },
+    "gameplay": {
+      "opener": ["先用衰老诅咒目标。", "用切割重置技能并激活增益。", "精英或首领出现时放凋零。", "用血矛准备压制窗口，再开白骨风暴。", "资源和增益到位后用骨魂收割。"],
+      "loop": ["衰老覆盖不断档，冷却压力会明显下降。", "切割用于刷新技能节奏，不要只当输出技能。", "血矛准备的压制窗口留给骨魂爆发。", "白骨风暴用于屏障、幸运一击和减伤。"],
+      "boss": ["首领前保留白骨风暴和血矛窗口。", "凋零交给首领或精英，不要浪费在零散小怪。", "精魂不足时先补资源再交骨魂。"],
+      "defense": ["高层必须维持衰老和白骨风暴覆盖。", "无盖之墙未成型时不要硬推 150。", "护甲、抗性、生命缺口优先补齐。"],
+      "speedFarm": ["低层可以把靴子和胸甲换成移动/隐身类暗金。", "清小怪时不必等完整压制窗口。"],
+      "commonMistakes": ["衰老断档导致冷却和减伤不足。", "骨魂在精魂不足时提前释放。", "白骨风暴空窗期硬吃精英词缀。"]
+    }
+  },
+  {
+    "id": "s14-necromancer-bone_crit-speed_farm",
+    "extends": "s14-necromancer-bone_crit-pit_push",
+    "title": "S14 死亡觉醒 死灵法师 · 星界骨魂速刷",
+    "archetypeName": "星界骨魂",
+    "summary": {
+      "oneLine": "死灵法师「星界骨魂」速刷 BD，沿用骨魂、衰老和白骨风暴主体，把靴子、胸甲和戒指位调整为路线速度、隐身和稳定清图。",
+      "pros": ["爆发清图直接", "冲层装备可复用", "适合材料和中低层天坑"],
+      "cons": ["极限生存低于冲层版", "缺精魂时节奏会断", "高层首领仍需切回冲层配置"],
+      "requirements": ["头盔：幽冥王冠", "副手：无盖之墙", "主手：抓握血脉威能"],
+      "statPriority": ["移动速度", "冷却缩减", "幸运一击", "骨魂等级", "精魂生成"]
+    },
+    "gearSlots": [
+      {"slotId": "chest", "target": {"type": "unique", "zhName": "伪死之衣"}, "aspect": {"name": "暗金特效位", "role": "速刷隐身、移速和通用属性", "sourceStatus": "Mobalytics Astral Bone Spirit 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["全属性", "全元素抗性", "生命上限", "移动速度"], "alternatives": [{"zhName": "复仇筋腱", "reason": "需要冲层骨魂等级时换回。", "tradeoff": "路线速度下降。"}, {"zhName": "传奇胸甲 + 防御威能", "reason": "缺神话暗金时补硬度。", "tradeoff": "速刷效率下降。"}]},
+      {"slotId": "boots", "target": {"type": "unique", "zhName": "拉卡诺斯的苏醒"}, "aspect": {"name": "暗金特效位", "role": "移动、安全和清图节奏", "sourceStatus": "Mobalytics Astral Bone Spirit 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["移动速度", "全伤害乘区", "闪避冷却", "全元素抗性"], "alternatives": [{"zhName": "传奇靴子 + 屠戮威能", "reason": "需要来源冲层位时换回。", "tradeoff": "移动手感下降。"}, {"zhName": "传奇靴子 + 移动威能", "reason": "低层过渡。", "tradeoff": "暗金收益下降。"}]},
+      {"slotId": "ring2", "target": {"type": "legendary", "zhName": "传奇戒指 + 元素威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "元素威能", "role": "低层稳定周期增伤", "sourceStatus": "Mobalytics Astral Bone Spirit 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["暴击几率", "幸运一击", "资源生成", "冷却缩减"], "alternatives": [{"zhName": "传奇戒指 + 早逝威能", "reason": "要打高层或首领时换回。", "tradeoff": "速刷节奏更吃压制窗口。"}, {"zhName": "传奇戒指 + 锯齿威能", "reason": "缺护符好词缀时承接暴击威能。", "tradeoff": "戒指词缀压力增加。"}]}
+    ],
+    "gameplay": {
+      "opener": ["进图先保持衰老覆盖，不为零散怪停留。", "白骨风暴用于启动屏障和幸运一击。", "精英包前再叠血矛压制并交骨魂。"],
+      "loop": ["低层以路线速度为主，骨魂用于精英和密集怪群。", "切割刷新节奏，凋零只给精英或事件首领。", "拉卡诺斯的苏醒和伪死之衣用于缩短空跑。", "资源不足时降低拉怪规模。"],
+      "boss": ["速刷首领打一轮血矛压制加骨魂即可。", "没有白骨风暴时不要贴脸硬吃。", "需要高层首领时切回冲层版。"],
+      "defense": ["速刷版胸甲更偏效率，危险词缀优先移动。", "无盖之墙仍是屏障核心。", "抗性不足时不要换掉防御胸甲。"],
+      "speedFarm": ["主目标是连续清精英和事件，不追求完整冲层循环。", "低层材料可牺牲部分防御换移动速度。"],
+      "commonMistakes": ["把凋零交给小怪导致精英窗口缺伤害。", "骨魂在精魂不足时空放。", "为了速度换掉所有防御位。"]
+    }
+  },
+  {
+    "id": "s14-necromancer-bone_crit-daily",
+    "extends": "s14-necromancer-bone_crit-pit_push",
+    "title": "S14 死亡觉醒 死灵法师 · 星界骨魂日常",
+    "archetypeName": "星界骨魂",
+    "summary": {
+      "oneLine": "死灵法师「星界骨魂」日常 BD，保留骨魂、衰老和白骨风暴核心，用传奇防御件和资源词缀降低成型门槛。",
+      "pros": ["缺件也能过渡", "日常容错高", "后续可平滑切到冲层版"],
+      "cons": ["150 层上限低于完整暗金版", "缺无盖之墙时防御和覆盖明显下降", "资源词缀不足会断循环"],
+      "requirements": ["先找无盖之墙", "头盔和胸甲可用传奇件过渡", "戒指优先资源和暴击"],
+      "statPriority": ["生命上限", "全元素抗性", "冷却缩减", "骨魂等级", "精魂生成"]
+    },
+    "gearSlots": [
+      {"slotId": "helm", "target": {"type": "legendary", "zhName": "传奇头盔 + 防御威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "防御威能", "role": "日常抗性、护甲和冷却过渡", "sourceStatus": "Mobalytics Astral Bone Spirit 日常变体整理"}, "required": false, "core": false, "replaceable": true, "affixes": ["生命上限", "护甲", "全元素抗性", "冷却缩减"], "alternatives": [{"zhName": "幽冥王冠", "reason": "拿到后切回完整骨魂版。", "tradeoff": "获取难度较高。"}, {"zhName": "谐角之冠", "reason": "有掉落时提高全技能和减伤。", "tradeoff": "神话暗金获取难度高。"}]},
+      {"slotId": "chest", "target": {"type": "legendary", "zhName": "传奇胸甲 + 防御威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "防御威能", "role": "日常硬度和抗性补齐", "sourceStatus": "Mobalytics Astral Bone Spirit 日常变体整理"}, "required": false, "core": false, "replaceable": true, "affixes": ["护甲", "生命上限", "减伤", "全元素抗性"], "alternatives": [{"zhName": "复仇筋腱", "reason": "骨魂等级和输出成型后换回。", "tradeoff": "日常容错下降。"}, {"zhName": "伪死之衣", "reason": "有神话暗金时提高通用属性和效率。", "tradeoff": "缺专属骨魂等级。"}]},
+      {"slotId": "ring1", "target": {"type": "legendary", "zhName": "传奇戒指 + 资源威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "资源威能", "role": "缺延迟灭绝时保证精魂循环", "sourceStatus": "Mobalytics Astral Bone Spirit 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["资源生成", "暴击几率", "幸运一击", "冷却缩减"], "alternatives": [{"zhName": "延迟灭绝", "reason": "拿到后切回完整来源 BD。", "tradeoff": "装备库仍待补全该暗金条目。"}, {"zhName": "传奇戒指 + 元素威能", "reason": "低层日常稳定增伤。", "tradeoff": "资源压力更大。"}]},
+      {"slotId": "offHand", "target": {"type": "legendary", "zhName": "传奇盾牌 + 防御威能", "image": "./public/assets/icon-utility.png"}, "aspect": {"name": "防御威能", "role": "缺无盖之墙时补抗性和屏障", "sourceStatus": "Mobalytics Astral Bone Spirit 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["冷却缩减", "生命上限", "护甲", "幸运一击"], "alternatives": [{"zhName": "无盖之墙", "reason": "拿到后切回完整白骨风暴联动。", "tradeoff": "获取前防御和爆发都较弱。"}, {"zhName": "传奇副手 + 资源威能", "reason": "精魂不足时过渡。", "tradeoff": "硬度下降。"}]}
+    ],
+    "gameplay": {
+      "opener": ["先用衰老降低危险怪伤害。", "白骨风暴或防御技能可用时再进入精英包。", "资源足够后用骨魂清精英。"],
+      "loop": ["日常版本以稳定为主，不强求每次骨魂都吃满压制窗口。", "切割用于刷新节奏，凋零留给精英。", "缺无盖之墙时降低拉怪规模。", "装备成型后逐步换回幽冥王冠、复仇筋腱和延迟灭绝。"],
+      "boss": ["保留血矛压制和白骨风暴。", "精魂不足时先补资源，不要连续空放骨魂。", "日常首领不追求极限秒杀。"],
+      "defense": ["抗性、护甲、生命优先于纯伤害词缀。", "缺无盖之墙时不要硬推高层。", "白骨风暴空窗期主动拉开。"],
+      "speedFarm": ["低层材料可先用移动靴和资源戒指。", "拿到核心暗金后切换速刷或冲层版。"],
+      "commonMistakes": ["没补抗性就追骨魂等级。", "缺资源词缀导致骨魂断档。", "日常装备硬打 150 层。"]
+    }
   }
 ]

@@ -290,9 +290,16 @@ function listItems(items) {
 
 function bindImageFallbacks(root) {
   root?.querySelectorAll("img[data-fallback]").forEach((img) => {
-    img.addEventListener("error", () => {
+    const useFallback = () => {
       if (img.src.endsWith(img.dataset.fallback)) return;
       img.src = img.dataset.fallback;
+    };
+    if (img.complete && img.naturalWidth === 0) {
+      useFallback();
+      return;
+    }
+    img.addEventListener("error", () => {
+      useFallback();
     }, { once: true });
   });
 }
@@ -391,6 +398,100 @@ function filteredGuides() {
 
 function guideSourceLabel(guide) {
   return verificationLevelLabels[guide.source.verificationLevel] || (guide.source.references?.length ? "社区参考" : "结构化模板");
+}
+
+function guideSourceRank(guide) {
+  const ranks = {
+    community_reference: 0,
+    cross_season_reference: 1,
+    official_seed_template: 2,
+    projection_template: 3
+  };
+  return ranks[guide.source.verificationLevel] ?? 4;
+}
+
+function sortGuidesForPlayer(a, b) {
+  return guideSourceRank(a) - guideSourceRank(b)
+    || a.ceiling.pit150Minutes - b.ceiling.pit150Minutes
+    || a.formationDifficulty.level - b.formationDifficulty.level;
+}
+
+function bestGuideForClassMode(classId, mode) {
+  return allBuildGuides()
+    .filter((guide) => guide.taxonomy.seasonId === state.sim.seasonId)
+    .filter((guide) => guide.taxonomy.classId === classId)
+    .filter((guide) => guide.taxonomy.mode === mode)
+    .sort(sortGuidesForPlayer)[0] || null;
+}
+
+function syncBuildFilterControls() {
+  const season = $("[data-sim-season]");
+  const classSelect = $("[data-sim-class]");
+  const mode = $("[data-sim-mode]");
+  const source = $("[data-sim-source]");
+  if (season) season.value = state.sim.seasonId;
+  if (classSelect) classSelect.value = state.sim.classId;
+  if (mode) mode.value = state.sim.mode;
+  if (source) source.value = state.sim.sourceQuality;
+}
+
+function openBuildLibrary(filters) {
+  state.sim = {
+    ...state.sim,
+    ...filters,
+    buildIndex: 0
+  };
+  state.selectedClassId = state.sim.classId;
+  syncBuildFilterControls();
+  renderSimulator();
+  renderForecast();
+  renderSelectedClass();
+  if (window.location.hash === "#builds") {
+    setView("builds", { replaceHash: true });
+  } else {
+    window.location.hash = "#builds";
+  }
+}
+
+function normalizedText(value) {
+  return String(value || "").trim().toLowerCase();
+}
+
+function guideUsesItem(guide, item) {
+  const itemId = item.id;
+  const zhName = normalizedText(item.zhName);
+  const englishName = normalizedText(item.name);
+  return guide.gearSlots.some((slot) => {
+    const targetNames = [slot.target?.zhName, slot.target?.name].map(normalizedText);
+    if (slot.target?.itemId === itemId) return true;
+    if (targetNames.includes(zhName) || targetNames.includes(englishName)) return true;
+    return (slot.alternatives || []).some((alternative) => {
+      const alternativeNames = [alternative.zhName, alternative.name].map(normalizedText);
+      return alternative.itemId === itemId || alternativeNames.includes(zhName) || alternativeNames.includes(englishName);
+    });
+  });
+}
+
+function relatedGuidesForItem(item, limit = 6) {
+  return allBuildGuides()
+    .filter((guide) => guideUsesItem(guide, item))
+    .sort(sortGuidesForPlayer)
+    .slice(0, limit);
+}
+
+function renderGuideMiniLinks(guides, emptyText) {
+  if (!guides.length) return `<p class="empty-copy">${emptyText}</p>`;
+  return `
+    <div class="guide-mini-list">
+      ${guides.map((guide) => `
+        <a class="guide-mini-link" href="${guideUrl(guide)}">
+          <span>${guide.taxonomy.className} · ${guide.taxonomy.modeName}</span>
+          <strong>${guide.taxonomy.archetypeName}</strong>
+          <em>${guideSourceLabel(guide)} · ${guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</em>
+        </a>
+      `).join("")}
+    </div>
+  `;
 }
 
 function renderTags(tags, limit = 8) {
@@ -761,6 +862,14 @@ function renderSelectedClass() {
   const selected = state.classes.find((item) => item.id === state.selectedClassId) ?? state.classes[0];
   const plan = state.plans.find((item) => item.classId === selected.id);
   const archetypes = state.archetypes.find((item) => item.classId === selected.id)?.archetypes ?? [];
+  const modeShortcuts = Object.keys(modeLabels)
+    .map((mode) => ({ mode, guide: bestGuideForClassMode(selected.id, mode) }));
+  const communityGuides = allBuildGuides()
+    .filter((guide) => guide.taxonomy.seasonId === state.sim.seasonId)
+    .filter((guide) => guide.taxonomy.classId === selected.id)
+    .filter((guide) => guide.source.verificationLevel === "community_reference" || guide.source.verificationLevel === "cross_season_reference")
+    .sort(sortGuidesForPlayer)
+    .slice(0, 4);
 
   document.querySelectorAll("[data-class-id]").forEach((button) => {
     button.setAttribute("aria-selected", String(button.dataset.classId === selected.id));
@@ -777,7 +886,24 @@ function renderSelectedClass() {
         <span>${item.primaryStats.map(statLabel).join(" / ")}</span>
       </article>
     `)
-    .join("");
+    .join("") + `
+      <section class="class-build-panel">
+        <div class="section-title">
+          <h4>${selected.zhName} BD 入口</h4>
+          <span>${state.simulations.seasons.find((season) => season.id === state.sim.seasonId)?.zhLabel || "当前赛季"}</span>
+        </div>
+        <div class="class-build-actions">
+          ${modeShortcuts.map(({ mode, guide }) => `
+            <a class="class-build-chip" href="#builds" data-build-filter-class="${selected.id}" data-build-filter-mode="${mode}" data-build-filter-source="all">
+              <span>${modeName(mode)}</span>
+              <strong>${guide?.taxonomy.archetypeName || "待回填"}</strong>
+              <em>${guide ? guideSourceLabel(guide) : "暂无可用 BD"}</em>
+            </a>
+          `).join("")}
+        </div>
+        ${renderGuideMiniLinks(communityGuides, "该职业还没有同赛季或跨赛季社区 BD，后续导入后会显示在这里。")}
+      </section>
+    `;
 }
 
 function filteredEquipmentRows() {
@@ -866,6 +992,7 @@ function renderEquipmentDetail(item) {
       </div>
     `)
     .join("");
+  const relatedGuides = relatedGuidesForItem(item);
 
   panel.innerHTML = `
     <div class="equipment-detail-hero">
@@ -890,6 +1017,13 @@ function renderEquipmentDetail(item) {
         <span>资料完整度</span>
       </div>
       <div class="status-grid">${statuses}</div>
+    </section>
+    <section class="detail-section">
+      <div class="section-title">
+        <h4>相关 BD</h4>
+        <span>${relatedGuides.length} 套</span>
+      </div>
+      ${renderGuideMiniLinks(relatedGuides, "当前装备还没有进入已结构化 BD；后续资料回填后会自动关联。")}
     </section>
     <section class="detail-section">
       <div class="section-title">
@@ -1021,6 +1155,17 @@ function bindInteractions() {
   });
 
   document.addEventListener("click", (event) => {
+    const filterLink = event.target.closest("[data-build-filter-class]");
+    if (filterLink) {
+      event.preventDefault();
+      openBuildLibrary({
+        classId: filterLink.dataset.buildFilterClass,
+        mode: filterLink.dataset.buildFilterMode,
+        sourceQuality: filterLink.dataset.buildFilterSource || "all"
+      });
+      return;
+    }
+
     const button = event.target.closest("[data-guide-jump]");
     if (!button) return;
     const section = $(`[data-guide-section="${button.dataset.guideJump}"]`);
