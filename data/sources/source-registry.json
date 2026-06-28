@@ -134,5 +134,20 @@
       "item_tooltip_parsing_reference"
     ],
     "notes": "MIT repository updated near the project baseline; useful for parser ideas, not a canonical item database."
+  },
+  {
+    "id": "d2core_unique_item_database",
+    "name": "暗黑核 暗黑4暗金数据库",
+    "category": "community_database",
+    "trustLevel": "needs_validation",
+    "url": "https://www.d2core.com/d4/data/uniqueItem",
+    "lastChecked": "2026-06-29",
+    "use": [
+      "community_unique_power_text",
+      "community_drop_boss_reference",
+      "community_equipment_slot_cross_check",
+      "community_affix_range_cross_check"
+    ],
+    "notes": "Community database used as attributed reference for Chinese unique item text, drop bosses and equipment type. It is not an official Blizzard source; imported fields keep field-level community status."
   }
 ]

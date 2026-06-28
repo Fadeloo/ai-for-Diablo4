@@ -6,6 +6,7 @@ const root = path.resolve(new URL(".", import.meta.url).pathname, "..");
 const uniquePath = path.join(root, "data/generated/official-3.1.0-guaranteed-unique-affixes.json");
 const taxonomyPath = path.join(root, "data/equipment/affix-taxonomy.json");
 const iconIndexPath = path.join(root, "data/generated/d4builds-icon-index.json");
+const communityOverridePath = path.join(root, "data/equipment/community-unique-overrides.json");
 const output = path.join(root, "data/equipment/equipment-library.json");
 
 function slugify(value) {
@@ -52,6 +53,13 @@ const slotLabels = {
   mainHand: "主手",
   offHand: "副手"
 };
+
+function visualTypeFromSlot(slot, fallback) {
+  if (["twoHand", "mainHand", "offHand"].includes(slot)) return "weapon";
+  if (["amulet", "ring"].includes(slot)) return "jewelry";
+  if (["helm", "chest", "gloves", "pants", "boots"].includes(slot)) return "armor";
+  return fallback;
+}
 
 function hashText(value) {
   return [...String(value)].reduce((total, char) => (total * 31 + char.charCodeAt(0)) >>> 0, 7);
@@ -157,24 +165,38 @@ async function readOptionalJson(file) {
 const uniqueData = JSON.parse(await readFile(uniquePath, "utf8"));
 const taxonomy = JSON.parse(await readFile(taxonomyPath, "utf8"));
 const iconIndex = await readOptionalJson(iconIndexPath);
+const communityOverrides = await readOptionalJson(communityOverridePath);
+const communityOverrideById = new Map((communityOverrides?.items ?? []).map((item) => [item.itemId, item]));
 const externalIcons = new Map((iconIndex?.items ?? []).map((item) => [item.name, item]));
 const gameVersion = parseGameVersion(uniqueData.source);
 const items = uniqueData.items.map((item) => {
-  const zhName = zh.itemName(item.name);
+  const id = slugify(item.name);
+  const communityOverride = communityOverrideById.get(id);
+  const zhName = communityOverride?.zhName || zh.itemName(item.name);
   const guaranteedAffixes = item.guaranteedAffixes.map((affix) => ({
     ...affix,
     categoryId: classifyAffix(affix.name, taxonomy)
   }));
   const categories = [...new Set(guaranteedAffixes.map((affix) => affix.categoryId))];
-  const visualType = inferVisualType(item);
-  const slotCandidates = inferItemSlots(item, zhName, visualType);
+  const inferredVisualType = inferVisualType(item);
+  const visualType = visualTypeFromSlot(communityOverride?.verifiedSlot, inferredVisualType);
+  const slotCandidates = communityOverride?.verifiedSlot
+    ? [communityOverride.verifiedSlot]
+    : inferItemSlots(item, zhName, visualType);
   const zhSlotCandidates = slotCandidates.map((slot) => slotLabels[slot] || slot);
   const externalIcon = externalIcons.get(item.name);
+  const fullAffixRanges = communityOverride?.fullAffixRanges || [];
+  const zhFullAffixRanges = communityOverride?.zhFullAffixRanges || fullAffixRanges;
+  const hasFullAffixRanges = fullAffixRanges.length > 0;
+  const hasCommunityUniquePower = Boolean(communityOverride?.uniquePower);
+  const hasCommunityDropSource = Boolean(communityOverride?.dropSource?.zhText);
+  const hasCommunityVerifiedSlot = Boolean(communityOverride?.verifiedSlot);
   return {
-    id: slugify(item.name),
+    id,
     name: item.name,
     zhName,
     rarity: "unique",
+    isMythic: Boolean(communityOverride?.isMythic),
     classRestriction: item.classRestriction,
     zhClassRestriction: zh.classRestriction(item.classRestriction),
     visualType,
@@ -183,21 +205,25 @@ const items = uniqueData.items.map((item) => {
     zhPrimarySlot: zhSlotCandidates[0] || "待回填",
     slotCandidates,
     zhSlotCandidates,
+    communityEquipType: communityOverride?.equipType || null,
+    zhCommunityEquipType: communityOverride?.zhEquipType || null,
+    communityBaseText: communityOverride?.baseText || null,
     image: `./public/assets/icon-${visualType}.png`,
     externalImage: externalIcon?.iconUrl ?? null,
     externalImageSource: externalIcon?.iconUrl ? iconIndex.source : null,
     externalImageMatchType: externalIcon?.matchType ?? "none",
     guaranteedAffixes,
     zhGuaranteedAffixes: guaranteedAffixes.map((affix) => zh.affix(affix.name)),
-    fullAffixRanges: [],
-    zhFullAffixRanges: [],
-    uniquePower: null,
-    zhUniquePower: "暗金特效待来源回填",
-    dropSource: {
+    fullAffixRanges,
+    zhFullAffixRanges,
+    uniquePower: communityOverride?.uniquePower || null,
+    zhUniquePower: communityOverride?.zhUniquePower || "暗金特效待来源回填",
+    dropSource: communityOverride?.dropSource || {
       status: "needs_source_backfill",
       zhText: "掉落来源待来源回填"
     },
-    verifiedSlot: null,
+    verifiedSlot: communityOverride?.verifiedSlot || null,
+    zhVerifiedSlot: communityOverride?.zhVerifiedSlot || null,
     categories,
     buildRole: buildRole(categories),
     zhBuildRole: zh.buildRole(buildRole(categories)),
@@ -207,19 +233,24 @@ const items = uniqueData.items.map((item) => {
       ...uniqueData.source,
       gameVersion
     },
+    communitySource: communityOverride?.source || null,
     gameVersion,
     dataStatus: {
       guaranteedAffixes: "official_3_1_0_patch",
-      fullAffixRanges: "needs_source_backfill",
-      uniquePower: "needs_source_backfill",
-      dropSource: "needs_source_backfill",
-      verifiedSlot: "needs_source_backfill",
-      slot: slotCandidates.length ? "inferred_from_name_and_visual_type" : "inferred_or_unknown",
+      fullAffixRanges: hasFullAffixRanges ? "community_database_reference" : "needs_source_backfill",
+      uniquePower: hasCommunityUniquePower ? "community_database_reference" : "needs_source_backfill",
+      dropSource: hasCommunityDropSource ? "community_database_reference" : "needs_source_backfill",
+      verifiedSlot: hasCommunityVerifiedSlot ? "community_database_reference" : "needs_source_backfill",
+      slot: hasCommunityVerifiedSlot ? "community_database_reference" : (slotCandidates.length ? "inferred_from_name_and_visual_type" : "inferred_or_unknown"),
       icon: externalIcon?.iconUrl ? "external_url_reference" : "local_generated_fallback"
     },
     notes: item.notes
   };
 });
+
+function countStatus(field) {
+  return items.filter((item) => item.dataStatus[field] !== "needs_source_backfill").length;
+}
 
 const payload = {
   generatedAt: new Date().toISOString(),
@@ -227,16 +258,26 @@ const payload = {
   gameVersion,
   scope: "equipment_library_seed_from_official_unique_guaranteed_affixes",
   coverage: {
-    uniquePower: 0,
-    fullAffixRanges: 0,
-    verifiedSlot: 0,
-    dropSource: 0,
+    uniquePower: countStatus("uniquePower"),
+    fullAffixRanges: countStatus("fullAffixRanges"),
+    verifiedSlot: countStatus("verifiedSlot"),
+    dropSource: countStatus("dropSource"),
     guaranteedAffixes: items.length
   },
+  communityCoverage: communityOverrides ? {
+    sourceId: communityOverrides.source.sourceId,
+    sourceUrl: communityOverrides.source.url,
+    matchedCount: communityOverrides.match.matchedCount,
+    sourceEnglishCount: communityOverrides.match.sourceEnglishCount,
+    sourceChineseCount: communityOverrides.match.sourceChineseCount,
+    d2coreBuild: communityOverrides.source.d2coreBuild,
+    generatedAt: communityOverrides.generatedAt
+  } : null,
   limitations: [
     "This is not the full Diablo IV equipment database.",
-    "Official patch notes provide guaranteed affix names but not every roll range, item slot, image, or unique power.",
-    "Visual type and slot candidates are inferred for UI grouping and must be replaced by verified item slot data.",
+    "Official patch notes provide guaranteed affix names; unique powers, drop bosses and verified item slots are cross-checked from an attributed community database.",
+    "Community database fields are marked per field and should be revalidated against in-game tooltips after major patches.",
+    "Some complete affix ranges are still unavailable when the community database only exposes the unique power line.",
     "External icon URLs are referenced from a third-party community source and image files are not committed to this repository."
   ],
   itemCount: items.length,

@@ -3982,6 +3982,48 @@ h4 {
   margin-top: 4px;
 }
 
+.affix-list--ranges strong {
+  color: var(--bone);
+  display: block;
+  font-size: 13px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  white-space: pre-line;
+}
+
+.unique-power-panel {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.65fr);
+}
+
+.unique-power-panel article,
+.missing-data-note {
+  background:
+    linear-gradient(180deg, rgba(92, 33, 24, 0.18), rgba(9, 6, 4, 0.82)),
+    rgba(12, 7, 5, 0.72);
+  border: 1px solid rgba(214, 173, 99, 0.22);
+  margin: 0;
+  min-width: 0;
+  padding: 14px;
+}
+
+.unique-power-panel strong {
+  color: var(--gold);
+  display: block;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.unique-power-panel p,
+.missing-data-note {
+  color: var(--bone);
+  font-size: 13px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+  white-space: pre-line;
+}
+
 .status-grid {
   display: grid;
   gap: 8px;
@@ -4950,6 +4992,7 @@ h4 {
   .aspect-detail-hero,
   .aspect-slot-grid,
   .equipment-info-grid,
+  .unique-power-panel,
   .status-grid,
   .damage-lab,
   .forecast-header,

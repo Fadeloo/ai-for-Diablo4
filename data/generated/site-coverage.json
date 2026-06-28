@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T19:36:08.652Z",
+  "generatedAt": "2026-06-28T19:56:01.012Z",
   "scope": "player_site_data_coverage_and_storage_usage",
   "asOf": "2026-06-28",
   "storageLayers": [
@@ -700,33 +700,35 @@
     "total": 278,
     "scope": "equipment_library_seed_from_official_unique_guaranteed_affixes",
     "coverage": {
-      "uniquePower": 0,
-      "fullAffixRanges": 0,
-      "verifiedSlot": 0,
-      "dropSource": 0,
+      "uniquePower": 278,
+      "fullAffixRanges": 15,
+      "verifiedSlot": 278,
+      "dropSource": 278,
       "guaranteedAffixes": 278
     },
     "statusCounts": {
       "uniquePower": {
-        "needs_source_backfill": 278
+        "community_database_reference": 278
       },
       "fullAffixRanges": {
-        "needs_source_backfill": 278
+        "community_database_reference": 15,
+        "needs_source_backfill": 263
       },
       "dropSource": {
-        "needs_source_backfill": 278
+        "community_database_reference": 278
       },
       "verifiedSlot": {
-        "needs_source_backfill": 278
+        "community_database_reference": 278
       },
       "slot": {
-        "inferred_from_name_and_visual_type": 278
+        "community_database_reference": 278
       }
     },
     "limitations": [
       "This is not the full Diablo IV equipment database.",
-      "Official patch notes provide guaranteed affix names but not every roll range, item slot, image, or unique power.",
-      "Visual type and slot candidates are inferred for UI grouping and must be replaced by verified item slot data.",
+      "Official patch notes provide guaranteed affix names; unique powers, drop bosses and verified item slots are cross-checked from an attributed community database.",
+      "Community database fields are marked per field and should be revalidated against in-game tooltips after major patches.",
+      "Some complete affix ranges are still unavailable when the community database only exposes the unique power line.",
       "External icon URLs are referenced from a third-party community source and image files are not committed to this repository."
     ]
   },
@@ -745,11 +747,11 @@
     }
   },
   "sourceCoverage": {
-    "total": 10,
+    "total": 11,
     "byTrustLevel": {
       "official": 4,
       "community_verified": 4,
-      "needs_validation": 1,
+      "needs_validation": 2,
       "needs_license_review": 1
     },
     "byCategory": {
@@ -758,7 +760,7 @@
       "official_expansion_overview": 1,
       "community_mechanics": 2,
       "community_build_guide": 1,
-      "community_database": 1,
+      "community_database": 2,
       "community_visual_reference": 1,
       "open_source_tooling": 1
     }
@@ -766,7 +768,7 @@
   "playerFacingRules": [
     "社区来源 BD 可以展示为参考，模板 BD 必须标为模板或推演。",
     "装备库当前只声明唯一装备固定词缀种子，不声明为全量装备库。",
-    "暗金特效、完整词缀范围、掉落来源和官方槽位未回填时必须显示字段状态。",
+    "暗金特效、掉落来源和验证部位来自社区数据库参考；完整词缀范围缺失时必须继续显示字段状态。",
     "预测速度不能写成真实天梯结果。"
   ]
 }

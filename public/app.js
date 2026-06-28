@@ -103,7 +103,8 @@ const sourceLabels = {
   mobalytics_diablo4_builds: "Mobalytics 暗黑4构筑资料",
   d4builds_database: "D4Builds 数据库",
   d4builds_sunderarmor_icons: "D4Builds 唯一装备图标引用",
-  d4lf_repo: "d4lf 开源工具仓库"
+  d4lf_repo: "d4lf 开源工具仓库",
+  d2core_unique_item_database: "暗黑核暗金数据库"
 };
 
 const sourceCategoryLabels = {
@@ -126,6 +127,7 @@ const trustLabels = {
 
 const dataStatusLabels = {
   official_3_1_0_patch: "官方 3.1.0 补丁",
+  community_database_reference: "社区数据库参考",
   needs_source_backfill: "待数据源回填",
   inferred_or_unknown: "推断或未知",
   inferred_from_name_and_visual_type: "按名称和类型推断",
@@ -609,8 +611,9 @@ function renderSelects() {
   if (statusSelect) {
     statusSelect.innerHTML = `
       <option value="all">全部状态</option>
-      <option value="needs_source_backfill">待来源回填</option>
-      <option value="inferred_from_name_and_visual_type">部位推断</option>
+      <option value="community_database_reference">社区数据库参考</option>
+      <option value="needs_source_backfill">完整范围待回填</option>
+      <option value="official_3_1_0_patch">官方固定词缀</option>
       <option value="external_url_reference">外部图标</option>
     `;
   }
@@ -2759,6 +2762,11 @@ function filteredEquipmentRows() {
         item.zhVisualType,
         item.primarySlot,
         item.zhPrimarySlot,
+        item.zhCommunityEquipType,
+        item.communityBaseText,
+        item.zhUniquePower,
+        item.dropSource?.zhText,
+        (item.zhFullAffixRanges || []).join(" "),
         (item.slotCandidates || []).join(" "),
         (item.zhSlotCandidates || []).join(" "),
         item.buildRole,
@@ -2780,7 +2788,7 @@ function renderEquipment() {
   const selected = state.equipment.find((item) => item.id === state.selectedEquipmentId) ?? rows[0];
 
   $("[data-equipment-meta]").textContent =
-    `显示 ${rows.length} / ${filtered.length} 条，资料库总计 ${state.equipment.length} 条。列表优先显示已进入 BD 的装备，点击后查看部位、词缀、来源和相关 BD。`;
+    `显示 ${rows.length} / ${filtered.length} 条，资料库总计 ${state.equipment.length} 条。列表优先显示已进入 BD 的装备，点击后查看验证部位、暗金特效、掉落来源、词缀和相关 BD。`;
   $("[data-equipment-results]").innerHTML = rows
     .map((item) => {
       const relatedCount = relatedGuideCount(item);
@@ -2828,6 +2836,9 @@ function renderEquipmentDetail(item) {
       `;
     })
     .join("");
+  const rangeAffixes = (item.zhFullAffixRanges || item.fullAffixRanges || [])
+    .map((line) => `<li><strong>${displayText(line)}</strong><span>${statusLabel(item.dataStatus?.fullAffixRanges)}</span></li>`)
+    .join("");
   const statuses = Object.entries(item.dataStatus || {})
     .map(([key, value]) => `
       <div class="status-row">
@@ -2842,6 +2853,8 @@ function renderEquipmentDetail(item) {
   const versionText = versionInfo?.patch
     ? `${versionInfo.patch} 构建 #${versionInfo.build}（${platformText}）— ${versionInfo.releaseDate || "日期待回填"}`
     : versionLineLabel(item.source.versionLine);
+  const communitySource = item.communitySource;
+  const sourceName = communitySource?.sourceId ? (sourceLabels[communitySource.sourceId] || communitySource.sourceId) : "社区来源待回填";
 
   panel.innerHTML = `
     <div class="equipment-detail-hero">
@@ -2849,7 +2862,7 @@ function renderEquipmentDetail(item) {
       <div>
         <p class="panel-kicker">${equipmentClassLabel(item)} · ${equipmentTypeLabel(item)}</p>
         <h3>${itemName(item)}</h3>
-        <p>${item.zhBuildRole || item.buildRole}</p>
+        <p>${item.isMythic ? "神话暗金" : "暗金"} · ${item.zhCommunityEquipType || item.zhPrimarySlot || item.zhBuildRole || item.buildRole}</p>
       </div>
     </div>
     <div class="tag-row">${(item.zhModeFit || item.modeFit).map((fit) => `<span>${fit}</span>`).join("")}</div>
@@ -2859,17 +2872,42 @@ function renderEquipmentDetail(item) {
         <span>${statusLabel(item.dataStatus?.slot)}</span>
       </div>
       <div class="equipment-info-grid">
-        <article><strong>推断部位</strong><span>${equipmentTypeLabel(item)}</span></article>
+        <article><strong>验证部位</strong><span>${equipmentTypeLabel(item)}</span></article>
+        <article><strong>装备类型</strong><span>${item.zhCommunityEquipType || item.zhVisualType || "待回填"}</span></article>
         <article><strong>职业限制</strong><span>${equipmentClassLabel(item)}</span></article>
         <article><strong>构筑用途</strong><span>${item.zhBuildRole || item.buildRole}</span></article>
         <article><strong>适用场景</strong><span>${(item.zhModeFit || item.modeFit).join(" / ")}</span></article>
-        <article><strong>掉落来源</strong><span>${item.dropSource?.zhText || "待来源回填"}</span></article>
-        <article><strong>暗金特效</strong><span>${item.zhUniquePower || "待来源回填"}</span></article>
+        <article><strong>基础数值</strong><span>${item.communityBaseText || "待来源回填"}</span></article>
       </div>
     </section>
     <section class="detail-section">
       <div class="section-title">
-        <h4>固定词缀</h4>
+        <h4>暗金特效与掉落</h4>
+        <span>${sourceName}</span>
+      </div>
+      <div class="unique-power-panel">
+        <article>
+          <strong>特效</strong>
+          <p>${displayText(item.zhUniquePower || "暗金特效待来源回填")}</p>
+        </article>
+        <article>
+          <strong>掉落</strong>
+          <p>${displayText(item.dropSource?.zhText || "掉落来源待来源回填")}</p>
+        </article>
+      </div>
+    </section>
+    <section class="detail-section">
+      <div class="section-title">
+        <h4>完整范围词缀</h4>
+        <span>${statusLabel(item.dataStatus?.fullAffixRanges)}</span>
+      </div>
+      ${rangeAffixes
+        ? `<ul class="affix-list affix-list--ranges">${rangeAffixes}</ul>`
+        : `<p class="missing-data-note">当前来源未提供完整范围词缀；下方仍保留官方 3.1.0 补丁中的固定词缀种子。</p>`}
+    </section>
+    <section class="detail-section">
+      <div class="section-title">
+        <h4>官方固定词缀</h4>
         <span>${item.guaranteedAffixes.length} 条</span>
       </div>
       <ul class="affix-list">${affixes}</ul>
@@ -2898,12 +2936,14 @@ function renderEquipmentDetail(item) {
     <section class="detail-section">
       <div class="section-title">
         <h4>来源</h4>
-        <span>${item.source.id}</span>
+        <span>${sourceName}</span>
       </div>
-      <p>${versionText}</p>
+      <p>官方固定词缀：${versionText}</p>
+      ${communitySource ? `<p>暗金特效、掉落和验证部位：${sourceName} · 数据版本 ${communitySource.d2coreBuild || "待回填"}</p>` : ""}
       <div class="source-actions">
         <a href="${itemUrl(item)}">打开独立装备页</a>
         <a href="${item.source.url}" target="_blank" rel="noreferrer">查看补丁来源</a>
+        ${communitySource?.pageUrl ? `<a href="${communitySource.pageUrl}" target="_blank" rel="noreferrer">查看装备来源</a>` : ""}
         ${item.externalImage ? `<a href="${item.externalImage}" target="_blank" rel="noreferrer">查看图标来源</a>` : ""}
       </div>
     </section>

@@ -367,8 +367,8 @@ function scoreArchetype(archetype, mode, classInfo, seasonIndex, equipmentItems)
       {
         type: "equipment_seed",
         zhLabel: "装备协同",
-        zhStatus: "官方词缀种子",
-        zhDetail: "装备协同来自官方 3.1.0 固定词缀种子，完整暗金特效仍待回填。"
+        zhStatus: "官方词缀 + 社区特效",
+        zhDetail: "装备协同来自官方 3.1.0 固定词缀种子，并用暗黑核社区数据库补充暗金特效、掉落来源和验证部位；完整范围词缀仍按字段状态校验。"
       }
     ],
     guide: buildGuide({ archetype, mode, classInfo, profile, synergyItems, seasonIndex })
