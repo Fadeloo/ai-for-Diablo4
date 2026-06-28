@@ -357,6 +357,7 @@ public/
 | `BuildDetailPage` | BD 详情容器 | guideId | 完整详情 |
 | `BuildSummaryPanel` | 顶部概要和强弱项 | guide.summary | 摘要 |
 | `BuildVersionSwitcher` | 同流派版本切换 | 当前 guide、同赛季同职业同流派 guides | 日常、速刷、冲层版本入口和同职业社区 BD 参考 |
+| `GearSummaryMatrix` | 装备总表 | guide.gearSlots | 11 部位目标件、核心/替换状态、威能或暗金、词缀方向和明细跳转 |
 | `GearSlotGrid` | 11 槽位布局 | gearSlots | 槽位网格 |
 | `GearSlotCard` | 单槽位装备明细 | gearSlot/item | 装备卡 |
 | `SkillRoutePanel` | 技能栏和加点顺序 | skillTree | 技能路线 |
@@ -376,6 +377,7 @@ public/
 - 所有中文标签集中在 `labels.js` 或现有 label map 中，避免英文残留。
 - 列表卡片和详情页面不复用同一个大模板，防止信息过密。
 - `BuildVersionSwitcher` 只按 `seasonId + classId + archetypeId` 建组；不同流派只能作为同职业参考，不能伪装成同一 BD 的版本。
+- `GearSummaryMatrix` 是装备分区入口，必须让玩家不展开长卡也能看出每个部位穿什么、是否可替换、核心威能或暗金是什么。
 
 ## 7. 视觉系统
 

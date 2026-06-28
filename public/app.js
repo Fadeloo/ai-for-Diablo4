@@ -1207,10 +1207,89 @@ function gearSlotStatus(slot) {
   return "核心位";
 }
 
+function gearSlotFlags(slot) {
+  const flags = [];
+  if (slot.required) flags.push("硬需求");
+  else if (slot.core) flags.push("核心位");
+  if (slot.replaceable) flags.push("可替换");
+  else flags.push("固定核心");
+  return flags;
+}
+
 function gearSlotStateClass(slot) {
   if (slot.required) return "is-required";
   if (slot.replaceable) return "is-replaceable";
   return slot.core ? "is-core" : "is-support";
+}
+
+function gearAspectDisplay(slot) {
+  const aspectName = slot.aspect?.name || "威能待回填";
+  const fallback = slot.aspect?.role || aspectName;
+  return displayText(ignoredAspectDisplayNames.has(aspectName) ? fallback : aspectName);
+}
+
+function renderGearSummaryMatrix(guide) {
+  return `
+    <section class="gear-summary-matrix" aria-label="完整配装总表">
+      <header>
+        <div>
+          <span>完整配装总表</span>
+          <strong>11 个装备位置、核心件、替换状态和词缀方向</strong>
+        </div>
+        <em>${guideSourceLabel(guide)} · ${guide.gameVersion.patch} 构建 #${guide.gameVersion.build}</em>
+      </header>
+      <div class="gear-summary-table">
+        <div class="gear-summary-row gear-summary-row--head" aria-hidden="true">
+          <span>位置</span>
+          <span>目标装备</span>
+          <span>核心 / 替换</span>
+          <span>威能或暗金</span>
+          <span>词缀优先级</span>
+          <span>操作</span>
+        </div>
+        ${guide.gearSlots.map((slot) => {
+          const affixes = (slot.affixes || []).slice(0, 3).map(displayText);
+          const alternatives = slot.alternatives || [];
+          return `
+            <article class="gear-summary-row ${gearSlotStateClass(slot)}">
+              <div class="gear-summary-slot">
+                ${renderIcon(slot.target, `${slot.zhSlotName}${slot.target.zhName}图标`)}
+                <div>
+                  <span>${slot.zhSlotName}</span>
+                  <strong>${slot.priority}</strong>
+                </div>
+              </div>
+              <div class="gear-summary-cell gear-summary-target">
+                <span class="gear-summary-label">目标装备</span>
+                ${renderTargetLink(slot.target)}
+                <em>${displayText(slot.target.description || "装备说明待来源回填")}</em>
+              </div>
+              <div class="gear-summary-cell">
+                <span class="gear-summary-label">核心 / 替换</span>
+                <div class="gear-summary-badges">
+                  ${gearSlotFlags(slot).map((flag) => `<b>${flag}</b>`).join("")}
+                </div>
+                <em>${alternatives.length} 个替换方案</em>
+              </div>
+              <div class="gear-summary-cell">
+                <span class="gear-summary-label">威能或暗金</span>
+                <strong>${gearAspectDisplay(slot)}</strong>
+                <em>${displayText(slot.aspect?.role || "作用待来源回填")}</em>
+              </div>
+              <div class="gear-summary-cell">
+                <span class="gear-summary-label">词缀优先级</span>
+                <p>${affixes.length ? affixes.join(" / ") : "词缀待来源回填"}</p>
+              </div>
+              <div class="gear-summary-actions">
+                <button type="button" data-guide-jump="gear" data-gear-slot-target="${slot.slotId}">看明细</button>
+                ${slot.target?.itemId ? `<a href="${itemUrl(slot.target.itemId)}">装备页</a>` : ""}
+              </div>
+            </article>
+          `;
+        }).join("")}
+      </div>
+    </section>
+  `;
 }
 
 function renderGearSlot(slot) {
@@ -1221,7 +1300,7 @@ function renderGearSlot(slot) {
     return `<li>${name}<span>${displayText(`${alt.reason} ${alt.tradeoff}`)}</span></li>`;
   }).join("");
   return `
-    <article class="gear-slot-card ${slot.core ? "is-core" : ""}">
+    <article class="gear-slot-card ${slot.core ? "is-core" : ""}" data-gear-slot-card="${slot.slotId}">
       <div class="gear-slot-card__top">
         <span>${slot.zhSlotName}</span>
         <strong>${gearSlotStatus(slot)}</strong>
@@ -1235,7 +1314,7 @@ function renderGearSlot(slot) {
       </div>
       <div class="gear-slot-card__flags">
         <span>${slot.priority}</span>
-        <span>${slot.aspect.name}</span>
+        <span>${gearAspectDisplay(slot)}</span>
         <span>${displayText(slot.aspect.role)}</span>
       </div>
       <dl class="gear-lines">
@@ -1290,14 +1369,12 @@ const loadoutBoardSlotClasses = {
 
 function renderLoadoutBoardSlot(slot) {
   if (!slot) return "";
-  const aspectName = slot.aspect?.name || "威能待回填";
-  const cleanAspectName = displayText(ignoredAspectDisplayNames.has(aspectName) ? slot.aspect?.role || aspectName : aspectName);
   return `
-    <button class="loadout-board-slot loadout-board-slot--${loadoutBoardSlotClasses[slot.slotId] || slot.slotId} ${gearSlotStateClass(slot)}" type="button" data-guide-jump="gear">
+    <button class="loadout-board-slot loadout-board-slot--${loadoutBoardSlotClasses[slot.slotId] || slot.slotId} ${gearSlotStateClass(slot)}" type="button" data-guide-jump="gear" data-gear-slot-target="${slot.slotId}">
       ${renderIcon(slot.target, `${slot.zhSlotName}${slot.target.zhName}图标`)}
       <span>${slot.zhSlotName}</span>
       <strong>${displayText(slot.target.zhName)}</strong>
-      <em>${gearSlotStatus(slot)} · ${cleanAspectName}</em>
+      <em>${gearSlotStatus(slot)} · ${gearAspectDisplay(slot)}</em>
     </button>
   `;
 }
@@ -1347,7 +1424,7 @@ function renderLoadoutStrip(guide) {
   return `
     <div class="loadout-strip" aria-label="全身装备速览">
       ${guide.gearSlots.map((slot) => `
-        <button class="loadout-slot ${slot.required ? "is-required" : slot.core ? "is-core" : ""}" type="button" data-guide-jump="gear">
+        <button class="loadout-slot ${slot.required ? "is-required" : slot.core ? "is-core" : ""}" type="button" data-guide-jump="gear" data-gear-slot-target="${slot.slotId}">
           ${renderIcon(slot.target, `${slot.zhSlotName}${slot.target.zhName}图标`)}
           <span>${slot.zhSlotName}</span>
           <strong>${slot.target.zhName}</strong>
@@ -1758,6 +1835,7 @@ function renderBuildGuideDetail() {
           `, "overview")}
 
           ${renderGuideDetailSection("全身装备", "每个位置、替换件和精造方向", `
+            ${renderGearSummaryMatrix(guide)}
             ${renderLoadoutStrip(guide)}
             <div class="gear-slot-grid">${guide.gearSlots.map(renderGearSlot).join("")}</div>
           `, "gear")}
@@ -2591,6 +2669,11 @@ function bindInteractions() {
 
     const button = event.target.closest("[data-guide-jump]");
     if (!button) return;
+    if (button.dataset.gearSlotTarget) {
+      const target = $(`[data-gear-slot-card="${button.dataset.gearSlotTarget}"]`);
+      target?.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
     const section = $(`[data-guide-section="${button.dataset.guideJump}"]`);
     section?.scrollIntoView({ behavior: "smooth", block: "start" });
   });

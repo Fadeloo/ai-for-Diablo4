@@ -133,6 +133,7 @@ BD 详情 #bd/<guideId>
 | `BuildDetailLayout` | BD 详情页容器 | `guideId` | 渲染分区目录和详情 |
 | `BuildSummaryPanel` | 定位、难度、强弱项 | `guide.summary`、`ceiling` | 顶部摘要 |
 | `BuildVersionSwitcher` | 同流派版本切换 | 当前 `guide`、同赛季同职业同流派 guides | 在详情页首屏切换日常、速刷、冲层版本，并露出同职业社区 BD |
+| `GearSummaryMatrix` | 装备总表 | `guide.gearSlots` | 在装备分区顶部一次性展示 11 部位目标件、核心/替换状态、威能/暗金、词缀和操作 |
 | `LoadoutStrip` | 全身装备速览 | `guide.gearSlots` | 11 个槽位快速跳到装备区 |
 | `LoadoutBoard` | 纸娃娃式配装盘面 | `guide.gearSlots`、`coreUniques`、`coreAspects` | 首屏展示 11 个部位、核心/硬需求/可替换和暗金/威能 |
 | `RouteOverview` | 技能和巅峰执行路线总览 | `skillTree`、`paragon` | 总览区展示 6 技能栏、加点顺序、巅峰盘和点击主线 |
@@ -158,6 +159,7 @@ BD 详情 #bd/<guideId>
 - 任何组件不得在浏览器端“编造”构筑，只能展示已生成 JSON。
 - `BuildDetailLayout` 是唯一展示完整 BD 的地方，BD 大厅只保留摘要。
 - `BuildVersionSwitcher` 只在同一赛季、同一职业、同一流派内切换用途版本；它不能把不同流派混在同一组里。
+- `GearSummaryMatrix` 必须覆盖 11 个装备位，并能跳到对应装备卡或装备详情页。
 - 装备、技能、巅峰、打法都必须能单独阅读，不嵌套在同一张大卡里。
 - 详情页内所有外链都显示来源站点和日期。
 - 所有长文本都要在移动端换行，不能覆盖相邻装备卡。
