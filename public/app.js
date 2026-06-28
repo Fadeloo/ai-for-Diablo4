@@ -29,6 +29,7 @@ const state = {
   coverage: null,
   activeView: "home",
   selectedGuideId: null,
+  selectedGuideSection: "overview",
   selectedClassId: "barbarian",
   selectedEquipmentId: null,
   selectedAspectId: null,
@@ -39,7 +40,9 @@ const state = {
     buildIndex: 0,
     sourceQuality: "all",
     query: "",
-    sort: "source"
+    sort: "source",
+    view: "recommended",
+    visible: 18
   },
   equipmentFilters: {
     classId: "all",
@@ -48,7 +51,7 @@ const state = {
     status: "all",
     related: "all",
     query: "",
-    visible: 48
+    visible: 24
   },
   aspectFilters: {
     classId: "all",
@@ -56,7 +59,7 @@ const state = {
     slot: "all",
     source: "all",
     query: "",
-    visible: 60
+    visible: 32
   }
 };
 
@@ -256,7 +259,10 @@ function setView(route, options = {}) {
   const parsed = parseRoute(route);
   const normalized = parsed.view;
   state.activeView = normalized;
-  if (parsed.guideId) state.selectedGuideId = parsed.guideId;
+  if (parsed.guideId) {
+    if (state.selectedGuideId !== parsed.guideId) state.selectedGuideSection = "overview";
+    state.selectedGuideId = parsed.guideId;
+  }
   if (parsed.itemId) {
     state.selectedEquipmentId = parsed.itemId;
     state.equipmentFilters = {
@@ -267,7 +273,7 @@ function setView(route, options = {}) {
       status: "all",
       related: "all",
       query: "",
-      visible: Math.max(state.equipmentFilters.visible, 48)
+      visible: Math.max(state.equipmentFilters.visible, 24)
     };
   }
   if (parsed.aspectId) {
@@ -279,7 +285,7 @@ function setView(route, options = {}) {
       slot: "all",
       source: "all",
       query: "",
-      visible: Math.max(state.aspectFilters.visible, 60)
+      visible: Math.max(state.aspectFilters.visible, 32)
     };
   }
   document.body.dataset.view = normalized;
@@ -316,7 +322,15 @@ function setView(route, options = {}) {
   if (options.replaceHash && window.location.hash !== desiredHash) {
     history.replaceState(null, "", desiredHash);
   }
-  window.scrollTo(0, 0);
+  const detailFocusSelector = parsed.itemId ? "[data-equipment-detail]" : parsed.aspectId ? "[data-aspect-detail]" : null;
+  if (detailFocusSelector) {
+    requestAnimationFrame(() => {
+      const target = $(detailFocusSelector);
+      if (target) target.scrollIntoView({ block: "start" });
+    });
+  } else {
+    window.scrollTo(0, 0);
+  }
 }
 
 function bindNavigation() {
@@ -861,7 +875,8 @@ function openBuildLibrary(filters) {
   state.sim = {
     ...state.sim,
     ...filters,
-    buildIndex: 0
+    buildIndex: 0,
+    visible: 18
   };
   state.selectedClassId = state.sim.classId;
   syncBuildFilterControls();
@@ -1414,10 +1429,92 @@ function renderBuildSourceRail() {
   }).join("");
 }
 
+function renderBuildViewTabs(guides) {
+  const tabs = [
+    {
+      id: "recommended",
+      label: "推荐入口",
+      description: "每个职业按日常、速刷、冲层进入完整 BD。"
+    },
+    {
+      id: "matrix",
+      label: "流派矩阵",
+      description: "按职业和流派比较用途版本。"
+    },
+    {
+      id: "list",
+      label: "完整列表",
+      description: "查看当前筛选下的全部 BD 卡片。"
+    }
+  ];
+  return `
+    <nav class="build-view-tabs" aria-label="BD 大厅视图">
+      ${tabs.map((tab) => `
+        <button type="button" data-build-view="${tab.id}" aria-selected="${state.sim.view === tab.id}">
+          <span>${tab.label}</span>
+          <strong>${tab.id === "list" ? `${guides.length} 套` : tab.id === "matrix" ? `${new Set(guides.map((guide) => guide.taxonomy.archetypeId)).size} 流派` : "入口"}</strong>
+          <em>${tab.description}</em>
+        </button>
+      `).join("")}
+    </nav>
+  `;
+}
+
+function renderBuildListView(guides) {
+  const rows = guides.slice(0, state.sim.visible);
+  return `
+    <section class="build-result-section" aria-label="完整 BD 列表">
+      <div class="section-title">
+        <h4>完整 BD 列表</h4>
+        <span>显示 ${rows.length} / ${guides.length} 套，列表只做筛选和进入详情</span>
+      </div>
+      <div class="guide-card-grid">
+        ${rows.map(renderBuildLibraryCard).join("")}
+      </div>
+      ${rows.length < guides.length ? `
+        <button class="button button-secondary build-more" type="button" data-build-more>显示更多 BD</button>
+      ` : ""}
+    </section>
+  `;
+}
+
+function renderBuildViewContent(guides, directoryGuides) {
+  if (state.sim.view === "matrix") {
+    return `
+      ${renderBuildAtlas(guides)}
+      ${renderSeasonBuildMatrix(guides)}
+    `;
+  }
+  if (state.sim.view === "list") {
+    return renderBuildListView(guides);
+  }
+  const priorityGuides = guides.slice(0, Math.min(12, state.sim.visible));
+  return `
+    ${renderRecommendedBuildBoard(directoryGuides)}
+    <section class="build-result-section" aria-label="当前筛选下优先 BD">
+      <div class="section-title">
+        <h4>优先查看</h4>
+        <span>按来源、上限和成型难度排序，展开完整列表可看全部 ${guides.length} 套</span>
+      </div>
+      <div class="compact-guide-grid">
+        ${priorityGuides.map((guide) => `
+          <a class="compact-guide-card" href="${guideUrl(guide)}">
+            <span>${guide.taxonomy.className} · ${guide.taxonomy.modeName} · ${guideSourceLabel(guide)}</span>
+            <strong>${guide.taxonomy.archetypeName}</strong>
+            <em>${guide.formationDifficulty.label}成型 · ${guide.taxonomy.stage} · ${guide.ceiling.displayTier || guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</em>
+            <small>${guideCoreLine(guide)}</small>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderSimulator() {
   const guides = filteredGuides();
   const directoryGuides = directoryGuidesForCurrentFilters();
   const selected = guides[state.sim.buildIndex] || guides[0] || null;
+  const listRows = guides.slice(0, 30);
   renderBuildClassRail();
   renderBuildSourceRail();
   if (!guides.some((guide) => guide.id === state.selectedGuideId)) {
@@ -1430,13 +1527,14 @@ function renderSimulator() {
       <strong>${guides.length} 套 BD</strong>
       <em>${guides.filter((guide) => guide.source.references?.length).length} 套社区来源</em>
     </div>
-    ${guides.map((guide, index) => `
+    ${listRows.map((guide, index) => `
       <a class="build-list-link guide-link" href="${guideUrl(guide)}" aria-selected="${index === state.sim.buildIndex}">
         <span>${String(index + 1).padStart(2, "0")}</span>
         <strong>${guide.taxonomy.archetypeName}</strong>
         <em>${guideSourceLabel(guide)} · ${guide.taxonomy.stageTags.join(" / ")} · 成型${guide.formationDifficulty.label} · ${guide.ceiling.displayTier || guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</em>
       </a>
     `).join("")}
+    ${listRows.length < guides.length ? `<div class="build-list-foot">还有 ${guides.length - listRows.length} 套，请用右侧完整列表或继续筛选。</div>` : ""}
   `;
 
   if (!guides.length) {
@@ -1466,12 +1564,8 @@ function renderSimulator() {
         <span><b>${topGuide.ceiling.label}</b>最高参考</span>
       </div>
     </div>
-    ${renderRecommendedBuildBoard(directoryGuides)}
-    ${renderBuildAtlas(guides)}
-    ${renderSeasonBuildMatrix(guides)}
-    <div class="guide-card-grid">
-      ${guides.map(renderBuildLibraryCard).join("")}
-    </div>
+    ${renderBuildViewTabs(guides)}
+    ${renderBuildViewContent(guides, directoryGuides)}
   `;
   bindImageFallbacks($("[data-sim-result]"));
 }
@@ -2419,6 +2513,85 @@ function renderGameplay(gameplay) {
   `;
 }
 
+function renderGuideActiveSection(guide) {
+  const activeSection = state.selectedGuideSection || "overview";
+  const sectionRenderers = {
+    overview: () => renderGuideDetailSection("总览", "定位、强弱项和适用阶段", `
+      ${renderBuildVersionSwitcher(guide)}
+      ${renderBuildManualPanel(guide)}
+      ${renderExecutionPlan(guide)}
+      ${renderRouteOverview(guide)}
+      ${renderGameplayOverview(guide)}
+      ${renderSuitability(guide)}
+      <div class="core-item-strip">${renderCoreUniques(guide, 5)}</div>
+      <div class="core-aspect-strip">${renderCoreAspects(guide)}</div>
+      <div class="guide-two-col">
+        <article>
+          <h5>优点</h5>
+          <ul>${listItems(guide.summary.pros)}</ul>
+        </article>
+        <article>
+          <h5>短板</h5>
+          <ul>${listItems(guide.summary.cons)}</ul>
+        </article>
+      </div>
+      <div class="guide-two-col">
+        <article>
+          <h5>成型难度</h5>
+          <ul>${listItems(guide.formationDifficulty.reasons)}</ul>
+        </article>
+        <article>
+          <h5>150 层证据</h5>
+          ${renderCeilingEvidence(guide)}
+        </article>
+      </div>
+    `, "overview"),
+    progression: () => renderGuideDetailSection("开荒到成型", "升级、过渡、终局和用途专精", renderProgressionPlan(guide.progression), "progression"),
+    gear: () => renderGuideDetailSection("全身装备", "每个位置、替换件和精造方向", `
+      ${renderLoadoutBoard(guide)}
+      ${renderGearSummaryMatrix(guide)}
+      ${renderLoadoutStrip(guide)}
+      <div class="gear-slot-grid">${guide.gearSlots.map(renderGearSlot).join("")}</div>
+    `, "gear"),
+    skills: () => renderGuideDetailSection("技能加点", `${guide.skillTree.core} · 按等级段执行`, renderSkillTree(guide.skillTree), "skills"),
+    paragon: () => renderGuideDetailSection("巅峰点击顺序", "先雕文孔和传奇节点，再补稀有与魔法节点", renderParagon(guide.paragon), "paragon"),
+    gameplay: () => renderGuideDetailSection("打法", "起手、循环、首领、防御和常见错误", renderGameplay(guide.gameplay), "gameplay"),
+    variants: () => renderGuideDetailSection("替换与变体", "缺件、冲层和高容错版本", `
+      ${renderReplacementMatrix(guide)}
+      <div class="variant-grid">
+        ${guide.variants.map((variant) => `
+          <article>
+            <h5>${variant.name}</h5>
+            <p>${displayText(variant.useCase)}</p>
+            <dl>
+              <div><dt>换下</dt><dd>${displayText(variant.swapOut)}</dd></div>
+              <div><dt>换上</dt><dd>${displayText(variant.swapIn)}</dd></div>
+            </dl>
+            <span>${displayText(variant.notes)}</span>
+          </article>
+        `).join("")}
+      </div>
+    `, "variants"),
+    sources: () => renderGuideDetailSection("来源与状态", `${guide.gameVersion.patch} 构建 #${guide.gameVersion.build}`, `
+      <div class="source-status-grid">
+        <article><strong>作者</strong><span>${guide.source.authorName}</span></article>
+        <article><strong>数据状态</strong><span>${guideSourceLabel(guide)}</span></article>
+        <article><strong>更新时间</strong><span>${guide.source.updatedAt}</span></article>
+        <article><strong>预测状态</strong><span>${guide.ceiling.evidenceLabel || "待实战样本校准"}</span></article>
+        <article><strong>已确认</strong><span>${guide.dataQuality.officialFields.join(" / ")}</span></article>
+        <article><strong>社区校验</strong><span>${guide.dataQuality.communityVerified.join(" / ")}</span></article>
+        <article><strong>待补全</strong><span>${guide.dataQuality.needsValidation.join(" / ")}</span></article>
+        <article><strong>缺失字段</strong><span>${guide.dataQuality.missing.join(" / ")}</span></article>
+      </div>
+      ${renderSourceReferences(guide)}
+      <div class="source-actions">
+        <a href="${guide.gameVersion.sourceUrl}" target="_blank" rel="noreferrer">查看官方补丁来源</a>
+      </div>
+    `, "sources")
+  };
+  return (sectionRenderers[activeSection] || sectionRenderers.overview)();
+}
+
 function renderBuildGuideDetail() {
   const panel = $("[data-build-guide-detail]");
   if (!panel) return;
@@ -2469,14 +2642,12 @@ function renderBuildGuideDetail() {
           <span><b>${guide.gearSlots.length}</b>装备位置</span>
           <span><b>${guide.coreUniques.length}</b>核心暗金</span>
         </div>
-        ${renderBuildVersionSwitcher(guide)}
-        ${renderLoadoutBoard(guide)}
       </header>
 
       <div class="guide-detail-layout">
         <aside class="guide-sidebar">
           <nav class="guide-section-nav" aria-label="BD 分区导航">
-            ${navItems.map(([key, label]) => `<button type="button" data-guide-jump="${key}">${label}</button>`).join("")}
+            ${navItems.map(([key, label]) => `<button type="button" data-guide-jump="${key}" aria-selected="${state.selectedGuideSection === key}">${label}</button>`).join("")}
           </nav>
           <div class="guide-sidebar-card">
             <strong>资料状态</strong>
@@ -2490,83 +2661,7 @@ function renderBuildGuideDetail() {
         </aside>
 
         <div class="guide-main-sections">
-          ${renderGuideDetailSection("总览", "定位、强弱项和适用阶段", `
-            ${renderBuildManualPanel(guide)}
-            ${renderExecutionPlan(guide)}
-            ${renderRouteOverview(guide)}
-            ${renderGameplayOverview(guide)}
-            ${renderSuitability(guide)}
-            <div class="core-item-strip">${renderCoreUniques(guide, 5)}</div>
-            <div class="core-aspect-strip">${renderCoreAspects(guide)}</div>
-            <div class="guide-two-col">
-              <article>
-                <h5>优点</h5>
-                <ul>${listItems(guide.summary.pros)}</ul>
-              </article>
-              <article>
-                <h5>短板</h5>
-                <ul>${listItems(guide.summary.cons)}</ul>
-              </article>
-            </div>
-            <div class="guide-two-col">
-              <article>
-                <h5>成型难度</h5>
-                <ul>${listItems(guide.formationDifficulty.reasons)}</ul>
-              </article>
-              <article>
-                <h5>150 层证据</h5>
-                ${renderCeilingEvidence(guide)}
-              </article>
-            </div>
-          `, "overview")}
-
-          ${renderGuideDetailSection("开荒到成型", "升级、过渡、终局和用途专精", renderProgressionPlan(guide.progression), "progression")}
-
-          ${renderGuideDetailSection("全身装备", "每个位置、替换件和精造方向", `
-            ${renderGearSummaryMatrix(guide)}
-            ${renderLoadoutStrip(guide)}
-            <div class="gear-slot-grid">${guide.gearSlots.map(renderGearSlot).join("")}</div>
-          `, "gear")}
-
-          ${renderGuideDetailSection("技能加点", `${guide.skillTree.core} · 按等级段执行`, renderSkillTree(guide.skillTree), "skills")}
-
-          ${renderGuideDetailSection("巅峰点击顺序", "先雕文孔和传奇节点，再补稀有与魔法节点", renderParagon(guide.paragon), "paragon")}
-
-          ${renderGuideDetailSection("打法", "起手、循环、首领、防御和常见错误", renderGameplay(guide.gameplay), "gameplay")}
-
-          ${renderGuideDetailSection("替换与变体", "缺件、冲层和高容错版本", `
-            ${renderReplacementMatrix(guide)}
-            <div class="variant-grid">
-              ${guide.variants.map((variant) => `
-                <article>
-                  <h5>${variant.name}</h5>
-                  <p>${displayText(variant.useCase)}</p>
-                  <dl>
-                    <div><dt>换下</dt><dd>${displayText(variant.swapOut)}</dd></div>
-                    <div><dt>换上</dt><dd>${displayText(variant.swapIn)}</dd></div>
-                  </dl>
-                  <span>${displayText(variant.notes)}</span>
-                </article>
-              `).join("")}
-            </div>
-          `, "variants")}
-
-          ${renderGuideDetailSection("来源与状态", `${guide.gameVersion.patch} 构建 #${guide.gameVersion.build}`, `
-            <div class="source-status-grid">
-              <article><strong>作者</strong><span>${guide.source.authorName}</span></article>
-              <article><strong>数据状态</strong><span>${guideSourceLabel(guide)}</span></article>
-              <article><strong>更新时间</strong><span>${guide.source.updatedAt}</span></article>
-              <article><strong>预测状态</strong><span>${guide.ceiling.evidenceLabel || "待实战样本校准"}</span></article>
-              <article><strong>已确认</strong><span>${guide.dataQuality.officialFields.join(" / ")}</span></article>
-              <article><strong>社区校验</strong><span>${guide.dataQuality.communityVerified.join(" / ")}</span></article>
-              <article><strong>待补全</strong><span>${guide.dataQuality.needsValidation.join(" / ")}</span></article>
-              <article><strong>缺失字段</strong><span>${guide.dataQuality.missing.join(" / ")}</span></article>
-            </div>
-            ${renderSourceReferences(guide)}
-            <div class="source-actions">
-              <a href="${guide.gameVersion.sourceUrl}" target="_blank" rel="noreferrer">查看官方补丁来源</a>
-            </div>
-          `, "sources")}
+          ${renderGuideActiveSection(guide)}
         </div>
       </div>
     </div>
@@ -3272,6 +3367,7 @@ function bindInteractions() {
   $("[data-sim-season]").addEventListener("change", (event) => {
     state.sim.seasonId = event.target.value;
     state.sim.buildIndex = 0;
+    state.sim.visible = 18;
     renderSimulator();
     renderForecast();
     renderSelectedClass();
@@ -3279,6 +3375,7 @@ function bindInteractions() {
   $("[data-class-season]").addEventListener("change", (event) => {
     state.sim.seasonId = event.target.value;
     state.sim.buildIndex = 0;
+    state.sim.visible = 18;
     syncBuildFilterControls();
     renderSimulator();
     renderForecast();
@@ -3288,17 +3385,20 @@ function bindInteractions() {
     state.sim.classId = event.target.value;
     if (event.target.value !== "all") state.selectedClassId = event.target.value;
     state.sim.buildIndex = 0;
+    state.sim.visible = 18;
     renderSimulator();
     if (event.target.value !== "all") renderSelectedClass();
   });
   $("[data-sim-mode]").addEventListener("change", (event) => {
     state.sim.mode = event.target.value;
     state.sim.buildIndex = 0;
+    state.sim.visible = 18;
     renderSimulator();
   });
   $("[data-sim-source]").addEventListener("change", (event) => {
     state.sim.sourceQuality = event.target.value;
     state.sim.buildIndex = 0;
+    state.sim.visible = 18;
     renderSimulator();
   });
   $("[data-build-source-rail]").addEventListener("click", (event) => {
@@ -3306,17 +3406,20 @@ function bindInteractions() {
     if (!button || button.disabled) return;
     state.sim.sourceQuality = button.dataset.buildSourceQuality;
     state.sim.buildIndex = 0;
+    state.sim.visible = 18;
     syncBuildFilterControls();
     renderSimulator();
   });
   $("[data-build-sort]").addEventListener("change", (event) => {
     state.sim.sort = event.target.value;
     state.sim.buildIndex = 0;
+    state.sim.visible = 18;
     renderSimulator();
   });
   $("[data-build-search]").addEventListener("input", (event) => {
     state.sim.query = event.target.value;
     state.sim.buildIndex = 0;
+    state.sim.visible = 18;
     renderSimulator();
   });
   $("[data-build-class-rail]").addEventListener("click", (event) => {
@@ -3325,6 +3428,7 @@ function bindInteractions() {
     state.sim.classId = button.dataset.buildClassId;
     if (button.dataset.buildClassId !== "all") state.selectedClassId = button.dataset.buildClassId;
     state.sim.buildIndex = 0;
+    state.sim.visible = 18;
     syncBuildFilterControls();
     renderSimulator();
     if (button.dataset.buildClassId !== "all") renderSelectedClass();
@@ -3338,37 +3442,37 @@ function bindInteractions() {
 
   $("[data-equipment-search]").addEventListener("input", (event) => {
     state.equipmentFilters.query = event.target.value;
-    state.equipmentFilters.visible = 48;
+    state.equipmentFilters.visible = 24;
     state.selectedEquipmentId = null;
     renderEquipment();
   });
   $("[data-equipment-class]").addEventListener("change", (event) => {
     state.equipmentFilters.classId = event.target.value;
-    state.equipmentFilters.visible = 48;
+    state.equipmentFilters.visible = 24;
     state.selectedEquipmentId = null;
     renderEquipment();
   });
   $("[data-equipment-mode]").addEventListener("change", (event) => {
     state.equipmentFilters.mode = event.target.value;
-    state.equipmentFilters.visible = 48;
+    state.equipmentFilters.visible = 24;
     state.selectedEquipmentId = null;
     renderEquipment();
   });
   $("[data-equipment-slot]").addEventListener("change", (event) => {
     state.equipmentFilters.slot = event.target.value;
-    state.equipmentFilters.visible = 48;
+    state.equipmentFilters.visible = 24;
     state.selectedEquipmentId = null;
     renderEquipment();
   });
   $("[data-equipment-status]").addEventListener("change", (event) => {
     state.equipmentFilters.status = event.target.value;
-    state.equipmentFilters.visible = 48;
+    state.equipmentFilters.visible = 24;
     state.selectedEquipmentId = null;
     renderEquipment();
   });
   $("[data-equipment-related]").addEventListener("change", (event) => {
     state.equipmentFilters.related = event.target.value;
-    state.equipmentFilters.visible = 48;
+    state.equipmentFilters.visible = 24;
     state.selectedEquipmentId = null;
     renderEquipment();
   });
@@ -3385,36 +3489,36 @@ function bindInteractions() {
     $("[data-equipment-detail]")?.scrollTo(0, 0);
   });
   $("[data-equipment-more]").addEventListener("click", () => {
-    state.equipmentFilters.visible += 48;
+    state.equipmentFilters.visible += 24;
     renderEquipment();
   });
   $("[data-aspect-search]").addEventListener("input", (event) => {
     state.aspectFilters.query = event.target.value;
-    state.aspectFilters.visible = 60;
+    state.aspectFilters.visible = 32;
     state.selectedAspectId = null;
     renderAspects();
   });
   $("[data-aspect-class]").addEventListener("change", (event) => {
     state.aspectFilters.classId = event.target.value;
-    state.aspectFilters.visible = 60;
+    state.aspectFilters.visible = 32;
     state.selectedAspectId = null;
     renderAspects();
   });
   $("[data-aspect-mode]").addEventListener("change", (event) => {
     state.aspectFilters.mode = event.target.value;
-    state.aspectFilters.visible = 60;
+    state.aspectFilters.visible = 32;
     state.selectedAspectId = null;
     renderAspects();
   });
   $("[data-aspect-slot]").addEventListener("change", (event) => {
     state.aspectFilters.slot = event.target.value;
-    state.aspectFilters.visible = 60;
+    state.aspectFilters.visible = 32;
     state.selectedAspectId = null;
     renderAspects();
   });
   $("[data-aspect-source]").addEventListener("change", (event) => {
     state.aspectFilters.source = event.target.value;
-    state.aspectFilters.visible = 60;
+    state.aspectFilters.visible = 32;
     state.selectedAspectId = null;
     renderAspects();
   });
@@ -3431,11 +3535,26 @@ function bindInteractions() {
     $("[data-aspect-detail]")?.scrollTo(0, 0);
   });
   $("[data-aspect-more]").addEventListener("click", () => {
-    state.aspectFilters.visible += 60;
+    state.aspectFilters.visible += 32;
     renderAspects();
   });
 
   document.addEventListener("click", (event) => {
+    const viewButton = event.target.closest("[data-build-view]");
+    if (viewButton) {
+      state.sim.view = viewButton.dataset.buildView;
+      state.sim.visible = 18;
+      renderSimulator();
+      return;
+    }
+
+    const buildMoreButton = event.target.closest("[data-build-more]");
+    if (buildMoreButton) {
+      state.sim.visible += 18;
+      renderSimulator();
+      return;
+    }
+
     const filterLink = event.target.closest("[data-build-filter-class]");
     if (filterLink) {
       event.preventDefault();
@@ -3449,13 +3568,19 @@ function bindInteractions() {
 
     const button = event.target.closest("[data-guide-jump]");
     if (!button) return;
+    state.selectedGuideSection = button.dataset.guideJump || "overview";
+    renderBuildGuideDetail();
     if (button.dataset.gearSlotTarget) {
-      const target = $(`[data-gear-slot-card="${button.dataset.gearSlotTarget}"]`);
-      scrollToGuideTarget(target);
+      requestAnimationFrame(() => {
+        const target = $(`[data-gear-slot-card="${button.dataset.gearSlotTarget}"]`);
+        scrollToGuideTarget(target);
+      });
       return;
     }
-    const section = $(`[data-guide-section="${button.dataset.guideJump}"]`);
-    scrollToGuideTarget(section);
+    requestAnimationFrame(() => {
+      const section = $(`[data-guide-section="${state.selectedGuideSection}"]`);
+      scrollToGuideTarget(section);
+    });
   });
 }
 

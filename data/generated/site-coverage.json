@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T20:04:12.869Z",
+  "generatedAt": "2026-06-28T20:23:26.167Z",
   "scope": "player_site_data_coverage_and_storage_usage",
   "asOf": "2026-06-28",
   "storageLayers": [
@@ -44,6 +44,14 @@
         "data/generated/build-simulations.json"
       ],
       "frontendUse": "150 层参考页；不得作为已验证榜单展示。"
+    },
+    {
+      "id": "future_normalized_model",
+      "zhName": "后续规范化事实模型",
+      "files": [
+        "docs/PLAYER_SITE_ARCHITECTURE_SPEC.md"
+      ],
+      "frontendUse": "定义装备、威能、技能、巅峰、BD、预测和审核数据如何拆分存储，作为后端化和全量数据库扩展边界。"
     }
   ],
   "frontendDataContracts": [
@@ -65,6 +73,21 @@
         "source.verificationLevel"
       ],
       "frontendUse": "按职业汇总日常、速刷、冲层三个入口，直接链接完整 BD 详情。"
+    },
+    {
+      "component": "BuildViewTabs",
+      "zhName": "BD 大厅视图切换",
+      "source": "build-guides.builds + state.sim.view",
+      "fields": [
+        "taxonomy.seasonId",
+        "taxonomy.classId",
+        "taxonomy.archetypeId",
+        "taxonomy.mode",
+        "source.verificationLevel",
+        "formationDifficulty",
+        "ceiling"
+      ],
+      "frontendUse": "把推荐入口、流派矩阵和完整列表拆成独立阅读模式，避免把所有 BD 信息同屏铺开。"
     },
     {
       "component": "BuildDetailLayout",
@@ -95,6 +118,35 @@
         "source.verificationLevel"
       ],
       "frontendUse": "装备详情反查该装备在不同职业、流派和用途中的使用位置。"
+    },
+    {
+      "component": "EquipmentResultsList",
+      "zhName": "装备受控结果列表",
+      "source": "equipment-library.items + equipmentFilters",
+      "fields": [
+        "id",
+        "zhName",
+        "classRestriction",
+        "slotCandidates",
+        "modeFit",
+        "dataStatus",
+        "externalImage"
+      ],
+      "frontendUse": "装备库列表只负责检索和选择，详情面板展示完整词缀、暗金特效、掉落来源、相关 BD 和来源状态。"
+    },
+    {
+      "component": "AspectResultsList",
+      "zhName": "威能受控结果列表",
+      "source": "aspect-index.aspects + aspectFilters",
+      "fields": [
+        "id",
+        "name",
+        "database.zhEffect",
+        "slotUsage",
+        "sourceLevels",
+        "buildUses"
+      ],
+      "frontendUse": "威能索引列表只负责查找和选择，详情面板展示效果、可用部位、来源状态和相关 BD。"
     },
     {
       "component": "CoveragePanel",
