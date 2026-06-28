@@ -712,6 +712,46 @@ function applyCommunityOverride(guide, override) {
   };
 }
 
+function mergeOverride(base, override) {
+  const gearSlotsById = new Map((base.gearSlots || []).map((slot) => [slot.slotId, slot]));
+  for (const slot of override.gearSlots || []) gearSlotsById.set(slot.slotId, slot);
+  return {
+    ...base,
+    ...override,
+    sourceReference: {
+      ...base.sourceReference,
+      ...override.sourceReference
+    },
+    summary: {
+      ...base.summary,
+      ...override.summary
+    },
+    gearSlots: [...gearSlotsById.values()],
+    skillTree: {
+      ...base.skillTree,
+      ...override.skillTree
+    },
+    paragon: {
+      ...base.paragon,
+      ...override.paragon
+    },
+    gameplay: {
+      ...base.gameplay,
+      ...override.gameplay
+    }
+  };
+}
+
+function expandCommunityOverrides(rawOverrides) {
+  const byId = new Map(rawOverrides.map((override) => [override.id, override]));
+  return rawOverrides.map((override) => {
+    if (!override.extends) return override;
+    const base = byId.get(override.extends);
+    if (!base) throw new Error(`Community override ${override.id} extends missing override ${override.extends}`);
+    return mergeOverride(base, override);
+  });
+}
+
 const [classes, archetypeGroups, equipment, simulations, overrides] = await Promise.all([
   readJson(classPath),
   readJson(archetypePath),
@@ -721,7 +761,8 @@ const [classes, archetypeGroups, equipment, simulations, overrides] = await Prom
 ]);
 
 const simMap = simulationLookup(simulations);
-const overrideMap = new Map(overrides.map((override) => [override.id, override]));
+const expandedOverrides = expandCommunityOverrides(overrides);
+const overrideMap = new Map(expandedOverrides.map((override) => [override.id, override]));
 const builds = [];
 
 for (const [seasonIndex, season] of simulations.seasons.entries()) {

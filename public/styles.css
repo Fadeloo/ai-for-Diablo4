@@ -486,7 +486,7 @@ h4 {
   border-bottom: 1px solid rgba(214, 173, 99, 0.22);
   display: grid;
   gap: 12px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   padding: 16px;
 }
 

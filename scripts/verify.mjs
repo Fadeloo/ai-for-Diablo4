@@ -14,6 +14,27 @@ function assert(condition, message) {
   if (!condition) throw new Error(message);
 }
 
+function mergeCommunityOverride(base, override) {
+  return {
+    ...base,
+    ...override,
+    sourceReference: {
+      ...base.sourceReference,
+      ...override.sourceReference
+    }
+  };
+}
+
+function expandCommunityOverrides(overrides) {
+  const byId = new Map(overrides.map((override) => [override.id, override]));
+  return overrides.map((override) => {
+    if (!override.extends) return override;
+    const base = byId.get(override.extends);
+    assert(base, `Community override ${override.id} extends missing override ${override.extends}`);
+    return mergeCommunityOverride(base, override);
+  });
+}
+
 const version = await readJson("data/metadata/version-baseline.json");
 const classes = await readJson("data/classes/classes.json");
 const categories = await readJson("data/equipment/stat-categories.json");
@@ -126,7 +147,7 @@ for (const guide of buildGuides.builds) {
   assert(guide.variants?.length >= 3, `Build guide needs replacement variants: ${guide.id}`);
 }
 
-for (const override of communityOverrides) {
+for (const override of expandCommunityOverrides(communityOverrides)) {
   const guide = buildGuides.builds.find((item) => item.id === override.id);
   assert(guide, `Community override target missing from generated guides: ${override.id}`);
   assert(guide.source?.references?.some((reference) => reference.url === override.sourceReference.url), `Community override source reference missing: ${override.id}`);

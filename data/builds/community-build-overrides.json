@@ -209,5 +209,57 @@
       "speedFarm": ["速刷可把胸甲或靴子换成移动/冷却威能。", "低层以路线和拉怪为先，不需要完整爆发循环。"],
       "commonMistakes": ["缺无星或塞利格就硬打高层。", "战吼全交后被精英词缀反打。", "巅峰先点远端小点，延误传奇节点和雕文孔。"]
     }
+  },
+  {
+    "id": "s14-barbarian-weapon_core-speed_farm",
+    "extends": "s14-barbarian-weapon_core-pit_push",
+    "title": "S14 死亡觉醒 野蛮人 · 溶解旋风速刷",
+    "archetypeName": "溶解旋风",
+    "summary": {
+      "oneLine": "野蛮人「溶解旋风」速刷 BD，保留旋风斩和怒气循环核心，把胸甲、靴子和戒指 2 调整为移动、冷却和清图效率。",
+      "pros": ["移动清图顺滑", "核心装备和冲层版通用", "适合材料和中低层天坑"],
+      "cons": ["极限 150 层需要换回防御件", "缺无星时怒气会断档", "高压首领不如冲层版稳定"],
+      "requirements": ["手套：戈尔的毁灭之握", "戒指：无星夜空之戒", "副手：拉玛兰迪的杰作"],
+      "statPriority": ["移动速度", "冷却缩减", "怒气生成", "旋风斩等级", "攻击速度"]
+    },
+    "gearSlots": [
+      {"slotId": "chest", "target": {"type": "legendary", "zhName": "传奇胸甲 + 疾行防御威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "疾行防御威能", "role": "速刷容错和路线推进", "sourceStatus": "暗黑核旋风参考衍生速刷位"}, "required": false, "core": false, "replaceable": true, "affixes": ["生命上限", "护甲", "移动速度收益", "全元素抗性"], "alternatives": [{"zhName": "传奇胸甲 + 彼消我长之威能", "reason": "需要冲层硬度时换回。", "tradeoff": "移动效率下降。"}, {"zhName": "泰瑞尔之力", "reason": "抗性不足时使用。", "tradeoff": "速刷伤害下降。"}]},
+      {"slotId": "boots", "target": {"type": "unique", "zhName": "闪烁步履", "image": "./public/assets/icon-utility.png", "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/flickerstep.png"}, "aspect": {"name": "暗金特效位", "role": "速刷移动和终极循环", "sourceStatus": "暗黑核旋风参考衍生速刷位"}, "required": false, "core": true, "replaceable": true, "affixes": ["移动速度", "闪避冷却", "怒气生成", "全元素抗性"], "alternatives": [{"zhName": "传奇靴子 + 愤怒掌控之威能", "reason": "怒气不足或要冲层时换回。", "tradeoff": "移动和终极循环下降。"}, {"zhName": "忏悔者护胫", "reason": "需要控制联动时过渡。", "tradeoff": "速度较慢。"}]},
+      {"slotId": "ring2", "target": {"type": "legendary", "zhName": "传奇戒指 + 回能威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "回能威能", "role": "速刷怒气续航", "sourceStatus": "暗黑核旋风参考衍生速刷位"}, "required": false, "core": true, "replaceable": true, "affixes": ["资源生成", "冷却缩减", "攻击速度", "幸运一击"], "alternatives": [{"zhName": "传奇戒指 + 潮汐威能", "reason": "密集怪和高层推进时换回。", "tradeoff": "怒气稳定性下降。"}, {"zhName": "赤红狂怒之戒", "reason": "需要爆发时使用。", "tradeoff": "循环波动更大。"}]}
+    ],
+    "gameplay": {
+      "opener": ["进图优先找密集路线，不为零散小怪停留。", "集结呐喊用于启动移动和怒气循环。", "遇到精英包再交战吼和终极。"],
+      "loop": ["旋风斩贴路线持续引导，拉两到三波怪后爆发。", "闪烁步履或移动位用于缩短空跑时间。", "怒气低于安全线时立刻用回能戒指和战吼补循环。", "低层不要等完整爆发窗口。"],
+      "boss": ["速刷首领只保留一轮爆发即可。", "没有怒气时不要硬转，先补资源。", "需要高层首领时切回冲层版。"],
+      "defense": ["速刷版防御较低，危险词缀先移动。", "抗性不满时不要把胸甲换成纯速度。", "硬核角色保留彼消我长之威能。"],
+      "speedFarm": ["主目标是路线效率和怪群密度。", "低层可牺牲部分防御换移动速度。"],
+      "commonMistakes": ["为了单个精英停留过久。", "把所有防御位都换成速度。", "缺无星仍强行高速引导导致断怒。"]
+    }
+  },
+  {
+    "id": "s14-barbarian-weapon_core-daily",
+    "extends": "s14-barbarian-weapon_core-pit_push",
+    "title": "S14 死亡觉醒 野蛮人 · 溶解旋风日常",
+    "archetypeName": "溶解旋风",
+    "summary": {
+      "oneLine": "野蛮人「溶解旋风」日常 BD，围绕旋风斩手感和容错建立过渡配装，允许缺少部分核心暗金，用传奇底材补词缀。",
+      "pros": ["容错高", "缺件时可过渡", "日常活动手感稳定"],
+      "cons": ["150 层上限低于冲层版", "核心暗金未齐时伤害波动", "巅峰和抗性仍需逐步补齐"],
+      "requirements": ["优先找无星夜空之戒", "手套位尽量获取戈尔的毁灭之握", "塞利格可后置"],
+      "statPriority": ["生命上限", "全元素抗性", "怒气生成", "旋风斩等级", "移动速度"]
+    },
+    "gearSlots": [
+      {"slotId": "helm", "target": {"type": "legendary", "zhName": "传奇头盔 + 防御威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "防御威能", "role": "日常过渡和抗性补齐", "sourceStatus": "暗黑核旋风参考衍生日常位"}, "required": false, "core": false, "replaceable": true, "affixes": ["生命上限", "护甲", "全元素抗性", "冷却缩减"], "alternatives": [{"zhName": "传奇头盔 + 格林铁砧之威能", "reason": "进入冲层时换回。", "tradeoff": "日常容错下降。"}, {"zhName": "谐角之冠", "reason": "有掉落时提高全技能。", "tradeoff": "获取难度较高。"}]},
+      {"slotId": "chest", "target": {"type": "legendary", "zhName": "传奇胸甲 + 护主威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "护主威能", "role": "开荒和日常防御", "sourceStatus": "暗黑核旋风参考衍生日常位"}, "required": false, "core": false, "replaceable": true, "affixes": ["护甲", "生命上限", "减伤", "全元素抗性"], "alternatives": [{"zhName": "传奇胸甲 + 彼消我长之威能", "reason": "装备成型后换回冲层位。", "tradeoff": "日常防御稳定性下降。"}, {"zhName": "泰瑞尔之力", "reason": "抗性缺口大时使用。", "tradeoff": "需要暗金掉落。"}]},
+      {"slotId": "amulet", "target": {"type": "legendary", "zhName": "传奇护符 + 引导之威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "引导之威能", "role": "缺塞利格时的旋风斩过渡", "sourceStatus": "暗黑核旋风参考衍生日常位"}, "required": false, "core": true, "replaceable": true, "affixes": ["移动速度", "资源生成", "冷却缩减", "生命上限"], "alternatives": [{"zhName": "塞利格的融心", "reason": "拿到后切换为冲层容错核心。", "tradeoff": "获取难度高。"}, {"zhName": "放逐领主的护符", "reason": "压制过渡可用。", "tradeoff": "旋风斩持续引导弱。"}]}
+    ],
+    "gameplay": {
+      "opener": ["先用最高装等武器和抗性装备推进难度。", "怒气稳定前不要长时间空转旋风斩。", "遇到危险精英先交挑战怒吼。"],
+      "loop": ["旋风斩清怪，怒气不足时穿插基础生成。", "战吼按冷却轮流使用，不追求极限爆发。", "装备未齐时优先保证生存和资源。", "拿到无星、戈尔和塞利格后再转冲层版。"],
+      "boss": ["日常首领以稳定为主，保留防御技能。", "怒气不足时先补循环再爆发。", "不追求 150 层速度。"],
+      "defense": ["抗性、护甲、生命优先于纯伤害词缀。", "缺塞利格时不要硬吃高层伤害。", "危险地面优先躲避。"],
+      "speedFarm": ["日常材料可换移动靴或回能戒指。", "梦魇/低层不需要完整冲层威能。"],
+      "commonMistakes": ["过早追求冲层伤害导致被秒。", "缺怒气循环还堆纯输出。", "核心暗金没齐就按 150 层打法推进。"]
+    }
   }
 ]

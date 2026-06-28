@@ -31,7 +31,8 @@ const state = {
     seasonId: "s14",
     classId: "barbarian",
     mode: "pit_push",
-    buildIndex: 0
+    buildIndex: 0,
+    sourceQuality: "all"
   },
   equipmentFilters: {
     classId: "all",
@@ -369,7 +370,16 @@ function filteredGuides() {
     .filter((guide) => guide.taxonomy.seasonId === state.sim.seasonId)
     .filter((guide) => guide.taxonomy.classId === state.sim.classId)
     .filter((guide) => guide.taxonomy.mode === state.sim.mode)
+    .filter((guide) => {
+      if (state.sim.sourceQuality === "community") return Boolean(guide.source.references?.length);
+      if (state.sim.sourceQuality === "structured") return !guide.source.references?.length;
+      return true;
+    })
     .sort((a, b) => a.ceiling.pit150Minutes - b.ceiling.pit150Minutes || a.formationDifficulty.level - b.formationDifficulty.level);
+}
+
+function guideSourceLabel(guide) {
+  return guide.source.references?.length ? "社区参考" : "结构化模板";
 }
 
 function renderTags(tags, limit = 8) {
@@ -430,6 +440,7 @@ function renderBuildLibraryCard(guide) {
       </div>
       <p>${guide.summary.oneLine}</p>
       <div class="guide-card__tags">${renderTags(guide.taxonomy.stageTags)}</div>
+      <div class="source-pill">${guideSourceLabel(guide)}</div>
       <div class="guide-card__metrics">
         <span><b>${guide.formationDifficulty.label}</b>成型难度</span>
         <span><b>${guide.ceiling.pit150Minutes} 分</b>150 层参考</span>
@@ -457,7 +468,7 @@ function renderSimulator() {
       <a class="build-candidate guide-link" href="${guideUrl(guide)}" aria-selected="${index === state.sim.buildIndex}">
         <span>${String(index + 1).padStart(2, "0")}</span>
         <strong>${guide.taxonomy.archetypeName}</strong>
-        <em>${guide.taxonomy.stageTags.join(" / ")} · 成型${guide.formationDifficulty.label} · ${guide.ceiling.tier}</em>
+        <em>${guideSourceLabel(guide)} · ${guide.taxonomy.stageTags.join(" / ")} · 成型${guide.formationDifficulty.label} · ${guide.ceiling.tier}</em>
       </a>
     `).join("")}
   `;
@@ -483,6 +494,7 @@ function renderSimulator() {
       </div>
       <div class="library-stats">
         <span><b>${guides.length}</b>套流派</span>
+        <span><b>${guides.filter((guide) => guide.source.references?.length).length}</b>社区参考</span>
         <span><b>${guides[0].ceiling.label}</b>最高参考</span>
       </div>
     </div>
@@ -949,6 +961,11 @@ function bindInteractions() {
   });
   $("[data-sim-mode]").addEventListener("change", (event) => {
     state.sim.mode = event.target.value;
+    state.sim.buildIndex = 0;
+    renderSimulator();
+  });
+  $("[data-sim-source]").addEventListener("change", (event) => {
+    state.sim.sourceQuality = event.target.value;
     state.sim.buildIndex = 0;
     renderSimulator();
   });

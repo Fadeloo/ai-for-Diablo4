@@ -28,6 +28,7 @@
 - `scripts/fetch-official-patch.mjs`：从官方 3.1.0 补丁页抽取唯一装备固定词缀种子数据。
 - `scripts/verify.mjs`：校验版本、职业覆盖、数据结构和代表性伤害样例。
 - `docs/PROJECT_SCOPE.md`：完整功能范围、已完成模块和下一阶段补全项。
+- `docs/ARCHITECTURE.md`：页面架构、组件模式、数据分层和后续后端/存储设计。
 - `docs/BUILD_GUIDE_DATA_MODEL.md`：BD 数据存储、生成链路和前端使用方式。
 
 ## 常用命令
