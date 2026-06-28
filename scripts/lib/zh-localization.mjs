@@ -40,7 +40,11 @@ const exactItemNames = new Map([
   ["Cowl of the Nameless", "无名者兜帽"],
   ["The Umbracrux", "晦暗核心"],
   ["Raiment of the Infinite", "无限法衣"],
-  ["Signet of Pelghain", "佩尔盖恩印戒"]
+  ["Signet of Pelghain", "佩尔盖恩印戒"],
+  ["Harmony of Ebewaka", "艾贝瓦卡的和谐"],
+  ["Rod of Kepeleke", "凯佩莱凯之杖"],
+  ["Thundergod's Blessing", "雷神的祝福"],
+  ["Yen's Blessing", "延的祝福"]
 ]);
 
 const wordMap = new Map([

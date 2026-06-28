@@ -1318,5 +1318,270 @@
       "speedFarm": ["低层可以先使用移动靴和资源戒指。", "装备成型后切换速刷版。"],
       "commonMistakes": ["缺轴心导体就硬按完整 BD 打。", "法力词缀不足导致断循环。", "没有屏障就传送进精英包。"]
     }
+  },
+  {
+    "id": "s14-spiritborn-jaguar_eagle-pit_push",
+    "sourceReference": {
+      "site": "Mobalytics",
+      "url": "https://mobalytics.gg/diablo-4/builds/spiritborn-evade",
+      "sourceSeason": "S14 死亡觉醒",
+      "referenceTitle": "S14 Updated Evade Storm Feathers - Speedborn Spiritborn",
+      "asOf": "2026-06-28",
+      "note": "Mobalytics 页面标注为 S14 Verified Evade Storm Feathers - Speedborn Spiritborn，2026-06-27 更新，含装备、技能循环、技能树、魂灵大厅、巅峰传奇节点和变体说明；本站按中文资料页结构整理，并将高层冲层结论保留为待榜单校准。"
+    },
+    "title": "S14 死亡觉醒 魂灵师 · 风暴羽毛闪避冲层",
+    "archetypeName": "风暴羽毛闪避",
+    "summary": {
+      "oneLine": "魂灵师「风暴羽毛闪避」冲层参考 BD，围绕闪避触发风暴羽毛、乌蛇纳克帕、忠诚披肩、雷神祝福和劫掠者/猎手窗口建立高速清图与精英爆发。",
+      "pros": ["同赛季社区参考", "移动和清图速度极高", "来源页面有技能循环、魂灵大厅和巅峰传奇节点"],
+      "cons": ["来源定位偏速刷，高层上限仍需榜单校准", "依赖闪避节奏和核心暗金", "站桩首领需要更严格的防御窗口"],
+      "requirements": ["头盔：忠诚披肩", "靴子：雷神的祝福", "双手武器：乌蛇纳克帕", "魂灵大厅：雄鹰主魂 + 美洲豹副魂"],
+      "statPriority": ["移动速度", "攻击速度", "暴击几率", "闪避冷却", "冷却缩减"]
+    },
+    "gearSlots": [
+      {
+        "slotId": "helm",
+        "target": {"type": "unique", "zhName": "忠诚披肩"},
+        "aspect": {"name": "暗金特效位", "role": "魂灵大厅协同与风暴羽毛核心", "sourceStatus": "Mobalytics S14 Evade Storm Feathers 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["生命上限", "冷却缩减", "移动速度", "全元素抗性"],
+        "alternatives": [
+          {"zhName": "艾贝瓦卡的和谐", "reason": "缺忠诚披肩时使用通用魂灵标签增伤。", "tradeoff": "来源 BD 的魂灵大厅协同下降。"},
+          {"zhName": "传奇头盔 + 防御威能", "reason": "日常过渡先补抗性和生命。", "tradeoff": "速度和上限下降。"}
+        ]
+      },
+      {
+        "slotId": "chest",
+        "target": {"type": "legendary", "zhName": "传奇胸甲 + 束缚沼泽威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "束缚沼泽威能", "role": "控制、减速和高速穿怪容错", "sourceStatus": "Mobalytics S14 Evade Storm Feathers 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["生命上限", "护甲", "全元素抗性", "减伤"],
+        "alternatives": [
+          {"zhName": "紫晶外壳", "reason": "需要更高生存和活力循环时使用。", "tradeoff": "控制威能位下降。"},
+          {"zhName": "泰瑞尔之力", "reason": "抗性和弹幕压力大时使用。", "tradeoff": "速度收益下降。"}
+        ]
+      },
+      {
+        "slotId": "gloves",
+        "target": {"type": "legendary", "zhName": "传奇手套 + 禁制威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "禁制威能", "role": "屏障/护甲联动，提高高速贴怪容错", "sourceStatus": "Mobalytics S14 Evade Storm Feathers 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["攻击速度", "暴击几率", "幸运一击", "闪避冷却"],
+        "alternatives": [
+          {"zhName": "传奇手套 + 不屈打击威能", "reason": "需要把护符威能下放时使用。", "tradeoff": "手套防御联动下降。"},
+          {"zhName": "命运之拳", "reason": "过渡或幸运一击娱乐变体。", "tradeoff": "稳定性较差。"}
+        ]
+      },
+      {
+        "slotId": "pants",
+        "target": {"type": "legendary", "zhName": "传奇裤子 + 违抗威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "违抗威能", "role": "高频命中叠护甲，支撑冲层防御", "sourceStatus": "Mobalytics S14 Evade Storm Feathers 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["生命上限", "护甲", "全元素抗性", "减伤"],
+        "alternatives": [
+          {"zhName": "传奇裤子 + 防御威能", "reason": "抗性缺口大时过渡。", "tradeoff": "护甲叠层效率下降。"},
+          {"zhName": "鲁莽", "reason": "需要屏障容错时可尝试。", "tradeoff": "来源威能联动下降。"}
+        ]
+      },
+      {
+        "slotId": "boots",
+        "target": {"type": "unique", "zhName": "雷神的祝福"},
+        "aspect": {"name": "暗金特效位", "role": "闪电、移动和闪避清图核心", "sourceStatus": "Mobalytics S14 Evade Storm Feathers 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["移动速度", "闪电伤害乘区", "闪避冷却", "全元素抗性"],
+        "alternatives": [
+          {"zhName": "延的祝福", "reason": "缺雷神祝福时用于冷却和自动施放过渡。", "tradeoff": "风暴羽毛速度核心下降。"},
+          {"zhName": "传奇靴子 + 移动威能", "reason": "日常低层过渡。", "tradeoff": "暗金联动缺失。"}
+        ]
+      },
+      {
+        "slotId": "amulet",
+        "target": {"type": "legendary", "zhName": "传奇护符 + 不屈打击威能", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "不屈打击威能", "role": "高频闪避命中后的主伤害放大", "sourceStatus": "Mobalytics S14 Evade Storm Feathers 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["移动速度", "冷却缩减", "暴击几率", "闪避冷却"],
+        "alternatives": [
+          {"zhName": "放逐领主的护符", "reason": "压制变体或过渡可用。", "tradeoff": "偏离来源风暴羽毛主体。"},
+          {"zhName": "传奇护符 + 禁制威能", "reason": "防御压力大时重排威能位。", "tradeoff": "伤害上限下降。"}
+        ]
+      },
+      {
+        "slotId": "ring1",
+        "target": {"type": "legendary", "zhName": "传奇戒指 + 反弹威能", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "反弹威能", "role": "风暴羽毛/飞羽反弹清图核心", "sourceStatus": "Mobalytics S14 Evade Storm Feathers 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["暴击几率", "幸运一击", "资源生成", "冷却缩减"],
+        "alternatives": [
+          {"zhName": "无星夜空之戒", "reason": "需要资源和持续输出时可尝试。", "tradeoff": "反弹清图联动下降。"},
+          {"zhName": "传奇戒指 + 资源威能", "reason": "活力不足时过渡。", "tradeoff": "清图上限下降。"}
+        ]
+      },
+      {
+        "slotId": "ring2",
+        "target": {"type": "legendary", "zhName": "传奇戒指 + 邪恶占卜者威能", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "邪恶占卜者威能", "role": "毒皮/多目标爆发与速刷扩散", "sourceStatus": "Mobalytics S14 Evade Storm Feathers 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["暴击几率", "幸运一击", "攻击速度", "冷却缩减"],
+        "alternatives": [
+          {"zhName": "传奇戒指 + 资源威能", "reason": "活力不足或日常过渡。", "tradeoff": "扩散爆发下降。"},
+          {"zhName": "传奇戒指 + 元素威能", "reason": "缺邪恶占卜者威能时稳定增伤。", "tradeoff": "来源联动下降。"}
+        ]
+      },
+      {
+        "slotId": "twoHand",
+        "target": {"type": "unique", "zhName": "乌蛇纳克帕"},
+        "aspect": {"name": "暗金特效位", "role": "闪避风暴羽毛主武器核心", "sourceStatus": "Mobalytics S14 Evade Storm Feathers 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["武器伤害", "全伤害乘区", "暴击伤害", "闪避相关伤害"],
+        "alternatives": [
+          {"zhName": "凯佩莱凯之杖", "reason": "核心技能/活力变体过渡。", "tradeoff": "闪避风暴羽毛主体下降。"},
+          {"zhName": "塞帕宗泰克", "reason": "基础技能变体过渡。", "tradeoff": "来源 BD 核心机制改变。"}
+        ]
+      },
+      {
+        "slotId": "mainHand",
+        "target": {"type": "legendary", "zhName": "不使用：双手武器方案", "image": "./public/assets/icon-weapon.png"},
+        "aspect": {"name": "空槽说明", "role": "来源方案使用乌蛇纳克帕，不占用单手位", "sourceStatus": "Mobalytics S14 Evade Storm Feathers 装备位"},
+        "required": false,
+        "core": false,
+        "replaceable": true,
+        "affixes": ["无", "保持乌蛇纳克帕", "不占用单手位"],
+        "alternatives": [
+          {"zhName": "传奇单手武器 + 反弹威能", "reason": "缺乌蛇纳克帕时过渡。", "tradeoff": "核心暗金机制缺失。"},
+          {"zhName": "传奇单手武器 + 不屈打击威能", "reason": "临时重排威能位。", "tradeoff": "需要副手补伤害。"}
+        ]
+      },
+      {
+        "slotId": "offHand",
+        "target": {"type": "legendary", "zhName": "不使用：来源页副手为空", "image": "./public/assets/icon-utility.png"},
+        "aspect": {"name": "空槽说明", "role": "来源页面 Offhand Empty，不额外占用副手威能", "sourceStatus": "Mobalytics S14 Evade Storm Feathers 装备位"},
+        "required": false,
+        "core": false,
+        "replaceable": true,
+        "affixes": ["无", "保持双手武器方案", "不占用副手位"],
+        "alternatives": [
+          {"zhName": "传奇副手 + 防御威能", "reason": "切换单手方案时补硬度。", "tradeoff": "伤害倍率下降。"},
+          {"zhName": "传奇副手 + 资源威能", "reason": "活力不足时过渡。", "tradeoff": "偏离来源方案。"}
+        ]
+      }
+    ],
+    "skillTree": {
+      "core": "闪避风暴羽毛",
+      "skillBar": [
+        {"slot": 1, "name": "劫掠者", "role": "爆发和增伤", "points": 1},
+        {"slot": 2, "name": "反击", "role": "防御与反击窗口", "points": 1},
+        {"slot": 3, "name": "猎手", "role": "终极爆发", "points": 1},
+        {"slot": 4, "name": "闪避", "role": "主攻触发风暴羽毛", "points": 0},
+        {"slot": 5, "name": "漩涡", "role": "聚怪", "points": 1},
+        {"slot": 6, "name": "毒皮", "role": "毒素和邪恶占卜者触发", "points": 1}
+      ],
+      "pointOrder": [
+        {"levelRange": "1-6", "skill": "基础与闪避联动", "points": "解锁必要路径", "reason": "来源页面强调无需雷刺，核心来自闪避触发。"},
+        {"levelRange": "7-12", "skill": "漩涡", "points": "+1 至强化", "reason": "先拿聚怪，让风暴羽毛命中密集目标。"},
+        {"levelRange": "13-18", "skill": "劫掠者", "points": "+1 至强化", "reason": "建立爆发和移动输出窗口。"},
+        {"levelRange": "19-23", "skill": "反击", "points": "+1 至强化", "reason": "高速贴怪时需要防御与反击收益。"},
+        {"levelRange": "24-28", "skill": "毒皮", "points": "+1 至强化", "reason": "来源循环要求释放毒皮触发扩散和增伤。"},
+        {"levelRange": "29-33", "skill": "猎手", "points": "+1", "reason": "精英和首领爆发窗口。"},
+        {"levelRange": "34-45", "skill": "雄鹰/美洲豹被动", "points": "+6 至 +9", "reason": "魂灵大厅为雄鹰主魂、美洲豹副魂，优先补速度和攻速。"},
+        {"levelRange": "46-60", "skill": "闪避、移动和暴击被动", "points": "+6 至 +9", "reason": "提高风暴羽毛触发和清图效率。"},
+        {"levelRange": "60-80", "skill": "防御与资源被动", "points": "按装备微调", "reason": "乌蛇纳克帕和雷神祝福成型后补硬度与活力。"},
+        {"levelRange": "80+", "skill": "终局重分配", "points": "围绕闪避冷却和移动速度调整", "reason": "冲层前补齐抗性、护甲、生命和闪避节奏。"}
+      ],
+      "notes": ["魂灵大厅：雄鹰主魂，美洲豹副魂。", "来源页面技能循环为：施放劫掠者、施放反击、施放猎手、持续/连按闪避、施放漩涡、施放毒皮。"]
+    },
+    "paragon": {
+      "rule": "Mobalytics 页面列出巅峰传奇节点：斗士、汲取、恶毒护盾、揭示、驱动、苦药；本站按这些节点整理点击顺序，精确坐标仍需来源 Planner 校准。",
+      "clickOrder": [
+        {"board": "起始盘", "node": "核心雕文孔", "reason": "先放入雄鹰/移动相关雕文，服务闪避触发。"},
+        {"board": "起始盘", "node": "敏捷与生命稀有节点", "reason": "高速贴怪需要基础硬度。"},
+        {"board": "斗士盘", "node": "斗士传奇节点", "reason": "先拿近战/贴怪输出核心。"},
+        {"board": "斗士盘", "node": "雕文孔", "reason": "补攻速、暴击或移动收益。"},
+        {"board": "汲取盘", "node": "汲取传奇节点", "reason": "补资源与持续循环。"},
+        {"board": "恶毒护盾盘", "node": "恶毒护盾传奇节点", "reason": "提高屏障/防御转伤害收益。"},
+        {"board": "揭示盘", "node": "揭示传奇节点", "reason": "补爆发和状态窗口。"},
+        {"board": "驱动盘", "node": "驱动传奇节点", "reason": "强化移动输出节奏。"},
+        {"board": "苦药盘", "node": "苦药传奇节点", "reason": "补毒皮和高压生存/伤害联动。"},
+        {"board": "任意盘", "node": "抗性、护甲、生命小点", "reason": "高层前按装备缺口补齐。"}
+      ]
+    },
+    "gameplay": {
+      "opener": ["先施放劫掠者建立爆发窗口。", "施放反击提高防御与反击收益。", "施放猎手进入精英/首领爆发。", "开始持续或连按闪避触发风暴羽毛。", "用漩涡聚怪，再用毒皮触发扩散和增伤。"],
+      "loop": ["闪避是主输出触发，不要把它只当位移。", "漩涡用于把怪拉到风暴羽毛路径内。", "毒皮和邪恶占卜者威能配合多目标爆发。", "劫掠者、反击、猎手按精英和首领节奏保留。"],
+      "boss": ["首领前保留猎手和劫掠者。", "保持雷神祝福和乌蛇纳克帕的移动输出节奏。", "如果闪避冷却或资源断档，先拉开等待窗口。"],
+      "defense": ["违抗、禁制和恶毒护盾节点支撑高层硬度。", "不要在没有反击或屏障窗口时贴脸硬吃。", "抗性、护甲、生命不足时降低层数。"],
+      "speedFarm": ["来源主体就是 Speedborn，低层以连续闪避穿图为主。", "遇到零散小怪直接跳过，保留漩涡给密集怪。"],
+      "commonMistakes": ["把闪避当位移而不是主输出节奏。", "漩涡空交导致风暴羽毛命中分散。", "缺乌蛇纳克帕或雷神祝福就硬按完整速刷节奏。"]
+    }
+  },
+  {
+    "id": "s14-spiritborn-jaguar_eagle-speed_farm",
+    "extends": "s14-spiritborn-jaguar_eagle-pit_push",
+    "title": "S14 死亡觉醒 魂灵师 · 风暴羽毛闪避速刷",
+    "archetypeName": "风暴羽毛闪避",
+    "summary": {
+      "oneLine": "魂灵师「风暴羽毛闪避」速刷 BD，沿用 Mobalytics Speedborn 主体，把目标明确为连续闪避、风暴羽毛穿图、聚怪清屏和材料效率。",
+      "pros": ["来源原始定位就是 Speedborn", "路线速度极高", "主攻和移动完全绑定"],
+      "cons": ["站桩首领不如专门冲层 BD", "缺乌蛇纳克帕和雷神祝福手感明显下降", "需要熟悉闪避节奏"],
+      "requirements": ["双手武器：乌蛇纳克帕", "靴子：雷神的祝福", "戒指：反弹威能"],
+      "statPriority": ["移动速度", "闪避冷却", "攻击速度", "暴击几率", "冷却缩减"]
+    },
+    "gearSlots": [
+      {"slotId": "chest", "target": {"type": "unique", "zhName": "紫晶外壳"}, "aspect": {"name": "暗金特效位", "role": "速刷时补活力和容错", "sourceStatus": "Mobalytics Evade Storm Feathers 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["每秒活力", "生命上限", "减伤", "全元素抗性"], "alternatives": [{"zhName": "传奇胸甲 + 束缚沼泽威能", "reason": "需要聚怪控制或冲层时换回。", "tradeoff": "活力容错下降。"}, {"zhName": "泰瑞尔之力", "reason": "抗性压力大时使用。", "tradeoff": "速度下降。"}]},
+      {"slotId": "ring2", "target": {"type": "legendary", "zhName": "传奇戒指 + 资源威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "资源威能", "role": "速刷连续闪避活力续航", "sourceStatus": "Mobalytics Evade Storm Feathers 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["资源生成", "攻击速度", "暴击几率", "冷却缩减"], "alternatives": [{"zhName": "传奇戒指 + 邪恶占卜者威能", "reason": "需要爆发和高层扩散时换回。", "tradeoff": "续航下降。"}, {"zhName": "无星夜空之戒", "reason": "资源和持续输出变体。", "tradeoff": "反弹/扩散威能位压力变大。"}]},
+      {"slotId": "amulet", "target": {"type": "legendary", "zhName": "传奇护符 + 移动威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "移动威能", "role": "低层路线速度最大化", "sourceStatus": "Mobalytics Evade Storm Feathers 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["移动速度", "闪避冷却", "冷却缩减", "暴击几率"], "alternatives": [{"zhName": "传奇护符 + 不屈打击威能", "reason": "需要高层伤害时换回。", "tradeoff": "路线速度下降。"}, {"zhName": "放逐领主的护符", "reason": "压制变体过渡。", "tradeoff": "偏离 Speedborn 主体。"}]}
+    ],
+    "gameplay": {
+      "opener": ["进图直接按路线找密集怪群。", "劫掠者和反击用于启动，猎手留给精英包。", "漩涡聚怪后连续闪避穿过怪群。"],
+      "loop": ["持续闪避触发风暴羽毛，不为零散怪停留。", "毒皮交给大群怪或事件首领。", "资源戒指和紫晶外壳保证长距离连续移动。", "低层不等完整冲层爆发窗口。"],
+      "boss": ["速刷首领打一轮猎手和毒皮窗口。", "闪避冷却断档时先拉开。", "需要高层首领时切回冲层版。"],
+      "defense": ["速刷版防御较低，危险词缀直接跳走。", "硬核角色保留违抗和束缚沼泽位。", "抗性不足时不要过度换速度件。"],
+      "speedFarm": ["主目标是连续闪避穿图和怪群密度。", "低层材料可以牺牲部分伤害换移动。"],
+      "commonMistakes": ["为了单个精英停留。", "漩涡没命中怪群就开闪避。", "把活力续航换掉后断节奏。"]
+    }
+  },
+  {
+    "id": "s14-spiritborn-jaguar_eagle-daily",
+    "extends": "s14-spiritborn-jaguar_eagle-pit_push",
+    "title": "S14 死亡觉醒 魂灵师 · 风暴羽毛闪避日常",
+    "archetypeName": "风暴羽毛闪避",
+    "summary": {
+      "oneLine": "魂灵师「风暴羽毛闪避」日常 BD，保留闪避风暴羽毛、漩涡、毒皮和魂灵大厅核心，用传奇防御件和资源位降低成型门槛。",
+      "pros": ["缺件也能体验高速清图", "日常材料效率高", "后续可平滑升级到完整 Speedborn"],
+      "cons": ["缺乌蛇纳克帕和雷神祝福时不是完整构筑", "高层上限低于完整暗金版", "需要补足抗性和活力"],
+      "requirements": ["先找雷神的祝福或高移速靴", "武器优先乌蛇纳克帕", "头盔可用艾贝瓦卡的和谐过渡"],
+      "statPriority": ["生命上限", "全元素抗性", "移动速度", "活力生成", "闪避冷却"]
+    },
+    "gearSlots": [
+      {"slotId": "helm", "target": {"type": "unique", "zhName": "艾贝瓦卡的和谐"}, "aspect": {"name": "暗金特效位", "role": "缺忠诚披肩时的魂灵标签过渡", "sourceStatus": "Mobalytics Evade Storm Feathers 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["生命上限", "冷却缩减", "全元素抗性", "移动速度"], "alternatives": [{"zhName": "忠诚披肩", "reason": "拿到后切回完整来源 BD。", "tradeoff": "获取前魂灵大厅协同较弱。"}, {"zhName": "传奇头盔 + 防御威能", "reason": "起步补硬度。", "tradeoff": "伤害下降。"}]},
+      {"slotId": "boots", "target": {"type": "legendary", "zhName": "传奇靴子 + 移动威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "移动威能", "role": "缺雷神祝福时保证基础手感", "sourceStatus": "Mobalytics Evade Storm Feathers 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["移动速度", "闪避冷却", "全元素抗性", "活力生成"], "alternatives": [{"zhName": "雷神的祝福", "reason": "拿到后切回完整 Speedborn。", "tradeoff": "获取前闪电联动下降。"}, {"zhName": "延的祝福", "reason": "冷却和自动施放过渡。", "tradeoff": "清图核心下降。"}]},
+      {"slotId": "twoHand", "target": {"type": "legendary", "zhName": "传奇双手武器 + 反弹威能", "image": "./public/assets/icon-weapon.png"}, "aspect": {"name": "反弹威能", "role": "缺乌蛇纳克帕时保留飞羽清图", "sourceStatus": "Mobalytics Evade Storm Feathers 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["武器伤害", "暴击伤害", "攻击速度", "闪避相关伤害"], "alternatives": [{"zhName": "乌蛇纳克帕", "reason": "拿到后切回完整来源 BD。", "tradeoff": "获取前上限较低。"}, {"zhName": "凯佩莱凯之杖", "reason": "高装等核心技能过渡。", "tradeoff": "机制偏离闪避风暴羽毛。"}]},
+      {"slotId": "ring1", "target": {"type": "legendary", "zhName": "传奇戒指 + 资源威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "资源威能", "role": "日常活力续航", "sourceStatus": "Mobalytics Evade Storm Feathers 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["资源生成", "暴击几率", "攻击速度", "冷却缩减"], "alternatives": [{"zhName": "传奇戒指 + 反弹威能", "reason": "伤害成型后换回核心清图位。", "tradeoff": "续航下降。"}, {"zhName": "无星夜空之戒", "reason": "有掉落时提高资源与持续输出。", "tradeoff": "神话暗金获取难度高。"}]}
+    ],
+    "gameplay": {
+      "opener": ["先用高装等武器和移动靴推进难度。", "漩涡聚怪后再连续闪避。", "毒皮和猎手留给精英。"],
+      "loop": ["日常版本以稳定清图为主，不追求完整速刷断点。", "活力不足时降低闪避频率，优先补资源词缀。", "缺乌蛇纳克帕时不要硬推高层。", "忠诚披肩、雷神祝福、乌蛇纳克帕到位后转速刷/冲层版。"],
+      "boss": ["保留猎手和毒皮。", "闪避冷却不足时先走位。", "日常首领不追求极限秒杀。"],
+      "defense": ["抗性、护甲、生命优先于纯伤害。", "没有完整暗金前降低拉怪规模。", "反击不要空交。"],
+      "speedFarm": ["低层材料可先用移动靴和资源戒指。", "核心暗金到位后切换速刷版。"],
+      "commonMistakes": ["没资源续航就连续闪避。", "没有聚怪就把风暴羽毛打散。", "日常装备硬推高层。"]
+    }
   }
 ]

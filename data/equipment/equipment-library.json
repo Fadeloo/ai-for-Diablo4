@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T14:36:01.177Z",
+  "generatedAt": "2026-06-28T14:42:27.134Z",
   "source": {
     "id": "blizzard_patch_3_1",
     "url": "https://news.blizzard.com/en-us/article/24287406/diablo-iv-patch-notes",
@@ -2358,7 +2358,7 @@
     {
       "id": "thundergods-blessing",
       "name": "Thundergod's Blessing",
-      "zhName": "雷神祝福",
+      "zhName": "雷神的祝福",
       "rarity": "unique",
       "classRestriction": "All Classes",
       "zhClassRestriction": "全职业",
@@ -2772,7 +2772,7 @@
     {
       "id": "yens-blessing",
       "name": "Yen's Blessing",
-      "zhName": "延祝福",
+      "zhName": "延的祝福",
       "rarity": "unique",
       "classRestriction": "All Classes",
       "zhClassRestriction": "全职业",
@@ -15192,7 +15192,7 @@
     {
       "id": "harmony-of-ebewaka",
       "name": "Harmony of Ebewaka",
-      "zhName": "和谐艾贝瓦卡",
+      "zhName": "艾贝瓦卡的和谐",
       "rarity": "unique",
       "classRestriction": "Spiritborn",
       "zhClassRestriction": "魂灵师",
@@ -16020,7 +16020,7 @@
     {
       "id": "rod-of-kepeleke",
       "name": "Rod of Kepeleke",
-      "zhName": "杖凯佩莱凯",
+      "zhName": "凯佩莱凯之杖",
       "rarity": "unique",
       "classRestriction": "Spiritborn",
       "zhClassRestriction": "魂灵师",
