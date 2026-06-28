@@ -1284,6 +1284,88 @@ function renderSeasonBuildMatrix(guides) {
   `;
 }
 
+function directoryGuidesForCurrentFilters() {
+  const query = normalizedText(state.sim.query);
+  return allBuildGuides()
+    .filter((guide) => guide.taxonomy.seasonId === state.sim.seasonId)
+    .filter((guide) => state.sim.classId === "all" || guide.taxonomy.classId === state.sim.classId)
+    .filter((guide) => guideMatchesBuildQuery(guide, query))
+    .filter((guide) => guideMatchesSourceQuality(guide, state.sim.sourceQuality))
+    .sort(sortGuidesForPlayer);
+}
+
+function renderRecommendedBuildCell(guide, mode) {
+  if (!guide) {
+    return `
+      <div class="recommended-build-cell is-empty">
+        <span>${modeLabels[mode] || mode}</span>
+        <strong>待回填</strong>
+        <em>当前来源筛选下暂无可展示 BD</em>
+      </div>
+    `;
+  }
+  const firstSkillStep = guide.skillTree?.pointOrder?.[0];
+  const firstParagonStep = guide.paragon?.clickOrder?.[0];
+  return `
+    <a class="recommended-build-cell" href="${guideUrl(guide)}">
+      <span>${guide.taxonomy.modeName} · ${guideSourceLabel(guide)}</span>
+      <strong>${guide.taxonomy.archetypeName}</strong>
+      <em>${guide.formationDifficulty.label}成型 · ${guide.taxonomy.stage} · ${guide.ceiling.displayTier || guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</em>
+      <small>核心：${guideCoreLine(guide)}</small>
+      <small>技能：${firstSkillStep ? `${displayText(firstSkillStep.levelRange)} ${displayText(firstSkillStep.skill)}` : "待来源回填"}</small>
+      <small>巅峰：${firstParagonStep ? `${displayText(firstParagonStep.board)} ${displayText(firstParagonStep.node)}` : "待来源回填"}</small>
+    </a>
+  `;
+}
+
+function renderRecommendedBuildBoard(guides) {
+  const classRows = (state.sim.classId === "all" ? state.classes : state.classes.filter((item) => item.id === state.sim.classId))
+    .map((classInfo) => {
+      const classGuides = guides.filter((guide) => guide.taxonomy.classId === classInfo.id);
+      const archetypes = [...new Set(classGuides.map((guide) => guide.taxonomy.archetypeName))];
+      const communityCount = classGuides.filter((guide) => guide.source.references?.length).length;
+      const modes = new Map(buildVersionModeOrder.map((mode) => [
+        mode,
+        classGuides.filter((guide) => guide.taxonomy.mode === mode).sort(sortGuidesForPlayer)[0] || null
+      ]));
+      return {
+        classInfo,
+        classGuides,
+        archetypes,
+        communityCount,
+        modes
+      };
+    })
+    .filter((row) => row.classGuides.length || state.sim.query === "");
+
+  if (!classRows.length) return "";
+
+  return `
+    <section class="recommended-build-board" aria-label="本赛季抄作业入口">
+      <div class="section-title">
+        <h4>本赛季抄作业入口</h4>
+        <span>每个职业按日常、速刷、冲层给出可进入完整 BD 的版本</span>
+      </div>
+      <div class="recommended-build-table">
+        <div class="recommended-build-row recommended-build-row--head" aria-hidden="true">
+          <span>职业</span>
+          ${buildVersionModeOrder.map((mode) => `<span>${modeLabels[mode] || mode}</span>`).join("")}
+        </div>
+        ${classRows.map((row) => `
+          <article class="recommended-build-row">
+            <header>
+              <span>${row.classInfo.zhName}</span>
+              <strong>${row.archetypes.length} 个流派 · ${row.classGuides.length} 套 BD</strong>
+              <em>${row.communityCount} 套社区来源 · ${row.archetypes.slice(0, 5).join(" / ") || "待回填"}</em>
+            </header>
+            ${buildVersionModeOrder.map((mode) => renderRecommendedBuildCell(row.modes.get(mode), mode)).join("")}
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderBuildClassRail() {
   const rail = $("[data-build-class-rail]");
   if (!rail) return;
@@ -1330,6 +1412,7 @@ function renderBuildSourceRail() {
 
 function renderSimulator() {
   const guides = filteredGuides();
+  const directoryGuides = directoryGuidesForCurrentFilters();
   const selected = guides[state.sim.buildIndex] || guides[0] || null;
   renderBuildClassRail();
   renderBuildSourceRail();
@@ -1379,6 +1462,7 @@ function renderSimulator() {
         <span><b>${topGuide.ceiling.label}</b>最高参考</span>
       </div>
     </div>
+    ${renderRecommendedBuildBoard(directoryGuides)}
     ${renderBuildAtlas(guides)}
     ${renderSeasonBuildMatrix(guides)}
     <div class="guide-card-grid">
@@ -2980,6 +3064,8 @@ function renderCoverage() {
   const aspectCoverage = coverage.aspectCoverage;
   const sourceCoverage = coverage.sourceCoverage;
   const sourceLevels = buildCoverage.byVerificationLevel || {};
+  const buildIntegrity = coverage.buildIntegrity || {};
+  const frontendContracts = coverage.frontendDataContracts || [];
   panel.innerHTML = `
     <section class="coverage-panel">
       <div class="section-title">
@@ -3012,6 +3098,11 @@ function renderCoverage() {
           <span>同赛季社区 BD</span>
           <p>${sourceLevels.cross_season_reference || 0} 套跨赛季参考必须继续等实战校准。</p>
         </article>
+        <article>
+          <strong>${buildIntegrity.completeGearSlotBuilds || 0}</strong>
+          <span>完整 11 槽 BD</span>
+          <p>技能 ${buildIntegrity.skillRouteBuilds || 0} 套、巅峰 ${buildIntegrity.paragonRouteBuilds || 0} 套、打法 ${buildIntegrity.gameplayBuilds || 0} 套通过结构校验。</p>
+        </article>
       </div>
       <div class="storage-layer-grid">
         ${coverage.storageLayers.map((layer) => `
@@ -3019,6 +3110,16 @@ function renderCoverage() {
             <strong>${layer.zhName}</strong>
             <span>${layer.files.join(" / ")}</span>
             <p>${layer.frontendUse}</p>
+          </article>
+        `).join("")}
+      </div>
+      <div class="data-contract-grid">
+        ${frontendContracts.map((contract) => `
+          <article>
+            <strong>${contract.zhName}</strong>
+            <span>${contract.source}</span>
+            <p>${contract.frontendUse}</p>
+            <em>${(contract.fields || []).join(" / ")}</em>
           </article>
         `).join("")}
       </div>

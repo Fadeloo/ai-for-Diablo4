@@ -167,6 +167,14 @@ assert(siteCoverage.aspectCoverage?.total === aspectIndex.aspects.length, "Site 
 assert(siteCoverage.sourceCoverage?.total === sources.length, "Site coverage source count mismatch");
 assert(siteCoverage.storageLayers?.length >= 4, "Site coverage must describe storage layers");
 assert(siteCoverage.buildCoverage.classMatrix?.length === simulations.seasons.length, "Site coverage needs per-season class matrix");
+assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "RecommendedBuildBoard"), "Site coverage must describe the build recommendation board data contract");
+assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildDetailLayout"), "Site coverage must describe the build detail data contract");
+assert(siteCoverage.frontendDataContracts?.some((contract) => contract.fields?.includes("gearSlots")), "Frontend data contracts must expose full build detail fields");
+assert(siteCoverage.buildIntegrity?.completeGearSlotBuilds === buildGuides.builds.length, "Site coverage must prove every BD has 11 gear slots");
+assert(siteCoverage.buildIntegrity?.skillRouteBuilds === buildGuides.builds.length, "Site coverage must prove every BD has skill routes");
+assert(siteCoverage.buildIntegrity?.paragonRouteBuilds === buildGuides.builds.length, "Site coverage must prove every BD has paragon routes");
+assert(siteCoverage.buildIntegrity?.gameplayBuilds === buildGuides.builds.length, "Site coverage must prove every BD has gameplay instructions");
+assert(siteCoverage.buildIntegrity?.replacementBuilds === buildGuides.builds.length, "Site coverage must prove every BD has replacement data");
 
 const guideIds = new Set();
 for (const guide of buildGuides.builds) {
@@ -223,6 +231,8 @@ for (const forbidden of ["模型分", "先选目标", "rationale", "完整 BD �
 }
 assert(frontendText.includes("renderSeasonBuildMatrix"), "BD library must render a season build matrix by class, archetype and mode");
 assert(frontendText.includes("season-build-matrix"), "BD library must expose daily/speed/push comparisons before individual cards");
+assert(frontendText.includes("renderRecommendedBuildBoard"), "BD library must render a class-by-mode recommended build entry board");
+assert(frontendText.includes("recommended-build-board"), "BD library must expose per-class daily/speed/push entry points");
 assert(frontendText.includes("guide-card__quickfacts"), "BD library cards must expose executable gear, skill, paragon and gameplay facts");
 assert(frontendText.includes("技能第一步") && frontendText.includes("巅峰第一步") && frontendText.includes("打法循环"), "BD cards must preview skill, paragon and gameplay execution before detail navigation");
 assert(frontendText.includes("renderEquipmentUsageMatrix"), "Equipment detail must render a usage matrix for related builds");

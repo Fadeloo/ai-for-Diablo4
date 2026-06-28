@@ -16,6 +16,70 @@ function countBy(items, getKey) {
   }, {});
 }
 
+const frontendDataContracts = [
+  {
+    component: "RecommendedBuildBoard",
+    zhName: "本赛季抄作业入口",
+    source: "build-guides.builds",
+    fields: [
+      "taxonomy.seasonId",
+      "taxonomy.classId",
+      "taxonomy.mode",
+      "taxonomy.archetypeName",
+      "formationDifficulty",
+      "ceiling",
+      "coreUniques",
+      "coreAspects",
+      "skillTree.pointOrder[0]",
+      "paragon.clickOrder[0]",
+      "source.verificationLevel"
+    ],
+    frontendUse: "按职业汇总日常、速刷、冲层三个入口，直接链接完整 BD 详情。"
+  },
+  {
+    component: "BuildDetailLayout",
+    zhName: "BD 详情页",
+    source: "build-guides.builds[id]",
+    fields: [
+      "gearSlots",
+      "skillTree",
+      "paragon",
+      "gameplay",
+      "variants",
+      "dataQuality",
+      "source.references"
+    ],
+    frontendUse: "分区展示装备、技能、巅峰、打法、替换和来源状态。"
+  },
+  {
+    component: "EquipmentUsageMatrix",
+    zhName: "装备使用矩阵",
+    source: "equipment-library.items + build-guides.builds[].gearSlots",
+    fields: [
+      "item.id",
+      "guide.taxonomy",
+      "gearSlot.slotId",
+      "gearSlot.required",
+      "gearSlot.replaceable",
+      "source.verificationLevel"
+    ],
+    frontendUse: "装备详情反查该装备在不同职业、流派和用途中的使用位置。"
+  },
+  {
+    component: "CoveragePanel",
+    zhName: "数据覆盖与使用方式",
+    source: "site-coverage",
+    fields: [
+      "storageLayers",
+      "frontendDataContracts",
+      "buildIntegrity",
+      "equipmentCoverage",
+      "sourceCoverage"
+    ],
+    frontendUse: "来源页说明当前数据如何存储、如何被页面消费，以及哪些字段仍待回填。"
+  }
+];
+
 const [classes, equipment, buildGuides, aspectIndex, sources] = await Promise.all([
   readJson("data/classes/classes.json"),
   readJson("data/equipment/equipment-library.json"),
@@ -54,6 +118,30 @@ const classMatrix = seasons.map((season) => ({
   })
 }));
 
+const modeIds = ["daily", "speed_farm", "pit_push"];
+const buildIntegrity = {
+  expectedGearSlots: 11,
+  completeGearSlotBuilds: builds.filter((guide) => (guide.gearSlots || []).length === 11).length,
+  skillRouteBuilds: builds.filter((guide) => (guide.skillTree?.skillBar || []).length === 6 && (guide.skillTree?.pointOrder || []).length >= 10).length,
+  paragonRouteBuilds: builds.filter((guide) => (guide.paragon?.boardOrder || []).length >= 4 && (guide.paragon?.clickOrder || []).length >= 10).length,
+  gameplayBuilds: builds.filter((guide) => guide.gameplay?.opener?.length && guide.gameplay?.loop?.length && guide.gameplay?.boss?.length).length,
+  replacementBuilds: builds.filter((guide) => (guide.gearSlots || []).every((slot) => (slot.alternatives || []).length >= 1)).length,
+  bySeasonClassMode: seasons.map((season) => ({
+    seasonId: season.id,
+    classes: classes.map((classInfo) => {
+      const classBuilds = builds.filter((guide) => guide.taxonomy.seasonId === season.id && guide.taxonomy.classId === classInfo.id);
+      return {
+        classId: classInfo.id,
+        zhName: classInfo.zhName,
+        modes: Object.fromEntries(modeIds.map((mode) => [
+          mode,
+          classBuilds.filter((guide) => guide.taxonomy.mode === mode).length
+        ]))
+      };
+    })
+  }))
+};
+
 const payload = {
   generatedAt: buildGuides.generatedAt || new Date().toISOString(),
   scope: "player_site_data_coverage_and_storage_usage",
@@ -90,6 +178,8 @@ const payload = {
       frontendUse: "150 层参考页；不得作为已验证榜单展示。"
     }
   ],
+  frontendDataContracts,
+  buildIntegrity,
   buildCoverage: {
     total: builds.length,
     seasons: seasons.length,

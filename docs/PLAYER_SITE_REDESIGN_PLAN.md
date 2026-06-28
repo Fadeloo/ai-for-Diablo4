@@ -353,6 +353,7 @@ public/
 | `SiteShell` | 顶部导航、版本条、hash 路由 | route/version | 当前页面 |
 | `SourceBadge` | 统一资料可信度展示 | verification/dataStatus | badge |
 | `BuildFilters` | BD 筛选和排序 | guides/filterState | filterState |
+| `RecommendedBuildBoard` | 本赛季抄作业入口 | guides/filterState | 每个职业按日常、速刷、冲层展示可进入完整 BD 的版本，露出难度、阶段、上限、核心件、技能第一步和巅峰第一步 |
 | `BuildCard` | BD 大厅卡片 | guide | 核心件、装备替换、技能第一步、巅峰第一步、打法循环、成熟度和详情链接 |
 | `SeasonBuildMatrix` | 赛季流派对照矩阵 | guides/filterState | 职业/流派行，日常/速刷/冲层列，展示难度、阶段、上限和来源 |
 | `BuildDetailPage` | BD 详情容器 | guideId | 完整详情 |
@@ -383,6 +384,7 @@ public/
 - 任何外链都要带站点名、来源日期或当前整理日期。
 - 所有中文标签集中在 `labels.js` 或现有 label map 中，避免英文残留。
 - 列表卡片和详情页面不复用同一个大模板，防止信息过密。
+- `RecommendedBuildBoard` 是 BD 大厅的第一层目录，只负责按职业和用途进入完整 BD，不出现内部生成、问答或推理流程。
 - `BuildVersionSwitcher` 只按 `seasonId + classId + archetypeId` 建组；不同流派只能作为同职业参考，不能伪装成同一 BD 的版本。
 - `BuildManualPanel` 位于 BD 总览顶部，必须把全身装备、技能顺序、巅峰点击和打法阶段作为可扫描索引先展示出来。
 - `GearSummaryMatrix` 是装备分区入口，必须让玩家不展开长卡也能看出每个部位穿什么、是否可替换、核心威能或暗金是什么。
@@ -442,6 +444,8 @@ data/
     d4builds-icon-index.json
     build-simulations.json
     build-guides.json
+    aspect-index.json
+    site-coverage.json
 ```
 
 短期新增建议：
@@ -463,6 +467,9 @@ data/
 
 - `normalized/*` 存从多个来源归一化后的事实层。
 - `quality/*` 存覆盖率和缺口，前端可以读摘要，但不展示内部导入细节。
+- `site-coverage.json` 是当前静态站的覆盖摘要，必须包含 `storageLayers`、`frontendDataContracts` 和 `buildIntegrity`。
+- `frontendDataContracts` 记录 `RecommendedBuildBoard`、`BuildDetailPage`、`EquipmentUsageMatrix`、`CoveragePanel` 等核心组件消费哪些字段。
+- `buildIntegrity` 记录所有 BD 是否具备 11 槽位、技能路线、巅峰路线、打法和替换数据；任一项缺失必须让验证失败。
 
 ### 8.2 后端实体模型
 

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T16:39:06.828Z",
+  "generatedAt": "2026-06-28T19:27:05.010Z",
   "scope": "player_site_data_coverage_and_storage_usage",
   "asOf": "2026-06-28",
   "storageLayers": [
@@ -45,6 +45,310 @@
       "frontendUse": "150 层参考页；不得作为已验证榜单展示。"
     }
   ],
+  "frontendDataContracts": [
+    {
+      "component": "RecommendedBuildBoard",
+      "zhName": "本赛季抄作业入口",
+      "source": "build-guides.builds",
+      "fields": [
+        "taxonomy.seasonId",
+        "taxonomy.classId",
+        "taxonomy.mode",
+        "taxonomy.archetypeName",
+        "formationDifficulty",
+        "ceiling",
+        "coreUniques",
+        "coreAspects",
+        "skillTree.pointOrder[0]",
+        "paragon.clickOrder[0]",
+        "source.verificationLevel"
+      ],
+      "frontendUse": "按职业汇总日常、速刷、冲层三个入口，直接链接完整 BD 详情。"
+    },
+    {
+      "component": "BuildDetailLayout",
+      "zhName": "BD 详情页",
+      "source": "build-guides.builds[id]",
+      "fields": [
+        "gearSlots",
+        "skillTree",
+        "paragon",
+        "gameplay",
+        "variants",
+        "dataQuality",
+        "source.references"
+      ],
+      "frontendUse": "分区展示装备、技能、巅峰、打法、替换和来源状态。"
+    },
+    {
+      "component": "EquipmentUsageMatrix",
+      "zhName": "装备使用矩阵",
+      "source": "equipment-library.items + build-guides.builds[].gearSlots",
+      "fields": [
+        "item.id",
+        "guide.taxonomy",
+        "gearSlot.slotId",
+        "gearSlot.required",
+        "gearSlot.replaceable",
+        "source.verificationLevel"
+      ],
+      "frontendUse": "装备详情反查该装备在不同职业、流派和用途中的使用位置。"
+    },
+    {
+      "component": "CoveragePanel",
+      "zhName": "数据覆盖与使用方式",
+      "source": "site-coverage",
+      "fields": [
+        "storageLayers",
+        "frontendDataContracts",
+        "buildIntegrity",
+        "equipmentCoverage",
+        "sourceCoverage"
+      ],
+      "frontendUse": "来源页说明当前数据如何存储、如何被页面消费，以及哪些字段仍待回填。"
+    }
+  ],
+  "buildIntegrity": {
+    "expectedGearSlots": 11,
+    "completeGearSlotBuilds": 252,
+    "skillRouteBuilds": 252,
+    "paragonRouteBuilds": 252,
+    "gameplayBuilds": 252,
+    "replacementBuilds": 252,
+    "bySeasonClassMode": [
+      {
+        "seasonId": "s14",
+        "classes": [
+          {
+            "classId": "barbarian",
+            "zhName": "野蛮人",
+            "modes": {
+              "daily": 3,
+              "speed_farm": 3,
+              "pit_push": 3
+            }
+          },
+          {
+            "classId": "druid",
+            "zhName": "德鲁伊",
+            "modes": {
+              "daily": 3,
+              "speed_farm": 3,
+              "pit_push": 3
+            }
+          },
+          {
+            "classId": "necromancer",
+            "zhName": "死灵法师",
+            "modes": {
+              "daily": 4,
+              "speed_farm": 4,
+              "pit_push": 4
+            }
+          },
+          {
+            "classId": "paladin",
+            "zhName": "圣骑士",
+            "modes": {
+              "daily": 3,
+              "speed_farm": 3,
+              "pit_push": 3
+            }
+          },
+          {
+            "classId": "rogue",
+            "zhName": "游侠",
+            "modes": {
+              "daily": 3,
+              "speed_farm": 3,
+              "pit_push": 3
+            }
+          },
+          {
+            "classId": "sorcerer",
+            "zhName": "法师",
+            "modes": {
+              "daily": 4,
+              "speed_farm": 4,
+              "pit_push": 4
+            }
+          },
+          {
+            "classId": "spiritborn",
+            "zhName": "魂灵师",
+            "modes": {
+              "daily": 4,
+              "speed_farm": 4,
+              "pit_push": 4
+            }
+          },
+          {
+            "classId": "warlock",
+            "zhName": "术士",
+            "modes": {
+              "daily": 4,
+              "speed_farm": 4,
+              "pit_push": 4
+            }
+          }
+        ]
+      },
+      {
+        "seasonId": "s15",
+        "classes": [
+          {
+            "classId": "barbarian",
+            "zhName": "野蛮人",
+            "modes": {
+              "daily": 3,
+              "speed_farm": 3,
+              "pit_push": 3
+            }
+          },
+          {
+            "classId": "druid",
+            "zhName": "德鲁伊",
+            "modes": {
+              "daily": 3,
+              "speed_farm": 3,
+              "pit_push": 3
+            }
+          },
+          {
+            "classId": "necromancer",
+            "zhName": "死灵法师",
+            "modes": {
+              "daily": 4,
+              "speed_farm": 4,
+              "pit_push": 4
+            }
+          },
+          {
+            "classId": "paladin",
+            "zhName": "圣骑士",
+            "modes": {
+              "daily": 3,
+              "speed_farm": 3,
+              "pit_push": 3
+            }
+          },
+          {
+            "classId": "rogue",
+            "zhName": "游侠",
+            "modes": {
+              "daily": 3,
+              "speed_farm": 3,
+              "pit_push": 3
+            }
+          },
+          {
+            "classId": "sorcerer",
+            "zhName": "法师",
+            "modes": {
+              "daily": 4,
+              "speed_farm": 4,
+              "pit_push": 4
+            }
+          },
+          {
+            "classId": "spiritborn",
+            "zhName": "魂灵师",
+            "modes": {
+              "daily": 4,
+              "speed_farm": 4,
+              "pit_push": 4
+            }
+          },
+          {
+            "classId": "warlock",
+            "zhName": "术士",
+            "modes": {
+              "daily": 4,
+              "speed_farm": 4,
+              "pit_push": 4
+            }
+          }
+        ]
+      },
+      {
+        "seasonId": "s16",
+        "classes": [
+          {
+            "classId": "barbarian",
+            "zhName": "野蛮人",
+            "modes": {
+              "daily": 3,
+              "speed_farm": 3,
+              "pit_push": 3
+            }
+          },
+          {
+            "classId": "druid",
+            "zhName": "德鲁伊",
+            "modes": {
+              "daily": 3,
+              "speed_farm": 3,
+              "pit_push": 3
+            }
+          },
+          {
+            "classId": "necromancer",
+            "zhName": "死灵法师",
+            "modes": {
+              "daily": 4,
+              "speed_farm": 4,
+              "pit_push": 4
+            }
+          },
+          {
+            "classId": "paladin",
+            "zhName": "圣骑士",
+            "modes": {
+              "daily": 3,
+              "speed_farm": 3,
+              "pit_push": 3
+            }
+          },
+          {
+            "classId": "rogue",
+            "zhName": "游侠",
+            "modes": {
+              "daily": 3,
+              "speed_farm": 3,
+              "pit_push": 3
+            }
+          },
+          {
+            "classId": "sorcerer",
+            "zhName": "法师",
+            "modes": {
+              "daily": 4,
+              "speed_farm": 4,
+              "pit_push": 4
+            }
+          },
+          {
+            "classId": "spiritborn",
+            "zhName": "魂灵师",
+            "modes": {
+              "daily": 4,
+              "speed_farm": 4,
+              "pit_push": 4
+            }
+          },
+          {
+            "classId": "warlock",
+            "zhName": "术士",
+            "modes": {
+              "daily": 4,
+              "speed_farm": 4,
+              "pit_push": 4
+            }
+          }
+        ]
+      }
+    ]
+  },
   "buildCoverage": {
     "total": 252,
     "seasons": 3,

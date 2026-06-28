@@ -965,6 +965,112 @@ h4 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.recommended-build-board {
+  background:
+    linear-gradient(180deg, rgba(18, 10, 7, 0.76), rgba(6, 3, 2, 0.84));
+  border: 1px solid rgba(214, 173, 99, 0.22);
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+.recommended-build-board .section-title {
+  align-items: start;
+}
+
+.recommended-build-board .section-title span {
+  text-align: right;
+  white-space: normal;
+}
+
+.recommended-build-table {
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+}
+
+.recommended-build-row {
+  border-bottom: 1px solid rgba(214, 173, 99, 0.14);
+  display: grid;
+  grid-template-columns: minmax(170px, 0.86fr) repeat(3, minmax(190px, 1fr));
+  min-width: 0;
+}
+
+.recommended-build-row:last-child {
+  border-bottom: 0;
+}
+
+.recommended-build-row--head {
+  background: rgba(214, 173, 99, 0.08);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.recommended-build-row--head span {
+  border-right: 1px solid rgba(214, 173, 99, 0.14);
+  padding: 9px 10px;
+}
+
+.recommended-build-row header,
+.recommended-build-cell {
+  border-right: 1px solid rgba(214, 173, 99, 0.12);
+  min-width: 0;
+  padding: 12px;
+}
+
+.recommended-build-row header {
+  align-content: start;
+  background: rgba(0, 0, 0, 0.18);
+  display: grid;
+  gap: 6px;
+}
+
+.recommended-build-row header span,
+.recommended-build-cell span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.recommended-build-row header strong,
+.recommended-build-cell strong {
+  color: #fff7df;
+  font-size: 14px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.recommended-build-row header em,
+.recommended-build-cell em,
+.recommended-build-cell small {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.recommended-build-cell {
+  color: inherit;
+  display: grid;
+  gap: 5px;
+  text-decoration: none;
+  transition: background-color var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.recommended-build-cell:hover {
+  background: rgba(214, 173, 99, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(240, 207, 143, 0.12);
+}
+
+.recommended-build-cell:last-child {
+  border-right: 0;
+}
+
+.recommended-build-cell.is-empty {
+  opacity: 0.55;
+}
+
 .atlas-class-card {
   background: linear-gradient(180deg, rgba(28, 18, 12, 0.88), rgba(8, 4, 3, 0.9));
   border: 1px solid rgba(214, 173, 99, 0.2);
@@ -4178,7 +4284,8 @@ h4 {
 }
 
 .coverage-grid,
-.storage-layer-grid {
+.storage-layer-grid,
+.data-contract-grid {
   display: grid;
   gap: 12px;
 }
@@ -4191,8 +4298,13 @@ h4 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.data-contract-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .coverage-grid article,
-.storage-layer-grid article {
+.storage-layer-grid article,
+.data-contract-grid article {
   background: rgba(8, 4, 3, 0.48);
   border: 1px solid rgba(214, 173, 99, 0.18);
   display: grid;
@@ -4206,13 +4318,15 @@ h4 {
   line-height: 1;
 }
 
-.storage-layer-grid strong {
+.storage-layer-grid strong,
+.data-contract-grid strong {
   color: var(--gold);
   font-size: 14px;
 }
 
 .coverage-grid span,
-.storage-layer-grid span {
+.storage-layer-grid span,
+.data-contract-grid span {
   color: var(--gold);
   font-size: 12px;
   font-weight: 850;
@@ -4220,11 +4334,15 @@ h4 {
 }
 
 .coverage-grid p,
-.storage-layer-grid p {
+.storage-layer-grid p,
+.data-contract-grid p,
+.data-contract-grid em {
   color: var(--muted);
   font-size: 12px;
+  font-style: normal;
   line-height: 1.5;
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 .forecast-header {
@@ -4358,6 +4476,10 @@ h4 {
     border-right: 0;
     border-bottom: 1px solid var(--line);
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .recommended-build-row {
+    grid-template-columns: minmax(150px, 0.78fr) repeat(3, minmax(170px, 1fr));
   }
 
   .build-list-title {
@@ -4627,7 +4749,9 @@ h4 {
   .build-atlas-grid,
   .coverage-grid,
   .storage-layer-grid,
+  .data-contract-grid,
   .guide-card-grid,
+  .recommended-build-row,
   .class-build-actions,
   .class-season-summary,
   .class-build-mode-grid,
@@ -4666,6 +4790,37 @@ h4 {
 
   .equipment-usage-row {
     grid-template-columns: 1fr;
+  }
+
+  .recommended-build-board .section-title span {
+    text-align: left;
+  }
+
+  .recommended-build-row--head {
+    display: none;
+  }
+
+  .recommended-build-row {
+    border: 1px solid rgba(214, 173, 99, 0.18);
+    gap: 0;
+  }
+
+  .recommended-build-row + .recommended-build-row {
+    margin-top: 10px;
+  }
+
+  .recommended-build-table {
+    border: 0;
+  }
+
+  .recommended-build-row header,
+  .recommended-build-cell {
+    border-right: 0;
+    border-bottom: 1px solid rgba(214, 173, 99, 0.12);
+  }
+
+  .recommended-build-cell:last-child {
+    border-bottom: 0;
   }
 
   .build-manual-panel > header em {

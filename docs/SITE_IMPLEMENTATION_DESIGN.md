@@ -128,6 +128,7 @@ BD 详情 #bd/<guideId>
 | `HomeDashboard` | 首页入口和覆盖概览 | classes/equipment/guides/sources | 跳转到核心功能页 |
 | `SourceBadge` | 统一显示资料可信度 | `verificationLevel`、`dataStatus` | 中文 badge 和 tooltip |
 | `BuildFilters` | BD 筛选条件 | seasons/classes/modes/sourceLevels | 更新 `state.sim` |
+| `RecommendedBuildBoard` | 本赛季抄作业入口 | 当前赛季 guides、职业、用途、来源筛选 | 每个职业按日常、速刷、冲层展示可进入完整 BD 的版本，露出难度、阶段、上限、核心件、技能第一步和巅峰第一步 |
 | `BuildAtlas` | 全职业流派矩阵 | 当前赛季筛选后的 guides | 按职业汇总流派、社区来源、用途入口和上限 |
 | `SeasonBuildMatrix` | 赛季流派对照矩阵 | 当前筛选后的 guides | 按职业/流派展示日常、速刷、冲层版本的难度、阶段、上限和来源 |
 | `BuildCard` | BD 大厅列表项 | `guide` | 展示核心件、装备替换、技能第一步、巅峰第一步、打法循环、成熟度并进入详情 |
@@ -165,6 +166,7 @@ BD 详情 #bd/<guideId>
 
 - 任何组件不得在浏览器端“编造”构筑，只能展示已生成 JSON。
 - `BuildDetailLayout` 是唯一展示完整 BD 的地方，BD 大厅只保留摘要。
+- `RecommendedBuildBoard` 必须从已经生成的 `build-guides.json` 读取，不得在浏览器端生成新流派；它只做“按职业进入完整 BD”的目录。
 - `BuildVersionSwitcher` 只在同一赛季、同一职业、同一流派内切换用途版本；它不能把不同流派混在同一组里。
 - `BuildManualPanel` 必须位于 BD 总览最前面，让玩家不用翻长卡也能先看到完整装备、技能、巅峰和打法索引。
 - `GearSummaryMatrix` 必须覆盖 11 个装备位，并能跳到对应装备卡或装备详情页。
@@ -211,6 +213,7 @@ data/
 - `aspect-index.json` 从 `build-guides.json` 的装备槽位汇总威能名称、部位、核心度、替换状态和相关 BD。它不是官方全量传奇威能库。
 - `build-simulations.json` 是三赛季预测矩阵，只作为参考，不作为事实榜单。
 - `site-coverage.json` 是玩家页覆盖摘要，记录 BD、装备、来源、存储层和字段缺口。来源页直接读取它展示当前资料边界。
+- `site-coverage.json` 还记录 `frontendDataContracts` 和 `buildIntegrity`：前者说明每个核心组件消费哪些字段，后者证明所有 BD 是否都有 11 装备位、技能路线、巅峰路线、打法和替换数据。
 
 ### 5.2 BD 记录契约
 
@@ -334,6 +337,8 @@ data/
 - `BuildVersionSwitcher` 使用 `seasonId + classId + archetypeId` 建组，按 `daily -> speed_farm -> pit_push` 排序；同职业其他社区 BD 只能作为“同职业可抄参考”展示。
 - `aspect-index` 来自 BD 装备槽位反查，不声明为官方全量威能库。
 - `site-coverage` 是来源页和首页展示资料边界的唯一摘要来源。
+- `frontendDataContracts` 是页面组件和数据字段的对照表；新增 BD 组件时必须先补这里，再补验证脚本。
+- `buildIntegrity` 是覆盖率门禁；任一 BD 缺装备槽、技能、巅峰、打法或替换数据时，`npm run verify` 必须失败。
 
 后续服务化时，数据库实体也沿用这些边界：
 
