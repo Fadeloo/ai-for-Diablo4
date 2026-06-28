@@ -34,7 +34,7 @@
     "displayName": "Paladin",
     "zhName": "圣骑士",
     "aliases": [],
-    "primaryResources": ["Class-specific resource pending source lock"],
+    "primaryResources": ["职业资源待资料锁定"],
     "seasonStartPriorities": ["核心技能等级", "盾牌或格挡联动", "光环/防御层", "移动速度", "冷却缩减"],
     "buildAxes": ["shield_bash", "blessed_hammer", "aura", "justice", "juggernaut"],
     "sourceStatus": "official_patch_present_needs_full_class_source"
@@ -74,7 +74,7 @@
     "displayName": "Warlock",
     "zhName": "术士",
     "aliases": [],
-    "primaryResources": ["Class-specific resource pending source lock"],
+    "primaryResources": ["职业资源待资料锁定"],
     "seasonStartPriorities": ["核心技能等级", "召唤/恶魔学联动", "持续伤害或爆发轴", "冷却缩减", "生命与护甲"],
     "buildAxes": ["demonology", "hellfire", "abyss", "sigils", "doom"],
     "sourceStatus": "official_patch_present_needs_full_class_source"

@@ -58,6 +58,10 @@ assert(Date.parse(version.publishedUpcomingVersion.releaseDate) > Date.parse(ver
 const classIds = classes.map((item) => item.id).sort();
 assert(classIds.length === 8, "Expected 8 classes");
 assert(JSON.stringify(classIds) === JSON.stringify([...version.classSet].sort()), "Class set mismatch");
+assert(classes.every((item) => item.zhName && item.displayName), "Each class needs Chinese and English names");
+assert(classes.every((item) => item.primaryResources?.length >= 1), "Each class needs at least one resource/status label");
+assert(classes.every((item) => item.primaryResources.every((resource) => !/pending source|source lock|Class-specific/i.test(resource))), "Class resource labels must not expose English placeholder text");
+assert(classIds.includes("paladin") && classIds.includes("warlock"), "Lord of Hatred class roster must include Paladin and Warlock");
 
 for (const collection of [archetypes, seasonPlans]) {
   const ids = collection.map((item) => item.classId).sort();
@@ -76,6 +80,7 @@ for (const classArchetypes of archetypes) {
 assert(sources.some((source) => source.trustLevel === "official"), "Need at least one official source");
 assert(sources.some((source) => source.id === version.effectiveLiveVersion.sourceId), "Live version source must be registered");
 assert(sources.some((source) => source.id === version.publishedUpcomingVersion.sourceId), "Upcoming version source must be registered");
+assert(sources.some((source) => source.id === "blizzard_lord_of_hatred" && source.use?.includes("class_roster") && source.use?.includes("paladin_class_confirmation") && source.use?.includes("warlock_class_confirmation")), "Official class roster source must register Paladin and Warlock confirmation");
 assert(features.length >= 8, "Feature map should cover core guide modules");
 assert(features.some((feature) => feature.id === "equipment_database"), "Feature map must include equipment database");
 assert(features.some((feature) => feature.id === "damage_calculation"), "Feature map must include damage calculation");

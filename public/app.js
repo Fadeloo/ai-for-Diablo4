@@ -90,8 +90,7 @@ const resourceLabels = {
   Energy: "能量",
   "Combo Points": "连击点数",
   Mana: "法力",
-  Vigor: "活力",
-  "Class-specific resource pending source lock": "职业资源待资料锁定"
+  Vigor: "活力"
 };
 
 const sourceLabels = {
