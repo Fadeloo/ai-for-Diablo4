@@ -788,5 +788,535 @@
       "speedFarm": ["低层材料可先用移动靴和资源戒指。", "拿到核心暗金后切换速刷或冲层版。"],
       "commonMistakes": ["没补抗性就追骨魂等级。", "缺资源词缀导致骨魂断档。", "日常装备硬打 150 层。"]
     }
+  },
+  {
+    "id": "s14-rogue-cutthroat-pit_push",
+    "sourceReference": {
+      "site": "Mobalytics",
+      "url": "https://mobalytics.gg/diablo-4/builds/rogue-dance-of-knives",
+      "sourceSeason": "S13 憎恨之王",
+      "referenceTitle": "Dance of Knives Rogue Endgame Build Guide",
+      "asOf": "2026-06-28",
+      "note": "Mobalytics 页面标注为 Season 13、M1PY 编写并在 2026-06-23 更新，包含飞刀舞构筑的技能、变体、装备方向、更新记录和 Paragon 入口；本站作为 S14 游侠跨赛季参考整理，仍需赛季实战校准。"
+    },
+    "title": "S14 死亡觉醒 游侠 · 飞刀舞冲层",
+    "archetypeName": "飞刀舞",
+    "summary": {
+      "oneLine": "游侠「飞刀舞」冲层 BD，围绕利刃之舞持续引导、毒素灌注、隐蔽起手、暗影帷幕防御和高移速快照建立清图与首领输出。",
+      "pros": ["移动清图能力强", "主攻与移动合一", "来源页面有冲层、起步和变体说明"],
+      "cons": ["跨赛季参考，需要 S14 热修和榜单校准", "依赖移动速度与快照手感", "高层首领需要控制能量和防御空窗"],
+      "requirements": ["头盔：沉沦继承者", "裤子：遮蔽馈赠", "戒指：无星夜空之戒", "副手：埃特纳遗失匕首"],
+      "statPriority": ["利刃之舞等级", "移动速度", "暴击几率", "幸运一击", "能量消耗降低"]
+    },
+    "gearSlots": [
+      {
+        "slotId": "helm",
+        "target": {"type": "unique", "zhName": "沉沦继承者"},
+        "aspect": {"name": "神话暗金位", "role": "全局增伤、移动速度和冲层上限", "sourceStatus": "Mobalytics Dance of Knives 终局构筑核心位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["主属性", "移动速度", "生命上限", "幸运一击"],
+        "alternatives": [
+          {"zhName": "无名者兜帽", "reason": "缺沉沦继承者时补灌注技能与游侠专属收益。", "tradeoff": "神话暗金全局上限下降。"},
+          {"zhName": "传奇头盔 + 防御威能", "reason": "日常过渡先补抗性、生命和冷却。", "tradeoff": "冲层伤害下降。"}
+        ]
+      },
+      {
+        "slotId": "chest",
+        "target": {"type": "legendary", "zhName": "传奇胸甲 + 格林铁砧威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "格林铁砧威能", "role": "冲层防御和持续引导容错", "sourceStatus": "Mobalytics Dance of Knives 终局构筑整理"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["生命上限", "护甲", "全元素抗性", "减伤"],
+        "alternatives": [
+          {"zhName": "伪死之衣", "reason": "需要隐身、通用属性和速刷路线时使用。", "tradeoff": "失去传奇防御威能位。"},
+          {"zhName": "泰瑞尔之力", "reason": "弹幕和抗性压力大时使用。", "tradeoff": "冲层输出位减少。"}
+        ]
+      },
+      {
+        "slotId": "gloves",
+        "target": {"type": "legendary", "zhName": "传奇手套 + 模仿灌注威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "模仿灌注威能", "role": "灌注联动，强化飞刀舞持续输出", "sourceStatus": "Mobalytics Dance of Knives 终局构筑整理"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["利刃之舞等级", "攻击速度", "暴击几率", "幸运一击"],
+        "alternatives": [
+          {"zhName": "命运之拳", "reason": "幸运一击和高波动过渡。", "tradeoff": "输出稳定性下降。"},
+          {"zhName": "传奇手套 + 星辰碎片威能", "reason": "把伤害威能挪到手套时使用。", "tradeoff": "灌注联动下降。"}
+        ]
+      },
+      {
+        "slotId": "pants",
+        "target": {"type": "unique", "zhName": "遮蔽馈赠"},
+        "aspect": {"name": "暗金特效位", "role": "暗影帷幕、移动与生存核心", "sourceStatus": "Mobalytics Dance of Knives 终局构筑整理"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["移动速度", "生命上限", "减伤", "全元素抗性"],
+        "alternatives": [
+          {"zhName": "提鲍特的意志", "reason": "需要不可阻挡窗口和资源时可尝试。", "tradeoff": "暗影帷幕联动下降。"},
+          {"zhName": "传奇裤子 + 防御威能", "reason": "缺暗金时补生命和抗性。", "tradeoff": "速度和防御联动都下降。"}
+        ]
+      },
+      {
+        "slotId": "boots",
+        "target": {"type": "legendary", "zhName": "传奇靴子 + 晦暗治愈威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "晦暗治愈威能", "role": "隐蔽、暗影帷幕和持续移动容错", "sourceStatus": "Mobalytics Dance of Knives 终局构筑整理"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["移动速度", "闪避冷却", "全元素抗性", "能量消耗降低"],
+        "alternatives": [
+          {"zhName": "传奇靴子 + 迅捷迷雾威能", "reason": "需要疾行斩、烟雾和速刷路线时使用。", "tradeoff": "高层防御下降。"},
+          {"zhName": "拉卡诺斯的苏醒", "reason": "低层速刷提高移动和安全。", "tradeoff": "失去核心传奇威能位。"}
+        ]
+      },
+      {
+        "slotId": "amulet",
+        "target": {"type": "legendary", "zhName": "传奇护符 + 蠕动威能", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "蠕动威能", "role": "提高持续引导和毒素窗口上限", "sourceStatus": "Mobalytics Dance of Knives 终局构筑整理"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["移动速度", "利刃之舞等级", "冷却缩减", "能量消耗降低"],
+        "alternatives": [
+          {"zhName": "传奇护符 + 模仿灌注威能", "reason": "需要把灌注威能放到护符放大时使用。", "tradeoff": "其他槽位要承接蠕动威能。"},
+          {"zhName": "塞利格的融心", "reason": "高压环境保命。", "tradeoff": "伤害和速度显著下降。"}
+        ]
+      },
+      {
+        "slotId": "ring1",
+        "target": {"type": "unique", "zhName": "无星夜空之戒"},
+        "aspect": {"name": "神话暗金位", "role": "能量消耗和持续引导核心", "sourceStatus": "Mobalytics Dance of Knives 终局构筑整理"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["攻击速度", "暴击几率", "资源消耗降低", "幸运一击"],
+        "alternatives": [
+          {"zhName": "传奇戒指 + 资源威能", "reason": "缺无星时维持能量。", "tradeoff": "持续输出和上限下降。"},
+          {"zhName": "传奇戒指 + 星辰碎片威能", "reason": "需要承接核心伤害威能时使用。", "tradeoff": "能量循环更紧。"}
+        ]
+      },
+      {
+        "slotId": "ring2",
+        "target": {"type": "legendary", "zhName": "传奇戒指 + 元素命运威能", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "元素命运威能", "role": "灌注与周期伤害补强", "sourceStatus": "Mobalytics Dance of Knives 终局构筑整理"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["暴击几率", "幸运一击", "资源生成", "冷却缩减"],
+        "alternatives": [
+          {"zhName": "传奇戒指 + 星辰碎片威能", "reason": "冲层伤害不足时换成伤害威能。", "tradeoff": "元素周期收益下降。"},
+          {"zhName": "传奇戒指 + 资源威能", "reason": "能量不足时过渡。", "tradeoff": "爆发下降。"}
+        ]
+      },
+      {
+        "slotId": "twoHand",
+        "target": {"type": "legendary", "zhName": "远程武器 + 引导威能", "image": "./public/assets/icon-weapon.png"},
+        "aspect": {"name": "引导威能", "role": "飞刀舞持续引导主乘区", "sourceStatus": "Mobalytics Dance of Knives 终局构筑整理"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["武器伤害", "利刃之舞伤害", "暴击伤害", "易伤伤害"],
+        "alternatives": [
+          {"zhName": "正义之剑·艾尔德鲁因", "reason": "高装等过渡或通用增伤。", "tradeoff": "偏离来源 BD 的远程位规划。"},
+          {"zhName": "传奇弓弩 + 星辰碎片威能", "reason": "缺合适引导威能底材时使用。", "tradeoff": "引导主乘区下降。"}
+        ]
+      },
+      {
+        "slotId": "mainHand",
+        "target": {"type": "legendary", "zhName": "双持武器 1 + 炼金优势威能", "image": "./public/assets/icon-weapon.png"},
+        "aspect": {"name": "炼金优势威能", "role": "毒素灌注、攻速和幸运一击联动", "sourceStatus": "Mobalytics Dance of Knives 终局构筑整理"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["武器伤害", "灌注技能伤害", "暴击伤害", "幸运一击"],
+        "alternatives": [
+          {"zhName": "晦暗核心", "reason": "暗影变体或旧赛季工具位过渡。", "tradeoff": "当前来源页面更新记录提示该件有禁用/调整历史，需校验。"},
+          {"zhName": "传奇匕首 + 腐化威能", "reason": "毒素灌注伤害不足时使用。", "tradeoff": "攻速收益下降。"}
+        ]
+      },
+      {
+        "slotId": "offHand",
+        "target": {"type": "unique", "zhName": "埃特纳遗失匕首"},
+        "aspect": {"name": "暗金特效位", "role": "灌注技能等级和飞刀舞终局输出核心", "sourceStatus": "Mobalytics Dance of Knives 终局构筑整理"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["武器伤害", "灌注技能等级", "暴击伤害", "幸运一击"],
+        "alternatives": [
+          {"zhName": "传奇匕首 + 模仿灌注威能", "reason": "缺埃特纳遗失匕首时保留灌注核心。", "tradeoff": "暗金技能等级和上限下降。"},
+          {"zhName": "传奇剑 + 伤害威能", "reason": "升级期高装等过渡。", "tradeoff": "终局联动不足。"}
+        ]
+      }
+    ],
+    "skillTree": {
+      "core": "利刃之舞",
+      "skillBar": [
+        {"slot": 1, "name": "利刃之舞", "role": "主攻与移动", "points": 5},
+        {"slot": 2, "name": "刀锋位移", "role": "基础触发与机动", "points": 1},
+        {"slot": 3, "name": "隐蔽", "role": "起手、快照和保命", "points": 1},
+        {"slot": 4, "name": "疾行斩", "role": "路线与脱战", "points": 1},
+        {"slot": 5, "name": "毒素灌注", "role": "主灌注伤害", "points": 1},
+        {"slot": 6, "name": "暗影帷幕", "role": "防御与移动联动", "points": 1}
+      ],
+      "pointOrder": [
+        {"levelRange": "1-4", "skill": "刀锋位移", "points": "+1 并点强化", "reason": "前期先建立基础触发和机动。"},
+        {"levelRange": "5-12", "skill": "利刃之舞", "points": "+5 并点强化", "reason": "主攻优先点满，决定清图手感。"},
+        {"levelRange": "13-17", "skill": "疾行斩", "points": "+1 至强化", "reason": "补路线速度和危险词缀脱离。"},
+        {"levelRange": "18-22", "skill": "毒素灌注", "points": "+1 至强化", "reason": "构筑依赖灌注窗口提高单体与精英输出。"},
+        {"levelRange": "23-27", "skill": "隐蔽", "points": "+1 至强化", "reason": "用于安全起手、重置节奏和快照准备。"},
+        {"levelRange": "28-32", "skill": "暗影帷幕", "points": "+1 至强化", "reason": "高层需要稳定减伤和移动联动。"},
+        {"levelRange": "33-42", "skill": "移动速度与灌注被动", "points": "+6 至 +9", "reason": "来源页面强调移动速度断点和灌注联动。"},
+        {"levelRange": "43-50", "skill": "暴击、幸运一击和能量被动", "points": "+6 至 +9", "reason": "稳定飞刀舞续航和伤害触发。"},
+        {"levelRange": "50-80", "skill": "防御与暗影帷幕被动", "points": "按装备微调", "reason": "遮蔽馈赠、隐蔽和帷幕到位后补容错。"},
+        {"levelRange": "80+", "skill": "终局重分配", "points": "围绕移动速度断点调整", "reason": "冲层版优先满足飞刀舞快照、资源和抗性缺口。"}
+      ],
+      "notes": ["专精优先使用心眼变体；来源页面同时列出起步、冲层和不同能量管理版本。", "如果使用起步版，先降低神话暗金需求，保留飞刀舞、毒素灌注和暗影帷幕主体。"]
+    },
+    "paragon": {
+      "rule": "按来源页面的 Paragon 入口与游侠飞刀舞逻辑整理：先拿雕文孔、传奇节点和能量/移动相关稀有节点，再补伤害小点；精确坐标仍需按来源 Planner 校准。",
+      "clickOrder": [
+        {"board": "起始盘", "node": "核心雕文孔", "reason": "先插入近战/灌注相关雕文，建立主攻收益。"},
+        {"board": "起始盘", "node": "生命与敏捷稀有节点", "reason": "飞刀舞贴怪移动，需要基础硬度。"},
+        {"board": "无目击者盘", "node": "传奇节点", "reason": "提高爆发窗口和终局伤害。"},
+        {"board": "无目击者盘", "node": "雕文孔", "reason": "承接暴击或灌注雕文。"},
+        {"board": "剥削弱点盘", "node": "传奇节点", "reason": "补易伤和精英输出。"},
+        {"board": "剥削弱点盘", "node": "稀有伤害节点", "reason": "优先拿可直接服务飞刀舞的伤害点。"},
+        {"board": "诡诈盘", "node": "控制/陷阱相关路径", "reason": "如果使用烟雾或控制变体，补控制收益。"},
+        {"board": "致命伏击盘", "node": "雕文孔", "reason": "补精英和首领爆发。"},
+        {"board": "任意盘", "node": "能量与幸运一击节点", "reason": "飞刀舞断能会直接掉输出。"},
+        {"board": "任意盘", "node": "抗性、护甲、生命小点", "reason": "冲层前按装备缺口补齐。"}
+      ]
+    },
+    "gameplay": {
+      "opener": ["进图先确认移动速度、暗影帷幕和能量状态。", "用隐蔽准备安全起手，再开启毒素灌注。", "进入精英包后持续引导利刃之舞。"],
+      "loop": ["保持利刃之舞移动输出，不为零散小怪停留。", "毒素灌注优先交给精英包和首领。", "疾行斩用于跨图、躲词缀和修正路线。", "暗影帷幕不要断档，高层断档时降低拉怪规模。"],
+      "boss": ["首领前保留隐蔽和毒素灌注。", "能量不足时不要强行长时间引导。", "暗影帷幕层数低时先规避机制再输出。"],
+      "defense": ["遮蔽馈赠和暗影帷幕是核心防御来源。", "抗性、护甲和生命不达标前不要硬推高层。", "高层优先用移动避开地面词缀。"],
+      "speedFarm": ["低层以路线效率为主，利刃之舞穿怪清图。", "可以把胸甲和靴子调整为隐身、移动或资源位。"],
+      "commonMistakes": ["移动速度断点未满足就照抄冲层版。", "毒素灌注交给小怪导致精英窗口没伤害。", "暗影帷幕断档后继续贴怪硬转。"]
+    }
+  },
+  {
+    "id": "s14-rogue-cutthroat-speed_farm",
+    "extends": "s14-rogue-cutthroat-pit_push",
+    "title": "S14 死亡觉醒 游侠 · 飞刀舞速刷",
+    "archetypeName": "飞刀舞",
+    "summary": {
+      "oneLine": "游侠「飞刀舞」速刷 BD，沿用跨赛季 Dance of Knives 主体，把胸甲、靴子和戒指位调整为路线速度、能量稳定和低层材料效率。",
+      "pros": ["清图速度快", "路线移动顺滑", "和冲层版装备重叠度高"],
+      "cons": ["高层生存低于冲层版", "跨赛季参考需要校准", "缺无星时续航压力较大"],
+      "requirements": ["主攻：利刃之舞", "副手：埃特纳遗失匕首", "戒指：无星夜空之戒"],
+      "statPriority": ["移动速度", "能量消耗降低", "冷却缩减", "利刃之舞等级", "幸运一击"]
+    },
+    "gearSlots": [
+      {"slotId": "chest", "target": {"type": "unique", "zhName": "伪死之衣"}, "aspect": {"name": "神话暗金位", "role": "速刷隐身、通用属性和路线效率", "sourceStatus": "Mobalytics Dance of Knives 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["全属性", "全元素抗性", "生命上限", "移动速度"], "alternatives": [{"zhName": "传奇胸甲 + 格林铁砧威能", "reason": "需要冲层硬度时换回。", "tradeoff": "速刷路线速度下降。"}, {"zhName": "泰瑞尔之力", "reason": "抗性压力大时使用。", "tradeoff": "速度较慢。"}]},
+      {"slotId": "boots", "target": {"type": "legendary", "zhName": "传奇靴子 + 迅捷迷雾威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "迅捷迷雾威能", "role": "疾行斩、烟雾和路线速度", "sourceStatus": "Mobalytics Dance of Knives 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["移动速度", "闪避冷却", "全元素抗性", "能量消耗降低"], "alternatives": [{"zhName": "传奇靴子 + 晦暗治愈威能", "reason": "需要高层容错时换回。", "tradeoff": "路线速度下降。"}, {"zhName": "拉卡诺斯的苏醒", "reason": "低层移动和安全。", "tradeoff": "威能联动下降。"}]},
+      {"slotId": "ring2", "target": {"type": "legendary", "zhName": "传奇戒指 + 资源威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "资源威能", "role": "速刷持续引导续航", "sourceStatus": "Mobalytics Dance of Knives 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["资源生成", "暴击几率", "幸运一击", "冷却缩减"], "alternatives": [{"zhName": "传奇戒指 + 元素命运威能", "reason": "冲层或打首领时换回。", "tradeoff": "续航下降。"}, {"zhName": "传奇戒指 + 星辰碎片威能", "reason": "低层伤害溢出前提下提高爆发。", "tradeoff": "能量更紧。"}]}
+    ],
+    "gameplay": {
+      "opener": ["进图直接按路线找密集怪，不为单个精英停留。", "毒素灌注留给精英包或事件首领。", "疾行斩和迅捷迷雾用于缩短空跑。"],
+      "loop": ["利刃之舞穿怪清图，保持移动和能量。", "隐蔽用于安全切入和跳过危险地形。", "低层不等完整冲层爆发窗口。", "能量不足时用资源戒指和基础触发修正节奏。"],
+      "boss": ["速刷首领只打一轮灌注窗口。", "缺能量时先拉开重整，不要原地空转。", "需要高层首领时切回冲层版。"],
+      "defense": ["速刷版防御更少，危险词缀优先位移。", "硬核角色保留冲层胸甲。", "抗性不满时不要过度换速度件。"],
+      "speedFarm": ["主目标是路线速度和事件效率。", "低层材料可牺牲部分防御换移动。"],
+      "commonMistakes": ["为了小怪停步。", "把防御位全换成速度。", "缺无星仍长时间持续引导。"]
+    }
+  },
+  {
+    "id": "s14-rogue-cutthroat-daily",
+    "extends": "s14-rogue-cutthroat-pit_push",
+    "title": "S14 死亡觉醒 游侠 · 飞刀舞日常",
+    "archetypeName": "飞刀舞",
+    "summary": {
+      "oneLine": "游侠「飞刀舞」日常 BD，保留利刃之舞、毒素灌注和暗影帷幕核心，用传奇防御件和资源位降低成型门槛。",
+      "pros": ["开荒到日常路径清晰", "缺神话暗金也能过渡", "移动清图手感好"],
+      "cons": ["冲层上限低于完整暗金版", "能量和移速不足会断节奏", "跨赛季参考仍需 S14 校准"],
+      "requirements": ["先找高装等远程武器", "副手优先埃特纳遗失匕首或灌注威能", "无星夜空之戒可后置"],
+      "statPriority": ["生命上限", "全元素抗性", "移动速度", "能量生成", "利刃之舞等级"]
+    },
+    "gearSlots": [
+      {"slotId": "helm", "target": {"type": "legendary", "zhName": "传奇头盔 + 防御威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "防御威能", "role": "日常抗性、护甲和生命过渡", "sourceStatus": "Mobalytics Dance of Knives 日常变体整理"}, "required": false, "core": false, "replaceable": true, "affixes": ["生命上限", "护甲", "全元素抗性", "冷却缩减"], "alternatives": [{"zhName": "沉沦继承者", "reason": "拿到后切换冲层版。", "tradeoff": "神话暗金获取难度高。"}, {"zhName": "无名者兜帽", "reason": "游侠专属灌注过渡。", "tradeoff": "全局上限较低。"}]},
+      {"slotId": "pants", "target": {"type": "legendary", "zhName": "传奇裤子 + 防御威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "防御威能", "role": "缺遮蔽馈赠时补硬度", "sourceStatus": "Mobalytics Dance of Knives 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["生命上限", "护甲", "全元素抗性", "减伤"], "alternatives": [{"zhName": "遮蔽馈赠", "reason": "拿到后切回完整暗影帷幕联动。", "tradeoff": "获取前速度和防御较弱。"}, {"zhName": "提鲍特的意志", "reason": "需要资源和不可阻挡时使用。", "tradeoff": "帷幕联动下降。"}]},
+      {"slotId": "ring1", "target": {"type": "legendary", "zhName": "传奇戒指 + 资源威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "资源威能", "role": "缺无星时保证能量循环", "sourceStatus": "Mobalytics Dance of Knives 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["资源生成", "暴击几率", "幸运一击", "冷却缩减"], "alternatives": [{"zhName": "无星夜空之戒", "reason": "拿到后切回完整版本。", "tradeoff": "获取难度高。"}, {"zhName": "传奇戒指 + 元素命运威能", "reason": "资源足够后补伤害。", "tradeoff": "续航下降。"}]},
+      {"slotId": "offHand", "target": {"type": "legendary", "zhName": "传奇匕首 + 模仿灌注威能", "image": "./public/assets/icon-weapon.png"}, "aspect": {"name": "模仿灌注威能", "role": "缺埃特纳遗失匕首时的灌注核心", "sourceStatus": "Mobalytics Dance of Knives 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["武器伤害", "灌注技能伤害", "暴击伤害", "幸运一击"], "alternatives": [{"zhName": "埃特纳遗失匕首", "reason": "拿到后切回完整终局版。", "tradeoff": "获取前灌注等级和上限下降。"}, {"zhName": "传奇剑 + 伤害威能", "reason": "升级期高装等过渡。", "tradeoff": "终局联动不足。"}]}
+    ],
+    "gameplay": {
+      "opener": ["先用最高装等武器推进难度。", "暗影帷幕可用时再进入精英包。", "毒素灌注留给高血量目标。"],
+      "loop": ["利刃之舞清怪，能量不足时降低拉怪规模。", "疾行斩用于脱离危险和补路线。", "装备未齐时优先生命、抗性、能量。", "无星、遮蔽馈赠和埃特纳遗失匕首到位后转冲层版。"],
+      "boss": ["日常首领保留毒素灌注和隐蔽。", "能量不足时不要硬转。", "暗影帷幕断档先规避机制。"],
+      "defense": ["抗性、护甲、生命优先于纯输出。", "缺遮蔽馈赠时不要硬冲高层。", "用移动规避地面词缀。"],
+      "speedFarm": ["低层可换移动靴和资源戒指。", "日常版本不追求完整冲层装备。"],
+      "commonMistakes": ["过早追求伤害导致暴毙。", "能量不够仍连续引导。", "没有暗影帷幕层数时贴怪硬打。"]
+    }
+  },
+  {
+    "id": "s14-sorcerer-shock-pit_push",
+    "sourceReference": {
+      "site": "Mobalytics",
+      "url": "https://mobalytics.gg/diablo-4/builds/sorcerer-chain-lightning-1",
+      "sourceSeason": "S14 死亡觉醒",
+      "referenceTitle": "S14 Updated Chain Lightning Sorcerer",
+      "asOf": "2026-06-28",
+      "note": "Mobalytics 页面标注为 S14 Verified Chain Lightning Sorcerer，2026-06-27 更新，含神话/起步/先祖变体、装备、技能轮转、巅峰入口和更新记录；本站按中文资料页结构整理。"
+    },
+    "title": "S14 死亡觉醒 法师 · 连锁闪电冲层",
+    "archetypeName": "连锁闪电",
+    "summary": {
+      "oneLine": "法师「连锁闪电」冲层 BD，围绕连锁闪电弹跳、轴心导体、无限法衣聚怪、佩尔盖恩印戒和无星续航建立清场与首领输出。",
+      "pros": ["同赛季社区参考", "清图和聚怪能力强", "有神话、先祖和起步变体"],
+      "cons": ["依赖轴心导体和无星续航", "高层需要控制屏障与传送位置", "首领战需要管理冷却窗口"],
+      "requirements": ["胸甲：无限法衣", "裤子：轴心导体", "戒指：无星夜空之戒", "戒指：佩尔盖恩印戒"],
+      "statPriority": ["连锁闪电等级", "暴击几率", "冷却缩减", "法力消耗降低", "幸运一击"]
+    },
+    "gearSlots": [
+      {
+        "slotId": "helm",
+        "target": {"type": "legendary", "zhName": "传奇头盔 + 天力威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "天力威能", "role": "冲层增伤与屏障窗口联动", "sourceStatus": "Mobalytics S14 Chain Lightning 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["冷却缩减", "生命上限", "护甲", "全元素抗性"],
+        "alternatives": [
+          {"zhName": "谐角之冠", "reason": "神话暗金变体提高全技能和减伤。", "tradeoff": "失去头盔威能位。"},
+          {"zhName": "传奇头盔 + 防御威能", "reason": "起步版补硬度。", "tradeoff": "输出下降。"}
+        ]
+      },
+      {
+        "slotId": "chest",
+        "target": {"type": "unique", "zhName": "无限法衣"},
+        "aspect": {"name": "暗金特效位", "role": "传送聚怪、眩晕和连锁闪电清场核心", "sourceStatus": "Mobalytics S14 Chain Lightning 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["生命上限", "传送术等级", "减伤", "全元素抗性"],
+        "alternatives": [
+          {"zhName": "泰瑞尔之力", "reason": "抗性和弹幕压力极高时使用。", "tradeoff": "聚怪和爆发下降。"},
+          {"zhName": "传奇胸甲 + 防御威能", "reason": "缺无限法衣时过渡。", "tradeoff": "清图效率明显下降。"}
+        ]
+      },
+      {
+        "slotId": "gloves",
+        "target": {"type": "legendary", "zhName": "传奇手套 + 自负威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "自负威能", "role": "屏障覆盖下提高连锁闪电输出", "sourceStatus": "Mobalytics S14 Chain Lightning 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["连锁闪电等级", "攻击速度", "暴击几率", "幸运一击"],
+        "alternatives": [
+          {"zhName": "命运之拳", "reason": "幸运一击和高波动变体。", "tradeoff": "输出稳定性下降。"},
+          {"zhName": "传奇手套 + 无情寒冰威能", "reason": "调整武器威能位时承接主伤害。", "tradeoff": "手套词缀压力增加。"}
+        ]
+      },
+      {
+        "slotId": "pants",
+        "target": {"type": "unique", "zhName": "轴心导体"},
+        "aspect": {"name": "暗金特效位", "role": "连锁闪电专属弹跳与核心输出", "sourceStatus": "Mobalytics S14 Chain Lightning 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["连锁闪电等级", "生命上限", "减伤", "法力消耗降低"],
+        "alternatives": [
+          {"zhName": "传奇裤子 + 防御威能", "reason": "缺轴心导体时只能过渡。", "tradeoff": "流派核心联动缺失。"},
+          {"zhName": "鲁莽", "reason": "屏障容错过渡。", "tradeoff": "连锁闪电上限下降。"}
+        ]
+      },
+      {
+        "slotId": "boots",
+        "target": {"type": "unique", "zhName": "艾苏的传家宝"},
+        "aspect": {"name": "暗金特效位", "role": "移动速度转暴击，支撑冲层与速刷", "sourceStatus": "Mobalytics S14 Chain Lightning 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["移动速度", "暴击几率", "闪避冷却", "全元素抗性"],
+        "alternatives": [
+          {"zhName": "拉卡诺斯的苏醒", "reason": "速刷和安全移动变体。", "tradeoff": "暴击转化下降。"},
+          {"zhName": "传奇靴子 + 移动威能", "reason": "起步版补移速和抗性。", "tradeoff": "输出下降。"}
+        ]
+      },
+      {
+        "slotId": "amulet",
+        "target": {"type": "legendary", "zhName": "传奇护符 + 碎霜威能", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "碎霜威能", "role": "冰冷/冻结窗口与连锁闪电增伤", "sourceStatus": "Mobalytics S14 Chain Lightning 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["连锁闪电等级", "冷却缩减", "暴击几率", "法力消耗降低"],
+        "alternatives": [
+          {"zhName": "破裂冬镜", "reason": "召唤/寒冰变体可尝试。", "tradeoff": "偏离来源连锁闪电主体。"},
+          {"zhName": "传奇护符 + 自负威能", "reason": "根据词缀和威能位重排。", "tradeoff": "碎霜联动下降。"}
+        ]
+      },
+      {
+        "slotId": "ring1",
+        "target": {"type": "unique", "zhName": "无星夜空之戒"},
+        "aspect": {"name": "神话暗金位", "role": "法力消耗和持续施法核心", "sourceStatus": "Mobalytics S14 Chain Lightning 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["攻击速度", "暴击几率", "资源消耗降低", "幸运一击"],
+        "alternatives": [
+          {"zhName": "传奇戒指 + 资源威能", "reason": "缺无星时维持法力。", "tradeoff": "持续输出下降。"},
+          {"zhName": "塔拉夏虹彩戒环", "reason": "元素变体可用。", "tradeoff": "来源主体装备会改变。"}
+        ]
+      },
+      {
+        "slotId": "ring2",
+        "target": {"type": "unique", "zhName": "佩尔盖恩印戒"},
+        "aspect": {"name": "暗金特效位", "role": "来源页面核心戒指，补全连锁闪电伤害窗口", "sourceStatus": "Mobalytics S14 Chain Lightning 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["全伤害乘区", "暴击几率", "幸运一击", "冷却缩减"],
+        "alternatives": [
+          {"zhName": "传奇戒指 + 元素威能", "reason": "缺佩尔盖恩印戒时过渡。", "tradeoff": "核心暗金收益下降。"},
+          {"zhName": "传奇戒指 + 资源威能", "reason": "法力不足时使用。", "tradeoff": "爆发下降。"}
+        ]
+      },
+      {
+        "slotId": "twoHand",
+        "target": {"type": "legendary", "zhName": "双手武器 + 无情寒冰威能", "image": "./public/assets/icon-weapon.png"},
+        "aspect": {"name": "无情寒冰威能", "role": "冻结/寒冰窗口放大连锁闪电伤害", "sourceStatus": "Mobalytics S14 Chain Lightning 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["武器伤害", "连锁闪电伤害", "暴击伤害", "易伤伤害"],
+        "alternatives": [
+          {"zhName": "碧蓝怒火", "reason": "来源概览提到的寒冰联动武器方向。", "tradeoff": "若改为单手方案，需要补副手位。"},
+          {"zhName": "传奇法杖 + 元素威能", "reason": "起步版高装等过渡。", "tradeoff": "冻结主乘区下降。"}
+        ]
+      },
+      {
+        "slotId": "mainHand",
+        "target": {"type": "legendary", "zhName": "不使用：双手武器方案", "image": "./public/assets/icon-weapon.png"},
+        "aspect": {"name": "空槽说明", "role": "来源装备位显示 Weapon 与 Offhand Empty，本站按双手武器方案展示", "sourceStatus": "Mobalytics S14 Chain Lightning 装备位"},
+        "required": false,
+        "core": false,
+        "replaceable": true,
+        "affixes": ["无", "保持双手武器主威能", "不占用单手位"],
+        "alternatives": [
+          {"zhName": "碧蓝怒火", "reason": "切换单手寒冰武器方案。", "tradeoff": "需要副手补冷却和暴击。"},
+          {"zhName": "眼球", "reason": "传送速刷娱乐或过渡。", "tradeoff": "冲层稳定性下降。"}
+        ]
+      },
+      {
+        "slotId": "offHand",
+        "target": {"type": "legendary", "zhName": "不使用：来源页副手为空", "image": "./public/assets/icon-utility.png"},
+        "aspect": {"name": "空槽说明", "role": "来源页面 Offhand Empty，不额外占用副手威能", "sourceStatus": "Mobalytics S14 Chain Lightning 装备位"},
+        "required": false,
+        "core": false,
+        "replaceable": true,
+        "affixes": ["无", "保持双手武器方案", "不占用副手位"],
+        "alternatives": [
+          {"zhName": "传奇副手 + 冷却威能", "reason": "切换单手武器时补冷却。", "tradeoff": "武器威能倍率下降。"},
+          {"zhName": "传奇副手 + 资源威能", "reason": "法力不足时过渡。", "tradeoff": "爆发下降。"}
+        ]
+      }
+    ],
+    "skillTree": {
+      "core": "连锁闪电",
+      "skillBar": [
+        {"slot": 1, "name": "连锁闪电", "role": "主攻弹跳", "points": 5},
+        {"slot": 2, "name": "寒冰护甲", "role": "屏障与自负威能覆盖", "points": 1},
+        {"slot": 3, "name": "传送术", "role": "聚怪、位移和无限法衣触发", "points": 1},
+        {"slot": 4, "name": "火焰护盾", "role": "免疫和危险词缀处理", "points": 1},
+        {"slot": 5, "name": "冰霜新星", "role": "冻结与易伤窗口", "points": 1},
+        {"slot": 6, "name": "不稳电流", "role": "终极爆发", "points": 1}
+      ],
+      "pointOrder": [
+        {"levelRange": "1-6", "skill": "连锁闪电", "points": "+5 并点强化", "reason": "主攻先成型，保证清图和弹跳。"},
+        {"levelRange": "7-12", "skill": "传送术", "points": "+1 至强化", "reason": "无限法衣到位后是聚怪和爆发入口。"},
+        {"levelRange": "13-18", "skill": "寒冰护甲", "points": "+1 至强化", "reason": "屏障覆盖自负威能和生存。"},
+        {"levelRange": "19-23", "skill": "火焰护盾", "points": "+1", "reason": "处理高层危险词缀和不可控伤害。"},
+        {"levelRange": "24-28", "skill": "冰霜新星", "points": "+1 至强化", "reason": "冻结与易伤窗口服务碎霜和寒冰联动。"},
+        {"levelRange": "29-33", "skill": "不稳电流", "points": "+1", "reason": "精英和首领爆发。"},
+        {"levelRange": "34-45", "skill": "电击与暴击被动", "points": "+6 至 +9", "reason": "提高连锁闪电触发和暴击收益。"},
+        {"levelRange": "46-60", "skill": "法力、屏障和冷却被动", "points": "+6 至 +9", "reason": "无星和轴心导体未齐时降低断蓝风险。"},
+        {"levelRange": "60-80", "skill": "寒冰/冻结联动", "points": "按装备微调", "reason": "碎霜、无情寒冰和佩尔盖恩印戒到位后补联动。"},
+        {"levelRange": "80+", "skill": "终局重分配", "points": "围绕法力、暴击和屏障调整", "reason": "冲层前按抗性、护甲和法力缺口补齐。"}
+      ],
+      "notes": ["附魔优先围绕连锁闪电与冰霜新星/控制窗口；来源页面提示没有传送附魔，因此传送更多承担技能位功能。", "起步版可先降低神话暗金需求，但轴心导体和连锁闪电等级仍是核心。"]
+    },
+    "paragon": {
+      "rule": "按来源页面 Paragon 入口和连锁闪电冲层逻辑整理：先雕文孔与传奇节点，再补法力、暴击、屏障和抗性；精确坐标仍需按来源 Planner 校准。",
+      "clickOrder": [
+        {"board": "起始盘", "node": "核心雕文孔", "reason": "先插入电击/控制相关雕文，提高连锁闪电收益。"},
+        {"board": "起始盘", "node": "智力与生命稀有节点", "reason": "补基础伤害和高层硬度。"},
+        {"board": "静电奔涌盘", "node": "传奇节点", "reason": "优先拿连锁闪电和法力相关收益。"},
+        {"board": "静电奔涌盘", "node": "雕文孔", "reason": "承接暴击、控制或元素雕文。"},
+        {"board": "燃烧本能盘", "node": "稀有伤害节点", "reason": "补元素伤害与首领输出。"},
+        {"board": "附魔大师盘", "node": "传奇节点路径", "reason": "增强附魔和技能联动。"},
+        {"board": "冰冷命运盘", "node": "冻结/易伤相关节点", "reason": "服务碎霜和无情寒冰窗口。"},
+        {"board": "冰冷命运盘", "node": "雕文孔", "reason": "补控制和暴击。"},
+        {"board": "任意盘", "node": "法力与冷却节点", "reason": "连锁闪电断法力会直接掉输出。"},
+        {"board": "任意盘", "node": "抗性、护甲、生命小点", "reason": "冲层前补齐防御阈值。"}
+      ]
+    },
+    "gameplay": {
+      "opener": ["传送进怪群触发无限法衣聚怪。", "开启寒冰护甲保持屏障和自负威能。", "冰霜新星冻结后开始连锁闪电爆发。", "精英或首领阶段开启不稳电流。"],
+      "loop": ["保持连锁闪电持续施放，优先打密集怪群。", "寒冰护甲不要断档，屏障是伤害和防御共同入口。", "传送既是位移也是聚怪，不要空交到安全区域。", "法力不足时降低施放频率并等待无星节奏。"],
+      "boss": ["首领前保留不稳电流、冰霜新星和屏障。", "佩尔盖恩印戒和无星窗口到位后连续施放连锁闪电。", "火焰护盾留给危险机制，不当普通增伤技能空交。"],
+      "defense": ["高层依赖屏障、火焰护盾和传送位置。", "无限法衣聚怪后要立刻输出或位移，不要停在危险词缀内。", "抗性、护甲、生命不满前不要硬推 150。"],
+      "speedFarm": ["低层用传送聚怪后连锁闪电清屏。", "可以把头盔或武器换成更偏冷却/移动的版本。"],
+      "commonMistakes": ["传送进怪群后没有屏障。", "法力不足还强行连续施法。", "火焰护盾提前空交导致首领机制无保命。"]
+    }
+  },
+  {
+    "id": "s14-sorcerer-shock-speed_farm",
+    "extends": "s14-sorcerer-shock-pit_push",
+    "title": "S14 死亡觉醒 法师 · 连锁闪电速刷",
+    "archetypeName": "连锁闪电",
+    "summary": {
+      "oneLine": "法师「连锁闪电」速刷 BD，沿用 S14 Chain Lightning 主体，把头盔、靴子和武器位调整为冷却、移动和低层路线效率。",
+      "pros": ["聚怪清图快", "传送路线效率高", "冲层装备可复用"],
+      "cons": ["极限生存低于冲层版", "法力不足会断节奏", "首领高层需要切回冲层版"],
+      "requirements": ["裤子：轴心导体", "胸甲：无限法衣", "戒指：无星夜空之戒"],
+      "statPriority": ["冷却缩减", "移动速度", "连锁闪电等级", "法力消耗降低", "暴击几率"]
+    },
+    "gearSlots": [
+      {"slotId": "helm", "target": {"type": "unique", "zhName": "谐角之冠"}, "aspect": {"name": "神话暗金位", "role": "速刷冷却、全技能和容错", "sourceStatus": "Mobalytics Chain Lightning 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["全技能等级", "冷却缩减", "生命上限", "法力消耗降低"], "alternatives": [{"zhName": "传奇头盔 + 天力威能", "reason": "需要冲层伤害时换回。", "tradeoff": "冷却和容错下降。"}, {"zhName": "传奇头盔 + 防御威能", "reason": "起步版补硬度。", "tradeoff": "清图速度下降。"}]},
+      {"slotId": "boots", "target": {"type": "unique", "zhName": "拉卡诺斯的苏醒"}, "aspect": {"name": "暗金特效位", "role": "速刷移动、安全和路线效率", "sourceStatus": "Mobalytics Chain Lightning 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["移动速度", "全伤害乘区", "闪避冷却", "全元素抗性"], "alternatives": [{"zhName": "艾苏的传家宝", "reason": "需要暴击转化或冲层时换回。", "tradeoff": "移动安全下降。"}, {"zhName": "传奇靴子 + 移动威能", "reason": "低层过渡。", "tradeoff": "暗金收益下降。"}]},
+      {"slotId": "twoHand", "target": {"type": "legendary", "zhName": "双手武器 + 冷却/移动威能", "image": "./public/assets/icon-weapon.png"}, "aspect": {"name": "冷却/移动威能", "role": "低层速刷路线优化", "sourceStatus": "Mobalytics Chain Lightning 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["武器伤害", "连锁闪电伤害", "冷却缩减", "暴击伤害"], "alternatives": [{"zhName": "双手武器 + 无情寒冰威能", "reason": "需要冲层或首领伤害时换回。", "tradeoff": "路线速度下降。"}, {"zhName": "碧蓝怒火", "reason": "寒冰单手变体。", "tradeoff": "需要副手配套。"}]}
+    ],
+    "gameplay": {
+      "opener": ["传送进密集怪群，直接触发无限法衣。", "寒冰护甲起手保持屏障。", "低层精英用连锁闪电直接清掉，不等完整爆发。"],
+      "loop": ["传送和移动靴缩短空跑。", "连锁闪电优先打密集怪群，零散怪直接跳过。", "无星节奏不足时降低连续施放时间。", "不稳电流留给事件首领或大精英包。"],
+      "boss": ["速刷首领打一轮不稳电流。", "法力不足时先等待资源再爆发。", "需要高层首领时切回冲层版。"],
+      "defense": ["速刷版防御较低，危险词缀先传送离开。", "抗性不足时不要换掉冲层防御件。", "火焰护盾留作保命。"],
+      "speedFarm": ["主目标是传送聚怪和连锁闪电清屏。", "低层材料可以牺牲部分防御换移动。"],
+      "commonMistakes": ["为了零散怪停留。", "传送进怪群没有屏障。", "把法力续航件换掉后断蓝。"]
+    }
+  },
+  {
+    "id": "s14-sorcerer-shock-daily",
+    "extends": "s14-sorcerer-shock-pit_push",
+    "title": "S14 死亡觉醒 法师 · 连锁闪电日常",
+    "archetypeName": "连锁闪电",
+    "summary": {
+      "oneLine": "法师「连锁闪电」日常 BD，保留连锁闪电、轴心导体和屏障核心，用传奇防御件和资源戒指降低成型门槛。",
+      "pros": ["起步门槛较低", "日常清图稳定", "可平滑升级到冲层版"],
+      "cons": ["缺轴心导体时不是完整流派", "缺无星会有法力压力", "冲层上限低于完整暗金版"],
+      "requirements": ["先找轴心导体", "无星夜空之戒可后置", "胸甲可用传奇防御件过渡"],
+      "statPriority": ["生命上限", "全元素抗性", "连锁闪电等级", "法力生成", "冷却缩减"]
+    },
+    "gearSlots": [
+      {"slotId": "chest", "target": {"type": "legendary", "zhName": "传奇胸甲 + 防御威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "防御威能", "role": "缺无限法衣时补抗性和硬度", "sourceStatus": "Mobalytics Chain Lightning 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["生命上限", "护甲", "减伤", "全元素抗性"], "alternatives": [{"zhName": "无限法衣", "reason": "拿到后切回完整聚怪版。", "tradeoff": "获取前清图效率低。"}, {"zhName": "泰瑞尔之力", "reason": "补抗性缺口。", "tradeoff": "需要神话暗金。"}]},
+      {"slotId": "ring1", "target": {"type": "legendary", "zhName": "传奇戒指 + 资源威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "资源威能", "role": "缺无星时保证法力循环", "sourceStatus": "Mobalytics Chain Lightning 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["资源生成", "暴击几率", "幸运一击", "冷却缩减"], "alternatives": [{"zhName": "无星夜空之戒", "reason": "拿到后切回完整版本。", "tradeoff": "获取难度高。"}, {"zhName": "传奇戒指 + 元素威能", "reason": "法力充足后补伤害。", "tradeoff": "续航下降。"}]},
+      {"slotId": "ring2", "target": {"type": "legendary", "zhName": "传奇戒指 + 元素威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "元素威能", "role": "缺佩尔盖恩印戒时的日常增伤", "sourceStatus": "Mobalytics Chain Lightning 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["暴击几率", "幸运一击", "法力生成", "冷却缩减"], "alternatives": [{"zhName": "佩尔盖恩印戒", "reason": "拿到后切回冲层版。", "tradeoff": "获取前上限较低。"}, {"zhName": "传奇戒指 + 资源威能", "reason": "法力压力大时双资源位过渡。", "tradeoff": "伤害下降。"}]},
+      {"slotId": "offHand", "target": {"type": "legendary", "zhName": "传奇副手 + 资源威能", "image": "./public/assets/icon-utility.png"}, "aspect": {"name": "资源威能", "role": "起步版法力与冷却补强", "sourceStatus": "Mobalytics Chain Lightning 日常变体整理"}, "required": false, "core": false, "replaceable": true, "affixes": ["冷却缩减", "暴击几率", "法力消耗降低", "幸运一击"], "alternatives": [{"zhName": "不使用：来源页副手为空", "reason": "完整双手武器版不占副手。", "tradeoff": "需要更好的双手武器和无星。"}, {"zhName": "传奇副手 + 防御威能", "reason": "硬度不足时使用。", "tradeoff": "法力压力上升。"}]}
+    ],
+    "gameplay": {
+      "opener": ["先用传奇防御件补齐抗性和护甲。", "寒冰护甲开启后再传送进怪。", "连锁闪电清怪，精英前留不稳电流。"],
+      "loop": ["日常版本以稳定施放为主。", "法力不足时降低施放频率，先补资源词缀。", "没有无限法衣时不要强行贴脸聚怪。", "轴心导体、无星、佩尔盖恩印戒到位后再转冲层版。"],
+      "boss": ["保留不稳电流和火焰护盾。", "法力不足时先等待资源，不要空放。", "日常首领不追求极限秒杀。"],
+      "defense": ["生命、抗性、护甲优先于纯输出。", "火焰护盾不要空交。", "传送进怪前确认屏障。"],
+      "speedFarm": ["低层可以先使用移动靴和资源戒指。", "装备成型后切换速刷版。"],
+      "commonMistakes": ["缺轴心导体就硬按完整 BD 打。", "法力词缀不足导致断循环。", "没有屏障就传送进精英包。"]
+    }
   }
 ]

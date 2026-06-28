@@ -36,7 +36,11 @@ const exactItemNames = new Map([
   ["Vengeful Sinew", "复仇筋腱"],
   ["Lidless Wall", "无盖之墙"],
   ["Deathless Visage", "不死面容"],
-  ["Howl from Below", "地下嚎叫"]
+  ["Howl from Below", "地下嚎叫"],
+  ["Cowl of the Nameless", "无名者兜帽"],
+  ["The Umbracrux", "晦暗核心"],
+  ["Raiment of the Infinite", "无限法衣"],
+  ["Signet of Pelghain", "佩尔盖恩印戒"]
 ]);
 
 const wordMap = new Map([

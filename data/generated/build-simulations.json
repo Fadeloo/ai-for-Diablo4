@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T14:17:55.615Z",
+  "generatedAt": "2026-06-28T14:36:01.230Z",
   "scope": "next_three_season_build_and_pit150_prediction_matrix",
   "warning": "Predictions are model output, not facts. Update with live leaderboard and patch data after each season starts.",
   "zhWarning": "预测结果是模型输出，不是事实榜单。每个赛季上线后需要用真实冲层、速刷成绩和热修补丁继续校准。",
@@ -7955,7 +7955,7 @@
                 {
                   "id": "the-umbracrux",
                   "name": "The Umbracrux",
-                  "zhName": "乌姆布尔阿克尔乌克斯",
+                  "zhName": "晦暗核心",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/the_umbracrux.png",
@@ -8051,7 +8051,7 @@
                     },
                     {
                       "id": "the-umbracrux",
-                      "zhName": "乌姆布尔阿克尔乌克斯",
+                      "zhName": "晦暗核心",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -8136,7 +8136,7 @@
                 {
                   "id": "the-umbracrux",
                   "name": "The Umbracrux",
-                  "zhName": "乌姆布尔阿克尔乌克斯",
+                  "zhName": "晦暗核心",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/the_umbracrux.png",
@@ -8232,7 +8232,7 @@
                     },
                     {
                       "id": "the-umbracrux",
-                      "zhName": "乌姆布尔阿克尔乌克斯",
+                      "zhName": "晦暗核心",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -8317,7 +8317,7 @@
                 {
                   "id": "the-umbracrux",
                   "name": "The Umbracrux",
-                  "zhName": "乌姆布尔阿克尔乌克斯",
+                  "zhName": "晦暗核心",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/the_umbracrux.png",
@@ -8413,7 +8413,7 @@
                     },
                     {
                       "id": "the-umbracrux",
-                      "zhName": "乌姆布尔阿克尔乌克斯",
+                      "zhName": "晦暗核心",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -21357,7 +21357,7 @@
                 {
                   "id": "the-umbracrux",
                   "name": "The Umbracrux",
-                  "zhName": "乌姆布尔阿克尔乌克斯",
+                  "zhName": "晦暗核心",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/the_umbracrux.png",
@@ -21453,7 +21453,7 @@
                     },
                     {
                       "id": "the-umbracrux",
-                      "zhName": "乌姆布尔阿克尔乌克斯",
+                      "zhName": "晦暗核心",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -21538,7 +21538,7 @@
                 {
                   "id": "the-umbracrux",
                   "name": "The Umbracrux",
-                  "zhName": "乌姆布尔阿克尔乌克斯",
+                  "zhName": "晦暗核心",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/the_umbracrux.png",
@@ -21634,7 +21634,7 @@
                     },
                     {
                       "id": "the-umbracrux",
-                      "zhName": "乌姆布尔阿克尔乌克斯",
+                      "zhName": "晦暗核心",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -21719,7 +21719,7 @@
                 {
                   "id": "the-umbracrux",
                   "name": "The Umbracrux",
-                  "zhName": "乌姆布尔阿克尔乌克斯",
+                  "zhName": "晦暗核心",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/the_umbracrux.png",
@@ -21815,7 +21815,7 @@
                     },
                     {
                       "id": "the-umbracrux",
-                      "zhName": "乌姆布尔阿克尔乌克斯",
+                      "zhName": "晦暗核心",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -34759,7 +34759,7 @@
                 {
                   "id": "the-umbracrux",
                   "name": "The Umbracrux",
-                  "zhName": "乌姆布尔阿克尔乌克斯",
+                  "zhName": "晦暗核心",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/the_umbracrux.png",
@@ -34855,7 +34855,7 @@
                     },
                     {
                       "id": "the-umbracrux",
-                      "zhName": "乌姆布尔阿克尔乌克斯",
+                      "zhName": "晦暗核心",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -34940,7 +34940,7 @@
                 {
                   "id": "the-umbracrux",
                   "name": "The Umbracrux",
-                  "zhName": "乌姆布尔阿克尔乌克斯",
+                  "zhName": "晦暗核心",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/the_umbracrux.png",
@@ -35036,7 +35036,7 @@
                     },
                     {
                       "id": "the-umbracrux",
-                      "zhName": "乌姆布尔阿克尔乌克斯",
+                      "zhName": "晦暗核心",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },
@@ -35121,7 +35121,7 @@
                 {
                   "id": "the-umbracrux",
                   "name": "The Umbracrux",
-                  "zhName": "乌姆布尔阿克尔乌克斯",
+                  "zhName": "晦暗核心",
                   "visualType": "weapon",
                   "image": "./public/assets/icon-weapon.png",
                   "externalImage": "https://sunderarmor.com/DIABLO4/Uniques/2/the_umbracrux.png",
@@ -35217,7 +35217,7 @@
                     },
                     {
                       "id": "the-umbracrux",
-                      "zhName": "乌姆布尔阿克尔乌克斯",
+                      "zhName": "晦暗核心",
                       "zhVisualType": "武器",
                       "reason": "伤害核心；固定词缀命中 武器伤害 / 生命上限。"
                     },

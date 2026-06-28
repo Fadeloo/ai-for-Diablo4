@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T14:17:55.563Z",
+  "generatedAt": "2026-06-28T14:36:01.177Z",
   "source": {
     "id": "blizzard_patch_3_1",
     "url": "https://news.blizzard.com/en-us/article/24287406/diablo-iv-patch-notes",
@@ -1875,7 +1875,7 @@
     {
       "id": "signet-of-pelghain",
       "name": "Signet of Pelghain",
-      "zhName": "印戒佩尔盖恩",
+      "zhName": "佩尔盖恩印戒",
       "rarity": "unique",
       "classRestriction": "All Classes",
       "zhClassRestriction": "全职业",
@@ -10914,7 +10914,7 @@
     {
       "id": "cowl-of-the-nameless",
       "name": "Cowl of the Nameless",
-      "zhName": "兜帽无名者",
+      "zhName": "无名者兜帽",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -12363,7 +12363,7 @@
     {
       "id": "the-umbracrux",
       "name": "The Umbracrux",
-      "zhName": "乌姆布尔阿克尔乌克斯",
+      "zhName": "晦暗核心",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -13950,7 +13950,7 @@
     {
       "id": "raiment-of-the-infinite",
       "name": "Raiment of the Infinite",
-      "zhName": "衣装无限",
+      "zhName": "无限法衣",
       "rarity": "unique",
       "classRestriction": "Sorcerer",
       "zhClassRestriction": "法师",
