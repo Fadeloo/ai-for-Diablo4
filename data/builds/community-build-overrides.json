@@ -1848,5 +1848,270 @@
       "speedFarm": ["低层可以先用移动靴和资源戒指。", "装备成型后切换速刷版。"],
       "commonMistakes": ["缺拉姆·埃森之杖就硬按完整 BD 打。", "不补法力导致电荷弹断档。", "魔宠断档导致燃烧收益下降。"]
     }
+  },
+  {
+    "id": "s14-rogue-marksman-pit_push",
+    "sourceReference": {
+      "site": "Mobalytics",
+      "url": "https://mobalytics.gg/diablo-4/builds/rogue-penetrating-shot-endgame",
+      "sourceSeason": "S13 憎恨之王",
+      "referenceTitle": "Penetrating Shot Rogue Endgame Build Guide",
+      "asOf": "2026-06-28",
+      "note": "Mobalytics 页面标注为 Penetrating Shot Rogue Endgame Build Guide，含装备、技能轮转、FAQ、起步说明和 Paragon 入口；本站作为 S14 游侠射手跨赛季参考整理，仍需 S14 实战和热修校准。"
+    },
+    "title": "S14 死亡觉醒 游侠 · 穿透射击冲层",
+    "archetypeName": "穿透射击",
+    "summary": {
+      "oneLine": "游侠「穿透射击」冲层 BD，围绕鹰角弓、寒冰灌注、内视专精、暗影步/疾行斩走位和无星续航建立远程直线爆发。",
+      "pros": ["远程安全距离好", "精英和首领爆发清晰", "和飞刀舞形成不同射手流派轴"],
+      "cons": ["来源为跨赛季参考，需要 S14 校准", "依赖站位和直线穿透", "密集小怪处理需要聚怪和角度"],
+      "requirements": ["远程武器：鹰角弓", "头盔：沉沦继承者", "裤子：遮蔽馈赠", "戒指：无星夜空之戒"],
+      "statPriority": ["穿透射击等级", "暴击几率", "易伤伤害", "寒冰灌注等级", "能量消耗降低"]
+    },
+    "gearSlots": [
+      {
+        "slotId": "helm",
+        "target": {"type": "unique", "zhName": "沉沦继承者"},
+        "aspect": {"name": "神话暗金位", "role": "全局增伤、移动和冲层上限", "sourceStatus": "Mobalytics Penetrating Shot 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["主属性", "移动速度", "冷却缩减", "生命上限"],
+        "alternatives": [
+          {"zhName": "无名者兜帽", "reason": "缺神话暗金时补灌注技能和游侠专属收益。", "tradeoff": "全局上限下降。"},
+          {"zhName": "传奇头盔 + 防御威能", "reason": "起步版补抗性和生命。", "tradeoff": "冲层伤害下降。"}
+        ]
+      },
+      {
+        "slotId": "chest",
+        "target": {"type": "legendary", "zhName": "传奇胸甲 + 格林铁砧威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "格林铁砧威能", "role": "高层防御与直线输出容错", "sourceStatus": "Mobalytics Penetrating Shot 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["生命上限", "护甲", "全元素抗性", "减伤"],
+        "alternatives": [
+          {"zhName": "伪死之衣", "reason": "需要隐身、通用属性和速刷路线时使用。", "tradeoff": "失去传奇防御威能位。"},
+          {"zhName": "泰瑞尔之力", "reason": "抗性和弹幕压力大时使用。", "tradeoff": "射手爆发下降。"}
+        ]
+      },
+      {
+        "slotId": "gloves",
+        "target": {"type": "legendary", "zhName": "传奇手套 + 真视威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "真视威能", "role": "远程射手命中与暴击窗口", "sourceStatus": "Mobalytics Penetrating Shot 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["穿透射击等级", "攻击速度", "暴击几率", "幸运一击"],
+        "alternatives": [
+          {"zhName": "传奇手套 + 模仿灌注威能", "reason": "需要提高寒冰灌注联动时使用。", "tradeoff": "真视威能收益下降。"},
+          {"zhName": "命运之拳", "reason": "幸运一击和高波动过渡。", "tradeoff": "稳定性较差。"}
+        ]
+      },
+      {
+        "slotId": "pants",
+        "target": {"type": "unique", "zhName": "遮蔽馈赠"},
+        "aspect": {"name": "暗金特效位", "role": "暗影帷幕、移动和远程容错核心", "sourceStatus": "Mobalytics Penetrating Shot 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["移动速度", "生命上限", "减伤", "全元素抗性"],
+        "alternatives": [
+          {"zhName": "传奇裤子 + 防御威能", "reason": "缺遮蔽馈赠时补硬度。", "tradeoff": "暗影帷幕联动下降。"},
+          {"zhName": "提鲍特的意志", "reason": "需要资源和不可阻挡窗口时可尝试。", "tradeoff": "来源主体防御下降。"}
+        ]
+      },
+      {
+        "slotId": "boots",
+        "target": {"type": "legendary", "zhName": "传奇靴子 + 刺骨寒冰威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "刺骨寒冰威能", "role": "寒冰灌注控制和爆发窗口", "sourceStatus": "Mobalytics Penetrating Shot 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["移动速度", "闪避冷却", "全元素抗性", "能量消耗降低"],
+        "alternatives": [
+          {"zhName": "传奇靴子 + 移动威能", "reason": "速刷过渡提高路线速度。", "tradeoff": "控制伤害下降。"},
+          {"zhName": "拉卡诺斯的苏醒", "reason": "低层速刷和安全移动。", "tradeoff": "寒冰威能位损失。"}
+        ]
+      },
+      {
+        "slotId": "amulet",
+        "target": {"type": "legendary", "zhName": "传奇护符 + 凶暴威能", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "凶暴威能", "role": "穿透射击高层主增伤位", "sourceStatus": "Mobalytics Penetrating Shot 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["穿透射击等级", "移动速度", "冷却缩减", "能量消耗降低"],
+        "alternatives": [
+          {"zhName": "哈坎之语", "reason": "箭雨/灌注变体可尝试。", "tradeoff": "偏离穿透射击主体。"},
+          {"zhName": "传奇护符 + 模仿灌注威能", "reason": "需要放大灌注收益时重排威能位。", "tradeoff": "凶暴威能收益下降。"}
+        ]
+      },
+      {
+        "slotId": "ring1",
+        "target": {"type": "unique", "zhName": "无星夜空之戒"},
+        "aspect": {"name": "神话暗金位", "role": "能量消耗和连续穿透射击核心", "sourceStatus": "Mobalytics Penetrating Shot 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["攻击速度", "暴击几率", "资源消耗降低", "幸运一击"],
+        "alternatives": [
+          {"zhName": "传奇戒指 + 资源威能", "reason": "缺无星时维持能量。", "tradeoff": "持续输出下降。"},
+          {"zhName": "暗夜之眼", "reason": "陷阱/暗影过渡。", "tradeoff": "射手主体收益低。"}
+        ]
+      },
+      {
+        "slotId": "ring2",
+        "target": {"type": "legendary", "zhName": "传奇戒指 + 高速威能", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "高速威能", "role": "射手攻速和清图节奏", "sourceStatus": "Mobalytics Penetrating Shot 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["暴击几率", "幸运一击", "资源生成", "冷却缩减"],
+        "alternatives": [
+          {"zhName": "传奇戒指 + 元素威能", "reason": "需要稳定周期增伤时使用。", "tradeoff": "攻速节奏下降。"},
+          {"zhName": "传奇戒指 + 资源威能", "reason": "能量不足时过渡。", "tradeoff": "伤害下降。"}
+        ]
+      },
+      {
+        "slotId": "twoHand",
+        "target": {"type": "unique", "zhName": "鹰角弓"},
+        "aspect": {"name": "暗金特效位", "role": "穿透射击专属远程武器核心", "sourceStatus": "Mobalytics Penetrating Shot 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["武器伤害", "穿透射击等级", "暴击伤害", "易伤伤害"],
+        "alternatives": [
+          {"zhName": "逐天者", "reason": "远程高装等或射手过渡。", "tradeoff": "穿透射击专属效果下降。"},
+          {"zhName": "传奇弓弩 + 凶暴威能", "reason": "缺鹰角弓时临时过渡。", "tradeoff": "核心暗金联动缺失。"}
+        ]
+      },
+      {
+        "slotId": "mainHand",
+        "target": {"type": "legendary", "zhName": "双持武器 1 + 模仿灌注威能", "image": "./public/assets/icon-weapon.png"},
+        "aspect": {"name": "模仿灌注威能", "role": "寒冰灌注和射手爆发联动", "sourceStatus": "Mobalytics Penetrating Shot 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["武器伤害", "灌注技能伤害", "暴击伤害", "幸运一击"],
+        "alternatives": [
+          {"zhName": "晦暗核心", "reason": "暗影/陷阱变体过渡。", "tradeoff": "射手输出下降。"},
+          {"zhName": "传奇匕首 + 寒冰威能", "reason": "缺模仿灌注威能时保留寒冰窗口。", "tradeoff": "灌注联动下降。"}
+        ]
+      },
+      {
+        "slotId": "offHand",
+        "target": {"type": "unique", "zhName": "正义之剑·艾尔德鲁因"},
+        "aspect": {"name": "暗金特效位", "role": "通用乘区和双持副手核心", "sourceStatus": "Mobalytics Penetrating Shot 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["武器伤害", "全伤害乘区", "暴击伤害", "攻击速度"],
+        "alternatives": [
+          {"zhName": "传奇剑 + 真视威能", "reason": "缺艾尔德鲁因时承接射手威能。", "tradeoff": "暗金通用乘区下降。"},
+          {"zhName": "传奇匕首 + 资源威能", "reason": "能量不足时过渡。", "tradeoff": "伤害下降。"}
+        ]
+      }
+    ],
+    "skillTree": {
+      "core": "穿透射击",
+      "skillBar": [
+        {"slot": 1, "name": "穿透射击", "role": "主攻直线爆发", "points": 5},
+        {"slot": 2, "name": "觅心箭", "role": "内视和起手触发", "points": 1},
+        {"slot": 3, "name": "疾行斩", "role": "路线和脱战", "points": 1},
+        {"slot": 4, "name": "暗影步", "role": "解控和定位", "points": 1},
+        {"slot": 5, "name": "寒冰灌注", "role": "冻结和爆发窗口", "points": 1},
+        {"slot": 6, "name": "暗影分身", "role": "终极爆发", "points": 1}
+      ],
+      "pointOrder": [
+        {"levelRange": "1-6", "skill": "穿透射击", "points": "+5 并点强化", "reason": "主攻优先点满。"},
+        {"levelRange": "7-10", "skill": "觅心箭", "points": "+1 至强化", "reason": "来源循环要求起手打一发触发汇流/内视。"},
+        {"levelRange": "11-15", "skill": "疾行斩", "points": "+1 至强化", "reason": "补路线、走位和危险词缀脱离。"},
+        {"levelRange": "16-20", "skill": "暗影步", "points": "+1 至强化", "reason": "解控和修正射击角度。"},
+        {"levelRange": "21-26", "skill": "寒冰灌注", "points": "+1 至强化", "reason": "精英和首领爆发窗口。"},
+        {"levelRange": "27-32", "skill": "暗影分身", "points": "+1", "reason": "来源循环里用于伤害乘区和爆发。"},
+        {"levelRange": "33-42", "skill": "射手与灌注被动", "points": "+6 至 +9", "reason": "提高穿透射击和寒冰灌注收益。"},
+        {"levelRange": "43-50", "skill": "暴击、易伤和能量被动", "points": "+6 至 +9", "reason": "减少无星未齐时的断能。"},
+        {"levelRange": "50-80", "skill": "暗影帷幕与防御被动", "points": "按装备微调", "reason": "遮蔽馈赠与自动暗影帷幕到位后补生存。"},
+        {"levelRange": "80+", "skill": "终局重分配", "points": "围绕内视、寒冰和远程暴击调整", "reason": "冲层前补齐抗性、护甲、能量与直线命中。"}
+      ],
+      "notes": ["专精：内视。", "来源循环提示暗影帷幕可由符文/装备自动处理，不必占用主动技能栏。"]
+    },
+    "paragon": {
+      "rule": "按来源页面 Paragon 入口和射手构筑逻辑整理：先雕文孔、射手/易伤/灌注相关传奇节点，再补能量和防御；精确坐标仍需按来源 Planner 校准。",
+      "clickOrder": [
+        {"board": "起始盘", "node": "核心雕文孔", "reason": "先放入射手或灌注相关雕文。"},
+        {"board": "起始盘", "node": "敏捷与生命稀有节点", "reason": "补基础伤害和远程容错。"},
+        {"board": "剥削弱点盘", "node": "传奇节点", "reason": "穿透射击依赖易伤窗口。"},
+        {"board": "剥削弱点盘", "node": "雕文孔", "reason": "承接易伤或暴击雕文。"},
+        {"board": "无目击者盘", "node": "传奇节点", "reason": "暗影分身和爆发窗口收益。"},
+        {"board": "致命伏击盘", "node": "精英伤害路径", "reason": "强化精英包和首领输出。"},
+        {"board": "诡诈盘", "node": "控制/寒冰相关路径", "reason": "配合寒冰灌注和刺骨寒冰威能。"},
+        {"board": "任意盘", "node": "能量与幸运一击节点", "reason": "穿透射击断能会直接掉输出。"},
+        {"board": "任意盘", "node": "暴击与易伤小点", "reason": "主攻收益稳定后补伤害。"},
+        {"board": "任意盘", "node": "抗性、护甲、生命小点", "reason": "冲层前补齐防御阈值。"}
+      ]
+    },
+    "gameplay": {
+      "opener": ["用疾行斩调整路线和怪群角度。", "用觅心箭打一发触发内视和起手增益。", "开启寒冰灌注。", "开暗影分身后对齐怪群直线释放穿透射击。"],
+      "loop": ["穿透射击要打穿整条怪线，不要对单个小怪乱放。", "寒冰灌注留给精英包、首领和密集怪群。", "暗影步用于解控和修正射击角度。", "内视满时集中打爆发。"],
+      "boss": ["首领前保留寒冰灌注和暗影分身。", "站位保持穿透射击全段命中。", "能量不足时用觅心箭或等待无星节奏。"],
+      "defense": ["遮蔽馈赠和暗影帷幕是核心防御来源。", "远程流派不要贪贴脸输出。", "抗性、护甲、生命不达标前不要硬推高层。"],
+      "speedFarm": ["低层优先路线角度和穿线效率。", "可以把胸甲/靴子/戒指调整成移动和资源位。"],
+      "commonMistakes": ["没有拉直怪群就开穿透射击。", "寒冰灌注交给零散小怪。", "内视窗口没到就硬打首领爆发。"]
+    }
+  },
+  {
+    "id": "s14-rogue-marksman-speed_farm",
+    "extends": "s14-rogue-marksman-pit_push",
+    "title": "S14 死亡觉醒 游侠 · 穿透射击速刷",
+    "archetypeName": "穿透射击",
+    "summary": {
+      "oneLine": "游侠「穿透射击」速刷 BD，沿用远程穿线主体，把胸甲、靴子和戒指位调整为移动、能量和路线效率。",
+      "pros": ["远程清线效率高", "低层路线安全", "和冲层装备重叠度高"],
+      "cons": ["极限单体低于冲层版", "怪群角度要求仍然存在", "跨赛季来源需要 S14 校准"],
+      "requirements": ["远程武器：鹰角弓", "主攻：穿透射击", "戒指：无星夜空之戒"],
+      "statPriority": ["移动速度", "能量消耗降低", "穿透射击等级", "暴击几率", "冷却缩减"]
+    },
+    "gearSlots": [
+      {"slotId": "chest", "target": {"type": "unique", "zhName": "伪死之衣"}, "aspect": {"name": "神话暗金位", "role": "速刷隐身、通用属性和路线效率", "sourceStatus": "Mobalytics Penetrating Shot 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["全属性", "全元素抗性", "生命上限", "移动速度"], "alternatives": [{"zhName": "传奇胸甲 + 格林铁砧威能", "reason": "需要冲层硬度时换回。", "tradeoff": "路线速度下降。"}, {"zhName": "泰瑞尔之力", "reason": "抗性压力大时使用。", "tradeoff": "速度下降。"}]},
+      {"slotId": "boots", "target": {"type": "legendary", "zhName": "传奇靴子 + 移动威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "移动威能", "role": "低层路线速度最大化", "sourceStatus": "Mobalytics Penetrating Shot 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["移动速度", "闪避冷却", "全元素抗性", "能量消耗降低"], "alternatives": [{"zhName": "传奇靴子 + 刺骨寒冰威能", "reason": "需要冲层控制时换回。", "tradeoff": "路线速度下降。"}, {"zhName": "拉卡诺斯的苏醒", "reason": "低层移动和安全。", "tradeoff": "威能位损失。"}]},
+      {"slotId": "ring2", "target": {"type": "legendary", "zhName": "传奇戒指 + 资源威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "资源威能", "role": "低层连续穿透射击续航", "sourceStatus": "Mobalytics Penetrating Shot 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["资源生成", "暴击几率", "幸运一击", "冷却缩减"], "alternatives": [{"zhName": "传奇戒指 + 高速威能", "reason": "需要攻速和冲层节奏时换回。", "tradeoff": "续航下降。"}, {"zhName": "传奇戒指 + 元素威能", "reason": "资源足够后提高伤害。", "tradeoff": "能量压力上升。"}]}
+    ],
+    "gameplay": {
+      "opener": ["进图直接找直线怪群。", "觅心箭起手后寒冰灌注穿线。", "暗影分身留给精英包或事件首领。"],
+      "loop": ["按路线拉直怪群后穿透射击。", "零散小怪直接跳过。", "移动胸甲和靴子用于缩短空跑。", "能量不足时用资源戒指修正节奏。"],
+      "boss": ["速刷首领打一轮寒冰灌注和暗影分身。", "能量不足时先补内视。", "高层首领切回冲层版。"],
+      "defense": ["速刷版防御更少，危险词缀优先位移。", "硬核角色保留冲层胸甲。", "抗性不足时不要过度换速度件。"],
+      "speedFarm": ["主目标是路线、穿线和事件效率。", "低层材料可牺牲部分防御换移动。"],
+      "commonMistakes": ["为了单个怪停步。", "没有角度就乱放穿透射击。", "把能量位换掉后断循环。"]
+    }
+  },
+  {
+    "id": "s14-rogue-marksman-daily",
+    "extends": "s14-rogue-marksman-pit_push",
+    "title": "S14 死亡觉醒 游侠 · 穿透射击日常",
+    "archetypeName": "穿透射击",
+    "summary": {
+      "oneLine": "游侠「穿透射击」日常 BD，保留鹰角弓、穿透射击和寒冰灌注主体，用传奇防御件和资源位降低成型门槛。",
+      "pros": ["远程安全", "缺神话暗金也能过渡", "日常清图节奏清晰"],
+      "cons": ["缺鹰角弓不是完整流派", "冲层上限低于完整暗金版", "需要练习怪群角度"],
+      "requirements": ["先找鹰角弓", "戒指优先资源和暴击", "裤子可用传奇防御件过渡"],
+      "statPriority": ["生命上限", "全元素抗性", "穿透射击等级", "能量生成", "暴击几率"]
+    },
+    "gearSlots": [
+      {"slotId": "helm", "target": {"type": "legendary", "zhName": "传奇头盔 + 防御威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "防御威能", "role": "缺沉沦继承者时的抗性和生命过渡", "sourceStatus": "Mobalytics Penetrating Shot 日常变体整理"}, "required": false, "core": false, "replaceable": true, "affixes": ["生命上限", "护甲", "全元素抗性", "冷却缩减"], "alternatives": [{"zhName": "沉沦继承者", "reason": "拿到后切回完整版本。", "tradeoff": "获取难度高。"}, {"zhName": "无名者兜帽", "reason": "灌注过渡。", "tradeoff": "全局上限较低。"}]},
+      {"slotId": "pants", "target": {"type": "legendary", "zhName": "传奇裤子 + 防御威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "防御威能", "role": "缺遮蔽馈赠时补硬度", "sourceStatus": "Mobalytics Penetrating Shot 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["生命上限", "护甲", "全元素抗性", "减伤"], "alternatives": [{"zhName": "遮蔽馈赠", "reason": "拿到后切回完整暗影帷幕联动。", "tradeoff": "获取前速度和容错较低。"}, {"zhName": "提鲍特的意志", "reason": "需要资源和不可阻挡时使用。", "tradeoff": "帷幕联动下降。"}]},
+      {"slotId": "ring1", "target": {"type": "legendary", "zhName": "传奇戒指 + 资源威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "资源威能", "role": "缺无星时保证能量循环", "sourceStatus": "Mobalytics Penetrating Shot 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["资源生成", "暴击几率", "幸运一击", "冷却缩减"], "alternatives": [{"zhName": "无星夜空之戒", "reason": "拿到后切回完整版本。", "tradeoff": "获取难度高。"}, {"zhName": "传奇戒指 + 高速威能", "reason": "资源足够后补攻速。", "tradeoff": "续航下降。"}]},
+      {"slotId": "twoHand", "target": {"type": "legendary", "zhName": "传奇弓弩 + 凶暴威能", "image": "./public/assets/icon-weapon.png"}, "aspect": {"name": "凶暴威能", "role": "缺鹰角弓时的射手过渡", "sourceStatus": "Mobalytics Penetrating Shot 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["武器伤害", "穿透射击伤害", "暴击伤害", "易伤伤害"], "alternatives": [{"zhName": "鹰角弓", "reason": "拿到后切回完整来源 BD。", "tradeoff": "获取前核心机制不完整。"}, {"zhName": "逐天者", "reason": "远程高装等过渡。", "tradeoff": "穿透射击专属效果下降。"}]}
+    ],
+    "gameplay": {
+      "opener": ["先用最高装等远程武器推进难度。", "觅心箭起手后寒冰灌注打精英。", "危险时用暗影步解控。"],
+      "loop": ["日常版本先练习怪群角度和直线穿透。", "能量不足时穿插觅心箭。", "缺鹰角弓时不要按冲层伤害预期推进。", "鹰角弓、无星、遮蔽馈赠到位后转冲层版。"],
+      "boss": ["保留寒冰灌注和暗影分身。", "内视窗口到位后集中爆发。", "日常首领不追求极限秒杀。"],
+      "defense": ["抗性、护甲、生命优先于纯输出。", "远程站位不要贪贴脸。", "暗影步留作解控。"],
+      "speedFarm": ["低层可换移动靴和资源戒指。", "装备成型后切换速刷版。"],
+      "commonMistakes": ["没有鹰角弓就硬推高层。", "不练站位导致穿透射击只命中单体。", "能量不足还连续空放。"]
+    }
   }
 ]

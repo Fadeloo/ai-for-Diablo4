@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T14:49:06.619Z",
+  "generatedAt": "2026-06-28T14:55:57.965Z",
   "source": {
     "id": "blizzard_patch_3_1",
     "url": "https://news.blizzard.com/en-us/article/24287406/diablo-iv-patch-notes",
@@ -11328,7 +11328,7 @@
     {
       "id": "eyes-in-the-dark",
       "name": "Eyes in the Dark",
-      "zhName": "之眼黑暗",
+      "zhName": "暗夜之眼",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -12225,7 +12225,7 @@
     {
       "id": "skyhunter",
       "name": "Skyhunter",
-      "zhName": "斯凯伊赫乌恩特埃尔",
+      "zhName": "逐天者",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
@@ -12501,7 +12501,7 @@
     {
       "id": "word-of-hakan",
       "name": "Word of Hakan",
-      "zhName": "言语哈坎",
+      "zhName": "哈坎之语",
       "rarity": "unique",
       "classRestriction": "Rogue",
       "zhClassRestriction": "游侠",
