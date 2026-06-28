@@ -109,6 +109,253 @@ const classSkillWords = {
   warlock: ["基础触发", "主力诅咒", "召唤/符印", "防御", "资源补强", "终极爆发"]
 };
 
+const archetypeRoutePlans = {
+  barbarian: {
+    weapon_core: {
+      core: "旋风斩",
+      bar: ["猛击", "旋风斩", "集结呐喊", "战吼", "挑战怒吼", "狂战士之怒"],
+      roles: ["补怒和易伤触发", "持续主攻", "资源、移速和不可阻挡", "爆发增伤", "高压减伤", "精英和首领爆发"],
+      passives: ["暴怒冲动", "震耳嗓音", "迅捷怒火", "深坑斗士", "不受约束"],
+      boards: ["战争使者", "屠戮", "血怒", "武器大师", "无瑕技艺", "碎骨者"],
+      glyphs: ["旋风", "愤怒", "统帅", "利用", "无畏", "领地"]
+    },
+    bleed_dot: {
+      core: "撕裂",
+      bar: ["剥皮", "撕裂", "集结呐喊", "钢铁之肤", "战吼", "狂战士之怒"],
+      roles: ["流血和易伤入口", "流血主攻", "资源和不可阻挡", "屏障与保命", "爆发增伤", "狂暴窗口"],
+      passives: ["割裂伤口", "血流不止", "劲力战吼", "防御姿态", "不受约束"],
+      boards: ["血怒", "放血", "战争使者", "武器大师", "屠戮", "碎骨者"],
+      glyphs: ["割裂", "利用", "统帅", "无畏", "愤怒", "领地"]
+    },
+    thorns: {
+      core: "荆棘反伤",
+      bar: ["狂乱", "钢铁之肤", "集结呐喊", "挑战怒吼", "战吼", "先祖召唤"],
+      roles: ["攻速和减伤叠层", "屏障和荆棘承伤", "资源与不可阻挡", "拉怪承压", "增伤和仇恨窗口", "首领爆发"],
+      passives: ["爆发", "坚如钢钉", "防御姿态", "震耳嗓音", "无拘怒气"],
+      boards: ["战争使者", "血怒", "碎骨者", "武器大师", "屠戮", "无瑕技艺"],
+      glyphs: ["领地", "无畏", "统帅", "愤怒", "复仇", "力量"]
+    }
+  },
+  druid: {
+    storm_earth: {
+      core: "粉碎",
+      bar: ["突进爪击", "粉碎", "大地壁垒", "挫志咆哮", "践踏", "灰熊狂怒"],
+      roles: ["位移和灵力填补", "震波主攻", "屏障、解控和强固", "近战减伤", "开路和强固", "终局爆发"],
+      passives: ["大地之力", "狂野冲动", "粉碎之土", "石化之力", "防御姿态"],
+      boards: ["雷霆打击", "生存本能", "先祖指引", "构造板块", "大地毁灭", "恶意增强"],
+      glyphs: ["守护者", "灵魂", "领地", "无畏", "天地", "利用"]
+    },
+    companion: {
+      core: "同伴爆发",
+      bar: ["风暴打击", "狼群", "剧毒藤蔓", "渡鸦", "大地壁垒", "灰熊狂怒"],
+      roles: ["易伤和灵力入口", "同伴单体", "定身和毒素爆发", "范围增伤", "屏障与解控", "爆发和韧性"],
+      passives: ["呼唤野性", "毒素爪击", "自然延展", "警戒", "完美风暴"],
+      boards: ["同伴", "雷霆打击", "先祖指引", "生存本能", "内在野兽", "恶意增强"],
+      glyphs: ["守护者", "野性", "灵魂", "领地", "无畏", "利用"]
+    },
+    shapeshift: {
+      core: "撕碎",
+      bar: ["爪击", "撕碎", "血性狂吼", "挫志咆哮", "践踏", "灰熊狂怒"],
+      roles: ["变形触发", "机动主攻", "治疗和资源", "近战减伤", "强固和位移", "终局爆发"],
+      passives: ["野性呼唤", "兽性狂暴", "快速变形", "自然坚毅", "防御姿态"],
+      boards: ["内在野兽", "生存本能", "雷霆打击", "先祖指引", "大地毁灭", "恶意增强"],
+      glyphs: ["狼化", "领地", "守护者", "无畏", "灵魂", "利用"]
+    }
+  },
+  necromancer: {
+    minion: {
+      core: "仆从军团",
+      bar: ["收割", "枯萎", "骷髅战士", "骷髅法师", "衰老", "亡者大军"],
+      roles: ["生成亡骸和减伤", "暗影地面和增伤", "前排承伤", "远程输出", "减速与减伤", "仆从爆发"],
+      passives: ["亡者复生", "精魂纽带", "邪教领袖", "骸骨收割", "死亡迫近"],
+      boards: ["邪教领袖", "亡者复生", "枯萎", "血流成河", "白骨移植", "死亡气息"],
+      glyphs: ["死灵法师", "控制", "利用", "骸骨", "黑暗", "领地"]
+    },
+    blood_overpower: {
+      core: "血涌",
+      bar: ["出血", "血涌", "血雾", "衰老", "亡骸卷须", "血潮"],
+      roles: ["鲜血球和精魂", "压制主攻", "免疫与保命", "减伤和冷却", "聚怪和易伤", "大范围压制"],
+      passives: ["拉斯玛的活力", "血之潮汐", "凝结之血", "死亡之拥", "鼓舞领袖"],
+      boards: ["血流成河", "浴血而生", "死亡气息", "邪教领袖", "白骨移植", "枯萎"],
+      glyphs: ["饮血者", "领地", "控制", "利用", "骸骨", "精魂"]
+    },
+    bone_crit: {
+      core: "白骨矛",
+      bar: ["白骨碎片", "白骨矛", "血雾", "衰老", "亡骸卷须", "白骨风暴"],
+      roles: ["精魂和暴击入口", "穿透主攻", "免疫保命", "冷却和减伤", "聚怪易伤", "暴击和减伤"],
+      passives: ["骨化精魂", "复合骨折", "开裂", "锯齿骨刺", "独立作战"],
+      boards: ["白骨移植", "死亡气息", "邪教领袖", "血流成河", "枯萎", "亡者复生"],
+      glyphs: ["精魂", "利用", "控制", "骸骨", "领地", "无畏"]
+    },
+    shadow_dot: {
+      core: "枯萎",
+      bar: ["分解", "枯萎", "血雾", "衰老", "亡骸卷须", "白骨风暴"],
+      roles: ["暗影和精魂入口", "持续伤主攻", "免疫保命", "减伤覆盖", "聚怪触发", "终局减伤"],
+      passives: ["暗影枯萎", "夺魂之镰", "死亡之拥", "恐怖收割", "死亡迫近"],
+      boards: ["枯萎", "死亡气息", "邪教领袖", "白骨移植", "血流成河", "亡者复生"],
+      glyphs: ["黑暗", "控制", "利用", "领地", "骸骨", "精魂"]
+    }
+  },
+  rogue: {
+    marksman: {
+      core: "穿透射击",
+      bar: ["穿刺飞刀", "穿透射击", "疾行斩", "暗影步", "冰霜灌注", "暗影克隆"],
+      roles: ["易伤和连击点", "远程主攻", "路线和脱离", "解控与贴身", "控制增伤", "爆发复制"],
+      passives: ["精准", "武器精通", "剥削手段", "敏捷", "恶意"],
+      boards: ["狡诈计谋", "致命伏击", "诡诈", "无目击者", "利用弱点", "廉价射击"],
+      glyphs: ["战斗", "利用", "控制", "追踪者", "流体", "无畏"]
+    },
+    cutthroat: {
+      core: "回旋刀锋",
+      bar: ["穿刺飞刀", "回旋刀锋", "疾行斩", "暗影步", "暗影灌注", "暗影克隆"],
+      roles: ["易伤和连击点", "近战主攻", "穿怪位移", "解控和精英贴身", "清场爆发", "首领爆发"],
+      passives: ["动量", "武器精通", "剥削手段", "坚韧", "恶意"],
+      boards: ["诡诈", "利用弱点", "无目击者", "致命伏击", "狡诈计谋", "廉价射击"],
+      glyphs: ["近战", "利用", "控制", "战斗", "流体", "领地"]
+    },
+    trap_imbue: {
+      core: "毒素陷阱",
+      bar: ["穿刺飞刀", "连射", "疾行斩", "毒素陷阱", "毒素灌注", "死亡陷阱"],
+      roles: ["连击点和易伤", "补单体输出", "移动和拉怪", "控制与毒池", "毒素爆发", "聚怪终极"],
+      passives: ["精准灌注", "陷阱精通", "剥削手段", "恶意", "肾上腺素"],
+      boards: ["致命伏击", "狡诈计谋", "利用弱点", "诡诈", "无目击者", "廉价射击"],
+      glyphs: ["伏击", "控制", "利用", "追踪者", "战斗", "流体"]
+    }
+  },
+  sorcerer: {
+    fire: {
+      core: "火球",
+      bar: ["火焰弹", "火球", "火焰护盾", "传送术", "火蛇", "炼狱烈焰"],
+      roles: ["燃烧触发", "火焰主攻", "免疫保命", "位移和解控", "增伤召唤", "聚怪爆发"],
+      passives: ["艾苏的凶暴", "吞噬烈焰", "元素调和", "防护结界", "玻璃大炮"],
+      boards: ["燃烧本能", "火焰狂热", "元素召唤师", "静电奔涌", "冰冷命运", "灼热高温"],
+      glyphs: ["火焰馈赠", "元素使", "控制", "利用", "战术家", "领地"]
+    },
+    frost: {
+      core: "寒冰碎片",
+      bar: ["冰霜弹", "寒冰碎片", "寒冰护甲", "传送术", "冰霜新星", "深度冻结"],
+      roles: ["冰冷和法力入口", "易伤主攻", "屏障与资源", "位移解控", "冻结和易伤", "保命重置"],
+      passives: ["雪崩", "寒霜之灾", "冰冷之触", "元素调和", "防护结界"],
+      boards: ["冰冷命运", "冰瀑", "元素召唤师", "燃烧本能", "静电奔涌", "不灭导体"],
+      glyphs: ["寒霜撕咬", "控制", "元素使", "利用", "战术家", "领地"]
+    },
+    shock: {
+      core: "连锁闪电",
+      bar: ["电弧鞭笞", "连锁闪电", "火焰护盾", "传送术", "闪电长矛", "不稳电流"],
+      roles: ["攻速和电击触发", "弹跳主攻", "免疫保命", "位移和聚怪", "眩晕和易伤", "电击爆发"],
+      passives: ["维尔的御雷术", "电能震荡", "传导", "元素调和", "玻璃大炮"],
+      boards: ["静电奔涌", "不灭导体", "元素召唤师", "冰冷命运", "燃烧本能", "灼热高温"],
+      glyphs: ["充能", "控制", "元素使", "利用", "战术家", "领地"]
+    },
+    conjuration: {
+      core: "召唤爆发",
+      bar: ["火焰弹", "冰刃", "寒冰护甲", "传送术", "闪电长矛", "不稳电流"],
+      roles: ["燃烧触发", "冷却和易伤", "屏障防御", "位移解控", "召唤主轴", "电击爆发"],
+      passives: ["召唤精通", "元素调和", "防护结界", "玻璃大炮", "维尔的御雷术"],
+      boards: ["元素召唤师", "静电奔涌", "冰冷命运", "燃烧本能", "不灭导体", "冰瀑"],
+      glyphs: ["元素使", "召唤师", "控制", "利用", "战术家", "领地"]
+    }
+  },
+  spiritborn: {
+    jaguar_eagle: {
+      core: "羽毛齐射",
+      bar: ["雷刺", "羽毛齐射", "腾空", "劫掠者", "漩涡", "猎手"],
+      roles: ["活力和易伤入口", "远程主攻", "位移和规避", "美洲豹增伤", "聚怪和控制", "终极追猎"],
+      passives: ["适应姿态", "活力流转", "顶点", "快速爪击", "掠食本能"],
+      boards: ["显现之心", "粘性护盾", "狩猎本能", "揭露弱点", "沸腾之池", "内在活力"],
+      glyphs: ["猛禽", "利用", "控制", "领地", "精神", "无畏"]
+    },
+    sunbird_firestorm: {
+      core: "日炎风暴",
+      bar: ["雷刺", "日炎风暴", "腾空", "劫掠者", "灾祸", "猎手"],
+      roles: ["活力入口", "火焰风暴主攻", "位移和规避", "增伤窗口", "毒素和控制", "终极爆发"],
+      passives: ["适应姿态", "活力流转", "顶点", "掠食本能", "精神调和"],
+      boards: ["沸腾之池", "显现之心", "揭露弱点", "狩猎本能", "粘性护盾", "内在活力"],
+      glyphs: ["火翼", "利用", "控制", "猛禽", "精神", "领地"]
+    },
+    gorilla: {
+      core: "震地重击",
+      bar: ["碎岩者", "震地重击", "腾空", "铁甲皮肤", "漩涡", "守护者"],
+      roles: ["护甲和活力入口", "压制主攻", "位移", "护盾防御", "聚怪", "高压守护"],
+      passives: ["适应姿态", "坚韧皮肤", "活力流转", "顶点", "防御本能"],
+      boards: ["粘性护盾", "内在活力", "显现之心", "揭露弱点", "狩猎本能", "沸腾之池"],
+      glyphs: ["猩猩", "无畏", "领地", "精神", "利用", "控制"]
+    },
+    centipede: {
+      core: "毒刺扫荡",
+      bar: ["凋零之拳", "毒刺扫荡", "腾空", "灾祸", "漩涡", "吞噬者"],
+      roles: ["毒素入口", "持续伤主攻", "位移", "毒素爆发", "聚怪控制", "吞噬终极"],
+      passives: ["适应姿态", "毒素调和", "活力流转", "顶点", "腐蚀本能"],
+      boards: ["揭露弱点", "沸腾之池", "显现之心", "内在活力", "粘性护盾", "狩猎本能"],
+      glyphs: ["蜈蚣", "控制", "利用", "精神", "领地", "无畏"]
+    }
+  },
+  paladin: {
+    shield_bash: {
+      core: "盾击",
+      bar: ["惩击", "盾击", "神圣壁垒", "冲锋", "审判光环", "天罚"],
+      roles: ["资源和格挡入口", "盾牌主攻", "屏障防御", "位移和开路", "增伤与减伤", "终极爆发"],
+      passives: ["神圣坚毅", "盾牌专精", "光环延展", "审判增幅", "坚定信念"],
+      boards: ["圣盾壁垒", "审判者", "光环统御", "神圣远征", "殉道守护", "天罚回响"],
+      glyphs: ["盾卫", "审判", "控制", "利用", "领地", "无畏"]
+    },
+    blessed_hammer: {
+      core: "祝福之锤",
+      bar: ["惩击", "祝福之锤", "神圣壁垒", "冲锋", "定罪光环", "天堂之怒"],
+      roles: ["资源入口", "旋转锤主攻", "屏障防御", "位移", "光环增伤", "大范围爆发"],
+      passives: ["祝福回响", "光环延展", "神圣专注", "审判增幅", "坚定信念"],
+      boards: ["祝福回环", "光环统御", "审判者", "神圣远征", "圣盾壁垒", "天罚回响"],
+      glyphs: ["祝福", "审判", "利用", "控制", "领地", "无畏"]
+    },
+    aura_juggernaut: {
+      core: "光环重装",
+      bar: ["惩击", "圣光打击", "神圣壁垒", "奉献", "庇护光环", "圣军化身"],
+      roles: ["资源入口", "稳定主攻", "屏障防御", "地面控制", "团队减伤", "终极形态"],
+      passives: ["重装信条", "光环延展", "神圣坚毅", "殉道守护", "坚定信念"],
+      boards: ["光环统御", "殉道守护", "圣盾壁垒", "神圣远征", "审判者", "祝福回环"],
+      glyphs: ["庇护", "盾卫", "领地", "无畏", "审判", "控制"]
+    }
+  },
+  warlock: {
+    demonology: {
+      core: "恶魔军团",
+      bar: ["暗影箭", "召唤恶魔", "恶魔护盾", "献祭", "恐惧诅咒", "恶魔化身"],
+      roles: ["资源和暗影入口", "召唤主轴", "护盾防御", "持续伤", "控制和减伤", "终极形态"],
+      passives: ["恶魔契约", "黑暗仪式", "痛苦增幅", "灵魂护盾", "毁灭预兆"],
+      boards: ["恶魔契约", "深渊印记", "灵魂熔炉", "末日回响", "地狱火环", "痛苦延展"],
+      glyphs: ["恶魔", "控制", "利用", "领地", "无畏", "黑暗"]
+    },
+    hellfire: {
+      core: "地狱火",
+      bar: ["火焰箭", "地狱火", "恶魔护盾", "烈焰裂隙", "燃烧诅咒", "末日陨火"],
+      roles: ["燃烧入口", "火焰主攻", "护盾防御", "地面爆发", "增伤诅咒", "终极火雨"],
+      passives: ["地狱灼烧", "黑暗仪式", "痛苦增幅", "灵魂护盾", "毁灭预兆"],
+      boards: ["地狱火环", "末日回响", "深渊印记", "灵魂熔炉", "恶魔契约", "痛苦延展"],
+      glyphs: ["地狱火", "利用", "控制", "黑暗", "领地", "无畏"]
+    },
+    abyss_sigils: {
+      core: "深渊符印",
+      bar: ["暗影箭", "深渊符印", "恶魔护盾", "虚空裂隙", "恐惧诅咒", "深渊降临"],
+      roles: ["暗影入口", "符印主攻", "护盾防御", "聚怪和持续伤", "控制减伤", "终极爆发"],
+      passives: ["深渊共鸣", "黑暗仪式", "灵魂护盾", "痛苦增幅", "毁灭预兆"],
+      boards: ["深渊印记", "灵魂熔炉", "痛苦延展", "末日回响", "恶魔契约", "地狱火环"],
+      glyphs: ["深渊", "控制", "利用", "黑暗", "领地", "无畏"]
+    },
+    doom_dot: {
+      core: "毁灭诅咒",
+      bar: ["暗影箭", "毁灭诅咒", "恶魔护盾", "痛苦印记", "恐惧诅咒", "末日仪式"],
+      roles: ["暗影入口", "持续伤主轴", "护盾防御", "叠层和易伤", "控制减伤", "终局爆发"],
+      passives: ["毁灭预兆", "痛苦增幅", "黑暗仪式", "灵魂护盾", "深渊共鸣"],
+      boards: ["末日回响", "痛苦延展", "深渊印记", "灵魂熔炉", "恶魔契约", "地狱火环"],
+      glyphs: ["毁灭", "控制", "利用", "黑暗", "领地", "无畏"]
+    }
+  }
+};
+
+function routePlanFor(classId, archetypeId) {
+  return archetypeRoutePlans[classId]?.[archetypeId] || null;
+}
+
 function hashText(value) {
   return [...String(value)].reduce((total, char) => (total * 31 + char.charCodeAt(0)) >>> 0, 7);
 }
@@ -410,7 +657,12 @@ function classMechanicText(classInfo, archetype) {
 
 function skillTreeFor({ classInfo, archetype, simBuild }) {
   const simPlan = simBuild?.guide?.skillPlan;
-  const bar = simPlan?.bar?.length ? simPlan.bar : classSkillWords[classInfo.id] || ["基础触发", "主力输出", "防御", "机动", "增伤/控制", "终极"];
+  const routePlan = routePlanFor(classInfo.id, archetype.id);
+  const bar = routePlan?.bar?.length ? routePlan.bar : simPlan?.bar?.length ? simPlan.bar : classSkillWords[classInfo.id] || ["基础触发", "主力输出", "防御", "机动", "增伤/控制", "终极"];
+  const roles = routePlan?.roles || [];
+  const passives = routePlan?.passives?.length
+    ? routePlan.passives
+    : uniqueStrings([`${statLabels(archetype)[0]}收益`, "生命与护甲", "资源循环", "冷却缩减", "精英减伤"], 5);
   const pointOrder = [
     ["1-3", bar[0], "+1 并点强化", "先建立资源、触发或易伤入口。"],
     ["4-8", bar[1], "+5", "主力输出优先点满，保证升级和清怪速度。"],
@@ -418,18 +670,18 @@ function skillTreeFor({ classInfo, archetype, simBuild }) {
     ["14-18", bar[3], "+1 至关键强化", "补移动、解控或聚怪能力。"],
     ["19-23", bar[4], "+1 至关键强化", "补齐流派标签和爆发前置条件。"],
     ["24-28", bar[5], "+1", "拿终极技能，首领和精英包留爆发。"],
-    ["29-34", `${archetype.zhName}相关被动`, "+3", "围绕主词缀提高稳定伤害。"],
-    ["35-42", "生存被动", "+3 至 +6", "补生命、护甲、减伤或屏障。"],
-    ["43-50", "资源/冷却被动", "+3 至 +6", "解决断档，进入世界等级过渡。"],
-    ["50+", "关键被动与技能重分配", "按装备微调", "核心暗金到位后，把临时点数转到乘区和循环。"]
+    ["29-34", passives[0] || `${archetype.zhName}专精`, "+3", "围绕主词缀提高稳定伤害。"],
+    ["35-42", passives[1] || "防御专精", "+3 至 +6", "补生命、护甲、减伤或屏障。"],
+    ["43-50", passives[2] || "循环专精", "+3 至 +6", "解决断档，进入世界等级过渡。"],
+    ["50+", passives[3] || passives[0] || "终局专精", "按装备微调", "核心暗金到位后，把临时点数转到乘区和循环。"]
   ];
   return {
-    core: simPlan?.core || archetype.zhName,
+    core: routePlan?.core || simPlan?.core || archetype.zhName,
     classMechanic: classMechanicText(classInfo, archetype),
     skillBar: bar.map((name, index) => ({
       slot: index + 1,
       name,
-      role: index === 1 ? "主攻" : index >= 4 ? "爆发/增益" : "循环/防御",
+      role: roles[index] || (index === 1 ? "主攻" : index >= 4 ? "爆发/增益" : "循环/防御"),
       points: index === 1 ? 5 : 1
     })),
     pointOrder: pointOrder.map(([levelRange, skill, points, reason], index) => ({
@@ -439,37 +691,40 @@ function skillTreeFor({ classInfo, archetype, simBuild }) {
       points,
       reason
     })),
-    passives: uniqueStrings([`${statLabels(archetype)[0]}收益`, "生命与护甲", "资源循环", "冷却缩减", "精英减伤"], 5),
-    notes: simPlan?.priority || ["主力输出先满，再补防御、资源和关键被动。"]
+    passives,
+    notes: simPlan?.priority || [`${bar[1]}先满，再补${bar[2]}、${bar[3]}和${passives.slice(0, 3).join(" / ")}。`]
   };
 }
 
-function paragonFor({ archetype, simBuild }) {
-  const route = simBuild?.guide?.paragonPlan?.boardRoute || [
+function paragonFor({ classInfo, archetype, simBuild }) {
+  const routePlan = routePlanFor(classInfo.id, archetype.id);
+  const route = routePlan?.boards?.length ? routePlan.boards : simBuild?.guide?.paragonPlan?.boardRoute || [
     "起始盘先拿主属性、护甲和生命",
     `第二盘围绕${archetype.zhName}核心标签`,
     "第三盘补资源、冷却和抗性",
     "第四盘按装备缺口补易伤、暴击或生存"
   ];
-  const glyphs = statLabels(archetype).slice(0, 4);
+  const glyphs = routePlan?.glyphs?.length ? routePlan.glyphs : statLabels(archetype).slice(0, 4);
   const boards = route.map((goal, index) => ({
     order: index + 1,
-    name: index === 0 ? "起始盘" : `${archetype.zhName}盘 ${index}`,
-    goal,
+    name: index === 0 && !routePlan ? "起始盘" : goal,
+    goal: routePlan ? `${goal}：围绕${archetype.zhName}补强。` : goal,
     glyph: glyphs[index % glyphs.length] || "主属性",
     rotate: index % 2 === 0 ? "默认方向" : "向雕文孔短路旋转"
   }));
+  const boardName = (index, fallback) => boards[index]?.name || fallback;
+  const glyphName = (index, fallback) => glyphs[index] || fallback;
   const clickOrder = [
-    ["起始盘", "主属性通路", "先打开到雕文孔的最短路径。"],
-    ["起始盘", "雕文孔", `插入${glyphs[0] || "主属性"}雕文。`],
-    ["起始盘", "稀有节点", "补护甲、生命和抗性，保证进入高层不被秒杀。"],
-    [boards[1]?.name || "第二盘", "传奇节点", "优先拿流派乘区或核心联动。"],
-    [boards[1]?.name || "第二盘", "雕文孔", `插入${glyphs[1] || "伤害"}雕文。`],
-    [boards[1]?.name || "第二盘", "稀有节点", "拿主伤害标签和精英伤害。"],
-    [boards[2]?.name || "第三盘", "雕文孔", `插入${glyphs[2] || "资源"}雕文。`],
-    [boards[2]?.name || "第三盘", "资源/冷却节点", "修正循环断档。"],
-    [boards[3]?.name || "第四盘", "防御稀有节点", "冲层前补齐抗性和护甲。"],
-    [boards[3]?.name || "第四盘", "剩余魔法节点", "雕文半径满足后再补伤害小点。"]
+    [boardName(0, "起始盘"), `${glyphName(0, "主属性")}通路`, "先打开到首个雕文插槽的最短路径。"],
+    [boardName(0, "起始盘"), `${glyphName(0, "主属性")}插槽`, `放入${glyphName(0, "主属性")}并补足半径属性。`],
+    [boardName(0, "起始盘"), `${statLabels(archetype)[0]}稀有群`, "补护甲、生命和抗性，保证进入高层不被秒杀。"],
+    [boardName(1, "第二盘"), `${boardName(1, archetype.zhName)}核心节点`, "优先拿流派乘区或核心联动。"],
+    [boardName(1, "第二盘"), `${glyphName(1, "伤害")}插槽`, `放入${glyphName(1, "伤害")}并连接主伤害路线。`],
+    [boardName(1, "第二盘"), `${statLabels(archetype)[1] || "精英伤害"}稀有群`, "拿主伤害标签和精英伤害。"],
+    [boardName(2, "第三盘"), `${glyphName(2, "资源")}插槽`, `放入${glyphName(2, "资源")}修正循环断档。`],
+    [boardName(2, "第三盘"), `${routePlan?.passives?.[2] || "资源冷却"}路线`, "修正循环断档。"],
+    [boardName(3, "第四盘"), `${glyphName(3, "防御")}插槽`, "冲层前补齐抗性和护甲。"],
+    [boardName(3, "第四盘"), `${statLabels(archetype)[2] || "终局补强"}收尾群`, "雕文半径满足后再补伤害小点。"]
   ];
   return {
     boardOrder: boards,
@@ -629,7 +884,7 @@ function guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentIt
   const formationDifficulty = difficultyFor({ archetype, mode, gearSlots, seasonIndex, classInfo });
   const ceiling = ceilingFor(performance, mode);
   const skillTree = skillTreeFor({ classInfo, archetype, simBuild });
-  const paragon = paragonFor({ archetype, simBuild });
+  const paragon = paragonFor({ classInfo, archetype, simBuild });
   const gameplay = gameplayFor({ mode, archetype, simBuild });
   const progression = progressionFor({ mode, archetype, simBuild, gearSlots, skillTree, paragon });
   const coreUniques = gearSlots
@@ -726,6 +981,46 @@ function withSteps(items) {
   return items.map((item, index) => ({ step: index + 1, ...item }));
 }
 
+const genericSkillStepPattern = /基础触发|基础生成|主力输出|资源\/冷却被动|生存被动|关键被动|终局重分配|终局重分配|终局|大地\/粉碎被动|强固与生存被动/;
+const genericParagonNodePattern = /^(传奇节点|雕文孔|稀有节点|魔法节点|剩余魔法节点|防御稀有节点|主属性通路|资源\/冷却节点)$/;
+
+function refineSkillTreeWithBase(merged, base) {
+  const baseStepsByIndex = new Map((base.pointOrder || []).map((step, index) => [index, step]));
+  const pointOrder = (merged.pointOrder || []).map((step, index) => {
+    if (!genericSkillStepPattern.test(step.skill || "")) return step;
+    const replacement = baseStepsByIndex.get(index);
+    return replacement ? { ...step, skill: replacement.skill, reason: replacement.reason } : step;
+  });
+  const skillBar = (merged.skillBar || []).map((skill, index) => {
+    if (!genericSkillStepPattern.test(skill.name || "")) return skill;
+    const replacement = base.skillBar?.[index];
+    return replacement ? { ...skill, name: replacement.name, role: replacement.role } : skill;
+  });
+  const passives = (merged.passives || []).map((passive, index) => (
+    genericSkillStepPattern.test(passive || "") && base.passives?.[index] ? base.passives[index] : passive
+  ));
+  return {
+    ...merged,
+    core: genericSkillStepPattern.test(merged.core || "") ? base.core : merged.core,
+    skillBar,
+    pointOrder,
+    passives: passives.length ? passives : base.passives
+  };
+}
+
+function refineParagonWithBase(merged, base) {
+  const baseStepsByIndex = new Map((base.clickOrder || []).map((step, index) => [index, step]));
+  const clickOrder = (merged.clickOrder || []).map((step, index) => {
+    if (!genericParagonNodePattern.test(step.node || "")) return step;
+    const replacement = baseStepsByIndex.get(index);
+    return replacement ? { ...step, board: replacement.board, node: replacement.node, reason: replacement.reason } : step;
+  });
+  return {
+    ...merged,
+    clickOrder
+  };
+}
+
 function resolvePatchedTarget(slot, patchTarget, equipmentByZhName) {
   if (!patchTarget) return slot.target;
   const nameChanged = Boolean(patchTarget.zhName && patchTarget.zhName !== slot.target.zhName);
@@ -804,6 +1099,17 @@ function applyCommunityOverride(guide, override, equipmentByZhName) {
       required: slot.required,
       replaceable: slot.replaceable
     }));
+  const mergedSkillTree = refineSkillTreeWithBase({
+    ...guide.skillTree,
+    ...override.skillTree,
+    pointOrder: override.skillTree?.pointOrder ? withSteps(override.skillTree.pointOrder) : guide.skillTree.pointOrder
+  }, guide.skillTree);
+  const mergedParagon = refineParagonWithBase({
+    ...guide.paragon,
+    ...override.paragon,
+    clickOrder: override.paragon?.clickOrder ? withSteps(override.paragon.clickOrder) : guide.paragon.clickOrder,
+    notes: override.paragon?.rule ? [override.paragon.rule, ...guide.paragon.notes] : guide.paragon.notes
+  }, guide.paragon);
   return {
     ...guide,
     title: override.title || guide.title,
@@ -862,17 +1168,8 @@ function applyCommunityOverride(guide, override, equipmentByZhName) {
     coreUniques,
     coreAspects,
     gearSlots,
-    skillTree: {
-      ...guide.skillTree,
-      ...override.skillTree,
-      pointOrder: override.skillTree?.pointOrder ? withSteps(override.skillTree.pointOrder) : guide.skillTree.pointOrder
-    },
-    paragon: {
-      ...guide.paragon,
-      ...override.paragon,
-      clickOrder: override.paragon?.clickOrder ? withSteps(override.paragon.clickOrder) : guide.paragon.clickOrder,
-      notes: override.paragon?.rule ? [override.paragon.rule, ...guide.paragon.notes] : guide.paragon.notes
-    },
+    skillTree: mergedSkillTree,
+    paragon: mergedParagon,
     gameplay: {
       ...guide.gameplay,
       ...override.gameplay

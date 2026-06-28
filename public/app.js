@@ -38,7 +38,7 @@ const state = {
     classId: "all",
     mode: "all",
     buildIndex: 0,
-    sourceQuality: "all",
+    sourceQuality: "community",
     query: "",
     sort: "source",
     view: "recommended",
@@ -3294,6 +3294,7 @@ function renderCoverage() {
   const sourceCoverage = coverage.sourceCoverage;
   const sourceLevels = buildCoverage.byVerificationLevel || {};
   const buildIntegrity = coverage.buildIntegrity || {};
+  const routeSpecificity = buildIntegrity.routeSpecificity || {};
   const frontendContracts = coverage.frontendDataContracts || [];
   panel.innerHTML = `
     <section class="coverage-panel">
@@ -3331,6 +3332,11 @@ function renderCoverage() {
           <strong>${buildIntegrity.completeGearSlotBuilds || 0}</strong>
           <span>完整 11 槽 BD</span>
           <p>开荒 ${buildIntegrity.progressionBuilds || 0} 套、技能 ${buildIntegrity.skillRouteBuilds || 0} 套、巅峰 ${buildIntegrity.paragonRouteBuilds || 0} 套、打法 ${buildIntegrity.gameplayBuilds || 0} 套通过结构校验。</p>
+        </article>
+        <article>
+          <strong>${(routeSpecificity.genericSkillSteps || 0) + (routeSpecificity.genericSkillBarEntries || 0) + (routeSpecificity.genericParagonNodes || 0)}</strong>
+          <span>路线占位项</span>
+          <p>技能栏 ${routeSpecificity.genericSkillBarEntries || 0}、加点 ${routeSpecificity.genericSkillSteps || 0}、巅峰点击 ${routeSpecificity.genericParagonNodes || 0} 个泛化占位。</p>
         </article>
       </div>
       <div class="storage-layer-grid">

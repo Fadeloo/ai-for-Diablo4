@@ -16,6 +16,34 @@ function countBy(items, getKey) {
   }, {});
 }
 
+const genericSkillStepPattern = /^终极$|^防御$|^位移$|基础触发|基础生成|主力输出|资源\/冷却被动|生存被动|关键被动|增伤\/控制|终局重分配/;
+const genericParagonNodePattern = /^(传奇节点|雕文孔|稀有节点|魔法节点|剩余魔法节点|防御稀有节点|主属性通路)$/;
+
+function countGenericRouteEntries(builds) {
+  return builds.reduce((totals, guide) => {
+    for (const skill of guide.skillTree?.skillBar || []) {
+      totals.totalSkillBarEntries += 1;
+      if (genericSkillStepPattern.test(skill.name || "")) totals.genericSkillBarEntries += 1;
+    }
+    for (const step of guide.skillTree?.pointOrder || []) {
+      totals.totalSkillSteps += 1;
+      if (genericSkillStepPattern.test(step.skill || "")) totals.genericSkillSteps += 1;
+    }
+    for (const step of guide.paragon?.clickOrder || []) {
+      totals.totalParagonNodes += 1;
+      if (genericParagonNodePattern.test(step.node || "")) totals.genericParagonNodes += 1;
+    }
+    return totals;
+  }, {
+    totalSkillBarEntries: 0,
+    genericSkillBarEntries: 0,
+    totalSkillSteps: 0,
+    genericSkillSteps: 0,
+    totalParagonNodes: 0,
+    genericParagonNodes: 0
+  });
+}
+
 const frontendDataContracts = [
   {
     component: "RecommendedBuildBoard",
@@ -169,6 +197,7 @@ const buildIntegrity = {
   completeGearSlotBuilds: builds.filter((guide) => (guide.gearSlots || []).length === 11).length,
   skillRouteBuilds: builds.filter((guide) => (guide.skillTree?.skillBar || []).length === 6 && (guide.skillTree?.pointOrder || []).length >= 10).length,
   paragonRouteBuilds: builds.filter((guide) => (guide.paragon?.boardOrder || []).length >= 4 && (guide.paragon?.clickOrder || []).length >= 10).length,
+  routeSpecificity: countGenericRouteEntries(builds),
   gameplayBuilds: builds.filter((guide) => guide.gameplay?.opener?.length && guide.gameplay?.loop?.length && guide.gameplay?.boss?.length).length,
   progressionBuilds: builds.filter((guide) => (guide.progression?.stages || []).length >= 4 && (guide.progression?.checkpoints || []).length >= 4).length,
   replacementBuilds: builds.filter((guide) => (guide.gearSlots || []).every((slot) => (slot.alternatives || []).length >= 1)).length,

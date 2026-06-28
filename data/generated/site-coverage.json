@@ -167,6 +167,14 @@
     "completeGearSlotBuilds": 252,
     "skillRouteBuilds": 252,
     "paragonRouteBuilds": 252,
+    "routeSpecificity": {
+      "totalSkillBarEntries": 1512,
+      "genericSkillBarEntries": 0,
+      "totalSkillSteps": 2520,
+      "genericSkillSteps": 0,
+      "totalParagonNodes": 2520,
+      "genericParagonNodes": 0
+    },
     "gameplayBuilds": 252,
     "progressionBuilds": 252,
     "replacementBuilds": 252,

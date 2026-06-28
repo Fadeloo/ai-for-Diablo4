@@ -14,6 +14,9 @@ function assert(condition, message) {
   if (!condition) throw new Error(message);
 }
 
+const genericSkillStepPattern = /^终极$|^防御$|^位移$|基础触发|基础生成|主力输出|资源\/冷却被动|生存被动|关键被动|增伤\/控制|终局重分配/;
+const genericParagonNodePattern = /^(传奇节点|雕文孔|稀有节点|魔法节点|剩余魔法节点|防御稀有节点|主属性通路)$/;
+
 function mergeCommunityOverride(base, override) {
   return {
     ...base,
@@ -190,6 +193,9 @@ assert(siteCoverage.frontendDataContracts?.some((contract) => contract.fields?.i
 assert(siteCoverage.buildIntegrity?.completeGearSlotBuilds === buildGuides.builds.length, "Site coverage must prove every BD has 11 gear slots");
 assert(siteCoverage.buildIntegrity?.skillRouteBuilds === buildGuides.builds.length, "Site coverage must prove every BD has skill routes");
 assert(siteCoverage.buildIntegrity?.paragonRouteBuilds === buildGuides.builds.length, "Site coverage must prove every BD has paragon routes");
+assert(siteCoverage.buildIntegrity?.routeSpecificity?.genericSkillSteps === 0, "Site coverage must prove skill point routes do not expose generic placeholders");
+assert(siteCoverage.buildIntegrity?.routeSpecificity?.genericSkillBarEntries === 0, "Site coverage must prove skill bars do not expose generic placeholders");
+assert(siteCoverage.buildIntegrity?.routeSpecificity?.genericParagonNodes === 0, "Site coverage must prove paragon routes do not expose generic placeholders");
 assert(siteCoverage.buildIntegrity?.gameplayBuilds === buildGuides.builds.length, "Site coverage must prove every BD has gameplay instructions");
 assert(siteCoverage.buildIntegrity?.progressionBuilds === buildGuides.builds.length, "Site coverage must prove every BD has progression instructions");
 assert(siteCoverage.buildIntegrity?.replacementBuilds === buildGuides.builds.length, "Site coverage must prove every BD has replacement data");
@@ -228,9 +234,12 @@ for (const guide of buildGuides.builds) {
   }
   assert(guide.skillTree?.skillBar?.length === 6, `Build guide needs six skill bar entries: ${guide.id}`);
   assert(guide.skillTree?.pointOrder?.length >= 10, `Build guide needs skill point order: ${guide.id}`);
+  assert(guide.skillTree.skillBar.every((skill) => !genericSkillStepPattern.test(skill.name || "")), `Build guide skill bar still contains generic placeholders: ${guide.id}`);
+  assert(guide.skillTree.pointOrder.every((step) => !genericSkillStepPattern.test(step.skill || "")), `Build guide skill point order still contains generic placeholders: ${guide.id}`);
   assert(guide.skillTree?.classMechanic, `Build guide needs class mechanic text: ${guide.id}`);
   assert(guide.paragon?.boardOrder?.length >= 4, `Build guide needs paragon boards: ${guide.id}`);
   assert(guide.paragon?.clickOrder?.length >= 10, `Build guide needs paragon click order: ${guide.id}`);
+  assert(guide.paragon.clickOrder.every((step) => !genericParagonNodePattern.test(step.node || "")), `Build guide paragon route still contains generic click nodes: ${guide.id}`);
   assert(guide.paragon?.pointBands?.length >= 4, `Build guide needs paragon point-band transitions: ${guide.id}`);
   assert(guide.gameplay?.opener?.length && guide.gameplay?.loop?.length && guide.gameplay?.boss?.length, `Build guide needs gameplay sections: ${guide.id}`);
   assert(guide.variants?.length >= 3, `Build guide needs replacement variants: ${guide.id}`);
