@@ -32,7 +32,9 @@ const state = {
     classId: "barbarian",
     mode: "pit_push",
     buildIndex: 0,
-    sourceQuality: "all"
+    sourceQuality: "all",
+    query: "",
+    sort: "source"
   },
   equipmentFilters: {
     classId: "all",
@@ -384,7 +386,8 @@ function guideUrl(guide) {
 }
 
 function filteredGuides() {
-  return allBuildGuides()
+  const query = normalizedText(state.sim.query);
+  const rows = allBuildGuides()
     .filter((guide) => guide.taxonomy.seasonId === state.sim.seasonId)
     .filter((guide) => guide.taxonomy.classId === state.sim.classId)
     .filter((guide) => guide.taxonomy.mode === state.sim.mode)
@@ -393,7 +396,35 @@ function filteredGuides() {
       if (state.sim.sourceQuality === "structured") return !guide.source.references?.length;
       return true;
     })
-    .sort((a, b) => a.ceiling.pit150Minutes - b.ceiling.pit150Minutes || a.formationDifficulty.level - b.formationDifficulty.level);
+    .filter((guide) => {
+      if (!query) return true;
+      return buildGuideSearchText(guide).includes(query);
+    });
+
+  const sorters = {
+    source: sortGuidesForPlayer,
+    ceiling: (a, b) => a.ceiling.pit150Minutes - b.ceiling.pit150Minutes || sortGuidesForPlayer(a, b),
+    difficulty: (a, b) => a.formationDifficulty.level - b.formationDifficulty.level || sortGuidesForPlayer(a, b),
+    updated: (a, b) => String(b.source.updatedAt || "").localeCompare(String(a.source.updatedAt || "")) || sortGuidesForPlayer(a, b)
+  };
+
+  return rows.sort(sorters[state.sim.sort] || sorters.source);
+}
+
+function buildGuideSearchText(guide) {
+  return [
+    guide.title,
+    guide.taxonomy.className,
+    guide.taxonomy.archetypeName,
+    guide.taxonomy.modeName,
+    guide.taxonomy.stage,
+    ...(guide.taxonomy.tags || []),
+    ...(guide.summary.requirements || []),
+    ...(guide.summary.statPriority || []),
+    (guide.skillTree?.skillBar || []).map((skill) => skill.name).join(" "),
+    (guide.coreUniques || []).map((item) => item.zhName).join(" "),
+    (guide.coreAspects || []).map((aspect) => aspect.name).join(" ")
+  ].join(" ").toLowerCase();
 }
 
 function guideSourceLabel(guide) {
@@ -429,10 +460,14 @@ function syncBuildFilterControls() {
   const classSelect = $("[data-sim-class]");
   const mode = $("[data-sim-mode]");
   const source = $("[data-sim-source]");
+  const search = $("[data-build-search]");
+  const sort = $("[data-build-sort]");
   if (season) season.value = state.sim.seasonId;
   if (classSelect) classSelect.value = state.sim.classId;
   if (mode) mode.value = state.sim.mode;
   if (source) source.value = state.sim.sourceQuality;
+  if (search) search.value = state.sim.query;
+  if (sort) sort.value = state.sim.sort;
 }
 
 function openBuildLibrary(filters) {
@@ -541,6 +576,7 @@ function renderSourceReferences(guide) {
 }
 
 function renderBuildLibraryCard(guide) {
+  const skills = guide.skillTree?.skillBar || [];
   return `
     <article class="guide-card">
       <div class="guide-card__head">
@@ -553,6 +589,9 @@ function renderBuildLibraryCard(guide) {
       <p>${guide.summary.oneLine}</p>
       <div class="guide-card__tags">${renderTags(guide.taxonomy.stageTags)}</div>
       <div class="source-pill">${guideSourceLabel(guide)}</div>
+      <div class="guide-card__skillbar" aria-label="技能栏">
+        ${skills.map((skill) => `<span><b>${skill.slot}</b>${skill.name}</span>`).join("")}
+      </div>
       <div class="guide-card__metrics">
         <span><b>${guide.formationDifficulty.label}</b>成型难度</span>
         <span><b>${guide.ceiling.pit150Minutes} 分</b>150 层参考</span>
@@ -564,23 +603,42 @@ function renderBuildLibraryCard(guide) {
   `;
 }
 
+function renderBuildClassRail() {
+  const rail = $("[data-build-class-rail]");
+  if (!rail) return;
+  const seasonGuides = allBuildGuides().filter((guide) => guide.taxonomy.seasonId === state.sim.seasonId);
+  rail.innerHTML = state.classes.map((item) => {
+    const classGuides = seasonGuides.filter((guide) => guide.taxonomy.classId === item.id);
+    const communityCount = classGuides.filter((guide) => guide.source.references?.length).length;
+    return `
+      <button class="build-class-tab" type="button" data-build-class-id="${item.id}" aria-selected="${item.id === state.sim.classId}">
+        <span>${item.zhName}</span>
+        <strong>${classGuides.length} 套</strong>
+        <em>${communityCount} 社区</em>
+      </button>
+    `;
+  }).join("");
+}
+
 function renderSimulator() {
   const guides = filteredGuides();
   const selected = guides[state.sim.buildIndex] || guides[0] || null;
+  renderBuildClassRail();
   if (!guides.some((guide) => guide.id === state.selectedGuideId)) {
     state.selectedGuideId = selected?.id || null;
   }
 
-  $("[data-build-candidates]").innerHTML = `
-    <div class="side-panel-title">
+  $("[data-build-list]").innerHTML = `
+    <div class="build-list-title">
       <span>${className(state.sim.classId)} · ${modeName(state.sim.mode)}</span>
       <strong>${guides.length} 套 BD</strong>
+      <em>${guides.filter((guide) => guide.source.references?.length).length} 套社区来源</em>
     </div>
     ${guides.map((guide, index) => `
-      <a class="build-candidate guide-link" href="${guideUrl(guide)}" aria-selected="${index === state.sim.buildIndex}">
+      <a class="build-list-link guide-link" href="${guideUrl(guide)}" aria-selected="${index === state.sim.buildIndex}">
         <span>${String(index + 1).padStart(2, "0")}</span>
         <strong>${guide.taxonomy.archetypeName}</strong>
-        <em>${guideSourceLabel(guide)} · ${guide.taxonomy.stageTags.join(" / ")} · 成型${guide.formationDifficulty.label} · ${guide.ceiling.tier}</em>
+        <em>${guideSourceLabel(guide)} · ${guide.taxonomy.stageTags.join(" / ")} · 成型${guide.formationDifficulty.label} · ${guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</em>
       </a>
     `).join("")}
   `;
@@ -597,17 +655,19 @@ function renderSimulator() {
   }
 
   const modeLabel = modeName(state.sim.mode);
+  const communityCount = guides.filter((guide) => guide.source.references?.length).length;
+  const topGuide = guides[0];
   $("[data-sim-result]").innerHTML = `
     <div class="library-head">
       <div>
         <p class="panel-kicker">BD 大厅</p>
         <h3>${className(state.sim.classId)} · ${modeLabel}</h3>
-        <p>每张卡进入独立 BD 详情页，详情页按装备、技能、巅峰、打法和替换件分区阅读。</p>
+        <p>按资料来源、成型难度、适用阶段和上限比较流派。每张卡进入完整 BD 详情页，详情页按装备、技能、巅峰、打法和替换件分区阅读。</p>
       </div>
       <div class="library-stats">
         <span><b>${guides.length}</b>套流派</span>
-        <span><b>${guides.filter((guide) => guide.source.references?.length).length}</b>社区参考</span>
-        <span><b>${guides[0].ceiling.label}</b>最高参考</span>
+        <span><b>${communityCount}</b>社区参考</span>
+        <span><b>${topGuide.ceiling.label}</b>最高参考</span>
       </div>
     </div>
     <div class="guide-card-grid">
@@ -1116,6 +1176,26 @@ function bindInteractions() {
     state.sim.sourceQuality = event.target.value;
     state.sim.buildIndex = 0;
     renderSimulator();
+  });
+  $("[data-build-sort]").addEventListener("change", (event) => {
+    state.sim.sort = event.target.value;
+    state.sim.buildIndex = 0;
+    renderSimulator();
+  });
+  $("[data-build-search]").addEventListener("input", (event) => {
+    state.sim.query = event.target.value;
+    state.sim.buildIndex = 0;
+    renderSimulator();
+  });
+  $("[data-build-class-rail]").addEventListener("click", (event) => {
+    const button = event.target.closest("[data-build-class-id]");
+    if (!button) return;
+    state.sim.classId = button.dataset.buildClassId;
+    state.selectedClassId = button.dataset.buildClassId;
+    state.sim.buildIndex = 0;
+    syncBuildFilterControls();
+    renderSimulator();
+    renderSelectedClass();
   });
   $("[data-class-rail]").addEventListener("click", (event) => {
     const button = event.target.closest("[data-class-id]");

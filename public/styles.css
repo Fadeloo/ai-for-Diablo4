@@ -447,7 +447,7 @@ h4 {
   max-width: 820px;
 }
 
-.simulator-console,
+.build-library-shell,
 .equipment-layout,
 .class-workbench,
 .damage-workbench,
@@ -460,7 +460,7 @@ h4 {
   position: relative;
 }
 
-.simulator-console::before,
+.build-library-shell::before,
 .equipment-layout::before,
 .class-workbench::before,
 .damage-workbench::before,
@@ -474,29 +474,75 @@ h4 {
   z-index: 1;
 }
 
-.simulator-console {
+.build-library-shell {
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-rows: auto auto minmax(0, 1fr);
   overflow: hidden;
 }
 
-.sim-controls,
+.build-class-rail {
+  background: rgba(8, 4, 3, 0.62);
+  border-bottom: 1px solid rgba(214, 173, 99, 0.22);
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  padding: 10px;
+}
+
+.build-class-tab {
+  background: linear-gradient(180deg, rgba(242, 240, 234, 0.05), rgba(10, 6, 4, 0.68));
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  color: var(--muted);
+  cursor: pointer;
+  display: grid;
+  gap: 3px;
+  min-height: 70px;
+  padding: 9px 10px;
+  text-align: left;
+  transition: background-color var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.build-class-tab:hover,
+.build-class-tab[aria-selected="true"] {
+  background: linear-gradient(180deg, rgba(164, 32, 24, 0.24), rgba(214, 173, 99, 0.1));
+  border-color: rgba(240, 207, 143, 0.48);
+  color: var(--bone);
+}
+
+.build-class-tab span {
+  color: #fff7df;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.build-class-tab strong,
+.build-class-tab em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+}
+
+.build-filters,
 .equipment-controls {
   background: rgba(10, 6, 4, 0.52);
   border-bottom: 1px solid rgba(214, 173, 99, 0.22);
   display: grid;
   gap: 12px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(120px, 1fr));
   padding: 16px;
 }
 
-.sim-controls label,
+.build-search-field {
+  grid-column: span 2;
+}
+
+.build-filters label,
 .equipment-controls label {
   display: grid;
   gap: 6px;
 }
 
-.sim-controls span,
+.build-filters span,
 .equipment-controls span,
 .damage-lab span {
   color: var(--muted);
@@ -504,7 +550,8 @@ h4 {
   font-weight: 650;
 }
 
-.sim-controls select,
+.build-filters select,
+.build-filters input,
 .equipment-controls select,
 .equipment-controls input,
 .damage-lab input {
@@ -518,13 +565,13 @@ h4 {
   width: 100%;
 }
 
-.planner-grid {
+.build-library-layout {
   display: grid;
   grid-template-columns: 340px minmax(0, 1fr);
   min-height: calc(100svh - 214px);
 }
 
-.build-candidates {
+.build-library-list {
   border-right: 1px solid rgba(214, 173, 99, 0.22);
   display: grid;
   grid-auto-rows: max-content;
@@ -532,7 +579,7 @@ h4 {
   overflow: auto;
 }
 
-.side-panel-title {
+.build-list-title {
   background: rgba(8, 4, 3, 0.42);
   border-bottom: 1px solid rgba(214, 173, 99, 0.22);
   display: grid;
@@ -540,18 +587,24 @@ h4 {
   padding: 16px;
 }
 
-.side-panel-title span {
+.build-list-title span {
   color: var(--gold);
   font-size: 12px;
   font-weight: 700;
 }
 
-.side-panel-title strong {
+.build-list-title strong {
   color: var(--bone);
   font-size: 16px;
 }
 
-.build-candidate,
+.build-list-title em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+}
+
+.build-list-link,
 .equipment-row {
   background: transparent;
   border: 0;
@@ -562,7 +615,7 @@ h4 {
   transition: background-color var(--transition), border-color var(--transition);
 }
 
-.build-candidate {
+.build-list-link {
   display: grid;
   gap: 7px;
   grid-template-columns: 38px 1fr;
@@ -570,14 +623,14 @@ h4 {
   padding: 16px;
 }
 
-.build-candidate > span {
+.build-list-link > span {
   color: var(--gold);
   font-size: 12px;
   font-weight: 800;
   grid-row: 1 / span 2;
 }
 
-.build-candidate strong,
+.build-list-link strong,
 .equipment-row strong {
   color: var(--bone);
   font-size: 15px;
@@ -585,7 +638,7 @@ h4 {
   line-height: 1.25;
 }
 
-.build-candidate em,
+.build-list-link em,
 .equipment-row em,
 .equipment-row small,
 .sim-item span,
@@ -598,19 +651,19 @@ h4 {
   line-height: 1.45;
 }
 
-.build-candidate:hover,
-.build-candidate[aria-selected="true"],
+.build-list-link:hover,
+.build-list-link[aria-selected="true"],
 .equipment-row:hover,
 .equipment-row[aria-selected="true"] {
   background: linear-gradient(90deg, rgba(164, 32, 24, 0.24), rgba(214, 173, 99, 0.1));
 }
 
-.build-candidate[aria-selected="true"],
+.build-list-link[aria-selected="true"],
 .equipment-row[aria-selected="true"] {
   box-shadow: inset 3px 0 0 var(--gold), inset 0 0 0 1px rgba(214, 173, 99, 0.16);
 }
 
-.build-detail-panel {
+.build-library-content {
   display: grid;
   gap: 18px;
   max-height: calc(100svh - 214px);
@@ -876,6 +929,7 @@ h4 {
 
 .guide-card__tags,
 .guide-card__items,
+.guide-card__skillbar,
 .gear-slot-card__flags,
 .core-item-strip,
 .core-aspect-strip {
@@ -893,6 +947,32 @@ h4 {
   font-weight: 700;
   padding: 6px 8px;
   overflow-wrap: anywhere;
+}
+
+.guide-card__skillbar span {
+  align-items: center;
+  background: rgba(8, 4, 3, 0.58);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  color: rgba(242, 240, 234, 0.84);
+  display: inline-flex;
+  font-size: 12px;
+  gap: 6px;
+  line-height: 1.25;
+  min-height: 34px;
+  padding: 5px 8px 5px 5px;
+}
+
+.guide-card__skillbar b {
+  align-items: center;
+  background: rgba(214, 173, 99, 0.13);
+  border: 1px solid rgba(214, 173, 99, 0.28);
+  color: var(--gold);
+  display: inline-flex;
+  flex: 0 0 22px;
+  font-size: 11px;
+  height: 22px;
+  justify-content: center;
+  width: 22px;
 }
 
 .guide-card__metrics {
@@ -1849,26 +1929,38 @@ h4 {
     overflow-x: auto;
   }
 
-  .planner-grid,
+  .build-library-layout,
   .equipment-layout,
   .class-workbench,
   .damage-workbench {
     grid-template-columns: 1fr;
   }
 
-  .build-candidates,
-  .build-detail-panel,
+  .build-library-list,
+  .build-library-content,
   .equipment-detail-panel {
     max-height: none;
   }
 
-  .build-candidates {
+  .build-class-rail {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .build-filters {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .build-search-field {
+    grid-column: span 2;
+  }
+
+  .build-library-list {
     border-right: 0;
     border-bottom: 1px solid var(--line);
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .side-panel-title {
+  .build-list-title {
     grid-column: 1 / -1;
   }
 
@@ -1948,7 +2040,8 @@ h4 {
 
   .hero-actions,
   .hero-metrics,
-  .sim-controls,
+  .build-class-rail,
+  .build-filters,
   .equipment-controls,
   .detail-head,
   .two-column-detail,
@@ -1984,19 +2077,23 @@ h4 {
     grid-template-columns: 1fr;
   }
 
-  .planner-grid,
+  .build-library-layout,
   .equipment-layout,
   .class-workbench,
   .damage-workbench {
     min-height: auto;
   }
 
-  .build-candidates,
+  .build-search-field {
+    grid-column: auto;
+  }
+
+  .build-library-list,
   .class-rail {
     grid-template-columns: 1fr;
   }
 
-  .build-detail-panel,
+  .build-library-content,
   .equipment-detail-panel,
   .class-panel,
   .damage-output {

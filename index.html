@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Harris‘s Diablo 4：暗黑4开荒、配装、伤害计算和流派构筑工具。">
+    <meta name="description" content="Harris‘s Diablo 4：暗黑4开荒、BD、装备库、伤害计算和流派构筑资料站。">
     <title>Harris‘s Diablo 4</title>
     <link rel="icon" href="./public/assets/icon-weapon.png">
     <link rel="stylesheet" href="./public/styles.css">
@@ -13,7 +13,7 @@
       <a class="brand" href="#home" data-view-link aria-label="Harris‘s Diablo 4 首页">Harris‘s Diablo 4</a>
       <nav class="nav-links" aria-label="主导航">
         <a href="#home" data-view-link>首页</a>
-        <a href="#builds" data-view-link>配装</a>
+        <a href="#builds" data-view-link>BD</a>
         <a href="#equipment" data-view-link>装备</a>
         <a href="#classes" data-view-link>职业</a>
         <a href="#damage" data-view-link>伤害</a>
@@ -32,7 +32,7 @@
           <h1 id="hero-title">Harris‘s Diablo 4</h1>
           <p class="hero-subtitle">赛季 BD、装备资料库、技能巅峰路线和伤害工具，按资料站工作台拆分为独立功能页。</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#builds" data-view-link>打开配装规划</a>
+            <a class="button button-primary" href="#builds" data-view-link>查 BD 大厅</a>
             <a class="button button-secondary" href="#equipment" data-view-link>查装备库</a>
           </div>
         </div>
@@ -77,8 +77,9 @@
             <p>每套 BD 进入独立详情页，包含装备位置、核心暗金或威能、替换件、技能加点、巅峰点击顺序和打法。</p>
           </div>
         </header>
-        <div class="simulator-console">
-          <div class="sim-controls">
+        <div class="build-library-shell">
+          <div class="build-class-rail" data-build-class-rail aria-label="职业快速筛选"></div>
+          <div class="build-filters">
             <label>
               <span>赛季</span>
               <select data-sim-season></select>
@@ -103,10 +104,23 @@
                 <option value="structured">结构化模板</option>
               </select>
             </label>
+            <label>
+              <span>排序</span>
+              <select data-build-sort>
+                <option value="source">来源优先</option>
+                <option value="ceiling">150 层上限</option>
+                <option value="difficulty">成型难度</option>
+                <option value="updated">更新时间</option>
+              </select>
+            </label>
+            <label class="build-search-field">
+              <span>关键词</span>
+              <input data-build-search type="search" placeholder="搜索流派、技能、暗金、威能">
+            </label>
           </div>
-          <div class="planner-grid">
-            <aside class="build-candidates" data-build-candidates aria-label="候选配装"></aside>
-            <section class="build-detail-panel" data-sim-result aria-live="polite"></section>
+          <div class="build-library-layout">
+            <aside class="build-library-list" data-build-list aria-label="BD 列表"></aside>
+            <section class="build-library-content" data-sim-result aria-live="polite"></section>
           </div>
         </div>
       </section>
@@ -148,8 +162,8 @@
         <header class="page-head">
           <div>
             <p class="eyebrow">赛季开荒路线</p>
-            <h2 id="classes-title">先选职业，再决定掉落怎么用。</h2>
-            <p>每个职业的开荒优先级、过渡路线和构筑轴独立成页，补丁上线后可以快速改权重。</p>
+            <h2 id="classes-title">职业开荒、流派轴和掉落决策。</h2>
+            <p>每个职业都有独立的开荒优先级、过渡路线、构筑轴和可用 BD 入口，补丁上线后可以快速调整权重。</p>
           </div>
         </header>
         <div class="class-workbench" aria-live="polite">
@@ -226,7 +240,7 @@
         <header class="page-head">
           <div>
             <p class="eyebrow">来源纪律</p>
-            <h2 id="sources-title">只把可追溯的内容放进计算器。</h2>
+            <h2 id="sources-title">只把可追溯的内容放进资料库。</h2>
             <p>当前在线版本是 2026-06-10 的 3.0.4；3.1.0 在 2026-06-28 仍是未来补丁，所以页面明确分开当前版本与预览版本。</p>
           </div>
         </header>
