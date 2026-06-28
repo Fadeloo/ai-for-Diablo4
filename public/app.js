@@ -406,25 +406,70 @@ function versionLineLabel(value) {
   return `${patch} 构建 #${build}（全平台）— ${year}-${monthMap[month] ?? month}-${day.padStart(2, "0")}`;
 }
 
+const displayTextReplacements = [
+  ["Survival Instinct", "生存本能"],
+  ["Ancestral Guidance", "先祖指引"],
+  ["Earthen Devastation", "大地毁灭"],
+  ["Blood Begets Blood", "血生血"],
+  ["Scent of Death", "死亡气息"],
+  ["Earth and Sky", "大地与天空"],
+  ["Spirit Halls", "灵魂殿堂"],
+  ["Spirit Hall", "灵魂殿堂"],
+  ["Thunderstruck", "雷霆震击"],
+  ["Flesh-Eater", "食肉者"],
+  ["Bone Graft", "白骨嫁接"],
+  ["Dash Claw", "突进爪击"],
+  ["Pyro Bolts", "火焰弹"],
+  ["Territorial", "领地"],
+  ["Eliminator", "消灭者"],
+  ["Sacrificial", "牺牲"],
+  ["Dominate", "支配"],
+  ["Bloodbath", "血浴"],
+  ["Undaunted", "无畏"],
+  ["Tectonic", "构造"],
+  ["Revealing", "揭示"],
+  ["In-Fighter", "贴身战士"],
+  ["Convergence", "汇聚"],
+  ["Fulminate", "爆震"],
+  ["Colossal", "巨像"],
+  ["Frailty", "脆弱"],
+  ["Corporeal", "实体"],
+  ["Amplify", "增幅"],
+  ["Essence", "精魂"],
+  ["Exploit", "剥削"],
+  ["Keeper", "守护者"],
+  ["Spirit", "灵魂"],
+  ["Canny", "灵巧"],
+  ["Turf", "地盘"],
+  ["Sapping", "吸取"],
+  ["Hubris", "傲慢"],
+  ["End Game", "终局"],
+  ["Endgame", "终局"],
+  ["Starter", "起步"],
+  ["Mythic", "神话"],
+  ["Pushing", "冲层"],
+  ["Push", "冲层"],
+  ["Speed Farm", "速刷"],
+  ["Speedfarm", "速刷"],
+  ["Hardcore", "硬核"],
+  ["Budget", "低成本"],
+  ["Controller", "手柄"],
+  ["Bossing", "首领"],
+  ["Leveling", "升级"],
+  ["Paragon", "巅峰"],
+  ["FAQ", "常见问题"]
+].sort((a, b) => b[0].length - a[0].length);
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 function displayText(value) {
-  return String(value || "")
-    .replace(/\bEnd Game\b/g, "终局")
-    .replace(/\bEndgame\b/g, "终局")
-    .replace(/\bStarter\b/g, "起步")
-    .replace(/\bMythic\b/g, "神话")
-    .replace(/\bPushing\b/g, "冲层")
-    .replace(/\bPush\b/g, "冲层")
-    .replace(/\bSpeed Farm\b/g, "速刷")
-    .replace(/\bSpeedfarm\b/g, "速刷")
-    .replace(/\bHardcore\b/g, "硬核")
-    .replace(/\bBudget\b/g, "低成本")
-    .replace(/\bController\b/g, "手柄")
-    .replace(/\bBossing\b/g, "首领")
-    .replace(/\bLeveling\b/g, "升级")
-    .replace(/\bParagon\b/g, "巅峰")
-    .replace(/\bFAQ\b/g, "常见问题")
-    .replace(/\bSpirit Halls\b/g, "灵魂殿堂")
-    .replace(/作为\s+终局\s+核心/g, "作为终局核心");
+  let text = String(value || "");
+  for (const [source, target] of displayTextReplacements) {
+    text = text.replace(new RegExp(`(^|[^A-Za-z])${escapeRegExp(source)}(?=$|[^A-Za-z])`, "g"), `$1${target}`);
+  }
+  return text.replace(/作为\s+终局\s+核心/g, "作为终局核心");
 }
 
 function listItems(items) {
@@ -1275,6 +1320,81 @@ function renderExecutionPlan(guide) {
   `;
 }
 
+function renderRouteOverview(guide) {
+  const skillTree = guide.skillTree || {};
+  const paragon = guide.paragon || {};
+  const skillSteps = (skillTree.pointOrder || []).slice(0, 10);
+  const paragonSteps = (paragon.clickOrder || []).slice(0, 10);
+  return `
+    <section class="route-overview" aria-label="技能加点和巅峰点击总览">
+      <header class="route-overview__head">
+        <div>
+          <span>执行路线总览</span>
+          <strong>技能先成型，巅峰先拿雕文孔和传奇节点</strong>
+        </div>
+        <div>
+          <button type="button" data-guide-jump="skills">看技能分区</button>
+          <button type="button" data-guide-jump="paragon">看巅峰分区</button>
+        </div>
+      </header>
+      <div class="route-overview__skillbar" aria-label="技能栏">
+        ${(skillTree.skillBar || []).map((skill) => `
+          <article>
+            <span>${skill.slot}</span>
+            <strong>${displayText(skill.name)}</strong>
+            <em>${displayText(skill.role)} · ${skill.points} 点</em>
+          </article>
+        `).join("")}
+      </div>
+      <div class="route-overview__grid">
+        <article class="route-overview-panel">
+          <header>
+            <strong>技能加点顺序</strong>
+            <span>${skillSteps.length} 步</span>
+          </header>
+          <ol class="route-mini-list">
+            ${skillSteps.map((step) => `
+              <li>
+                <span>${step.step}</span>
+                <div>
+                  <strong>${displayText(step.levelRange)} · ${displayText(step.skill)}</strong>
+                  <p>${displayText(step.points)}。${displayText(step.reason)}</p>
+                </div>
+              </li>
+            `).join("")}
+          </ol>
+        </article>
+        <article class="route-overview-panel">
+          <header>
+            <strong>巅峰点击顺序</strong>
+            <span>${paragonSteps.length} 步</span>
+          </header>
+          <ol class="route-mini-list">
+            ${paragonSteps.map((step) => `
+              <li>
+                <span>${step.step}</span>
+                <div>
+                  <strong>${displayText(step.board)} · ${displayText(step.node)}</strong>
+                  <p>${displayText(step.reason)}</p>
+                </div>
+              </li>
+            `).join("")}
+          </ol>
+        </article>
+      </div>
+      <div class="route-board-lane" aria-label="巅峰盘和雕文顺序">
+        ${(paragon.boardOrder || []).map((board) => `
+          <article>
+            <span>${board.order}</span>
+            <strong>${displayText(board.name)}</strong>
+            <em>${displayText(board.glyph)} · ${displayText(board.rotate)}</em>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderGuideDetailSection(title, subtitle, body, key) {
   return `
     <section class="guide-section" data-guide-section="${key}">
@@ -1295,18 +1415,18 @@ function renderSkillTree(skillTree) {
           ${skillTree.skillBar.map((skill) => `
             <article>
               <span>${skill.slot}</span>
-              <strong>${skill.name}</strong>
-              <em>${skill.role} · ${skill.points} 点</em>
+              <strong>${displayText(skill.name)}</strong>
+              <em>${displayText(skill.role)} · ${skill.points} 点</em>
             </article>
           `).join("")}
         </div>
         <div class="route-note-card">
           <strong>职业机制</strong>
-          <p>${skillTree.classMechanic || "职业机制待来源回填，先按技能栏和装备触发条件执行。"}</p>
+          <p>${displayText(skillTree.classMechanic || "职业机制待来源回填，先按技能栏和装备触发条件执行。")}</p>
         </div>
         <div class="route-note-card">
           <strong>被动优先级</strong>
-          <p>${(skillTree.passives || []).join(" / ")}</p>
+          <p>${(skillTree.passives || []).map(displayText).join(" / ")}</p>
         </div>
       </div>
       <div class="route-main-panel">
@@ -1314,7 +1434,7 @@ function renderSkillTree(skillTree) {
           ${skillTree.pointOrder.map((item) => `
             <li>
               <span>${item.step}</span>
-              <div><strong>${item.levelRange} · ${item.skill}</strong><p>${item.points}。${item.reason}</p></div>
+              <div><strong>${displayText(item.levelRange)} · ${displayText(item.skill)}</strong><p>${displayText(item.points)}。${displayText(item.reason)}</p></div>
             </li>
           `).join("")}
         </ol>
@@ -1337,9 +1457,9 @@ function renderParagon(paragon) {
           ${paragon.boardOrder.map((board) => `
             <article>
               <span>${board.order}</span>
-              <strong>${board.name}</strong>
-              <p>${board.goal}</p>
-              <em>${board.glyph} · ${board.rotate}</em>
+              <strong>${displayText(board.name)}</strong>
+              <p>${displayText(board.goal)}</p>
+              <em>${displayText(board.glyph)} · ${displayText(board.rotate)}</em>
             </article>
           `).join("")}
         </div>
@@ -1347,9 +1467,9 @@ function renderParagon(paragon) {
           <div class="glyph-grid">
             ${paragon.glyphs.map((glyph) => `
               <article>
-                <strong>${glyph.priority}. ${glyph.name}</strong>
-                <span>${glyph.socket}</span>
-                <p>${glyph.note}</p>
+                <strong>${glyph.priority}. ${displayText(glyph.name)}</strong>
+                <span>${displayText(glyph.socket)}</span>
+                <p>${displayText(glyph.note)}</p>
               </article>
             `).join("")}
           </div>
@@ -1361,7 +1481,7 @@ function renderParagon(paragon) {
             ${paragon.pointBands.map((band) => `
               <article>
                 <strong>${band.points} 点</strong>
-                <span>${band.goal}</span>
+                <span>${displayText(band.goal)}</span>
               </article>
             `).join("")}
           </div>
@@ -1370,7 +1490,7 @@ function renderParagon(paragon) {
           ${paragon.clickOrder.map((item) => `
             <li>
               <span>${item.step}</span>
-              <div><strong>${item.board} · ${item.node}</strong><p>${item.reason}</p></div>
+              <div><strong>${displayText(item.board)} · ${displayText(item.node)}</strong><p>${displayText(item.reason)}</p></div>
             </li>
           `).join("")}
         </ol>
@@ -1477,6 +1597,7 @@ function renderBuildGuideDetail() {
         <div class="guide-main-sections">
           ${renderGuideDetailSection("总览", "定位、强弱项和适用阶段", `
             ${renderExecutionPlan(guide)}
+            ${renderRouteOverview(guide)}
             ${renderSuitability(guide)}
             <div class="core-item-strip">${renderCoreUniques(guide, 5)}</div>
             <div class="core-aspect-strip">${renderCoreAspects(guide)}</div>

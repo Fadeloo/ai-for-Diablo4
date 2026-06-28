@@ -218,6 +218,8 @@ for (const forbidden of ["模型分", "先选目标", "rationale", "完整 BD �
 }
 assert(frontendText.includes("renderLoadoutBoard"), "BD detail must render a paper-doll loadout board");
 assert(frontendText.includes("loadout-paper-doll"), "BD detail must expose a fixed 11-slot paper-doll layout");
+assert(frontendText.includes("renderRouteOverview"), "BD overview must render skill and paragon execution route overview");
+assert(frontendText.includes("route-overview__skillbar"), "BD overview must expose the six-skill route overview");
 
 const generatedText = [
   await readFile(path.join(PROJECT_ROOT, "data/generated/build-simulations.json"), "utf8"),
