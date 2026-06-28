@@ -224,6 +224,10 @@ assert(frontendText.includes("renderGearSummaryMatrix"), "BD gear section must r
 assert(frontendText.includes("gear-summary-matrix"), "BD gear section must expose target items, replacement status and affix direction before long cards");
 assert(frontendText.includes("renderRouteOverview"), "BD overview must render skill and paragon execution route overview");
 assert(frontendText.includes("route-overview__skillbar"), "BD overview must expose the six-skill route overview");
+assert(frontendText.includes("renderSkillRouteMatrix"), "BD skill section must render a readable skill point-order matrix");
+assert(frontendText.includes("skill-route-matrix"), "BD skill section must expose level range, skill, points and reason before long notes");
+assert(frontendText.includes("renderParagonRouteMatrix"), "BD paragon section must render a readable paragon click-order matrix");
+assert(frontendText.includes("paragon-route-matrix"), "BD paragon section must expose board order, glyphs and click route before long notes");
 assert(frontendText.includes("renderGameplayOverview"), "BD overview must render combat loop overview");
 assert(frontendText.includes("combat-overview__grid"), "BD overview must expose opener, loop, defense and mistakes");
 

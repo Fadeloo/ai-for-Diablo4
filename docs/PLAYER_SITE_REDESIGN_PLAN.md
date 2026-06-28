@@ -360,7 +360,9 @@ public/
 | `GearSummaryMatrix` | 装备总表 | guide.gearSlots | 11 部位目标件、核心/替换状态、威能或暗金、词缀方向和明细跳转 |
 | `GearSlotGrid` | 11 槽位布局 | gearSlots | 槽位网格 |
 | `GearSlotCard` | 单槽位装备明细 | gearSlot/item | 装备卡 |
+| `SkillRouteMatrix` | 技能路线总表 | skillTree | 6 技能栏、等级段、技能、投入点数和加点原因 |
 | `SkillRoutePanel` | 技能栏和加点顺序 | skillTree | 技能路线 |
+| `ParagonRouteMatrix` | 巅峰路线总表 | paragon | 盘顺序、雕文、点数阶段和完整点击主线 |
 | `ParagonRoutePanel` | 巅峰盘和点击步骤 | paragon | 巅峰路线 |
 | `GameplayPanel` | 起手、循环、防御、错误 | gameplay | 操作指南 |
 | `VariantPanel` | 替换与变体 | variants | 变体列表 |
@@ -378,6 +380,7 @@ public/
 - 列表卡片和详情页面不复用同一个大模板，防止信息过密。
 - `BuildVersionSwitcher` 只按 `seasonId + classId + archetypeId` 建组；不同流派只能作为同职业参考，不能伪装成同一 BD 的版本。
 - `GearSummaryMatrix` 是装备分区入口，必须让玩家不展开长卡也能看出每个部位穿什么、是否可替换、核心威能或暗金是什么。
+- `SkillRouteMatrix` 和 `ParagonRouteMatrix` 是技能/巅峰分区入口，必须先展示可执行顺序，再展示说明。
 
 ## 7. 视觉系统
 

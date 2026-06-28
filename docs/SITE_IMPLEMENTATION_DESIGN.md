@@ -140,7 +140,9 @@ BD 详情 #bd/<guideId>
 | `CombatOverview` | 战斗循环总览 | `gameplay` | 总览区展示起手、主循环、首领/防御、速刷/误区 |
 | `GearSlotGrid` | 11 装备位 | `guide.gearSlots` | 展示目标件和替换路径 |
 | `GearSlotCard` | 单个装备槽位 | `gearSlot` | 图标、词缀、淬炼、宝石 |
+| `SkillRouteMatrix` | 技能路线总表 | `guide.skillTree` | 展示 6 技能栏、等级段、技能、投入点数和加点原因 |
 | `SkillRoutePanel` | 技能栏和加点 | `guide.skillTree` | 技能顺序和被动优先级 |
+| `ParagonRouteMatrix` | 巅峰路线总表 | `guide.paragon` | 展示盘顺序、雕文、点数阶段和完整点击主线 |
 | `ParagonRoutePanel` | 巅峰路线 | `guide.paragon` | 盘、雕文、点击顺序 |
 | `GameplayPanel` | 实战操作 | `guide.gameplay` | 起手/循环/首领/防御 |
 | `VariantPanel` | 替换方案 | `guide.variants` | 缺件与速刷方案 |
@@ -160,6 +162,7 @@ BD 详情 #bd/<guideId>
 - `BuildDetailLayout` 是唯一展示完整 BD 的地方，BD 大厅只保留摘要。
 - `BuildVersionSwitcher` 只在同一赛季、同一职业、同一流派内切换用途版本；它不能把不同流派混在同一组里。
 - `GearSummaryMatrix` 必须覆盖 11 个装备位，并能跳到对应装备卡或装备详情页。
+- `SkillRouteMatrix` 和 `ParagonRouteMatrix` 必须放在各自分区顶部，先给可抄路线，再给解释卡片。
 - 装备、技能、巅峰、打法都必须能单独阅读，不嵌套在同一张大卡里。
 - 详情页内所有外链都显示来源站点和日期。
 - 所有长文本都要在移动端换行，不能覆盖相邻装备卡。

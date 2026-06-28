@@ -1616,8 +1616,63 @@ function renderGuideDetailSection(title, subtitle, body, key) {
   `;
 }
 
+function renderSkillRouteMatrix(skillTree) {
+  const steps = skillTree.pointOrder || [];
+  return `
+    <section class="route-matrix skill-route-matrix" aria-label="技能加点路线总表">
+      <header class="route-matrix__head">
+        <div>
+          <span>技能路线总表</span>
+          <strong>${displayText(skillTree.core || "核心技能待来源回填")} · ${steps.length} 步加点</strong>
+        </div>
+        <em>技能栏、等级段、投入点数和加点原因</em>
+      </header>
+      <div class="route-matrix-skillbar" aria-label="六技能栏">
+        ${(skillTree.skillBar || []).map((skill) => `
+          <article>
+            <span>${skill.slot}</span>
+            <strong>${displayText(skill.name)}</strong>
+            <em>${displayText(skill.role)} · ${skill.points} 点</em>
+          </article>
+        `).join("")}
+      </div>
+      <div class="route-step-table skill-step-table">
+        <div class="route-step-row route-step-row--head" aria-hidden="true">
+          <span>顺序</span>
+          <span>等级段</span>
+          <span>技能</span>
+          <span>点数</span>
+          <span>原因</span>
+        </div>
+        ${steps.map((step) => `
+          <article class="route-step-row">
+            <span class="route-step-index">${step.step}</span>
+            <div>
+              <b class="route-step-label">等级段</b>
+              <strong>${displayText(step.levelRange)}</strong>
+            </div>
+            <div>
+              <b class="route-step-label">技能</b>
+              <strong>${displayText(step.skill)}</strong>
+            </div>
+            <div>
+              <b class="route-step-label">点数</b>
+              <em>${displayText(step.points)}</em>
+            </div>
+            <div>
+              <b class="route-step-label">原因</b>
+              <p>${displayText(step.reason)}</p>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderSkillTree(skillTree) {
   return `
+    ${renderSkillRouteMatrix(skillTree)}
     <div class="skill-layout">
       <div class="skill-side-panel">
         <div class="skill-bar-large">
@@ -1658,8 +1713,72 @@ function renderSkillTree(skillTree) {
   `;
 }
 
+function renderParagonRouteMatrix(paragon) {
+  const boards = paragon.boardOrder || [];
+  const steps = paragon.clickOrder || [];
+  return `
+    <section class="route-matrix paragon-route-matrix" aria-label="巅峰点击路线总表">
+      <header class="route-matrix__head">
+        <div>
+          <span>巅峰路线总表</span>
+          <strong>${boards.length} 张盘 · ${steps.length} 步点击顺序</strong>
+        </div>
+        <em>先雕文孔和传奇节点，再补稀有、魔法与属性门槛</em>
+      </header>
+      <div class="paragon-board-table" aria-label="巅峰盘和雕文顺序">
+        ${boards.map((board) => `
+          <article>
+            <span>${board.order}</span>
+            <div>
+              <strong>${displayText(board.name)}</strong>
+              <em>${displayText(board.glyph)} · ${displayText(board.rotate)}</em>
+              <p>${displayText(board.goal)}</p>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+      ${paragon.pointBands?.length ? `
+        <div class="route-band-strip" aria-label="巅峰点数阶段">
+          ${paragon.pointBands.map((band) => `
+            <article>
+              <strong>${band.points} 点</strong>
+              <span>${displayText(band.goal)}</span>
+            </article>
+          `).join("")}
+        </div>
+      ` : ""}
+      <div class="route-step-table paragon-step-table">
+        <div class="route-step-row route-step-row--head" aria-hidden="true">
+          <span>顺序</span>
+          <span>盘面</span>
+          <span>点击目标</span>
+          <span>原因</span>
+        </div>
+        ${steps.map((step) => `
+          <article class="route-step-row">
+            <span class="route-step-index">${step.step}</span>
+            <div>
+              <b class="route-step-label">盘面</b>
+              <strong>${displayText(step.board)}</strong>
+            </div>
+            <div>
+              <b class="route-step-label">点击目标</b>
+              <strong>${displayText(step.node)}</strong>
+            </div>
+            <div>
+              <b class="route-step-label">原因</b>
+              <p>${displayText(step.reason)}</p>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderParagon(paragon) {
   return `
+    ${renderParagonRouteMatrix(paragon)}
     <div class="paragon-layout">
       <div class="paragon-side-panel">
         <div class="paragon-boards">

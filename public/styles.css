@@ -2459,6 +2459,184 @@ h4 {
   display: block;
 }
 
+.route-matrix {
+  background:
+    linear-gradient(180deg, rgba(18, 10, 7, 0.78), rgba(6, 3, 2, 0.74));
+  border: 1px solid rgba(214, 173, 99, 0.22);
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+}
+
+.route-matrix__head {
+  align-items: start;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.route-matrix__head span,
+.route-step-label,
+.route-matrix-skillbar span,
+.paragon-board-table span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.route-matrix__head strong {
+  color: #fff7df;
+  display: block;
+  font-size: 17px;
+  line-height: 1.3;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+
+.route-matrix__head em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 750;
+  justify-self: end;
+  text-align: right;
+}
+
+.route-matrix-skillbar {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.route-matrix-skillbar article,
+.paragon-board-table article,
+.route-band-strip article {
+  background: rgba(8, 4, 3, 0.5);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  padding: 10px;
+}
+
+.route-matrix-skillbar article {
+  min-height: 96px;
+}
+
+.route-matrix-skillbar strong,
+.paragon-board-table strong,
+.route-band-strip strong,
+.route-step-row strong {
+  color: var(--bone);
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.route-matrix-skillbar em,
+.paragon-board-table em,
+.paragon-board-table p,
+.route-band-strip span,
+.route-step-row em,
+.route-step-row p {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.route-step-table {
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+}
+
+.route-step-row {
+  border-bottom: 1px solid rgba(214, 173, 99, 0.14);
+  display: grid;
+  min-width: 0;
+}
+
+.route-step-row:last-child {
+  border-bottom: 0;
+}
+
+.skill-step-table .route-step-row {
+  grid-template-columns: 58px minmax(92px, 0.72fr) minmax(150px, 1fr) minmax(110px, 0.76fr) minmax(260px, 1.6fr);
+}
+
+.paragon-step-table .route-step-row {
+  grid-template-columns: 58px minmax(150px, 1fr) minmax(180px, 1.12fr) minmax(300px, 1.7fr);
+}
+
+.route-step-row--head {
+  background: rgba(214, 173, 99, 0.08);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.route-step-row--head span {
+  border-right: 1px solid rgba(214, 173, 99, 0.14);
+  padding: 9px 10px;
+}
+
+.route-step-row > span,
+.route-step-row > div {
+  border-right: 1px solid rgba(214, 173, 99, 0.12);
+  min-width: 0;
+  padding: 10px;
+}
+
+.route-step-row > div:last-child,
+.route-step-row > span:last-child {
+  border-right: 0;
+}
+
+.route-step-index {
+  align-items: center;
+  background: rgba(164, 32, 24, 0.32);
+  color: #fff7df;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 900;
+  justify-content: center;
+}
+
+.route-step-label {
+  display: none;
+}
+
+.paragon-board-table {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.paragon-board-table article {
+  align-items: start;
+  grid-template-columns: 32px minmax(0, 1fr);
+  min-height: 112px;
+}
+
+.paragon-board-table span {
+  align-items: center;
+  background: rgba(164, 32, 24, 0.32);
+  border: 1px solid rgba(214, 173, 99, 0.3);
+  color: #fff7df;
+  display: inline-flex;
+  height: 30px;
+  justify-content: center;
+  width: 30px;
+}
+
+.route-band-strip {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .skill-layout,
 .paragon-layout {
   display: grid;
@@ -3604,6 +3782,9 @@ h4 {
   .guide-related-strip,
   .guide-card-grid,
   .gear-slot-grid,
+  .route-matrix-skillbar,
+  .paragon-board-table,
+  .route-band-strip,
   .route-overview__skillbar,
   .route-board-lane,
   .combat-overview__grid,
@@ -3662,6 +3843,41 @@ h4 {
 
   .gear-summary-label {
     display: block;
+  }
+
+  .route-step-table {
+    border: 0;
+    gap: 10px;
+  }
+
+  .route-step-row--head {
+    display: none;
+  }
+
+  .skill-step-table .route-step-row,
+  .paragon-step-table .route-step-row {
+    border: 1px solid rgba(214, 173, 99, 0.18);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .route-step-index {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+
+  .route-step-row > span,
+  .route-step-row > div {
+    border-right: 0;
+    border-bottom: 1px solid rgba(214, 173, 99, 0.12);
+  }
+
+  .route-step-row > div:last-child {
+    border-bottom: 0;
+  }
+
+  .route-step-label {
+    display: block;
+    margin-bottom: 4px;
   }
 }
 
@@ -3735,8 +3951,12 @@ h4 {
   .guide-hero__main,
   .guide-version-switcher header,
   .gear-summary-matrix > header,
+  .route-matrix__head,
   .guide-version-tabs,
   .guide-related-strip,
+  .route-matrix-skillbar,
+  .paragon-board-table,
+  .route-band-strip,
   .guide-kpi-grid,
   .loadout-strip,
   .execution-plan,
@@ -3890,8 +4110,15 @@ h4 {
     text-align: left;
   }
 
+  .route-matrix__head em {
+    justify-self: start;
+    text-align: left;
+  }
+
   .gear-summary-row,
-  .gear-summary-actions {
+  .gear-summary-actions,
+  .skill-step-table .route-step-row,
+  .paragon-step-table .route-step-row {
     grid-template-columns: 1fr;
   }
 
