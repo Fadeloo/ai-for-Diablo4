@@ -1583,5 +1583,270 @@
       "speedFarm": ["低层材料可先用移动靴和资源戒指。", "核心暗金到位后切换速刷版。"],
       "commonMistakes": ["没资源续航就连续闪避。", "没有聚怪就把风暴羽毛打散。", "日常装备硬推高层。"]
     }
+  },
+  {
+    "id": "s14-sorcerer-fire-pit_push",
+    "sourceReference": {
+      "site": "Mobalytics",
+      "url": "https://mobalytics.gg/diablo-4/builds/sorcerer-charged-bolts",
+      "sourceSeason": "S14 死亡觉醒",
+      "referenceTitle": "S14 Lurkin's Pyro Bolts - Liam Neeson Sorcerer",
+      "asOf": "2026-06-28",
+      "note": "Mobalytics 页面标注为 S14 法师 Pyro Bolts，2026-06-26 创建，含装备、技能轮转、技能树、附魔、变体、巅峰入口和更新说明；本站按火焰流派资料页结构整理。"
+    },
+    "title": "S14 死亡觉醒 法师 · 烈焰电荷弹冲层",
+    "archetypeName": "烈焰电荷弹",
+    "summary": {
+      "oneLine": "法师「烈焰电荷弹」冲层 BD，围绕拉姆·埃森之杖、电荷弹、燃烧系叠层、召唤魔宠、无限法衣聚怪和无星续航建立近中距离爆发。",
+      "pros": ["同赛季社区参考", "爆发窗口明确", "装备和技能循环来源清晰"],
+      "cons": ["需要管理燃烧叠层和法力", "站位比连锁闪电更激进", "首领阶段需要熟悉电荷弹命中距离"],
+      "requirements": ["武器：拉姆·埃森之杖", "胸甲：无限法衣", "戒指：无星夜空之戒", "技能：电荷弹 + 召唤魔宠"],
+      "statPriority": ["电荷弹等级", "暴击几率", "冷却缩减", "法力消耗降低", "火焰伤害"]
+    },
+    "gearSlots": [
+      {
+        "slotId": "helm",
+        "target": {"type": "unique", "zhName": "谐角之冠"},
+        "aspect": {"name": "神话暗金位", "role": "全技能、冷却和冲层减伤", "sourceStatus": "Mobalytics S14 Pyro Bolts 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["全技能等级", "冷却缩减", "生命上限", "法力消耗降低"],
+        "alternatives": [
+          {"zhName": "传奇头盔 + 防御威能", "reason": "缺谐角之冠时补抗性和生命。", "tradeoff": "全技能和减伤下降。"},
+          {"zhName": "星陨小冠", "reason": "陨石/附魔变体过渡。", "tradeoff": "偏离来源主体。"}
+        ]
+      },
+      {
+        "slotId": "chest",
+        "target": {"type": "unique", "zhName": "无限法衣"},
+        "aspect": {"name": "暗金特效位", "role": "传送聚怪和电荷弹近距离命中核心", "sourceStatus": "Mobalytics S14 Pyro Bolts 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["传送术等级", "生命上限", "减伤", "全元素抗性"],
+        "alternatives": [
+          {"zhName": "泰瑞尔之力", "reason": "抗性和弹幕压力极高时使用。", "tradeoff": "聚怪能力下降。"},
+          {"zhName": "传奇胸甲 + 防御威能", "reason": "起步版补硬度。", "tradeoff": "清图效率下降。"}
+        ]
+      },
+      {
+        "slotId": "gloves",
+        "target": {"type": "legendary", "zhName": "传奇手套 + 无暇烈焰威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "无暇烈焰威能", "role": "火系燃烧和电荷弹爆发核心", "sourceStatus": "Mobalytics S14 Pyro Bolts 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["电荷弹等级", "攻击速度", "暴击几率", "幸运一击"],
+        "alternatives": [
+          {"zhName": "织焰者", "reason": "火焰技能变体或起步过渡。", "tradeoff": "电荷弹专属收益下降。"},
+          {"zhName": "命运之拳", "reason": "幸运一击和高波动娱乐变体。", "tradeoff": "稳定性较差。"}
+        ]
+      },
+      {
+        "slotId": "pants",
+        "target": {"type": "legendary", "zhName": "传奇裤子 + 天力威能", "image": "./public/assets/icon-armor.png"},
+        "aspect": {"name": "天力威能", "role": "冲层防御与伤害窗口联动", "sourceStatus": "Mobalytics S14 Pyro Bolts 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["生命上限", "护甲", "全元素抗性", "减伤"],
+        "alternatives": [
+          {"zhName": "传奇裤子 + 防御威能", "reason": "抗性或护甲缺口大时过渡。", "tradeoff": "伤害窗口下降。"},
+          {"zhName": "鲁莽", "reason": "需要屏障容错时使用。", "tradeoff": "威能位下降。"}
+        ]
+      },
+      {
+        "slotId": "boots",
+        "target": {"type": "unique", "zhName": "艾苏的传家宝"},
+        "aspect": {"name": "暗金特效位", "role": "移动速度转暴击，支撑电荷弹爆发", "sourceStatus": "Mobalytics S14 Pyro Bolts 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["移动速度", "暴击几率", "闪避冷却", "全元素抗性"],
+        "alternatives": [
+          {"zhName": "拉卡诺斯的苏醒", "reason": "速刷移动和安全变体。", "tradeoff": "暴击转化下降。"},
+          {"zhName": "传奇靴子 + 移动威能", "reason": "起步版补移速。", "tradeoff": "输出下降。"}
+        ]
+      },
+      {
+        "slotId": "amulet",
+        "target": {"type": "legendary", "zhName": "传奇护符 + 燃烧威能", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "燃烧威能", "role": "火焰叠层、召唤魔宠和电荷弹增伤", "sourceStatus": "Mobalytics S14 Pyro Bolts 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["电荷弹等级", "冷却缩减", "暴击几率", "法力消耗降低"],
+        "alternatives": [
+          {"zhName": "传奇护符 + 无暇烈焰威能", "reason": "根据手套词缀重排威能位。", "tradeoff": "燃烧叠层收益下降。"},
+          {"zhName": "破裂冬镜", "reason": "召唤/冰刃变体可尝试。", "tradeoff": "偏离来源火焰电荷弹主体。"}
+        ]
+      },
+      {
+        "slotId": "ring1",
+        "target": {"type": "unique", "zhName": "无星夜空之戒"},
+        "aspect": {"name": "神话暗金位", "role": "法力消耗和连续电荷弹核心", "sourceStatus": "Mobalytics S14 Pyro Bolts 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["攻击速度", "暴击几率", "资源消耗降低", "幸运一击"],
+        "alternatives": [
+          {"zhName": "传奇戒指 + 资源威能", "reason": "缺无星时维持法力。", "tradeoff": "持续输出下降。"},
+          {"zhName": "塔拉夏虹彩戒环", "reason": "元素叠层变体。", "tradeoff": "法力压力更大。"}
+        ]
+      },
+      {
+        "slotId": "ring2",
+        "target": {"type": "legendary", "zhName": "传奇戒指 + 焚化者威能", "image": "./public/assets/icon-jewelry.png"},
+        "aspect": {"name": "焚化者威能", "role": "火焰持续伤害与爆发补强", "sourceStatus": "Mobalytics S14 Pyro Bolts 装备位"},
+        "required": false,
+        "core": true,
+        "replaceable": true,
+        "affixes": ["暴击几率", "幸运一击", "法力生成", "冷却缩减"],
+        "alternatives": [
+          {"zhName": "艾克斯法尔腐蚀印戒", "reason": "持续伤害变体可用。", "tradeoff": "电荷弹直接爆发下降。"},
+          {"zhName": "传奇戒指 + 资源威能", "reason": "法力不足时过渡。", "tradeoff": "伤害下降。"}
+        ]
+      },
+      {
+        "slotId": "twoHand",
+        "target": {"type": "unique", "zhName": "拉姆·埃森之杖"},
+        "aspect": {"name": "暗金特效位", "role": "电荷弹专属核心武器", "sourceStatus": "Mobalytics S14 Pyro Bolts 装备位"},
+        "required": true,
+        "core": true,
+        "replaceable": false,
+        "affixes": ["武器伤害", "电荷弹等级", "暴击伤害", "火焰伤害"],
+        "alternatives": [
+          {"zhName": "传奇法杖 + 无暇烈焰威能", "reason": "缺拉姆·埃森之杖时临时过渡。", "tradeoff": "电荷弹专属联动缺失。"},
+          {"zhName": "无尽怒火法杖", "reason": "火球/火焰过渡。", "tradeoff": "不适合完整电荷弹循环。"}
+        ]
+      },
+      {
+        "slotId": "mainHand",
+        "target": {"type": "legendary", "zhName": "不使用：双手法杖方案", "image": "./public/assets/icon-weapon.png"},
+        "aspect": {"name": "空槽说明", "role": "来源方案使用拉姆·埃森之杖，不占单手位", "sourceStatus": "Mobalytics S14 Pyro Bolts 装备位"},
+        "required": false,
+        "core": false,
+        "replaceable": true,
+        "affixes": ["无", "保持双手法杖方案", "不占用单手位"],
+        "alternatives": [
+          {"zhName": "眼球", "reason": "传送速刷或娱乐过渡。", "tradeoff": "电荷弹核心武器缺失。"},
+          {"zhName": "传奇魔杖 + 资源威能", "reason": "法力压力大时过渡。", "tradeoff": "武器威能倍率下降。"}
+        ]
+      },
+      {
+        "slotId": "offHand",
+        "target": {"type": "legendary", "zhName": "不使用：来源页副手为空", "image": "./public/assets/icon-utility.png"},
+        "aspect": {"name": "空槽说明", "role": "来源页面 Offhand Empty，不额外占副手威能", "sourceStatus": "Mobalytics S14 Pyro Bolts 装备位"},
+        "required": false,
+        "core": false,
+        "replaceable": true,
+        "affixes": ["无", "保持双手法杖方案", "不占用副手位"],
+        "alternatives": [
+          {"zhName": "传奇副手 + 冷却威能", "reason": "切换单手方案时补冷却。", "tradeoff": "伤害倍率下降。"},
+          {"zhName": "传奇副手 + 防御威能", "reason": "起步版补硬度。", "tradeoff": "伤害下降。"}
+        ]
+      }
+    ],
+    "skillTree": {
+      "core": "电荷弹",
+      "skillBar": [
+        {"slot": 1, "name": "电荷弹", "role": "主攻爆发", "points": 5},
+        {"slot": 2, "name": "炼狱", "role": "终极聚怪和爆发", "points": 1},
+        {"slot": 3, "name": "召唤魔宠", "role": "燃烧触发和火系重置", "points": 1},
+        {"slot": 4, "name": "寒冰护甲", "role": "屏障和自负覆盖", "points": 1},
+        {"slot": 5, "name": "传送术", "role": "聚怪和走位", "points": 1},
+        {"slot": 6, "name": "火焰护盾", "role": "保命和星陨前置安全", "points": 1}
+      ],
+      "pointOrder": [
+        {"levelRange": "1-8", "skill": "电荷弹", "points": "+5 并点强化", "reason": "主力输出优先点满。"},
+        {"levelRange": "9-13", "skill": "传送术", "points": "+1 至强化", "reason": "配合无限法衣聚怪和走位。"},
+        {"levelRange": "14-18", "skill": "寒冰护甲", "points": "+1 至强化", "reason": "保持屏障和自负类增伤。"},
+        {"levelRange": "19-23", "skill": "火焰护盾", "points": "+1", "reason": "处理危险词缀和爆发前置安全。"},
+        {"levelRange": "24-28", "skill": "召唤魔宠", "points": "+1 至强化", "reason": "来源循环要求每 6 秒施放并触发燃烧/重置。"},
+        {"levelRange": "29-33", "skill": "炼狱", "points": "+1", "reason": "精英和首领爆发。"},
+        {"levelRange": "34-45", "skill": "火焰、燃烧和暴击被动", "points": "+6 至 +9", "reason": "提高 Pyro Bolts 的火系叠层收益。"},
+        {"levelRange": "46-60", "skill": "法力、冷却和屏障被动", "points": "+6 至 +9", "reason": "没有足够法力前不要盲目追最高热度层数。"},
+        {"levelRange": "60-80", "skill": "召唤与附魔联动", "points": "按装备微调", "reason": "来源附魔使用冰霜新星和陨石，按控制与燃烧窗口补点。"},
+        {"levelRange": "80+", "skill": "终局重分配", "points": "围绕法力和燃烧层数调整", "reason": "冲层前确保抗性、护甲、法力与冷却达标。"}
+      ],
+      "notes": ["附魔：冰霜新星、陨石。", "来源循环强调：召唤魔宠约每 6 秒施放一次，火焰技能约每 3 秒维持燃烧/热度窗口。"]
+    },
+    "paragon": {
+      "rule": "来源页面提供 Paragon 入口；本站按电荷弹火焰构筑逻辑整理：先雕文孔和燃烧/火焰传奇节点，再补法力、暴击、屏障和防御；精确坐标仍需按来源 Planner 校准。",
+      "clickOrder": [
+        {"board": "起始盘", "node": "核心雕文孔", "reason": "先插入火焰/元素雕文，建立主攻收益。"},
+        {"board": "起始盘", "node": "智力与生命稀有节点", "reason": "补基础伤害和高层硬度。"},
+        {"board": "燃烧本能盘", "node": "燃烧本能传奇节点", "reason": "Pyro Bolts 依赖燃烧窗口放大。"},
+        {"board": "燃烧本能盘", "node": "雕文孔", "reason": "承接火焰或持续伤害雕文。"},
+        {"board": "附魔大师盘", "node": "传奇节点路径", "reason": "增强冰霜新星/陨石附魔触发。"},
+        {"board": "静电奔涌盘", "node": "法力相关节点", "reason": "电荷弹连续施放需要法力稳定。"},
+        {"board": "元素召唤师盘", "node": "召唤魔宠相关节点", "reason": "支持来源循环里的魔宠维持。"},
+        {"board": "冰冷命运盘", "node": "控制/易伤节点", "reason": "配合冰霜新星附魔提高精英伤害。"},
+        {"board": "任意盘", "node": "冷却与屏障节点", "reason": "保证寒冰护甲、传送和火焰护盾循环。"},
+        {"board": "任意盘", "node": "抗性、护甲、生命小点", "reason": "冲层前补齐防御阈值。"}
+      ]
+    },
+    "gameplay": {
+      "opener": ["召唤魔宠，先触发燃烧和火系重置。", "放置海蛇/召唤物窗口后传送进怪群聚怪。", "开启寒冰护甲保持屏障。", "精英或首领阶段开启炼狱。", "近中距离连续施放电荷弹。"],
+      "loop": ["召唤魔宠约每 6 秒补一次，维持元素召唤和燃烧触发。", "火焰技能约每 3 秒维持热度/燃烧窗口。", "传送用于聚怪，不要只当逃生技能。", "法力不足时先等无星和资源窗口，不要空放电荷弹。"],
+      "boss": ["首领前保留炼狱、火焰护盾和寒冰护甲。", "用火焰护盾处理危险机制后站近电荷弹爆发距离。", "拉姆·埃森之杖到位前不要硬按冲层伤害预期。"],
+      "defense": ["无限法衣聚怪后必须有屏障或火焰护盾。", "高层先补抗性、护甲和生命。", "传送和火焰护盾不能同时空交。"],
+      "speedFarm": ["低层用传送聚怪后电荷弹清屏。", "可以把头盔或戒指调整为冷却/移动/资源位。"],
+      "commonMistakes": ["只堆伤害不解决法力。", "召唤魔宠断档导致燃烧窗口下降。", "电荷弹距离控制不好，首领命中不足。"]
+    }
+  },
+  {
+    "id": "s14-sorcerer-fire-speed_farm",
+    "extends": "s14-sorcerer-fire-pit_push",
+    "title": "S14 死亡觉醒 法师 · 烈焰电荷弹速刷",
+    "archetypeName": "烈焰电荷弹",
+    "summary": {
+      "oneLine": "法师「烈焰电荷弹」速刷 BD，沿用 Pyro Bolts 主体，把头盔、靴子和戒指位调整为冷却、移动和法力稳定。",
+      "pros": ["聚怪清图快", "近距离爆发直接", "冲层装备可复用"],
+      "cons": ["法力不足会断节奏", "低层速度不如纯传送流", "高层首领要切回冲层配置"],
+      "requirements": ["武器：拉姆·埃森之杖", "胸甲：无限法衣", "主攻：电荷弹"],
+      "statPriority": ["冷却缩减", "移动速度", "法力消耗降低", "电荷弹等级", "暴击几率"]
+    },
+    "gearSlots": [
+      {"slotId": "helm", "target": {"type": "legendary", "zhName": "传奇头盔 + 冷却威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "冷却威能", "role": "速刷传送和火焰护盾循环", "sourceStatus": "Mobalytics Pyro Bolts 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["冷却缩减", "生命上限", "法力消耗降低", "全元素抗性"], "alternatives": [{"zhName": "谐角之冠", "reason": "需要全技能和高层硬度时换回。", "tradeoff": "速刷冷却词缀压力增加。"}, {"zhName": "传奇头盔 + 防御威能", "reason": "抗性不足时过渡。", "tradeoff": "速度下降。"}]},
+      {"slotId": "boots", "target": {"type": "unique", "zhName": "拉卡诺斯的苏醒"}, "aspect": {"name": "暗金特效位", "role": "速刷移动、安全和路线效率", "sourceStatus": "Mobalytics Pyro Bolts 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["移动速度", "全伤害乘区", "闪避冷却", "全元素抗性"], "alternatives": [{"zhName": "艾苏的传家宝", "reason": "需要暴击转化或冲层时换回。", "tradeoff": "路线速度下降。"}, {"zhName": "传奇靴子 + 移动威能", "reason": "低层过渡。", "tradeoff": "暗金收益下降。"}]},
+      {"slotId": "ring2", "target": {"type": "legendary", "zhName": "传奇戒指 + 资源威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "资源威能", "role": "低层连续电荷弹续航", "sourceStatus": "Mobalytics Pyro Bolts 速刷变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["资源生成", "暴击几率", "幸运一击", "冷却缩减"], "alternatives": [{"zhName": "传奇戒指 + 焚化者威能", "reason": "需要冲层伤害时换回。", "tradeoff": "法力压力上升。"}, {"zhName": "塔拉夏虹彩戒环", "reason": "元素叠层变体。", "tradeoff": "续航下降。"}]}
+    ],
+    "gameplay": {
+      "opener": ["进图先召唤魔宠，然后传送聚怪。", "寒冰护甲起手保持屏障。", "低层精英直接用电荷弹清掉，不等完整炼狱。"],
+      "loop": ["传送和移动靴缩短空跑。", "召唤魔宠不断档，电荷弹清密集怪群。", "零散小怪直接跳过。", "法力不足时让资源戒指和无星恢复节奏。"],
+      "boss": ["速刷首领打一轮炼狱和电荷弹爆发。", "火焰护盾留给危险机制。", "需要高层首领时切回冲层版。"],
+      "defense": ["速刷版防御较低，危险词缀先传送离开。", "抗性不足时不要换掉冲层防御件。", "屏障断档不要贴脸。"],
+      "speedFarm": ["主目标是传送聚怪和近距离电荷弹清屏。", "低层材料可以牺牲部分伤害换移动。"],
+      "commonMistakes": ["为了零散怪停留。", "魔宠断档后还硬打精英。", "换掉资源位后法力断档。"]
+    }
+  },
+  {
+    "id": "s14-sorcerer-fire-daily",
+    "extends": "s14-sorcerer-fire-pit_push",
+    "title": "S14 死亡觉醒 法师 · 烈焰电荷弹日常",
+    "archetypeName": "烈焰电荷弹",
+    "summary": {
+      "oneLine": "法师「烈焰电荷弹」日常 BD，保留电荷弹、召唤魔宠和屏障核心，用传奇防御件和资源位降低成型门槛。",
+      "pros": ["起步路径清楚", "缺神话暗金也能过渡", "日常清图稳定"],
+      "cons": ["缺拉姆·埃森之杖不是完整流派", "缺无星会有法力压力", "冲层上限低于完整暗金版"],
+      "requirements": ["先找拉姆·埃森之杖", "胸甲可用传奇防御件过渡", "戒指优先资源和暴击"],
+      "statPriority": ["生命上限", "全元素抗性", "电荷弹等级", "法力生成", "冷却缩减"]
+    },
+    "gearSlots": [
+      {"slotId": "helm", "target": {"type": "legendary", "zhName": "传奇头盔 + 防御威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "防御威能", "role": "日常抗性、护甲和冷却过渡", "sourceStatus": "Mobalytics Pyro Bolts 日常变体整理"}, "required": false, "core": false, "replaceable": true, "affixes": ["生命上限", "护甲", "全元素抗性", "冷却缩减"], "alternatives": [{"zhName": "谐角之冠", "reason": "拿到后切回完整版本。", "tradeoff": "获取难度高。"}, {"zhName": "星陨小冠", "reason": "陨石附魔过渡。", "tradeoff": "防御较低。"}]},
+      {"slotId": "chest", "target": {"type": "legendary", "zhName": "传奇胸甲 + 防御威能", "image": "./public/assets/icon-armor.png"}, "aspect": {"name": "防御威能", "role": "缺无限法衣时补抗性和硬度", "sourceStatus": "Mobalytics Pyro Bolts 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["生命上限", "护甲", "减伤", "全元素抗性"], "alternatives": [{"zhName": "无限法衣", "reason": "拿到后切回完整聚怪版。", "tradeoff": "获取前清图效率低。"}, {"zhName": "泰瑞尔之力", "reason": "补抗性缺口。", "tradeoff": "需要神话暗金。"}]},
+      {"slotId": "ring1", "target": {"type": "legendary", "zhName": "传奇戒指 + 资源威能", "image": "./public/assets/icon-jewelry.png"}, "aspect": {"name": "资源威能", "role": "缺无星时保证法力循环", "sourceStatus": "Mobalytics Pyro Bolts 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["资源生成", "暴击几率", "幸运一击", "冷却缩减"], "alternatives": [{"zhName": "无星夜空之戒", "reason": "拿到后切回完整版本。", "tradeoff": "获取难度高。"}, {"zhName": "塔拉夏虹彩戒环", "reason": "法力足够后补元素收益。", "tradeoff": "续航下降。"}]},
+      {"slotId": "twoHand", "target": {"type": "legendary", "zhName": "传奇法杖 + 无暇烈焰威能", "image": "./public/assets/icon-weapon.png"}, "aspect": {"name": "无暇烈焰威能", "role": "缺拉姆·埃森之杖时的火焰过渡", "sourceStatus": "Mobalytics Pyro Bolts 日常变体整理"}, "required": false, "core": true, "replaceable": true, "affixes": ["武器伤害", "电荷弹伤害", "暴击伤害", "火焰伤害"], "alternatives": [{"zhName": "拉姆·埃森之杖", "reason": "拿到后切回完整电荷弹版。", "tradeoff": "获取前核心机制不完整。"}, {"zhName": "无尽怒火法杖", "reason": "火球过渡。", "tradeoff": "转向其他火焰流派。"}]}
+    ],
+    "gameplay": {
+      "opener": ["先用最高装等武器推进难度。", "寒冰护甲开启后再传送进怪。", "召唤魔宠后使用电荷弹清精英。"],
+      "loop": ["日常版本以法力稳定为主，不强求最高燃烧层数。", "魔宠不要断档。", "没有无限法衣时不要强行贴脸聚怪。", "拉姆·埃森、无星和无限法衣到位后转冲层版。"],
+      "boss": ["保留炼狱和火焰护盾。", "法力不足时先等待资源，不要空放。", "日常首领不追求极限秒杀。"],
+      "defense": ["生命、抗性、护甲优先于纯输出。", "屏障断档不要贴脸。", "传送进怪前确认火焰护盾或寒冰护甲。"],
+      "speedFarm": ["低层可以先用移动靴和资源戒指。", "装备成型后切换速刷版。"],
+      "commonMistakes": ["缺拉姆·埃森之杖就硬按完整 BD 打。", "不补法力导致电荷弹断档。", "魔宠断档导致燃烧收益下降。"]
+    }
   }
 ]

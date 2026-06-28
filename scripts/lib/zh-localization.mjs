@@ -41,6 +41,8 @@ const exactItemNames = new Map([
   ["The Umbracrux", "晦暗核心"],
   ["Raiment of the Infinite", "无限法衣"],
   ["Signet of Pelghain", "佩尔盖恩印戒"],
+  ["Staff of Lam Esen", "拉姆·埃森之杖"],
+  ["Tal Rasha's Iridescent Loop", "塔拉夏虹彩戒环"],
   ["Harmony of Ebewaka", "艾贝瓦卡的和谐"],
   ["Rod of Kepeleke", "凯佩莱凯之杖"],
   ["Thundergod's Blessing", "雷神的祝福"],
