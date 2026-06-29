@@ -7,7 +7,13 @@
     "primaryResources": ["Fury"],
     "seasonStartPriorities": ["武器伤害", "怒气循环", "范围清怪", "移动速度", "坚韧"],
     "buildAxes": ["weapon_scaling", "bleed_dot", "thorns", "berserking", "shouts"],
-    "sourceStatus": "official_patch_present"
+    "sourceStatus": "official_patch_present",
+    "playableStatus": "official_released",
+    "classSourceId": "blizzard_lord_of_hatred",
+    "classSourceUrl": "https://diablo4.blizzard.com/en-gb/lord-of-hatred",
+    "asOf": "2026-06-28",
+    "releaseContext": "本体职业，当前 2026 基线可玩。",
+    "dataConfidence": "official_roster"
   },
   {
     "id": "druid",
@@ -17,7 +23,13 @@
     "primaryResources": ["Spirit"],
     "seasonStartPriorities": ["灵力循环", "范围清怪", "同伴或变形联动", "护甲与抗性", "机动性"],
     "buildAxes": ["storm", "earth", "shapeshift", "companion", "poison"],
-    "sourceStatus": "official_patch_present"
+    "sourceStatus": "official_patch_present",
+    "playableStatus": "official_released",
+    "classSourceId": "blizzard_lord_of_hatred",
+    "classSourceUrl": "https://diablo4.blizzard.com/en-gb/lord-of-hatred",
+    "asOf": "2026-06-28",
+    "releaseContext": "本体职业，当前 2026 基线可玩。",
+    "dataConfidence": "official_roster"
   },
   {
     "id": "necromancer",
@@ -27,17 +39,31 @@
     "primaryResources": ["Essence", "Corpses"],
     "seasonStartPriorities": ["召唤或尸体循环", "精魂续航", "范围清怪", "单体爆发", "生存层"],
     "buildAxes": ["minion", "blood_overpower", "bone_crit", "shadow_dot", "corpse"],
-    "sourceStatus": "official_patch_present"
+    "sourceStatus": "official_patch_present",
+    "playableStatus": "official_released",
+    "classSourceId": "blizzard_lord_of_hatred",
+    "classSourceUrl": "https://diablo4.blizzard.com/en-gb/lord-of-hatred",
+    "asOf": "2026-06-28",
+    "releaseContext": "本体职业，当前 2026 基线可玩。",
+    "dataConfidence": "official_roster"
   },
   {
     "id": "paladin",
     "displayName": "Paladin",
     "zhName": "圣骑士",
     "aliases": [],
-    "primaryResources": ["职业资源待资料锁定"],
+    "primaryResources": ["职业资源校验中"],
     "seasonStartPriorities": ["核心技能等级", "盾牌或格挡联动", "光环/防御层", "移动速度", "冷却缩减"],
     "buildAxes": ["shield_bash", "blessed_hammer", "aura", "justice", "juggernaut"],
-    "sourceStatus": "official_patch_present_needs_full_class_source"
+    "sourceStatus": "official_patch_present_needs_full_class_source",
+    "playableStatus": "official_released_expansion",
+    "classSourceId": "blizzard_lord_of_hatred",
+    "classSourceUrl": "https://diablo4.blizzard.com/en-gb/lord-of-hatred",
+    "asOf": "2026-06-28",
+    "expansion": "Lord of Hatred",
+    "releaseDate": "2026-04-28",
+    "releaseContext": "Lord of Hatred 新职业，官方职业名已确认；职业资源、精确技能系数和高层样本仍需继续校验。",
+    "dataConfidence": "official_roster_mechanics_needs_validation"
   },
   {
     "id": "rogue",
@@ -47,7 +73,13 @@
     "primaryResources": ["Energy", "Combo Points"],
     "seasonStartPriorities": ["能量循环", "机动性", "易伤覆盖", "暴击收益", "控制与生存"],
     "buildAxes": ["marksman", "cutthroat", "traps", "imbuements", "combo_points"],
-    "sourceStatus": "official_patch_present"
+    "sourceStatus": "official_patch_present",
+    "playableStatus": "official_released",
+    "classSourceId": "blizzard_lord_of_hatred",
+    "classSourceUrl": "https://diablo4.blizzard.com/en-gb/lord-of-hatred",
+    "asOf": "2026-06-28",
+    "releaseContext": "本体职业，当前 2026 基线可玩。",
+    "dataConfidence": "official_roster"
   },
   {
     "id": "sorcerer",
@@ -57,7 +89,13 @@
     "primaryResources": ["Mana"],
     "seasonStartPriorities": ["法力续航", "范围清怪", "屏障/护盾", "冷却缩减", "元素乘区"],
     "buildAxes": ["fire", "frost", "shock", "conjuration", "barrier"],
-    "sourceStatus": "official_patch_present_alias_in_unique_list"
+    "sourceStatus": "official_patch_present_alias_in_unique_list",
+    "playableStatus": "official_released",
+    "classSourceId": "blizzard_lord_of_hatred",
+    "classSourceUrl": "https://diablo4.blizzard.com/en-gb/lord-of-hatred",
+    "asOf": "2026-06-28",
+    "releaseContext": "本体职业，当前 2026 基线可玩；部分官方物品表仍混用 Sorcerer/Sorceress 名称。",
+    "dataConfidence": "official_roster"
   },
   {
     "id": "spiritborn",
@@ -67,16 +105,31 @@
     "primaryResources": ["Vigor"],
     "seasonStartPriorities": ["活力循环", "移动与位移", "灵兽/标签联动", "攻速", "防御层"],
     "buildAxes": ["jaguar", "gorilla", "eagle", "centipede", "spirit_hall"],
-    "sourceStatus": "official_patch_present"
+    "sourceStatus": "official_patch_present",
+    "playableStatus": "official_released_expansion",
+    "classSourceId": "blizzard_lord_of_hatred",
+    "classSourceUrl": "https://diablo4.blizzard.com/en-gb/lord-of-hatred",
+    "asOf": "2026-06-28",
+    "expansion": "Vessel of Hatred",
+    "releaseContext": "资料片职业，当前 2026 基线可玩。",
+    "dataConfidence": "official_roster"
   },
   {
     "id": "warlock",
     "displayName": "Warlock",
     "zhName": "术士",
     "aliases": [],
-    "primaryResources": ["职业资源待资料锁定"],
+    "primaryResources": ["职业资源校验中"],
     "seasonStartPriorities": ["核心技能等级", "召唤/恶魔学联动", "持续伤害或爆发轴", "冷却缩减", "生命与护甲"],
     "buildAxes": ["demonology", "hellfire", "abyss", "sigils", "doom"],
-    "sourceStatus": "official_patch_present_needs_full_class_source"
+    "sourceStatus": "official_patch_present_needs_full_class_source",
+    "playableStatus": "official_released_expansion",
+    "classSourceId": "blizzard_lord_of_hatred",
+    "classSourceUrl": "https://diablo4.blizzard.com/en-gb/lord-of-hatred",
+    "asOf": "2026-06-28",
+    "expansion": "Lord of Hatred",
+    "releaseDate": "2026-04-28",
+    "releaseContext": "Lord of Hatred 新职业，官方职业名已确认；职业资源、召唤/诅咒继承和高层样本仍需继续校验。",
+    "dataConfidence": "official_roster_mechanics_needs_validation"
   }
 ]

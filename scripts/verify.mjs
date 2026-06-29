@@ -96,7 +96,14 @@ assert(JSON.stringify(classIds) === JSON.stringify([...version.classSet].sort())
 assert(classes.every((item) => item.zhName && item.displayName), "Each class needs Chinese and English names");
 assert(classes.every((item) => item.primaryResources?.length >= 1), "Each class needs at least one resource/status label");
 assert(classes.every((item) => item.primaryResources.every((resource) => !/pending source|source lock|Class-specific/i.test(resource))), "Class resource labels must not expose English placeholder text");
+assert(classes.every((item) => item.playableStatus && item.classSourceId && item.classSourceUrl && item.asOf && item.releaseContext && item.dataConfidence), "Each class needs playable status, source and player-facing release context");
+assert(classes.every((item) => sources.some((source) => source.id === item.classSourceId)), "Each class source id must exist in source registry");
 assert(classIds.includes("paladin") && classIds.includes("warlock"), "Lord of Hatred class roster must include Paladin and Warlock");
+for (const newClassId of ["paladin", "warlock"]) {
+  const classInfo = classes.find((item) => item.id === newClassId);
+  assert(classInfo.playableStatus === "official_released_expansion" && classInfo.expansion === "Lord of Hatred", `${newClassId} must be marked as a Lord of Hatred released class`);
+  assert(classInfo.dataConfidence === "official_roster_mechanics_needs_validation", `${newClassId} mechanics must remain validation-bound`);
+}
 
 for (const collection of [archetypes, seasonPlans]) {
   const ids = collection.map((item) => item.classId).sort();
@@ -358,6 +365,8 @@ assert(frontendText.includes("is-fallback"), "BD recommendation board must visib
 assert(frontendText.includes("renderBuildMaturityPanel") && frontendText.includes("build-maturity-panel"), "BD library must expose source maturity before guide cards");
 assert(frontendText.includes("build-list-entry-actions") && frontendText.includes("guideSectionUrl(guide, \"gear\")"), "BD sidebar list must link directly to gear, skills, paragon and gameplay sections");
 assert(frontendText.includes("renderClassModeCard"), "Class page must render detailed per-mode build cards");
+assert(frontendText.includes("renderClassRosterStatus") && frontendText.includes("class-roster-status"), "Class page must expose official class roster and mechanics validation status");
+assert(frontendText.includes("classPlayableLabel") && frontendText.includes("classConfidenceLabel"), "Class page must translate class status into player-facing Chinese");
 assert(frontendText.includes("class-mode-card__facts") && frontendText.includes("class-mode-card__route") && frontendText.includes("class-mode-card__actions"), "Class build matrix must expose difficulty, stage, ceiling, route preview and section entry links");
 assert(frontendText.includes("renderClassBuildFamilySummary") && frontendText.includes("class-build-family__summary") && frontendText.includes("关键部位"), "Class build matrix must expose family-level gear, ceiling and replacement summaries");
 assert(frontendText.includes("renderClassSeasonCoverage"), "Class page must render cross-season build coverage");

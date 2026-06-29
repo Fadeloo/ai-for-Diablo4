@@ -46,6 +46,25 @@ function countGenericRouteEntries(builds) {
 
 const frontendDataContracts = [
   {
+    component: "ClassRosterStatus",
+    zhName: "职业来源状态",
+    source: "classes + source-registry",
+    fields: [
+      "id",
+      "zhName",
+      "displayName",
+      "playableStatus",
+      "classSourceId",
+      "classSourceUrl",
+      "asOf",
+      "expansion",
+      "releaseDate",
+      "releaseContext",
+      "dataConfidence"
+    ],
+    frontendUse: "职业页顶部说明该职业是否为正式可玩职业、是否来自资料片、来源日期和机制资料校验状态，避免把新职业模板误认为完整实战资料。"
+  },
+  {
     component: "RecommendedBuildBoard",
     zhName: "本赛季抄作业入口",
     source: "build-guides.builds",
@@ -360,7 +379,7 @@ const pageBlueprints = [
     route: "#classes",
     zhName: "职业开荒",
     playerGoal: "查看职业定位、阶段路线和日常/速刷/冲层流派矩阵。",
-    requiredModules: ["职业资源", "开荒阶段", "流派矩阵", "赛季切换", "BD 入口"]
+    requiredModules: ["职业来源状态", "职业资源", "开荒阶段", "流派矩阵", "赛季切换", "BD 入口"]
   },
   {
     route: "#forecast",
@@ -615,6 +634,12 @@ const payload = {
       zhName: "来源登记层",
       files: ["data/sources/source-registry.json"],
       frontendUse: "来源页展示可信度；导入脚本只引用已登记来源。"
+    },
+    {
+      id: "class_roster",
+      zhName: "职业名单层",
+      files: ["data/classes/classes.json", "data/sources/source-registry.json"],
+      frontendUse: "职业页展示正式可玩状态、资料片来源、asOf 和机制资料校验边界；圣骑士和术士标记为 Lord of Hatred 正式职业但机制仍需赛季校验。"
     },
     {
       id: "equipment_library",

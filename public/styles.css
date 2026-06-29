@@ -5413,6 +5413,86 @@ h4 {
   line-height: 1.45;
 }
 
+.class-roster-status {
+  align-items: stretch;
+  background:
+    linear-gradient(135deg, rgba(164, 32, 24, 0.18), rgba(8, 4, 3, 0.76)),
+    rgba(10, 6, 4, 0.64);
+  border: 1px solid rgba(214, 173, 99, 0.24);
+  display: grid;
+  gap: 14px;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.78fr) auto;
+  padding: 15px;
+}
+
+.class-roster-status > div:first-child {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.class-roster-status span,
+.class-roster-status__facts span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.class-roster-status strong {
+  color: #fff7df;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.class-roster-status p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.class-roster-status__facts {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.class-roster-status__facts article {
+  background: rgba(8, 4, 3, 0.48);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  padding: 9px;
+}
+
+.class-roster-status__facts b {
+  color: var(--bone);
+  font-size: 12px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.class-roster-status > a {
+  align-self: center;
+  background: rgba(214, 173, 99, 0.1);
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-weight: 850;
+  justify-self: end;
+  min-width: 126px;
+  padding: 9px 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.class-roster-status > a:hover {
+  background: rgba(214, 173, 99, 0.16);
+}
+
 .class-build-panel {
   background: rgba(10, 6, 4, 0.58);
   border: 1px solid rgba(214, 173, 99, 0.22);
@@ -6290,6 +6370,14 @@ h4 {
     grid-template-columns: minmax(150px, 0.72fr) repeat(3, minmax(170px, 1fr));
   }
 
+  .class-roster-status {
+    grid-template-columns: 1fr;
+  }
+
+  .class-roster-status > a {
+    justify-self: start;
+  }
+
   .progression-checkpoints {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -6627,6 +6715,7 @@ h4 {
   .planner-skillbar > div,
   .recommended-build-row,
   .class-build-actions,
+  .class-roster-status__facts,
   .class-season-summary,
   .class-build-mode-grid,
   .class-season-block__head,

@@ -404,6 +404,22 @@ function statusLabel(value) {
   return dataStatusLabels[value] || value;
 }
 
+function classPlayableLabel(classInfo) {
+  const labels = {
+    official_released: "正式可玩职业",
+    official_released_expansion: "资料片正式职业"
+  };
+  return labels[classInfo.playableStatus] || "职业状态校验中";
+}
+
+function classConfidenceLabel(classInfo) {
+  const labels = {
+    official_roster: "官方职业名单已确认",
+    official_roster_mechanics_needs_validation: "官方职业名已确认，机制和高层样本继续校验"
+  };
+  return labels[classInfo.dataConfidence] || "资料状态校验中";
+}
+
 function className(classId) {
   if (classId === "all") return "全部职业";
   return state.classes.find((item) => item.id === classId)?.zhName ?? classId;
@@ -3667,6 +3683,28 @@ function renderClassBuildMatrix(selected, archetypes, guides) {
   `;
 }
 
+function renderClassRosterStatus(selected) {
+  const source = state.sources?.find((item) => item.id === selected.classSourceId);
+  const officialUrl = selected.classSourceUrl || source?.url;
+  const context = selected.releaseContext || "职业资料正在按官方来源和赛季样本校验。";
+  const expansionLine = selected.expansion ? `${selected.expansion}${selected.releaseDate ? ` · ${selected.releaseDate}` : ""}` : "暗黑 4 当前职业名单";
+  return `
+    <section class="class-roster-status" aria-label="职业来源状态">
+      <div>
+        <span>${classPlayableLabel(selected)}</span>
+        <strong>${selected.zhName} · ${selected.displayName}</strong>
+        <p>${displayText(context)}</p>
+      </div>
+      <div class="class-roster-status__facts">
+        <article><b>${displayText(expansionLine)}</b><span>发布范围</span></article>
+        <article><b>${displayText(selected.asOf || "资料日期校验中")}</b><span>asOf</span></article>
+        <article><b>${classConfidenceLabel(selected)}</b><span>资料状态</span></article>
+      </div>
+      ${officialUrl ? `<a href="${officialUrl}" target="_blank" rel="noreferrer">查看官方职业来源</a>` : ""}
+    </section>
+  `;
+}
+
 function renderSelectedClass() {
   const selected = state.classes.find((item) => item.id === state.selectedClassId) ?? state.classes[0];
   const plan = state.plans.find((item) => item.classId === selected.id);
@@ -3700,6 +3738,7 @@ function renderSelectedClass() {
     `)
     .join("");
   $("[data-class-builds]").innerHTML = `
+      ${renderClassRosterStatus(selected)}
       <section class="class-build-panel">
         <div class="section-title">
           <h4>${selected.zhName} BD 入口</h4>
