@@ -1807,6 +1807,34 @@ function guideSectionMeta(guide, key) {
   return sectionData[key] || sectionData.overview;
 }
 
+function renderBuildChapterIndex(guide) {
+  const chapterKeys = ["gear", "skills", "paragon", "gameplay", "variants", "sources"];
+  return `
+    <section class="build-chapter-index" aria-label="BD 章节索引">
+      <header>
+        <div>
+          <span>BD 章节索引</span>
+          <strong>按装备、技能、巅峰、打法和替换分区阅读</strong>
+        </div>
+        <em>${displayText(guide.guideCompleteness?.label || "核心分区已结构化")}</em>
+      </header>
+      <div class="build-chapter-index__grid">
+        ${chapterKeys.map((key) => {
+          const meta = guideSectionMeta(guide, key);
+          return `
+            <a class="build-chapter-index__card" href="${guideSectionUrl(guide, key)}" data-guide-jump="${key}">
+              <span>${meta.label}</span>
+              <strong>${meta.title}</strong>
+              <p>${displayText(meta.detail)}</p>
+              <b>${meta.stat}</b>
+            </a>
+          `;
+        }).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderGuideSectionDirectory(guide) {
   return `
     <section class="guide-section-directory" aria-label="BD 分区地图">
@@ -3110,6 +3138,7 @@ function renderBuildPlannerSheet(guide) {
         <a href="${guideSectionUrl(guide, "gameplay")}">打法流程</a>
         <a href="${guideSectionUrl(guide, "variants")}">替换方案</a>
       </div>
+      ${renderBuildChapterIndex(guide)}
       ${renderPlannerGearMatrix(guide)}
       ${renderRouteOverview(guide)}
       <section class="planner-loadout-overview" aria-label="配置页 11 部位装备图标速览">

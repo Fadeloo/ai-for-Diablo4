@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-29T06:42:17.036Z",
+  "generatedAt": "2026-06-29T07:36:25.271Z",
   "scope": "player_site_data_coverage_and_storage_usage",
   "asOf": "2026-06-28",
   "storageLayers": [
@@ -297,6 +297,26 @@
         "source.references"
       ],
       "frontendUse": "按 #bd/<guideId>/<section> 分区页面展示装备、技能、巅峰、打法、替换和来源状态，避免把完整攻略堆在同一屏。"
+    },
+    {
+      "component": "BuildChapterIndex",
+      "zhName": "BD 章节索引",
+      "source": "build-guides.builds[id] + guideSectionMeta",
+      "fields": [
+        "guideCompleteness.label",
+        "gearSlots",
+        "gearSlots[].required",
+        "gearSlots[].replaceable",
+        "skillTree.pointOrder",
+        "paragon.boardOrder",
+        "paragon.clickOrder",
+        "gameplay",
+        "variants",
+        "source.verificationLevel",
+        "source.references",
+        "gameVersion"
+      ],
+      "frontendUse": "BD 配置页顶部固定展示装备、技能、巅峰、打法、替换和来源六个章节的完成度、关键计数和分区入口，避免玩家在长页里找不到实际信息。"
     },
     {
       "component": "BuildCopyOverview",

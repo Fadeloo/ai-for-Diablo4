@@ -3634,6 +3634,100 @@ h4 {
   padding: 4px 7px;
 }
 
+.build-chapter-index {
+  background:
+    linear-gradient(135deg, rgba(28, 12, 8, 0.92), rgba(7, 4, 3, 0.8) 54%, rgba(214, 173, 99, 0.08)),
+    rgba(8, 4, 3, 0.72);
+  border: 1px solid rgba(240, 207, 143, 0.24);
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+}
+
+.build-chapter-index > header {
+  align-items: start;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.build-chapter-index > header span,
+.build-chapter-index__card span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.build-chapter-index > header strong {
+  color: #fff7df;
+  display: block;
+  font-size: 17px;
+  line-height: 1.3;
+  margin-top: 3px;
+}
+
+.build-chapter-index > header em {
+  background: rgba(214, 173, 99, 0.1);
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 850;
+  justify-self: end;
+  padding: 7px 9px;
+  text-align: right;
+}
+
+.build-chapter-index__grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.build-chapter-index__card {
+  background:
+    linear-gradient(180deg, rgba(242, 240, 234, 0.045), rgba(8, 4, 3, 0.52));
+  border: 1px solid rgba(214, 173, 99, 0.14);
+  display: grid;
+  gap: 7px;
+  min-height: 136px;
+  min-width: 0;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.build-chapter-index__card:hover {
+  background:
+    linear-gradient(135deg, rgba(164, 32, 24, 0.22), rgba(7, 4, 3, 0.76));
+  border-color: rgba(240, 207, 143, 0.38);
+}
+
+.build-chapter-index__card strong {
+  color: var(--bone);
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.build-chapter-index__card p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.42;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.build-chapter-index__card b {
+  align-self: end;
+  background: rgba(214, 173, 99, 0.09);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  color: var(--gold-bright);
+  font-size: 11px;
+  font-weight: 900;
+  justify-self: start;
+  padding: 4px 7px;
+}
+
 .build-checklist {
   background:
     linear-gradient(180deg, rgba(28, 13, 8, 0.86), rgba(7, 4, 3, 0.82));
@@ -7463,6 +7557,10 @@ h4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .build-chapter-index__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .build-checklist-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -8236,6 +8334,7 @@ h4 {
 
   .guide-section-directory > header,
   .guide-copy-overview > header,
+  .build-chapter-index > header,
   .guide-mode-comparison > header,
   .build-checklist > header {
     grid-template-columns: 1fr;
@@ -8243,6 +8342,7 @@ h4 {
 
   .guide-section-directory > header em,
   .guide-copy-overview > header em,
+  .build-chapter-index > header em,
   .guide-mode-comparison > header em,
   .build-checklist > header em {
     justify-self: start;
@@ -8250,6 +8350,7 @@ h4 {
   }
 
   .guide-section-directory > div,
+  .build-chapter-index__grid,
   .guide-section-switcher,
   .guide-family-modes,
   .guide-mode-row,
