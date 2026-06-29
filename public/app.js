@@ -1950,7 +1950,8 @@ function renderGearSummaryMatrix(guide) {
 
 function renderGearSlot(slot) {
   const upgradePath = slot.upgradePath || [];
-  const sourceStatus = slot.aspect?.sourceStatus || slot.dataStatus || "资料状态待回填";
+  const sourceStatus = slot.dataStatus || slot.aspect?.sourceStatus || "资料状态待回填";
+  const slotSource = slot.aspect?.sourceStatus || "槽位来源待回填";
   const alternatives = (slot.alternatives || []).map((alt) => {
     const name = alt.itemId ? `<a href="${itemUrl(alt.itemId)}">${alt.zhName}</a>` : `<b>${alt.zhName}</b>`;
     return `<li>${name}<span>${displayText(`${alt.reason} ${alt.tradeoff}`)}</span></li>`;
@@ -1975,6 +1976,7 @@ function renderGearSlot(slot) {
       </div>
       <dl class="gear-lines">
         <div><dt>数据状态</dt><dd>${displayText(sourceStatus)}</dd></div>
+        <div><dt>槽位来源</dt><dd>${displayText(slotSource)}</dd></div>
         <div><dt>词缀</dt><dd>${slot.affixes.map(displayText).join(" / ")}</dd></div>
         <div><dt>淬炼</dt><dd>${slot.tempers.map(displayText).join(" / ")}</dd></div>
         <div><dt>精造</dt><dd>${slot.masterwork.map(displayText).join(" / ")}</dd></div>

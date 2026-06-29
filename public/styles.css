@@ -2487,7 +2487,7 @@ h4 {
 .loadout-board-center strong {
   color: #fff7df;
   font-size: 40px;
-  line-height: 1;
+  line-height: 1.16;
 }
 
 .loadout-board-center p {

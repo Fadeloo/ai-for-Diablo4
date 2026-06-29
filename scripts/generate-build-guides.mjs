@@ -546,10 +546,29 @@ function playerPowerForSlot(slot) {
   return { displayKind: "legendary_aspect", displayName: aspectName || "威能待来源回填" };
 }
 
-function withPlayerPower(slot) {
+function slotPlayerDataStatus(slot, power, isCommunityReference = false) {
+  if (power.displayKind === "unused_or_special_slot") {
+    return isCommunityReference
+      ? "社区 BD 装备栏说明该位置不占用或由双手/副手方案替代。"
+      : "结构化装备栏说明该位置不占用或由其他武器方案替代。";
+  }
+  if (isCommunityReference) {
+    if (power.displayKind === "legendary_aspect") {
+      return "社区 BD 装备位参考；威能效果、数值和赛季强度仍需按来源核对。";
+    }
+    return "社区 BD 装备位参考；唯一装备固定词缀已接入，暗金特效数值仍需校验。";
+  }
+  if (power.displayKind === "legendary_aspect") {
+    return "传奇威能来自结构化 BD 模板；完整效果和数值需接入可靠威能库校验。";
+  }
+  return "官方唯一装备固定词缀已接入；暗金特效完整数值仍需校验。";
+}
+
+function withPlayerPower(slot, options = {}) {
   const power = playerPowerForSlot(slot);
   return {
     ...slot,
+    dataStatus: slotPlayerDataStatus(slot, power, Boolean(options.communityReference)),
     aspect: {
       ...slot.aspect,
       name: power.displayKind === "legendary_aspect" ? slot.aspect.name : power.displayName,
@@ -593,7 +612,6 @@ function gearSlotsFor({ equipmentItems, classInfo, archetype, mode }) {
         `成型：补齐${affixes.slice(0, 2).join(" / ")}。`,
         core ? "终局：该位置优先精造命中核心词缀。" : "终局：核心位稳定后再投入精造资源。"
       ],
-      dataStatus: selected ? "官方固定词缀已接入，暗金特效和范围待回填" : "传奇威能模板，待全量威能库核验",
       notes: [
         replaceable ? "可替换：先保证主词缀和抗性，再追求最优暗金。" : "不建议替换：此位承担主要伤害或循环。",
         core ? "优先在该部位投入精造资源。" : "作为成型后的补强部位。"
@@ -1189,7 +1207,7 @@ function applyCommunityOverride(guide, override, equipmentByZhName) {
         patch.replaceable === false ? "社区参考：该位置承担核心联动，不建议替换。" : "社区参考：可按缺件和抗性替换。",
         patch.aspect?.sourceStatus || slot.aspect.sourceStatus
       ]
-    });
+    }, { communityReference: true });
   });
   const coreUniques = gearSlots
     .filter((slot) => slot.core && slot.target.type === "unique")
