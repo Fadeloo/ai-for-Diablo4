@@ -193,6 +193,25 @@ const frontendDataContracts = [
     frontendUse: "BD 总览按当前流派三用途和同职业其他流派分组，展示日常、速刷、冲层的成型难度、阶段、上限和来源状态。"
   },
   {
+    component: "BuildModeComparison",
+    zhName: "当前流派三用途对比",
+    source: "build-guides.builds[id] + same archetype versions",
+    fields: [
+      "taxonomy.mode",
+      "taxonomy.modeName",
+      "formationDifficulty.label",
+      "taxonomy.stage",
+      "ceiling.displayTier",
+      "ceiling.label",
+      "coreRequirements",
+      "skillTree.pointOrder[0]",
+      "paragon.clickOrder[0]",
+      "gameplay.loop[0]",
+      "source.verificationLevel"
+    ],
+    frontendUse: "同一流派的日常、速刷、冲层版本横向对比，直接展示成型难度、适用阶段、上限、核心件、技能第一步、巅峰第一步和打法入口。"
+  },
+  {
     component: "BuildPlannerSheet",
     zhName: "BD 抄作业配置总表",
     source: "build-guides.builds[id]",

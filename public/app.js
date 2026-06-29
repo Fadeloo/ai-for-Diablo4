@@ -1038,6 +1038,89 @@ function guideVersionMeta(guide) {
   return `${guide.formationDifficulty.label}成型 · ${guide.taxonomy.stage} · ${tier} · ${clearTime}`;
 }
 
+function guideCoreLine(guide, limit = 2) {
+  const requirements = (guide.coreRequirements || []).slice(0, limit);
+  if (requirements.length) {
+    return requirements.map((item) => `${item.zhSlotName}:${item.targetName}`).join(" / ");
+  }
+  const uniques = (guide.coreUniques || []).slice(0, limit).map((item) => item.zhName);
+  const aspects = (guide.coreAspects || []).slice(0, limit).map((item) => item.displayName || item.name);
+  return [...uniques, ...aspects].filter(Boolean).slice(0, limit).join(" / ") || "核心件整理中";
+}
+
+function renderCurrentArchetypeComparison(guide, versions) {
+  return `
+    <section class="guide-mode-comparison" aria-label="当前流派三用途对比">
+      <header>
+        <div>
+          <span>当前流派用途对比</span>
+          <strong>${displayText(guide.taxonomy.archetypeName)} · 日常 / 速刷 / 冲层</strong>
+        </div>
+        <em>难度、阶段、上限和执行入口</em>
+      </header>
+      <div class="guide-mode-table">
+        <div class="guide-mode-row guide-mode-row--head" aria-hidden="true">
+          <span>用途</span>
+          <span>成型 / 阶段</span>
+          <span>上限</span>
+          <span>核心件</span>
+          <span>技能 / 巅峰 / 打法</span>
+          <span>入口</span>
+        </div>
+        ${buildVersionModeOrder.map((mode) => {
+          const item = versions.find((version) => version.taxonomy.mode === mode);
+          if (!item) {
+            return `
+              <article class="guide-mode-row is-empty">
+                <div><b class="guide-mode-label">用途</b><strong>${modeLabels[mode]}</strong></div>
+                <div><b class="guide-mode-label">状态</b><p>暂无当前赛季条目</p></div>
+              </article>
+            `;
+          }
+          const firstSkill = item.skillTree?.pointOrder?.[0];
+          const firstParagon = item.paragon?.clickOrder?.[0];
+          const firstLoop = item.gameplay?.loop?.[0] || item.gameplay?.opener?.[0];
+          return `
+            <article class="guide-mode-row ${item.id === guide.id ? "is-active" : ""}">
+              <div>
+                <b class="guide-mode-label">用途</b>
+                <strong>${item.taxonomy.modeName}</strong>
+                <em>${guideSourceLabel(item)}</em>
+              </div>
+              <div>
+                <b class="guide-mode-label">成型 / 阶段</b>
+                <strong>${item.formationDifficulty.label}</strong>
+                <p>${item.taxonomy.stage}</p>
+              </div>
+              <div>
+                <b class="guide-mode-label">上限</b>
+                <strong>${item.ceiling.displayTier || item.ceiling.tier}</strong>
+                <p>${item.ceiling.label}</p>
+              </div>
+              <div>
+                <b class="guide-mode-label">核心件</b>
+                <p>${displayText(guideCoreLine(item, 3))}</p>
+              </div>
+              <div>
+                <b class="guide-mode-label">技能 / 巅峰 / 打法</b>
+                <p>${firstSkill ? `${displayText(firstSkill.levelRange)} ${displayText(firstSkill.skill)}` : "技能路线整理中"}</p>
+                <p>${firstParagon ? `${displayText(firstParagon.board)} ${displayText(firstParagon.node)}` : "巅峰路线整理中"}</p>
+                <p>${displayText(firstLoop || "打法流程整理中")}</p>
+              </div>
+              <div class="guide-mode-actions">
+                <a href="${guideSectionUrl(item, "gear")}">装备</a>
+                <a href="${guideSectionUrl(item, "skills")}">技能</a>
+                <a href="${guideSectionUrl(item, "paragon")}">巅峰</a>
+                <a href="${guideSectionUrl(item, "gameplay")}">打法</a>
+              </div>
+            </article>
+          `;
+        }).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderFamilyModeLinks(family) {
   return buildVersionModeOrder.map((mode) => {
     const guide = family.guides.find((item) => item.taxonomy.mode === mode);
@@ -1082,6 +1165,7 @@ function renderBuildVersionSwitcher(guide) {
           </a>
         `).join("")}
       </div>
+      ${renderCurrentArchetypeComparison(guide, versions)}
       ${classFamilies.length ? `
         <div class="guide-related-builds guide-family-matrix">
           <strong>同职业其他流派</strong>
@@ -3615,15 +3699,6 @@ function classGuidesForSeason(classId, seasonId) {
       if (archetypeCompare) return archetypeCompare;
       return classModeOrder.indexOf(a.taxonomy.mode) - classModeOrder.indexOf(b.taxonomy.mode);
     });
-}
-
-function guideCoreLine(guide) {
-  const uniqueNames = (guide.coreUniques || []).map((item) => item.zhName);
-  const aspectNames = (guide.coreAspects || [])
-    .filter((aspect) => aspect.displayKind === "传奇威能")
-    .map((aspect) => aspect.displayName || aspect.name);
-  const combined = [...uniqueNames, ...aspectNames].slice(0, 4);
-  return combined.length ? combined.join(" / ") : "核心件见装备分区";
 }
 
 function renderClassSeasonSummary(selected, guides) {

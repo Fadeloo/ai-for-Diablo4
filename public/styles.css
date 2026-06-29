@@ -2291,6 +2291,141 @@ h4 {
   min-height: 96px;
 }
 
+.guide-mode-comparison {
+  background:
+    linear-gradient(180deg, rgba(18, 10, 7, 0.76), rgba(6, 3, 2, 0.72));
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+}
+
+.guide-mode-comparison > header {
+  align-items: start;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.guide-mode-comparison > header span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.guide-mode-comparison > header strong {
+  color: #fff7df;
+  display: block;
+  font-size: 17px;
+  line-height: 1.3;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+
+.guide-mode-comparison > header em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 750;
+  justify-self: end;
+  text-align: right;
+}
+
+.guide-mode-table {
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+}
+
+.guide-mode-row {
+  border-bottom: 1px solid rgba(214, 173, 99, 0.14);
+  display: grid;
+  grid-template-columns: 92px 132px 142px minmax(190px, 1.1fr) minmax(250px, 1.45fr) 174px;
+  min-width: 0;
+}
+
+.guide-mode-row:last-child {
+  border-bottom: 0;
+}
+
+.guide-mode-row--head {
+  background: rgba(214, 173, 99, 0.08);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+  min-height: 36px;
+}
+
+.guide-mode-row--head span {
+  border-right: 1px solid rgba(214, 173, 99, 0.14);
+  padding: 9px 10px;
+}
+
+.guide-mode-row > div {
+  border-right: 1px solid rgba(214, 173, 99, 0.12);
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  padding: 10px;
+}
+
+.guide-mode-row > div:last-child {
+  border-right: 0;
+}
+
+.guide-mode-row.is-active {
+  background: rgba(164, 32, 24, 0.12);
+}
+
+.guide-mode-row.is-empty {
+  grid-template-columns: 120px minmax(0, 1fr);
+  opacity: 0.6;
+}
+
+.guide-mode-row strong {
+  color: var(--bone);
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.guide-mode-row em,
+.guide-mode-row p {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.42;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.guide-mode-label {
+  color: var(--gold);
+  display: none;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.guide-mode-actions {
+  align-content: start;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.guide-mode-actions a {
+  background: rgba(214, 173, 99, 0.09);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-weight: 850;
+  padding: 6px 7px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.guide-mode-actions a:hover {
+  background: rgba(164, 32, 24, 0.24);
+  border-color: rgba(240, 207, 143, 0.42);
+}
+
 .guide-family-grid {
   display: grid;
   gap: 10px;
@@ -6862,6 +6997,37 @@ h4 {
     gap: 10px;
   }
 
+  .guide-mode-table {
+    border: 0;
+    gap: 10px;
+  }
+
+  .guide-mode-row--head {
+    display: none;
+  }
+
+  .guide-mode-row {
+    border: 1px solid rgba(214, 173, 99, 0.18);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .guide-mode-row.is-empty {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-mode-row > div {
+    border-right: 0;
+    border-bottom: 1px solid rgba(214, 173, 99, 0.12);
+  }
+
+  .guide-mode-row > div:last-child {
+    border-bottom: 0;
+  }
+
+  .guide-mode-label {
+    display: block;
+  }
+
   .route-step-row--head {
     display: none;
   }
@@ -7275,20 +7441,27 @@ h4 {
   }
 
   .guide-section-directory > header,
-  .guide-copy-overview > header {
+  .guide-copy-overview > header,
+  .guide-mode-comparison > header {
     grid-template-columns: 1fr;
   }
 
   .guide-section-directory > header em,
-  .guide-copy-overview > header em {
+  .guide-copy-overview > header em,
+  .guide-mode-comparison > header em {
     justify-self: start;
     text-align: left;
   }
 
   .guide-section-directory > div,
   .guide-section-switcher,
-  .guide-family-modes {
+  .guide-family-modes,
+  .guide-mode-row {
     grid-template-columns: 1fr;
+  }
+
+  .guide-mode-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .loadout-slot {
