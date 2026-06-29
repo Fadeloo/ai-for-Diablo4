@@ -192,6 +192,9 @@ data/
     stat-categories.json
     affix-taxonomy.json
     equipment-library.json
+  aspects/
+    d2core-aspect-library.json
+    community-aspect-overrides.json
   builds/
     archetypes.json
     season-start-plans.json
@@ -210,9 +213,11 @@ data/
 - `source-registry.json` 是所有来源的白名单。新增事实来源先登记，再导入数据。
 - `equipment-library.json` 是前端装备库主数据。当前范围是官方 3.1.0 唯一装备固定词缀种子，不声明为全量装备库。
 - 装备记录必须带结构化 `gameVersion`，以及 `uniquePower`、`fullAffixRanges`、`dropSource`、`verifiedSlot` 的字段级状态。缺失字段显示为待来源回填，不能让玩家误以为页面漏渲染。
+- `aspects/d2core-aspect-library.json` 是暗黑核中文威能库快照，当前记录 `363` 条威能名称、效果文本、威能类型、可用部位、图标 URL 和来源 URL。它属于 `needs_validation` 社区来源层，用于补充玩家可读效果文本和交叉校验，不覆盖官方事实。
+- `aspects/community-aspect-overrides.json` 是代表性人工匹配和来源配置入口，保留历史样例、数据 URL 和别名匹配线索。
 - `community-build-overrides.json` 是真实社区 BD 的人工结构化入口，支持 `extends` 复用冲层、速刷、日常变体。
 - `build-guides.json` 是前端 BD 主数据，只由脚本生成。
-- `aspect-index.json` 从 `build-guides.json` 的装备槽位汇总威能名称、部位、核心度、替换状态和相关 BD。它不是官方全量传奇威能库。
+- `aspect-index.json` 从 `build-guides.json` 的装备槽位汇总威能名称、部位、核心度、替换状态和相关 BD，再用 `d2core-aspect-library.json` 和人工别名补充效果文本。它不是官方全量传奇威能库。
 - `build-simulations.json` 是三赛季预测矩阵，只作为参考，不作为事实榜单。
 - `site-coverage.json` 是玩家页覆盖摘要，记录 BD、装备、来源、存储层和字段缺口。来源页直接读取它展示当前资料边界。
 - `site-coverage.json` 还记录 `frontendDataContracts` 和 `buildIntegrity`：前者说明每个核心组件消费哪些字段，后者证明所有 BD 是否都有 11 装备位、技能路线、巅峰路线、打法和替换数据。
@@ -339,6 +344,7 @@ data/
 - 装备库当前是唯一装备固定词缀种子，页面必须持续显示全量范围缺口。
 - `BuildVersionSwitcher` 使用 `seasonId + classId + archetypeId` 建组，按 `daily -> speed_farm -> pit_push` 排序；同职业其他社区 BD 只能作为“同职业可抄参考”展示。
 - `aspect-index` 来自 BD 装备槽位反查，不声明为官方全量威能库。
+- D2Core 威能快照只能作为社区验证候选层使用；玩家页面必须标注“暗黑核社区数据库”或等价来源状态，未匹配的模板威能继续显示为待校验，不得用泛化名称强行匹配具体效果。
 - `site-coverage` 是来源页和首页展示资料边界的唯一摘要来源。
 - `frontendDataContracts` 是页面组件和数据字段的对照表；新增 BD 组件时必须先补这里，再补验证脚本。
 - `buildIntegrity` 是覆盖率门禁；任一 BD 缺装备槽、技能、巅峰、打法或替换数据时，`npm run verify` 必须失败。

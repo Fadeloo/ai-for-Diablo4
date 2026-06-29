@@ -156,6 +156,7 @@ AspectPage
   metadata/version-baseline.json
   classes/classes.json
   equipment/equipment-library.json
+  aspects/d2core-aspect-library.json
   aspects/community-aspect-overrides.json
   equipment/community-unique-overrides.json
 
@@ -206,7 +207,8 @@ data/normalized/
 - 社区数据和预测数据不能覆盖官方事实，只能作为并列证据。
 - 生成视图 JSON 可以为前端冗余字段，但不得成为事实源头。
 - 装备库当前只能声明为“唯一装备资料库种子”，不能写成全量装备库。
-- 威能索引当前只能声明为“从 BD 派生并部分匹配社区库”，不能写成全量威能库。
+- `d2core-aspect-library.json` 是暗黑核 71886 构建的中文威能社区快照，保存名称、效果、类型、可用部位、图标 URL 和来源 URL；使用状态是 `needs_validation`，只能为玩家页提供效果文本和交叉校验。
+- 威能索引当前只能声明为“从 BD 派生并匹配社区威能库的构筑威能索引”，不能写成官方全量威能库。没有明确匹配的泛化威能名必须继续显示待校验状态。
 - 技能和巅峰目前是 BD 执行路线，后续需要独立事实表承载技能效果、资源、冷却、节点坐标和雕文半径。
 
 ## 7. 后端实体模型

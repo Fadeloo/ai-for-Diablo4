@@ -3994,7 +3994,7 @@ function renderCoverage() {
         <article>
           <strong>${aspectCoverage.total}</strong>
           <span>威能索引</span>
-          <p>${aspectCoverage.usageCount} 次 BD 槽位使用记录；该索引不是官方全量威能库。</p>
+          <p>${aspectCoverage.usageCount} 次 BD 槽位使用记录；${aspectCoverage.sourceLibraryTotal || 0} 条暗黑核社区威能快照用于效果文本校验。</p>
         </article>
         <article>
           <strong>${sourceCoverage.total}</strong>

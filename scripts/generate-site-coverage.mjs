@@ -428,11 +428,12 @@ const publicationWorkflow = [
   "提交并推送玩家可见数据"
 ];
 
-const [classes, equipment, buildGuides, aspectIndex, sources] = await Promise.all([
+const [classes, equipment, buildGuides, aspectIndex, d2coreAspectLibrary, sources] = await Promise.all([
   readJson("data/classes/classes.json"),
   readJson("data/equipment/equipment-library.json"),
   readJson("data/generated/build-guides.json"),
   readJson("data/generated/aspect-index.json"),
+  readJson("data/aspects/d2core-aspect-library.json"),
   readJson("data/sources/source-registry.json")
 ]);
 
@@ -584,8 +585,8 @@ const payload = {
     {
       id: "aspect_index",
       zhName: "威能索引层",
-      files: ["data/generated/aspect-index.json", "data/aspects/community-aspect-overrides.json"],
-      frontendUse: "威能索引页展示威能效果、可用部位、核心度和相关 BD；未匹配项保持 BD 派生状态。"
+      files: ["data/generated/aspect-index.json", "data/aspects/d2core-aspect-library.json", "data/aspects/community-aspect-overrides.json"],
+      frontendUse: "威能索引页展示威能效果、可用部位、核心度和相关 BD；暗黑核快照作为社区效果文本来源，未匹配项保持 BD 派生状态。"
     },
     {
       id: "forecast_matrix",
@@ -626,6 +627,9 @@ const payload = {
   aspectCoverage: {
     total: aspectIndex.aspects.length,
     usageCount: aspectIndex.usageCount,
+    sourceLibraryTotal: d2coreAspectLibrary.itemCount,
+    sourceLibraryScope: d2coreAspectLibrary.scope,
+    sourceLibraryStatus: d2coreAspectLibrary.source?.trustLevel,
     scope: aspectIndex.scope,
     limitations: aspectIndex.zhLimitations || aspectIndex.limitations,
     sourceLevels: countBy(aspectIndex.aspects, (aspect) => {
@@ -644,6 +648,7 @@ const payload = {
     "社区来源 BD 可以展示为参考，模板 BD 必须标为模板或推演。",
     "装备库当前只声明唯一装备固定词缀种子，不声明为全量装备库。",
     "暗金特效、掉落来源和验证部位来自社区数据库参考；完整词缀范围缺失时必须继续显示字段状态。",
+    "暗黑核威能库只能作为社区效果文本和类型交叉校验来源；未匹配的模板威能不得强行套用具体效果。",
     "预测速度不能写成真实天梯结果。",
     "玩家页面不得展示内部推理、候选生成或问答流程话术。",
     "AI 分析结果必须经过发布审核后才能进入玩家可见 JSON。",

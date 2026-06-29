@@ -69,6 +69,7 @@ const features = await readJson("data/features/feature-map.json");
 const equipmentLibrary = await readJson("data/equipment/equipment-library.json");
 const communityUniqueOverrides = await readJson("data/equipment/community-unique-overrides.json");
 const communityAspectOverrides = await readJson("data/aspects/community-aspect-overrides.json");
+const d2coreAspectLibrary = await readJson("data/aspects/d2core-aspect-library.json");
 const simulations = await readJson("data/generated/build-simulations.json");
 const buildGuides = await readJson("data/generated/build-guides.json");
 const aspectIndex = await readJson("data/generated/aspect-index.json");
@@ -191,6 +192,10 @@ assert(aspectIndex.aspectCount > 20, "Aspect index should contain structured asp
 assert(aspectIndex.aspects.every((aspect) => aspect.id && aspect.name && aspect.guideCount > 0 && aspect.usageCount > 0), "Each aspect needs id, name and usage counts");
 assert(communityAspectOverrides.match?.matchedCount >= 10, "Community aspect overrides should reliably match representative aspect records");
 assert(communityAspectOverrides.items.every((item) => item.source?.sourceId === "d2core_aspect_database" && item.zhEffect && item.zhAspectType), "Every community aspect override needs source, effect and type");
+assert(d2coreAspectLibrary.scope === "d2core_full_aspect_library_snapshot", "D2Core aspect library scope mismatch");
+assert(d2coreAspectLibrary.source?.sourceId === "d2core_aspect_database", "D2Core aspect library must carry the registered source id");
+assert(d2coreAspectLibrary.itemCount === d2coreAspectLibrary.items.length && d2coreAspectLibrary.itemCount >= 300, "D2Core aspect library must keep the full imported aspect snapshot");
+assert(d2coreAspectLibrary.items.every((item) => item.aspectId && item.zhName && item.zhEffect && item.zhAspectType && item.source?.dataUrl), "Every imported D2Core aspect needs id, Chinese name, effect, type and source URL");
 assert(aspectIndex.communityCoverage?.sourceId === "d2core_aspect_database", "Aspect index must expose community source coverage");
 assert(aspectIndex.aspects.some((aspect) => aspect.dataStatus?.scope === "community_database_reference" && aspect.database?.zhEffect && aspect.database?.zhAllowedSlots?.length), "Aspect index should enrich matched aspects with community effect text and slots");
 assert(aspectIndex.aspects.some((aspect) => aspect.dataStatus?.scope === "derived_from_build_gear_slots" && !aspect.database), "Aspect index must keep unmatched template aspects clearly derived-only");
@@ -204,6 +209,8 @@ assert(siteCoverage.buildCoverage?.classes === classes.length, "Site coverage cl
 assert(siteCoverage.buildCoverage?.seasons === simulations.seasons.length, "Site coverage season count mismatch");
 assert(siteCoverage.equipmentCoverage?.total === equipmentLibrary.items.length, "Site coverage equipment count mismatch");
 assert(siteCoverage.aspectCoverage?.total === aspectIndex.aspects.length, "Site coverage aspect count mismatch");
+assert(siteCoverage.aspectCoverage?.sourceLibraryTotal === d2coreAspectLibrary.itemCount, "Site coverage must expose the imported D2Core aspect library count");
+assert(siteCoverage.aspectCoverage?.sourceLibraryStatus === "needs_validation", "Site coverage must disclose D2Core aspect library validation status");
 assert(siteCoverage.sourceCoverage?.total === sources.length, "Site coverage source count mismatch");
 assert(siteCoverage.storageLayers?.length >= 4, "Site coverage must describe storage layers");
 assert(siteCoverage.pageBlueprints?.length >= 8, "Site coverage must expose the player-site page blueprint");
@@ -308,7 +315,7 @@ for (const guide of buildGuides.builds) {
   assert(guide.variants?.length >= 3, `Build guide needs replacement variants: ${guide.id}`);
 }
 assert(uniquePowerSlotCount > 0 && uniquePowerTextCount / uniquePowerSlotCount >= 0.98, `At least 98% of unique/mythic gear slots need power text, got ${uniquePowerTextCount}/${uniquePowerSlotCount}`);
-assert(legendaryAspectSlotCount > 0 && legendaryAspectTextCount / legendaryAspectSlotCount >= 0.25, `At least 25% of legendary aspect slots need community effect text, got ${legendaryAspectTextCount}/${legendaryAspectSlotCount}`);
+assert(legendaryAspectSlotCount > 0 && legendaryAspectTextCount / legendaryAspectSlotCount >= 0.4, `At least 40% of legendary aspect slots need community effect text, got ${legendaryAspectTextCount}/${legendaryAspectSlotCount}`);
 
 for (const override of expandCommunityOverrides(communityOverrides)) {
   const guide = buildGuides.builds.find((item) => item.id === override.id);

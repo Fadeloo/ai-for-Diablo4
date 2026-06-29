@@ -10,6 +10,7 @@
 data/classes/classes.json
 data/builds/archetypes.json
 data/equipment/equipment-library.json
+data/aspects/d2core-aspect-library.json
 data/generated/build-simulations.json
 data/builds/community-build-overrides.json
         |
@@ -39,6 +40,8 @@ data/generated/site-coverage.json
 `data/generated/site-coverage.json` 从生成后的 BD、装备库和来源登记表汇总玩家可见的覆盖状态。来源页读取它展示 BD 数、社区参考数、模板数、装备字段缺口和存储层用途；`npm run verify` 会校验这些统计和真实数据一致。
 
 `data/generated/aspect-index.json` 从 `build-guides.json` 的 `gearSlots[].aspect` 汇总威能索引，排除 `暗金特效位` 和 `空槽说明` 这类占位名。它记录威能常见部位、核心/硬需求/可替换次数、关联 BD 和来源状态，供 `#aspects` 页面检索。它不是官方全量传奇威能库，不能用来声明完整效果或数值范围。
+
+`data/aspects/d2core-aspect-library.json` 是 `scripts/import-d2core-aspect-library.mjs` 从暗黑核中文威能数据快照导入的社区威能库。生成 BD 时，`scripts/generate-build-guides.mjs` 会先按名称精确匹配，再按规范化名称和人工别名匹配，把已命中的效果文本写入 `gearSlots[].aspect.powerText`。未匹配的泛化名称继续保留待校验状态，不能把某个具体威能效果强行套给“防御威能”“资源威能”等模板词。
 
 社区覆盖支持 `extends`：冲层版可以作为基础，速刷和日常版只覆盖变化的槽位、摘要和打法，生成脚本会合并出完整 11 个装备位。这样同一套真实 BD 的多用途变体可以共享来源和主体结构，同时避免复制粘贴导致槽位遗漏。
 
@@ -74,7 +77,7 @@ data/generated/site-coverage.json
 
 当前已接入官方 3.1.0 补丁中的唯一装备固定词缀和外部图标 URL。以下内容仍需要继续接入可审计或授权的数据源：
 
-- 全量传奇威能正式名称和完整效果。
+- 官方全量传奇威能正式名称和完整效果；当前已有暗黑核 `needs_validation` 社区威能快照用于玩家效果文本补充。
 - 暗金特效完整文本和数值范围。
 - 技能树精确点数、技能系数和资源消耗。
 - 巅峰盘节点坐标、雕文半径和旋转坐标。

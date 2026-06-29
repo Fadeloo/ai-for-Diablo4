@@ -9,6 +9,7 @@ const equipmentPath = path.join(root, "data/equipment/equipment-library.json");
 const simulationsPath = path.join(root, "data/generated/build-simulations.json");
 const overridePath = path.join(root, "data/builds/community-build-overrides.json");
 const aspectOverridePath = path.join(root, "data/aspects/community-aspect-overrides.json");
+const aspectLibraryPath = path.join(root, "data/aspects/d2core-aspect-library.json");
 const output = path.join(root, "data/generated/build-guides.json");
 
 const modeProfiles = {
@@ -99,6 +100,20 @@ const equipmentNameAliases = new Map([
   ["伊菲的可怖图腾", "伊菲的恐狼图腾"],
   ["雷神的祝福", "雷神之赐"],
   ["伪死之衣", "虚假死亡之衣"]
+]);
+const aspectNameAliases = new Map([
+  ["模仿灌注威能", "效法灌注之威能"],
+  ["自负威能", "嚣狂威能"],
+  ["熊人恐怖威能", "恐怖熊人之威能"],
+  ["变形债务威能", "变身索债之威能"],
+  ["愈合石威能", "疗愈石之威能"],
+  ["锯齿威能", "齿状骨刺之威能"],
+  ["刺骨寒冰威能", "刺骨冰霜之威能"],
+  ["晦暗治愈威能", "晦暗疗愈之威能"],
+  ["平原之力威能", "平原力量之威能"],
+  ["决斗者威能", "决斗家的威能"],
+  ["不屈打击威能", "不屈猛击之威能"],
+  ["森林之力威能", "森林力量之威能"]
 ]);
 
 const classSeeds = {
@@ -557,7 +572,11 @@ function createAspectEffectIndex(overrides) {
 
 function lookupAspectEffect(aspectName, aspectIndex) {
   if (!aspectName || !aspectIndex) return null;
-  return aspectIndex.byName.get(aspectName) || aspectIndex.byNormalizedName.get(normalizeAspectName(aspectName)) || null;
+  const alias = aspectNameAliases.get(aspectName);
+  return aspectIndex.byName.get(aspectName)
+    || aspectIndex.byNormalizedName.get(normalizeAspectName(aspectName))
+    || (alias ? aspectIndex.byName.get(alias) || aspectIndex.byNormalizedName.get(normalizeAspectName(alias)) : null)
+    || null;
 }
 
 function alternativeFor(slot, item, pool, archetype, usedIds, index) {
@@ -1477,20 +1496,26 @@ function expandCommunityOverrides(rawOverrides) {
   });
 }
 
-const [classes, archetypeGroups, equipment, simulations, overrides, aspectOverrides] = await Promise.all([
+const [classes, archetypeGroups, equipment, simulations, overrides, aspectOverrides, aspectLibrary] = await Promise.all([
   readJson(classPath),
   readJson(archetypePath),
   readJson(equipmentPath),
   readJson(simulationsPath),
   readOptionalJson(overridePath, []),
-  readOptionalJson(aspectOverridePath, null)
+  readOptionalJson(aspectOverridePath, null),
+  readOptionalJson(aspectLibraryPath, null)
 ]);
 
 const simMap = simulationLookup(simulations);
 const expandedOverrides = expandCommunityOverrides(overrides);
 const overrideMap = new Map(expandedOverrides.map((override) => [override.id, override]));
 const equipmentIndex = createEquipmentIndex(equipment.items);
-const aspectIndex = createAspectEffectIndex(aspectOverrides);
+const aspectIndex = createAspectEffectIndex({
+  items: [
+    ...(aspectLibrary?.items || []),
+    ...(aspectOverrides?.items || [])
+  ]
+});
 const builds = [];
 
 for (const [seasonIndex, season] of simulations.seasons.entries()) {
