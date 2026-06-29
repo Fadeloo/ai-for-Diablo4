@@ -1076,6 +1076,67 @@ function renderCoreAspects(guide, limit = 8) {
     .join("");
 }
 
+function renderBuildDossier(guide) {
+  const coreSlots = (guide.gearSlots || [])
+    .filter((slot) => slot.required || slot.core)
+    .slice(0, 6);
+  const aspectSlots = (guide.gearSlots || [])
+    .filter((slot) => slot.core || slot.required)
+    .filter((slot) => slot.aspect?.name || slot.aspect?.role)
+    .slice(0, 6);
+  const skillNames = (guide.skillTree?.skillBar || []).map((skill) => skill.name);
+  const paragonSteps = (guide.paragon?.clickOrder || []).slice(0, 4);
+  const loopLines = [
+    ...(guide.gameplay?.opener || []).slice(0, 1),
+    ...(guide.gameplay?.loop || []).slice(0, 2),
+    ...(guide.gameplay?.defense || []).slice(0, 1)
+  ].filter(Boolean);
+  const replaceableCount = (guide.gearSlots || []).filter((slot) => slot.replaceable).length;
+  const requiredCount = (guide.gearSlots || []).filter((slot) => slot.required).length;
+  return `
+    <section class="build-dossier" aria-label="BD 首屏速查">
+      <article class="build-dossier-card build-dossier-card--gear">
+        <span>核心装备</span>
+        <div>
+          ${coreSlots.map((slot) => `
+            <button type="button" data-guide-jump="gear" data-gear-slot-target="${slot.slotId}">
+              <b>${slot.zhSlotName}</b>
+              <strong>${displayText(slot.target.zhName)}</strong>
+              <em>${gearSlotStatus(slot)}</em>
+            </button>
+          `).join("")}
+        </div>
+      </article>
+      <article class="build-dossier-card">
+        <span>核心威能 / 暗金</span>
+        <ul>
+          ${aspectSlots.map((slot) => `<li><b>${slot.zhSlotName}</b><strong>${gearAspectDisplay(slot)}</strong></li>`).join("")}
+        </ul>
+      </article>
+      <article class="build-dossier-card build-dossier-card--skills">
+        <span>六技能栏</span>
+        <p>${skillNames.map(displayText).join(" / ")}</p>
+      </article>
+      <article class="build-dossier-card">
+        <span>巅峰起步</span>
+        <ol>
+          ${paragonSteps.map((step) => `<li>${displayText(step.board)} · ${displayText(step.node)}</li>`).join("")}
+        </ol>
+      </article>
+      <article class="build-dossier-card">
+        <span>打法节奏</span>
+        <ol>
+          ${loopLines.map((line) => `<li>${displayText(line)}</li>`).join("")}
+        </ol>
+      </article>
+      <article class="build-dossier-card">
+        <span>替换状态</span>
+        <p>${replaceableCount} 个部位可替换，${requiredCount} 个硬需求；缺件先看“替换”分区，再降层测试循环。</p>
+      </article>
+    </section>
+  `;
+}
+
 function renderSourceReferences(guide) {
   const references = guide.source.references || [];
   if (!references.length) {
@@ -2690,6 +2751,7 @@ function renderBuildGuideDetail() {
           <span><b>${guide.gearSlots.length}</b>装备位置</span>
           <span><b>${guide.coreUniques.length}</b>核心暗金</span>
         </div>
+        ${renderBuildDossier(guide)}
       </header>
 
       <div class="guide-detail-layout">

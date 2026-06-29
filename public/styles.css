@@ -1686,6 +1686,107 @@ h4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.build-dossier {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.build-dossier-card {
+  background: rgba(8, 4, 3, 0.54);
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  display: grid;
+  gap: 8px;
+  min-height: 128px;
+  padding: 12px;
+}
+
+.build-dossier-card > span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.build-dossier-card p,
+.build-dossier-card li,
+.build-dossier-card em {
+  color: rgba(242, 232, 216, 0.78);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.5;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.build-dossier-card strong {
+  color: #fff7df;
+  font-size: 13px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.build-dossier-card ul,
+.build-dossier-card ol {
+  display: grid;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.build-dossier-card li {
+  border-top: 1px solid rgba(214, 173, 99, 0.12);
+  padding-top: 6px;
+}
+
+.build-dossier-card li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.build-dossier-card li b {
+  color: var(--gold);
+  display: block;
+  font-size: 11px;
+  margin-bottom: 2px;
+}
+
+.build-dossier-card--gear {
+  grid-column: span 2;
+}
+
+.build-dossier-card--gear > div {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.build-dossier-card--gear button {
+  background: rgba(214, 173, 99, 0.08);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  color: inherit;
+  cursor: pointer;
+  display: grid;
+  gap: 3px;
+  min-height: 52px;
+  padding: 7px 8px;
+  text-align: left;
+}
+
+.build-dossier-card--gear button:hover {
+  border-color: rgba(240, 207, 143, 0.44);
+}
+
+.build-dossier-card--gear b {
+  color: var(--gold);
+  font-size: 11px;
+}
+
+.build-dossier-card--skills p {
+  color: #fff7df;
+  font-weight: 750;
+}
+
 .guide-version-switcher {
   background:
     linear-gradient(180deg, rgba(24, 12, 8, 0.74), rgba(6, 3, 2, 0.7));
@@ -4931,6 +5032,7 @@ h4 {
   .route-band-strip,
   .route-overview__skillbar,
   .route-board-lane,
+  .build-dossier,
   .combat-overview__grid,
   .build-manual-grid,
   .execution-plan,
@@ -5053,6 +5155,10 @@ h4 {
   .gear-summary-actions {
     border-bottom: 0;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .build-dossier-card--gear {
+    grid-column: 1 / -1;
   }
 
   .gear-summary-label {
@@ -5186,6 +5292,8 @@ h4 {
   .paragon-board-table,
   .route-band-strip,
   .guide-kpi-grid,
+  .build-dossier,
+  .build-dossier-card--gear > div,
   .loadout-strip,
   .execution-plan,
   .guide-two-col,

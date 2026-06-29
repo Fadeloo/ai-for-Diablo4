@@ -280,6 +280,8 @@ assert(frontendText.includes("guide-version-tabs"), "BD detail must expose visib
 assert(frontendText.includes("renderBuildManualPanel"), "BD overview must render a copy-ready execution manual");
 assert(frontendText.includes("build-manual-panel"), "BD overview must expose gear, skill, paragon and gameplay before long sections");
 assert(frontendText.includes("manual-gear-row"), "BD execution manual must expose all gear slots as jump targets");
+assert(frontendText.includes("renderBuildDossier"), "BD hero must render a first-screen build dossier");
+assert(frontendText.includes("build-dossier") && frontendText.includes("核心装备") && frontendText.includes("六技能栏") && frontendText.includes("巅峰起步") && frontendText.includes("打法节奏"), "BD first screen must summarize core gear, skills, paragon and gameplay");
 assert(frontendText.includes("renderGuideAllSections"), "BD detail must render all major guide sections on one scannable page");
 assert(frontendText.includes("guideDetailSectionOrder"), "BD detail must define a stable full-section reading order");
 assert(frontendText.includes("renderProgressionPlan"), "BD detail must render leveling-to-endgame progression");
