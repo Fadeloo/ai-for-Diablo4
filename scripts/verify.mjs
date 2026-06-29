@@ -354,6 +354,7 @@ assert(frontendText.includes("renderBuildMaturityPanel") && frontendText.include
 assert(frontendText.includes("build-list-entry-actions") && frontendText.includes("guideSectionUrl(guide, \"gear\")"), "BD sidebar list must link directly to gear, skills, paragon and gameplay sections");
 assert(frontendText.includes("renderClassModeCard"), "Class page must render detailed per-mode build cards");
 assert(frontendText.includes("class-mode-card__facts") && frontendText.includes("class-mode-card__route") && frontendText.includes("class-mode-card__actions"), "Class build matrix must expose difficulty, stage, ceiling, route preview and section entry links");
+assert(frontendText.includes("renderClassBuildFamilySummary") && frontendText.includes("class-build-family__summary") && frontendText.includes("关键部位"), "Class build matrix must expose family-level gear, ceiling and replacement summaries");
 assert(frontendText.includes("renderClassSeasonCoverage"), "Class page must render cross-season build coverage");
 assert(frontendText.includes("class-season-coverage-panel") && frontendText.includes("class-season-coverage-cell"), "Class cross-season coverage must expose season blocks and mode cells");
 assert(frontendText.includes("guide-card__quickfacts"), "BD library cards must expose executable gear, skill, paragon and gameplay facts");

@@ -3384,6 +3384,52 @@ function renderClassModeCard(guide, mode) {
   `;
 }
 
+function renderClassBuildFamilySummary(archetypeGuides) {
+  if (!archetypeGuides.length) {
+    return `
+      <div class="class-build-family__summary is-empty">
+        <article><span>资料状态</span><strong>暂无当前赛季 BD</strong></article>
+      </div>
+    `;
+  }
+  const bestPush = archetypeGuides
+    .filter((guide) => guide.taxonomy.mode === "pit_push")
+    .sort(sortGuidesForPlayer)[0] || archetypeGuides.slice().sort(sortGuidesForPlayer)[0];
+  const easiest = archetypeGuides
+    .slice()
+    .sort((a, b) => a.formationDifficulty.level - b.formationDifficulty.level || sortGuidesForPlayer(a, b))[0];
+  const representative = bestPush || easiest || archetypeGuides[0];
+  const replaceableCount = representative.gearSlots.filter((slot) => slot.replaceable).length;
+  const requiredCount = representative.gearSlots.filter((slot) => slot.required).length;
+  const previewSlots = guideLoadoutPreview(representative, 4);
+  return `
+    <div class="class-build-family__summary" aria-label="流派族核心信息">
+      <article>
+        <span>冲层上限</span>
+        <strong>${bestPush.taxonomy.modeName} · ${bestPush.ceiling.displayTier || bestPush.ceiling.tier} · ${bestPush.ceiling.pit150Minutes} 分</strong>
+      </article>
+      <article>
+        <span>低门槛版本</span>
+        <strong>${easiest.taxonomy.modeName} · ${easiest.formationDifficulty.label}成型 · ${easiest.taxonomy.stage}</strong>
+      </article>
+      <article>
+        <span>核心件</span>
+        <strong>${guideCoreLine(representative)}</strong>
+      </article>
+      <article>
+        <span>替换状态</span>
+        <strong>${replaceableCount} 可替换 / ${requiredCount} 硬需求</strong>
+      </article>
+      <article class="class-build-family__gear">
+        <span>关键部位</span>
+        <div>
+          ${previewSlots.map((slot) => `<b>${slot.zhSlotName}：${displayText(slot.target.zhName)} · ${gearSlotStatus(slot)}</b>`).join("")}
+        </div>
+      </article>
+    </div>
+  `;
+}
+
 function renderClassSeasonCoverageCell(guide, mode) {
   if (!guide) {
     return `
@@ -3483,6 +3529,7 @@ function renderClassBuildMatrix(selected, archetypes, guides) {
                 </div>
                 <em>${archetypeGuides.filter((guide) => guide.source.references?.length).length} 社区参考</em>
               </header>
+              ${renderClassBuildFamilySummary(archetypeGuides)}
               <div class="class-build-mode-grid">
                 ${classModeOrder.map((mode) => {
                   const guide = archetypeGuides.find((item) => item.taxonomy.mode === mode);

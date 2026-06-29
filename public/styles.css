@@ -5329,6 +5329,52 @@ h4 {
   white-space: nowrap;
 }
 
+.class-build-family__summary {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.class-build-family__summary article {
+  background: rgba(8, 4, 3, 0.46);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+  gap: 4px;
+  min-height: 66px;
+  padding: 9px;
+}
+
+.class-build-family__summary span {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.class-build-family__summary strong,
+.class-build-family__gear b {
+  color: var(--bone);
+  font-size: 12px;
+  line-height: 1.38;
+  overflow-wrap: anywhere;
+}
+
+.class-build-family__gear {
+  grid-column: 1 / -1;
+}
+
+.class-build-family__gear div {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.class-build-family__gear b {
+  background: rgba(214, 173, 99, 0.07);
+  border: 1px solid rgba(214, 173, 99, 0.12);
+  font-weight: 750;
+  padding: 6px;
+}
+
 .class-build-mode-grid {
   display: grid;
   gap: 10px;
@@ -6023,6 +6069,10 @@ h4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .class-build-family__summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .planner-sheet__head,
   .planner-sheet__layout {
     grid-template-columns: 1fr;
@@ -6569,6 +6619,11 @@ h4 {
   .atlas-mode-list a,
   .class-build-family header,
   .class-season-block__head {
+    grid-template-columns: 1fr;
+  }
+
+  .class-build-family__summary,
+  .class-build-family__gear div {
     grid-template-columns: 1fr;
   }
 
