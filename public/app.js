@@ -2858,8 +2858,12 @@ const classModeOrder = ["daily", "speed_farm", "pit_push"];
 const ignoredAspectDisplayNames = new Set(["暗金特效位", "神话暗金位", "空槽说明", "空槽位"]);
 
 function classSeasonGuides(classId) {
+  return classGuidesForSeason(classId, state.sim.seasonId);
+}
+
+function classGuidesForSeason(classId, seasonId) {
   return allBuildGuides()
-    .filter((guide) => guide.taxonomy.seasonId === state.sim.seasonId)
+    .filter((guide) => guide.taxonomy.seasonId === seasonId)
     .filter((guide) => guide.taxonomy.classId === classId)
     .sort((a, b) => {
       const archetypeCompare = a.taxonomy.archetypeName.localeCompare(b.taxonomy.archetypeName, "zh-CN");
@@ -2936,6 +2940,80 @@ function renderClassModeCard(guide, mode) {
         <a href="${guideSectionUrl(guide, "gameplay")}">打法</a>
       </div>
     </article>
+  `;
+}
+
+function renderClassSeasonCoverageCell(guide, mode) {
+  if (!guide) {
+    return `
+      <div class="class-season-coverage-cell is-empty" data-mode="${mode}">
+        <span>${modeName(mode)}</span>
+        <strong>待补充</strong>
+        <em>暂无结构化 BD</em>
+      </div>
+    `;
+  }
+  return `
+    <a class="class-season-coverage-cell" href="${guideSectionUrl(guide, "gear")}" data-mode="${mode}">
+      <span>${guide.taxonomy.modeName}</span>
+      <strong>${guide.formationDifficulty.label}成型 · ${guide.taxonomy.stage}</strong>
+      <em>${guide.ceiling.displayTier || guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</em>
+      <small>${guideSourceLabel(guide)}</small>
+    </a>
+  `;
+}
+
+function renderClassSeasonCoverage(selected, archetypes) {
+  const seasons = state.buildGuides.seasons?.length ? state.buildGuides.seasons : state.simulations.seasons;
+  return `
+    <section class="class-season-coverage-panel">
+      <div class="section-title">
+        <h4>${selected.zhName}三赛季流派覆盖</h4>
+        <span>按赛季、流派和日常 / 速刷 / 冲层进入装备、技能、巅峰分区</span>
+      </div>
+      <div class="class-season-block-list">
+        ${seasons.map((season) => {
+          const seasonGuides = classGuidesForSeason(selected.id, season.id);
+          const guidesByArchetype = new Map();
+          for (const guide of seasonGuides) {
+            if (!guidesByArchetype.has(guide.taxonomy.archetypeId)) guidesByArchetype.set(guide.taxonomy.archetypeId, []);
+            guidesByArchetype.get(guide.taxonomy.archetypeId).push(guide);
+          }
+          const referenceCount = seasonGuides.filter((guide) => guide.source.references?.length).length;
+          return `
+            <article class="class-season-block">
+              <header class="class-season-block__head">
+                <div>
+                  <strong>${season.zhLabel || season.name || season.id}</strong>
+                  <span>${seasonGuides.length} 套 BD · ${referenceCount} 个社区来源 · ${new Set(seasonGuides.map((guide) => guide.taxonomy.archetypeId)).size} 条流派轴</span>
+                </div>
+                <a href="#builds" data-build-filter-class="${selected.id}" data-build-filter-source="all">查看赛季 BD</a>
+              </header>
+              <div class="class-season-coverage-table">
+                <div class="class-season-coverage-row class-season-coverage-row--head" aria-hidden="true">
+                  <span>流派</span>
+                  <span>日常</span>
+                  <span>速刷</span>
+                  <span>冲层</span>
+                </div>
+                ${archetypes.map((archetype) => {
+                  const archetypeGuides = guidesByArchetype.get(archetype.id) || [];
+                  return `
+                    <div class="class-season-coverage-row">
+                      <header>
+                        <strong>${archetypeGuides[0]?.taxonomy.archetypeName || archetype.zhName}</strong>
+                        <em>${archetype.primaryStats.map(statLabel).join(" / ")}</em>
+                      </header>
+                      ${classModeOrder.map((mode) => renderClassSeasonCoverageCell(archetypeGuides.find((guide) => guide.taxonomy.mode === mode), mode)).join("")}
+                    </div>
+                  `;
+                }).join("")}
+              </div>
+            </article>
+          `;
+        }).join("")}
+      </div>
+    </section>
   `;
 }
 
@@ -3028,6 +3106,7 @@ function renderSelectedClass() {
         ${renderGuideMiniLinks(communityGuides, "该职业还没有同赛季或跨赛季社区 BD，后续导入后会显示在这里。")}
       </section>
       ${renderClassBuildMatrix(selected, archetypes, classGuides)}
+      ${renderClassSeasonCoverage(selected, archetypes)}
     `;
 }
 

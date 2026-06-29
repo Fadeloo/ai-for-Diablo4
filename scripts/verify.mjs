@@ -193,6 +193,7 @@ assert(siteCoverage.buildCoverage.classMatrix?.length === simulations.seasons.le
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "RecommendedBuildBoard"), "Site coverage must describe the build recommendation board data contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildDetailLayout"), "Site coverage must describe the build detail data contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "ClassBuildMatrix" && contract.fields?.includes("skillTree.pointOrder[0]") && contract.fields?.includes("paragon.clickOrder[0]")), "Site coverage must describe the class build matrix contract");
+assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "ClassSeasonCoverage" && contract.fields?.includes("taxonomy.seasonId") && contract.fields?.includes("source.references")), "Site coverage must describe the class cross-season coverage contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.fields?.includes("gearSlots")), "Frontend data contracts must expose full build detail fields");
 assert(siteCoverage.buildDetailComponentBlueprint?.some((contract) => contract.component === "GearSummaryMatrix" && contract.requiredFields?.includes("gearSlots[].replaceable")), "Build detail blueprint must require slot-level replacement status");
 assert(siteCoverage.buildDetailComponentBlueprint?.some((contract) => contract.component === "SkillRouteMatrix" && contract.requiredFields?.includes("skillTree.pointOrder")), "Build detail blueprint must require skill point order");
@@ -282,6 +283,8 @@ assert(frontendText.includes("recommendedDirectoryGuidesForCurrentFilters"), "BD
 assert(frontendText.includes("is-fallback"), "BD recommendation board must visibly mark best-available fallback entries");
 assert(frontendText.includes("renderClassModeCard"), "Class page must render detailed per-mode build cards");
 assert(frontendText.includes("class-mode-card__facts") && frontendText.includes("class-mode-card__route") && frontendText.includes("class-mode-card__actions"), "Class build matrix must expose difficulty, stage, ceiling, route preview and section entry links");
+assert(frontendText.includes("renderClassSeasonCoverage"), "Class page must render cross-season build coverage");
+assert(frontendText.includes("class-season-coverage-panel") && frontendText.includes("class-season-coverage-cell"), "Class cross-season coverage must expose season blocks and mode cells");
 assert(frontendText.includes("guide-card__quickfacts"), "BD library cards must expose executable gear, skill, paragon and gameplay facts");
 assert(frontendText.includes("renderGuideSectionLinks") && frontendText.includes("guide-section-link-row"), "BD library cards must link directly to gear, skill, paragon and gameplay sections");
 assert(frontendText.includes("compact-guide-actions"), "BD default recommendation view must expose section links on priority guide cards");

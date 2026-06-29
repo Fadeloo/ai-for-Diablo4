@@ -159,6 +159,23 @@ const frontendDataContracts = [
     frontendUse: "职业页按流派和日常、速刷、冲层三种用途展示成型难度、阶段、上限、核心件、技能第一步、巅峰第一步、打法和分区入口。"
   },
   {
+    component: "ClassSeasonCoverage",
+    zhName: "职业三赛季流派覆盖",
+    source: "build-guides.builds + build-guides.seasons + archetypes + class selection",
+    fields: [
+      "taxonomy.seasonId",
+      "taxonomy.classId",
+      "taxonomy.archetypeId",
+      "taxonomy.mode",
+      "formationDifficulty",
+      "taxonomy.stage",
+      "ceiling",
+      "source.verificationLevel",
+      "source.references"
+    ],
+    frontendUse: "职业页按三赛季、流派和日常/速刷/冲层用途做横向对照，单元格直达对应 BD 装备分区，避免玩家只能看到当前赛季或纯文字概述。"
+  },
+  {
     component: "CoveragePanel",
     zhName: "数据覆盖与使用方式",
     source: "site-coverage",

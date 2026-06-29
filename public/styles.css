@@ -4808,6 +4808,163 @@ h4 {
   border-color: rgba(240, 207, 143, 0.46);
 }
 
+.class-season-coverage-panel {
+  background:
+    linear-gradient(180deg, rgba(214, 173, 99, 0.1), rgba(10, 6, 4, 0.68)),
+    rgba(8, 4, 3, 0.76);
+  border: 1px solid rgba(214, 173, 99, 0.24);
+  display: grid;
+  gap: 14px;
+  grid-column: 1 / -1;
+  padding: 16px;
+}
+
+.class-season-block-list {
+  display: grid;
+  gap: 14px;
+}
+
+.class-season-block {
+  background: rgba(7, 4, 3, 0.54);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+}
+
+.class-season-block__head {
+  align-items: center;
+  border-bottom: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 13px;
+}
+
+.class-season-block__head strong {
+  color: #fff7df;
+  display: block;
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+.class-season-block__head span {
+  color: var(--muted);
+  display: block;
+  font-size: 12px;
+  line-height: 1.45;
+  margin-top: 4px;
+}
+
+.class-season-block__head a {
+  background: rgba(214, 173, 99, 0.1);
+  border: 1px solid rgba(214, 173, 99, 0.24);
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-weight: 850;
+  padding: 8px 10px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.class-season-block__head a:hover {
+  background: rgba(164, 32, 24, 0.24);
+  border-color: rgba(240, 207, 143, 0.46);
+}
+
+.class-season-coverage-table {
+  display: grid;
+}
+
+.class-season-coverage-row {
+  border-bottom: 1px solid rgba(214, 173, 99, 0.12);
+  display: grid;
+  grid-template-columns: minmax(170px, 0.9fr) repeat(3, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.class-season-coverage-row:last-child {
+  border-bottom: 0;
+}
+
+.class-season-coverage-row--head {
+  background: rgba(214, 173, 99, 0.08);
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.class-season-coverage-row--head span,
+.class-season-coverage-row > header,
+.class-season-coverage-cell {
+  border-right: 1px solid rgba(214, 173, 99, 0.1);
+  min-width: 0;
+  padding: 11px;
+}
+
+.class-season-coverage-row--head span:last-child,
+.class-season-coverage-cell:last-child {
+  border-right: 0;
+}
+
+.class-season-coverage-row > header {
+  display: grid;
+  gap: 5px;
+}
+
+.class-season-coverage-row > header strong {
+  color: var(--bone);
+  font-size: 14px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.class-season-coverage-row > header em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.class-season-coverage-cell {
+  color: inherit;
+  display: grid;
+  gap: 5px;
+  min-height: 96px;
+  text-decoration: none;
+}
+
+.class-season-coverage-cell:hover {
+  background: rgba(164, 32, 24, 0.18);
+}
+
+.class-season-coverage-cell span {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.class-season-coverage-cell strong {
+  color: #fff7df;
+  font-size: 12px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.class-season-coverage-cell em,
+.class-season-coverage-cell small {
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.class-season-coverage-cell.is-empty {
+  opacity: 0.56;
+}
+
 .damage-workbench {
   display: grid;
   gap: 0;
@@ -5141,6 +5298,10 @@ h4 {
     grid-template-columns: minmax(150px, 0.78fr) repeat(3, minmax(170px, 1fr));
   }
 
+  .class-season-coverage-row {
+    grid-template-columns: minmax(150px, 0.72fr) repeat(3, minmax(170px, 1fr));
+  }
+
   .progression-checkpoints {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -5458,6 +5619,8 @@ h4 {
   .class-build-actions,
   .class-season-summary,
   .class-build-mode-grid,
+  .class-season-block__head,
+  .class-season-coverage-row,
   .season-build-matrix__row,
   .guide-card__metrics,
   .guide-card__quickfacts,
@@ -5636,7 +5799,8 @@ h4 {
 
   .atlas-class-card header,
   .atlas-mode-list a,
-  .class-build-family header {
+  .class-build-family header,
+  .class-season-block__head {
     grid-template-columns: 1fr;
   }
 
@@ -5664,6 +5828,44 @@ h4 {
   }
 
   .season-build-mode-cell:last-child {
+    border-bottom: 0;
+  }
+
+  .class-season-coverage-panel .section-title span {
+    text-align: left;
+    white-space: normal;
+  }
+
+  .class-season-coverage-panel .section-title {
+    align-items: start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .class-season-block__head a {
+    justify-self: start;
+  }
+
+  .class-season-coverage-table {
+    border: 0;
+    gap: 10px;
+  }
+
+  .class-season-coverage-row--head {
+    display: none;
+  }
+
+  .class-season-coverage-row {
+    border: 1px solid rgba(214, 173, 99, 0.18);
+  }
+
+  .class-season-coverage-row > header,
+  .class-season-coverage-cell {
+    border-right: 0;
+    border-bottom: 1px solid rgba(214, 173, 99, 0.12);
+  }
+
+  .class-season-coverage-cell:last-child {
     border-bottom: 0;
   }
 
