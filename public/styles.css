@@ -2149,6 +2149,73 @@ h4 {
   text-align: center;
 }
 
+.guide-hero-modes {
+  background: rgba(214, 173, 99, 0.08);
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+}
+
+.guide-hero-modes header {
+  align-items: center;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: auto minmax(0, 1fr);
+}
+
+.guide-hero-modes header span,
+.guide-hero-mode span {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.guide-hero-modes header strong {
+  color: #fff7df;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.guide-hero-mode-grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.guide-hero-mode {
+  background: rgba(8, 4, 3, 0.48);
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  color: var(--bone);
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  padding: 9px 10px;
+  text-decoration: none;
+}
+
+.guide-hero-mode:hover,
+.guide-hero-mode.is-active {
+  background: rgba(164, 32, 24, 0.18);
+  border-color: rgba(240, 207, 143, 0.42);
+}
+
+.guide-hero-mode strong,
+.guide-hero-mode b {
+  color: var(--bone);
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.guide-hero-mode em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
 .build-dossier {
   display: grid;
   gap: 10px;
@@ -7215,6 +7282,10 @@ h4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .guide-hero-mode-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .guide-hero-execution {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -7651,6 +7722,8 @@ h4 {
   .hero-metrics,
   .guide-copy-overview > header,
   .guide-copy-overview__grid,
+  .guide-hero-modes header,
+  .guide-hero-mode-grid,
   .guide-hero-execution,
   .loadout-board__header,
   .build-manual-panel > header,
@@ -8019,6 +8092,10 @@ h4 {
 
   .guide-mode-actions {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .guide-hero-modes header {
+    align-items: start;
   }
 
   .guide-hero-execution article {

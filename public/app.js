@@ -1705,6 +1705,39 @@ function renderGuideHeroExecutionStrip(guide) {
   `;
 }
 
+function renderGuideHeroModeTabs(guide) {
+  const versions = sameArchetypeVersions(guide);
+  if (versions.length <= 1) return "";
+  return `
+    <section class="guide-hero-modes" aria-label="同流派用途版本切换">
+      <header>
+        <span>用途版本</span>
+        <strong>${displayText(guide.taxonomy.archetypeName)} · 日常 / 速刷 / 冲层</strong>
+      </header>
+      <div class="guide-hero-mode-grid">
+        ${buildVersionModeOrder.map((mode) => {
+          const item = versions.find((version) => version.taxonomy.mode === mode);
+          if (!item) {
+            return `
+              <span class="guide-hero-mode is-empty">
+                <b>${modeLabels[mode]}</b>
+                <em>暂无当前赛季版本</em>
+              </span>
+            `;
+          }
+          return `
+            <a class="guide-hero-mode ${item.id === guide.id ? "is-active" : ""}" href="${guideUrl(item)}"${item.id === guide.id ? " aria-current=\"page\"" : ""}>
+              <span>${item.taxonomy.modeName}</span>
+              <strong>${item.formationDifficulty.label}成型 · ${item.taxonomy.stage}</strong>
+              <em>${guideCeilingTier(item)} · ${item.ceiling.pit150Minutes} 分 · ${guideSourceLabel(item)}</em>
+            </a>
+          `;
+        }).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function guideSectionMeta(guide, key) {
   const counts = guide.guideCompleteness?.counts || {};
   const requiredCount = (guide.gearSlots || []).filter((slot) => slot.required).length;
@@ -3880,6 +3913,7 @@ function renderBuildGuideDetail() {
           <span><b>${guide.gearSlots.length}</b>装备位置</span>
           <span><b>${guide.coreUniques.length}</b>核心暗金</span>
         </div>
+        ${renderGuideHeroModeTabs(guide)}
         ${renderGuideHeroExecutionStrip(guide)}
       </header>
 
