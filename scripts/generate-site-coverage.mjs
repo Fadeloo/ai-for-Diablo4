@@ -128,6 +128,29 @@ const frontendDataContracts = [
     frontendUse: "按 #bd/<guideId>/<section> 分区页面展示装备、技能、巅峰、打法、替换和来源状态，避免把完整攻略堆在同一屏。"
   },
   {
+    component: "BuildPlannerSheet",
+    zhName: "BD 抄作业配置总表",
+    source: "build-guides.builds[id]",
+    fields: [
+      "gearSlots",
+      "gearSlots[].target.zhName",
+      "gearSlots[].required",
+      "gearSlots[].replaceable",
+      "gearSlots[].affixes",
+      "gearSlots[].tempers",
+      "gearSlots[].masterwork",
+      "gearSlots[].alternatives[0]",
+      "skillTree.skillBar",
+      "skillTree.pointOrder",
+      "paragon.boardOrder",
+      "paragon.clickOrder",
+      "gameplay.opener",
+      "gameplay.loop",
+      "gameplay.defense"
+    ],
+    frontendUse: "BD 配置分区像主流构筑模拟器一样，把 11 个装备位、首选替换、词缀/淬炼/精造、技能栏、加点、巅峰盘、点击顺序和打法速查放在同一个可抄总表。"
+  },
+  {
     component: "GuideReadinessPanel",
     zhName: "BD 可抄程度面板",
     source: "build-guides.builds[id].source + build-guides.builds[id].dataQuality + ceiling",

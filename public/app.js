@@ -686,6 +686,7 @@ function guideSectionUrl(guide, sectionId) {
 
 function renderGuideSectionLinks(guide, className = "guide-section-link-row") {
   const links = [
+    ["planner", "配置"],
     ["gear", "装备"],
     ["skills", "技能"],
     ["paragon", "巅峰"],
@@ -825,10 +826,10 @@ function renderGuideReadinessPanel(guide) {
       </div>
       <p class="guide-readiness__caution">${profile.caution}</p>
       <div class="guide-readiness__actions">
+        <a href="${guideSectionUrl(guide, "planner")}">看配置</a>
         <a href="${guideSectionUrl(guide, "gear")}">看装备</a>
         <a href="${guideSectionUrl(guide, "skills")}">看技能</a>
         <a href="${guideSectionUrl(guide, "paragon")}">看巅峰</a>
-        <a href="${guideSectionUrl(guide, "gameplay")}">看打法</a>
       </div>
     </section>
   `;
@@ -2321,6 +2322,153 @@ function renderBuildManualPanel(guide) {
   `;
 }
 
+function firstReplacement(slot) {
+  return (slot.alternatives || [])[0] || null;
+}
+
+function renderPlannerGearRow(slot) {
+  const replacement = firstReplacement(slot);
+  const power = gearPowerDisplay(slot);
+  const targetLink = slot.target?.itemId
+    ? `<a href="${itemUrl(slot.target.itemId)}">${displayText(slot.target.zhName)}</a>`
+    : `<strong>${displayText(slot.target.zhName)}</strong>`;
+  return `
+    <article class="planner-gear-row ${gearSlotStateClass(slot)}">
+      <div class="planner-gear-slot">
+        ${renderIcon(slot.target, `${slot.zhSlotName}${slot.target.zhName}图标`)}
+        <div>
+          <span>${slot.zhSlotName}</span>
+          ${targetLink}
+        </div>
+      </div>
+      <div class="planner-gear-power">
+        <span>${slot.required ? "硬需求" : slot.core ? "核心位" : "补强位"} · ${slot.replaceable ? "可替换" : "不建议替换"}</span>
+        <strong>${displayText(power)}</strong>
+        <p>${displayText(slot.aspect?.role || slot.target?.description || "用途待来源回填")}</p>
+      </div>
+      <div class="planner-gear-build">
+        <p><b>词缀</b>${(slot.affixes || []).slice(0, 4).map(displayText).join(" / ")}</p>
+        <p><b>淬炼</b>${(slot.tempers || []).slice(0, 2).map(displayText).join(" / ") || "按抗性和资源缺口调整"}</p>
+        <p><b>精造</b>${(slot.masterwork || []).slice(0, 2).map(displayText).join(" / ") || "优先核心词缀"}</p>
+      </div>
+      <div class="planner-gear-replace">
+        <span>首选替换</span>
+        <strong>${displayText(replacement?.zhName || "暂无替换建议")}</strong>
+        <p>${displayText(replacement?.tradeoff || replacement?.reason || (slot.replaceable ? "按缺件、抗性或容错替换。" : "核心联动位，缺件时先降层过渡。"))}</p>
+      </div>
+    </article>
+  `;
+}
+
+function renderPlannerSequence(title, subtitle, rows, renderRow) {
+  return `
+    <section class="planner-sequence" aria-label="${title}">
+      <header>
+        <span>${subtitle}</span>
+        <strong>${title}</strong>
+      </header>
+      <ol>
+        ${rows.map(renderRow).join("")}
+      </ol>
+    </section>
+  `;
+}
+
+function renderBuildPlannerSheet(guide) {
+  const requiredCount = guide.gearSlots.filter((slot) => slot.required).length;
+  const replaceableCount = guide.gearSlots.filter((slot) => slot.replaceable).length;
+  const skillSteps = (guide.skillTree?.pointOrder || []).slice(0, 10);
+  const paragonSteps = (guide.paragon?.clickOrder || []).slice(0, 10);
+  const boards = guide.paragon?.boardOrder || [];
+  return `
+    <section class="planner-sheet" aria-label="BD 配置总表">
+      <header class="planner-sheet__head">
+        <div>
+          <span>BD 配置总表</span>
+          <strong>${guide.taxonomy.className} · ${guide.taxonomy.archetypeName} · ${guide.taxonomy.modeName}</strong>
+          <p>${displayText(guide.summary.oneLine)}</p>
+        </div>
+        <div class="planner-sheet__facts">
+          <article><b>${guide.gearSlots.length}</b><span>装备位</span></article>
+          <article><b>${requiredCount}</b><span>硬需求</span></article>
+          <article><b>${replaceableCount}</b><span>可替换</span></article>
+          <article><b>${guide.ceiling?.pit150Minutes || "-"}</b><span>150 层分钟</span></article>
+        </div>
+      </header>
+      <div class="planner-sheet__nav">
+        <a href="${guideSectionUrl(guide, "gear")}">装备明细</a>
+        <a href="${guideSectionUrl(guide, "skills")}">技能加点</a>
+        <a href="${guideSectionUrl(guide, "paragon")}">巅峰点击</a>
+        <a href="${guideSectionUrl(guide, "gameplay")}">打法流程</a>
+        <a href="${guideSectionUrl(guide, "variants")}">替换方案</a>
+      </div>
+      <div class="planner-sheet__layout">
+        <section class="planner-gear-table" aria-label="11 装备位配置">
+          <header>
+            <span>全身装备</span>
+            <strong>每个部位的目标件、核心状态、词缀和替换</strong>
+          </header>
+          <div>${guide.gearSlots.map(renderPlannerGearRow).join("")}</div>
+        </section>
+        <aside class="planner-route-stack" aria-label="技能、巅峰和打法配置">
+          <section class="planner-skillbar" aria-label="六技能栏">
+            <header>
+              <span>六技能栏</span>
+              <strong>${displayText(guide.skillTree?.core || "核心技能")}</strong>
+            </header>
+            <div>
+              ${(guide.skillTree?.skillBar || []).map((skill) => `
+                <article>
+                  <span>${skill.slot}</span>
+                  <strong>${displayText(skill.name)}</strong>
+                  <em>${displayText(skill.role)} · ${skill.points} 点</em>
+                </article>
+              `).join("")}
+            </div>
+          </section>
+          ${renderPlannerSequence("技能加点顺序", `${skillSteps.length} 步`, skillSteps, (step) => `
+            <li>
+              <span>${step.step}</span>
+              <div><strong>${displayText(step.levelRange)} · ${displayText(step.skill)}</strong><p>${displayText(step.points)} · ${displayText(step.reason)}</p></div>
+            </li>
+          `)}
+          <section class="planner-boards" aria-label="巅峰盘顺序">
+            <header>
+              <span>${boards.length} 张盘</span>
+              <strong>巅峰盘和雕文顺序</strong>
+            </header>
+            <div>
+              ${boards.map((board) => `
+                <article>
+                  <span>${board.order}</span>
+                  <div><strong>${displayText(board.name)}</strong><p>${displayText(board.glyph)} · ${displayText(board.rotate)}</p></div>
+                </article>
+              `).join("")}
+            </div>
+          </section>
+          ${renderPlannerSequence("巅峰点击顺序", `${paragonSteps.length} 步`, paragonSteps, (step) => `
+            <li>
+              <span>${step.step}</span>
+              <div><strong>${displayText(step.board)} · ${displayText(step.node)}</strong><p>${displayText(step.reason)}</p></div>
+            </li>
+          `)}
+          <section class="planner-gameplay" aria-label="打法速查">
+            <header>
+              <span>打法速查</span>
+              <strong>起手、循环和防御</strong>
+            </header>
+            <div>
+              <article><b>起手</b><p>${displayText((guide.gameplay?.opener || [])[0] || "进图先确认抗性、药剂和资源状态。")}</p></article>
+              <article><b>循环</b><p>${displayText((guide.gameplay?.loop || [])[0] || "按资源、冷却和核心技能窗口循环。")}</p></article>
+              <article><b>防御</b><p>${displayText((guide.gameplay?.defense || [])[0] || "高压时优先覆盖防御技能。")}</p></article>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </section>
+  `;
+}
+
 function renderExecutionPlan(guide) {
   const requiredSlots = guide.gearSlots.filter((slot) => slot.required).slice(0, 4);
   const skillSteps = (guide.skillTree?.pointOrder || []).slice(0, 3);
@@ -2883,6 +3031,7 @@ function renderGameplay(gameplay) {
 
 const guideDetailSections = [
   ["overview", "总览"],
+  ["planner", "配置"],
   ["progression", "开荒"],
   ["gear", "装备"],
   ["skills", "技能"],
@@ -2927,6 +3076,7 @@ function renderGuideSectionByKey(guide, activeSection = state.selectedGuideSecti
         </article>
       </div>
     `, "overview"),
+    planner: () => renderGuideDetailSection("抄作业配置", "装备、技能、巅峰、打法和替换一张表", renderBuildPlannerSheet(guide), "planner"),
     progression: () => renderGuideDetailSection("开荒到成型", "升级、过渡、终局和用途专精", renderProgressionPlan(guide.progression), "progression"),
     gear: () => renderGuideDetailSection("全身装备", "每个位置、替换件和精造方向", `
       ${renderLoadoutBoard(guide)}

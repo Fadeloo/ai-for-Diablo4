@@ -3142,6 +3142,257 @@ h4 {
   padding-bottom: 0;
 }
 
+.planner-sheet {
+  background:
+    linear-gradient(180deg, rgba(31, 13, 9, 0.86), rgba(7, 4, 3, 0.82));
+  border: 1px solid rgba(214, 173, 99, 0.24);
+  display: grid;
+  gap: 14px;
+  padding: 14px;
+}
+
+.planner-sheet__head {
+  align-items: start;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.65fr);
+}
+
+.planner-sheet__head span,
+.planner-sheet__nav a,
+.planner-gear-table > header span,
+.planner-route-stack header span,
+.planner-gear-slot span,
+.planner-gear-power span,
+.planner-gear-replace span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.planner-sheet__head strong,
+.planner-gear-table > header strong,
+.planner-route-stack header strong {
+  color: #fff7df;
+  display: block;
+  font-size: 18px;
+  line-height: 1.3;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+
+.planner-sheet__head p,
+.planner-gear-power p,
+.planner-gear-build p,
+.planner-gear-replace p,
+.planner-sequence p,
+.planner-boards p,
+.planner-gameplay p,
+.planner-skillbar em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.planner-sheet__facts {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.planner-sheet__facts article {
+  background: rgba(8, 4, 3, 0.5);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  gap: 4px;
+  min-height: 62px;
+  padding: 9px;
+}
+
+.planner-sheet__facts b {
+  color: var(--bone);
+  font-size: 18px;
+}
+
+.planner-sheet__facts span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.planner-sheet__nav {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.planner-sheet__nav a {
+  background: rgba(214, 173, 99, 0.09);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  min-height: 34px;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.planner-sheet__nav a:hover {
+  background: rgba(164, 32, 24, 0.24);
+  border-color: rgba(240, 207, 143, 0.44);
+}
+
+.planner-sheet__layout {
+  align-items: start;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: minmax(0, 1.22fr) minmax(360px, 0.78fr);
+}
+
+.planner-gear-table,
+.planner-route-stack,
+.planner-skillbar,
+.planner-sequence,
+.planner-boards,
+.planner-gameplay {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.planner-gear-table > header,
+.planner-skillbar,
+.planner-sequence,
+.planner-boards,
+.planner-gameplay {
+  background: rgba(8, 4, 3, 0.42);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  padding: 12px;
+}
+
+.planner-gear-table > div {
+  display: grid;
+  gap: 8px;
+}
+
+.planner-gear-row {
+  background: rgba(8, 4, 3, 0.5);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+  padding: 10px;
+}
+
+.planner-gear-row.is-required {
+  border-color: rgba(240, 207, 143, 0.48);
+}
+
+.planner-gear-slot {
+  align-items: center;
+  display: grid;
+  gap: 10px;
+  grid-column: 1 / -1;
+  grid-template-columns: 48px minmax(0, 1fr);
+}
+
+.planner-gear-slot img {
+  background: rgba(214, 173, 99, 0.08);
+  border: 1px solid rgba(214, 173, 99, 0.28);
+  height: 44px;
+  object-fit: contain;
+  width: 44px;
+}
+
+.planner-gear-slot strong,
+.planner-gear-slot a,
+.planner-gear-power strong,
+.planner-gear-replace strong,
+.planner-skillbar strong,
+.planner-sequence strong,
+.planner-boards strong,
+.planner-gameplay b {
+  color: var(--bone);
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.planner-gear-build {
+  display: grid;
+  gap: 5px;
+}
+
+.planner-gear-build b {
+  color: var(--gold);
+  display: inline-block;
+  font-size: 11px;
+  margin-right: 6px;
+}
+
+.planner-skillbar > div {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.planner-skillbar article,
+.planner-boards article,
+.planner-gameplay article {
+  background: rgba(242, 240, 234, 0.04);
+  border: 1px solid rgba(214, 173, 99, 0.14);
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  padding: 8px;
+}
+
+.planner-skillbar article {
+  grid-template-columns: 26px minmax(0, 1fr);
+}
+
+.planner-skillbar article > span,
+.planner-sequence li > span,
+.planner-boards article > span {
+  align-items: center;
+  background: rgba(164, 32, 24, 0.34);
+  border: 1px solid rgba(214, 173, 99, 0.28);
+  color: #fff7df;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 900;
+  height: 26px;
+  justify-content: center;
+  width: 26px;
+}
+
+.planner-sequence ol {
+  display: grid;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.planner-sequence li,
+.planner-boards article {
+  align-items: start;
+  background: rgba(242, 240, 234, 0.04);
+  border: 1px solid rgba(214, 173, 99, 0.14);
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 28px minmax(0, 1fr);
+  padding: 8px;
+}
+
+.planner-boards > div,
+.planner-gameplay > div {
+  display: grid;
+  gap: 8px;
+}
+
 .execution-plan {
   display: grid;
   gap: 10px;
@@ -5612,6 +5863,23 @@ h4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .planner-sheet__head,
+  .planner-sheet__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .planner-sheet__nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .planner-gear-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .planner-gear-slot {
+    grid-column: 1 / -1;
+  }
+
   .class-season-coverage-row {
     grid-template-columns: minmax(150px, 0.72fr) repeat(3, minmax(170px, 1fr));
   }
@@ -5936,6 +6204,12 @@ h4 {
   .route-source-panel,
   .route-source-panel__facts,
   .route-source-panel__actions,
+  .planner-sheet__head,
+  .planner-sheet__facts,
+  .planner-sheet__nav,
+  .planner-sheet__layout,
+  .planner-gear-row,
+  .planner-skillbar > div,
   .recommended-build-row,
   .class-build-actions,
   .class-season-summary,
@@ -6029,6 +6303,10 @@ h4 {
 
   .manual-gear-row {
     grid-template-columns: 1fr;
+  }
+
+  .planner-gear-slot {
+    grid-column: auto;
   }
 
   .loadout-board__counts {

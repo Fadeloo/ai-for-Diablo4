@@ -209,6 +209,7 @@ assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildMaturityPanel" && contract.fields?.includes("source.verificationLevel")), "Site coverage must describe the build maturity panel contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildSidebarSectionLinks" && contract.fields?.includes("gearSlots") && contract.fields?.includes("skillTree.pointOrder")), "Site coverage must describe the build sidebar section links contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildDetailLayout"), "Site coverage must describe the build detail data contract");
+assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildPlannerSheet" && contract.fields?.includes("gearSlots[].alternatives[0]") && contract.fields?.includes("paragon.clickOrder")), "Site coverage must describe the copy-ready build planner sheet contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "GuideReadinessPanel" && contract.fields?.includes("source.verificationLevel") && contract.fields?.includes("dataQuality.needsValidation")), "Site coverage must describe the guide readiness panel contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "RouteSourcePanel" && contract.fields?.includes("skillTree.sourceStatus") && contract.fields?.includes("paragon.sourceStatus")), "Site coverage must describe the skill/paragon route source panel contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "ClassBuildMatrix" && contract.fields?.includes("skillTree.pointOrder[0]") && contract.fields?.includes("paragon.clickOrder[0]")), "Site coverage must describe the class build matrix contract");
@@ -331,6 +332,9 @@ assert(frontendText.includes("guide-version-tabs"), "BD detail must expose visib
 assert(frontendText.includes("renderBuildManualPanel"), "BD overview must render a copy-ready execution manual");
 assert(frontendText.includes("build-manual-panel"), "BD overview must expose gear, skill, paragon and gameplay before long sections");
 assert(frontendText.includes("manual-gear-row"), "BD execution manual must expose all gear slots as jump targets");
+assert(frontendText.includes("renderBuildPlannerSheet"), "BD detail must expose a dedicated copy-ready planner sheet section");
+assert(frontendText.includes("planner-sheet") && frontendText.includes("planner-gear-row") && frontendText.includes("planner-skillbar") && frontendText.includes("planner-boards") && frontendText.includes("planner-gameplay"), "BD planner sheet must expose gear, skill, paragon and gameplay in one execution view");
+assert(frontendText.includes("[\"planner\", \"配置\"]"), "BD section navigation must include the dedicated planner sheet section");
 assert(frontendText.includes("renderBuildDossier"), "BD hero must render a first-screen build dossier");
 assert(frontendText.includes("build-dossier") && frontendText.includes("核心装备") && frontendText.includes("六技能栏") && frontendText.includes("巅峰起步") && frontendText.includes("打法节奏"), "BD first screen must summarize core gear, skills, paragon and gameplay");
 assert(frontendText.includes("gearPowerDisplay"), "BD detail must render concrete unique/aspect power labels instead of visible placeholder labels");
