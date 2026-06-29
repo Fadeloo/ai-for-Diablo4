@@ -3891,6 +3891,86 @@ function renderClassSeasonSummary(selected, guides) {
   `;
 }
 
+function renderClassArchetypeDecisionTable(selected, archetypes, guidesByArchetype) {
+  return `
+    <section class="class-archetype-decision" aria-label="${selected.zhName}流派对照榜">
+      <header>
+        <div>
+          <span>流派对照榜</span>
+          <strong>按上限、成型、伤害、替换和用途选 BD</strong>
+        </div>
+        <em>${selected.zhName} · ${state.sim.seasonId.toUpperCase()} · ${archetypes.length} 条流派轴</em>
+      </header>
+      <div class="class-archetype-decision__table">
+        <div class="class-archetype-row class-archetype-row--head" aria-hidden="true">
+          <span>流派</span>
+          <span>推荐入口</span>
+          <span>日常 / 速刷 / 冲层</span>
+          <span>成型和上限</span>
+          <span>装备取舍</span>
+        </div>
+        ${archetypes.map((archetype) => {
+          const archetypeGuides = guidesByArchetype.get(archetype.id) || [];
+          const guidesByMode = new Map(archetypeGuides.map((guide) => [guide.taxonomy.mode, guide]));
+          const push = guidesByMode.get("pit_push") || archetypeGuides.slice().sort(sortGuidesForPlayer)[0];
+          const speed = guidesByMode.get("speed_farm");
+          const daily = guidesByMode.get("daily");
+          const entry = daily || speed || push || archetypeGuides[0];
+          const representative = push || entry;
+          const requiredCount = representative?.gearSlots?.filter((slot) => slot.required).length || 0;
+          const replaceableCount = representative?.gearSlots?.filter((slot) => slot.replaceable).length || 0;
+          const damage = representative?.damageModel?.expectedDps || 0;
+          return `
+            <article class="class-archetype-row">
+              <header>
+                <strong>${displayText(archetypeGuides[0]?.taxonomy.archetypeName || archetype.zhName)}</strong>
+                <em>${archetype.primaryStats.map(statLabel).join(" / ")}</em>
+              </header>
+              <div class="class-archetype-entry">
+                ${entry ? `
+                  <a href="${guideSectionUrl(entry, "overview")}">
+                    <span>${entry.taxonomy.modeName}</span>
+                    <strong>${entry.formationDifficulty.label}成型 · ${entry.taxonomy.stage}</strong>
+                    <em>${guideSourceLabel(entry)}</em>
+                  </a>
+                ` : `<span>暂无结构化入口</span>`}
+              </div>
+              <div class="class-archetype-modes">
+                ${classModeOrder.map((mode) => {
+                  const guide = guidesByMode.get(mode);
+                  return guide ? `
+                    <a href="${guideSectionUrl(guide, "gear")}" data-mode="${mode}">
+                      <span>${guide.taxonomy.modeName}</span>
+                      <b>${guide.ceiling.displayTier || guide.ceiling.tier}</b>
+                      <em>${guide.formationDifficulty.label} · ${formatNumber(guide.damageModel?.expectedDps || 0)} DPS</em>
+                    </a>
+                  ` : `
+                    <div class="is-empty" data-mode="${mode}">
+                      <span>${modeName(mode)}</span>
+                      <b>待补</b>
+                      <em>暂无 BD</em>
+                    </div>
+                  `;
+                }).join("")}
+              </div>
+              <div class="class-archetype-power">
+                <strong>${representative ? `${representative.ceiling.displayTier || representative.ceiling.tier} · ${representative.ceiling.pit150Minutes} 分` : "暂无上限"}</strong>
+                <span>${representative ? `${representative.formationDifficulty.label}成型 · ${formatNumber(damage)} 期望 DPS` : "伤害模型待生成"}</span>
+                ${representative ? `<a href="${guideSectionUrl(representative, "damage")}">伤害拆解</a>` : ""}
+              </div>
+              <div class="class-archetype-gear">
+                <strong>${requiredCount} 硬需求 / ${replaceableCount} 可替换</strong>
+                <span>${representative ? guideCoreLine(representative) : "核心装备待补充"}</span>
+                ${representative ? `<a href="${guideSectionUrl(representative, "variants")}">替换方案</a>` : ""}
+              </div>
+            </article>
+          `;
+        }).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderClassModeCard(guide, mode) {
   if (!guide) {
     return `
@@ -4065,6 +4145,7 @@ function renderClassBuildMatrix(selected, archetypes, guides) {
         <span>${state.simulations.seasons.find((season) => season.id === state.sim.seasonId)?.zhLabel || "当前赛季"}</span>
       </div>
       ${renderClassSeasonSummary(selected, guides)}
+      ${renderClassArchetypeDecisionTable(selected, archetypes, guidesByArchetype)}
       <div class="class-build-family-list">
         ${archetypes.map((archetype) => {
           const archetypeGuides = guidesByArchetype.get(archetype.id) || [];

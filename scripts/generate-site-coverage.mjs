@@ -386,6 +386,7 @@ const frontendDataContracts = [
       "formationDifficulty",
       "taxonomy.stage",
       "ceiling",
+      "damageModel.expectedDps",
       "coreUniques",
       "coreAspects",
       "gearSlots[].target.zhName",
@@ -396,7 +397,7 @@ const frontendDataContracts = [
       "gameplay.loop[0]",
       "source.verificationLevel"
     ],
-    frontendUse: "职业页按流派和日常、速刷、冲层三种用途展示成型难度、阶段、上限、核心件、关键部位、替换状态、技能第一步、巅峰第一步、打法和分区入口。"
+    frontendUse: "职业页先用流派对照榜按上限、成型、伤害、替换和用途帮助玩家选 BD，再按流派和日常、速刷、冲层三种用途展示成型难度、阶段、上限、核心件、关键部位、替换状态、技能第一步、巅峰第一步、打法和分区入口。"
   },
   {
     component: "ClassSeasonCoverage",

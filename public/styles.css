@@ -6188,6 +6188,142 @@ h4 {
   font-size: 12px;
 }
 
+.class-archetype-decision {
+  background:
+    linear-gradient(180deg, rgba(29, 17, 11, 0.78), rgba(7, 4, 3, 0.78));
+  border: 1px solid rgba(214, 173, 99, 0.22);
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+}
+
+.class-archetype-decision > header {
+  align-items: start;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.class-archetype-decision header span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.class-archetype-decision header strong {
+  color: #fff7df;
+  display: block;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-top: 3px;
+}
+
+.class-archetype-decision header em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  text-align: right;
+}
+
+.class-archetype-decision__table {
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+}
+
+.class-archetype-row {
+  border-bottom: 1px solid rgba(214, 173, 99, 0.14);
+  display: grid;
+  grid-template-columns: minmax(150px, 0.9fr) minmax(170px, 1fr) minmax(300px, 1.65fr) minmax(160px, 0.9fr) minmax(180px, 1fr);
+}
+
+.class-archetype-row:last-child {
+  border-bottom: 0;
+}
+
+.class-archetype-row--head {
+  background: rgba(214, 173, 99, 0.1);
+}
+
+.class-archetype-row--head span,
+.class-archetype-row > header,
+.class-archetype-entry,
+.class-archetype-modes,
+.class-archetype-power,
+.class-archetype-gear {
+  border-right: 1px solid rgba(214, 173, 99, 0.12);
+  padding: 11px;
+}
+
+.class-archetype-row--head span:last-child,
+.class-archetype-gear {
+  border-right: 0;
+}
+
+.class-archetype-row > header strong,
+.class-archetype-entry strong,
+.class-archetype-power strong,
+.class-archetype-gear strong {
+  color: #fff7df;
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.class-archetype-row > header em,
+.class-archetype-entry em,
+.class-archetype-power span,
+.class-archetype-gear span,
+.class-archetype-modes em {
+  color: var(--muted);
+  display: block;
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.class-archetype-entry a,
+.class-archetype-power a,
+.class-archetype-gear a,
+.class-archetype-modes a,
+.class-archetype-modes .is-empty {
+  color: inherit;
+  display: grid;
+  gap: 4px;
+  text-decoration: none;
+}
+
+.class-archetype-entry span,
+.class-archetype-modes span,
+.class-archetype-power a,
+.class-archetype-gear a {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.class-archetype-modes {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.class-archetype-modes a,
+.class-archetype-modes .is-empty {
+  background: rgba(8, 4, 3, 0.42);
+  border: 1px solid rgba(214, 173, 99, 0.14);
+  padding: 8px;
+}
+
+.class-archetype-modes b {
+  color: #fff7df;
+  font-size: 13px;
+}
+
+.class-archetype-modes .is-empty {
+  opacity: 0.56;
+}
+
 .class-build-family-list {
   display: grid;
   gap: 12px;
@@ -7059,6 +7195,10 @@ h4 {
     grid-template-columns: minmax(150px, 0.72fr) repeat(3, minmax(170px, 1fr));
   }
 
+  .class-archetype-row {
+    grid-template-columns: minmax(150px, 0.85fr) minmax(170px, 1fr) minmax(260px, 1.5fr) minmax(150px, 0.9fr) minmax(170px, 1fr);
+  }
+
   .class-roster-status {
     grid-template-columns: 1fr;
   }
@@ -7127,6 +7267,7 @@ h4 {
   .archetype-grid,
   .class-build-actions,
   .class-season-summary,
+  .class-archetype-decision > header,
   .class-build-mode-grid,
   .build-atlas-grid,
   .coverage-grid,
@@ -7350,6 +7491,31 @@ h4 {
 }
 
 @media (max-width: 720px) {
+  .class-archetype-row--head {
+    display: none;
+  }
+
+  .class-archetype-row > header,
+  .class-archetype-entry,
+  .class-archetype-modes,
+  .class-archetype-power,
+  .class-archetype-gear {
+    border-right: 0;
+    border-bottom: 1px solid rgba(214, 173, 99, 0.12);
+  }
+
+  .class-archetype-gear {
+    border-bottom: 0;
+  }
+
+  .class-archetype-modes {
+    grid-template-columns: 1fr;
+  }
+
+  .class-archetype-decision header em {
+    text-align: left;
+  }
+
   .damage-model-panel > header {
     grid-template-columns: 1fr;
   }
@@ -7462,6 +7628,7 @@ h4 {
   .class-build-mode-grid,
   .class-season-block__head,
   .class-season-coverage-row,
+  .class-archetype-row,
   .season-build-matrix__row,
   .guide-card__metrics,
   .guide-card__quickfacts,
