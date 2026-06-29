@@ -345,6 +345,21 @@
       "frontendUse": "按 #bd/<guideId>/<section> 分区页面展示装备、技能、巅峰、打法、替换和来源状态，避免把完整攻略堆在同一屏。"
     },
     {
+      "component": "GuideHeroLoadoutStrip",
+      "zhName": "BD 首屏 11 部位配装条",
+      "source": "build-guides.builds[id].gearSlots",
+      "fields": [
+        "gearSlots",
+        "gearSlots[].slotId",
+        "gearSlots[].zhSlotName",
+        "gearSlots[].target.zhName",
+        "gearSlots[].target.itemId",
+        "gearSlots[].required",
+        "gearSlots[].replaceable"
+      ],
+      "frontendUse": "BD 详情首屏在执行速览后直接展示 11 个装备位置、目标装备和硬需求/可替换状态，点击任意槽位进入装备分区。"
+    },
+    {
       "component": "BuildChapterIndex",
       "zhName": "BD 章节索引",
       "source": "build-guides.builds[id] + guideSectionMeta",

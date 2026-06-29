@@ -1816,6 +1816,23 @@ function renderGuideHeroExecutionStrip(guide) {
   `;
 }
 
+function renderGuideHeroLoadoutStrip(guide) {
+  const requiredCount = guide.gearSlots.filter((slot) => slot.required).length;
+  const replaceableCount = guide.gearSlots.filter((slot) => slot.replaceable).length;
+  return `
+    <section class="guide-hero-loadout" aria-label="BD 首屏 11 部位配装">
+      <header>
+        <div>
+          <span>11 部位配装</span>
+          <strong>所有装备位置、目标件和替换状态</strong>
+        </div>
+        <em>${requiredCount} 硬需求 · ${replaceableCount} 可替换</em>
+      </header>
+      ${renderLoadoutStrip(guide)}
+    </section>
+  `;
+}
+
 function renderGuideHeroModeTabs(guide) {
   const versions = sameArchetypeVersions(guide);
   if (versions.length <= 1) return "";
@@ -4248,6 +4265,7 @@ function renderBuildGuideDetail() {
         </div>
         ${renderGuideHeroModeTabs(guide)}
         ${renderGuideHeroExecutionStrip(guide)}
+        ${renderGuideHeroLoadoutStrip(guide)}
       </header>
 
       <div class="guide-detail-layout">

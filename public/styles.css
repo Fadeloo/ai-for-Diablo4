@@ -2372,6 +2372,57 @@ h4 {
   text-align: center;
 }
 
+.guide-hero-loadout {
+  background: rgba(8, 4, 3, 0.42);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.guide-hero-loadout > header {
+  align-items: start;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.guide-hero-loadout > header span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.guide-hero-loadout > header strong {
+  color: #fff7df;
+  display: block;
+  font-size: 16px;
+  line-height: 1.35;
+  margin-top: 4px;
+}
+
+.guide-hero-loadout > header em {
+  background: rgba(214, 173, 99, 0.1);
+  border: 1px solid rgba(214, 173, 99, 0.22);
+  color: var(--gold);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 850;
+  padding: 7px 9px;
+  text-align: right;
+}
+
+.guide-hero-loadout .loadout-slot {
+  min-height: 116px;
+}
+
+.guide-hero-loadout .loadout-slot img {
+  height: 42px;
+  width: 42px;
+}
+
 .guide-hero-modes {
   background: rgba(214, 173, 99, 0.08);
   border: 1px solid rgba(214, 173, 99, 0.2);
@@ -8663,6 +8714,7 @@ h4 {
   .guide-hero-modes header,
   .guide-hero-mode-grid,
   .guide-hero-execution,
+  .guide-hero-loadout > header,
   .loadout-board__header,
   .build-manual-panel > header,
   .build-manual-grid,
