@@ -1598,6 +1598,69 @@ function renderBuildListView(guides) {
   `;
 }
 
+function buildMaturityGroups(guides) {
+  const groups = [
+    {
+      id: "community_reference",
+      label: "同赛季社区可抄",
+      description: "优先作为实战参考，进入详情后仍要看来源日期和热修风险。",
+      guides: guides.filter((guide) => guide.source.verificationLevel === "community_reference")
+    },
+    {
+      id: "cross_season_reference",
+      label: "跨赛季社区参考",
+      description: "有社区 BD 结构，赛季机制和数值需要重新校准。",
+      guides: guides.filter((guide) => guide.source.verificationLevel === "cross_season_reference")
+    },
+    {
+      id: "official_seed_template",
+      label: "官方词缀模板",
+      description: "装备词缀来自官方种子，BD 路线是结构化模板，不当作实战榜单。",
+      guides: guides.filter((guide) => guide.source.verificationLevel === "official_seed_template")
+    },
+    {
+      id: "projection_template",
+      label: "未来赛季推演",
+      description: "用于三赛季预判和缺口提示，不等同于已验证攻略。",
+      guides: guides.filter((guide) => guide.source.verificationLevel === "projection_template")
+    }
+  ];
+  return groups.map((group) => ({
+    ...group,
+    bestGuide: group.guides.slice().sort(sortGuidesForPlayer)[0] || null,
+    archetypeCount: new Set(group.guides.map((guide) => guide.taxonomy.archetypeId)).size
+  }));
+}
+
+function renderBuildMaturityPanel(guides) {
+  const groups = buildMaturityGroups(guides);
+  const total = guides.length;
+  if (!total) return "";
+  return `
+    <section class="build-maturity-panel" aria-label="资料成熟度">
+      <div class="section-title">
+        <h4>资料成熟度</h4>
+        <span>先看是否可抄，再进入装备、技能、巅峰和打法分区</span>
+      </div>
+      <div class="build-maturity-grid">
+        ${groups.map((group) => `
+          <article class="build-maturity-card build-maturity-card--${group.id}">
+            <span>${group.label}</span>
+            <strong>${group.guides.length} 套</strong>
+            <em>${group.archetypeCount} 个流派 · ${total ? Math.round(group.guides.length / total * 100) : 0}%</em>
+            <p>${group.description}</p>
+            ${group.bestGuide ? `
+              <a href="${guideUrl(group.bestGuide)}">
+                ${group.bestGuide.taxonomy.className} · ${group.bestGuide.taxonomy.archetypeName} · ${group.bestGuide.taxonomy.modeName}
+              </a>
+            ` : `<small>当前筛选下暂无</small>`}
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderBuildViewContent(guides, recommendedGuides) {
   if (state.sim.view === "matrix") {
     return `
@@ -1661,11 +1724,19 @@ function renderSimulator() {
       <em>${guides.filter((guide) => guide.source.references?.length).length} 套社区来源</em>
     </div>
     ${listRows.map((guide, index) => `
-      <a class="build-list-link guide-link" href="${guideUrl(guide)}" aria-selected="${index === state.sim.buildIndex}">
-        <span>${String(index + 1).padStart(2, "0")}</span>
-        <strong>${guide.taxonomy.archetypeName}</strong>
-        <em>${guideSourceLabel(guide)} · ${guide.taxonomy.stageTags.join(" / ")} · 成型${guide.formationDifficulty.label} · ${guide.ceiling.displayTier || guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</em>
-      </a>
+      <article class="build-list-entry">
+        <a class="build-list-link guide-link" href="${guideUrl(guide)}" aria-selected="${index === state.sim.buildIndex}">
+          <span>${String(index + 1).padStart(2, "0")}</span>
+          <strong>${guide.taxonomy.archetypeName}</strong>
+          <em>${guideSourceLabel(guide)} · ${guide.taxonomy.stageTags.join(" / ")} · 成型${guide.formationDifficulty.label} · ${guide.ceiling.displayTier || guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</em>
+        </a>
+        <div class="build-list-entry-actions" aria-label="${guide.taxonomy.archetypeName} 分区入口">
+          <a href="${guideSectionUrl(guide, "gear")}">装备</a>
+          <a href="${guideSectionUrl(guide, "skills")}">技能</a>
+          <a href="${guideSectionUrl(guide, "paragon")}">巅峰</a>
+          <a href="${guideSectionUrl(guide, "gameplay")}">打法</a>
+        </div>
+      </article>
     `).join("")}
     ${listRows.length < guides.length ? `<div class="build-list-foot">还有 ${guides.length - listRows.length} 套，请用右侧完整列表或继续筛选。</div>` : ""}
   `;
@@ -1697,6 +1768,7 @@ function renderSimulator() {
         <span><b>${topGuide?.ceiling.label || "待回填"}</b>最高参考</span>
       </div>
     </div>
+    ${renderBuildMaturityPanel(recommendedGuides)}
     ${renderBuildViewTabs(guides)}
     ${renderBuildViewContent(guides, recommendedGuides)}
   `;

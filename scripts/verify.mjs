@@ -192,6 +192,8 @@ assert(siteCoverage.pageBlueprints?.length >= 8, "Site coverage must expose the 
 assert(siteCoverage.pageBlueprints?.some((page) => page.route === "#bd/<guideId>" && page.requiredModules?.includes("装备") && page.requiredModules?.includes("技能") && page.requiredModules?.includes("巅峰") && page.requiredModules?.includes("打法")), "BD detail page blueprint must require equipment, skills, paragon and gameplay sections");
 assert(siteCoverage.buildCoverage.classMatrix?.length === simulations.seasons.length, "Site coverage needs per-season class matrix");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "RecommendedBuildBoard"), "Site coverage must describe the build recommendation board data contract");
+assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildMaturityPanel" && contract.fields?.includes("source.verificationLevel")), "Site coverage must describe the build maturity panel contract");
+assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildSidebarSectionLinks" && contract.fields?.includes("gearSlots") && contract.fields?.includes("skillTree.pointOrder")), "Site coverage must describe the build sidebar section links contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildDetailLayout"), "Site coverage must describe the build detail data contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "ClassBuildMatrix" && contract.fields?.includes("skillTree.pointOrder[0]") && contract.fields?.includes("paragon.clickOrder[0]")), "Site coverage must describe the class build matrix contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "ClassSeasonCoverage" && contract.fields?.includes("taxonomy.seasonId") && contract.fields?.includes("source.references")), "Site coverage must describe the class cross-season coverage contract");
@@ -287,6 +289,8 @@ assert(frontendText.includes("renderRecommendedBuildBoard"), "BD library must re
 assert(frontendText.includes("recommended-build-board"), "BD library must expose per-class daily/speed/push entry points");
 assert(frontendText.includes("recommendedDirectoryGuidesForCurrentFilters"), "BD recommendation board must use a best-available guide pool instead of hiding classes without current source matches");
 assert(frontendText.includes("is-fallback"), "BD recommendation board must visibly mark best-available fallback entries");
+assert(frontendText.includes("renderBuildMaturityPanel") && frontendText.includes("build-maturity-panel"), "BD library must expose source maturity before guide cards");
+assert(frontendText.includes("build-list-entry-actions") && frontendText.includes("guideSectionUrl(guide, \"gear\")"), "BD sidebar list must link directly to gear, skills, paragon and gameplay sections");
 assert(frontendText.includes("renderClassModeCard"), "Class page must render detailed per-mode build cards");
 assert(frontendText.includes("class-mode-card__facts") && frontendText.includes("class-mode-card__route") && frontendText.includes("class-mode-card__actions"), "Class build matrix must expose difficulty, stage, ceiling, route preview and section entry links");
 assert(frontendText.includes("renderClassSeasonCoverage"), "Class page must render cross-season build coverage");

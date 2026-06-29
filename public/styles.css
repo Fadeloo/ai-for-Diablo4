@@ -730,24 +730,33 @@ h4 {
   padding: 13px 16px;
 }
 
+.build-list-entry {
+  border-bottom: 1px solid rgba(214, 173, 99, 0.14);
+  display: grid;
+}
+
 .build-list-link,
 .equipment-row,
 .aspect-row {
   background: transparent;
   border: 0;
-  border-bottom: 1px solid rgba(214, 173, 99, 0.14);
   color: var(--bone);
   cursor: pointer;
   text-align: left;
   transition: background-color var(--transition), border-color var(--transition);
 }
 
+.equipment-row,
+.aspect-row {
+  border-bottom: 1px solid rgba(214, 173, 99, 0.14);
+}
+
 .build-list-link {
   display: grid;
   gap: 7px;
   grid-template-columns: 38px 1fr;
-  min-height: 94px;
-  padding: 16px;
+  min-height: 78px;
+  padding: 14px 16px 8px;
 }
 
 .build-list-link > span {
@@ -783,6 +792,7 @@ h4 {
 
 .build-list-link:hover,
 .build-list-link[aria-selected="true"],
+.build-list-entry:hover,
 .equipment-row:hover,
 .equipment-row[aria-selected="true"] {
   background: linear-gradient(90deg, rgba(164, 32, 24, 0.24), rgba(214, 173, 99, 0.1));
@@ -791,6 +801,30 @@ h4 {
 .build-list-link[aria-selected="true"],
 .equipment-row[aria-selected="true"] {
   box-shadow: inset 3px 0 0 var(--gold), inset 0 0 0 1px rgba(214, 173, 99, 0.16);
+}
+
+.build-list-entry-actions {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 0 16px 14px 54px;
+}
+
+.build-list-entry-actions a {
+  background: rgba(214, 173, 99, 0.08);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  color: var(--gold-bright);
+  font-size: 11px;
+  font-weight: 850;
+  min-height: 28px;
+  padding: 6px 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.build-list-entry-actions a:hover {
+  background: rgba(164, 32, 24, 0.24);
+  border-color: rgba(240, 207, 143, 0.46);
 }
 
 .build-library-content {
@@ -1002,6 +1036,74 @@ h4 {
   color: var(--bone);
   font-size: 14px;
   font-weight: 800;
+}
+
+.build-maturity-panel {
+  background: rgba(8, 4, 3, 0.42);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+.build-maturity-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.build-maturity-card {
+  background:
+    linear-gradient(180deg, rgba(214, 173, 99, 0.1), rgba(8, 4, 3, 0.72));
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  display: grid;
+  gap: 6px;
+  min-height: 168px;
+  padding: 12px;
+}
+
+.build-maturity-card--community_reference {
+  border-color: rgba(106, 186, 121, 0.38);
+}
+
+.build-maturity-card--cross_season_reference {
+  border-color: rgba(214, 173, 99, 0.34);
+}
+
+.build-maturity-card--projection_template {
+  opacity: 0.82;
+}
+
+.build-maturity-card span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.build-maturity-card strong {
+  color: #fff7df;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.build-maturity-card em,
+.build-maturity-card p,
+.build-maturity-card small {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.build-maturity-card a {
+  align-self: end;
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-weight: 850;
+  line-height: 1.4;
+  text-decoration: none;
 }
 
 .guide-card-grid {
@@ -5298,6 +5400,10 @@ h4 {
     grid-template-columns: minmax(150px, 0.78fr) repeat(3, minmax(170px, 1fr));
   }
 
+  .build-maturity-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .class-season-coverage-row {
     grid-template-columns: minmax(150px, 0.72fr) repeat(3, minmax(170px, 1fr));
   }
@@ -5615,6 +5721,7 @@ h4 {
   .data-contract-grid,
   .guide-card-grid,
   .compact-guide-grid,
+  .build-maturity-grid,
   .recommended-build-row,
   .class-build-actions,
   .class-season-summary,
@@ -5797,6 +5904,11 @@ h4 {
     scroll-snap-align: start;
   }
 
+  .build-list-entry-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-left: 54px;
+  }
+
   .build-view-tabs button {
     min-height: 62px;
   }
@@ -5844,6 +5956,17 @@ h4 {
     align-items: start;
     flex-direction: column;
     gap: 6px;
+  }
+
+  .build-maturity-panel .section-title {
+    align-items: start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .build-maturity-panel .section-title span {
+    text-align: left;
+    white-space: normal;
   }
 
   .class-season-block__head a {

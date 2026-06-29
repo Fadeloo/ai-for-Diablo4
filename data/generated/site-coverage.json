@@ -210,6 +210,34 @@
       "frontendUse": "把推荐入口、流派矩阵和完整列表拆成独立阅读模式，避免把所有 BD 信息同屏铺开。"
     },
     {
+      "component": "BuildMaturityPanel",
+      "zhName": "BD 资料成熟度面板",
+      "source": "build-guides.builds + source.verificationLevel",
+      "fields": [
+        "source.verificationLevel",
+        "source.references",
+        "taxonomy.classId",
+        "taxonomy.archetypeId",
+        "taxonomy.mode",
+        "formationDifficulty",
+        "ceiling"
+      ],
+      "frontendUse": "BD 大厅按同赛季社区、跨赛季社区、官方词缀模板和未来推演分组，防止玩家把模板或推演误认为可直接抄的实战 BD。"
+    },
+    {
+      "component": "BuildSidebarSectionLinks",
+      "zhName": "BD 左侧列表分区入口",
+      "source": "build-guides.builds[id]",
+      "fields": [
+        "id",
+        "gearSlots",
+        "skillTree.pointOrder",
+        "paragon.clickOrder",
+        "gameplay.loop"
+      ],
+      "frontendUse": "左侧 BD 列表每行直接链接装备、技能、巅峰和打法分区，让玩家不用先进入总览再找详情。"
+    },
+    {
       "component": "BuildDetailLayout",
       "zhName": "BD 详情页",
       "source": "build-guides.builds[id]",
