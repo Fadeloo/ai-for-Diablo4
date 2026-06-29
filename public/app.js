@@ -834,6 +834,90 @@ function renderGuideReadinessPanel(guide) {
   `;
 }
 
+function routeSourceProfile(guide, sectionKey) {
+  const isParagon = sectionKey === "paragon";
+  const route = isParagon ? guide.paragon || {} : guide.skillTree || {};
+  const level = guide.source?.verificationLevel || "official_seed_template";
+  const profiles = {
+    community_reference: {
+      label: "同赛季社区路线参考",
+      caution: "可以按这条顺序执行；仍要核对来源更新时间、热修和实战榜单。",
+      tone: "ready"
+    },
+    cross_season_reference: {
+      label: "跨赛季社区路线参考",
+      caution: "适合参考技能栏、盘面和点击优先级；强度和速度要按当前赛季重算。",
+      tone: "reference"
+    },
+    official_seed_template: {
+      label: "结构化路线模板",
+      caution: "适合开荒、过渡和理解构筑逻辑；不是精确游戏内 planner 坐标。",
+      tone: "template"
+    },
+    projection_template: {
+      label: "未来赛季路线推演",
+      caution: "只用于预判方向；赛季机制和数值落地后必须重新校准。",
+      tone: "projection"
+    }
+  };
+  const profile = profiles[level] || profiles.official_seed_template;
+  const referenceCount = guide.source?.references?.length || 0;
+  const status = route.sourceStatus || profile.caution;
+  return {
+    ...profile,
+    routeName: isParagon ? "巅峰点击" : "技能加点",
+    status,
+    referenceCount,
+    facts: isParagon
+      ? [
+        { value: route.boardOrder?.length || 0, label: "巅峰盘" },
+        { value: route.clickOrder?.length || 0, label: "点击步骤" },
+        { value: route.glyphs?.length || 0, label: "雕文" }
+      ]
+      : [
+        { value: route.skillBar?.length || 0, label: "技能栏" },
+        { value: route.pointOrder?.length || 0, label: "加点步骤" },
+        { value: route.passives?.length || 0, label: "被动组" }
+      ]
+  };
+}
+
+function renderRouteSourcePanel(guide, sectionKey) {
+  const profile = routeSourceProfile(guide, sectionKey);
+  const actions = sectionKey === "paragon"
+    ? [
+      ["skills", "看技能"],
+      ["gear", "看装备"],
+      ["gameplay", "看打法"],
+      ["sources", "看来源"]
+    ]
+    : [
+      ["gear", "看装备"],
+      ["paragon", "看巅峰"],
+      ["gameplay", "看打法"],
+      ["sources", "看来源"]
+    ];
+  return `
+    <section class="route-source-panel route-source-panel--${profile.tone}" aria-label="${profile.routeName}来源状态">
+      <div class="route-source-panel__copy">
+        <span>${profile.routeName}来源</span>
+        <strong>${profile.label}</strong>
+        <p>${displayText(profile.status)}</p>
+        <em>${profile.caution}</em>
+      </div>
+      <div class="route-source-panel__facts">
+        ${profile.facts.map((fact) => `
+          <article><b>${fact.value}</b><span>${fact.label}</span></article>
+        `).join("")}
+        <article><b>${profile.referenceCount}</b><span>来源链接</span></article>
+      </div>
+      <div class="route-source-panel__actions">
+        ${actions.map(([key, label]) => `<a href="${guideSectionUrl(guide, key)}">${label}</a>`).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function guideSourceRank(guide) {
   const ranks = {
     community_reference: 0,
@@ -1868,7 +1952,7 @@ function gearSlotStateClass(slot) {
 function gearAspectDisplay(slot) {
   const aspectName = slot.aspect?.name || "威能待回填";
   const fallback = slot.aspect?.displayName || slot.aspect?.role || aspectName;
-  return displayText(ignoredAspectDisplayNames.has(aspectName) ? fallback : aspectName);
+  return displayText(isDisplayableAspectName(slot) ? aspectName : fallback);
 }
 
 function gearPowerDisplay(slot) {
@@ -1878,7 +1962,7 @@ function gearPowerDisplay(slot) {
     return `${prefix}：${displayText(slot.target.zhName || slot.target.name || "装备待回填")}`;
   }
   const aspectName = slot.aspect?.name || "";
-  if (aspectName && !ignoredAspectDisplayNames.has(aspectName)) {
+  if (aspectName && isDisplayableAspectName(slot)) {
     return `威能：${displayText(aspectName)}`;
   }
   return displayText(slot.aspect?.displayName || slot.aspect?.role || "威能待来源回填");
@@ -2098,8 +2182,8 @@ function renderLoadoutBoard(guide) {
   const coreCount = guide.gearSlots.filter((slot) => slot.core || slot.required).length;
   const coreUniques = (guide.coreUniques || []).slice(0, 3).map((item) => item.zhName);
   const coreAspects = (guide.coreAspects || [])
-    .map((aspect) => aspect.name)
-    .filter((name) => !ignoredAspectDisplayNames.has(name))
+    .filter((aspect) => aspect.displayKind === "传奇威能")
+    .map((aspect) => aspect.displayName || aspect.name)
     .slice(0, 4);
   return `
     <section class="loadout-board" aria-label="纸娃娃式全身装备盘面">
@@ -2851,8 +2935,14 @@ function renderGuideSectionByKey(guide, activeSection = state.selectedGuideSecti
       ${renderLoadoutStrip(guide)}
       <div class="gear-slot-grid">${guide.gearSlots.map(renderGearSlot).join("")}</div>
     `, "gear"),
-    skills: () => renderGuideDetailSection("技能加点", `${guide.skillTree.core} · 按等级段执行`, renderSkillTree(guide.skillTree), "skills"),
-    paragon: () => renderGuideDetailSection("巅峰点击顺序", "先雕文孔和传奇节点，再补稀有与魔法节点", renderParagon(guide.paragon), "paragon"),
+    skills: () => renderGuideDetailSection("技能加点", `${guide.skillTree.core} · 按等级段执行`, `
+      ${renderRouteSourcePanel(guide, "skills")}
+      ${renderSkillTree(guide.skillTree)}
+    `, "skills"),
+    paragon: () => renderGuideDetailSection("巅峰点击顺序", "先雕文孔和传奇节点，再补稀有与魔法节点", `
+      ${renderRouteSourcePanel(guide, "paragon")}
+      ${renderParagon(guide.paragon)}
+    `, "paragon"),
     gameplay: () => renderGuideDetailSection("打法", "起手、循环、首领、防御和常见错误", renderGameplay(guide.gameplay), "gameplay"),
     variants: () => renderGuideDetailSection("替换与变体", "缺件、冲层和高容错版本", `
       ${renderReplacementMatrix(guide)}
@@ -2996,7 +3086,16 @@ function renderClasses() {
 }
 
 const classModeOrder = ["daily", "speed_farm", "pit_push"];
-const ignoredAspectDisplayNames = new Set(["暗金特效位", "神话暗金位", "空槽说明", "空槽位"]);
+
+function isReservedPowerName(name) {
+  return !name || ["unique_power", "mythic_power", "unused_slot"].some((token) => String(name).includes(token));
+}
+
+function isDisplayableAspectName(slot) {
+  const displayKind = slot.aspect?.displayKind || "";
+  const targetType = slot.target?.type || "";
+  return targetType === "legendary" && displayKind === "传奇威能" && !isReservedPowerName(slot.aspect?.name);
+}
 
 function classSeasonGuides(classId) {
   return classGuidesForSeason(classId, state.sim.seasonId);
@@ -3016,8 +3115,8 @@ function classGuidesForSeason(classId, seasonId) {
 function guideCoreLine(guide) {
   const uniqueNames = (guide.coreUniques || []).map((item) => item.zhName);
   const aspectNames = (guide.coreAspects || [])
-    .map((aspect) => aspect.name)
-    .filter((name) => !ignoredAspectDisplayNames.has(name));
+    .filter((aspect) => aspect.displayKind === "传奇威能")
+    .map((aspect) => aspect.displayName || aspect.name);
   const combined = [...uniqueNames, ...aspectNames].slice(0, 4);
   return combined.length ? combined.join(" / ") : "核心件待来源回填";
 }

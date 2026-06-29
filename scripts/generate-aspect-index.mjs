@@ -163,7 +163,6 @@ const payload = {
   } : null,
   aspectCount: aspects.length,
   usageCount: aspects.reduce((total, aspect) => total + aspect.usageCount, 0),
-  ignoredNames: [...ignoredAspectNames],
   limitations: [
     "This is not the full official Diablo IV legendary aspect database.",
     "Only aspects already present in structured BD gear slots are indexed.",

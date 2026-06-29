@@ -1210,6 +1210,116 @@ h4 {
   border-color: rgba(240, 207, 143, 0.46);
 }
 
+.route-source-panel {
+  align-items: stretch;
+  background:
+    linear-gradient(135deg, rgba(214, 173, 99, 0.12), rgba(8, 4, 3, 0.78) 48%, rgba(164, 32, 24, 0.12));
+  border: 1px solid rgba(214, 173, 99, 0.26);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.8fr) minmax(150px, 0.35fr);
+  padding: 14px;
+}
+
+.route-source-panel--ready {
+  border-color: rgba(106, 186, 121, 0.42);
+}
+
+.route-source-panel--reference {
+  border-color: rgba(214, 173, 99, 0.42);
+}
+
+.route-source-panel--projection {
+  opacity: 0.84;
+}
+
+.route-source-panel__copy {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.route-source-panel__copy span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.route-source-panel__copy strong {
+  color: #fff7df;
+  font-size: 19px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.route-source-panel__copy p,
+.route-source-panel__copy em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.5;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.route-source-panel__copy em {
+  color: #d8c6a3;
+}
+
+.route-source-panel__facts {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.route-source-panel__facts article {
+  background: rgba(8, 4, 3, 0.54);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  gap: 4px;
+  min-height: 68px;
+  min-width: 0;
+  padding: 10px;
+}
+
+.route-source-panel__facts b {
+  color: var(--bone);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.route-source-panel__facts span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 850;
+  line-height: 1.35;
+}
+
+.route-source-panel__actions {
+  display: grid;
+  gap: 8px;
+}
+
+.route-source-panel__actions a {
+  align-items: center;
+  background: rgba(214, 173, 99, 0.1);
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  color: var(--gold-bright);
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 850;
+  justify-content: center;
+  min-height: 32px;
+  padding: 7px 8px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.route-source-panel__actions a:hover {
+  background: rgba(164, 32, 24, 0.24);
+  border-color: rgba(240, 207, 143, 0.46);
+}
+
 .build-result-section {
   background: rgba(8, 4, 3, 0.34);
   border: 1px solid rgba(214, 173, 99, 0.18);
@@ -5823,6 +5933,9 @@ h4 {
   .guide-readiness,
   .guide-readiness__facts,
   .guide-readiness__actions,
+  .route-source-panel,
+  .route-source-panel__facts,
+  .route-source-panel__actions,
   .recommended-build-row,
   .class-build-actions,
   .class-season-summary,

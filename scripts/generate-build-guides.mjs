@@ -747,6 +747,17 @@ function skillTreeFor({ classInfo, archetype, simBuild }) {
   };
 }
 
+function routeSourceStatusFor(verificationLevel, routeType) {
+  const routeName = routeType === "paragon" ? "巅峰路线" : "技能路线";
+  const statuses = {
+    community_reference: `${routeName}来自同赛季社区 BD 结构参考；具体点数、热修和来源更新时间仍需核对。`,
+    cross_season_reference: `${routeName}来自跨赛季社区 BD 结构参考；可看执行顺序，强度需按当前赛季校准。`,
+    official_seed_template: `${routeName}为官方词缀种子上的结构化模板；可用于开荒和过渡，终局细节需接入实战来源。`,
+    projection_template: `${routeName}为未来赛季推演模板；仅用于预判方向，赛季落地后必须重新验证。`
+  };
+  return statuses[verificationLevel] || statuses.official_seed_template;
+}
+
 function paragonFor({ classInfo, archetype, simBuild }) {
   const routePlan = routePlanFor(classInfo.id, archetype.id);
   const route = routePlan?.boards?.length ? routePlan.boards : simBuild?.guide?.paragonPlan?.boardRoute || [
@@ -938,6 +949,7 @@ function guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentIt
   const paragon = paragonFor({ classInfo, archetype, simBuild });
   const gameplay = gameplayFor({ mode, archetype, simBuild });
   const progression = progressionFor({ mode, archetype, simBuild, gearSlots, skillTree, paragon });
+  const verificationLevel = seasonIndex === 0 ? "official_seed_template" : "projection_template";
   const coreUniques = gearSlots
     .filter((slot) => slot.core && slot.target.type === "unique")
     .slice(0, 5)
@@ -1006,7 +1018,7 @@ function guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentIt
     source: {
       authorName: "Harris‘s Diablo 4",
       trust: seasonIndex === 0 ? "官方词缀种子 + 本站结构化整理" : "未来赛季推演 + 本站结构化整理",
-      verificationLevel: seasonIndex === 0 ? "official_seed_template" : "projection_template",
+      verificationLevel,
       createdAt: "2026-06-28",
       updatedAt: "2026-06-28",
       videos: [],
@@ -1015,8 +1027,14 @@ function guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentIt
     coreUniques,
     coreAspects,
     gearSlots,
-    skillTree,
-    paragon,
+    skillTree: {
+      ...skillTree,
+      sourceStatus: routeSourceStatusFor(verificationLevel, "skill")
+    },
+    paragon: {
+      ...paragon,
+      sourceStatus: routeSourceStatusFor(verificationLevel, "paragon")
+    },
     gameplay,
     progression,
     variants: variantsFor({ mode, gearSlots, archetype }),
@@ -1301,8 +1319,14 @@ function applyCommunityOverride(guide, override, equipmentByZhName) {
     coreUniques,
     coreAspects,
     gearSlots,
-    skillTree: mergedSkillTree,
-    paragon: mergedParagon,
+    skillTree: {
+      ...mergedSkillTree,
+      sourceStatus: routeSourceStatusFor(overrideLevel, "skill")
+    },
+    paragon: {
+      ...mergedParagon,
+      sourceStatus: routeSourceStatusFor(overrideLevel, "paragon")
+    },
     gameplay: {
       ...guide.gameplay,
       ...override.gameplay

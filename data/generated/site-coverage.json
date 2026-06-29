@@ -270,6 +270,24 @@
       "frontendUse": "BD 详情页在总览和来源分区直接告诉玩家这套是同赛季可抄、跨赛季参考、官方模板还是未来推演，并给出风险和分区入口。"
     },
     {
+      "component": "RouteSourcePanel",
+      "zhName": "技能与巅峰路线来源面板",
+      "source": "build-guides.builds[id].skillTree + build-guides.builds[id].paragon + source.references",
+      "fields": [
+        "source.verificationLevel",
+        "source.references",
+        "skillTree.sourceStatus",
+        "skillTree.skillBar",
+        "skillTree.pointOrder",
+        "skillTree.passives",
+        "paragon.sourceStatus",
+        "paragon.boardOrder",
+        "paragon.clickOrder",
+        "paragon.glyphs"
+      ],
+      "frontendUse": "技能和巅峰分区顶部先说明路线来自同赛季社区、跨赛季参考、官方模板还是未来推演，再展示可执行加点表、盘面顺序和点击步骤。"
+    },
+    {
       "component": "EquipmentUsageMatrix",
       "zhName": "装备使用矩阵",
       "source": "equipment-library.items + build-guides.builds[].gearSlots",

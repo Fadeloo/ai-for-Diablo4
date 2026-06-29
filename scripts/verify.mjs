@@ -26,6 +26,12 @@ const allowedGearSlotDataStatuses = new Set([
   "传奇威能来自结构化 BD 模板；完整效果和数值需接入可靠威能库校验。",
   "结构化装备栏说明该位置不占用或由其他武器方案替代。"
 ]);
+const allowedRouteSourceSnippets = [
+  "同赛季社区 BD 结构参考",
+  "跨赛季社区 BD 结构参考",
+  "官方词缀种子上的结构化模板",
+  "未来赛季推演模板"
+];
 
 function mergeCommunityOverride(base, override) {
   return {
@@ -185,7 +191,7 @@ assert(aspectIndex.communityCoverage?.sourceId === "d2core_aspect_database", "As
 assert(aspectIndex.aspects.some((aspect) => aspect.dataStatus?.scope === "community_database_reference" && aspect.database?.zhEffect && aspect.database?.zhAllowedSlots?.length), "Aspect index should enrich matched aspects with community effect text and slots");
 assert(aspectIndex.aspects.some((aspect) => aspect.dataStatus?.scope === "derived_from_build_gear_slots" && !aspect.database), "Aspect index must keep unmatched template aspects clearly derived-only");
 assert(aspectIndex.aspects.every((aspect) => ["derived_from_build_gear_slots", "community_database_reference"].includes(aspect.dataStatus?.scope)), "Each aspect must disclose derived or community scope");
-assert(aspectIndex.aspects.every((aspect) => !(aspectIndex.ignoredNames || []).includes(aspect.name)), "Aspect index must not include placeholder aspect names");
+assert(aspectIndex.aspects.every((aspect) => !placeholderAspectNames.has(aspect.name)), "Aspect index must not include placeholder aspect names");
 assert(aspectIndex.aspects.every((aspect) => aspect.slotUsage?.length >= 1 && aspect.buildUses?.length >= aspect.guideCount), "Each aspect needs slot usage and related builds");
 
 assert(siteCoverage.scope === "player_site_data_coverage_and_storage_usage", "Site coverage scope mismatch");
@@ -204,6 +210,7 @@ assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildSidebarSectionLinks" && contract.fields?.includes("gearSlots") && contract.fields?.includes("skillTree.pointOrder")), "Site coverage must describe the build sidebar section links contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildDetailLayout"), "Site coverage must describe the build detail data contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "GuideReadinessPanel" && contract.fields?.includes("source.verificationLevel") && contract.fields?.includes("dataQuality.needsValidation")), "Site coverage must describe the guide readiness panel contract");
+assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "RouteSourcePanel" && contract.fields?.includes("skillTree.sourceStatus") && contract.fields?.includes("paragon.sourceStatus")), "Site coverage must describe the skill/paragon route source panel contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "ClassBuildMatrix" && contract.fields?.includes("skillTree.pointOrder[0]") && contract.fields?.includes("paragon.clickOrder[0]")), "Site coverage must describe the class build matrix contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "ClassSeasonCoverage" && contract.fields?.includes("taxonomy.seasonId") && contract.fields?.includes("source.references")), "Site coverage must describe the class cross-season coverage contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.fields?.includes("gearSlots")), "Frontend data contracts must expose full build detail fields");
@@ -266,11 +273,13 @@ for (const guide of buildGuides.builds) {
   }
   assert(guide.skillTree?.skillBar?.length === 6, `Build guide needs six skill bar entries: ${guide.id}`);
   assert(guide.skillTree?.pointOrder?.length >= 10, `Build guide needs skill point order: ${guide.id}`);
+  assert(allowedRouteSourceSnippets.some((snippet) => guide.skillTree?.sourceStatus?.includes(snippet)), `Build guide needs player-facing skill route source status: ${guide.id}`);
   assert(guide.skillTree.skillBar.every((skill) => !genericSkillStepPattern.test(skill.name || "")), `Build guide skill bar still contains generic placeholders: ${guide.id}`);
   assert(guide.skillTree.pointOrder.every((step) => !genericSkillStepPattern.test(step.skill || "")), `Build guide skill point order still contains generic placeholders: ${guide.id}`);
   assert(guide.skillTree?.classMechanic, `Build guide needs class mechanic text: ${guide.id}`);
   assert(guide.paragon?.boardOrder?.length >= 4, `Build guide needs paragon boards: ${guide.id}`);
   assert(guide.paragon?.clickOrder?.length >= 10, `Build guide needs paragon click order: ${guide.id}`);
+  assert(allowedRouteSourceSnippets.some((snippet) => guide.paragon?.sourceStatus?.includes(snippet)), `Build guide needs player-facing paragon route source status: ${guide.id}`);
   assert(guide.paragon.clickOrder.every((step) => !genericParagonNodePattern.test(step.node || "")), `Build guide paragon route still contains generic click nodes: ${guide.id}`);
   assert(guide.paragon.boardOrder.every((board) => !routeEnglishPattern.test([board.name, board.glyph, board.goal].join(" "))), `Build guide paragon boards must be localized to Chinese: ${guide.id}`);
   assert(guide.paragon.clickOrder.every((step) => !routeEnglishPattern.test([step.board, step.node, step.reason].join(" "))), `Build guide paragon click route must be localized to Chinese: ${guide.id}`);
@@ -315,6 +324,7 @@ assert(frontendText.includes("equipment-usage-matrix"), "Equipment detail must e
 assert(frontendText.includes("requirement-coverage-grid") && frontendText.includes("BD 执行信息覆盖"), "Sources page must render player-facing BD requirement coverage");
 assert(frontendText.includes("renderLoadoutBoard"), "BD detail must render a paper-doll loadout board");
 assert(frontendText.includes("renderGuideReadinessPanel") && frontendText.includes("guide-readiness__actions"), "BD detail must expose copy-readiness and section actions");
+assert(frontendText.includes("renderRouteSourcePanel") && frontendText.includes("route-source-panel__actions"), "BD skill/paragon detail pages must expose route source state and section actions");
 assert(frontendText.includes("loadout-paper-doll"), "BD detail must expose a fixed 11-slot paper-doll layout");
 assert(frontendText.includes("renderBuildVersionSwitcher"), "BD detail must render same-archetype daily/speed/push version switching");
 assert(frontendText.includes("guide-version-tabs"), "BD detail must expose visible version tabs near the hero");

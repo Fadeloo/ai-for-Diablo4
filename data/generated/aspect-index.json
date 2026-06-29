@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-29T04:10:47.487Z",
+  "generatedAt": "2026-06-29T04:20:15.712Z",
   "scope": "aspect_index_derived_from_structured_build_guides",
   "asOf": "2026-06-28",
   "sourceFile": "data/generated/build-guides.json",
@@ -15,12 +15,6 @@
   },
   "aspectCount": 71,
   "usageCount": 211,
-  "ignoredNames": [
-    "暗金特效位",
-    "神话暗金位",
-    "空槽说明",
-    "空槽位"
-  ],
   "limitations": [
     "This is not the full official Diablo IV legendary aspect database.",
     "Only aspects already present in structured BD gear slots are indexed.",
