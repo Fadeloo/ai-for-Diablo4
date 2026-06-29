@@ -93,7 +93,7 @@ const frontendDataContracts = [
       "dataQuality",
       "source.references"
     ],
-    frontendUse: "分区展示装备、技能、巅峰、打法、替换和来源状态。"
+    frontendUse: "按 #bd/<guideId>/<section> 分区页面展示装备、技能、巅峰、打法、替换和来源状态，避免把完整攻略堆在同一屏。"
   },
   {
     component: "EquipmentUsageMatrix",
@@ -453,7 +453,8 @@ const payload = {
     "暗金特效、掉落来源和验证部位来自社区数据库参考；完整词缀范围缺失时必须继续显示字段状态。",
     "预测速度不能写成真实天梯结果。",
     "玩家页面不得展示内部推理、候选生成或问答流程话术。",
-    "AI 分析结果必须经过发布审核后才能进入玩家可见 JSON。"
+    "AI 分析结果必须经过发布审核后才能进入玩家可见 JSON。",
+    "BD 详情必须按 URL 分区阅读，装备、技能、巅峰、打法等分区独立渲染。"
   ]
 };
 

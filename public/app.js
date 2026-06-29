@@ -30,6 +30,7 @@ const state = {
   activeView: "home",
   selectedGuideId: null,
   selectedGuideSection: "overview",
+  pendingGuideSlotTarget: null,
   selectedClassId: "barbarian",
   selectedEquipmentId: null,
   selectedAspectId: null,
@@ -271,6 +272,8 @@ function setView(route, options = {}) {
     state.selectedGuideId = parsed.guideId;
     if (parsed.sectionId && guideDetailSectionOrder.includes(parsed.sectionId)) {
       state.selectedGuideSection = parsed.sectionId;
+    } else if (!parsed.sectionId) {
+      state.selectedGuideSection = "overview";
     }
   }
   if (parsed.itemId) {
@@ -335,8 +338,10 @@ function setView(route, options = {}) {
   const detailFocusSelector = parsed.itemId ? "[data-equipment-detail]" : parsed.aspectId ? "[data-aspect-detail]" : null;
   if (normalized === "bd" && parsed.sectionId) {
     requestAnimationFrame(() => {
-      const target = $(`[data-guide-section="${parsed.sectionId}"]`);
+      const slotTarget = state.pendingGuideSlotTarget ? $(`[data-gear-slot-card="${state.pendingGuideSlotTarget}"]`) : null;
+      const target = slotTarget || $(`[data-guide-section="${parsed.sectionId}"]`);
       if (target) scrollToGuideTarget(target);
+      state.pendingGuideSlotTarget = null;
     });
   } else if (detailFocusSelector) {
     requestAnimationFrame(() => {
@@ -673,6 +678,10 @@ function allBuildGuides() {
 
 function guideUrl(guide) {
   return `#bd/${encodeURIComponent(guide.id)}`;
+}
+
+function guideSectionUrl(guide, sectionId) {
+  return `#bd/${encodeURIComponent(guide.id)}/${encodeURIComponent(sectionId)}`;
 }
 
 function itemUrl(itemOrId) {
@@ -2709,7 +2718,11 @@ function renderGuideSectionByKey(guide, activeSection = state.selectedGuideSecti
 }
 
 function renderGuideActiveSection(guide) {
-  return renderGuideSectionByKey(guide);
+  return `
+    <div class="guide-section-page" data-active-guide-section="${state.selectedGuideSection}">
+      ${renderGuideSectionByKey(guide)}
+    </div>
+  `;
 }
 
 function renderGuideAllSections(guide) {
@@ -2772,7 +2785,9 @@ function renderBuildGuideDetail() {
       <div class="guide-detail-layout">
         <aside class="guide-sidebar">
           <nav class="guide-section-nav" aria-label="BD 分区导航">
-            ${navItems.map(([key, label]) => `<button type="button" data-guide-jump="${key}" aria-selected="${state.selectedGuideSection === key}">${label}</button>`).join("")}
+            ${navItems.map(([key, label]) => `
+              <a href="${guideSectionUrl(guide, key)}" data-guide-jump="${key}" aria-selected="${state.selectedGuideSection === key}"${state.selectedGuideSection === key ? " aria-current=\"page\"" : ""}>${label}</a>
+            `).join("")}
           </nav>
           <div class="guide-sidebar-card">
             <strong>资料状态</strong>
@@ -2786,7 +2801,7 @@ function renderBuildGuideDetail() {
         </aside>
 
         <div class="guide-main-sections">
-          ${renderGuideAllSections(guide)}
+          ${renderGuideActiveSection(guide)}
         </div>
       </div>
     </div>
@@ -3699,14 +3714,22 @@ function bindInteractions() {
 
     const button = event.target.closest("[data-guide-jump]");
     if (!button) return;
+    if (button.matches("a[href]")) {
+      if (button.dataset.gearSlotTarget) {
+        state.pendingGuideSlotTarget = button.dataset.gearSlotTarget;
+      }
+      return;
+    }
     state.selectedGuideSection = button.dataset.guideJump || "overview";
     $$(".guide-section-nav [data-guide-jump]").forEach((navButton) => {
       navButton.setAttribute("aria-selected", String(navButton.dataset.guideJump === state.selectedGuideSection));
     });
     if (state.activeView === "bd" && state.selectedGuideId) {
       history.replaceState(null, "", `#bd/${encodeURIComponent(state.selectedGuideId)}/${encodeURIComponent(state.selectedGuideSection)}`);
+      renderBuildGuideDetail();
     }
     if (button.dataset.gearSlotTarget) {
+      state.pendingGuideSlotTarget = button.dataset.gearSlotTarget;
       requestAnimationFrame(() => {
         const target = $(`[data-gear-slot-card="${button.dataset.gearSlotTarget}"]`);
         scrollToGuideTarget(target);

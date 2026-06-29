@@ -2513,25 +2513,31 @@ h4 {
   z-index: 20;
 }
 
+.guide-section-nav a,
 .guide-section-nav button {
   background: rgba(242, 240, 234, 0.05);
   border: 1px solid transparent;
   color: var(--muted);
   cursor: pointer;
+  display: block;
   font-size: 13px;
   font-weight: 750;
   min-height: 36px;
   padding: 7px 12px;
   text-align: left;
+  text-decoration: none;
 }
 
+.guide-section-nav a:hover,
 .guide-section-nav button:hover,
+.guide-section-nav a[aria-selected="true"],
 .guide-section-nav button[aria-selected="true"] {
   background: linear-gradient(90deg, rgba(164, 32, 24, 0.24), rgba(214, 173, 99, 0.1));
   border-color: rgba(214, 173, 99, 0.34);
   color: var(--bone);
 }
 
+.guide-section-nav a[aria-selected="true"],
 .guide-section-nav button[aria-selected="true"] {
   box-shadow: inset 3px 0 0 var(--gold);
 }
