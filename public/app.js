@@ -4678,6 +4678,38 @@ function renderCoverage() {
   const routeSpecificity = buildIntegrity.routeSpecificity || {};
   const frontendContracts = coverage.frontendDataContracts || [];
   const requirementCoverage = coverage.playerRequirementCoverage || [];
+  const executionProofs = [
+    {
+      label: "完整可执行 BD",
+      value: buildIntegrity.fullExecutionBuilds || 0,
+      total: buildCoverage.total,
+      detail: "装备、技能、巅峰、打法、替换、进度、来源全部过组合校验。"
+    },
+    {
+      label: "核心威能/暗金",
+      value: buildIntegrity.coreRequirementBuilds || 0,
+      total: buildCoverage.total,
+      detail: "每套 BD 有部位、目标装备、威能/暗金和替换状态。"
+    },
+    {
+      label: "成型检查清单",
+      value: buildIntegrity.readinessChecklistBuilds || 0,
+      total: buildCoverage.total,
+      detail: "抄作业前可直接核对装备、技能、巅峰、打法和来源。"
+    },
+    {
+      label: "三用途对比",
+      value: buildIntegrity.modeComparisonReadyBuilds || 0,
+      total: buildCoverage.total,
+      detail: "同职业同流派具备日常、速刷、冲层版本横向对比。"
+    },
+    {
+      label: "来源状态",
+      value: buildIntegrity.sourceStatusBuilds || 0,
+      total: buildCoverage.total,
+      detail: "技能、巅峰、装备槽、强度和待验证事项都保留状态。"
+    }
+  ];
   panel.innerHTML = `
     <section class="coverage-panel">
       <div class="section-title">
@@ -4720,6 +4752,15 @@ function renderCoverage() {
           <span>路线占位项</span>
           <p>技能栏 ${routeSpecificity.genericSkillBarEntries || 0}、加点 ${routeSpecificity.genericSkillSteps || 0}、巅峰点击 ${routeSpecificity.genericParagonNodes || 0} 个泛化占位。</p>
         </article>
+      </div>
+      <div class="execution-proof-strip" aria-label="BD 可执行证据摘要">
+        ${executionProofs.map((item) => `
+          <article>
+            <span>${item.label}</span>
+            <strong>${item.value} / ${item.total || 0}</strong>
+            <p>${item.detail}</p>
+          </article>
+        `).join("")}
       </div>
       <section class="requirement-coverage-panel" aria-label="玩家 BD 硬要求覆盖">
         <div class="section-title">

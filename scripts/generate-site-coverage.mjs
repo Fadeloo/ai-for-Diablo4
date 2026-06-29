@@ -44,6 +44,28 @@ function countGenericRouteEntries(builds) {
   });
 }
 
+function buildFamilyModeCoverage(builds, modeIds) {
+  const familyModes = new Map();
+  for (const guide of builds) {
+    const key = [
+      guide.taxonomy?.seasonId,
+      guide.taxonomy?.classId,
+      guide.taxonomy?.archetypeId
+    ].join("/");
+    if (!familyModes.has(key)) familyModes.set(key, new Set());
+    familyModes.get(key).add(guide.taxonomy?.mode);
+  }
+  return builds.filter((guide) => {
+    const key = [
+      guide.taxonomy?.seasonId,
+      guide.taxonomy?.classId,
+      guide.taxonomy?.archetypeId
+    ].join("/");
+    const modes = familyModes.get(key) || new Set();
+    return modeIds.every((mode) => modes.has(mode));
+  }).length;
+}
+
 const frontendDataContracts = [
   {
     component: "ClassRosterStatus",
@@ -600,12 +622,34 @@ const modeIds = ["daily", "speed_farm", "pit_push"];
 const buildIntegrity = {
   expectedGearSlots: 11,
   completeGearSlotBuilds: builds.filter((guide) => (guide.gearSlots || []).length === 11).length,
+  requiredSlotBuilds: builds.filter((guide) => (guide.gearSlots || []).some((slot) => slot.required === true)).length,
+  replaceableSlotBuilds: builds.filter((guide) => (guide.gearSlots || []).some((slot) => slot.replaceable === true)).length,
+  gearPowerDisplayBuilds: builds.filter((guide) => (guide.gearSlots || []).length === 11 && (guide.gearSlots || []).every((slot) => slot.aspect?.displayName && slot.aspect?.displayKind)).length,
+  coreRequirementBuilds: builds.filter((guide) => (guide.coreRequirements || []).length >= 4 && ((guide.coreUniques || []).length >= 2 || (guide.coreAspects || []).length >= 4)).length,
   skillRouteBuilds: builds.filter((guide) => (guide.skillTree?.skillBar || []).length === 6 && (guide.skillTree?.pointOrder || []).length >= 10).length,
   paragonRouteBuilds: builds.filter((guide) => (guide.paragon?.boardOrder || []).length >= 4 && (guide.paragon?.clickOrder || []).length >= 10).length,
   routeSpecificity: countGenericRouteEntries(builds),
   gameplayBuilds: builds.filter((guide) => guide.gameplay?.opener?.length && guide.gameplay?.loop?.length && guide.gameplay?.boss?.length).length,
   progressionBuilds: builds.filter((guide) => (guide.progression?.stages || []).length >= 4 && (guide.progression?.checkpoints || []).length >= 4).length,
   replacementBuilds: builds.filter((guide) => (guide.gearSlots || []).every((slot) => (slot.alternatives || []).length >= 1)).length,
+  readinessChecklistBuilds: builds.filter((guide) => {
+    const counts = guide.guideCompleteness?.counts || {};
+    return (guide.guideCompleteness?.checklist || []).length >= 5
+      && counts.gearSlots === 11
+      && counts.requiredSlots >= 1
+      && counts.replaceableSlots >= 1
+      && counts.skillSteps >= 10
+      && counts.paragonSteps >= 10
+      && counts.gameplaySections >= 5;
+  }).length,
+  sourceStatusBuilds: builds.filter((guide) => guide.source?.verificationLevel
+    && guide.guideCompleteness?.sourceStatus
+    && (guide.dataQuality?.officialFields || []).length >= 1
+    && (guide.dataQuality?.needsValidation || []).length >= 1
+    && (guide.gearSlots || []).every((slot) => slot.dataStatus || slot.aspect?.sourceStatus)
+    && guide.skillTree?.sourceStatus
+    && guide.paragon?.sourceStatus).length,
+  modeComparisonReadyBuilds: buildFamilyModeCoverage(builds, modeIds),
   bySeasonClassMode: seasons.map((season) => ({
     seasonId: season.id,
     classes: classes.map((classInfo) => {
@@ -621,6 +665,23 @@ const buildIntegrity = {
     })
   }))
 };
+buildIntegrity.fullExecutionBuilds = builds.filter((guide) => (guide.gearSlots || []).length === 11
+  && (guide.gearSlots || []).some((slot) => slot.required === true)
+  && (guide.gearSlots || []).some((slot) => slot.replaceable === true)
+  && (guide.gearSlots || []).every((slot) => (slot.alternatives || []).length >= 1 && slot.aspect?.displayName && slot.aspect?.displayKind)
+  && (guide.coreRequirements || []).length >= 4
+  && (guide.skillTree?.skillBar || []).length === 6
+  && (guide.skillTree?.pointOrder || []).length >= 10
+  && (guide.paragon?.boardOrder || []).length >= 4
+  && (guide.paragon?.clickOrder || []).length >= 10
+  && guide.gameplay?.opener?.length
+  && guide.gameplay?.loop?.length
+  && guide.gameplay?.boss?.length
+  && (guide.progression?.stages || []).length >= 4
+  && (guide.guideCompleteness?.checklist || []).length >= 5
+  && guide.source?.verificationLevel
+  && guide.skillTree?.sourceStatus
+  && guide.paragon?.sourceStatus).length;
 
 const totalBuilds = builds.length;
 const seasonClassModeCells = seasons.length * classes.length * modeIds.length;
@@ -645,6 +706,13 @@ const playerRequirementCoverage = [
     proof: "每个装备槽至少有替换件，替换分区展示当前目标、首选替换和代价。"
   },
   {
+    id: "core_power_summary",
+    zhName: "核心威能/暗金",
+    satisfied: buildIntegrity.coreRequirementBuilds,
+    total: totalBuilds,
+    proof: "每套 BD 必须有结构化核心需求，包含部位、目标装备、威能或暗金、是否硬需求和可替换状态。"
+  },
+  {
     id: "skill_order",
     zhName: "技能栏与加点顺序",
     satisfied: buildIntegrity.skillRouteBuilds,
@@ -666,6 +734,13 @@ const playerRequirementCoverage = [
     proof: "每套 BD 必须有起手、主循环和首领处理，并在打法分区展示。"
   },
   {
+    id: "readiness_checklist",
+    zhName: "成型检查清单",
+    satisfied: buildIntegrity.readinessChecklistBuilds,
+    total: totalBuilds,
+    proof: "每套 BD 必须生成抄作业检查清单，覆盖装备硬需求、替换槽、技能、巅峰、打法和来源状态。"
+  },
+  {
     id: "progression_plan",
     zhName: "开荒到成型路线",
     satisfied: buildIntegrity.progressionBuilds,
@@ -673,11 +748,32 @@ const playerRequirementCoverage = [
     proof: "每套 BD 必须有至少 4 个阶段和 4 个检查点。"
   },
   {
+    id: "mode_comparison",
+    zhName: "日常/速刷/冲层对比",
+    satisfied: buildIntegrity.modeComparisonReadyBuilds,
+    total: totalBuilds,
+    proof: "同赛季、同职业、同流派必须有日常、速刷和冲层三个版本，用于详情页横向对比。"
+  },
+  {
+    id: "source_status",
+    zhName: "来源状态",
+    satisfied: buildIntegrity.sourceStatusBuilds,
+    total: totalBuilds,
+    proof: "每套 BD 必须保留来源等级、技能/巅峰来源状态、装备槽数据状态和待验证事项。"
+  },
+  {
     id: "season_class_mode_matrix",
     zhName: "赛季 × 职业 × 用途矩阵",
     satisfied: populatedSeasonClassModeCells,
     total: seasonClassModeCells,
     proof: "每个赛季、职业和日常/速刷/冲层用途都有可进入的结构化 BD。"
+  },
+  {
+    id: "full_execution_bundle",
+    zhName: "完整可执行 BD",
+    satisfied: buildIntegrity.fullExecutionBuilds,
+    total: totalBuilds,
+    proof: "装备、核心需求、技能、巅峰、打法、进度、替换、检查清单和来源状态全部通过组合校验。"
   },
   {
     id: "route_specificity",

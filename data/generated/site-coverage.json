@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-29T06:13:31.410Z",
+  "generatedAt": "2026-06-29T06:21:53.048Z",
   "scope": "player_site_data_coverage_and_storage_usage",
   "asOf": "2026-06-28",
   "storageLayers": [
@@ -684,6 +684,13 @@
       "proof": "每个装备槽至少有替换件，替换分区展示当前目标、首选替换和代价。"
     },
     {
+      "id": "core_power_summary",
+      "zhName": "核心威能/暗金",
+      "satisfied": 252,
+      "total": 252,
+      "proof": "每套 BD 必须有结构化核心需求，包含部位、目标装备、威能或暗金、是否硬需求和可替换状态。"
+    },
+    {
       "id": "skill_order",
       "zhName": "技能栏与加点顺序",
       "satisfied": 252,
@@ -705,6 +712,13 @@
       "proof": "每套 BD 必须有起手、主循环和首领处理，并在打法分区展示。"
     },
     {
+      "id": "readiness_checklist",
+      "zhName": "成型检查清单",
+      "satisfied": 252,
+      "total": 252,
+      "proof": "每套 BD 必须生成抄作业检查清单，覆盖装备硬需求、替换槽、技能、巅峰、打法和来源状态。"
+    },
+    {
       "id": "progression_plan",
       "zhName": "开荒到成型路线",
       "satisfied": 252,
@@ -712,11 +726,32 @@
       "proof": "每套 BD 必须有至少 4 个阶段和 4 个检查点。"
     },
     {
+      "id": "mode_comparison",
+      "zhName": "日常/速刷/冲层对比",
+      "satisfied": 252,
+      "total": 252,
+      "proof": "同赛季、同职业、同流派必须有日常、速刷和冲层三个版本，用于详情页横向对比。"
+    },
+    {
+      "id": "source_status",
+      "zhName": "来源状态",
+      "satisfied": 252,
+      "total": 252,
+      "proof": "每套 BD 必须保留来源等级、技能/巅峰来源状态、装备槽数据状态和待验证事项。"
+    },
+    {
       "id": "season_class_mode_matrix",
       "zhName": "赛季 × 职业 × 用途矩阵",
       "satisfied": 72,
       "total": 72,
       "proof": "每个赛季、职业和日常/速刷/冲层用途都有可进入的结构化 BD。"
+    },
+    {
+      "id": "full_execution_bundle",
+      "zhName": "完整可执行 BD",
+      "satisfied": 252,
+      "total": 252,
+      "proof": "装备、核心需求、技能、巅峰、打法、进度、替换、检查清单和来源状态全部通过组合校验。"
     },
     {
       "id": "route_specificity",
@@ -729,6 +764,10 @@
   "buildIntegrity": {
     "expectedGearSlots": 11,
     "completeGearSlotBuilds": 252,
+    "requiredSlotBuilds": 252,
+    "replaceableSlotBuilds": 252,
+    "gearPowerDisplayBuilds": 252,
+    "coreRequirementBuilds": 252,
     "skillRouteBuilds": 252,
     "paragonRouteBuilds": 252,
     "routeSpecificity": {
@@ -742,6 +781,9 @@
     "gameplayBuilds": 252,
     "progressionBuilds": 252,
     "replacementBuilds": 252,
+    "readinessChecklistBuilds": 252,
+    "sourceStatusBuilds": 252,
+    "modeComparisonReadyBuilds": 252,
     "bySeasonClassMode": [
       {
         "seasonId": "s14",
@@ -974,7 +1016,8 @@
           }
         ]
       }
-    ]
+    ],
+    "fullExecutionBuilds": 252
   },
   "buildCoverage": {
     "total": 252,

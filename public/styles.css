@@ -26,6 +26,7 @@
 
 html {
   background: var(--obsidian);
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -83,9 +84,12 @@ select:focus-visible {
   gap: 20px;
   grid-template-columns: auto 1fr auto;
   min-height: 64px;
+  max-width: 100dvw;
+  overflow: clip;
   padding: 0 30px;
   position: fixed;
   inset: 0 0 auto;
+  width: 100dvw;
   z-index: 50;
 }
 
@@ -6532,6 +6536,43 @@ h4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.execution-proof-strip {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.execution-proof-strip article {
+  background:
+    linear-gradient(180deg, rgba(111, 23, 24, 0.34), rgba(8, 4, 3, 0.68));
+  border: 1px solid rgba(214, 173, 99, 0.22);
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+  padding: 12px;
+}
+
+.execution-proof-strip span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+  overflow-wrap: anywhere;
+}
+
+.execution-proof-strip strong {
+  color: #fff7df;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.execution-proof-strip p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
 .requirement-coverage-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -6957,6 +6998,7 @@ h4 {
   .class-build-mode-grid,
   .build-atlas-grid,
   .coverage-grid,
+  .execution-proof-strip,
   .storage-layer-grid,
   .guide-version-tabs,
   .guide-related-strip,
@@ -7242,6 +7284,7 @@ h4 {
   .library-head,
   .build-atlas-grid,
   .coverage-grid,
+  .execution-proof-strip,
   .requirement-coverage-grid,
   .storage-layer-grid,
   .data-contract-grid,

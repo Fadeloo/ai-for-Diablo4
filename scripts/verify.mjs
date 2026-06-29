@@ -257,9 +257,18 @@ assert(siteCoverage.buildDetailComponentBlueprint?.some((contract) => contract.c
 assert(siteCoverage.normalizedDataBlueprint?.some((entity) => entity.entity.includes("analysis_outputs")), "Data blueprint must keep AI analysis outputs separate from player-facing data");
 assert(siteCoverage.publicationWorkflow?.includes("中文化和禁用话术校验"), "Publication workflow must include Chinese copy and forbidden-copy checks");
 assert(siteCoverage.playerRequirementCoverage?.some((item) => item.id === "gear_slots" && item.satisfied === buildGuides.builds.length), "Coverage must expose player requirement coverage for gear slots");
+assert(siteCoverage.playerRequirementCoverage?.some((item) => item.id === "core_power_summary" && item.satisfied === buildGuides.builds.length), "Coverage must expose player requirement coverage for core powers");
 assert(siteCoverage.playerRequirementCoverage?.some((item) => item.id === "skill_order" && item.satisfied === buildGuides.builds.length), "Coverage must expose player requirement coverage for skill order");
 assert(siteCoverage.playerRequirementCoverage?.some((item) => item.id === "paragon_click_order" && item.satisfied === buildGuides.builds.length), "Coverage must expose player requirement coverage for paragon click order");
+assert(siteCoverage.playerRequirementCoverage?.some((item) => item.id === "readiness_checklist" && item.satisfied === buildGuides.builds.length), "Coverage must expose player requirement coverage for readiness checklists");
+assert(siteCoverage.playerRequirementCoverage?.some((item) => item.id === "mode_comparison" && item.satisfied === buildGuides.builds.length), "Coverage must expose player requirement coverage for daily/speed/push comparison");
+assert(siteCoverage.playerRequirementCoverage?.some((item) => item.id === "source_status" && item.satisfied === buildGuides.builds.length), "Coverage must expose player requirement coverage for source status");
+assert(siteCoverage.playerRequirementCoverage?.some((item) => item.id === "full_execution_bundle" && item.satisfied === buildGuides.builds.length), "Coverage must expose full executable build bundle coverage");
 assert(siteCoverage.buildIntegrity?.completeGearSlotBuilds === buildGuides.builds.length, "Site coverage must prove every BD has 11 gear slots");
+assert(siteCoverage.buildIntegrity?.requiredSlotBuilds === buildGuides.builds.length, "Site coverage must prove every BD has hard-required gear slots");
+assert(siteCoverage.buildIntegrity?.replaceableSlotBuilds === buildGuides.builds.length, "Site coverage must prove every BD has replaceable slots");
+assert(siteCoverage.buildIntegrity?.gearPowerDisplayBuilds === buildGuides.builds.length, "Site coverage must prove every BD has player-facing gear power displays");
+assert(siteCoverage.buildIntegrity?.coreRequirementBuilds === buildGuides.builds.length, "Site coverage must prove every BD has core unique/aspect requirements");
 assert(siteCoverage.buildIntegrity?.skillRouteBuilds === buildGuides.builds.length, "Site coverage must prove every BD has skill routes");
 assert(siteCoverage.buildIntegrity?.paragonRouteBuilds === buildGuides.builds.length, "Site coverage must prove every BD has paragon routes");
 assert(siteCoverage.buildIntegrity?.routeSpecificity?.genericSkillSteps === 0, "Site coverage must prove skill point routes do not expose generic placeholders");
@@ -268,6 +277,10 @@ assert(siteCoverage.buildIntegrity?.routeSpecificity?.genericParagonNodes === 0,
 assert(siteCoverage.buildIntegrity?.gameplayBuilds === buildGuides.builds.length, "Site coverage must prove every BD has gameplay instructions");
 assert(siteCoverage.buildIntegrity?.progressionBuilds === buildGuides.builds.length, "Site coverage must prove every BD has progression instructions");
 assert(siteCoverage.buildIntegrity?.replacementBuilds === buildGuides.builds.length, "Site coverage must prove every BD has replacement data");
+assert(siteCoverage.buildIntegrity?.readinessChecklistBuilds === buildGuides.builds.length, "Site coverage must prove every BD has readiness checklist data");
+assert(siteCoverage.buildIntegrity?.sourceStatusBuilds === buildGuides.builds.length, "Site coverage must prove every BD has source status data");
+assert(siteCoverage.buildIntegrity?.modeComparisonReadyBuilds === buildGuides.builds.length, "Site coverage must prove every BD can be compared across daily/speed/push versions");
+assert(siteCoverage.buildIntegrity?.fullExecutionBuilds === buildGuides.builds.length, "Site coverage must prove every BD passes the full execution bundle");
 
 const guideIds = new Set();
 let uniquePowerSlotCount = 0;
@@ -395,6 +408,7 @@ assert(frontendText.includes("renderEquipmentUsageOverview") && frontendText.inc
 assert(frontendText.includes("equipment-usage-actions") && frontendText.includes("guideSectionUrl(guide, \"skills\")") && frontendText.includes("guideSectionUrl(guide, \"paragon\")"), "Equipment usage matrix must link to gear, skills and paragon sections");
 assert(frontendText.includes("renderAspectUsageOverview") && frontendText.includes("aspect-usage-overview"), "Aspect detail must summarize related build usage before the full list");
 assert(frontendText.includes("aspect-use-card") && frontendText.includes("guideSectionUrl({ id: use.guideId }, \"skills\")") && frontendText.includes("guideSectionUrl({ id: use.guideId }, \"paragon\")"), "Aspect usage list must link to gear, skills and paragon sections");
+assert(frontendText.includes("execution-proof-strip") && frontendText.includes("完整可执行 BD") && frontendText.includes("三用途对比"), "Sources page must render executable BD proof summary");
 assert(frontendText.includes("requirement-coverage-grid") && frontendText.includes("BD 执行信息覆盖"), "Sources page must render player-facing BD requirement coverage");
 assert(frontendText.includes("renderLoadoutBoard"), "BD detail must render a paper-doll loadout board");
 assert(frontendText.includes("renderGuideReadinessPanel") && frontendText.includes("guide-readiness__actions"), "BD detail must expose copy-readiness and section actions");
