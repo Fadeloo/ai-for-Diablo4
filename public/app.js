@@ -207,6 +207,10 @@ function $(selector) {
   return document.querySelector(selector);
 }
 
+function $$(selector) {
+  return [...document.querySelectorAll(selector)];
+}
+
 async function loadJson(path) {
   const response = await fetch(path);
   if (!response.ok) throw new Error(`无法加载 ${path}`);
@@ -216,10 +220,13 @@ async function loadJson(path) {
 function parseRoute(route) {
   const clean = (route || "home").replace(/^#/, "") || "home";
   if (clean.startsWith("bd/")) {
+    const [, guideId, sectionId] = clean.match(/^bd\/([^/]+)\/?([^/]*)?/) || [];
     return {
       view: "bd",
-      guideId: decodeURIComponent(clean.slice(3)),
-      itemId: null
+      guideId: decodeURIComponent(guideId || ""),
+      sectionId: sectionId ? decodeURIComponent(sectionId) : null,
+      itemId: null,
+      aspectId: null
     };
   }
   if (clean.startsWith("item/")) {
@@ -262,6 +269,9 @@ function setView(route, options = {}) {
   if (parsed.guideId) {
     if (state.selectedGuideId !== parsed.guideId) state.selectedGuideSection = "overview";
     state.selectedGuideId = parsed.guideId;
+    if (parsed.sectionId && guideDetailSectionOrder.includes(parsed.sectionId)) {
+      state.selectedGuideSection = parsed.sectionId;
+    }
   }
   if (parsed.itemId) {
     state.selectedEquipmentId = parsed.itemId;
@@ -317,13 +327,18 @@ function setView(route, options = {}) {
     : parsed.aspectId
     ? `#aspect/${encodeURIComponent(parsed.aspectId)}`
     : normalized === "bd" && state.selectedGuideId
-    ? `#bd/${encodeURIComponent(state.selectedGuideId)}`
+    ? `#bd/${encodeURIComponent(state.selectedGuideId)}${parsed.sectionId ? `/${encodeURIComponent(parsed.sectionId)}` : ""}`
     : `#${normalized}`;
   if (options.replaceHash && window.location.hash !== desiredHash) {
     history.replaceState(null, "", desiredHash);
   }
   const detailFocusSelector = parsed.itemId ? "[data-equipment-detail]" : parsed.aspectId ? "[data-aspect-detail]" : null;
-  if (detailFocusSelector) {
+  if (normalized === "bd" && parsed.sectionId) {
+    requestAnimationFrame(() => {
+      const target = $(`[data-guide-section="${parsed.sectionId}"]`);
+      if (target) scrollToGuideTarget(target);
+    });
+  } else if (detailFocusSelector) {
     requestAnimationFrame(() => {
       const target = $(detailFocusSelector);
       if (target) target.scrollIntoView({ block: "start" });
@@ -461,6 +476,9 @@ const displayTextReplacements = [
   ["Turf", "地盘"],
   ["Sapping", "吸取"],
   ["Hubris", "傲慢"],
+  ["Fighter", "战士"],
+  ["Flesh", "血肉"],
+  ["Eater", "吞噬者"],
   ["End Game", "终局"],
   ["Endgame", "终局"],
   ["Starter", "起步"],
@@ -2513,8 +2531,9 @@ function renderGameplay(gameplay) {
   `;
 }
 
-function renderGuideActiveSection(guide) {
-  const activeSection = state.selectedGuideSection || "overview";
+const guideDetailSectionOrder = ["overview", "progression", "gear", "skills", "paragon", "gameplay", "variants", "sources"];
+
+function renderGuideSectionByKey(guide, activeSection = state.selectedGuideSection || "overview") {
   const sectionRenderers = {
     overview: () => renderGuideDetailSection("总览", "定位、强弱项和适用阶段", `
       ${renderBuildVersionSwitcher(guide)}
@@ -2592,6 +2611,14 @@ function renderGuideActiveSection(guide) {
   return (sectionRenderers[activeSection] || sectionRenderers.overview)();
 }
 
+function renderGuideActiveSection(guide) {
+  return renderGuideSectionByKey(guide);
+}
+
+function renderGuideAllSections(guide) {
+  return guideDetailSectionOrder.map((sectionKey) => renderGuideSectionByKey(guide, sectionKey)).join("");
+}
+
 function renderBuildGuideDetail() {
   const panel = $("[data-build-guide-detail]");
   if (!panel) return;
@@ -2661,7 +2688,7 @@ function renderBuildGuideDetail() {
         </aside>
 
         <div class="guide-main-sections">
-          ${renderGuideActiveSection(guide)}
+          ${renderGuideAllSections(guide)}
         </div>
       </div>
     </div>
@@ -3575,7 +3602,12 @@ function bindInteractions() {
     const button = event.target.closest("[data-guide-jump]");
     if (!button) return;
     state.selectedGuideSection = button.dataset.guideJump || "overview";
-    renderBuildGuideDetail();
+    $$(".guide-section-nav [data-guide-jump]").forEach((navButton) => {
+      navButton.setAttribute("aria-selected", String(navButton.dataset.guideJump === state.selectedGuideSection));
+    });
+    if (state.activeView === "bd" && state.selectedGuideId) {
+      history.replaceState(null, "", `#bd/${encodeURIComponent(state.selectedGuideId)}/${encodeURIComponent(state.selectedGuideSection)}`);
+    }
     if (button.dataset.gearSlotTarget) {
       requestAnimationFrame(() => {
         const target = $(`[data-gear-slot-card="${button.dataset.gearSlotTarget}"]`);

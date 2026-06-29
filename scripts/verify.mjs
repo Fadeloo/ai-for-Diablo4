@@ -16,6 +16,7 @@ function assert(condition, message) {
 
 const genericSkillStepPattern = /^终极$|^防御$|^位移$|基础触发|基础生成|主力输出|资源\/冷却被动|生存被动|关键被动|增伤\/控制|终局重分配/;
 const genericParagonNodePattern = /^(传奇节点|雕文孔|稀有节点|魔法节点|剩余魔法节点|防御稀有节点|主属性通路)$/;
+const routeEnglishPattern = /[A-Za-z]{3,}/;
 
 function mergeCommunityOverride(base, override) {
   return {
@@ -240,6 +241,9 @@ for (const guide of buildGuides.builds) {
   assert(guide.paragon?.boardOrder?.length >= 4, `Build guide needs paragon boards: ${guide.id}`);
   assert(guide.paragon?.clickOrder?.length >= 10, `Build guide needs paragon click order: ${guide.id}`);
   assert(guide.paragon.clickOrder.every((step) => !genericParagonNodePattern.test(step.node || "")), `Build guide paragon route still contains generic click nodes: ${guide.id}`);
+  assert(guide.paragon.boardOrder.every((board) => !routeEnglishPattern.test([board.name, board.glyph, board.goal].join(" "))), `Build guide paragon boards must be localized to Chinese: ${guide.id}`);
+  assert(guide.paragon.clickOrder.every((step) => !routeEnglishPattern.test([step.board, step.node, step.reason].join(" "))), `Build guide paragon click route must be localized to Chinese: ${guide.id}`);
+  assert((guide.paragon.glyphs || []).every((glyph) => !routeEnglishPattern.test([glyph.name, glyph.socket, glyph.note].join(" "))), `Build guide paragon glyphs must be localized to Chinese: ${guide.id}`);
   assert(guide.paragon?.pointBands?.length >= 4, `Build guide needs paragon point-band transitions: ${guide.id}`);
   assert(guide.gameplay?.opener?.length && guide.gameplay?.loop?.length && guide.gameplay?.boss?.length, `Build guide needs gameplay sections: ${guide.id}`);
   assert(guide.variants?.length >= 3, `Build guide needs replacement variants: ${guide.id}`);
@@ -274,6 +278,8 @@ assert(frontendText.includes("guide-version-tabs"), "BD detail must expose visib
 assert(frontendText.includes("renderBuildManualPanel"), "BD overview must render a copy-ready execution manual");
 assert(frontendText.includes("build-manual-panel"), "BD overview must expose gear, skill, paragon and gameplay before long sections");
 assert(frontendText.includes("manual-gear-row"), "BD execution manual must expose all gear slots as jump targets");
+assert(frontendText.includes("renderGuideAllSections"), "BD detail must render all major guide sections on one scannable page");
+assert(frontendText.includes("guideDetailSectionOrder"), "BD detail must define a stable full-section reading order");
 assert(frontendText.includes("renderProgressionPlan"), "BD detail must render leveling-to-endgame progression");
 assert(frontendText.includes("progression-plan"), "BD detail must expose progression stages and checkpoints");
 assert(frontendText.includes("renderGearSummaryMatrix"), "BD gear section must render a complete 11-slot gear summary matrix");

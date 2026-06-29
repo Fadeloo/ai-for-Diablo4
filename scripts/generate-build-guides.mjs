@@ -983,6 +983,56 @@ function withSteps(items) {
 
 const genericSkillStepPattern = /基础触发|基础生成|主力输出|资源\/冷却被动|生存被动|关键被动|终局重分配|终局重分配|终局|大地\/粉碎被动|强固与生存被动/;
 const genericParagonNodePattern = /^(传奇节点|雕文孔|稀有节点|魔法节点|剩余魔法节点|防御稀有节点|主属性通路|资源\/冷却节点)$/;
+const routeTextReplacements = [
+  ["Survival Instinct", "生存本能"],
+  ["Ancestral Guidance", "先祖指引"],
+  ["Earthen Devastation", "大地毁灭"],
+  ["Blood Begets Blood", "血生血"],
+  ["Scent of Death", "死亡气息"],
+  ["Earth and Sky", "大地与天空"],
+  ["Thunderstruck", "雷霆震击"],
+  ["Flesh-Eater", "食肉者"],
+  ["Bone Graft", "白骨嫁接"],
+  ["Pyro Bolts", "火焰弹"],
+  ["Territorial", "领地"],
+  ["Eliminator", "消灭者"],
+  ["Sacrificial", "牺牲"],
+  ["Dominate", "支配"],
+  ["Bloodbath", "血浴"],
+  ["Undaunted", "无畏"],
+  ["Tectonic", "构造"],
+  ["Revealing", "揭示"],
+  ["In-Fighter", "贴身战士"],
+  ["Convergence", "汇聚"],
+  ["Fulminate", "爆震"],
+  ["Colossal", "巨像"],
+  ["Frailty", "脆弱"],
+  ["Corporeal", "实体"],
+  ["Amplify", "增幅"],
+  ["Essence", "精魂"],
+  ["Exploit", "剥削"],
+  ["Keeper", "守护者"],
+  ["Spirit", "灵魂"],
+  ["Canny", "灵巧"],
+  ["Turf", "地盘"],
+  ["Sapping", "吸取"],
+  ["Hubris", "傲慢"],
+  ["Fighter", "战士"],
+  ["Flesh", "血肉"],
+  ["Eater", "吞噬者"]
+].sort((a, b) => b[0].length - a[0].length);
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function localizeRouteText(value) {
+  let text = String(value || "");
+  for (const [source, target] of routeTextReplacements) {
+    text = text.replace(new RegExp(`(^|[^A-Za-z])${escapeRegExp(source)}(?=$|[^A-Za-z])`, "g"), `$1${target}`);
+  }
+  return text;
+}
 
 function refineSkillTreeWithBase(merged, base) {
   const baseStepsByIndex = new Map((base.pointOrder || []).map((step, index) => [index, step]));
@@ -1017,7 +1067,37 @@ function refineParagonWithBase(merged, base) {
   });
   return {
     ...merged,
-    clickOrder
+    boardOrder: (merged.boardOrder || []).map((board) => ({
+      ...board,
+      name: localizeRouteText(board.name),
+      goal: localizeRouteText(board.goal),
+      glyph: localizeRouteText(board.glyph),
+      rotate: localizeRouteText(board.rotate)
+    })),
+    clickOrder: clickOrder.map((step) => ({
+      ...step,
+      board: localizeRouteText(step.board),
+      node: localizeRouteText(step.node),
+      reason: localizeRouteText(step.reason)
+    })),
+    glyphs: (merged.glyphs || []).map((glyph) => ({
+      ...glyph,
+      name: localizeRouteText(glyph.name),
+      socket: localizeRouteText(glyph.socket),
+      note: localizeRouteText(glyph.note)
+    })),
+    pointBands: (merged.pointBands || []).map((band) => ({
+      ...band,
+      goal: localizeRouteText(band.goal)
+    })),
+    notes: (merged.notes || []).map(localizeRouteText)
+  };
+}
+
+function localizeGuideRoutes(guide) {
+  return {
+    ...guide,
+    paragon: refineParagonWithBase(guide.paragon || {}, { clickOrder: [] })
   };
 }
 
@@ -1255,7 +1335,8 @@ for (const [seasonIndex, season] of simulations.seasons.entries()) {
       for (const mode of Object.keys(modeProfiles)) {
         const simBuild = simMap.get(`${season.id}:${classInfo.id}:${mode}:${archetype.id}`);
         const guide = guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentItems: equipment.items, simBuild });
-        builds.push(overrideMap.has(guide.id) ? applyCommunityOverride(guide, overrideMap.get(guide.id), equipmentByZhName) : guide);
+        const mergedGuide = overrideMap.has(guide.id) ? applyCommunityOverride(guide, overrideMap.get(guide.id), equipmentByZhName) : guide;
+        builds.push(localizeGuideRoutes(mergedGuide));
       }
     }
   }

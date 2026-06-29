@@ -802,7 +802,7 @@ export const zh = {
     }[value] ?? value;
   },
   warning() {
-    return "预测结果是模型输出，不是事实榜单。每个赛季上线后需要用真实冲层、速刷成绩和热修补丁继续校准。";
+    return "预测结果只是赛季参考，不是事实榜单。每个赛季上线后需要用真实冲层、速刷成绩和热修补丁继续校准。";
   },
   seasonLabel(value) {
     return {

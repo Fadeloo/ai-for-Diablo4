@@ -47,7 +47,7 @@
     },
     {
       "id": "future_normalized_model",
-      "zhName": "后续规范化事实模型",
+      "zhName": "后续规范化事实资料表",
       "files": [
         "docs/PLAYER_SITE_ARCHITECTURE_SPEC.md"
       ],

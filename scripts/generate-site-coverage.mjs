@@ -254,7 +254,7 @@ const payload = {
     },
     {
       id: "future_normalized_model",
-      zhName: "后续规范化事实模型",
+      zhName: "后续规范化事实资料表",
       files: ["docs/PLAYER_SITE_ARCHITECTURE_SPEC.md"],
       frontendUse: "定义装备、威能、技能、巅峰、BD、预测和审核数据如何拆分存储，作为后端化和全量数据库扩展边界。"
     }
