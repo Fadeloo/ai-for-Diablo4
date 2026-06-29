@@ -3198,6 +3198,39 @@ function renderPlannerRouteOverview(guide) {
   `;
 }
 
+function renderPlannerFullRouteDeck(guide) {
+  const skillSteps = guide.skillTree?.pointOrder || [];
+  const paragonSteps = guide.paragon?.clickOrder || [];
+  return `
+    <section class="planner-full-route-deck" aria-label="配置页全量技能与巅峰路线">
+      <header>
+        <div>
+          <span>全量执行路线</span>
+          <strong>技能加点和巅峰点击直接放在配置页上方</strong>
+        </div>
+        <nav aria-label="全量路线分区入口">
+          <a href="${guideSectionUrl(guide, "skills")}">${skillSteps.length} 步技能</a>
+          <a href="${guideSectionUrl(guide, "paragon")}">${paragonSteps.length} 步巅峰</a>
+        </nav>
+      </header>
+      <div class="planner-full-route-deck__grid">
+        ${renderPlannerSequence("技能加点顺序", `${skillSteps.length} 步`, skillSteps, (step) => `
+          <li>
+            <span>${step.step}</span>
+            <div><strong>${displayText(step.levelRange)} · ${displayText(step.skill)}</strong><p>${displayText(step.points)} · ${displayText(step.reason)}</p></div>
+          </li>
+        `)}
+        ${renderPlannerSequence("巅峰点击顺序", `${paragonSteps.length} 步`, paragonSteps, (step) => `
+          <li>
+            <span>${step.step}</span>
+            <div><strong>${displayText(step.board)} · ${displayText(step.node)}</strong><p>${displayText(step.reason)}</p></div>
+          </li>
+        `)}
+      </div>
+    </section>
+  `;
+}
+
 function renderBuildPlannerSheet(guide) {
   const requiredCount = guide.gearSlots.filter((slot) => slot.required).length;
   const replaceableCount = guide.gearSlots.filter((slot) => slot.replaceable).length;
@@ -3230,6 +3263,7 @@ function renderBuildPlannerSheet(guide) {
       ${renderPlannerCoreRequirementPanel(guide)}
       ${renderPlannerGearMatrix(guide)}
       ${renderRouteOverview(guide)}
+      ${renderPlannerFullRouteDeck(guide)}
       <section class="planner-loadout-overview" aria-label="配置页 11 部位装备图标速览">
         <header>
           <span>11 部位图标速览</span>

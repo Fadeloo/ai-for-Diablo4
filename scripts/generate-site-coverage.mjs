@@ -245,6 +245,24 @@ const frontendDataContracts = [
     frontendUse: "BD 配置页在 11 槽矩阵前先展示硬需求装备、核心威能或暗金、可替换部位和执行入口，解决玩家进详情后先看不到核心配装的问题。"
   },
   {
+    component: "PlannerFullRouteDeck",
+    zhName: "BD 配置页全量技能巅峰路线",
+    source: "build-guides.builds[id].skillTree + paragon",
+    fields: [
+      "skillTree.skillBar",
+      "skillTree.pointOrder",
+      "skillTree.pointOrder[].levelRange",
+      "skillTree.pointOrder[].skill",
+      "skillTree.pointOrder[].points",
+      "paragon.boardOrder",
+      "paragon.clickOrder",
+      "paragon.clickOrder[].board",
+      "paragon.clickOrder[].node",
+      "paragon.clickOrder[].reason"
+    ],
+    frontendUse: "BD 配置页在长装备明细前展示全量技能加点顺序和全量巅峰点击顺序，让玩家不用滚到页面底部就能抄路线。"
+  },
+  {
     component: "BuildCopyOverview",
     zhName: "BD 首屏抄作业速览",
     source: "build-guides.builds[id]",
