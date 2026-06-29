@@ -1969,6 +1969,10 @@ function gearPowerDisplay(slot) {
   return displayText(slot.aspect?.displayName || slot.aspect?.role || "威能待来源回填");
 }
 
+function gearPowerText(slot) {
+  return slot.aspect?.powerText || slot.aspect?.role || slot.target?.description || "效果文本待来源回填";
+}
+
 function renderGearSummaryMatrix(guide) {
   return `
     <section class="gear-summary-matrix" aria-label="完整配装总表">
@@ -2015,7 +2019,8 @@ function renderGearSummaryMatrix(guide) {
               <div class="gear-summary-cell">
                 <span class="gear-summary-label">威能或暗金</span>
                 <strong>${gearPowerDisplay(slot)}</strong>
-                <em>${displayText(slot.aspect?.role || "作用待来源回填")}</em>
+                <em>${displayText(gearPowerText(slot))}</em>
+                ${slot.aspect?.powerSourceStatus ? `<small>${displayText(slot.aspect.powerSourceStatus)}</small>` : ""}
               </div>
               <div class="gear-summary-cell">
                 <span class="gear-summary-label">词缀优先级</span>
@@ -2058,6 +2063,11 @@ function renderGearSlot(slot) {
         <span>${slot.priority}</span>
         <span>${gearPowerDisplay(slot)}</span>
         <span>${displayText(slot.aspect.role)}</span>
+      </div>
+      <div class="gear-power-text">
+        <strong>威能 / 暗金效果</strong>
+        <p>${displayText(gearPowerText(slot))}</p>
+        ${slot.aspect?.powerSourceStatus ? `<em>${displayText(slot.aspect.powerSourceStatus)}</em>` : ""}
       </div>
       <dl class="gear-lines">
         <div><dt>数据状态</dt><dd>${displayText(sourceStatus)}</dd></div>
@@ -2344,7 +2354,8 @@ function renderPlannerGearRow(slot) {
       <div class="planner-gear-power">
         <span>${slot.required ? "硬需求" : slot.core ? "核心位" : "补强位"} · ${slot.replaceable ? "可替换" : "不建议替换"}</span>
         <strong>${displayText(power)}</strong>
-        <p>${displayText(slot.aspect?.role || slot.target?.description || "用途待来源回填")}</p>
+        <p>${displayText(gearPowerText(slot))}</p>
+        ${slot.aspect?.powerSourceStatus ? `<em>${displayText(slot.aspect.powerSourceStatus)}</em>` : ""}
       </div>
       <div class="planner-gear-build">
         <p><b>词缀</b>${(slot.affixes || []).slice(0, 4).map(displayText).join(" / ")}</p>

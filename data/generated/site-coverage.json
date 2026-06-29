@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-29T04:20:15.712Z",
+  "generatedAt": "2026-06-29T04:34:46.008Z",
   "scope": "player_site_data_coverage_and_storage_usage",
   "asOf": "2026-06-28",
   "storageLayers": [
@@ -245,6 +245,7 @@
         "gearSlots",
         "gearSlots[].aspect.displayName",
         "gearSlots[].aspect.displayKind",
+        "gearSlots[].aspect.powerText",
         "progression",
         "skillTree",
         "paragon",
@@ -268,6 +269,7 @@
         "gearSlots[].tempers",
         "gearSlots[].masterwork",
         "gearSlots[].alternatives[0]",
+        "gearSlots[].aspect.powerText",
         "skillTree.skillBar",
         "skillTree.pointOrder",
         "paragon.boardOrder",

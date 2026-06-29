@@ -2379,6 +2379,7 @@ h4 {
 }
 
 .gear-summary-cell em,
+.gear-summary-cell small,
 .gear-summary-cell p,
 .gear-summary-actions a,
 .gear-summary-actions button {
@@ -2388,6 +2389,10 @@ h4 {
   line-height: 1.45;
   margin: 0;
   overflow-wrap: anywhere;
+}
+
+.gear-summary-cell small {
+  color: #d8c6a3;
 }
 
 .gear-summary-badges {
@@ -3183,6 +3188,7 @@ h4 {
 
 .planner-sheet__head p,
 .planner-gear-power p,
+.planner-gear-power em,
 .planner-gear-build p,
 .planner-gear-replace p,
 .planner-sequence p,
@@ -3195,6 +3201,10 @@ h4 {
   line-height: 1.45;
   margin: 0;
   overflow-wrap: anywhere;
+}
+
+.planner-gear-power em {
+  color: #d8c6a3;
 }
 
 .planner-sheet__facts {
@@ -3906,6 +3916,34 @@ h4 {
   font-size: 16px;
   margin-bottom: 6px;
   overflow-wrap: anywhere;
+}
+
+.gear-power-text {
+  background: rgba(214, 173, 99, 0.06);
+  border: 1px solid rgba(214, 173, 99, 0.14);
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+}
+
+.gear-power-text strong {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.gear-power-text p,
+.gear-power-text em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.5;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.gear-power-text em {
+  color: #d8c6a3;
 }
 
 .gear-lines {

@@ -88,6 +88,17 @@ const slotOrder = [
 ];
 
 const placeholderAspectNames = new Set(["暗金特效位", "神话暗金位", "空槽说明", "空槽位"]);
+const equipmentNameAliases = new Map([
+  ["提鲍特的意志", "迪博特的意志"],
+  ["塞利格的融心", "塞利格的溶解之心"],
+  ["闪烁步履", "摇曳之步"],
+  ["净化光明使者", "净化之光明使者"],
+  ["邪恶新月", "猎手的巅峰"],
+  ["盈月", "盈月当空"],
+  ["伊菲的可怖图腾", "伊菲的恐狼图腾"],
+  ["雷神的祝福", "雷神之赐"],
+  ["伪死之衣", "虚假死亡之衣"]
+]);
 
 const classSeeds = {
   barbarian: { push: 87, speed: 76, daily: 82, volatility: 0.12 },
@@ -508,6 +519,21 @@ function makeTarget(item, slot, archetype, index) {
   };
 }
 
+function createEquipmentIndex(items) {
+  return {
+    byId: new Map(items.map((item) => [item.id, item])),
+    byZhName: new Map(items.map((item) => [item.zhName, item]))
+  };
+}
+
+function lookupEquipmentForTarget(target, equipmentIndex) {
+  if (!target || !equipmentIndex) return null;
+  if (target.itemId && equipmentIndex.byId.has(target.itemId)) return equipmentIndex.byId.get(target.itemId);
+  if (target.zhName && equipmentIndex.byZhName.has(target.zhName)) return equipmentIndex.byZhName.get(target.zhName);
+  const alias = equipmentNameAliases.get(target.zhName);
+  return alias ? equipmentIndex.byZhName.get(alias) : null;
+}
+
 function alternativeFor(slot, item, pool, archetype, usedIds, index) {
   const candidates = pool.filter((candidate) => candidate.id !== item?.id && !usedIds.has(candidate.id)).slice(0, 2);
   const alternatives = candidates.map((candidate) => ({
@@ -556,18 +582,42 @@ function slotPlayerDataStatus(slot, power, isCommunityReference = false) {
     if (power.displayKind === "legendary_aspect") {
       return "社区 BD 装备位参考；威能效果、数值和赛季强度仍需按来源核对。";
     }
-    return "社区 BD 装备位参考；唯一装备固定词缀已接入，暗金特效数值仍需校验。";
+    return power.powerText
+      ? "社区 BD 装备位参考；唯一装备固定词缀和暗金特效文本已接入，赛季强度仍需核对。"
+      : "社区 BD 装备位参考；唯一装备固定词缀已接入，暗金特效数值仍需校验。";
   }
   if (power.displayKind === "legendary_aspect") {
     return "传奇威能来自结构化 BD 模板；完整效果和数值需接入可靠威能库校验。";
   }
-  return "官方唯一装备固定词缀已接入；暗金特效完整数值仍需校验。";
+  return power.powerText
+    ? "官方唯一装备固定词缀和暗金特效文本已接入；赛季强度仍需实战校验。"
+    : "官方唯一装备固定词缀已接入；暗金特效完整数值仍需校验。";
 }
 
 function withPlayerPower(slot, options = {}) {
-  const power = playerPowerForSlot(slot);
+  const matchedEquipment = lookupEquipmentForTarget(slot.target, options.equipmentIndex);
+  const basePower = playerPowerForSlot(slot);
+  const power = {
+    ...basePower,
+    displayName: matchedEquipment && basePower.displayKind !== "legendary_aspect"
+      ? `${matchedEquipment.zhName}特效`
+      : basePower.displayName,
+    powerText: matchedEquipment?.zhUniquePower || matchedEquipment?.uniquePower || null,
+    powerSourceStatus: matchedEquipment
+      ? "装备库特效文本：官方 3.1.0 种子 + 社区数据库校对"
+      : null,
+    matchedItemId: matchedEquipment?.id || null
+  };
   return {
     ...slot,
+    target: matchedEquipment ? {
+      ...slot.target,
+      itemId: matchedEquipment.id,
+      zhName: matchedEquipment.zhName,
+      image: matchedEquipment.image || slot.target.image,
+      externalImage: matchedEquipment.externalImage || slot.target.externalImage,
+      description: `${matchedEquipment.zhBuildRole || slot.target.description || "暗金组件"}，固定词缀：${(matchedEquipment.zhGuaranteedAffixes || []).join(" / ") || "待回填"}。`
+    } : slot.target,
     dataStatus: slotPlayerDataStatus(slot, power, Boolean(options.communityReference)),
     aspect: {
       ...slot.aspect,
@@ -577,7 +627,7 @@ function withPlayerPower(slot, options = {}) {
   };
 }
 
-function gearSlotsFor({ equipmentItems, classInfo, archetype, mode }) {
+function gearSlotsFor({ equipmentItems, equipmentIndex, classInfo, archetype, mode }) {
   const usedIds = new Set();
   return slotOrder.map((slot, index) => {
     const pool = rankedItemsForSlot(equipmentItems, slot, classInfo, archetype, mode);
@@ -616,7 +666,7 @@ function gearSlotsFor({ equipmentItems, classInfo, archetype, mode }) {
         replaceable ? "可替换：先保证主词缀和抗性，再追求最优暗金。" : "不建议替换：此位承担主要伤害或循环。",
         core ? "优先在该部位投入精造资源。" : "作为成型后的补强部位。"
       ]
-    });
+    }, { equipmentIndex });
   });
 }
 
@@ -940,9 +990,9 @@ function communityVerificationLevel(guide, override) {
   return sourceSeason.includes(currentSeasonCode) ? "community_reference" : "cross_season_reference";
 }
 
-function guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentItems, simBuild }) {
+function guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentItems, equipmentIndex, simBuild }) {
   const performance = simBuild || synthesizePerformance({ classInfo, archetype, mode, seasonIndex });
-  const gearSlots = gearSlotsFor({ equipmentItems, classInfo, archetype, mode });
+  const gearSlots = gearSlotsFor({ equipmentItems, equipmentIndex, classInfo, archetype, mode });
   const formationDifficulty = difficultyFor({ archetype, mode, gearSlots, seasonIndex, classInfo });
   const ceiling = ceilingFor(performance, mode);
   const skillTree = skillTreeFor({ classInfo, archetype, simBuild });
@@ -1171,10 +1221,10 @@ function localizeGuideRoutes(guide) {
   };
 }
 
-function resolvePatchedTarget(slot, patchTarget, equipmentByZhName) {
+function resolvePatchedTarget(slot, patchTarget, equipmentIndex) {
   if (!patchTarget) return slot.target;
   const nameChanged = Boolean(patchTarget.zhName && patchTarget.zhName !== slot.target.zhName);
-  const matchedItem = patchTarget.zhName ? equipmentByZhName.get(patchTarget.zhName) : null;
+  const matchedItem = patchTarget.zhName ? lookupEquipmentForTarget({ zhName: patchTarget.zhName, itemId: patchTarget.itemId }, equipmentIndex) : null;
   const hasExplicitItemId = Object.hasOwn(patchTarget, "itemId");
   const itemId = hasExplicitItemId ? patchTarget.itemId : (matchedItem?.id ?? (nameChanged ? null : slot.target.itemId));
   let externalImage = slot.target.externalImage;
@@ -1199,7 +1249,7 @@ function resolvePatchedTarget(slot, patchTarget, equipmentByZhName) {
   };
 }
 
-function applyCommunityOverride(guide, override, equipmentByZhName) {
+function applyCommunityOverride(guide, override, equipmentIndex) {
   const overrideLevel = communityVerificationLevel(guide, override);
   const slotOverrides = new Map((override.gearSlots || []).map((slot) => [slot.slotId, slot]));
   const gearSlots = guide.gearSlots.map((slot) => {
@@ -1210,7 +1260,7 @@ function applyCommunityOverride(guide, override, equipmentByZhName) {
       required: patch.required ?? slot.required,
       core: patch.core ?? slot.core,
       replaceable: patch.replaceable ?? slot.replaceable,
-      target: resolvePatchedTarget(slot, patch.target, equipmentByZhName),
+      target: resolvePatchedTarget(slot, patch.target, equipmentIndex),
       aspect: {
         ...slot.aspect,
         ...patch.aspect
@@ -1225,7 +1275,7 @@ function applyCommunityOverride(guide, override, equipmentByZhName) {
         patch.replaceable === false ? "社区参考：该位置承担核心联动，不建议替换。" : "社区参考：可按缺件和抗性替换。",
         patch.aspect?.sourceStatus || slot.aspect.sourceStatus
       ]
-    }, { communityReference: true });
+    }, { communityReference: true, equipmentIndex });
   });
   const coreUniques = gearSlots
     .filter((slot) => slot.core && slot.target.type === "unique")
@@ -1402,7 +1452,7 @@ const [classes, archetypeGroups, equipment, simulations, overrides] = await Prom
 const simMap = simulationLookup(simulations);
 const expandedOverrides = expandCommunityOverrides(overrides);
 const overrideMap = new Map(expandedOverrides.map((override) => [override.id, override]));
-const equipmentByZhName = new Map(equipment.items.map((item) => [item.zhName, item]));
+const equipmentIndex = createEquipmentIndex(equipment.items);
 const builds = [];
 
 for (const [seasonIndex, season] of simulations.seasons.entries()) {
@@ -1411,8 +1461,8 @@ for (const [seasonIndex, season] of simulations.seasons.entries()) {
     for (const archetype of archetypes) {
       for (const mode of Object.keys(modeProfiles)) {
         const simBuild = simMap.get(`${season.id}:${classInfo.id}:${mode}:${archetype.id}`);
-        const guide = guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentItems: equipment.items, simBuild });
-        const mergedGuide = overrideMap.has(guide.id) ? applyCommunityOverride(guide, overrideMap.get(guide.id), equipmentByZhName) : guide;
+        const guide = guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentItems: equipment.items, equipmentIndex, simBuild });
+        const mergedGuide = overrideMap.has(guide.id) ? applyCommunityOverride(guide, overrideMap.get(guide.id), equipmentIndex) : guide;
         builds.push(localizeGuideRoutes(mergedGuide));
       }
     }
