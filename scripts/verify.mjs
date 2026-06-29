@@ -187,10 +187,17 @@ assert(siteCoverage.equipmentCoverage?.total === equipmentLibrary.items.length, 
 assert(siteCoverage.aspectCoverage?.total === aspectIndex.aspects.length, "Site coverage aspect count mismatch");
 assert(siteCoverage.sourceCoverage?.total === sources.length, "Site coverage source count mismatch");
 assert(siteCoverage.storageLayers?.length >= 4, "Site coverage must describe storage layers");
+assert(siteCoverage.pageBlueprints?.length >= 8, "Site coverage must expose the player-site page blueprint");
+assert(siteCoverage.pageBlueprints?.some((page) => page.route === "#bd/<guideId>" && page.requiredModules?.includes("装备") && page.requiredModules?.includes("技能") && page.requiredModules?.includes("巅峰") && page.requiredModules?.includes("打法")), "BD detail page blueprint must require equipment, skills, paragon and gameplay sections");
 assert(siteCoverage.buildCoverage.classMatrix?.length === simulations.seasons.length, "Site coverage needs per-season class matrix");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "RecommendedBuildBoard"), "Site coverage must describe the build recommendation board data contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildDetailLayout"), "Site coverage must describe the build detail data contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.fields?.includes("gearSlots")), "Frontend data contracts must expose full build detail fields");
+assert(siteCoverage.buildDetailComponentBlueprint?.some((contract) => contract.component === "GearSummaryMatrix" && contract.requiredFields?.includes("gearSlots[].replaceable")), "Build detail blueprint must require slot-level replacement status");
+assert(siteCoverage.buildDetailComponentBlueprint?.some((contract) => contract.component === "SkillRouteMatrix" && contract.requiredFields?.includes("skillTree.pointOrder")), "Build detail blueprint must require skill point order");
+assert(siteCoverage.buildDetailComponentBlueprint?.some((contract) => contract.component === "ParagonRouteMatrix" && contract.requiredFields?.includes("paragon.clickOrder")), "Build detail blueprint must require paragon click order");
+assert(siteCoverage.normalizedDataBlueprint?.some((entity) => entity.entity.includes("analysis_outputs")), "Data blueprint must keep AI analysis outputs separate from player-facing data");
+assert(siteCoverage.publicationWorkflow?.includes("中文化和禁用话术校验"), "Publication workflow must include Chinese copy and forbidden-copy checks");
 assert(siteCoverage.buildIntegrity?.completeGearSlotBuilds === buildGuides.builds.length, "Site coverage must prove every BD has 11 gear slots");
 assert(siteCoverage.buildIntegrity?.skillRouteBuilds === buildGuides.builds.length, "Site coverage must prove every BD has skill routes");
 assert(siteCoverage.buildIntegrity?.paragonRouteBuilds === buildGuides.builds.length, "Site coverage must prove every BD has paragon routes");
@@ -282,6 +289,7 @@ assert(frontendText.includes("build-manual-panel"), "BD overview must expose gea
 assert(frontendText.includes("manual-gear-row"), "BD execution manual must expose all gear slots as jump targets");
 assert(frontendText.includes("renderBuildDossier"), "BD hero must render a first-screen build dossier");
 assert(frontendText.includes("build-dossier") && frontendText.includes("核心装备") && frontendText.includes("六技能栏") && frontendText.includes("巅峰起步") && frontendText.includes("打法节奏"), "BD first screen must summarize core gear, skills, paragon and gameplay");
+assert(frontendText.includes("gearPowerDisplay"), "BD detail must render concrete unique/aspect power labels instead of visible placeholder labels");
 assert(frontendText.includes("renderGuideAllSections"), "BD detail must render all major guide sections on one scannable page");
 assert(frontendText.includes("guideDetailSectionOrder"), "BD detail must define a stable full-section reading order");
 assert(frontendText.includes("renderProgressionPlan"), "BD detail must render leveling-to-endgame progression");

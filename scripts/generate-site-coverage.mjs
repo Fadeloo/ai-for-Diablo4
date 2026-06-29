@@ -153,6 +153,155 @@ const frontendDataContracts = [
   }
 ];
 
+const pageBlueprints = [
+  {
+    route: "#home",
+    zhName: "首页",
+    playerGoal: "看版本边界、资料覆盖和核心功能入口。",
+    requiredModules: ["版本状态条", "覆盖概览", "BD 入口", "装备入口", "职业开荒入口", "资料缺口"]
+  },
+  {
+    route: "#builds",
+    zhName: "BD 大厅",
+    playerGoal: "按赛季、职业、用途和资料状态找到可进入详情的流派。",
+    requiredModules: ["职业快速栏", "筛选条", "推荐入口", "赛季矩阵", "BD 结果列表", "详情跳转"]
+  },
+  {
+    route: "#bd/<guideId>",
+    zhName: "BD 详情",
+    playerGoal: "直接抄完整 BD，看到装备、技能、巅峰、打法、替换和来源。",
+    requiredModules: ["顶部概要", "分区导航", "总览", "开荒", "装备", "技能", "巅峰", "打法", "变体", "来源"]
+  },
+  {
+    route: "#equipment / #item/<itemId>",
+    zhName: "装备库",
+    playerGoal: "查装备事实、暗金特效、掉落来源和相关 BD。",
+    requiredModules: ["装备筛选", "受控结果列表", "装备详情", "字段来源状态", "相关 BD 使用矩阵"]
+  },
+  {
+    route: "#aspects / #aspect/<aspectId>",
+    zhName: "威能索引",
+    playerGoal: "查 BD 中用到的威能、可用部位、来源状态和相关 BD。",
+    requiredModules: ["威能筛选", "受控结果列表", "威能详情", "可用部位", "相关 BD"]
+  },
+  {
+    route: "#classes",
+    zhName: "职业开荒",
+    playerGoal: "查看职业定位、阶段路线和日常/速刷/冲层流派矩阵。",
+    requiredModules: ["职业资源", "开荒阶段", "流派矩阵", "赛季切换", "BD 入口"]
+  },
+  {
+    route: "#forecast",
+    zhName: "150 层参考",
+    playerGoal: "比较三赛季职业强度、速度参考、置信度和风险。",
+    requiredModules: ["赛季筛选", "冲层矩阵", "速刷矩阵", "日常矩阵", "风险说明", "校准状态"]
+  },
+  {
+    route: "#damage",
+    zhName: "伤害实验室",
+    playerGoal: "解释词缀、乘区、暴击、易伤、压制和攻速收益。",
+    requiredModules: ["属性输入", "乘区拆分", "词缀对比", "BD 参数入口"]
+  },
+  {
+    route: "#sources",
+    zhName: "来源页",
+    playerGoal: "查看资料从哪里来、如何存储、哪些字段仍有缺口。",
+    requiredModules: ["来源登记", "覆盖报告", "存储层", "组件契约", "字段缺口", "玩家可见规则"]
+  }
+];
+
+const buildDetailComponentBlueprint = [
+  {
+    component: "BuildHeader",
+    requiredFields: ["title", "taxonomy", "formationDifficulty", "ceiling", "source.verificationLevel"],
+    playerQuestion: "这套 BD 是什么赛季、职业、用途、强度和来源？"
+  },
+  {
+    component: "BuildDossier",
+    requiredFields: ["gearSlots", "skillTree.skillBar", "paragon.clickOrder", "gameplay.loop"],
+    playerQuestion: "首屏能不能先看到核心装备、核心威能或暗金、技能、巅峰和打法？"
+  },
+  {
+    component: "GearSummaryMatrix",
+    requiredFields: ["gearSlots[].target", "gearSlots[].aspect", "gearSlots[].replaceable", "gearSlots[].affixes"],
+    playerQuestion: "每个部位穿什么、是否可替换、核心威能或暗金是什么？"
+  },
+  {
+    component: "SkillRouteMatrix",
+    requiredFields: ["skillTree.skillBar", "skillTree.pointOrder"],
+    playerQuestion: "技能栏和加点顺序是什么？"
+  },
+  {
+    component: "ParagonRouteMatrix",
+    requiredFields: ["paragon.boardOrder", "paragon.clickOrder", "paragon.pointBands"],
+    playerQuestion: "巅峰盘、雕文和点击顺序是什么？"
+  },
+  {
+    component: "CombatFlowMatrix",
+    requiredFields: ["gameplay.opener", "gameplay.loop", "gameplay.boss", "gameplay.defense"],
+    playerQuestion: "起手、循环、首领、防御和速刷怎么打？"
+  },
+  {
+    component: "ReplacementMatrix",
+    requiredFields: ["gearSlots[].alternatives", "gearSlots[].replaceable", "variants"],
+    playerQuestion: "缺某个部位时能替换什么，代价是什么？"
+  }
+];
+
+const normalizedDataBlueprint = [
+  {
+    entity: "sources",
+    zhName: "来源",
+    purpose: "记录官方、社区、图标和工具来源的可信度、授权边界和抓取时间。"
+  },
+  {
+    entity: "items / item_affixes / item_powers",
+    zhName: "装备事实",
+    purpose: "存储装备、固定词缀、暗金特效、掉落来源、版本和字段状态。"
+  },
+  {
+    entity: "aspects",
+    zhName: "威能事实",
+    purpose: "存储威能名称、效果、可用部位、来源和版本。"
+  },
+  {
+    entity: "skills / skill_nodes",
+    zhName: "技能树",
+    purpose: "存储技能、分支、点数上限、资源消耗、冷却和效果来源。"
+  },
+  {
+    entity: "paragon_boards / paragon_nodes / glyphs",
+    zhName: "巅峰盘",
+    purpose: "存储盘、节点坐标、雕文、半径、门槛和效果来源。"
+  },
+  {
+    entity: "builds / build_gear_slots / build_skill_steps / build_paragon_steps",
+    zhName: "BD 档案",
+    purpose: "按赛季、职业、流派和用途存储完整可执行 BD。"
+  },
+  {
+    entity: "leaderboard_samples / build_forecasts",
+    zhName: "榜单与预测",
+    purpose: "存储冲层、速刷和日常速度样本、预测、置信度和风险。"
+  },
+  {
+    entity: "analysis_runs / analysis_outputs / publish_audits",
+    zhName: "AI 分析与审核",
+    purpose: "存储候选结果、证据和发布审核；未批准内容不能进入玩家页面。"
+  }
+];
+
+const publicationWorkflow = [
+  "来源登记",
+  "代表样本结构化",
+  "生成 BD、装备索引、威能索引、预测和覆盖报告",
+  "JSON 契约校验",
+  "中文化和禁用话术校验",
+  "代表页面桌面和移动端截图检查",
+  "敏感信息和授权边界扫描",
+  "提交并推送玩家可见数据"
+];
+
 const [classes, equipment, buildGuides, aspectIndex, sources] = await Promise.all([
   readJson("data/classes/classes.json"),
   readJson("data/equipment/equipment-library.json"),
@@ -259,7 +408,11 @@ const payload = {
       frontendUse: "定义装备、威能、技能、巅峰、BD、预测和审核数据如何拆分存储，作为后端化和全量数据库扩展边界。"
     }
   ],
+  pageBlueprints,
   frontendDataContracts,
+  buildDetailComponentBlueprint,
+  normalizedDataBlueprint,
+  publicationWorkflow,
   buildIntegrity,
   buildCoverage: {
     total: builds.length,
@@ -298,7 +451,9 @@ const payload = {
     "社区来源 BD 可以展示为参考，模板 BD 必须标为模板或推演。",
     "装备库当前只声明唯一装备固定词缀种子，不声明为全量装备库。",
     "暗金特效、掉落来源和验证部位来自社区数据库参考；完整词缀范围缺失时必须继续显示字段状态。",
-    "预测速度不能写成真实天梯结果。"
+    "预测速度不能写成真实天梯结果。",
+    "玩家页面不得展示内部推理、候选生成或问答流程话术。",
+    "AI 分析结果必须经过发布审核后才能进入玩家可见 JSON。"
   ]
 };
 

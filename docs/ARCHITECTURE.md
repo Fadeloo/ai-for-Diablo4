@@ -1,6 +1,6 @@
 # Harris's Diablo 4 架构设计
 
-本轮重构的执行规格见 `docs/PLAYER_SITE_ARCHITECTURE_SPEC.md`。继续开发前的总控设计见 `docs/SYSTEM_DESIGN.md`，实施基线见 `docs/SITE_IMPLEMENTATION_DESIGN.md`。正式玩家资料站重构见 `docs/PLAYER_SITE_REDESIGN_PLAN.md`，它定义信息架构、页面组件、数据存储、AI 边界、实施顺序和验收门禁。完整产品蓝图见 `docs/PRODUCT_BLUEPRINT.md`。本文保留当前工程架构和脚本分层，作为实现入口。
+本轮重构的执行规格见 `docs/PLAYER_SITE_ARCHITECTURE_SPEC.md`。继续开发前的总控设计见 `docs/SYSTEM_DESIGN.md`，实施基线见 `docs/SITE_IMPLEMENTATION_DESIGN.md`。正式玩家资料站重构见 `docs/PLAYER_SITE_REDESIGN_PLAN.md`，它定义信息架构、页面组件、数据存储、AI 边界、实施顺序和验收门禁。后续实现以 `docs/PLAYER_SITE_EXECUTION_BLUEPRINT.md` 作为页面、组件、功能、数据存储和发布流程的冻结蓝图。完整产品蓝图见 `docs/PRODUCT_BLUEPRINT.md`。本文保留当前工程架构和脚本分层，作为实现入口。
 
 ## 目标
 

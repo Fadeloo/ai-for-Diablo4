@@ -943,7 +943,7 @@ function guideItemUsages(guide, item) {
         slotName: slot.zhSlotName,
         useType: "目标装备",
         status: gearSlotStatus(slot),
-        aspect: gearAspectDisplay(slot)
+        aspect: gearPowerDisplay(slot)
       });
     }
     for (const alternative of slot.alternatives || []) {
@@ -1065,12 +1065,14 @@ function renderCoreUniques(guide, limit = 4) {
 }
 
 function renderCoreAspects(guide, limit = 8) {
-  return guide.coreAspects.slice(0, limit)
-    .map((aspect) => `
+  return (guide.gearSlots || [])
+    .filter((slot) => slot.core || slot.required)
+    .slice(0, limit)
+    .map((slot) => `
       <span class="mini-aspect">
-        <b>${aspect.zhSlotName}</b>
-        <strong>${aspect.name}</strong>
-        <em>${aspect.replaceable ? "可替换" : "核心"}</em>
+        <b>${slot.zhSlotName}</b>
+        <strong>${gearPowerDisplay(slot)}</strong>
+        <em>${slot.replaceable ? "可替换" : "核心"}</em>
       </span>
     `)
     .join("");
@@ -1110,7 +1112,7 @@ function renderBuildDossier(guide) {
       <article class="build-dossier-card">
         <span>核心威能 / 暗金</span>
         <ul>
-          ${aspectSlots.map((slot) => `<li><b>${slot.zhSlotName}</b><strong>${gearAspectDisplay(slot)}</strong></li>`).join("")}
+          ${aspectSlots.map((slot) => `<li><b>${slot.zhSlotName}</b><strong>${gearPowerDisplay(slot)}</strong></li>`).join("")}
         </ul>
       </article>
       <article class="build-dossier-card build-dossier-card--skills">
@@ -1702,6 +1704,19 @@ function gearAspectDisplay(slot) {
   return displayText(ignoredAspectDisplayNames.has(aspectName) ? fallback : aspectName);
 }
 
+function gearPowerDisplay(slot) {
+  const targetType = slot.target?.type;
+  if (targetType === "mythic" || targetType === "unique") {
+    const prefix = targetType === "mythic" ? "神话暗金" : "暗金";
+    return `${prefix}：${displayText(slot.target.zhName || slot.target.name || "装备待回填")}`;
+  }
+  const aspectName = slot.aspect?.name || "";
+  if (aspectName && !ignoredAspectDisplayNames.has(aspectName)) {
+    return `威能：${displayText(aspectName)}`;
+  }
+  return displayText(slot.aspect?.role || "威能待来源回填");
+}
+
 function renderGearSummaryMatrix(guide) {
   return `
     <section class="gear-summary-matrix" aria-label="完整配装总表">
@@ -1747,7 +1762,7 @@ function renderGearSummaryMatrix(guide) {
               </div>
               <div class="gear-summary-cell">
                 <span class="gear-summary-label">威能或暗金</span>
-                <strong>${gearAspectDisplay(slot)}</strong>
+                <strong>${gearPowerDisplay(slot)}</strong>
                 <em>${displayText(slot.aspect?.role || "作用待来源回填")}</em>
               </div>
               <div class="gear-summary-cell">
@@ -1788,7 +1803,7 @@ function renderGearSlot(slot) {
       </div>
       <div class="gear-slot-card__flags">
         <span>${slot.priority}</span>
-        <span>${gearAspectDisplay(slot)}</span>
+        <span>${gearPowerDisplay(slot)}</span>
         <span>${displayText(slot.aspect.role)}</span>
       </div>
       <dl class="gear-lines">
@@ -1847,7 +1862,7 @@ function renderReplacementMatrix(guide) {
               <div>
                 <b class="replacement-label">当前目标</b>
                 ${renderTargetLink(slot.target)}
-                <em>${gearAspectDisplay(slot)}</em>
+                <em>${gearPowerDisplay(slot)}</em>
               </div>
               <div>
                 <b class="replacement-label">首选替换</b>
@@ -1902,7 +1917,7 @@ function renderLoadoutBoardSlot(slot) {
       ${renderIcon(slot.target, `${slot.zhSlotName}${slot.target.zhName}图标`)}
       <span>${slot.zhSlotName}</span>
       <strong>${displayText(slot.target.zhName)}</strong>
-      <em>${gearSlotStatus(slot)} · ${gearAspectDisplay(slot)}</em>
+      <em>${gearSlotStatus(slot)} · ${gearPowerDisplay(slot)}</em>
     </button>
   `;
 }
@@ -1994,7 +2009,7 @@ function renderBuildManualPanel(guide) {
               <button class="manual-gear-row ${gearSlotStateClass(slot)}" type="button" data-guide-jump="gear" data-gear-slot-target="${slot.slotId}">
                 <span>${slot.zhSlotName}</span>
                 <strong>${displayText(slot.target.zhName)}</strong>
-                <em>${gearSlotStatus(slot)} · ${gearAspectDisplay(slot)}</em>
+                <em>${gearSlotStatus(slot)} · ${gearPowerDisplay(slot)}</em>
                 <b>${(slot.alternatives || []).length} 替换</b>
               </button>
             `).join("")}
