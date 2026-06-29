@@ -444,6 +444,7 @@ assert(frontendText.includes("装备硬需求") && frontendText.includes("可替
 assert(frontendText.includes("guide.guideCompleteness"), "BD detail must read generated completeness data");
 assert(frontendText.includes("renderBuildPlannerSheet"), "BD detail must expose a dedicated copy-ready planner sheet section");
 assert(frontendText.includes("planner-sheet") && frontendText.includes("planner-gear-row") && frontendText.includes("planner-skillbar") && frontendText.includes("planner-boards") && frontendText.includes("planner-gameplay"), "BD planner sheet must expose gear, skill, paragon and gameplay in one execution view");
+assert(frontendText.includes("planner-loadout-overview") && frontendText.includes("配置页 11 部位装备图标速览") && frontendText.includes("renderLoadoutStrip(guide)"), "BD planner sheet must expose an 11-slot icon loadout overview before the detailed gear table");
 assert(frontendText.includes("[\"planner\", \"配置\"]"), "BD section navigation must include the dedicated planner sheet section");
 assert(frontendText.includes("const defaultGuideSection = \"planner\""), "BD detail default route must open the copy-ready planner section");
 assert(frontendText.includes("selectedGuideSection: \"planner\""), "Initial BD detail state must default to the planner section");

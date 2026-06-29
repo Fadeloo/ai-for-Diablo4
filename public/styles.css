@@ -4014,6 +4014,33 @@ h4 {
   border-color: rgba(240, 207, 143, 0.44);
 }
 
+.planner-loadout-overview {
+  background: rgba(8, 4, 3, 0.36);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+}
+
+.planner-loadout-overview header {
+  align-items: center;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: auto minmax(0, 1fr);
+}
+
+.planner-loadout-overview header span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.planner-loadout-overview header strong {
+  color: #fff7df;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
 .planner-sheet__layout {
   align-items: start;
   display: grid;
