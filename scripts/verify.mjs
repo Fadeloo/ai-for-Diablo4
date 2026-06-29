@@ -298,6 +298,7 @@ assert(frontendText.includes("gearPowerDisplay"), "BD detail must render concret
 assert(frontendText.includes("guideSectionUrl"), "BD section navigation must link to stable section URLs");
 assert(frontendText.includes("guide-section-page"), "BD detail must render the active section as a dedicated detail page");
 assert(frontendText.includes("renderGuideActiveSection"), "BD detail must render one active guide section instead of concentrating every section on one page");
+assert(frontendText.includes("renderGuideSectionSwitcher") && frontendText.includes("guide-section-switcher"), "BD active section pages must expose in-content section switching");
 assert(frontendText.includes("guideDetailSectionOrder"), "BD detail must define a stable full-section reading order");
 assert(frontendText.includes("renderProgressionPlan"), "BD detail must render leveling-to-endgame progression");
 assert(frontendText.includes("progression-plan"), "BD detail must expose progression stages and checkpoints");

@@ -2590,6 +2590,35 @@ h4 {
   box-shadow: inset 3px 0 0 var(--gold);
 }
 
+.guide-section-switcher {
+  background: rgba(8, 4, 3, 0.64);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 8px;
+}
+
+.guide-section-switcher a {
+  background: rgba(242, 240, 234, 0.05);
+  border: 1px solid rgba(214, 173, 99, 0.14);
+  color: var(--muted);
+  flex: 1 1 72px;
+  font-size: 12px;
+  font-weight: 850;
+  min-height: 34px;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.guide-section-switcher a:hover,
+.guide-section-switcher a[aria-selected="true"] {
+  background: linear-gradient(90deg, rgba(164, 32, 24, 0.24), rgba(214, 173, 99, 0.1));
+  border-color: rgba(240, 207, 143, 0.42);
+  color: var(--bone);
+}
+
 .guide-section {
   background: linear-gradient(180deg, rgba(25, 16, 11, 0.9), rgba(9, 5, 4, 0.94));
   border: 1px solid rgba(214, 173, 99, 0.22);

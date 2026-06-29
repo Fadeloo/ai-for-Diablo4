@@ -2659,7 +2659,18 @@ function renderGameplay(gameplay) {
   `;
 }
 
-const guideDetailSectionOrder = ["overview", "progression", "gear", "skills", "paragon", "gameplay", "variants", "sources"];
+const guideDetailSections = [
+  ["overview", "总览"],
+  ["progression", "开荒"],
+  ["gear", "装备"],
+  ["skills", "技能"],
+  ["paragon", "巅峰"],
+  ["gameplay", "打法"],
+  ["variants", "替换"],
+  ["sources", "来源"]
+];
+
+const guideDetailSectionOrder = guideDetailSections.map(([key]) => key);
 
 function renderGuideSectionByKey(guide, activeSection = state.selectedGuideSection || "overview") {
   const sectionRenderers = {
@@ -2742,6 +2753,7 @@ function renderGuideSectionByKey(guide, activeSection = state.selectedGuideSecti
 function renderGuideActiveSection(guide) {
   return `
     <div class="guide-section-page" data-active-guide-section="${state.selectedGuideSection}">
+      ${renderGuideSectionSwitcher(guide)}
       ${renderGuideSectionByKey(guide)}
     </div>
   `;
@@ -2749,6 +2761,16 @@ function renderGuideActiveSection(guide) {
 
 function renderGuideAllSections(guide) {
   return guideDetailSectionOrder.map((sectionKey) => renderGuideSectionByKey(guide, sectionKey)).join("");
+}
+
+function renderGuideSectionSwitcher(guide) {
+  return `
+    <nav class="guide-section-switcher" aria-label="当前 BD 分区切换">
+      ${guideDetailSections.map(([key, label]) => `
+        <a href="${guideSectionUrl(guide, key)}" data-guide-jump="${key}" aria-selected="${state.selectedGuideSection === key}"${state.selectedGuideSection === key ? " aria-current=\"page\"" : ""}>${label}</a>
+      `).join("")}
+    </nav>
+  `;
 }
 
 function renderBuildGuideDetail() {
@@ -2765,17 +2787,6 @@ function renderBuildGuideDetail() {
     return;
   }
   state.selectedGuideId = guide.id;
-
-  const navItems = [
-    ["overview", "总览"],
-    ["progression", "开荒"],
-    ["gear", "装备"],
-    ["skills", "技能"],
-    ["paragon", "巅峰"],
-    ["gameplay", "打法"],
-    ["variants", "替换"],
-    ["sources", "来源"]
-  ];
 
   panel.innerHTML = `
     <div class="guide-detail-shell">
@@ -2807,7 +2818,7 @@ function renderBuildGuideDetail() {
       <div class="guide-detail-layout">
         <aside class="guide-sidebar">
           <nav class="guide-section-nav" aria-label="BD 分区导航">
-            ${navItems.map(([key, label]) => `
+            ${guideDetailSections.map(([key, label]) => `
               <a href="${guideSectionUrl(guide, key)}" data-guide-jump="${key}" aria-selected="${state.selectedGuideSection === key}"${state.selectedGuideSection === key ? " aria-current=\"page\"" : ""}>${label}</a>
             `).join("")}
           </nav>
