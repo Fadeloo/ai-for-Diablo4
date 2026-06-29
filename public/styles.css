@@ -3929,6 +3929,8 @@ h4 {
 .planner-sheet__nav a,
 .planner-gear-table > header span,
 .planner-route-stack header span,
+.planner-route-overview__head span,
+.planner-route-card header span,
 .planner-gear-slot span,
 .planner-gear-power span,
 .planner-gear-replace span {
@@ -3939,7 +3941,8 @@ h4 {
 
 .planner-sheet__head strong,
 .planner-gear-table > header strong,
-.planner-route-stack header strong {
+.planner-route-stack header strong,
+.planner-route-overview__head strong {
   color: #fff7df;
   display: block;
   font-size: 18px;
@@ -3956,6 +3959,7 @@ h4 {
 .planner-sequence p,
 .planner-boards p,
 .planner-gameplay p,
+.planner-route-card p,
 .planner-skillbar em {
   color: var(--muted);
   font-size: 12px;
@@ -4039,6 +4043,134 @@ h4 {
   color: #fff7df;
   font-size: 14px;
   overflow-wrap: anywhere;
+}
+
+.planner-route-overview {
+  background:
+    linear-gradient(135deg, rgba(164, 32, 24, 0.18), transparent 44%),
+    rgba(8, 4, 3, 0.42);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+}
+
+.planner-route-overview__head {
+  align-items: start;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.planner-route-overview__head nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.planner-route-overview__head a,
+.planner-route-card header a {
+  background: rgba(214, 173, 99, 0.08);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 900;
+  min-height: 32px;
+  padding: 7px 9px;
+  text-decoration: none;
+}
+
+.planner-route-overview__head a:hover,
+.planner-route-card header a:hover {
+  background: rgba(164, 32, 24, 0.24);
+  border-color: rgba(240, 207, 143, 0.44);
+}
+
+.planner-route-overview__skillbar {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.planner-route-overview__skillbar article {
+  background: rgba(242, 240, 234, 0.04);
+  border: 1px solid rgba(214, 173, 99, 0.14);
+  display: grid;
+  gap: 5px;
+  min-height: 86px;
+  min-width: 0;
+  padding: 9px;
+}
+
+.planner-route-overview__skillbar span {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.planner-route-overview__skillbar strong,
+.planner-route-card strong {
+  color: var(--bone);
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.planner-route-overview__skillbar em {
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.planner-route-overview__grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.planner-route-card {
+  background: rgba(8, 4, 3, 0.52);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  padding: 12px;
+}
+
+.planner-route-card header {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.planner-route-card ol,
+.planner-route-flow {
+  display: grid;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.planner-route-card li,
+.planner-route-flow p {
+  background: rgba(242, 240, 234, 0.04);
+  border: 1px solid rgba(214, 173, 99, 0.12);
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  padding: 8px;
+}
+
+.planner-route-card li b,
+.planner-route-flow b {
+  color: var(--gold);
+  font-size: 11px;
+  line-height: 1.25;
 }
 
 .planner-sheet__layout {
@@ -7348,6 +7480,11 @@ h4 {
     grid-template-columns: 1fr;
   }
 
+  .planner-route-overview__skillbar,
+  .planner-route-overview__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .planner-sheet__nav {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -7792,6 +7929,9 @@ h4 {
   .planner-sheet__nav,
   .planner-sheet__layout,
   .planner-gear-row,
+  .planner-route-overview__head,
+  .planner-route-overview__skillbar,
+  .planner-route-overview__grid,
   .planner-skillbar > div,
   .recommended-build-row,
   .class-build-actions,
@@ -7845,6 +7985,10 @@ h4 {
 
   .equipment-usage-row {
     grid-template-columns: 1fr;
+  }
+
+  .planner-route-overview__head nav {
+    justify-content: flex-start;
   }
 
   .recommended-build-board .section-title span {

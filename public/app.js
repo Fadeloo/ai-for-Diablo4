@@ -3084,6 +3084,82 @@ function renderPlannerSequence(title, subtitle, rows, renderRow) {
   `;
 }
 
+function renderPlannerRouteOverview(guide) {
+  const skillBar = guide.skillTree?.skillBar || [];
+  const skillSteps = (guide.skillTree?.pointOrder || []).slice(0, 3);
+  const paragonSteps = (guide.paragon?.clickOrder || []).slice(0, 3);
+  const opener = (guide.gameplay?.opener || [])[0] || "进图先确认抗性、药剂和资源状态。";
+  const loop = (guide.gameplay?.loop || [])[0] || "按资源、冷却和核心技能窗口循环。";
+  const defense = (guide.gameplay?.defense || [])[0] || "高压时优先覆盖防御技能。";
+  return `
+    <section class="planner-route-overview" aria-label="配置页技能巅峰打法速览">
+      <header class="planner-route-overview__head">
+        <div>
+          <span>执行路线速览</span>
+          <strong>先按这几步成型，再进对应分区看完整细节</strong>
+        </div>
+        <nav aria-label="配置页路线分区跳转">
+          <a href="${guideSectionUrl(guide, "skills")}">完整技能</a>
+          <a href="${guideSectionUrl(guide, "paragon")}">完整巅峰</a>
+          <a href="${guideSectionUrl(guide, "gameplay")}">完整打法</a>
+        </nav>
+      </header>
+      <div class="planner-route-overview__skillbar" aria-label="六技能栏速览">
+        ${skillBar.map((skill) => `
+          <article>
+            <span>${skill.slot}</span>
+            <strong>${displayText(skill.name)}</strong>
+            <em>${displayText(skill.role)} · ${skill.points} 点</em>
+          </article>
+        `).join("")}
+      </div>
+      <div class="planner-route-overview__grid">
+        <article class="planner-route-card">
+          <header>
+            <span>技能加点前 3 步</span>
+            <a href="${guideSectionUrl(guide, "skills")}">技能分区</a>
+          </header>
+          <ol>
+            ${skillSteps.map((step) => `
+              <li>
+                <b>${displayText(step.levelRange)}</b>
+                <strong>${displayText(step.skill)}</strong>
+                <p>${displayText(step.points)} · ${displayText(step.reason)}</p>
+              </li>
+            `).join("")}
+          </ol>
+        </article>
+        <article class="planner-route-card">
+          <header>
+            <span>巅峰点击前 3 步</span>
+            <a href="${guideSectionUrl(guide, "paragon")}">巅峰分区</a>
+          </header>
+          <ol>
+            ${paragonSteps.map((step) => `
+              <li>
+                <b>${displayText(step.step)}</b>
+                <strong>${displayText(step.board)} · ${displayText(step.node)}</strong>
+                <p>${displayText(step.reason)}</p>
+              </li>
+            `).join("")}
+          </ol>
+        </article>
+        <article class="planner-route-card">
+          <header>
+            <span>打法起手</span>
+            <a href="${guideSectionUrl(guide, "gameplay")}">打法分区</a>
+          </header>
+          <div class="planner-route-flow">
+            <p><b>起手</b>${displayText(opener)}</p>
+            <p><b>循环</b>${displayText(loop)}</p>
+            <p><b>防御</b>${displayText(defense)}</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  `;
+}
+
 function renderBuildPlannerSheet(guide) {
   const requiredCount = guide.gearSlots.filter((slot) => slot.required).length;
   const replaceableCount = guide.gearSlots.filter((slot) => slot.replaceable).length;
@@ -3119,6 +3195,7 @@ function renderBuildPlannerSheet(guide) {
         </header>
         ${renderLoadoutStrip(guide)}
       </section>
+      ${renderPlannerRouteOverview(guide)}
       <div class="planner-sheet__layout">
         <section class="planner-gear-table" aria-label="11 装备位配置">
           <header>

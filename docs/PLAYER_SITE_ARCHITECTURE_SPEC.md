@@ -270,7 +270,44 @@ publish_audits(id, entity_type, entity_id, checks_json, passed, created_at)
 - 不引入后端或登录系统。
 - 不公开任何 token、密钥或私有配置。
 
-## 9. 验收门禁
+## 9. 配置首页落地设计
+
+`#bd/<guideId>/planner` 是玩家打开一套 BD 后默认进入的抄作业首页。它不是另一个资料堆叠页，而是把玩家开打前必须核对的内容按优先级压缩成四层：
+
+```text
+PlannerPage
+  ├─ PlannerHeader
+  │   └─ 装备位数量 / 硬需求 / 可替换 / 150 层参考
+  ├─ PlannerSectionNav
+  │   └─ 装备明细 / 技能加点 / 巅峰点击 / 打法流程 / 替换方案
+  ├─ LoadoutOverview
+  │   └─ 11 部位图标速览，先确认目标件和核心位
+  ├─ PlannerRouteOverview
+  │   ├─ 六技能栏
+  │   ├─ 技能加点前 3 步
+  │   ├─ 巅峰点击前 3 步
+  │   └─ 起手 / 循环 / 防御第一条
+  └─ PlannerDetailLayout
+      ├─ GearSlotGrid
+      └─ RouteStack
+```
+
+组件职责：
+
+- `LoadoutOverview` 只负责“全身先看齐”，用 11 个槽位图标和名称降低玩家对照成本。
+- `PlannerRouteOverview` 负责“先怎么点、先怎么打”，不替代技能页和巅峰页，只给最短可执行路线。
+- `GearSlotGrid` 继续保留每个部位的词缀、淬炼、精造、宝石和替换。
+- `RouteStack` 继续展示完整技能顺序、巅峰顺序和打法速查。
+
+交互约束：
+
+- 默认路由仍是 `#bd/<guideId>/planner`。
+- 速览区内只能使用玩家能直接执行的文字，例如“技能加点前 3 步”“巅峰点击前 3 步”“打法起手”。
+- 速览区必须提供到装备、技能、巅峰、打法分区的稳定链接。
+- 桌面端速览使用多列信息面板；移动端单列显示，禁止文字覆盖图标或卡片边界。
+- 自动验证必须检查配置首页同时包含装备图标、技能起步、巅峰起步和打法入口。
+
+## 10. 验收门禁
 
 每次提交前必须通过：
 

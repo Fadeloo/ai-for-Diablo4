@@ -445,6 +445,8 @@ assert(frontendText.includes("guide.guideCompleteness"), "BD detail must read ge
 assert(frontendText.includes("renderBuildPlannerSheet"), "BD detail must expose a dedicated copy-ready planner sheet section");
 assert(frontendText.includes("planner-sheet") && frontendText.includes("planner-gear-row") && frontendText.includes("planner-skillbar") && frontendText.includes("planner-boards") && frontendText.includes("planner-gameplay"), "BD planner sheet must expose gear, skill, paragon and gameplay in one execution view");
 assert(frontendText.includes("planner-loadout-overview") && frontendText.includes("配置页 11 部位装备图标速览") && frontendText.includes("renderLoadoutStrip(guide)"), "BD planner sheet must expose an 11-slot icon loadout overview before the detailed gear table");
+assert(frontendText.includes("renderPlannerRouteOverview") && frontendText.includes("planner-route-overview") && frontendText.includes("技能加点前 3 步") && frontendText.includes("巅峰点击前 3 步") && frontendText.includes("打法起手"), "BD planner sheet must expose a copy-ready skill, paragon and gameplay route overview before long tables");
+assert(frontendText.includes("完整技能") && frontendText.includes("完整巅峰") && frontendText.includes("完整打法"), "BD planner route overview must link to dedicated skill, paragon and gameplay detail sections");
 assert(frontendText.includes("[\"planner\", \"配置\"]"), "BD section navigation must include the dedicated planner sheet section");
 assert(frontendText.includes("const defaultGuideSection = \"planner\""), "BD detail default route must open the copy-ready planner section");
 assert(frontendText.includes("selectedGuideSection: \"planner\""), "Initial BD detail state must default to the planner section");
