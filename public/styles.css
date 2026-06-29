@@ -5736,7 +5736,11 @@ h4 {
   }
 
   .loadout-board-center {
-    min-height: 260px;
+    min-height: 276px;
+  }
+
+  .loadout-board-center strong {
+    line-height: 1.16;
   }
 
   .loadout-board-center::before {

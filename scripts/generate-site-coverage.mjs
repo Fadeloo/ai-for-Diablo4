@@ -58,6 +58,8 @@ const frontendDataContracts = [
       "ceiling",
       "coreUniques",
       "coreAspects",
+      "gearSlots[].aspect.displayName",
+      "gearSlots[].aspect.displayKind",
       "skillTree.pointOrder[0]",
       "paragon.clickOrder[0]",
       "source.verificationLevel"
@@ -85,6 +87,8 @@ const frontendDataContracts = [
     source: "build-guides.builds[id]",
     fields: [
       "gearSlots",
+      "gearSlots[].aspect.displayName",
+      "gearSlots[].aspect.displayKind",
       "progression",
       "skillTree",
       "paragon",
@@ -260,7 +264,7 @@ const buildDetailComponentBlueprint = [
   },
   {
     component: "GearSummaryMatrix",
-    requiredFields: ["gearSlots[].target", "gearSlots[].aspect", "gearSlots[].replaceable", "gearSlots[].affixes"],
+    requiredFields: ["gearSlots[].target", "gearSlots[].aspect.displayName", "gearSlots[].aspect.displayKind", "gearSlots[].replaceable", "gearSlots[].affixes"],
     playerQuestion: "每个部位穿什么、是否可替换、核心威能或暗金是什么？"
   },
   {

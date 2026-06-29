@@ -51,6 +51,7 @@ const rowsByName = new Map();
 for (const guide of builds) {
   for (const slot of guide.gearSlots || []) {
     const name = slot.aspect?.name;
+    if (slot.aspect?.displayKind && slot.aspect.displayKind !== "legendary_aspect") continue;
     if (!name || ignoredAspectNames.has(name)) continue;
     const usage = {
       guideId: guide.id,

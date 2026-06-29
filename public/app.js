@@ -762,7 +762,7 @@ function buildGuideSearchText(guide) {
     ...(guide.summary.statPriority || []),
     (guide.skillTree?.skillBar || []).map((skill) => skill.name).join(" "),
     (guide.coreUniques || []).map((item) => item.zhName).join(" "),
-    (guide.coreAspects || []).map((aspect) => aspect.name).join(" ")
+    (guide.coreAspects || []).map((aspect) => aspect.name || aspect.displayName || aspect.rawName).join(" ")
   ].join(" ").toLowerCase();
 }
 
@@ -1731,7 +1731,7 @@ function gearSlotStateClass(slot) {
 
 function gearAspectDisplay(slot) {
   const aspectName = slot.aspect?.name || "威能待回填";
-  const fallback = slot.aspect?.role || aspectName;
+  const fallback = slot.aspect?.displayName || slot.aspect?.role || aspectName;
   return displayText(ignoredAspectDisplayNames.has(aspectName) ? fallback : aspectName);
 }
 
@@ -1745,7 +1745,7 @@ function gearPowerDisplay(slot) {
   if (aspectName && !ignoredAspectDisplayNames.has(aspectName)) {
     return `威能：${displayText(aspectName)}`;
   }
-  return displayText(slot.aspect?.role || "威能待来源回填");
+  return displayText(slot.aspect?.displayName || slot.aspect?.role || "威能待来源回填");
 }
 
 function renderGearSummaryMatrix(guide) {
@@ -2708,6 +2708,7 @@ function renderGuideSectionByKey(guide, activeSection = state.selectedGuideSecti
     gear: () => renderGuideDetailSection("全身装备", "每个位置、替换件和精造方向", `
       ${renderLoadoutBoard(guide)}
       ${renderGearSummaryMatrix(guide)}
+      ${renderReplacementMatrix(guide)}
       ${renderLoadoutStrip(guide)}
       <div class="gear-slot-grid">${guide.gearSlots.map(renderGearSlot).join("")}</div>
     `, "gear"),

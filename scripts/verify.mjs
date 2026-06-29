@@ -17,6 +17,7 @@ function assert(condition, message) {
 const genericSkillStepPattern = /^终极$|^防御$|^位移$|基础触发|基础生成|主力输出|资源\/冷却被动|生存被动|关键被动|增伤\/控制|终局重分配/;
 const genericParagonNodePattern = /^(传奇节点|雕文孔|稀有节点|魔法节点|剩余魔法节点|防御稀有节点|主属性通路)$/;
 const routeEnglishPattern = /[A-Za-z]{3,}/;
+const placeholderAspectNames = new Set(["暗金特效位", "神话暗金位", "空槽说明", "空槽位"]);
 
 function mergeCommunityOverride(base, override) {
   return {
@@ -195,7 +196,9 @@ assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "ClassBuildMatrix" && contract.fields?.includes("skillTree.pointOrder[0]") && contract.fields?.includes("paragon.clickOrder[0]")), "Site coverage must describe the class build matrix contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "ClassSeasonCoverage" && contract.fields?.includes("taxonomy.seasonId") && contract.fields?.includes("source.references")), "Site coverage must describe the class cross-season coverage contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.fields?.includes("gearSlots")), "Frontend data contracts must expose full build detail fields");
+assert(siteCoverage.frontendDataContracts?.some((contract) => contract.fields?.includes("gearSlots[].aspect.displayName") && contract.fields?.includes("gearSlots[].aspect.displayKind")), "Frontend data contracts must expose player-facing gear power display fields");
 assert(siteCoverage.buildDetailComponentBlueprint?.some((contract) => contract.component === "GearSummaryMatrix" && contract.requiredFields?.includes("gearSlots[].replaceable")), "Build detail blueprint must require slot-level replacement status");
+assert(siteCoverage.buildDetailComponentBlueprint?.some((contract) => contract.component === "GearSummaryMatrix" && contract.requiredFields?.includes("gearSlots[].aspect.displayName")), "Gear summary blueprint must require player-facing aspect or unique display names");
 assert(siteCoverage.buildDetailComponentBlueprint?.some((contract) => contract.component === "SkillRouteMatrix" && contract.requiredFields?.includes("skillTree.pointOrder")), "Build detail blueprint must require skill point order");
 assert(siteCoverage.buildDetailComponentBlueprint?.some((contract) => contract.component === "ParagonRouteMatrix" && contract.requiredFields?.includes("paragon.clickOrder")), "Build detail blueprint must require paragon click order");
 assert(siteCoverage.normalizedDataBlueprint?.some((entity) => entity.entity.includes("analysis_outputs")), "Data blueprint must keep AI analysis outputs separate from player-facing data");
@@ -231,6 +234,8 @@ for (const guide of buildGuides.builds) {
   assert(guide.gearSlots.every((slot) => !suspiciousTransliteration.test(slot.target.zhName)), `Build guide gear names should be readable Chinese: ${guide.id}`);
   assert(guide.gearSlots.every((slot) => slot.affixes?.length >= 3 && slot.alternatives?.length >= 2), `Each gear slot needs affixes and alternatives: ${guide.id}`);
   assert(guide.gearSlots.every((slot) => slot.upgradePath?.length >= 3 && (slot.dataStatus || slot.aspect?.sourceStatus)), `Each gear slot needs upgrade path and source status: ${guide.id}`);
+  assert(guide.gearSlots.every((slot) => slot.aspect?.displayName && slot.aspect?.displayKind), `Each gear slot needs player-facing power display fields: ${guide.id}`);
+  assert(guide.gearSlots.every((slot) => !placeholderAspectNames.has(slot.aspect?.displayName)), `Gear slot display names must not expose placeholder powers: ${guide.id}`);
   assert(guide.progression?.stages?.length >= 4, `Build guide needs leveling-to-endgame progression stages: ${guide.id}`);
   assert(guide.progression?.checkpoints?.length >= 4, `Build guide needs progression checkpoints: ${guide.id}`);
   assert(guide.progression.stages.every((stage) => stage.levelRange && stage.gearFocus && stage.skillFocus && stage.paragonFocus && stage.gameplayFocus && stage.swapRule), `Each progression stage needs gear, skill, paragon, gameplay and swap rules: ${guide.id}`);
@@ -239,6 +244,7 @@ for (const guide of buildGuides.builds) {
     for (const alternative of slot.alternatives) verifyEquipmentReference(alternative, `${guide.id}/${slot.slotId}/alternative`);
   }
   assert(guide.coreUniques?.length >= 2 || guide.coreAspects?.length >= 4, `Build guide needs core uniques/aspects: ${guide.id}`);
+  assert((guide.coreAspects || []).every((aspect) => aspect.name && !placeholderAspectNames.has(aspect.name)), `Core aspect summary must use player-facing names: ${guide.id}`);
   for (const coreUnique of guide.coreUniques || []) {
     verifyEquipmentReference(coreUnique, `${guide.id}/coreUniques/${coreUnique.slotId}`);
     const slot = guide.gearSlots.find((item) => item.slotId === coreUnique.slotId);

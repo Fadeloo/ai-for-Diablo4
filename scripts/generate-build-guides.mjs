@@ -87,6 +87,8 @@ const slotOrder = [
   { id: "offHand", zhName: "副手", group: "武器", visualType: "weapon", baseSlot: "offHand" }
 ];
 
+const placeholderAspectNames = new Set(["暗金特效位", "神话暗金位", "空槽说明", "空槽位"]);
+
 const classSeeds = {
   barbarian: { push: 87, speed: 76, daily: 82, volatility: 0.12 },
   druid: { push: 82, speed: 77, daily: 80, volatility: 0.16 },
@@ -525,6 +527,37 @@ function alternativeFor(slot, item, pool, archetype, usedIds, index) {
   return alternatives.slice(0, 3);
 }
 
+function playerPowerForSlot(slot) {
+  const targetType = slot.target?.type;
+  const targetName = slot.target?.zhName || slot.target?.name;
+  const aspectName = slot.aspect?.name || "";
+  if (targetType === "mythic") {
+    return { displayKind: "mythic_unique_power", displayName: `${targetName || "神话暗金"}特效` };
+  }
+  if (targetType === "unique") {
+    return { displayKind: "unique_power", displayName: `${targetName || "暗金"}特效` };
+  }
+  if (placeholderAspectNames.has(aspectName)) {
+    return {
+      displayKind: "unused_or_special_slot",
+      displayName: targetName?.startsWith("不使用") ? targetName : (slot.aspect?.role || "特殊槽位说明")
+    };
+  }
+  return { displayKind: "legendary_aspect", displayName: aspectName || "威能待来源回填" };
+}
+
+function withPlayerPower(slot) {
+  const power = playerPowerForSlot(slot);
+  return {
+    ...slot,
+    aspect: {
+      ...slot.aspect,
+      name: power.displayKind === "legendary_aspect" ? slot.aspect.name : power.displayName,
+      ...power
+    }
+  };
+}
+
 function gearSlotsFor({ equipmentItems, classInfo, archetype, mode }) {
   const usedIds = new Set();
   return slotOrder.map((slot, index) => {
@@ -536,7 +569,7 @@ function gearSlotsFor({ equipmentItems, classInfo, archetype, mode }) {
     const core = required || ["twoHand", "mainHand", "amulet", "ring1"].includes(slot.id);
     const replaceable = !required && !["twoHand"].includes(slot.id);
     const affixes = desiredAffixes(slot, archetype, selected);
-    return {
+    return withPlayerPower({
       slotId: slot.id,
       zhSlotName: slot.zhName,
       group: slot.group,
@@ -565,7 +598,7 @@ function gearSlotsFor({ equipmentItems, classInfo, archetype, mode }) {
         replaceable ? "可替换：先保证主词缀和抗性，再追求最优暗金。" : "不建议替换：此位承担主要伤害或循环。",
         core ? "优先在该部位投入精造资源。" : "作为成型后的补强部位。"
       ]
-    };
+    });
   });
 }
 
@@ -904,7 +937,8 @@ function guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentIt
     .map((slot) => ({
       slotId: slot.slotId,
       zhSlotName: slot.zhSlotName,
-      name: slot.aspect.name,
+      name: slot.aspect.displayName || slot.aspect.name,
+      displayKind: slot.aspect.displayKind,
       role: slot.aspect.role,
       required: slot.required,
       replaceable: slot.replaceable
@@ -1135,7 +1169,7 @@ function applyCommunityOverride(guide, override, equipmentByZhName) {
   const gearSlots = guide.gearSlots.map((slot) => {
     const patch = slotOverrides.get(slot.slotId);
     if (!patch) return slot;
-    return {
+    return withPlayerPower({
       ...slot,
       required: patch.required ?? slot.required,
       core: patch.core ?? slot.core,
@@ -1155,7 +1189,7 @@ function applyCommunityOverride(guide, override, equipmentByZhName) {
         patch.replaceable === false ? "社区参考：该位置承担核心联动，不建议替换。" : "社区参考：可按缺件和抗性替换。",
         patch.aspect?.sourceStatus || slot.aspect.sourceStatus
       ]
-    };
+    });
   });
   const coreUniques = gearSlots
     .filter((slot) => slot.core && slot.target.type === "unique")
@@ -1174,7 +1208,8 @@ function applyCommunityOverride(guide, override, equipmentByZhName) {
     .map((slot) => ({
       slotId: slot.slotId,
       zhSlotName: slot.zhSlotName,
-      name: slot.aspect.name,
+      name: slot.aspect.displayName || slot.aspect.name,
+      displayKind: slot.aspect.displayKind,
       role: slot.aspect.role,
       required: slot.required,
       replaceable: slot.replaceable
