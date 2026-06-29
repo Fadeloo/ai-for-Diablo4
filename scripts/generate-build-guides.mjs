@@ -1319,13 +1319,59 @@ function guideCompletenessFor(guide) {
   };
 }
 
+function powerKindLabel(displayKind) {
+  const labels = {
+    legendary_aspect: "传奇威能",
+    unique_power: "暗金特效",
+    mythic_unique_power: "神话暗金特效",
+    unused_or_special_slot: "特殊槽位"
+  };
+  return labels[displayKind] || "装备联动";
+}
+
+function coreRequirementsFor(guide) {
+  const slotRank = new Map(slotOrder.map((slot, index) => [slot.id, index]));
+  return (guide.gearSlots || [])
+    .filter((slot) => slot.required || slot.core)
+    .slice()
+    .sort((a, b) => (slotRank.get(a.slotId) ?? 99) - (slotRank.get(b.slotId) ?? 99))
+    .map((slot) => {
+      const powerName = slot.aspect?.displayName || slot.aspect?.name || slot.aspect?.role || "装备联动";
+      const state = slot.required ? "硬需求" : slot.replaceable ? "可替换核心位" : "核心位";
+      return {
+        slotId: slot.slotId,
+        zhSlotName: slot.zhSlotName,
+        targetName: slot.target?.zhName || "目标装备",
+        targetItemId: slot.target?.itemId || null,
+        powerName,
+        powerKind: powerKindLabel(slot.aspect?.displayKind),
+        required: Boolean(slot.required),
+        replaceable: Boolean(slot.replaceable),
+        role: slot.aspect?.role || slot.priority || "构筑联动",
+        sourceStatus: slot.dataStatus || slot.aspect?.sourceStatus || "资料状态校验中",
+        line: `${slot.zhSlotName}：${slot.target?.zhName || "目标装备"} · ${powerName} · ${state}`
+      };
+    });
+}
+
 function finalizeGuide(guide) {
   const displayName = guideDisplayName(guide);
   const paragon = refineParagonWithBase(guide.paragon || {}, { clickOrder: [] });
-  const finalized = {
+  const baseFinalized = {
     ...guide,
     displayName,
     paragon
+  };
+  const coreRequirements = coreRequirementsFor(baseFinalized);
+  const finalized = {
+    ...baseFinalized,
+    coreRequirements,
+    summary: {
+      ...baseFinalized.summary,
+      requirements: coreRequirements
+        .filter((item) => item.required)
+        .map((item) => `${item.zhSlotName}：${item.targetName}`)
+    }
   };
   return {
     ...finalized,

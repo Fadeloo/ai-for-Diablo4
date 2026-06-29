@@ -1331,6 +1331,24 @@ function renderCoreAspects(guide, limit = 8) {
     .join("");
 }
 
+function renderCoreRequirementList(guide, limit = 11) {
+  const requirements = (guide.coreRequirements || []).slice(0, limit);
+  if (!requirements.length) {
+    return `<p class="guide-note">核心件见装备分区。</p>`;
+  }
+  return `
+    <div class="core-requirement-list" aria-label="核心需求列表">
+      ${requirements.map((item) => `
+        <article class="${item.required ? "is-required" : item.replaceable ? "is-replaceable" : ""}">
+          <span>${displayText(item.zhSlotName)} · ${item.required ? "硬需求" : item.replaceable ? "可替换" : "核心位"}</span>
+          <strong>${displayText(item.targetName)}</strong>
+          <em>${displayText(item.powerKind)}：${displayText(item.powerName)}</em>
+        </article>
+      `).join("")}
+    </div>
+  `;
+}
+
 function guideLoadoutPreview(guide, limit = 6) {
   const prioritySlots = [
     "helm",
@@ -3400,7 +3418,7 @@ function renderBuildGuideDetail() {
           </div>
           <div class="guide-sidebar-card">
             <strong>核心需求</strong>
-            <ul>${listItems(guide.summary.requirements?.length ? guide.summary.requirements : ["核心件见装备分区"])}</ul>
+            ${renderCoreRequirementList(guide)}
           </div>
         </aside>
 

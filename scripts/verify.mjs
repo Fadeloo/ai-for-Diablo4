@@ -316,6 +316,16 @@ for (const guide of buildGuides.builds) {
   }
   assert(guide.coreUniques?.length >= 2 || guide.coreAspects?.length >= 4, `Build guide needs core uniques/aspects: ${guide.id}`);
   assert((guide.coreAspects || []).every((aspect) => aspect.name && !placeholderAspectNames.has(aspect.name)), `Core aspect summary must use player-facing names: ${guide.id}`);
+  assert(guide.coreRequirements?.length >= 4, `Build guide needs structured core requirements: ${guide.id}`);
+  assert(guide.coreRequirements.every((requirement) => requirement.zhSlotName && requirement.targetName && requirement.powerName && typeof requirement.required === "boolean" && typeof requirement.replaceable === "boolean"), `Core requirements need slot, target, power and replacement state: ${guide.id}`);
+  assert(guide.coreRequirements.every((requirement) => {
+    const slot = guide.gearSlots.find((item) => item.slotId === requirement.slotId);
+    return slot
+      && slot.zhSlotName === requirement.zhSlotName
+      && slot.target.zhName === requirement.targetName
+      && (slot.aspect.displayName || slot.aspect.name || slot.aspect.role) === requirement.powerName;
+  }), `Core requirements must match resolved gear slots: ${guide.id}`);
+  assert((guide.summary.requirements || []).every((line) => guide.coreRequirements.some((requirement) => requirement.required && line === `${requirement.zhSlotName}：${requirement.targetName}`)), `Summary requirements must be derived from resolved core requirements: ${guide.id}`);
   for (const coreUnique of guide.coreUniques || []) {
     verifyEquipmentReference(coreUnique, `${guide.id}/coreUniques/${coreUnique.slotId}`);
     const slot = guide.gearSlots.find((item) => item.slotId === coreUnique.slotId);
@@ -400,6 +410,7 @@ assert(frontendText.includes("planner-sheet") && frontendText.includes("planner-
 assert(frontendText.includes("[\"planner\", \"配置\"]"), "BD section navigation must include the dedicated planner sheet section");
 assert(frontendText.includes("renderBuildDossier"), "BD hero must render a first-screen build dossier");
 assert(frontendText.includes("build-dossier") && frontendText.includes("核心装备") && frontendText.includes("六技能栏") && frontendText.includes("巅峰起步") && frontendText.includes("打法节奏"), "BD first screen must summarize core gear, skills, paragon and gameplay");
+assert(frontendText.includes("renderCoreRequirementList") && frontendText.includes("core-requirement-list"), "BD sidebar must render structured core requirements from resolved gear slots");
 assert(frontendText.includes("gearPowerDisplay"), "BD detail must render concrete unique/aspect power labels instead of visible placeholder labels");
 assert(frontendText.includes("guideSectionUrl"), "BD section navigation must link to stable section URLs");
 assert(frontendText.includes("guide-section-page"), "BD detail must render the active section as a dedicated detail page");

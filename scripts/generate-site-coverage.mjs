@@ -137,6 +137,11 @@ const frontendDataContracts = [
     fields: [
       "displayName",
       "guideCompleteness",
+      "coreRequirements",
+      "coreRequirements[].targetName",
+      "coreRequirements[].powerName",
+      "coreRequirements[].required",
+      "coreRequirements[].replaceable",
       "gearSlots",
       "gearSlots[].aspect.displayName",
       "gearSlots[].aspect.displayKind",

@@ -3022,6 +3022,49 @@ h4 {
   padding-left: 18px;
 }
 
+.core-requirement-list {
+  display: grid;
+  gap: 8px;
+}
+
+.core-requirement-list article {
+  background: rgba(8, 4, 3, 0.42);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  padding: 9px;
+}
+
+.core-requirement-list article.is-required {
+  border-color: rgba(240, 207, 143, 0.38);
+}
+
+.core-requirement-list article.is-replaceable {
+  border-color: rgba(128, 158, 118, 0.32);
+}
+
+.core-requirement-list span {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.core-requirement-list strong {
+  color: var(--bone);
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.core-requirement-list em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
 .guide-two-col {
   display: grid;
   gap: 12px;

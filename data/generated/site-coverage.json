@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-29T05:38:43.304Z",
+  "generatedAt": "2026-06-29T05:43:29.487Z",
   "scope": "player_site_data_coverage_and_storage_usage",
   "asOf": "2026-06-28",
   "storageLayers": [
@@ -276,6 +276,11 @@
       "fields": [
         "displayName",
         "guideCompleteness",
+        "coreRequirements",
+        "coreRequirements[].targetName",
+        "coreRequirements[].powerName",
+        "coreRequirements[].required",
+        "coreRequirements[].replaceable",
         "gearSlots",
         "gearSlots[].aspect.displayName",
         "gearSlots[].aspect.displayKind",
