@@ -3028,6 +3028,96 @@ h4 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.guide-copy-overview {
+  background:
+    linear-gradient(135deg, rgba(164, 32, 24, 0.24), rgba(7, 4, 3, 0.88) 42%, rgba(214, 173, 99, 0.08)),
+    rgba(10, 6, 4, 0.82);
+  border: 1px solid rgba(240, 207, 143, 0.3);
+  display: grid;
+  gap: 14px;
+  padding: 14px;
+}
+
+.guide-copy-overview > header {
+  align-items: center;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.guide-copy-overview > header span,
+.guide-copy-overview article span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.guide-copy-overview > header strong {
+  color: #fff7df;
+  display: block;
+  font-size: 18px;
+  line-height: 1.3;
+  margin-top: 3px;
+}
+
+.guide-copy-overview > header em {
+  background: rgba(214, 173, 99, 0.1);
+  border: 1px solid rgba(214, 173, 99, 0.22);
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 850;
+  padding: 7px 10px;
+  text-align: right;
+}
+
+.guide-copy-overview__grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.guide-copy-overview article {
+  background: rgba(8, 4, 3, 0.55);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  gap: 7px;
+  min-height: 158px;
+  min-width: 0;
+  padding: 12px;
+}
+
+.guide-copy-overview article strong {
+  color: var(--bone);
+  font-size: 14px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.guide-copy-overview article p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.guide-copy-overview article a {
+  align-self: end;
+  background: rgba(214, 173, 99, 0.1);
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-weight: 850;
+  justify-self: start;
+  padding: 7px 9px;
+  text-decoration: none;
+}
+
+.guide-copy-overview article a:hover {
+  background: rgba(214, 173, 99, 0.16);
+}
+
 .build-manual-panel {
   background:
     linear-gradient(180deg, rgba(30, 14, 10, 0.82), rgba(7, 4, 3, 0.78));
@@ -6171,6 +6261,10 @@ h4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .guide-copy-overview__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .class-build-family__summary {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -6489,6 +6583,8 @@ h4 {
 
   .hero-actions,
   .hero-metrics,
+  .guide-copy-overview > header,
+  .guide-copy-overview__grid,
   .loadout-board__header,
   .build-manual-panel > header,
   .build-manual-grid,

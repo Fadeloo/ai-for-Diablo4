@@ -116,6 +116,8 @@ const frontendDataContracts = [
     zhName: "BD 详情页",
     source: "build-guides.builds[id]",
     fields: [
+      "displayName",
+      "guideCompleteness",
       "gearSlots",
       "gearSlots[].aspect.displayName",
       "gearSlots[].aspect.displayKind",
@@ -129,6 +131,23 @@ const frontendDataContracts = [
       "source.references"
     ],
     frontendUse: "按 #bd/<guideId>/<section> 分区页面展示装备、技能、巅峰、打法、替换和来源状态，避免把完整攻略堆在同一屏。"
+  },
+  {
+    component: "BuildCopyOverview",
+    zhName: "BD 首屏抄作业速览",
+    source: "build-guides.builds[id]",
+    fields: [
+      "displayName",
+      "guideCompleteness.counts",
+      "gearSlots[].required",
+      "gearSlots[].replaceable",
+      "skillTree.pointOrder[0..2]",
+      "paragon.clickOrder[0..2]",
+      "gameplay.opener",
+      "gameplay.loop",
+      "gameplay.defense"
+    ],
+    frontendUse: "BD 打开后第一屏先给装备、技能、巅峰、打法和替换入口，像攻略站速查栏一样帮助玩家立即判断能不能抄。"
   },
   {
     component: "BuildPlannerSheet",

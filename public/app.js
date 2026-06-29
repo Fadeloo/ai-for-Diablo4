@@ -1398,6 +1398,63 @@ function renderBuildDossier(guide) {
   `;
 }
 
+function renderGuideCopyOverview(guide) {
+  const completeness = guide.guideCompleteness || {};
+  const counts = completeness.counts || {};
+  const skillSteps = (guide.skillTree?.pointOrder || []).slice(0, 3);
+  const paragonSteps = (guide.paragon?.clickOrder || []).slice(0, 3);
+  const coreSlots = (guide.gearSlots || []).filter((slot) => slot.required || slot.core).slice(0, 5);
+  const firstAlternative = (guide.gearSlots || []).find((slot) => slot.replaceable && slot.alternatives?.length);
+  const loopLines = [
+    ...(guide.gameplay?.opener || []).slice(0, 1),
+    ...(guide.gameplay?.loop || []).slice(0, 1),
+    ...(guide.gameplay?.defense || []).slice(0, 1)
+  ].filter(Boolean);
+  return `
+    <section class="guide-copy-overview" aria-label="抄作业速览">
+      <header>
+        <div>
+          <span>抄作业速览</span>
+          <strong>${displayText(guide.displayName || guide.title || guide.taxonomy.archetypeName)}</strong>
+        </div>
+        <em>${displayText(completeness.label || "核心分区已结构化")}</em>
+      </header>
+      <div class="guide-copy-overview__grid">
+        <article>
+          <span>装备</span>
+          <strong>${counts.gearSlots || guide.gearSlots.length} 槽 · ${counts.requiredSlots || 0} 硬需求 · ${counts.replaceableSlots || 0} 可替换</strong>
+          <p>${coreSlots.map((slot) => `${slot.zhSlotName}:${slot.target.zhName}`).join(" / ")}</p>
+          <a href="${guideSectionUrl(guide, "gear")}">装备分区</a>
+        </article>
+        <article>
+          <span>技能</span>
+          <strong>${displayText(guide.skillTree?.core || "核心技能")} · ${counts.skillSteps || guide.skillTree?.pointOrder?.length || 0} 步</strong>
+          <p>${skillSteps.map((step) => `${step.levelRange} ${step.skill}`).join(" / ")}</p>
+          <a href="${guideSectionUrl(guide, "skills")}">技能分区</a>
+        </article>
+        <article>
+          <span>巅峰</span>
+          <strong>${counts.paragonBoards || guide.paragon?.boardOrder?.length || 0} 盘 · ${counts.paragonSteps || guide.paragon?.clickOrder?.length || 0} 步</strong>
+          <p>${paragonSteps.map((step) => `${step.board}:${step.node}`).join(" / ")}</p>
+          <a href="${guideSectionUrl(guide, "paragon")}">巅峰分区</a>
+        </article>
+        <article>
+          <span>打法</span>
+          <strong>${counts.gameplaySections || 0} 组流程 · ${guide.taxonomy.modeName}</strong>
+          <p>${loopLines.join(" / ")}</p>
+          <a href="${guideSectionUrl(guide, "gameplay")}">打法分区</a>
+        </article>
+        <article>
+          <span>替换</span>
+          <strong>${firstAlternative ? `${firstAlternative.zhSlotName}: ${firstAlternative.alternatives[0].zhName}` : `${counts.replaceableSlots || 0} 个可替换位`}</strong>
+          <p>${displayText(firstAlternative?.alternatives?.[0]?.tradeoff || "缺件时先替换非硬需求部位，再按抗性、资源和生存补齐。")}</p>
+          <a href="${guideSectionUrl(guide, "variants")}">替换分区</a>
+        </article>
+      </div>
+    </section>
+  `;
+}
+
 function renderSourceReferences(guide) {
   const references = guide.source.references || [];
   if (!references.length) {
@@ -1504,15 +1561,15 @@ function renderBuildLibraryCard(guide) {
         </article>
         <article>
           <span>技能第一步</span>
-          <strong>${firstSkillStep ? `${displayText(firstSkillStep.levelRange)} · ${displayText(firstSkillStep.skill)}` : "待来源回填"}</strong>
+          <strong>${firstSkillStep ? `${displayText(firstSkillStep.levelRange)} · ${displayText(firstSkillStep.skill)}` : "技能路线校验中"}</strong>
         </article>
         <article>
           <span>巅峰第一步</span>
-          <strong>${firstParagonStep ? `${displayText(firstParagonStep.board)} · ${displayText(firstParagonStep.node)}` : "待来源回填"}</strong>
+          <strong>${firstParagonStep ? `${displayText(firstParagonStep.board)} · ${displayText(firstParagonStep.node)}` : "巅峰路线校验中"}</strong>
         </article>
         <article>
           <span>打法循环</span>
-          <strong>${displayText(firstLoop || "待来源回填")}</strong>
+          <strong>${displayText(firstLoop || "打法流程校验中")}</strong>
         </article>
         <article>
           <span>资料状态</span>
@@ -1695,8 +1752,8 @@ function renderRecommendedBuildCell(guide, mode) {
       <strong>${guide.taxonomy.archetypeName}</strong>
       <em>${guide.formationDifficulty.label}成型 · ${guide.taxonomy.stage} · ${guide.ceiling.displayTier || guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</em>
       <small>核心：${guideCoreLine(guide)}</small>
-      <small>技能：${firstSkillStep ? `${displayText(firstSkillStep.levelRange)} ${displayText(firstSkillStep.skill)}` : "待来源回填"}</small>
-      <small>巅峰：${firstParagonStep ? `${displayText(firstParagonStep.board)} ${displayText(firstParagonStep.node)}` : "待来源回填"}</small>
+      <small>技能：${firstSkillStep ? `${displayText(firstSkillStep.levelRange)} ${displayText(firstSkillStep.skill)}` : "技能路线校验中"}</small>
+      <small>巅峰：${firstParagonStep ? `${displayText(firstParagonStep.board)} ${displayText(firstParagonStep.node)}` : "巅峰路线校验中"}</small>
     </a>
   `;
 }
@@ -1729,7 +1786,7 @@ function renderRecommendedBuildBoard(guides) {
     <section class="recommended-build-board" aria-label="本赛季抄作业入口">
       <div class="section-title">
         <h4>本赛季抄作业入口</h4>
-        <span>每个职业按日常、速刷、冲层给出可进入完整 BD 的版本</span>
+        <span>每个职业按日常、速刷、冲层给出可直接查看的版本</span>
       </div>
       <div class="recommended-build-table">
         <div class="recommended-build-row recommended-build-row--head" aria-hidden="true">
@@ -1800,7 +1857,7 @@ function renderBuildViewTabs(guides) {
     {
       id: "recommended",
       label: "推荐入口",
-      description: "每个职业按日常、速刷、冲层进入完整 BD。"
+      description: "每个职业按日常、速刷、冲层进入装备、技能、巅峰和打法详情。"
     },
     {
       id: "matrix",
@@ -1829,9 +1886,9 @@ function renderBuildViewTabs(guides) {
 function renderBuildListView(guides) {
   const rows = guides.slice(0, state.sim.visible);
   return `
-    <section class="build-result-section" aria-label="完整 BD 列表">
+    <section class="build-result-section" aria-label="BD 列表">
       <div class="section-title">
-        <h4>完整 BD 列表</h4>
+        <h4>BD 列表</h4>
         <span>显示 ${rows.length} / ${guides.length} 套，列表只做筛选和进入详情</span>
       </div>
       <div class="guide-card-grid">
@@ -1936,8 +1993,8 @@ function renderBuildViewContent(guides, recommendedGuides) {
             <strong>${guide.taxonomy.archetypeName}</strong>
             <em>${guide.formationDifficulty.label}成型 · ${guide.taxonomy.stage} · ${guide.ceiling.displayTier || guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</em>
             <small>${guideCoreLine(guide)}</small>
-            <small>技能：${firstSkillStep ? `${displayText(firstSkillStep.levelRange)} ${displayText(firstSkillStep.skill)}` : "路线待校准"}</small>
-            <small>巅峰：${firstParagonStep ? `${displayText(firstParagonStep.board)} ${displayText(firstParagonStep.node)}` : "路线待校准"}</small>
+            <small>技能：${firstSkillStep ? `${displayText(firstSkillStep.levelRange)} ${displayText(firstSkillStep.skill)}` : "技能路线校验中"}</small>
+            <small>巅峰：${firstParagonStep ? `${displayText(firstParagonStep.board)} ${displayText(firstParagonStep.node)}` : "巅峰路线校验中"}</small>
               `;
             })()}
             <div class="compact-guide-actions">
@@ -2071,11 +2128,11 @@ function gearPowerDisplay(slot) {
   if (aspectName && isDisplayableAspectName(slot)) {
     return `威能：${displayText(aspectName)}`;
   }
-  return displayText(slot.aspect?.displayName || slot.aspect?.role || "威能待来源回填");
+  return displayText(slot.aspect?.displayName || slot.aspect?.role || "威能资料校验中");
 }
 
 function gearPowerText(slot) {
-  return slot.aspect?.powerText || slot.aspect?.role || slot.target?.description || "效果文本待来源回填";
+  return slot.aspect?.powerText || slot.aspect?.role || slot.target?.description || "效果文本资料校验中";
 }
 
 function renderGearSummaryMatrix(guide) {
@@ -2112,7 +2169,7 @@ function renderGearSummaryMatrix(guide) {
               <div class="gear-summary-cell gear-summary-target">
                 <span class="gear-summary-label">目标装备</span>
                 ${renderTargetLink(slot.target)}
-                <em>${displayText(slot.target.description || "装备说明待来源回填")}</em>
+                <em>${displayText(slot.target.description || "装备说明资料校验中")}</em>
               </div>
               <div class="gear-summary-cell">
                 <span class="gear-summary-label">核心 / 替换</span>
@@ -2129,7 +2186,7 @@ function renderGearSummaryMatrix(guide) {
               </div>
               <div class="gear-summary-cell">
                 <span class="gear-summary-label">词缀优先级</span>
-                <p>${affixes.length ? affixes.join(" / ") : "词缀待来源回填"}</p>
+                <p>${affixes.length ? affixes.join(" / ") : "词缀资料校验中"}</p>
               </div>
               <div class="gear-summary-actions">
                 <button type="button" data-guide-jump="gear" data-gear-slot-target="${slot.slotId}">看明细</button>
@@ -2427,7 +2484,7 @@ function renderBuildManualPanel(guide) {
             ${flowSections.map(([title, lines]) => `
               <div>
                 <strong>${title}</strong>
-                <p>${displayText((lines || [])[0] || "待来源回填")}</p>
+                <p>${displayText((lines || [])[0] || "资料校验中")}</p>
               </div>
             `).join("")}
           </div>
@@ -2756,7 +2813,7 @@ function renderGameplayOverview(guide) {
 
 function renderProgressionPlan(progression) {
   if (!progression?.stages?.length) {
-    return `<p class="empty-copy">开荒到成型路线待来源回填。</p>`;
+    return `<p class="empty-copy">开荒到成型路线正在做赛季样本校验。</p>`;
   }
   return `
     <section class="progression-plan" aria-label="开荒到成型路线">
@@ -2833,7 +2890,7 @@ function renderSkillRouteMatrix(skillTree) {
       <header class="route-matrix__head">
         <div>
           <span>技能路线总表</span>
-          <strong>${displayText(skillTree.core || "核心技能待来源回填")} · ${steps.length} 步加点</strong>
+          <strong>${displayText(skillTree.core || "核心技能资料校验中")} · ${steps.length} 步加点</strong>
         </div>
         <em>技能栏、等级段、投入点数和加点原因</em>
       </header>
@@ -2896,7 +2953,7 @@ function renderSkillTree(skillTree) {
         </div>
         <div class="route-note-card">
           <strong>职业机制</strong>
-          <p>${displayText(skillTree.classMechanic || "职业机制待来源回填，先按技能栏和装备触发条件执行。")}</p>
+          <p>${displayText(skillTree.classMechanic || "职业机制正在赛季校验中，先按技能栏和装备触发条件执行。")}</p>
         </div>
         <div class="route-note-card">
           <strong>被动优先级</strong>
@@ -3292,7 +3349,7 @@ function renderBuildGuideDetail() {
         <div class="guide-hero__main">
           <div>
             <p class="panel-kicker">${guide.taxonomy.seasonName} · ${guide.taxonomy.className} · ${guide.taxonomy.modeName}</p>
-            <h2>${guide.taxonomy.archetypeName}</h2>
+            <h2>${displayText(guide.displayName || guide.title || guide.taxonomy.archetypeName)}</h2>
             <p>${guide.summary.oneLine}</p>
             <div class="guide-card__tags">${renderTags(guide.taxonomy.tags)}</div>
             <div class="source-pill">${guideSourceLabel(guide)} · ${guide.source.trust}</div>
@@ -3309,6 +3366,7 @@ function renderBuildGuideDetail() {
           <span><b>${guide.gearSlots.length}</b>装备位置</span>
           <span><b>${guide.coreUniques.length}</b>核心暗金</span>
         </div>
+        ${renderGuideCopyOverview(guide)}
         ${renderBuildDossier(guide)}
       </header>
 
@@ -3326,7 +3384,7 @@ function renderBuildGuideDetail() {
           </div>
           <div class="guide-sidebar-card">
             <strong>核心需求</strong>
-            <ul>${listItems(guide.summary.requirements?.length ? guide.summary.requirements : ["核心装备待来源回填"])}</ul>
+            <ul>${listItems(guide.summary.requirements?.length ? guide.summary.requirements : ["核心件见装备分区"])}</ul>
           </div>
         </aside>
 
@@ -3384,7 +3442,7 @@ function guideCoreLine(guide) {
     .filter((aspect) => aspect.displayKind === "传奇威能")
     .map((aspect) => aspect.displayName || aspect.name);
   const combined = [...uniqueNames, ...aspectNames].slice(0, 4);
-  return combined.length ? combined.join(" / ") : "核心件待来源回填";
+  return combined.length ? combined.join(" / ") : "核心件见装备分区";
 }
 
 function renderClassSeasonSummary(selected, guides) {
@@ -3435,9 +3493,9 @@ function renderClassModeCard(guide, mode) {
       </div>
       <dl class="class-mode-card__route">
         <div><dt>核心</dt><dd>${guideCoreLine(guide)}</dd></div>
-        <div><dt>技能</dt><dd>${firstSkillStep ? `${displayText(firstSkillStep.levelRange)} · ${displayText(firstSkillStep.skill)}` : "待来源回填"}</dd></div>
-        <div><dt>巅峰</dt><dd>${firstParagonStep ? `${displayText(firstParagonStep.board)} · ${displayText(firstParagonStep.node)}` : "待来源回填"}</dd></div>
-        <div><dt>打法</dt><dd>${displayText(firstLoop || "待来源回填")}</dd></div>
+        <div><dt>技能</dt><dd>${firstSkillStep ? `${displayText(firstSkillStep.levelRange)} · ${displayText(firstSkillStep.skill)}` : "技能路线校验中"}</dd></div>
+        <div><dt>巅峰</dt><dd>${firstParagonStep ? `${displayText(firstParagonStep.board)} · ${displayText(firstParagonStep.node)}` : "巅峰路线校验中"}</dd></div>
+        <div><dt>打法</dt><dd>${displayText(firstLoop || "打法流程校验中")}</dd></div>
       </dl>
       <div class="class-mode-card__actions">
         <a href="${guideSectionUrl(guide, "gear")}">装备</a>
@@ -3802,7 +3860,7 @@ function renderEquipmentDetail(item) {
         <article><strong>职业限制</strong><span>${equipmentClassLabel(item)}</span></article>
         <article><strong>构筑用途</strong><span>${item.zhBuildRole || item.buildRole}</span></article>
         <article><strong>适用场景</strong><span>${(item.zhModeFit || item.modeFit).join(" / ")}</span></article>
-        <article><strong>基础数值</strong><span>${item.communityBaseText || "待来源回填"}</span></article>
+        <article><strong>基础数值</strong><span>${item.communityBaseText || "资料校验中"}</span></article>
       </div>
     </section>
     <section class="detail-section">
@@ -3813,11 +3871,11 @@ function renderEquipmentDetail(item) {
       <div class="unique-power-panel">
         <article>
           <strong>特效</strong>
-          <p>${displayText(item.zhUniquePower || "暗金特效待来源回填")}</p>
+          <p>${displayText(item.zhUniquePower || "暗金特效资料校验中")}</p>
         </article>
         <article>
           <strong>掉落</strong>
-          <p>${displayText(item.dropSource?.zhText || "掉落来源待来源回填")}</p>
+          <p>${displayText(item.dropSource?.zhText || "掉落来源资料校验中")}</p>
         </article>
       </div>
     </section>
@@ -4057,7 +4115,7 @@ function renderAspectDetail(aspect) {
       <div class="equipment-info-grid">
         <article><strong>职业</strong><span>${aspect.zhClasses.join(" / ")}</span></article>
         <article><strong>用途</strong><span>${aspect.zhModes.join(" / ")}</span></article>
-        <article><strong>威能类型</strong><span>${database?.zhAspectType || "待来源回填"}</span></article>
+        <article><strong>威能类型</strong><span>${database?.zhAspectType || "资料校验中"}</span></article>
         <article><strong>数据范围</strong><span>${aspect.dataStatus?.zhText || "从 BD 汇总"}</span></article>
         <article><strong>来源样本</strong><span>${database ? (sourceLabels[database.sourceId] || database.sourceId) : ((aspect.sourceStatusSamples || []).slice(0, 3).join(" / ") || "待回填")}</span></article>
       </div>
@@ -4186,7 +4244,7 @@ function renderForecast() {
       <div class="forecast-header__legend">
         <span>${rows.length} 个职业</span>
         <span>日常 / 速刷 / 冲层</span>
-        <span>可进入完整 BD</span>
+        <span>可进入详情</span>
       </div>
     </div>
     <div class="forecast-table">

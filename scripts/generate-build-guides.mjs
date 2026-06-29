@@ -1269,10 +1269,67 @@ function refineParagonWithBase(merged, base) {
   };
 }
 
-function localizeGuideRoutes(guide) {
+function guideDisplayName(guide) {
+  return guide.title || `${guide.taxonomy?.seasonName || ""} ${guide.taxonomy?.className || ""} · ${guide.taxonomy?.archetypeName || ""}${guide.taxonomy?.modeName || ""}`.trim();
+}
+
+function guideCompletenessFor(guide) {
+  const gearSlots = guide.gearSlots || [];
+  const skillSteps = guide.skillTree?.pointOrder || [];
+  const skillBar = guide.skillTree?.skillBar || [];
+  const paragonSteps = guide.paragon?.clickOrder || [];
+  const paragonBoards = guide.paragon?.boardOrder || [];
+  const gameplay = guide.gameplay || {};
+  const gameplaySections = ["opener", "loop", "boss", "defense", "speedFarm", "commonMistakes"]
+    .filter((key) => gameplay[key]?.length);
+  const counts = {
+    gearSlots: gearSlots.length,
+    requiredSlots: gearSlots.filter((slot) => slot.required).length,
+    coreSlots: gearSlots.filter((slot) => slot.core || slot.required).length,
+    replaceableSlots: gearSlots.filter((slot) => slot.replaceable).length,
+    skillBarSkills: skillBar.length,
+    skillSteps: skillSteps.length,
+    paragonBoards: paragonBoards.length,
+    paragonSteps: paragonSteps.length,
+    gameplaySections: gameplaySections.length,
+    variants: guide.variants?.length || 0,
+    sourceReferences: guide.source?.references?.length || 0
+  };
+  const sections = {
+    gear: counts.gearSlots >= slotOrder.length ? "complete" : "needs_validation",
+    skills: counts.skillBarSkills >= 6 && counts.skillSteps >= 10 ? "complete" : "needs_validation",
+    paragon: counts.paragonBoards >= 4 && counts.paragonSteps >= 10 ? "complete" : "needs_validation",
+    gameplay: counts.gameplaySections >= 5 ? "complete" : "needs_validation",
+    variants: counts.variants >= 3 && counts.replaceableSlots > 0 ? "complete" : "needs_validation",
+    sources: guide.source?.verificationLevel || "official_seed_template"
+  };
+  const readyCount = Object.values(sections).filter((status) => status === "complete").length;
   return {
+    label: `${readyCount}/5 核心分区完整`,
+    counts,
+    sections,
+    checklist: [
+      `装备 ${counts.gearSlots}/${slotOrder.length} 槽`,
+      `技能 ${counts.skillSteps} 步`,
+      `巅峰 ${counts.paragonSteps} 步`,
+      `打法 ${counts.gameplaySections} 组`,
+      `替换 ${counts.replaceableSlots} 槽`
+    ],
+    sourceStatus: guide.source?.verificationLevel || "official_seed_template"
+  };
+}
+
+function finalizeGuide(guide) {
+  const displayName = guideDisplayName(guide);
+  const paragon = refineParagonWithBase(guide.paragon || {}, { clickOrder: [] });
+  const finalized = {
     ...guide,
-    paragon: refineParagonWithBase(guide.paragon || {}, { clickOrder: [] })
+    displayName,
+    paragon
+  };
+  return {
+    ...finalized,
+    guideCompleteness: guideCompletenessFor(finalized)
   };
 }
 
@@ -1526,7 +1583,7 @@ for (const [seasonIndex, season] of simulations.seasons.entries()) {
         const simBuild = simMap.get(`${season.id}:${classInfo.id}:${mode}:${archetype.id}`);
         const guide = guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentItems: equipment.items, equipmentIndex, aspectIndex, simBuild });
         const mergedGuide = overrideMap.has(guide.id) ? applyCommunityOverride(guide, overrideMap.get(guide.id), equipmentIndex, aspectIndex) : guide;
-        builds.push(localizeGuideRoutes(mergedGuide));
+        builds.push(finalizeGuide(mergedGuide));
       }
     }
   }

@@ -270,6 +270,11 @@ for (const guide of buildGuides.builds) {
   assert(classIds.includes(guide.taxonomy.classId), `Unknown build guide class: ${guide.id}`);
   assert(["pit_push", "speed_farm", "daily"].includes(guide.taxonomy.mode), `Unknown build guide mode: ${guide.id}`);
   assert(guide.title && guide.summary?.oneLine, `Build guide needs Chinese title and summary: ${guide.id}`);
+  assert(guide.displayName && guide.displayName.includes(guide.taxonomy.className) && guide.displayName.includes(guide.taxonomy.archetypeName), `Build guide needs player-facing displayName: ${guide.id}`);
+  assert(guide.guideCompleteness?.counts?.gearSlots === buildGuides.slotOrder.length, `Build guide completeness must count every gear slot: ${guide.id}`);
+  assert(guide.guideCompleteness?.counts?.skillSteps >= 10 && guide.guideCompleteness?.counts?.paragonSteps >= 10, `Build guide completeness must count skill and paragon routes: ${guide.id}`);
+  assert(guide.guideCompleteness?.counts?.gameplaySections >= 5 && guide.guideCompleteness?.counts?.replaceableSlots >= 1, `Build guide completeness must count gameplay and replacement coverage: ${guide.id}`);
+  assert(guide.guideCompleteness?.checklist?.length >= 5, `Build guide completeness needs a player checklist: ${guide.id}`);
   assert(guide.formationDifficulty?.label && guide.formationDifficulty?.reasons?.length >= 2, `Build guide needs formation difficulty: ${guide.id}`);
   assert(guide.ceiling?.tier && typeof guide.ceiling.pit150Minutes === "number", `Build guide needs ceiling reference: ${guide.id}`);
   assert(guide.ceiling?.confidence > 0 && guide.ceiling?.sourceStatus && guide.ceiling?.evidence?.length >= 2, `Build guide needs ceiling evidence and confidence: ${guide.id}`);
@@ -378,6 +383,9 @@ assert(frontendText.includes("guide-version-tabs"), "BD detail must expose visib
 assert(frontendText.includes("renderBuildManualPanel"), "BD overview must render a copy-ready execution manual");
 assert(frontendText.includes("build-manual-panel"), "BD overview must expose gear, skill, paragon and gameplay before long sections");
 assert(frontendText.includes("manual-gear-row"), "BD execution manual must expose all gear slots as jump targets");
+assert(frontendText.includes("renderGuideCopyOverview"), "BD hero must render a copy overview before long sections");
+assert(frontendText.includes("guide-copy-overview") && frontendText.includes("抄作业速览"), "BD copy overview must expose gear, skills, paragon, gameplay and replacement entry points");
+assert(frontendText.includes("guide.guideCompleteness"), "BD detail must read generated completeness data");
 assert(frontendText.includes("renderBuildPlannerSheet"), "BD detail must expose a dedicated copy-ready planner sheet section");
 assert(frontendText.includes("planner-sheet") && frontendText.includes("planner-gear-row") && frontendText.includes("planner-skillbar") && frontendText.includes("planner-boards") && frontendText.includes("planner-gameplay"), "BD planner sheet must expose gear, skill, paragon and gameplay in one execution view");
 assert(frontendText.includes("[\"planner\", \"配置\"]"), "BD section navigation must include the dedicated planner sheet section");
