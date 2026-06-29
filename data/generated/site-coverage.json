@@ -380,6 +380,20 @@
       "frontendUse": "BD 配置页在长装备明细前展示全量技能加点顺序和全量巅峰点击顺序，让玩家不用滚到页面底部就能抄路线。"
     },
     {
+      "component": "PlannerGameplayDeck",
+      "zhName": "BD 配置页打法流程总览",
+      "source": "build-guides.builds[id].gameplay",
+      "fields": [
+        "gameplay.opener",
+        "gameplay.loop",
+        "gameplay.boss",
+        "gameplay.defense",
+        "gameplay.speedFarm",
+        "gameplay.commonMistakes"
+      ],
+      "frontendUse": "BD 配置页在长装备明细前展示起手、主循环、首领、防御、速刷和常见错误，让玩家在同一页看到打法路线。"
+    },
+    {
       "component": "BuildCopyOverview",
       "zhName": "BD 首屏抄作业速览",
       "source": "build-guides.builds[id]",

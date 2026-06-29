@@ -3231,6 +3231,44 @@ function renderPlannerFullRouteDeck(guide) {
   `;
 }
 
+function renderPlannerGameplayDeck(guide) {
+  const sections = combatFlowSections(guide.gameplay || {});
+  const totalSteps = sections.reduce((sum, section) => sum + (section.lines || []).length, 0);
+  return `
+    <section class="planner-gameplay-deck" aria-label="配置页打法流程总览">
+      <header>
+        <div>
+          <span>打法流程总览</span>
+          <strong>起手、循环、首领、防御、速刷和常见错误</strong>
+        </div>
+        <nav aria-label="打法分区入口">
+          <a href="${guideSectionUrl(guide, "gameplay")}">${sections.length} 个阶段</a>
+          <a href="${guideSectionUrl(guide, "gameplay")}">${totalSteps} 条动作</a>
+        </nav>
+      </header>
+      <div class="planner-gameplay-deck__grid">
+        ${sections.map((section) => `
+          <article>
+            <header>
+              <span>${displayText(section.title)}</span>
+              <strong>${displayText(section.timing)}</strong>
+            </header>
+            <ol>
+              ${(section.lines || []).map((line, index) => `
+                <li>
+                  <b>${index + 1}</b>
+                  <p>${displayText(line)}</p>
+                </li>
+              `).join("")}
+            </ol>
+            <em>${displayText(section.focus)}</em>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderBuildPlannerSheet(guide) {
   const requiredCount = guide.gearSlots.filter((slot) => slot.required).length;
   const replaceableCount = guide.gearSlots.filter((slot) => slot.replaceable).length;
@@ -3264,6 +3302,7 @@ function renderBuildPlannerSheet(guide) {
       ${renderPlannerGearMatrix(guide)}
       ${renderRouteOverview(guide)}
       ${renderPlannerFullRouteDeck(guide)}
+      ${renderPlannerGameplayDeck(guide)}
       <section class="planner-loadout-overview" aria-label="配置页 11 部位装备图标速览">
         <header>
           <span>11 部位图标速览</span>
