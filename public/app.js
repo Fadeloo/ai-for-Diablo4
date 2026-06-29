@@ -1717,6 +1717,107 @@ function renderGuideSectionDirectory(guide) {
   `;
 }
 
+function renderBuildReadinessChecklist(guide) {
+  const requiredSlots = (guide.gearSlots || []).filter((slot) => slot.required);
+  const replaceableSlots = (guide.gearSlots || []).filter((slot) => slot.replaceable);
+  const skillSteps = (guide.skillTree?.pointOrder || []).slice(0, 4);
+  const paragonSteps = (guide.paragon?.clickOrder || []).slice(0, 4);
+  const flowChecks = [
+    ["起手", (guide.gameplay?.opener || [])[0]],
+    ["主循环", (guide.gameplay?.loop || [])[0]],
+    ["首领", (guide.gameplay?.boss || [])[0]],
+    ["防御", (guide.gameplay?.defense || [])[0]]
+  ].filter(([, value]) => value);
+  return `
+    <section class="build-checklist" aria-label="BD 成型检查清单">
+      <header>
+        <div>
+          <span>成型检查清单</span>
+          <strong>按装备、技能、巅峰和打法顺序核对</strong>
+        </div>
+        <em>${requiredSlots.length} 硬需求 · ${replaceableSlots.length} 可替换 · ${guideSourceLabel(guide)}</em>
+      </header>
+      <div class="build-checklist-grid">
+        <article class="build-checklist-block">
+          <span>装备硬需求</span>
+          <ol>
+            ${requiredSlots.slice(0, 5).map((slot) => `
+              <li>
+                <b>${slot.zhSlotName}</b>
+                <strong>${displayText(slot.target.zhName)}</strong>
+                <p>${displayText(gearPowerDisplay(slot))}</p>
+              </li>
+            `).join("")}
+          </ol>
+          <a href="${guideSectionUrl(guide, "gear")}">核对 11 个部位</a>
+        </article>
+        <article class="build-checklist-block">
+          <span>可替换部位</span>
+          <ol>
+            ${replaceableSlots.slice(0, 5).map((slot) => {
+              const alternative = (slot.alternatives || [])[0];
+              return `
+                <li>
+                  <b>${slot.zhSlotName}</b>
+                  <strong>${displayText(alternative?.zhName || slot.target.zhName)}</strong>
+                  <p>${displayText(alternative?.tradeoff || alternative?.reason || "按抗性、资源或缺件过渡。")}</p>
+                </li>
+              `;
+            }).join("")}
+          </ol>
+          <a href="${guideSectionUrl(guide, "variants")}">看替换矩阵</a>
+        </article>
+        <article class="build-checklist-block">
+          <span>技能起步</span>
+          <ol>
+            ${skillSteps.map((step) => `
+              <li>
+                <b>${step.step}</b>
+                <strong>${displayText(step.levelRange)} · ${displayText(step.skill)}</strong>
+                <p>${displayText(step.points)}</p>
+              </li>
+            `).join("")}
+          </ol>
+          <a href="${guideSectionUrl(guide, "skills")}">看完整加点</a>
+        </article>
+        <article class="build-checklist-block">
+          <span>巅峰起步</span>
+          <ol>
+            ${paragonSteps.map((step) => `
+              <li>
+                <b>${step.step}</b>
+                <strong>${displayText(step.board)} · ${displayText(step.node)}</strong>
+                <p>${displayText(step.reason)}</p>
+              </li>
+            `).join("")}
+          </ol>
+          <a href="${guideSectionUrl(guide, "paragon")}">看完整点击顺序</a>
+        </article>
+        <article class="build-checklist-block build-checklist-block--wide">
+          <span>打法窗口</span>
+          <ol>
+            ${flowChecks.map(([label, line]) => `
+              <li>
+                <b>${label}</b>
+                <strong>${displayText(line)}</strong>
+              </li>
+            `).join("")}
+          </ol>
+          <a href="${guideSectionUrl(guide, "gameplay")}">看打法分区</a>
+        </article>
+        <article class="build-checklist-block build-checklist-block--wide">
+          <span>来源核对</span>
+          <ol>
+            <li><b>状态</b><strong>${guideSourceLabel(guide)}</strong><p>${guideReadinessProfile(guide).caution}</p></li>
+            <li><b>版本</b><strong>${guide.gameVersion.patch} · Build #${guide.gameVersion.build}</strong><p>${guide.source.updatedAt}</p></li>
+          </ol>
+          <a href="${guideSectionUrl(guide, "sources")}">看来源与缺口</a>
+        </article>
+      </div>
+    </section>
+  `;
+}
+
 function renderSourceReferences(guide) {
   const references = guide.source.references || [];
   if (!references.length) {
@@ -3485,6 +3586,7 @@ function renderGuideSectionByKey(guide, activeSection = state.selectedGuideSecti
       ${renderGuideReadinessPanel(guide)}
       ${renderGuideCopyOverview(guide)}
       ${renderGuideSectionDirectory(guide)}
+      ${renderBuildReadinessChecklist(guide)}
       ${renderExecutionPlan(guide)}
       ${renderSuitability(guide)}
       <div class="core-item-strip">${renderCoreUniques(guide, 5)}</div>

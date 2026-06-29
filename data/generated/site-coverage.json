@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-29T06:09:11.697Z",
+  "generatedAt": "2026-06-29T06:13:31.410Z",
   "scope": "player_site_data_coverage_and_storage_usage",
   "asOf": "2026-06-28",
   "storageLayers": [
@@ -349,6 +349,27 @@
         "source.verificationLevel"
       ],
       "frontendUse": "同一流派的日常、速刷、冲层版本横向对比，直接展示成型难度、适用阶段、上限、核心件、技能第一步、巅峰第一步和打法入口。"
+    },
+    {
+      "component": "BuildReadinessChecklist",
+      "zhName": "BD 成型检查清单",
+      "source": "build-guides.builds[id]",
+      "fields": [
+        "gearSlots[].required",
+        "gearSlots[].replaceable",
+        "gearSlots[].target.zhName",
+        "gearSlots[].aspect.displayName",
+        "gearSlots[].alternatives[0]",
+        "skillTree.pointOrder[0..3]",
+        "paragon.clickOrder[0..3]",
+        "gameplay.opener[0]",
+        "gameplay.loop[0]",
+        "gameplay.boss[0]",
+        "gameplay.defense[0]",
+        "source.verificationLevel",
+        "gameVersion"
+      ],
+      "frontendUse": "BD 总览提供成型前核对清单，按硬需求装备、可替换部位、技能起步、巅峰起步、打法窗口和来源状态组织。"
     },
     {
       "component": "BuildPlannerSheet",
