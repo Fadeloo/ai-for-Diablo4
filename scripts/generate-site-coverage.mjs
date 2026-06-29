@@ -265,6 +265,23 @@ const frontendDataContracts = [
     frontendUse: "职业页按三赛季、流派和日常/速刷/冲层用途做横向对照，单元格直达对应 BD 装备分区，避免玩家只能看到当前赛季或纯文字概述。"
   },
   {
+    component: "ForecastTable",
+    zhName: "150 层职业用途矩阵",
+    source: "build-simulations.rows + build-guides.builds",
+    fields: [
+      "seasonId",
+      "classId",
+      "modes.pit_push.topBuilds[0].archetypeId",
+      "modes.speed_farm.topBuilds[0].archetypeId",
+      "modes.daily.topBuilds[0].archetypeId",
+      "predictedPit150Minutes",
+      "build-guides.builds[id].formationDifficulty",
+      "build-guides.builds[id].taxonomy.stage",
+      "build-guides.builds[id].source.verificationLevel"
+    ],
+    frontendUse: "150 层参考页按职业展示冲层、速刷和日常版本，露出成型难度、适用阶段、来源状态和速度参考，并直达对应完整 BD 的装备、技能和巅峰分区。"
+  },
+  {
     component: "CoveragePanel",
     zhName: "数据覆盖与使用方式",
     source: "site-coverage",

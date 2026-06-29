@@ -159,7 +159,7 @@ BD 详情 #bd/<guideId>
 | `AspectDetailPanel` | 威能详情 | `aspect` | 常见部位、核心度、替换状态、关联 BD |
 | `ClassStartPlan` | 职业开荒 | `classes`、`season-start-plans` | 阶段路线、赛季切换和完整流派矩阵 |
 | `DamageWorkbench` | 伤害计算 | 表单、`src/damage` | 期望伤害拆分 |
-| `ForecastTable` | 预测矩阵 | `build-simulations` | 三赛季速度和风险 |
+| `ForecastTable` | 预测矩阵 | `build-simulations` + `build-guides` | 三赛季速度、风险、成型难度、适用阶段、来源状态，并直达对应 BD 的装备/技能/巅峰分区 |
 | `SourceRegistryView` | 来源库 | `source-registry` | 来源、可信度、使用范围 |
 | `CoveragePanel` | 数据覆盖摘要 | `site-coverage` | 展示 BD/装备/来源覆盖和存储层用途 |
 

@@ -3914,6 +3914,46 @@ function renderAspectDetail(aspect) {
   `;
 }
 
+function forecastGuideForBuild(seasonId, classId, mode, build) {
+  const guides = allBuildGuides();
+  return guides.find((guide) =>
+    guide.taxonomy.seasonId === seasonId
+    && guide.taxonomy.classId === classId
+    && guide.taxonomy.mode === mode
+    && guide.taxonomy.archetypeId === build.archetypeId
+  ) || guides.find((guide) =>
+    guide.taxonomy.seasonId === seasonId
+    && guide.taxonomy.classId === classId
+    && guide.taxonomy.mode === mode
+  );
+}
+
+function renderForecastBuildCell(seasonId, row, mode, build) {
+  const guide = forecastGuideForBuild(seasonId, row.classId, mode, build);
+  const label = modeLabels[mode] || build.modeName || mode;
+  if (!guide) {
+    return `
+      <article class="forecast-build-card">
+        <span>${label}</span>
+        <strong>${displayText(build.zhArchetypeName || build.archetypeName)}</strong>
+        <em>${displayText(build.predictedPit150Minutes)} 分参考 · 资料待校准</em>
+      </article>
+    `;
+  }
+  return `
+    <article class="forecast-build-card forecast-build-card--linked">
+      <span>${label} · ${guideSourceLabel(guide)}</span>
+      <a href="${guideUrl(guide)}">${guide.taxonomy.archetypeName}</a>
+      <em>${guide.formationDifficulty.label}成型 · ${guide.taxonomy.stage} · ${build.predictedPit150Minutes} 分参考</em>
+      <div>
+        <a href="${guideSectionUrl(guide, "gear")}">装备</a>
+        <a href="${guideSectionUrl(guide, "skills")}">技能</a>
+        <a href="${guideSectionUrl(guide, "paragon")}">巅峰</a>
+      </div>
+    </article>
+  `;
+}
+
 function renderForecast() {
   const season = state.simulations.seasons.find((item) => item.id === state.sim.seasonId) ?? state.simulations.seasons[0];
   const rows = state.simulations.rows
@@ -3928,8 +3968,15 @@ function renderForecast() {
 
   $("[data-forecast-board]").innerHTML = `
     <div class="forecast-header">
-      <h3>${season.zhLabel || season.label}</h3>
-      <p>${season.zhAssumption || season.assumption}</p>
+      <div>
+        <h3>${season.zhLabel || season.label}</h3>
+        <p>${season.zhAssumption || season.assumption}</p>
+      </div>
+      <div class="forecast-header__legend">
+        <span>${rows.length} 个职业</span>
+        <span>日常 / 速刷 / 冲层</span>
+        <span>可进入完整 BD</span>
+      </div>
     </div>
     <div class="forecast-table">
       <div class="forecast-row forecast-row-head">
@@ -3937,11 +3984,18 @@ function renderForecast() {
       </div>
       ${rows.map(({ item, push, speed, daily }) => `
         <div class="forecast-row">
-          <strong>${item.zhName}</strong>
-          <span>${push.archetypeName}</span>
-          <span>${speed.archetypeName}</span>
-          <span>${daily.archetypeName}</span>
-          <em>${push.predictedPit150Minutes} 分参考</em>
+          <div class="forecast-class-cell">
+            <strong>${item.zhName}</strong>
+            <span>${item.zhModelStatus || "赛季校准中"}</span>
+          </div>
+          ${renderForecastBuildCell(season.id, item, "pit_push", push)}
+          ${renderForecastBuildCell(season.id, item, "speed_farm", speed)}
+          ${renderForecastBuildCell(season.id, item, "daily", daily)}
+          <div class="forecast-ceiling-cell">
+            <strong>${push.predictedPit150Minutes} 分</strong>
+            <span>150 层速度参考</span>
+            <em>${displayText(push.zhConfidenceLabel || push.confidenceLabel || "需赛季实战校准")}</em>
+          </div>
         </div>
       `).join("")}
     </div>

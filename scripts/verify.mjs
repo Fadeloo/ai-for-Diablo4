@@ -76,6 +76,15 @@ const aspectIndex = await readJson("data/generated/aspect-index.json");
 const siteCoverage = await readJson("data/generated/site-coverage.json");
 const iconIndex = await readJson("data/generated/d4builds-icon-index.json");
 
+function findBuildGuide(seasonId, classId, mode, archetypeId) {
+  return buildGuides.builds.find((guide) =>
+    guide.taxonomy.seasonId === seasonId
+    && guide.taxonomy.classId === classId
+    && guide.taxonomy.mode === mode
+    && guide.taxonomy.archetypeId === archetypeId
+  );
+}
+
 assert(version.effectiveLiveVersion.patch === "3.0.4", "Expected live patch 3.0.4");
 assert(version.publishedUpcomingVersion.patch === "3.1.0", "Expected upcoming patch 3.1.0");
 assert(Date.parse(version.effectiveLiveVersion.releaseDate) <= Date.parse(version.asOf), "Live patch date must not be in the future");
@@ -175,6 +184,9 @@ for (const row of simulations.rows) {
       assert(build.guide?.rotation?.length >= 4, `Build guide needs rotation steps for ${row.classId}/${mode}/${build.archetypeId}`);
       assert(build.guide?.dataCompleteness?.equipmentAffixes, `Build guide needs data status for ${row.classId}/${mode}/${build.archetypeId}`);
     }
+    const forecastGuide = findBuildGuide(row.seasonId, row.classId, mode, modeResult.topBuilds[0].archetypeId);
+    assert(forecastGuide, `Forecast top build must link to a complete build guide: ${row.seasonId}/${row.classId}/${mode}/${modeResult.topBuilds[0].archetypeId}`);
+    assert(forecastGuide.gearSlots?.length === 11 && forecastGuide.skillTree?.pointOrder?.length >= 10 && forecastGuide.paragon?.clickOrder?.length >= 10, `Forecast linked guide must expose gear, skill and paragon detail: ${forecastGuide.id}`);
   }
 }
 
@@ -225,6 +237,7 @@ assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "RouteSourcePanel" && contract.fields?.includes("skillTree.sourceStatus") && contract.fields?.includes("paragon.sourceStatus")), "Site coverage must describe the skill/paragon route source panel contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "ClassBuildMatrix" && contract.fields?.includes("skillTree.pointOrder[0]") && contract.fields?.includes("paragon.clickOrder[0]")), "Site coverage must describe the class build matrix contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "ClassSeasonCoverage" && contract.fields?.includes("taxonomy.seasonId") && contract.fields?.includes("source.references")), "Site coverage must describe the class cross-season coverage contract");
+assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "ForecastTable" && contract.fields?.includes("build-guides.builds[id].formationDifficulty") && contract.fields?.includes("build-guides.builds[id].source.verificationLevel")), "Site coverage must describe the forecast-to-build-guide contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.fields?.includes("gearSlots")), "Frontend data contracts must expose full build detail fields");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.fields?.includes("gearSlots[].aspect.displayName") && contract.fields?.includes("gearSlots[].aspect.displayKind")), "Frontend data contracts must expose player-facing gear power display fields");
 assert(siteCoverage.buildDetailComponentBlueprint?.some((contract) => contract.component === "GearSummaryMatrix" && contract.requiredFields?.includes("gearSlots[].replaceable")), "Build detail blueprint must require slot-level replacement status");

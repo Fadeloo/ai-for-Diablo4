@@ -5754,7 +5754,7 @@ h4 {
   border-bottom: 1px solid rgba(214, 173, 99, 0.22);
   display: grid;
   gap: 18px;
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) auto;
   padding: 18px;
 }
 
@@ -5763,6 +5763,22 @@ h4 {
   font-size: 13px;
   line-height: 1.55;
   margin: 0;
+}
+
+.forecast-header__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: end;
+}
+
+.forecast-header__legend span {
+  background: rgba(214, 173, 99, 0.09);
+  border: 1px solid rgba(214, 173, 99, 0.22);
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 850;
+  padding: 7px 9px;
 }
 
 .forecast-table {
@@ -5778,6 +5794,68 @@ h4 {
   grid-template-columns: minmax(86px, 0.7fr) repeat(3, minmax(116px, 1fr)) minmax(120px, 0.85fr);
   min-height: 54px;
   padding: 10px 18px;
+}
+
+.forecast-class-cell,
+.forecast-ceiling-cell,
+.forecast-build-card {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.forecast-class-cell span,
+.forecast-ceiling-cell span,
+.forecast-ceiling-cell em,
+.forecast-build-card span,
+.forecast-build-card em {
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+  line-height: 1.4;
+}
+
+.forecast-build-card {
+  background: rgba(8, 4, 3, 0.36);
+  border: 1px solid rgba(214, 173, 99, 0.15);
+  padding: 10px;
+}
+
+.forecast-build-card > a {
+  color: var(--bone);
+  font-size: 14px;
+  font-weight: 850;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.forecast-build-card > a:hover {
+  color: var(--gold-bright);
+}
+
+.forecast-build-card div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.forecast-build-card div a {
+  background: rgba(156, 34, 29, 0.22);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 850;
+  padding: 5px 7px;
+  text-decoration: none;
+}
+
+.forecast-ceiling-cell {
+  justify-items: end;
+  text-align: right;
+}
+
+.forecast-ceiling-cell strong {
+  color: #fff7df;
 }
 
 .forecast-row-head {
@@ -6733,8 +6811,21 @@ h4 {
     padding: 14px 18px;
   }
 
+  .forecast-header__legend {
+    justify-content: start;
+  }
+
   .forecast-row-head {
     display: none;
+  }
+
+  .forecast-build-card {
+    padding: 9px;
+  }
+
+  .forecast-ceiling-cell {
+    justify-items: start;
+    text-align: left;
   }
 
   .forecast-row em {
