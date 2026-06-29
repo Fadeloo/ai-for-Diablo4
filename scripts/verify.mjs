@@ -199,6 +199,9 @@ assert(siteCoverage.buildDetailComponentBlueprint?.some((contract) => contract.c
 assert(siteCoverage.buildDetailComponentBlueprint?.some((contract) => contract.component === "ParagonRouteMatrix" && contract.requiredFields?.includes("paragon.clickOrder")), "Build detail blueprint must require paragon click order");
 assert(siteCoverage.normalizedDataBlueprint?.some((entity) => entity.entity.includes("analysis_outputs")), "Data blueprint must keep AI analysis outputs separate from player-facing data");
 assert(siteCoverage.publicationWorkflow?.includes("中文化和禁用话术校验"), "Publication workflow must include Chinese copy and forbidden-copy checks");
+assert(siteCoverage.playerRequirementCoverage?.some((item) => item.id === "gear_slots" && item.satisfied === buildGuides.builds.length), "Coverage must expose player requirement coverage for gear slots");
+assert(siteCoverage.playerRequirementCoverage?.some((item) => item.id === "skill_order" && item.satisfied === buildGuides.builds.length), "Coverage must expose player requirement coverage for skill order");
+assert(siteCoverage.playerRequirementCoverage?.some((item) => item.id === "paragon_click_order" && item.satisfied === buildGuides.builds.length), "Coverage must expose player requirement coverage for paragon click order");
 assert(siteCoverage.buildIntegrity?.completeGearSlotBuilds === buildGuides.builds.length, "Site coverage must prove every BD has 11 gear slots");
 assert(siteCoverage.buildIntegrity?.skillRouteBuilds === buildGuides.builds.length, "Site coverage must prove every BD has skill routes");
 assert(siteCoverage.buildIntegrity?.paragonRouteBuilds === buildGuides.builds.length, "Site coverage must prove every BD has paragon routes");
@@ -285,6 +288,7 @@ assert(frontendText.includes("compact-guide-actions"), "BD default recommendatio
 assert(frontendText.includes("技能第一步") && frontendText.includes("巅峰第一步") && frontendText.includes("打法循环"), "BD cards must preview skill, paragon and gameplay execution before detail navigation");
 assert(frontendText.includes("renderEquipmentUsageMatrix"), "Equipment detail must render a usage matrix for related builds");
 assert(frontendText.includes("equipment-usage-matrix"), "Equipment detail must expose class, build, mode, slot and replacement status for related builds");
+assert(frontendText.includes("requirement-coverage-grid") && frontendText.includes("BD 执行信息覆盖"), "Sources page must render player-facing BD requirement coverage");
 assert(frontendText.includes("renderLoadoutBoard"), "BD detail must render a paper-doll loadout board");
 assert(frontendText.includes("loadout-paper-doll"), "BD detail must expose a fixed 11-slot paper-doll layout");
 assert(frontendText.includes("renderBuildVersionSwitcher"), "BD detail must render same-archetype daily/speed/push version switching");

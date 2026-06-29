@@ -4903,6 +4903,7 @@ h4 {
 }
 
 .coverage-grid,
+.requirement-coverage-grid,
 .storage-layer-grid,
 .data-contract-grid {
   display: grid;
@@ -4911,6 +4912,10 @@ h4 {
 
 .coverage-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.requirement-coverage-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .storage-layer-grid {
@@ -4922,6 +4927,7 @@ h4 {
 }
 
 .coverage-grid article,
+.requirement-coverage-grid article,
 .storage-layer-grid article,
 .data-contract-grid article {
   background: rgba(8, 4, 3, 0.48);
@@ -4931,6 +4937,13 @@ h4 {
   padding: 13px;
 }
 
+.requirement-coverage-grid article > div {
+  align-items: start;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
 .coverage-grid strong {
   color: #fff7df;
   font-size: 28px;
@@ -4938,12 +4951,14 @@ h4 {
 }
 
 .storage-layer-grid strong,
+.requirement-coverage-grid strong,
 .data-contract-grid strong {
   color: var(--gold);
   font-size: 14px;
 }
 
 .coverage-grid span,
+.requirement-coverage-grid span,
 .storage-layer-grid span,
 .data-contract-grid span {
   color: var(--gold);
@@ -4953,6 +4968,7 @@ h4 {
 }
 
 .coverage-grid p,
+.requirement-coverage-grid p,
 .storage-layer-grid p,
 .data-contract-grid p,
 .data-contract-grid em {
@@ -4962,6 +4978,19 @@ h4 {
   line-height: 1.5;
   margin: 0;
   overflow-wrap: anywhere;
+}
+
+.requirement-coverage-grid i {
+  background: rgba(214, 173, 99, 0.12);
+  display: block;
+  height: 7px;
+  overflow: hidden;
+}
+
+.requirement-coverage-grid b {
+  background: linear-gradient(90deg, var(--blood), var(--gold));
+  display: block;
+  height: 100%;
 }
 
 .forecast-header {
@@ -5420,6 +5449,7 @@ h4 {
   .library-head,
   .build-atlas-grid,
   .coverage-grid,
+  .requirement-coverage-grid,
   .storage-layer-grid,
   .data-contract-grid,
   .guide-card-grid,

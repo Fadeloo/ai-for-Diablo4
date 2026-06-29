@@ -3493,6 +3493,7 @@ function renderCoverage() {
   const buildIntegrity = coverage.buildIntegrity || {};
   const routeSpecificity = buildIntegrity.routeSpecificity || {};
   const frontendContracts = coverage.frontendDataContracts || [];
+  const requirementCoverage = coverage.playerRequirementCoverage || [];
   panel.innerHTML = `
     <section class="coverage-panel">
       <div class="section-title">
@@ -3536,6 +3537,28 @@ function renderCoverage() {
           <p>技能栏 ${routeSpecificity.genericSkillBarEntries || 0}、加点 ${routeSpecificity.genericSkillSteps || 0}、巅峰点击 ${routeSpecificity.genericParagonNodes || 0} 个泛化占位。</p>
         </article>
       </div>
+      <section class="requirement-coverage-panel" aria-label="玩家 BD 硬要求覆盖">
+        <div class="section-title">
+          <h4>BD 执行信息覆盖</h4>
+          <span>对应装备、技能、巅峰、打法和职业矩阵硬要求</span>
+        </div>
+        <div class="requirement-coverage-grid">
+          ${requirementCoverage.map((item) => {
+            const total = item.total || 0;
+            const percentValue = total ? Math.round((item.satisfied / total) * 100) : 0;
+            return `
+              <article>
+                <div>
+                  <strong>${item.zhName}</strong>
+                  <span>${item.satisfied} / ${total}</span>
+                </div>
+                <i><b style="width:${percentValue}%"></b></i>
+                <p>${displayText(item.proof)}</p>
+              </article>
+            `;
+          }).join("")}
+        </div>
+      </section>
       <div class="storage-layer-grid">
         ${coverage.storageLayers.map((layer) => `
           <article>
