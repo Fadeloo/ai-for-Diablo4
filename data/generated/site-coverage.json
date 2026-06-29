@@ -227,6 +227,29 @@
       "frontendUse": "按职业汇总日常、速刷、冲层三个入口，露出核心装备、关键部位、技能第一步、巅峰第一步和来源状态，并直接链接 BD 详情分区。"
     },
     {
+      "component": "SeasonClassArchetypeBoard",
+      "zhName": "职业流派总览",
+      "source": "build-guides.builds + buildVersionModeOrder",
+      "fields": [
+        "taxonomy.seasonId",
+        "taxonomy.classId",
+        "taxonomy.className",
+        "taxonomy.archetypeId",
+        "taxonomy.archetypeName",
+        "taxonomy.mode",
+        "taxonomy.modeName",
+        "formationDifficulty.label",
+        "taxonomy.stage",
+        "ceiling.displayTier",
+        "ceiling.pit150Minutes",
+        "gearSlots[].required",
+        "gearSlots[].replaceable",
+        "coreRequirements",
+        "source.verificationLevel"
+      ],
+      "frontendUse": "BD 大厅默认视图先按职业列出每条流派轴，展示日常/速刷/冲层覆盖、推荐入口、成型难度、适用阶段、150 层参考、硬需求/可替换数量和核心件入口。"
+    },
+    {
       "component": "BuildViewTabs",
       "zhName": "BD 大厅视图切换",
       "source": "build-guides.builds + state.sim.view",

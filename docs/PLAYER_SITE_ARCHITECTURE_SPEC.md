@@ -53,7 +53,7 @@ SiteShell
 页面职责：
 
 - 首页只放版本状态、覆盖概览和核心入口。
-- BD 大厅默认展示推荐入口和结果列表；职业矩阵、赛季矩阵作为切换视图，不再同屏铺满。
+- BD 大厅默认先展示职业流派总览、推荐入口和赛季矩阵；列表只作为补充筛选视图。
 - BD 详情必须独立阅读，分为总览、开荒、装备、技能、巅峰、打法、替换、来源。
 - 装备库默认是列表 + 详情；`#item/<itemId>` 用于分享和从 BD 跳转。
 - 威能索引只展示已经派生或匹配到来源的威能，不声明为全量传奇威能库。
@@ -84,6 +84,7 @@ BuildsPage
   ├─ BuildClassRail
   ├─ BuildFilterBar
   ├─ BuildViewTabs
+  ├─ SeasonClassArchetypeBoard
   ├─ RecommendedBuildBoard
   ├─ SeasonBuildMatrix
   └─ BuildResultsList
@@ -133,6 +134,7 @@ AspectPage
 关键约束：
 
 - `BuildResultsList`、`EquipmentResultsList`、`AspectResultsList` 必须有分页、固定视窗或“显示更多”，不能一次铺到移动端数万像素。
+- `SeasonClassArchetypeBoard` 必须按职业展示流派轴、日常/速刷/冲层覆盖、推荐入口、成型难度、适用阶段、上限、硬需求/可替换数量和核心件。
 - `SeasonBuildMatrix` 的每个用途单元格必须展示成型难度、适用阶段、上限、核心件、技能起步、巅峰起步、打法入口，并能直达装备、技能、巅峰和打法分区。
 - `BuildHeader` 只放标题、来源、难度、核心入口和关键指标；纸娃娃装备盘面移到装备分区。
 - `BuildChapterIndex` 是 BD 详情页固定骨架，必须展示装备、技能、巅峰、打法、替换、来源六个玩家章节的完成度、计数和直达入口。

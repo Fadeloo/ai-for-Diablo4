@@ -2272,6 +2272,103 @@ function groupGuidesByClass(guides) {
   });
 }
 
+function groupGuidesByClassAndArchetype(guides) {
+  return groupGuidesByClass(guides).map((classGuides) => {
+    const archetypeGroups = new Map();
+    for (const guide of classGuides) {
+      if (!archetypeGroups.has(guide.taxonomy.archetypeId)) archetypeGroups.set(guide.taxonomy.archetypeId, []);
+      archetypeGroups.get(guide.taxonomy.archetypeId).push(guide);
+    }
+    return {
+      classInfo: classGuides[0]?.taxonomy,
+      classGuides,
+      archetypes: [...archetypeGroups.values()]
+        .map((items) => items.slice().sort(sortGuidesForPlayer))
+        .sort((a, b) => sortGuidesForPlayer(a[0], b[0]))
+    };
+  });
+}
+
+function renderSeasonClassArchetypeBoard(guides) {
+  const groups = groupGuidesByClassAndArchetype(guides);
+  if (!groups.length) return "";
+  return `
+    <section class="season-class-board" aria-label="职业流派总览">
+      <div class="section-title">
+        <h4>职业流派总览</h4>
+        <span>每个职业先看流派、用途覆盖、成型难度、阶段、上限和核心件</span>
+      </div>
+      <div class="season-class-board__grid">
+        ${groups.map((group) => {
+          const bestPush = group.classGuides.filter((guide) => guide.taxonomy.mode === "pit_push").sort(sortGuidesForPlayer)[0];
+          const easiest = group.classGuides
+            .filter((guide) => guide.taxonomy.mode === "daily")
+            .sort((a, b) => a.formationDifficulty.level - b.formationDifficulty.level || sortGuidesForPlayer(a, b))[0];
+          return `
+            <article class="season-class-card">
+              <header>
+                <div>
+                  <span>${group.classInfo.className}</span>
+                  <strong>${group.archetypes.length} 条流派轴 · ${group.classGuides.length} 套 BD</strong>
+                </div>
+                <a href="#classes" data-class-jump="${group.classInfo.classId}">职业页</a>
+              </header>
+              <div class="season-class-card__facts">
+                <span><b>${bestPush ? `${bestPush.taxonomy.archetypeName} · ${guideCeilingTier(bestPush)}` : "上限样本未覆盖"}</b>冲层上限</span>
+                <span><b>${easiest ? `${easiest.taxonomy.archetypeName} · ${easiest.formationDifficulty.label}` : "赛季样本未覆盖"}</b>低门槛入口</span>
+              </div>
+              <div class="season-class-archetype-list">
+                ${group.archetypes.map((archetypeGuides) => {
+                  const byMode = new Map(archetypeGuides.map((guide) => [guide.taxonomy.mode, guide]));
+                  const representative = byMode.get("pit_push") || byMode.get("speed_farm") || byMode.get("daily") || archetypeGuides[0];
+                  const entry = byMode.get("daily") || byMode.get("speed_farm") || representative;
+                  const requiredCount = representative.gearSlots.filter((slot) => slot.required).length;
+                  const replaceableCount = representative.gearSlots.filter((slot) => slot.replaceable).length;
+                  return `
+                    <section class="season-class-archetype">
+                      <div class="season-class-archetype__main">
+                        <span>${representative.taxonomy.archetypeName}</span>
+                        <strong>${entry.taxonomy.modeName}入口 · ${entry.formationDifficulty.label}成型 · ${entry.taxonomy.stage}</strong>
+                        <em>${guideCeilingTier(representative)} · 150 层 ${representative.ceiling.pit150Minutes} 分 · ${guideSourceLabel(representative)}</em>
+                      </div>
+                      <div class="season-class-archetype__modes">
+                        ${buildVersionModeOrder.map((mode) => {
+                          const guide = byMode.get(mode);
+                          return guide ? `
+                            <a href="${guideUrl(guide)}">
+                              <b>${guide.taxonomy.modeName}</b>
+                              <span>${guide.formationDifficulty.label} · ${guideCeilingTier(guide)}</span>
+                            </a>
+                          ` : `
+                            <span class="is-empty">
+                              <b>${modeLabels[mode] || mode}</b>
+                              <span>未收录</span>
+                            </span>
+                          `;
+                        }).join("")}
+                      </div>
+                      <div class="season-class-archetype__gear">
+                        <span>${requiredCount} 硬需求 / ${replaceableCount} 可替换</span>
+                        <strong>${guideCoreLine(representative, 3)}</strong>
+                      </div>
+                      <nav class="season-class-archetype__links" aria-label="${representative.taxonomy.className}${representative.taxonomy.archetypeName}入口">
+                        <a href="${guideUrl(entry)}">配置</a>
+                        <a href="${guideSectionUrl(representative, "gear")}">装备</a>
+                        <a href="${guideSectionUrl(representative, "skills")}">技能</a>
+                        <a href="${guideSectionUrl(representative, "paragon")}">巅峰</a>
+                      </nav>
+                    </section>
+                  `;
+                }).join("")}
+              </div>
+            </article>
+          `;
+        }).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderBuildAtlas(guides) {
   const groups = groupGuidesByClass(guides);
   if (!groups.length) return "";
@@ -2666,6 +2763,7 @@ function renderBuildViewContent(guides, recommendedGuides) {
   }
   const priorityGuides = guides.slice(0, Math.min(12, state.sim.visible));
   return `
+    ${renderSeasonClassArchetypeBoard(recommendedGuides)}
     ${renderRecommendedBuildBoard(recommendedGuides)}
     ${renderSeasonBuildMatrix(guides)}
     ${priorityGuides.length ? `<section class="build-result-section" aria-label="当前筛选下优先 BD">
@@ -5384,6 +5482,12 @@ function bindInteractions() {
     const button = event.target.closest("[data-class-id]");
     if (!button) return;
     state.selectedClassId = button.dataset.classId;
+    renderSelectedClass();
+  });
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest("[data-class-jump]");
+    if (!link) return;
+    state.selectedClassId = link.dataset.classJump;
     renderSelectedClass();
   });
 

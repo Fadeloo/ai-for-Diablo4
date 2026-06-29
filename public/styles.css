@@ -1420,6 +1420,185 @@ h4 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.season-class-board {
+  background:
+    linear-gradient(180deg, rgba(28, 13, 9, 0.82), rgba(6, 3, 2, 0.88));
+  border: 1px solid rgba(214, 173, 99, 0.24);
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+.season-class-board .section-title {
+  align-items: start;
+}
+
+.season-class-board .section-title span {
+  text-align: right;
+  white-space: normal;
+}
+
+.season-class-board__grid {
+  display: grid;
+  gap: 14px;
+}
+
+.season-class-card {
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+}
+
+.season-class-card > header {
+  align-items: start;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.season-class-card > header span,
+.season-class-archetype__main span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.season-class-card > header strong,
+.season-class-archetype__main strong,
+.season-class-archetype__gear strong {
+  color: #fff7df;
+  font-size: 15px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.season-class-card > header a {
+  background: rgba(214, 173, 99, 0.08);
+  border: 1px solid rgba(214, 173, 99, 0.22);
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-weight: 850;
+  padding: 7px 9px;
+  text-decoration: none;
+}
+
+.season-class-card > header a:hover,
+.season-class-archetype__modes a:hover,
+.season-class-archetype__links a:hover {
+  background: rgba(164, 32, 24, 0.22);
+  border-color: rgba(240, 207, 143, 0.42);
+}
+
+.season-class-card__facts {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.season-class-card__facts span {
+  background: rgba(214, 173, 99, 0.07);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  color: var(--muted);
+  display: grid;
+  font-size: 12px;
+  gap: 3px;
+  line-height: 1.45;
+  padding: 8px;
+}
+
+.season-class-card__facts b {
+  color: #fff7df;
+  font-size: 13px;
+}
+
+.season-class-archetype-list {
+  display: grid;
+  gap: 9px;
+}
+
+.season-class-archetype {
+  border: 1px solid rgba(214, 173, 99, 0.15);
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(180px, 0.9fr) minmax(260px, 1.2fr) minmax(170px, 0.8fr) minmax(190px, 0.8fr);
+  padding: 10px;
+}
+
+.season-class-archetype__main {
+  align-content: start;
+  display: grid;
+  gap: 5px;
+}
+
+.season-class-archetype__main em,
+.season-class-archetype__gear span,
+.season-class-archetype__modes span span {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.season-class-archetype__modes {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.season-class-archetype__modes a,
+.season-class-archetype__modes > span {
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(214, 173, 99, 0.14);
+  color: inherit;
+  display: grid;
+  gap: 3px;
+  min-height: 58px;
+  padding: 7px;
+  text-decoration: none;
+}
+
+.season-class-archetype__modes b {
+  color: var(--gold);
+  font-size: 12px;
+}
+
+.season-class-archetype__modes .is-empty {
+  opacity: 0.58;
+}
+
+.season-class-archetype__gear {
+  align-content: start;
+  display: grid;
+  gap: 5px;
+}
+
+.season-class-archetype__gear > span {
+  color: var(--gold);
+  font-weight: 850;
+}
+
+.season-class-archetype__links {
+  align-content: start;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.season-class-archetype__links a {
+  background: rgba(214, 173, 99, 0.08);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  color: var(--gold-bright);
+  font-size: 11px;
+  font-weight: 850;
+  min-height: 26px;
+  padding: 5px 4px;
+  text-align: center;
+  text-decoration: none;
+}
+
 .recommended-build-board {
   background:
     linear-gradient(180deg, rgba(18, 10, 7, 0.76), rgba(6, 3, 2, 0.84));
@@ -8504,6 +8683,11 @@ h4 {
   .two-column-detail,
   .sim-items,
   .library-head,
+  .season-class-card > header,
+  .season-class-card__facts,
+  .season-class-archetype,
+  .season-class-archetype__modes,
+  .season-class-archetype__links,
   .build-atlas-grid,
   .coverage-grid,
   .execution-proof-strip,
@@ -9032,17 +9216,20 @@ h4 {
   }
 
   .recommended-build-table {
-    display: block;
-    overflow-x: auto;
+    border: 0;
+    display: grid;
+    gap: 10px;
+    overflow-x: visible;
   }
 
   .recommended-build-row--head {
-    display: grid;
+    display: none;
   }
 
   .recommended-build-row {
-    grid-template-columns: minmax(140px, 0.72fr) repeat(3, minmax(178px, 1fr));
-    min-width: 700px;
+    border: 1px solid rgba(214, 173, 99, 0.18);
+    grid-template-columns: 1fr;
+    min-width: 0;
   }
 
   .recommended-build-row + .recommended-build-row {
@@ -9051,12 +9238,12 @@ h4 {
 
   .recommended-build-row header,
   .recommended-build-cell {
-    border-bottom: 0;
-    border-right: 1px solid rgba(214, 173, 99, 0.12);
+    border-bottom: 1px solid rgba(214, 173, 99, 0.12);
+    border-right: 0;
   }
 
   .recommended-build-cell:last-child {
-    border-right: 0;
+    border-bottom: 0;
   }
 
   .gear-slot-card__main {
