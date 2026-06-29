@@ -1150,6 +1150,18 @@ function relatedGuideCount(item) {
   return allRelatedGuidesForItem(item).length;
 }
 
+function rankedCounts(items, getKey, limit = 4) {
+  const counts = new Map();
+  for (const item of items) {
+    const key = getKey(item);
+    if (!key) continue;
+    counts.set(key, (counts.get(key) || 0) + 1);
+  }
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1] || String(a[0]).localeCompare(String(b[0]), "zh-CN"))
+    .slice(0, limit);
+}
+
 function sortEquipmentForPlayer(a, b) {
   return relatedGuideCount(b) - relatedGuideCount(a)
     || String(equipmentTypeLabel(a)).localeCompare(String(equipmentTypeLabel(b)), "zh-CN")
@@ -1213,10 +1225,63 @@ function renderEquipmentUsageMatrix(item) {
               <strong>${guide.ceiling.displayTier || guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</strong>
               <em>${guideSourceLabel(guide)}</em>
             </div>
-            <a href="${guideUrl(guide)}">查看 BD</a>
+            <div class="equipment-usage-actions">
+              <a href="${guideSectionUrl(guide, "gear")}">装备</a>
+              <a href="${guideSectionUrl(guide, "skills")}">技能</a>
+              <a href="${guideSectionUrl(guide, "paragon")}">巅峰</a>
+            </div>
           </article>
         `;
       }).join("")}
+    </div>
+  `;
+}
+
+function renderEquipmentUsageOverview(item) {
+  const guides = allRelatedGuidesForItem(item);
+  if (!guides.length) {
+    return `<p class="empty-copy">当前装备还没有进入已结构化 BD；后续资料回填后会自动关联。</p>`;
+  }
+  const usageRows = guides.flatMap((guide) => guideItemUsages(guide, item).map((usage) => ({ guide, usage })));
+  const requiredCount = usageRows.filter(({ usage }) => usage.status === "硬需求").length;
+  const replaceableCount = usageRows.filter(({ usage }) => usage.status === "可替换" || usage.useType === "替换方案").length;
+  const coreCount = usageRows.filter(({ usage }) => usage.status === "核心位").length;
+  const classLine = rankedCounts(guides, (guide) => guide.taxonomy.className)
+    .map(([name, count]) => `${name} ${count}`).join(" / ");
+  const modeLine = rankedCounts(guides, (guide) => guide.taxonomy.modeName)
+    .map(([name, count]) => `${name} ${count}`).join(" / ");
+  const slotLine = rankedCounts(usageRows, ({ usage }) => usage.slotName)
+    .map(([name, count]) => `${name} ${count}`).join(" / ");
+  const sourceLine = rankedCounts(guides, (guide) => guideSourceLabel(guide))
+    .map(([name, count]) => `${name} ${count}`).join(" / ");
+  const bestGuide = guides.slice().sort(sortGuidesForPlayer)[0];
+  return `
+    <div class="equipment-usage-overview" aria-label="装备在 BD 中的使用概览">
+      <article>
+        <span>关联 BD</span>
+        <strong>${guides.length} 套</strong>
+        <em>${bestGuide.taxonomy.className} · ${bestGuide.taxonomy.archetypeName} · ${bestGuide.ceiling.displayTier || bestGuide.ceiling.tier}</em>
+      </article>
+      <article>
+        <span>常见职业</span>
+        <strong>${classLine}</strong>
+      </article>
+      <article>
+        <span>常见用途</span>
+        <strong>${modeLine}</strong>
+      </article>
+      <article>
+        <span>常见部位</span>
+        <strong>${slotLine}</strong>
+      </article>
+      <article>
+        <span>定位分布</span>
+        <strong>${requiredCount} 硬需求 / ${coreCount} 核心位 / ${replaceableCount} 可替换</strong>
+      </article>
+      <article>
+        <span>来源状态</span>
+        <strong>${sourceLine}</strong>
+      </article>
     </div>
   `;
 }
@@ -3784,6 +3849,7 @@ function renderEquipmentDetail(item) {
         <h4>BD 使用矩阵</h4>
         <span>${relatedGuideCount(item)} 套</span>
       </div>
+      ${renderEquipmentUsageOverview(item)}
       ${renderEquipmentUsageMatrix(item)}
     </section>
     <section class="detail-section">

@@ -4914,6 +4914,43 @@ h4 {
   gap: 10px;
 }
 
+.equipment-usage-overview {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 12px;
+}
+
+.equipment-usage-overview article {
+  background: rgba(8, 4, 3, 0.48);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+  gap: 5px;
+  min-height: 72px;
+  padding: 10px;
+}
+
+.equipment-usage-overview span {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.equipment-usage-overview strong {
+  color: var(--bone);
+  font-size: 13px;
+  line-height: 1.38;
+  overflow-wrap: anywhere;
+}
+
+.equipment-usage-overview em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
 .equipment-usage-row {
   border: 1px solid rgba(214, 173, 99, 0.18);
   display: grid;
@@ -4925,8 +4962,7 @@ h4 {
   display: none;
 }
 
-.equipment-usage-row > div,
-.equipment-usage-row > a {
+.equipment-usage-row > div {
   border-bottom: 1px solid rgba(214, 173, 99, 0.12);
   border-right: 0;
   display: grid;
@@ -4935,19 +4971,26 @@ h4 {
   padding: 10px;
 }
 
-.equipment-usage-row > a {
+.equipment-usage-actions {
   align-content: center;
+  display: grid;
+  gap: 6px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.equipment-usage-actions a {
   background: rgba(214, 173, 99, 0.1);
-  border-bottom: 0;
+  border: 1px solid rgba(214, 173, 99, 0.18);
   color: var(--bone);
   font-size: 12px;
   font-weight: 800;
-  justify-content: stretch;
+  min-height: 30px;
+  padding: 7px 5px;
   text-align: center;
   text-decoration: none;
 }
 
-.equipment-usage-row > a:hover {
+.equipment-usage-actions a:hover {
   background: rgba(214, 173, 99, 0.16);
 }
 
@@ -6253,13 +6296,16 @@ h4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .equipment-usage-row > div,
-  .equipment-usage-row > a {
+  .equipment-usage-overview {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .equipment-usage-row > div {
     border-right: 0;
     border-bottom: 1px solid rgba(214, 173, 99, 0.12);
   }
 
-  .equipment-usage-row > a {
+  .equipment-usage-actions {
     border-bottom: 0;
     justify-content: stretch;
   }
@@ -6623,7 +6669,9 @@ h4 {
   }
 
   .class-build-family__summary,
-  .class-build-family__gear div {
+  .class-build-family__gear div,
+  .equipment-usage-overview,
+  .equipment-usage-actions {
     grid-template-columns: 1fr;
   }
 

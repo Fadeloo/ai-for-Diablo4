@@ -364,6 +364,8 @@ assert(frontendText.includes("compact-guide-actions"), "BD default recommendatio
 assert(frontendText.includes("技能第一步") && frontendText.includes("巅峰第一步") && frontendText.includes("打法循环"), "BD cards must preview skill, paragon and gameplay execution before detail navigation");
 assert(frontendText.includes("renderEquipmentUsageMatrix"), "Equipment detail must render a usage matrix for related builds");
 assert(frontendText.includes("equipment-usage-matrix"), "Equipment detail must expose class, build, mode, slot and replacement status for related builds");
+assert(frontendText.includes("renderEquipmentUsageOverview") && frontendText.includes("equipment-usage-overview"), "Equipment detail must summarize related build usage before the full matrix");
+assert(frontendText.includes("equipment-usage-actions") && frontendText.includes("guideSectionUrl(guide, \"skills\")") && frontendText.includes("guideSectionUrl(guide, \"paragon\")"), "Equipment usage matrix must link to gear, skills and paragon sections");
 assert(frontendText.includes("requirement-coverage-grid") && frontendText.includes("BD 执行信息覆盖"), "Sources page must render player-facing BD requirement coverage");
 assert(frontendText.includes("renderLoadoutBoard"), "BD detail must render a paper-doll loadout board");
 assert(frontendText.includes("renderGuideReadinessPanel") && frontendText.includes("guide-readiness__actions"), "BD detail must expose copy-readiness and section actions");

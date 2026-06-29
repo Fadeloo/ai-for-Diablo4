@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-29T05:12:52.667Z",
+  "generatedAt": "2026-06-29T05:18:49.650Z",
   "scope": "player_site_data_coverage_and_storage_usage",
   "asOf": "2026-06-28",
   "storageLayers": [
@@ -325,9 +325,11 @@
         "gearSlot.slotId",
         "gearSlot.required",
         "gearSlot.replaceable",
+        "gearSlot.alternatives",
+        "guide.ceiling",
         "source.verificationLevel"
       ],
-      "frontendUse": "装备详情反查该装备在不同职业、流派和用途中的使用位置。"
+      "frontendUse": "装备详情先汇总关联 BD、常见职业、常见用途、常见部位和硬需求/可替换分布，再反查该装备在不同职业、流派和用途中的使用位置，并直达装备、技能和巅峰分区。"
     },
     {
       "component": "EquipmentResultsList",
