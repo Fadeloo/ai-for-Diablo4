@@ -2672,13 +2672,16 @@ function gearPowerText(slot) {
   return slot.aspect?.powerText || slot.aspect?.role || slot.target?.description || "效果文本待补来源";
 }
 
-function renderGearSummaryMatrix(guide) {
+function renderGearSummaryMatrix(guide, options = {}) {
+  const title = options.title || "完整配装总表";
+  const subtitle = options.subtitle || "11 个装备位置、核心件、替换状态和词缀方向";
+  const ariaLabel = options.ariaLabel || "完整配装总表";
   return `
-    <section class="gear-summary-matrix" aria-label="完整配装总表">
+    <section class="gear-summary-matrix" aria-label="${ariaLabel}">
       <header>
         <div>
-          <span>完整配装总表</span>
-          <strong>11 个装备位置、核心件、替换状态和词缀方向</strong>
+          <span>${title}</span>
+          <strong>${subtitle}</strong>
         </div>
         <em>${guideSourceLabel(guide)} · ${guide.gameVersion.patch} 构建 #${guide.gameVersion.build}</em>
       </header>
@@ -2735,6 +2738,14 @@ function renderGearSummaryMatrix(guide) {
       </div>
     </section>
   `;
+}
+
+function renderPlannerGearMatrix(guide) {
+  return renderGearSummaryMatrix(guide, {
+    ariaLabel: "配置页 11 部位配装矩阵",
+    title: "11 部位配装矩阵",
+    subtitle: "目标件、核心威能或暗金、替换状态和词缀方向"
+  });
 }
 
 function renderGearSlot(slot) {
@@ -3098,6 +3109,7 @@ function renderBuildPlannerSheet(guide) {
         <a href="${guideSectionUrl(guide, "gameplay")}">打法流程</a>
         <a href="${guideSectionUrl(guide, "variants")}">替换方案</a>
       </div>
+      ${renderPlannerGearMatrix(guide)}
       <section class="planner-loadout-overview" aria-label="配置页 11 部位装备图标速览">
         <header>
           <span>11 部位图标速览</span>
