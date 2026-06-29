@@ -92,6 +92,7 @@ BuildDetailPage
   ├─ BuildHeader
   ├─ StickySectionNav
   ├─ BuildChapterIndex
+  ├─ PlannerCoreRequirementPanel
   ├─ OverviewSection
   │   ├─ BuildManualPanel
   │   ├─ ExecutionPlan
@@ -131,6 +132,7 @@ AspectPage
 - `BuildResultsList`、`EquipmentResultsList`、`AspectResultsList` 必须有分页、固定视窗或“显示更多”，不能一次铺到移动端数万像素。
 - `BuildHeader` 只放标题、来源、难度、核心入口和关键指标；纸娃娃装备盘面移到装备分区。
 - `BuildChapterIndex` 是 BD 详情页固定骨架，必须展示装备、技能、巅峰、打法、替换、来源六个玩家章节的完成度、计数和直达入口。
+- `PlannerCoreRequirementPanel` 必须在配置页 11 槽矩阵前展示硬需求装备、核心威能/暗金、可替换位和执行入口。
 - `BuildDetailPage` 内所有区块都能独立阅读，装备、技能、巅峰、打法不能挤在同一张大卡里。
 - `#item/<itemId>` 和 `#aspect/<aspectId>` 继续复用对应数据库页，但 URL 必须选中详情并把主要信息置顶。
 - 所有按钮和跳转文案使用玩家语言，例如“查看完整 BD”“装备页”“看技能分区”，不出现内部模型措辞。

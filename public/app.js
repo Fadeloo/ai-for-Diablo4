@@ -1524,6 +1524,80 @@ function renderCoreRequirementList(guide, limit = 11) {
   `;
 }
 
+function renderPlannerCoreRequirementPanel(guide) {
+  const requirements = guide.coreRequirements || [];
+  const requiredItems = requirements.filter((item) => item.required).slice(0, 7);
+  const powers = requirements.slice(0, 8);
+  const replaceableSlots = (guide.gearSlots || []).filter((slot) => slot.replaceable).slice(0, 6);
+  const firstSkill = guide.skillTree?.pointOrder?.[0];
+  const firstParagon = guide.paragon?.clickOrder?.[0];
+  const firstLoop = guide.gameplay?.loop?.[0] || guide.gameplay?.opener?.[0];
+  return `
+    <section class="planner-core-panel" aria-label="配置页核心件与替换核对">
+      <header>
+        <div>
+          <span>核心件与替换核对</span>
+          <strong>先确认硬需求、核心威能或暗金，再看 11 个部位细节</strong>
+        </div>
+        <em>${requiredItems.length} 硬需求 · ${replaceableSlots.length} 可替换 · ${guideSourceLabel(guide)}</em>
+      </header>
+      <div class="planner-core-panel__grid">
+        <article>
+          <span>硬需求装备</span>
+          <ol>
+            ${requiredItems.map((item) => `
+              <li>
+                <b>${displayText(item.zhSlotName)}</b>
+                <strong>${displayText(item.targetName)}</strong>
+                <em>${displayText(item.powerKind)}：${displayText(item.powerName)}</em>
+              </li>
+            `).join("")}
+          </ol>
+          <a href="${guideSectionUrl(guide, "gear")}">装备分区</a>
+        </article>
+        <article>
+          <span>核心威能 / 暗金</span>
+          <ol>
+            ${powers.map((item) => `
+              <li>
+                <b>${displayText(item.powerKind)}</b>
+                <strong>${displayText(item.powerName)}</strong>
+                <em>${displayText(item.zhSlotName)} · ${item.required ? "硬需求" : item.replaceable ? "可替换" : "核心位"}</em>
+              </li>
+            `).join("")}
+          </ol>
+          <a href="${guideSectionUrl(guide, "gear")}">看部位来源</a>
+        </article>
+        <article>
+          <span>可替换部位</span>
+          <ol>
+            ${replaceableSlots.map((slot) => {
+              const alternative = (slot.alternatives || [])[0];
+              return `
+                <li>
+                  <b>${displayText(slot.zhSlotName)}</b>
+                  <strong>${displayText(alternative?.zhName || slot.target.zhName)}</strong>
+                  <em>${displayText(alternative?.tradeoff || alternative?.reason || "按抗性、资源或缺件过渡。")}</em>
+                </li>
+              `;
+            }).join("")}
+          </ol>
+          <a href="${guideSectionUrl(guide, "variants")}">替换分区</a>
+        </article>
+        <article>
+          <span>执行入口</span>
+          <ol>
+            <li><b>技能</b><strong>${firstSkill ? `${displayText(firstSkill.levelRange)} · ${displayText(firstSkill.skill)}` : routePendingText("技能路线")}</strong><em>${displayText(firstSkill?.points || "按技能分区执行")}</em></li>
+            <li><b>巅峰</b><strong>${firstParagon ? `${displayText(firstParagon.board)} · ${displayText(firstParagon.node)}` : routePendingText("巅峰路线")}</strong><em>${displayText(firstParagon?.reason || "按巅峰分区执行")}</em></li>
+            <li><b>打法</b><strong>${displayText(firstLoop || routePendingText("打法流程"))}</strong><em>${guide.taxonomy.modeName} · ${guide.taxonomy.stage}</em></li>
+          </ol>
+          <a href="${guideSectionUrl(guide, "gameplay")}">打法分区</a>
+        </article>
+      </div>
+    </section>
+  `;
+}
+
 function guideLoadoutPreview(guide, limit = 6) {
   const prioritySlots = [
     "helm",
@@ -3139,6 +3213,7 @@ function renderBuildPlannerSheet(guide) {
         <a href="${guideSectionUrl(guide, "variants")}">替换方案</a>
       </div>
       ${renderBuildChapterIndex(guide)}
+      ${renderPlannerCoreRequirementPanel(guide)}
       ${renderPlannerGearMatrix(guide)}
       ${renderRouteOverview(guide)}
       <section class="planner-loadout-overview" aria-label="配置页 11 部位装备图标速览">

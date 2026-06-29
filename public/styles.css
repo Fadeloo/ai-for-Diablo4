@@ -3728,6 +3728,126 @@ h4 {
   padding: 4px 7px;
 }
 
+.planner-core-panel {
+  background:
+    linear-gradient(135deg, rgba(82, 18, 14, 0.22), rgba(8, 4, 3, 0.78) 58%),
+    rgba(8, 4, 3, 0.64);
+  border: 1px solid rgba(240, 207, 143, 0.24);
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+}
+
+.planner-core-panel > header {
+  align-items: start;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.planner-core-panel > header span,
+.planner-core-panel article > span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.planner-core-panel > header strong {
+  color: #fff7df;
+  display: block;
+  font-size: 17px;
+  line-height: 1.3;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+
+.planner-core-panel > header em {
+  background: rgba(214, 173, 99, 0.1);
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 850;
+  justify-self: end;
+  padding: 7px 9px;
+  text-align: right;
+}
+
+.planner-core-panel__grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.planner-core-panel article {
+  background:
+    linear-gradient(180deg, rgba(242, 240, 234, 0.04), rgba(8, 4, 3, 0.5));
+  border: 1px solid rgba(214, 173, 99, 0.15);
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  padding: 12px;
+}
+
+.planner-core-panel ol {
+  display: grid;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.planner-core-panel li {
+  border-bottom: 1px solid rgba(214, 173, 99, 0.11);
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  padding-bottom: 8px;
+}
+
+.planner-core-panel li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.planner-core-panel li b {
+  color: var(--gold);
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.planner-core-panel li strong {
+  color: var(--bone);
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.planner-core-panel li em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.38;
+  overflow-wrap: anywhere;
+}
+
+.planner-core-panel article a {
+  align-self: end;
+  background: rgba(214, 173, 99, 0.09);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-weight: 900;
+  justify-self: start;
+  padding: 7px 9px;
+  text-decoration: none;
+}
+
+.planner-core-panel article a:hover {
+  background: rgba(164, 32, 24, 0.22);
+  border-color: rgba(240, 207, 143, 0.38);
+}
+
 .build-checklist {
   background:
     linear-gradient(180deg, rgba(28, 13, 8, 0.86), rgba(7, 4, 3, 0.82));
@@ -7561,6 +7681,10 @@ h4 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .planner-core-panel__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .build-checklist-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -8335,6 +8459,7 @@ h4 {
   .guide-section-directory > header,
   .guide-copy-overview > header,
   .build-chapter-index > header,
+  .planner-core-panel > header,
   .guide-mode-comparison > header,
   .build-checklist > header {
     grid-template-columns: 1fr;
@@ -8343,6 +8468,7 @@ h4 {
   .guide-section-directory > header em,
   .guide-copy-overview > header em,
   .build-chapter-index > header em,
+  .planner-core-panel > header em,
   .guide-mode-comparison > header em,
   .build-checklist > header em {
     justify-self: start;
@@ -8351,6 +8477,7 @@ h4 {
 
   .guide-section-directory > div,
   .build-chapter-index__grid,
+  .planner-core-panel__grid,
   .guide-section-switcher,
   .guide-family-modes,
   .guide-mode-row,

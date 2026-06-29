@@ -202,6 +202,26 @@ const frontendDataContracts = [
     frontendUse: "BD 配置页顶部固定展示装备、技能、巅峰、打法、替换和来源六个章节的完成度、关键计数和分区入口，避免玩家在长页里找不到实际信息。"
   },
   {
+    component: "PlannerCoreRequirementPanel",
+    zhName: "BD 配置页核心件核对",
+    source: "build-guides.builds[id].coreRequirements + gearSlots + route entries",
+    fields: [
+      "coreRequirements",
+      "coreRequirements[].zhSlotName",
+      "coreRequirements[].targetName",
+      "coreRequirements[].powerKind",
+      "coreRequirements[].powerName",
+      "coreRequirements[].required",
+      "coreRequirements[].replaceable",
+      "gearSlots[].alternatives[0]",
+      "skillTree.pointOrder[0]",
+      "paragon.clickOrder[0]",
+      "gameplay.loop[0]",
+      "source.verificationLevel"
+    ],
+    frontendUse: "BD 配置页在 11 槽矩阵前先展示硬需求装备、核心威能或暗金、可替换部位和执行入口，解决玩家进详情后先看不到核心配装的问题。"
+  },
+  {
     component: "BuildCopyOverview",
     zhName: "BD 首屏抄作业速览",
     source: "build-guides.builds[id]",
