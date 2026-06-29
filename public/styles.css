@@ -1707,10 +1707,23 @@ h4 {
   overflow-wrap: anywhere;
 }
 
+.season-build-mode-cell small {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: 38px minmax(0, 1fr);
+}
+
+.season-build-mode-cell small b {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 900;
+}
+
 .season-build-mode-cell {
   color: inherit;
   display: grid;
   gap: 5px;
+  align-content: start;
   text-decoration: none;
   transition: background-color var(--transition), border-color var(--transition);
 }
@@ -1719,12 +1732,43 @@ h4 {
   background: rgba(214, 173, 99, 0.08);
 }
 
+.season-build-mode-cell__main {
+  color: inherit;
+  display: grid;
+  gap: 5px;
+  text-decoration: none;
+}
+
 .season-build-mode-cell:last-child {
   border-right: 0;
 }
 
 .season-build-mode-cell.is-empty {
   opacity: 0.55;
+}
+
+.season-build-mode-cell__links {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 3px;
+}
+
+.season-build-mode-cell__links a {
+  background: rgba(214, 173, 99, 0.08);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  color: var(--gold-bright);
+  font-size: 11px;
+  font-weight: 850;
+  min-height: 25px;
+  padding: 5px 4px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.season-build-mode-cell__links a:hover {
+  background: rgba(164, 32, 24, 0.22);
+  border-color: rgba(240, 207, 143, 0.38);
 }
 
 .guide-card {

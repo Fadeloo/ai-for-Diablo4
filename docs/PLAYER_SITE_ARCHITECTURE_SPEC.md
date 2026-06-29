@@ -130,6 +130,7 @@ AspectPage
 关键约束：
 
 - `BuildResultsList`、`EquipmentResultsList`、`AspectResultsList` 必须有分页、固定视窗或“显示更多”，不能一次铺到移动端数万像素。
+- `SeasonBuildMatrix` 的每个用途单元格必须展示成型难度、适用阶段、上限、核心件、技能起步、巅峰起步、打法入口，并能直达装备、技能、巅峰和打法分区。
 - `BuildHeader` 只放标题、来源、难度、核心入口和关键指标；纸娃娃装备盘面移到装备分区。
 - `BuildChapterIndex` 是 BD 详情页固定骨架，必须展示装备、技能、巅峰、打法、替换、来源六个玩家章节的完成度、计数和直达入口。
 - `PlannerCoreRequirementPanel` 必须在配置页 11 槽矩阵前展示硬需求装备、核心威能/暗金、可替换位和执行入口。

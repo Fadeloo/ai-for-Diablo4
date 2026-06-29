@@ -237,6 +237,7 @@ assert(siteCoverage.pageBlueprints?.some((page) => page.route === "#bd/<guideId>
 assert(siteCoverage.buildCoverage.classMatrix?.length === simulations.seasons.length, "Site coverage needs per-season class matrix");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "RecommendedBuildBoard"), "Site coverage must describe the build recommendation board data contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildMaturityPanel" && contract.fields?.includes("source.verificationLevel")), "Site coverage must describe the build maturity panel contract");
+assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "SeasonBuildMatrix" && contract.fields?.includes("skillTree.pointOrder[0]") && contract.fields?.includes("paragon.clickOrder[0]") && contract.fields?.includes("gameplay.loop[0]")), "Site coverage must describe the executable season build matrix contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildSidebarSectionLinks" && contract.fields?.includes("gearSlots") && contract.fields?.includes("skillTree.pointOrder")), "Site coverage must describe the build sidebar section links contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildDetailLayout"), "Site coverage must describe the build detail data contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildChapterIndex" && contract.fields?.includes("gearSlots") && contract.fields?.includes("skillTree.pointOrder") && contract.fields?.includes("paragon.clickOrder") && contract.fields?.includes("source.verificationLevel")), "Site coverage must describe the build chapter index contract");
@@ -395,6 +396,7 @@ for (const forbidden of ["模型分", "先选目标", "rationale", "完整 BD �
 }
 assert(frontendText.includes("renderSeasonBuildMatrix"), "BD library must render a season build matrix by class, archetype and mode");
 assert(frontendText.includes("season-build-matrix"), "BD library must expose daily/speed/push comparisons before individual cards");
+assert(frontendText.includes("season-build-mode-cell__main") && frontendText.includes("season-build-mode-cell__links") && frontendText.includes("guideSectionUrl(guide, \"paragon\")"), "BD season matrix cells must expose core, skill, paragon, gameplay summaries and direct section links");
 assert(frontendText.includes("${renderRecommendedBuildBoard(recommendedGuides)}\n    ${renderSeasonBuildMatrix(guides)}"), "BD default recommendation view must expose the full class/archetype/mode matrix without requiring a view switch");
 assert(frontendText.includes("renderRecommendedBuildBoard"), "BD library must render a class-by-mode recommended build entry board");
 assert(frontendText.includes("recommended-build-board"), "BD library must expose per-class daily/speed/push entry points");

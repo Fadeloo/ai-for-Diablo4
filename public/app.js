@@ -2306,13 +2306,27 @@ function renderSeasonBuildModeCell(guide, mode) {
       </div>
     `;
   }
+  const firstSkillStep = guide.skillTree?.pointOrder?.[0];
+  const firstParagonStep = guide.paragon?.clickOrder?.[0];
+  const firstLoop = guide.gameplay?.loop?.[0] || guide.gameplay?.opener?.[0];
   return `
-    <a class="season-build-mode-cell" href="${guideUrl(guide)}">
-      <span>${guide.taxonomy.modeName} · ${guideSourceLabel(guide)}</span>
-      <strong>${guide.formationDifficulty.label}成型 · ${guide.taxonomy.stage}</strong>
-      <em>${guideCeilingTier(guide)} · ${guide.ceiling.pit150Minutes} 分</em>
-      <small>${guideCoreLine(guide)}</small>
-    </a>
+    <div class="season-build-mode-cell">
+      <a class="season-build-mode-cell__main" href="${guideUrl(guide)}">
+        <span>${guide.taxonomy.modeName} · ${guideSourceLabel(guide)}</span>
+        <strong>${guide.formationDifficulty.label}成型 · ${guide.taxonomy.stage}</strong>
+        <em>${guideCeilingTier(guide)} · ${guide.ceiling.pit150Minutes} 分</em>
+        <small><b>核心</b>${guideCoreLine(guide, 3)}</small>
+        <small><b>技能</b>${firstSkillStep ? `${displayText(firstSkillStep.levelRange)} ${displayText(firstSkillStep.skill)}` : routePendingText("技能路线")}</small>
+        <small><b>巅峰</b>${firstParagonStep ? `${displayText(firstParagonStep.board)} ${displayText(firstParagonStep.node)}` : routePendingText("巅峰路线")}</small>
+        <small><b>打法</b>${displayText(firstLoop || routePendingText("打法流程"))}</small>
+      </a>
+      <nav class="season-build-mode-cell__links" aria-label="${guide.taxonomy.archetypeName}${guide.taxonomy.modeName}分区入口">
+        <a href="${guideSectionUrl(guide, "gear")}">装备</a>
+        <a href="${guideSectionUrl(guide, "skills")}">技能</a>
+        <a href="${guideSectionUrl(guide, "paragon")}">巅峰</a>
+        <a href="${guideSectionUrl(guide, "gameplay")}">打法</a>
+      </nav>
+    </div>
   `;
 }
 
