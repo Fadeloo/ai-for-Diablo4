@@ -280,6 +280,8 @@ assert(frontendText.includes("is-fallback"), "BD recommendation board must visib
 assert(frontendText.includes("renderClassModeCard"), "Class page must render detailed per-mode build cards");
 assert(frontendText.includes("class-mode-card__facts") && frontendText.includes("class-mode-card__route") && frontendText.includes("class-mode-card__actions"), "Class build matrix must expose difficulty, stage, ceiling, route preview and section entry links");
 assert(frontendText.includes("guide-card__quickfacts"), "BD library cards must expose executable gear, skill, paragon and gameplay facts");
+assert(frontendText.includes("renderGuideSectionLinks") && frontendText.includes("guide-section-link-row"), "BD library cards must link directly to gear, skill, paragon and gameplay sections");
+assert(frontendText.includes("compact-guide-actions"), "BD default recommendation view must expose section links on priority guide cards");
 assert(frontendText.includes("技能第一步") && frontendText.includes("巅峰第一步") && frontendText.includes("打法循环"), "BD cards must preview skill, paragon and gameplay execution before detail navigation");
 assert(frontendText.includes("renderEquipmentUsageMatrix"), "Equipment detail must render a usage matrix for related builds");
 assert(frontendText.includes("equipment-usage-matrix"), "Equipment detail must expose class, build, mode, slot and replacement status for related builds");

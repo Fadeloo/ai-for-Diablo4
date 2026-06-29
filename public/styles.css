@@ -1062,6 +1062,31 @@ h4 {
   overflow-wrap: anywhere;
 }
 
+.compact-guide-actions {
+  align-self: end;
+  display: grid;
+  gap: 6px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-top: 4px;
+}
+
+.compact-guide-actions a {
+  background: rgba(214, 173, 99, 0.1);
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  color: var(--gold-bright);
+  font-size: 11px;
+  font-weight: 850;
+  min-height: 28px;
+  padding: 6px 4px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.compact-guide-actions a:hover {
+  background: rgba(164, 32, 24, 0.24);
+  border-color: rgba(240, 207, 143, 0.46);
+}
+
 .build-more {
   justify-self: center;
   min-width: 220px;
@@ -1515,6 +1540,29 @@ h4 {
   font-size: 12px;
   line-height: 1.35;
   overflow-wrap: anywhere;
+}
+
+.guide-section-link-row {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.guide-section-link-row a {
+  background: rgba(214, 173, 99, 0.1);
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-weight: 850;
+  min-height: 34px;
+  padding: 8px 6px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.guide-section-link-row a:hover {
+  background: rgba(164, 32, 24, 0.24);
+  border-color: rgba(240, 207, 143, 0.46);
 }
 
 .guide-card .button {

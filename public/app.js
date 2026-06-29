@@ -684,6 +684,20 @@ function guideSectionUrl(guide, sectionId) {
   return `#bd/${encodeURIComponent(guide.id)}/${encodeURIComponent(sectionId)}`;
 }
 
+function renderGuideSectionLinks(guide, className = "guide-section-link-row") {
+  const links = [
+    ["gear", "装备"],
+    ["skills", "技能"],
+    ["paragon", "巅峰"],
+    ["gameplay", "打法"]
+  ];
+  return `
+    <nav class="${className}" aria-label="${guide.taxonomy.archetypeName} 分区入口">
+      ${links.map(([sectionId, label]) => `<a href="${guideSectionUrl(guide, sectionId)}">${label}</a>`).join("")}
+    </nav>
+  `;
+}
+
 function itemUrl(itemOrId) {
   const id = typeof itemOrId === "string" ? itemOrId : itemOrId?.id;
   return id ? `#item/${encodeURIComponent(id)}` : "#equipment";
@@ -1260,6 +1274,7 @@ function renderBuildLibraryCard(guide) {
         </article>
       </div>
       <div class="guide-card__items">${renderCoreUniques(guide, 3)}</div>
+      ${renderGuideSectionLinks(guide)}
       <a class="button button-secondary" href="${guideUrl(guide)}">查看完整 BD</a>
     </article>
   `;
@@ -1603,12 +1618,19 @@ function renderBuildViewContent(guides, recommendedGuides) {
       </div>
       <div class="compact-guide-grid">
         ${priorityGuides.map((guide) => `
-          <a class="compact-guide-card" href="${guideUrl(guide)}">
+          <article class="compact-guide-card">
             <span>${guide.taxonomy.className} · ${guide.taxonomy.modeName} · ${guideSourceLabel(guide)}</span>
             <strong>${guide.taxonomy.archetypeName}</strong>
             <em>${guide.formationDifficulty.label}成型 · ${guide.taxonomy.stage} · ${guide.ceiling.displayTier || guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</em>
             <small>${guideCoreLine(guide)}</small>
-          </a>
+            <div class="compact-guide-actions">
+              <a href="${guideUrl(guide)}">总览</a>
+              <a href="${guideSectionUrl(guide, "gear")}">装备</a>
+              <a href="${guideSectionUrl(guide, "skills")}">技能</a>
+              <a href="${guideSectionUrl(guide, "paragon")}">巅峰</a>
+              <a href="${guideSectionUrl(guide, "gameplay")}">打法</a>
+            </div>
+          </article>
         `).join("")}
       </div>
     </section>` : `<section class="build-result-section" aria-label="当前来源无列表">
