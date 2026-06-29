@@ -3892,6 +3892,135 @@ h4 {
   border-color: rgba(240, 207, 143, 0.38);
 }
 
+.planner-replacement-deck {
+  background:
+    linear-gradient(135deg, rgba(28, 12, 8, 0.86), rgba(8, 4, 3, 0.76) 58%),
+    rgba(8, 4, 3, 0.58);
+  border: 1px solid rgba(240, 207, 143, 0.22);
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+}
+
+.planner-replacement-deck > header {
+  align-items: start;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.planner-replacement-deck > header span,
+.planner-replacement-deck article header span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.planner-replacement-deck > header strong {
+  color: #fff7df;
+  display: block;
+  font-size: 17px;
+  line-height: 1.3;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+
+.planner-replacement-deck > header em {
+  background: rgba(214, 173, 99, 0.1);
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 850;
+  justify-self: end;
+  padding: 7px 9px;
+  text-align: right;
+}
+
+.planner-replacement-deck__grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.planner-replacement-deck article {
+  background: rgba(8, 4, 3, 0.5);
+  border: 1px solid rgba(214, 173, 99, 0.14);
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+  padding: 10px;
+}
+
+.planner-replacement-deck article.is-required {
+  border-color: rgba(240, 207, 143, 0.42);
+}
+
+.planner-replacement-deck article.is-replaceable {
+  border-color: rgba(141, 187, 120, 0.34);
+}
+
+.planner-replacement-deck article header {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.planner-replacement-deck article header strong {
+  color: #fff7df;
+  font-size: 12px;
+}
+
+.planner-replacement-deck p {
+  color: var(--muted);
+  display: grid;
+  gap: 6px;
+  grid-template-columns: 36px minmax(0, 1fr);
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.planner-replacement-deck p b {
+  color: var(--gold);
+  font-size: 11px;
+}
+
+.planner-replacement-deck article em {
+  border-top: 1px solid rgba(214, 173, 99, 0.12);
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.4;
+  margin-top: 2px;
+  overflow-wrap: anywhere;
+  padding-top: 7px;
+}
+
+.planner-replacement-deck > nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.planner-replacement-deck > nav a {
+  background: rgba(214, 173, 99, 0.09);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-weight: 900;
+  min-height: 32px;
+  padding: 7px 9px;
+  text-decoration: none;
+}
+
+.planner-replacement-deck > nav a:hover {
+  background: rgba(164, 32, 24, 0.22);
+  border-color: rgba(240, 207, 143, 0.38);
+}
+
 .build-checklist {
   background:
     linear-gradient(180deg, rgba(28, 13, 8, 0.86), rgba(7, 4, 3, 0.82));
@@ -7917,6 +8046,10 @@ h4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .planner-replacement-deck__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .build-checklist-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -8394,6 +8527,7 @@ h4 {
   .planner-route-overview__head,
   .planner-route-overview__skillbar,
   .planner-route-overview__grid,
+  .planner-replacement-deck > header,
   .planner-full-route-deck > header,
   .planner-full-route-deck__grid,
   .planner-gameplay-deck > header,
@@ -8704,6 +8838,7 @@ h4 {
   .guide-copy-overview > header,
   .build-chapter-index > header,
   .planner-core-panel > header,
+  .planner-replacement-deck > header,
   .guide-mode-comparison > header,
   .build-checklist > header {
     grid-template-columns: 1fr;
@@ -8713,6 +8848,7 @@ h4 {
   .guide-copy-overview > header em,
   .build-chapter-index > header em,
   .planner-core-panel > header em,
+  .planner-replacement-deck > header em,
   .guide-mode-comparison > header em,
   .build-checklist > header em {
     justify-self: start;
@@ -8722,6 +8858,7 @@ h4 {
   .guide-section-directory > div,
   .build-chapter-index__grid,
   .planner-core-panel__grid,
+  .planner-replacement-deck__grid,
   .planner-full-route-deck__grid,
   .planner-gameplay-deck__grid,
   .guide-section-switcher,

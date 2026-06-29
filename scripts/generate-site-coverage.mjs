@@ -245,6 +245,21 @@ const frontendDataContracts = [
     frontendUse: "BD 配置页在 11 槽矩阵前先展示硬需求装备、核心威能或暗金、可替换部位和执行入口，解决玩家进详情后先看不到核心配装的问题。"
   },
   {
+    component: "PlannerReplacementDeck",
+    zhName: "BD 配置页 11 部位替换核对",
+    source: "build-guides.builds[id].gearSlots",
+    fields: [
+      "gearSlots",
+      "gearSlots[].zhSlotName",
+      "gearSlots[].target.zhName",
+      "gearSlots[].required",
+      "gearSlots[].replaceable",
+      "gearSlots[].alternatives[0].zhName",
+      "gearSlots[].alternatives[0].tradeoff"
+    ],
+    frontendUse: "BD 配置页在 11 槽矩阵前逐部位展示当前装备、锁定状态、首选替换和替换代价，避免玩家只看到核心位而看不到全部部位能不能换。"
+  },
+  {
     component: "PlannerFullRouteDeck",
     zhName: "BD 配置页全量技能巅峰路线",
     source: "build-guides.builds[id].skillTree + paragon",

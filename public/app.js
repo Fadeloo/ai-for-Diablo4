@@ -1598,6 +1598,43 @@ function renderPlannerCoreRequirementPanel(guide) {
   `;
 }
 
+function renderPlannerReplacementDeck(guide) {
+  const slots = guide.gearSlots || [];
+  const replaceableCount = slots.filter((slot) => slot.replaceable).length;
+  const lockedCount = slots.filter((slot) => slot.required && !slot.replaceable).length;
+  return `
+    <section class="planner-replacement-deck" aria-label="配置页 11 部位替换核对">
+      <header>
+        <div>
+          <span>11 部位替换核对</span>
+          <strong>每个装备位的锁定状态、首选替换和代价</strong>
+        </div>
+        <em>${replaceableCount} 可替换 · ${lockedCount} 锁定硬需求</em>
+      </header>
+      <div class="planner-replacement-deck__grid">
+        ${slots.map((slot) => {
+          const alternative = (slot.alternatives || [])[0];
+          return `
+            <article class="${gearSlotStateClass(slot)}">
+              <header>
+                <span>${displayText(slot.zhSlotName)}</span>
+                <strong>${slot.required ? "硬需求" : slot.replaceable ? "可替换" : "核心位"}</strong>
+              </header>
+              <p><b>当前</b>${displayText(slot.target.zhName)}</p>
+              <p><b>替换</b>${displayText(alternative?.zhName || "不建议替换")}</p>
+              <em>${displayText(alternative?.tradeoff || alternative?.reason || "该部位承担核心联动，缺件时先降低层数过渡。")}</em>
+            </article>
+          `;
+        }).join("")}
+      </div>
+      <nav aria-label="替换核对入口">
+        <a href="${guideSectionUrl(guide, "variants")}">替换分区</a>
+        <a href="${guideSectionUrl(guide, "gear")}">装备分区</a>
+      </nav>
+    </section>
+  `;
+}
+
 function guideLoadoutPreview(guide, limit = 6) {
   const prioritySlots = [
     "helm",
@@ -3299,6 +3336,7 @@ function renderBuildPlannerSheet(guide) {
       </div>
       ${renderBuildChapterIndex(guide)}
       ${renderPlannerCoreRequirementPanel(guide)}
+      ${renderPlannerReplacementDeck(guide)}
       ${renderPlannerGearMatrix(guide)}
       ${renderRouteOverview(guide)}
       ${renderPlannerFullRouteDeck(guide)}
