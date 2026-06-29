@@ -139,6 +139,26 @@ const frontendDataContracts = [
     frontendUse: "威能索引列表只负责查找和选择，详情面板展示效果、可用部位、来源状态和相关 BD。"
   },
   {
+    component: "ClassBuildMatrix",
+    zhName: "职业完整流派矩阵",
+    source: "build-guides.builds + archetypes + class selection",
+    fields: [
+      "taxonomy.classId",
+      "taxonomy.archetypeId",
+      "taxonomy.mode",
+      "formationDifficulty",
+      "taxonomy.stage",
+      "ceiling",
+      "coreUniques",
+      "coreAspects",
+      "skillTree.pointOrder[0]",
+      "paragon.clickOrder[0]",
+      "gameplay.loop[0]",
+      "source.verificationLevel"
+    ],
+    frontendUse: "职业页按流派和日常、速刷、冲层三种用途展示成型难度、阶段、上限、核心件、技能第一步、巅峰第一步、打法和分区入口。"
+  },
+  {
     component: "CoveragePanel",
     zhName: "数据覆盖与使用方式",
     source: "site-coverage",

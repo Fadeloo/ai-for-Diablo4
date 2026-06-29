@@ -2865,6 +2865,47 @@ function renderClassSeasonSummary(selected, guides) {
   `;
 }
 
+function renderClassModeCard(guide, mode) {
+  if (!guide) {
+    return `
+      <div class="class-mode-card is-empty">
+        <span>${modeName(mode)}</span>
+        <strong>待回填</strong>
+        <em>暂无结构化 BD</em>
+      </div>
+    `;
+  }
+  const firstSkillStep = (guide.skillTree?.pointOrder || [])[0];
+  const firstParagonStep = (guide.paragon?.clickOrder || [])[0];
+  const firstLoop = (guide.gameplay?.loop || [])[0] || (guide.gameplay?.opener || [])[0];
+  return `
+    <article class="class-mode-card">
+      <div class="class-mode-card__head">
+        <span>${guide.taxonomy.modeName}</span>
+        <strong>${guide.taxonomy.archetypeName}</strong>
+      </div>
+      <div class="class-mode-card__facts" aria-label="流派强度、阶段和来源">
+        <b>${guide.formationDifficulty.label}成型</b>
+        <b>${guide.taxonomy.stage}</b>
+        <b>${guide.ceiling.displayTier || guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</b>
+        <b>${guideSourceLabel(guide)}</b>
+      </div>
+      <dl class="class-mode-card__route">
+        <div><dt>核心</dt><dd>${guideCoreLine(guide)}</dd></div>
+        <div><dt>技能</dt><dd>${firstSkillStep ? `${displayText(firstSkillStep.levelRange)} · ${displayText(firstSkillStep.skill)}` : "待来源回填"}</dd></div>
+        <div><dt>巅峰</dt><dd>${firstParagonStep ? `${displayText(firstParagonStep.board)} · ${displayText(firstParagonStep.node)}` : "待来源回填"}</dd></div>
+        <div><dt>打法</dt><dd>${displayText(firstLoop || "待来源回填")}</dd></div>
+      </dl>
+      <div class="class-mode-card__actions">
+        <a href="${guideSectionUrl(guide, "gear")}">装备</a>
+        <a href="${guideSectionUrl(guide, "skills")}">技能</a>
+        <a href="${guideSectionUrl(guide, "paragon")}">巅峰</a>
+        <a href="${guideSectionUrl(guide, "gameplay")}">打法</a>
+      </div>
+    </article>
+  `;
+}
+
 function renderClassBuildMatrix(selected, archetypes, guides) {
   const guidesByArchetype = new Map();
   for (const guide of guides) {
@@ -2893,24 +2934,7 @@ function renderClassBuildMatrix(selected, archetypes, guides) {
               <div class="class-build-mode-grid">
                 ${classModeOrder.map((mode) => {
                   const guide = archetypeGuides.find((item) => item.taxonomy.mode === mode);
-                  if (!guide) {
-                    return `
-                      <div class="class-mode-card is-empty">
-                        <span>${modeName(mode)}</span>
-                        <strong>待回填</strong>
-                        <em>暂无结构化 BD</em>
-                      </div>
-                    `;
-                  }
-                  return `
-                    <a class="class-mode-card" href="${guideUrl(guide)}">
-                      <span>${guide.taxonomy.modeName}</span>
-                      <strong>${guide.formationDifficulty.label} · ${guide.taxonomy.stage}</strong>
-                      <em>${guide.ceiling.label}</em>
-                      <p>${guideSourceLabel(guide)}</p>
-                      <small>${guideCoreLine(guide)}</small>
-                    </a>
-                  `;
+                  return renderClassModeCard(guide, mode);
                 }).join("")}
               </div>
             </article>

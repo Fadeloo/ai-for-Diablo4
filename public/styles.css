@@ -4619,8 +4619,8 @@ h4 {
   background: linear-gradient(180deg, rgba(214, 173, 99, 0.1), rgba(10, 6, 4, 0.66));
   border: 1px solid rgba(214, 173, 99, 0.2);
   display: grid;
-  gap: 6px;
-  min-height: 138px;
+  gap: 10px;
+  min-height: 260px;
   padding: 12px;
 }
 
@@ -4630,6 +4630,11 @@ h4 {
 
 .class-mode-card.is-empty {
   opacity: 0.62;
+}
+
+.class-mode-card__head {
+  display: grid;
+  gap: 4px;
 }
 
 .class-mode-card span {
@@ -4658,6 +4663,72 @@ h4 {
 .class-mode-card p {
   color: var(--gold);
   font-weight: 750;
+}
+
+.class-mode-card__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.class-mode-card__facts b {
+  background: rgba(8, 4, 3, 0.46);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  color: var(--bone);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 5px 7px;
+}
+
+.class-mode-card__route {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+}
+
+.class-mode-card__route div {
+  border-top: 1px solid rgba(214, 173, 99, 0.1);
+  display: grid;
+  gap: 3px;
+  padding-top: 6px;
+}
+
+.class-mode-card__route dt {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.class-mode-card__route dd {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.class-mode-card__actions {
+  align-self: end;
+  display: grid;
+  gap: 6px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.class-mode-card__actions a {
+  background: rgba(214, 173, 99, 0.1);
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  color: var(--gold-bright);
+  font-size: 11px;
+  font-weight: 850;
+  min-height: 28px;
+  padding: 6px 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.class-mode-card__actions a:hover {
+  background: rgba(164, 32, 24, 0.24);
+  border-color: rgba(240, 207, 143, 0.46);
 }
 
 .damage-workbench {
