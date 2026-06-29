@@ -2291,6 +2291,101 @@ h4 {
   min-height: 96px;
 }
 
+.guide-family-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.guide-family-card {
+  background:
+    linear-gradient(180deg, rgba(8, 4, 3, 0.58), rgba(16, 9, 6, 0.66));
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  padding: 12px;
+}
+
+.guide-family-card header {
+  align-items: start;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.guide-family-card header span,
+.guide-family-mode b {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.guide-family-card header strong {
+  color: var(--bone);
+  display: block;
+  font-size: 15px;
+  line-height: 1.3;
+  margin-top: 3px;
+  overflow-wrap: anywhere;
+}
+
+.guide-family-card header em,
+.guide-family-mode em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.guide-family-card header a {
+  background: rgba(214, 173, 99, 0.09);
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-weight: 850;
+  padding: 7px 9px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.guide-family-card header a:hover {
+  background: rgba(164, 32, 24, 0.24);
+  border-color: rgba(240, 207, 143, 0.44);
+}
+
+.guide-family-modes {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.guide-family-mode {
+  background: rgba(242, 240, 234, 0.045);
+  border: 1px solid rgba(214, 173, 99, 0.14);
+  display: grid;
+  gap: 4px;
+  min-height: 76px;
+  min-width: 0;
+  padding: 8px;
+  text-decoration: none;
+}
+
+.guide-family-mode:hover {
+  background: rgba(214, 173, 99, 0.09);
+  border-color: rgba(240, 207, 143, 0.36);
+}
+
+.guide-family-mode strong {
+  color: #fff7df;
+  font-size: 13px;
+}
+
+.guide-family-mode.is-empty {
+  opacity: 0.56;
+}
+
 .gear-summary-matrix {
   background:
     linear-gradient(180deg, rgba(18, 10, 7, 0.78), rgba(6, 3, 2, 0.74));
@@ -6511,6 +6606,10 @@ h4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .guide-family-grid {
+    grid-template-columns: 1fr;
+  }
+
   .class-build-family__summary {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -7187,7 +7286,8 @@ h4 {
   }
 
   .guide-section-directory > div,
-  .guide-section-switcher {
+  .guide-section-switcher,
+  .guide-family-modes {
     grid-template-columns: 1fr;
   }
 

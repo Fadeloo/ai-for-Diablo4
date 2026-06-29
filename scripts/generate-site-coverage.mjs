@@ -174,6 +174,25 @@ const frontendDataContracts = [
     frontendUse: "BD 总览先给装备、技能、巅峰、打法和替换入口，帮助玩家立即判断能不能抄。"
   },
   {
+    component: "BuildFamilyNavigator",
+    zhName: "赛季流派谱系",
+    source: "build-guides.builds[id] + build-guides.builds[taxonomy]",
+    fields: [
+      "taxonomy.seasonId",
+      "taxonomy.classId",
+      "taxonomy.archetypeId",
+      "taxonomy.mode",
+      "taxonomy.modeName",
+      "formationDifficulty",
+      "taxonomy.stage",
+      "ceiling.displayTier",
+      "ceiling.pit150Minutes",
+      "source.verificationLevel",
+      "source.references"
+    ],
+    frontendUse: "BD 总览按当前流派三用途和同职业其他流派分组，展示日常、速刷、冲层的成型难度、阶段、上限和来源状态。"
+  },
+  {
     component: "BuildPlannerSheet",
     zhName: "BD 抄作业配置总表",
     source: "build-guides.builds[id]",

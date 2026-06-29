@@ -1008,24 +1008,70 @@ function sameClassCommunityGuides(guide) {
     .slice(0, 6);
 }
 
+function sameClassBuildFamilies(guide) {
+  const groups = new Map();
+  for (const item of allBuildGuides()) {
+    if (item.taxonomy.seasonId !== guide.taxonomy.seasonId) continue;
+    if (item.taxonomy.classId !== guide.taxonomy.classId) continue;
+    if (item.taxonomy.archetypeId === guide.taxonomy.archetypeId) continue;
+    const key = item.taxonomy.archetypeId;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(item);
+  }
+  return [...groups.values()]
+    .map((items) => {
+      const sorted = items.slice().sort(sortGuidesForPlayer);
+      return {
+        archetypeId: sorted[0].taxonomy.archetypeId,
+        archetypeName: sorted[0].taxonomy.archetypeName,
+        guides: sorted,
+        bestGuide: sorted[0],
+        communityCount: sorted.filter((item) => item.source.references?.length).length
+      };
+    })
+    .sort((a, b) => sortGuidesForPlayer(a.bestGuide, b.bestGuide));
+}
+
 function guideVersionMeta(guide) {
   const tier = guide.ceiling.displayTier || guide.ceiling.tier;
   const clearTime = Number.isFinite(guide.ceiling.pit150Minutes) ? `150 层 ${guide.ceiling.pit150Minutes} 分` : guide.ceiling.label;
   return `${guide.formationDifficulty.label}成型 · ${guide.taxonomy.stage} · ${tier} · ${clearTime}`;
 }
 
+function renderFamilyModeLinks(family) {
+  return buildVersionModeOrder.map((mode) => {
+    const guide = family.guides.find((item) => item.taxonomy.mode === mode);
+    if (!guide) {
+      return `
+        <span class="guide-family-mode is-empty">
+          <b>${modeLabels[mode]}</b>
+          <em>暂无当前赛季条目</em>
+        </span>
+      `;
+    }
+    return `
+      <a class="guide-family-mode" href="${guideUrl(guide)}">
+        <b>${guide.taxonomy.modeName}</b>
+        <strong>${guide.ceiling.displayTier || guide.ceiling.tier}</strong>
+        <em>${guide.formationDifficulty.label} · ${guideSourceLabel(guide)}</em>
+      </a>
+    `;
+  }).join("");
+}
+
 function renderBuildVersionSwitcher(guide) {
   const versions = sameArchetypeVersions(guide);
-  const relatedGuides = sameClassCommunityGuides(guide);
+  const classFamilies = sameClassBuildFamilies(guide).slice(0, 6);
   const versionLabels = versions.map((item) => item.taxonomy.modeName).join(" / ");
+  const communityCount = versions.filter((item) => item.source.references?.length).length;
   return `
-    <section class="guide-version-switcher" aria-label="同流派版本切换">
+    <section class="guide-version-switcher" aria-label="赛季流派谱系">
       <header>
         <div>
-          <span>同流派版本</span>
-          <strong>${displayText(guide.taxonomy.archetypeName)} · ${versionLabels}</strong>
+          <span>赛季流派谱系</span>
+          <strong>${guide.taxonomy.className} · ${displayText(guide.taxonomy.archetypeName)} · ${versionLabels}</strong>
         </div>
-        <em>当前：${guide.taxonomy.modeName} · ${guideSourceLabel(guide)}</em>
+        <em>当前流派 ${versions.length} 个用途 · ${communityCount} 个社区来源</em>
       </header>
       <div class="guide-version-tabs">
         ${versions.map((item) => `
@@ -1036,16 +1082,24 @@ function renderBuildVersionSwitcher(guide) {
           </a>
         `).join("")}
       </div>
-      ${relatedGuides.length ? `
-        <div class="guide-related-builds">
-          <strong>同职业可抄社区 BD</strong>
-          <div class="guide-related-strip">
-            ${relatedGuides.map((item) => `
-              <a class="guide-related-build" href="${guideUrl(item)}">
-                <span>${item.taxonomy.modeName} · ${guideSourceLabel(item)}</span>
-                <strong>${displayText(item.taxonomy.archetypeName)}</strong>
-                <em>${guideVersionMeta(item)}</em>
-              </a>
+      ${classFamilies.length ? `
+        <div class="guide-related-builds guide-family-matrix">
+          <strong>同职业其他流派</strong>
+          <div class="guide-family-grid">
+            ${classFamilies.map((family) => `
+              <article class="guide-family-card">
+                <header>
+                  <div>
+                    <span>${family.communityCount ? `${family.communityCount} 个社区来源` : "结构化路线"}</span>
+                    <strong>${displayText(family.archetypeName)}</strong>
+                    <em>${guideVersionMeta(family.bestGuide)}</em>
+                  </div>
+                  <a href="${guideUrl(family.bestGuide)}">打开</a>
+                </header>
+                <div class="guide-family-modes">
+                  ${renderFamilyModeLinks(family)}
+                </div>
+              </article>
             `).join("")}
           </div>
         </div>
