@@ -227,9 +227,12 @@ const frontendDataContracts = [
       "database.zhEffect",
       "slotUsage",
       "sourceLevels",
-      "buildUses"
+      "buildUses",
+      "buildUses[].required",
+      "buildUses[].replaceable",
+      "buildUses[].sourceLevel"
     ],
-    frontendUse: "威能索引列表只负责查找和选择，详情面板展示效果、可用部位、来源状态和相关 BD。"
+    frontendUse: "威能索引列表只负责查找和选择，详情面板展示效果、可用部位、来源状态、常见职业/用途/部位、硬需求/可替换分布和相关 BD 分区入口。"
   },
   {
     component: "ClassBuildMatrix",

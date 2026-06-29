@@ -366,6 +366,8 @@ assert(frontendText.includes("renderEquipmentUsageMatrix"), "Equipment detail mu
 assert(frontendText.includes("equipment-usage-matrix"), "Equipment detail must expose class, build, mode, slot and replacement status for related builds");
 assert(frontendText.includes("renderEquipmentUsageOverview") && frontendText.includes("equipment-usage-overview"), "Equipment detail must summarize related build usage before the full matrix");
 assert(frontendText.includes("equipment-usage-actions") && frontendText.includes("guideSectionUrl(guide, \"skills\")") && frontendText.includes("guideSectionUrl(guide, \"paragon\")"), "Equipment usage matrix must link to gear, skills and paragon sections");
+assert(frontendText.includes("renderAspectUsageOverview") && frontendText.includes("aspect-usage-overview"), "Aspect detail must summarize related build usage before the full list");
+assert(frontendText.includes("aspect-use-card") && frontendText.includes("guideSectionUrl({ id: use.guideId }, \"skills\")") && frontendText.includes("guideSectionUrl({ id: use.guideId }, \"paragon\")"), "Aspect usage list must link to gear, skills and paragon sections");
 assert(frontendText.includes("requirement-coverage-grid") && frontendText.includes("BD 执行信息覆盖"), "Sources page must render player-facing BD requirement coverage");
 assert(frontendText.includes("renderLoadoutBoard"), "BD detail must render a paper-doll loadout board");
 assert(frontendText.includes("renderGuideReadinessPanel") && frontendText.includes("guide-readiness__actions"), "BD detail must expose copy-readiness and section actions");

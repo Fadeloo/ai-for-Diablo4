@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-29T05:18:49.650Z",
+  "generatedAt": "2026-06-29T05:25:34.088Z",
   "scope": "player_site_data_coverage_and_storage_usage",
   "asOf": "2026-06-28",
   "storageLayers": [
@@ -356,9 +356,12 @@
         "database.zhEffect",
         "slotUsage",
         "sourceLevels",
-        "buildUses"
+        "buildUses",
+        "buildUses[].required",
+        "buildUses[].replaceable",
+        "buildUses[].sourceLevel"
       ],
-      "frontendUse": "威能索引列表只负责查找和选择，详情面板展示效果、可用部位、来源状态和相关 BD。"
+      "frontendUse": "威能索引列表只负责查找和选择，详情面板展示效果、可用部位、来源状态、常见职业/用途/部位、硬需求/可替换分布和相关 BD 分区入口。"
     },
     {
       "component": "ClassBuildMatrix",

@@ -4812,6 +4812,42 @@ h4 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.aspect-usage-overview {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.aspect-usage-overview article {
+  background: rgba(8, 4, 3, 0.48);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+  gap: 5px;
+  min-height: 72px;
+  padding: 10px;
+}
+
+.aspect-usage-overview span {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.aspect-usage-overview strong {
+  color: var(--bone);
+  font-size: 13px;
+  line-height: 1.38;
+  overflow-wrap: anywhere;
+}
+
+.aspect-usage-overview em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
 .aspect-slot-grid article {
   background: rgba(8, 4, 3, 0.48);
   border: 1px solid rgba(214, 173, 99, 0.18);
@@ -4838,7 +4874,7 @@ h4 {
   gap: 8px;
 }
 
-.aspect-use-link {
+.aspect-use-card {
   background: rgba(8, 4, 3, 0.48);
   border: 1px solid rgba(214, 173, 99, 0.16);
   display: grid;
@@ -4846,21 +4882,44 @@ h4 {
   padding: 10px 12px;
 }
 
-.aspect-use-link:hover {
+.aspect-use-card:hover {
   border-color: rgba(240, 207, 143, 0.42);
 }
 
-.aspect-use-link span,
-.aspect-use-link em {
+.aspect-use-card span,
+.aspect-use-card em {
   color: var(--muted);
   font-size: 12px;
   font-style: normal;
   line-height: 1.45;
 }
 
-.aspect-use-link strong {
+.aspect-use-card strong {
   color: var(--bone);
   font-size: 14px;
+}
+
+.aspect-use-card div {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 5px;
+}
+
+.aspect-use-card a {
+  background: rgba(214, 173, 99, 0.1);
+  border: 1px solid rgba(214, 173, 99, 0.18);
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-weight: 800;
+  min-height: 30px;
+  padding: 7px 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.aspect-use-card a:hover {
+  background: rgba(214, 173, 99, 0.16);
 }
 
 .equipment-detail-hero {
@@ -6228,6 +6287,10 @@ h4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .aspect-usage-overview {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .skill-layout,
   .paragon-layout {
     grid-template-columns: 1fr;
@@ -6502,6 +6565,8 @@ h4 {
   .aspect-detail-hero,
   .aspect-effect-panel,
   .aspect-slot-grid,
+  .aspect-usage-overview,
+  .aspect-use-card div,
   .equipment-info-grid,
   .unique-power-panel,
   .status-grid,

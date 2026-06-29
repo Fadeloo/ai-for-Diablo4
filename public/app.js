@@ -3981,6 +3981,7 @@ function renderAspectDetail(aspect) {
     .join("");
   const database = aspect.database;
   const aspectName = aspect.canonicalName || aspect.name;
+  const usageOverview = renderAspectUsageOverview(aspect);
   const slotRows = (aspect.slotUsage || []).map((slot) => `
     <article>
       <strong>${slot.zhSlotName}</strong>
@@ -3989,11 +3990,16 @@ function renderAspectDetail(aspect) {
     </article>
   `).join("");
   const uses = (aspect.buildUses || []).slice(0, 20).map((use) => `
-    <a class="aspect-use-link" href="${guideUrl({ id: use.guideId })}">
+    <article class="aspect-use-card">
       <span>${use.seasonName} · ${use.className} · ${use.modeName}</span>
       <strong>${use.archetypeName}</strong>
       <em>${use.zhSlotName} · ${use.required ? "硬需求" : use.replaceable ? "可替换" : "核心位"} · ${use.role}</em>
-    </a>
+      <div>
+        <a href="${guideSectionUrl({ id: use.guideId }, "gear")}">装备</a>
+        <a href="${guideSectionUrl({ id: use.guideId }, "skills")}">技能</a>
+        <a href="${guideSectionUrl({ id: use.guideId }, "paragon")}">巅峰</a>
+      </div>
+    </article>
   `).join("");
 
   panel.innerHTML = `
@@ -4011,6 +4017,13 @@ function renderAspectDetail(aspect) {
       </div>
     </div>
     <div class="tag-row">${levelRows}</div>
+    <section class="detail-section">
+      <div class="section-title">
+        <h4>威能使用概览</h4>
+        <span>${aspect.guideCount} 套 BD · ${aspect.usageCount} 次使用</span>
+      </div>
+      ${usageOverview}
+    </section>
     <section class="detail-section">
       <div class="section-title">
         <h4>威能效果</h4>
@@ -4064,6 +4077,51 @@ function renderAspectDetail(aspect) {
       <p>${aspect.dataStatus?.zhText || "该条目由结构化 BD 汇总。"} ${database ? "该效果仍按社区来源展示，后续应以游戏内截图或官方资料继续校验。" : "后续需要接入官方或可审计的完整传奇威能数据库后，才能展示完整效果、数值范围和掉落位置。"}</p>
       ${database?.pageUrl ? `<div class="source-actions"><a href="${database.pageUrl}" target="_blank" rel="noreferrer">查看威能来源</a></div>` : ""}
     </section>
+  `;
+}
+
+function renderAspectUsageOverview(aspect) {
+  const uses = aspect.buildUses || [];
+  if (!uses.length) return `<p class="empty-copy">当前威能还没有关联到结构化 BD。</p>`;
+  const requiredCount = uses.filter((use) => use.required).length;
+  const replaceableCount = uses.filter((use) => use.replaceable).length;
+  const coreCount = uses.filter((use) => use.core && !use.required).length;
+  const classLine = rankedCounts(uses, (use) => use.className)
+    .map(([name, count]) => `${name} ${count}`).join(" / ");
+  const modeLine = rankedCounts(uses, (use) => use.modeName)
+    .map(([name, count]) => `${name} ${count}`).join(" / ");
+  const slotLine = rankedCounts(uses, (use) => use.zhSlotName)
+    .map(([name, count]) => `${name} ${count}`).join(" / ");
+  const sourceLine = rankedCounts(uses, (use) => sourceLevelText(use.sourceLevel))
+    .map(([name, count]) => `${name} ${count}`).join(" / ");
+  return `
+    <div class="aspect-usage-overview" aria-label="威能在 BD 中的使用概览">
+      <article>
+        <span>关联 BD</span>
+        <strong>${aspect.guideCount} 套</strong>
+        <em>${aspect.usageCount} 次装备槽位使用</em>
+      </article>
+      <article>
+        <span>常见职业</span>
+        <strong>${classLine}</strong>
+      </article>
+      <article>
+        <span>常见用途</span>
+        <strong>${modeLine}</strong>
+      </article>
+      <article>
+        <span>常见部位</span>
+        <strong>${slotLine}</strong>
+      </article>
+      <article>
+        <span>定位分布</span>
+        <strong>${requiredCount} 硬需求 / ${coreCount} 核心位 / ${replaceableCount} 可替换</strong>
+      </article>
+      <article>
+        <span>来源状态</span>
+        <strong>${sourceLine}</strong>
+      </article>
+    </div>
   `;
 }
 
