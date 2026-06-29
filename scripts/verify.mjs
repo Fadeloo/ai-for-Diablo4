@@ -20,12 +20,14 @@ const routeEnglishPattern = /[A-Za-z]{3,}/;
 const placeholderAspectNames = new Set(["暗金特效位", "神话暗金位", "空槽说明", "空槽位"]);
 const allowedGearSlotDataStatuses = new Set([
   "社区 BD 装备位参考；威能效果、数值和赛季强度仍需按来源核对。",
+  "社区 BD 装备位参考；威能效果来自暗黑核社区数据库，赛季强度仍需按来源核对。",
   "社区 BD 装备位参考；唯一装备固定词缀已接入，暗金特效数值仍需校验。",
   "社区 BD 装备位参考；唯一装备固定词缀和暗金特效文本已接入，赛季强度仍需核对。",
   "社区 BD 装备栏说明该位置不占用或由双手/副手方案替代。",
   "官方唯一装备固定词缀已接入；暗金特效完整数值仍需校验。",
   "官方唯一装备固定词缀和暗金特效文本已接入；赛季强度仍需实战校验。",
   "传奇威能来自结构化 BD 模板；完整效果和数值需接入可靠威能库校验。",
+  "传奇威能效果来自暗黑核社区数据库；赛季强度仍需实战校验。",
   "结构化装备栏说明该位置不占用或由其他武器方案替代。"
 ]);
 const allowedRouteSourceSnippets = [
@@ -240,6 +242,8 @@ assert(siteCoverage.buildIntegrity?.replacementBuilds === buildGuides.builds.len
 const guideIds = new Set();
 let uniquePowerSlotCount = 0;
 let uniquePowerTextCount = 0;
+let legendaryAspectSlotCount = 0;
+let legendaryAspectTextCount = 0;
 for (const guide of buildGuides.builds) {
   assert(!guideIds.has(guide.id), `Duplicate build guide id: ${guide.id}`);
   guideIds.add(guide.id);
@@ -265,6 +269,10 @@ for (const guide of buildGuides.builds) {
     if (["unique_power", "mythic_unique_power"].includes(slot.aspect?.displayKind)) {
       uniquePowerSlotCount += 1;
       if (slot.aspect?.powerText) uniquePowerTextCount += 1;
+    }
+    if (slot.aspect?.displayKind === "legendary_aspect") {
+      legendaryAspectSlotCount += 1;
+      if (slot.aspect?.powerText) legendaryAspectTextCount += 1;
     }
   }
   assert(guide.progression?.stages?.length >= 4, `Build guide needs leveling-to-endgame progression stages: ${guide.id}`);
@@ -300,6 +308,7 @@ for (const guide of buildGuides.builds) {
   assert(guide.variants?.length >= 3, `Build guide needs replacement variants: ${guide.id}`);
 }
 assert(uniquePowerSlotCount > 0 && uniquePowerTextCount / uniquePowerSlotCount >= 0.98, `At least 98% of unique/mythic gear slots need power text, got ${uniquePowerTextCount}/${uniquePowerSlotCount}`);
+assert(legendaryAspectSlotCount > 0 && legendaryAspectTextCount / legendaryAspectSlotCount >= 0.25, `At least 25% of legendary aspect slots need community effect text, got ${legendaryAspectTextCount}/${legendaryAspectSlotCount}`);
 
 for (const override of expandCommunityOverrides(communityOverrides)) {
   const guide = buildGuides.builds.find((item) => item.id === override.id);

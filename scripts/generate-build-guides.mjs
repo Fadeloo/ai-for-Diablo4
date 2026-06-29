@@ -8,6 +8,7 @@ const archetypePath = path.join(root, "data/builds/archetypes.json");
 const equipmentPath = path.join(root, "data/equipment/equipment-library.json");
 const simulationsPath = path.join(root, "data/generated/build-simulations.json");
 const overridePath = path.join(root, "data/builds/community-build-overrides.json");
+const aspectOverridePath = path.join(root, "data/aspects/community-aspect-overrides.json");
 const output = path.join(root, "data/generated/build-guides.json");
 
 const modeProfiles = {
@@ -534,6 +535,31 @@ function lookupEquipmentForTarget(target, equipmentIndex) {
   return alias ? equipmentIndex.byZhName.get(alias) : null;
 }
 
+function normalizeAspectName(name) {
+  return String(name || "")
+    .replace(/[的之·\s]/g, "")
+    .replace(/威能$/, "")
+    .trim();
+}
+
+function createAspectEffectIndex(overrides) {
+  const byName = new Map();
+  const byNormalizedName = new Map();
+  for (const item of overrides?.items || []) {
+    for (const name of [item.aspectName, item.zhName, item.source?.sourceChineseName]) {
+      if (!name) continue;
+      byName.set(name, item);
+      byNormalizedName.set(normalizeAspectName(name), item);
+    }
+  }
+  return { byName, byNormalizedName };
+}
+
+function lookupAspectEffect(aspectName, aspectIndex) {
+  if (!aspectName || !aspectIndex) return null;
+  return aspectIndex.byName.get(aspectName) || aspectIndex.byNormalizedName.get(normalizeAspectName(aspectName)) || null;
+}
+
 function alternativeFor(slot, item, pool, archetype, usedIds, index) {
   const candidates = pool.filter((candidate) => candidate.id !== item?.id && !usedIds.has(candidate.id)).slice(0, 2);
   const alternatives = candidates.map((candidate) => ({
@@ -580,14 +606,18 @@ function slotPlayerDataStatus(slot, power, isCommunityReference = false) {
   }
   if (isCommunityReference) {
     if (power.displayKind === "legendary_aspect") {
-      return "社区 BD 装备位参考；威能效果、数值和赛季强度仍需按来源核对。";
+      return power.powerText
+        ? "社区 BD 装备位参考；威能效果来自暗黑核社区数据库，赛季强度仍需按来源核对。"
+        : "社区 BD 装备位参考；威能效果、数值和赛季强度仍需按来源核对。";
     }
     return power.powerText
       ? "社区 BD 装备位参考；唯一装备固定词缀和暗金特效文本已接入，赛季强度仍需核对。"
       : "社区 BD 装备位参考；唯一装备固定词缀已接入，暗金特效数值仍需校验。";
   }
   if (power.displayKind === "legendary_aspect") {
-    return "传奇威能来自结构化 BD 模板；完整效果和数值需接入可靠威能库校验。";
+    return power.powerText
+      ? "传奇威能效果来自暗黑核社区数据库；赛季强度仍需实战校验。"
+      : "传奇威能来自结构化 BD 模板；完整效果和数值需接入可靠威能库校验。";
   }
   return power.powerText
     ? "官方唯一装备固定词缀和暗金特效文本已接入；赛季强度仍需实战校验。"
@@ -596,17 +626,23 @@ function slotPlayerDataStatus(slot, power, isCommunityReference = false) {
 
 function withPlayerPower(slot, options = {}) {
   const matchedEquipment = lookupEquipmentForTarget(slot.target, options.equipmentIndex);
+  const matchedAspect = lookupAspectEffect(slot.aspect?.name, options.aspectIndex);
   const basePower = playerPowerForSlot(slot);
   const power = {
     ...basePower,
     displayName: matchedEquipment && basePower.displayKind !== "legendary_aspect"
       ? `${matchedEquipment.zhName}特效`
       : basePower.displayName,
-    powerText: matchedEquipment?.zhUniquePower || matchedEquipment?.uniquePower || null,
+    powerText: matchedEquipment?.zhUniquePower || matchedEquipment?.uniquePower || matchedAspect?.zhEffect || null,
     powerSourceStatus: matchedEquipment
       ? "装备库特效文本：官方 3.1.0 种子 + 社区数据库校对"
-      : null,
-    matchedItemId: matchedEquipment?.id || null
+      : matchedAspect
+        ? `暗黑核威能库：${matchedAspect.source?.d2coreBuild || "版本待回填"} · ${matchedAspect.zhAspectType || "类型待回填"}`
+        : null,
+    matchedItemId: matchedEquipment?.id || null,
+    matchedAspectId: matchedAspect?.aspectId || null,
+    powerAllowedSlots: matchedAspect?.zhAllowedSlots || null,
+    powerCategory: matchedAspect?.zhAspectType || null
   };
   return {
     ...slot,
@@ -627,7 +663,7 @@ function withPlayerPower(slot, options = {}) {
   };
 }
 
-function gearSlotsFor({ equipmentItems, equipmentIndex, classInfo, archetype, mode }) {
+function gearSlotsFor({ equipmentItems, equipmentIndex, aspectIndex, classInfo, archetype, mode }) {
   const usedIds = new Set();
   return slotOrder.map((slot, index) => {
     const pool = rankedItemsForSlot(equipmentItems, slot, classInfo, archetype, mode);
@@ -666,7 +702,7 @@ function gearSlotsFor({ equipmentItems, equipmentIndex, classInfo, archetype, mo
         replaceable ? "可替换：先保证主词缀和抗性，再追求最优暗金。" : "不建议替换：此位承担主要伤害或循环。",
         core ? "优先在该部位投入精造资源。" : "作为成型后的补强部位。"
       ]
-    }, { equipmentIndex });
+    }, { equipmentIndex, aspectIndex });
   });
 }
 
@@ -990,9 +1026,9 @@ function communityVerificationLevel(guide, override) {
   return sourceSeason.includes(currentSeasonCode) ? "community_reference" : "cross_season_reference";
 }
 
-function guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentItems, equipmentIndex, simBuild }) {
+function guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentItems, equipmentIndex, aspectIndex, simBuild }) {
   const performance = simBuild || synthesizePerformance({ classInfo, archetype, mode, seasonIndex });
-  const gearSlots = gearSlotsFor({ equipmentItems, equipmentIndex, classInfo, archetype, mode });
+  const gearSlots = gearSlotsFor({ equipmentItems, equipmentIndex, aspectIndex, classInfo, archetype, mode });
   const formationDifficulty = difficultyFor({ archetype, mode, gearSlots, seasonIndex, classInfo });
   const ceiling = ceilingFor(performance, mode);
   const skillTree = skillTreeFor({ classInfo, archetype, simBuild });
@@ -1249,7 +1285,7 @@ function resolvePatchedTarget(slot, patchTarget, equipmentIndex) {
   };
 }
 
-function applyCommunityOverride(guide, override, equipmentIndex) {
+function applyCommunityOverride(guide, override, equipmentIndex, aspectIndex) {
   const overrideLevel = communityVerificationLevel(guide, override);
   const slotOverrides = new Map((override.gearSlots || []).map((slot) => [slot.slotId, slot]));
   const gearSlots = guide.gearSlots.map((slot) => {
@@ -1275,7 +1311,7 @@ function applyCommunityOverride(guide, override, equipmentIndex) {
         patch.replaceable === false ? "社区参考：该位置承担核心联动，不建议替换。" : "社区参考：可按缺件和抗性替换。",
         patch.aspect?.sourceStatus || slot.aspect.sourceStatus
       ]
-    }, { communityReference: true, equipmentIndex });
+    }, { communityReference: true, equipmentIndex, aspectIndex });
   });
   const coreUniques = gearSlots
     .filter((slot) => slot.core && slot.target.type === "unique")
@@ -1441,18 +1477,20 @@ function expandCommunityOverrides(rawOverrides) {
   });
 }
 
-const [classes, archetypeGroups, equipment, simulations, overrides] = await Promise.all([
+const [classes, archetypeGroups, equipment, simulations, overrides, aspectOverrides] = await Promise.all([
   readJson(classPath),
   readJson(archetypePath),
   readJson(equipmentPath),
   readJson(simulationsPath),
-  readOptionalJson(overridePath, [])
+  readOptionalJson(overridePath, []),
+  readOptionalJson(aspectOverridePath, null)
 ]);
 
 const simMap = simulationLookup(simulations);
 const expandedOverrides = expandCommunityOverrides(overrides);
 const overrideMap = new Map(expandedOverrides.map((override) => [override.id, override]));
 const equipmentIndex = createEquipmentIndex(equipment.items);
+const aspectIndex = createAspectEffectIndex(aspectOverrides);
 const builds = [];
 
 for (const [seasonIndex, season] of simulations.seasons.entries()) {
@@ -1461,8 +1499,8 @@ for (const [seasonIndex, season] of simulations.seasons.entries()) {
     for (const archetype of archetypes) {
       for (const mode of Object.keys(modeProfiles)) {
         const simBuild = simMap.get(`${season.id}:${classInfo.id}:${mode}:${archetype.id}`);
-        const guide = guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentItems: equipment.items, equipmentIndex, simBuild });
-        const mergedGuide = overrideMap.has(guide.id) ? applyCommunityOverride(guide, overrideMap.get(guide.id), equipmentIndex) : guide;
+        const guide = guideFor({ season, seasonIndex, classInfo, archetype, mode, equipmentItems: equipment.items, equipmentIndex, aspectIndex, simBuild });
+        const mergedGuide = overrideMap.has(guide.id) ? applyCommunityOverride(guide, overrideMap.get(guide.id), equipmentIndex, aspectIndex) : guide;
         builds.push(localizeGuideRoutes(mergedGuide));
       }
     }
