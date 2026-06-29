@@ -357,6 +357,7 @@ assert(frontendText.includes("class-mode-card__facts") && frontendText.includes(
 assert(frontendText.includes("renderClassSeasonCoverage"), "Class page must render cross-season build coverage");
 assert(frontendText.includes("class-season-coverage-panel") && frontendText.includes("class-season-coverage-cell"), "Class cross-season coverage must expose season blocks and mode cells");
 assert(frontendText.includes("guide-card__quickfacts"), "BD library cards must expose executable gear, skill, paragon and gameplay facts");
+assert(frontendText.includes("guide-card__loadout-preview") && frontendText.includes("关键部位配装预览"), "BD library cards must preview multiple gear slots before detail navigation");
 assert(frontendText.includes("renderGuideSectionLinks") && frontendText.includes("guide-section-link-row"), "BD library cards must link directly to gear, skill, paragon and gameplay sections");
 assert(frontendText.includes("compact-guide-actions"), "BD default recommendation view must expose section links on priority guide cards");
 assert(frontendText.includes("技能第一步") && frontendText.includes("巅峰第一步") && frontendText.includes("打法循环"), "BD cards must preview skill, paragon and gameplay execution before detail navigation");

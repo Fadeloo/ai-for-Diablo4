@@ -1250,6 +1250,28 @@ function renderCoreAspects(guide, limit = 8) {
     .join("");
 }
 
+function guideLoadoutPreview(guide, limit = 6) {
+  const prioritySlots = [
+    "helm",
+    "chest",
+    "gloves",
+    "amulet",
+    "ring1",
+    "ring2",
+    "twoHand",
+    "mainHand",
+    "offHand",
+    "pants",
+    "boots"
+  ];
+  const slots = [...(guide.gearSlots || [])].sort((a, b) => {
+    const priorityDelta = prioritySlots.indexOf(a.slotId) - prioritySlots.indexOf(b.slotId);
+    if (priorityDelta) return priorityDelta;
+    return Number(Boolean(b.required || b.core)) - Number(Boolean(a.required || a.core));
+  });
+  return slots.slice(0, limit);
+}
+
 function renderBuildDossier(guide) {
   const coreSlots = (guide.gearSlots || [])
     .filter((slot) => slot.required || slot.core)
@@ -1376,6 +1398,7 @@ function renderBuildLibraryCard(guide) {
   const firstLoop = guide.gameplay?.loop?.[0] || guide.gameplay?.opener?.[0];
   const replaceableCount = guide.gearSlots.filter((slot) => slot.replaceable).length;
   const requiredCount = guide.gearSlots.filter((slot) => slot.required).length;
+  const loadoutPreview = guideLoadoutPreview(guide);
   return `
     <article class="guide-card">
       <div class="guide-card__head">
@@ -1390,6 +1413,15 @@ function renderBuildLibraryCard(guide) {
       <div class="source-pill">${guideSourceLabel(guide)}</div>
       <div class="guide-card__skillbar" aria-label="技能栏">
         ${skills.map((skill) => `<span><b>${skill.slot}</b>${skill.name}</span>`).join("")}
+      </div>
+      <div class="guide-card__loadout-preview" aria-label="关键部位配装预览">
+        ${loadoutPreview.map((slot) => `
+          <article class="${gearSlotStateClass(slot)}">
+            <span>${slot.zhSlotName}</span>
+            <strong>${displayText(slot.target.zhName)}</strong>
+            <em>${gearPowerDisplay(slot)} · ${gearSlotStatus(slot)}</em>
+          </article>
+        `).join("")}
       </div>
       <div class="guide-card__metrics">
         <span><b>${guide.formationDifficulty.label}</b>成型难度</span>
@@ -1424,7 +1456,7 @@ function renderBuildLibraryCard(guide) {
       </div>
       <div class="guide-card__items">${renderCoreUniques(guide, 3)}</div>
       ${renderGuideSectionLinks(guide)}
-      <a class="button button-secondary" href="${guideUrl(guide)}">查看完整 BD</a>
+      <a class="button button-secondary" href="${guideUrl(guide)}">进入 BD 档案</a>
     </article>
   `;
 }
@@ -1644,7 +1676,7 @@ function renderRecommendedBuildBoard(guides) {
             <header>
               <span>${row.classInfo.zhName}</span>
               <strong>${row.archetypes.length} 个流派 · ${row.classGuides.length} 套 BD</strong>
-              <em>${row.communityCount} 套社区来源 · ${row.fallbackCount} 套最佳可用补位 · ${row.archetypes.slice(0, 5).join(" / ") || "待回填"}</em>
+              <em>${row.communityCount} 套社区来源 · ${row.fallbackCount} 套按资料状态展示 · ${row.archetypes.slice(0, 5).join(" / ") || "待回填"}</em>
             </header>
             ${buildVersionModeOrder.map((mode) => renderRecommendedBuildCell(row.modes.get(mode), mode)).join("")}
           </article>
@@ -1789,7 +1821,7 @@ function renderBuildMaturityPanel(guides) {
     <section class="build-maturity-panel" aria-label="资料成熟度">
       <div class="section-title">
         <h4>资料成熟度</h4>
-        <span>先看是否可抄，再进入装备、技能、巅峰和打法分区</span>
+        <span>按来源状态进入装备、技能、巅峰和打法分区</span>
       </div>
       <div class="build-maturity-grid">
         ${groups.map((group) => `
@@ -1831,10 +1863,18 @@ function renderBuildViewContent(guides, recommendedGuides) {
       <div class="compact-guide-grid">
         ${priorityGuides.map((guide) => `
           <article class="compact-guide-card">
+            ${(() => {
+              const firstSkillStep = guide.skillTree?.pointOrder?.[0];
+              const firstParagonStep = guide.paragon?.clickOrder?.[0];
+              return `
             <span>${guide.taxonomy.className} · ${guide.taxonomy.modeName} · ${guideSourceLabel(guide)}</span>
             <strong>${guide.taxonomy.archetypeName}</strong>
             <em>${guide.formationDifficulty.label}成型 · ${guide.taxonomy.stage} · ${guide.ceiling.displayTier || guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</em>
             <small>${guideCoreLine(guide)}</small>
+            <small>技能：${firstSkillStep ? `${displayText(firstSkillStep.levelRange)} ${displayText(firstSkillStep.skill)}` : "路线待校准"}</small>
+            <small>巅峰：${firstParagonStep ? `${displayText(firstParagonStep.board)} ${displayText(firstParagonStep.node)}` : "路线待校准"}</small>
+              `;
+            })()}
             <div class="compact-guide-actions">
               <a href="${guideUrl(guide)}">总览</a>
               <a href="${guideSectionUrl(guide, "gear")}">装备</a>
@@ -1848,8 +1888,8 @@ function renderBuildViewContent(guides, recommendedGuides) {
     </section>` : `<section class="build-result-section" aria-label="当前来源无列表">
       <div class="empty-panel">
         <p class="panel-kicker">当前来源没有列表结果</p>
-        <h3>上方矩阵已用最佳可用资料补位</h3>
-        <p>这些补位 BD 仍可打开完整详情，页面会标明社区、跨赛季、官方模板或未来推演状态。</p>
+        <h3>上方矩阵显示当前可用资料</h3>
+        <p>这些 BD 仍可进入档案页，页面会标明社区、跨赛季、官方模板或未来推演状态。</p>
       </div>
     </section>`}
   `;
@@ -2625,7 +2665,7 @@ function renderGameplayOverview(guide) {
           <span>战斗循环总览</span>
           <strong>起手、循环、防御和常见错误</strong>
         </div>
-        <button type="button" data-guide-jump="gameplay">看完整打法</button>
+        <button type="button" data-guide-jump="gameplay">打法分区</button>
       </header>
       <div class="combat-overview__grid">
         ${panels.map((panel) => `

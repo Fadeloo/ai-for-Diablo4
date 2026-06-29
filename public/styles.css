@@ -1824,6 +1824,50 @@ h4 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.guide-card__loadout-preview {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.guide-card__loadout-preview article {
+  background: rgba(8, 4, 3, 0.46);
+  border: 1px solid rgba(214, 173, 99, 0.15);
+  display: grid;
+  gap: 4px;
+  min-height: 70px;
+  padding: 8px;
+}
+
+.guide-card__loadout-preview article.is-required {
+  border-color: rgba(156, 34, 29, 0.42);
+}
+
+.guide-card__loadout-preview article.is-core {
+  border-color: rgba(214, 173, 99, 0.32);
+}
+
+.guide-card__loadout-preview span {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.guide-card__loadout-preview strong {
+  color: #fff7df;
+  font-size: 12px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.guide-card__loadout-preview em {
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
 .guide-card__quickfacts {
   display: grid;
   gap: 8px;

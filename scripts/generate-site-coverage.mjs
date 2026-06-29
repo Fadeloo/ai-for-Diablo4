@@ -58,13 +58,15 @@ const frontendDataContracts = [
       "ceiling",
       "coreUniques",
       "coreAspects",
+      "gearSlots[].target.zhName",
+      "gearSlots[].replaceable",
       "gearSlots[].aspect.displayName",
       "gearSlots[].aspect.displayKind",
       "skillTree.pointOrder[0]",
       "paragon.clickOrder[0]",
       "source.verificationLevel"
     ],
-    frontendUse: "按职业汇总日常、速刷、冲层三个入口，直接链接完整 BD 详情。"
+    frontendUse: "按职业汇总日常、速刷、冲层三个入口，露出核心装备、关键部位、技能第一步、巅峰第一步和来源状态，并直接链接 BD 详情分区。"
   },
   {
     component: "BuildViewTabs",
