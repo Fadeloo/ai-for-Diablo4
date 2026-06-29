@@ -1331,6 +1331,15 @@ function directoryGuidesForCurrentFilters() {
     .sort(sortGuidesForPlayer);
 }
 
+function recommendedDirectoryGuidesForCurrentFilters() {
+  const query = normalizedText(state.sim.query);
+  return allBuildGuides()
+    .filter((guide) => guide.taxonomy.seasonId === state.sim.seasonId)
+    .filter((guide) => state.sim.classId === "all" || guide.taxonomy.classId === state.sim.classId)
+    .filter((guide) => guideMatchesBuildQuery(guide, query))
+    .sort(sortGuidesForPlayer);
+}
+
 function renderRecommendedBuildCell(guide, mode) {
   if (!guide) {
     return `
@@ -1343,9 +1352,13 @@ function renderRecommendedBuildCell(guide, mode) {
   }
   const firstSkillStep = guide.skillTree?.pointOrder?.[0];
   const firstParagonStep = guide.paragon?.clickOrder?.[0];
+  const isFallback = !guideMatchesSourceQuality(guide, state.sim.sourceQuality);
+  const sourceText = isFallback
+    ? `暂无${sourceQualityOption(state.sim.sourceQuality).shortLabel} · ${guideSourceLabel(guide)}`
+    : guideSourceLabel(guide);
   return `
-    <a class="recommended-build-cell" href="${guideUrl(guide)}">
-      <span>${guide.taxonomy.modeName} · ${guideSourceLabel(guide)}</span>
+    <a class="recommended-build-cell ${isFallback ? "is-fallback" : ""}" href="${guideUrl(guide)}">
+      <span>${guide.taxonomy.modeName} · ${sourceText}</span>
       <strong>${guide.taxonomy.archetypeName}</strong>
       <em>${guide.formationDifficulty.label}成型 · ${guide.taxonomy.stage} · ${guide.ceiling.displayTier || guide.ceiling.tier} · ${guide.ceiling.pit150Minutes} 分</em>
       <small>核心：${guideCoreLine(guide)}</small>
@@ -1361,6 +1374,7 @@ function renderRecommendedBuildBoard(guides) {
       const classGuides = guides.filter((guide) => guide.taxonomy.classId === classInfo.id);
       const archetypes = [...new Set(classGuides.map((guide) => guide.taxonomy.archetypeName))];
       const communityCount = classGuides.filter((guide) => guide.source.references?.length).length;
+      const fallbackCount = classGuides.filter((guide) => !guideMatchesSourceQuality(guide, state.sim.sourceQuality)).length;
       const modes = new Map(buildVersionModeOrder.map((mode) => [
         mode,
         classGuides.filter((guide) => guide.taxonomy.mode === mode).sort(sortGuidesForPlayer)[0] || null
@@ -1370,6 +1384,7 @@ function renderRecommendedBuildBoard(guides) {
         classGuides,
         archetypes,
         communityCount,
+        fallbackCount,
         modes
       };
     })
@@ -1393,7 +1408,7 @@ function renderRecommendedBuildBoard(guides) {
             <header>
               <span>${row.classInfo.zhName}</span>
               <strong>${row.archetypes.length} 个流派 · ${row.classGuides.length} 套 BD</strong>
-              <em>${row.communityCount} 套社区来源 · ${row.archetypes.slice(0, 5).join(" / ") || "待回填"}</em>
+              <em>${row.communityCount} 套社区来源 · ${row.fallbackCount} 套最佳可用补位 · ${row.archetypes.slice(0, 5).join(" / ") || "待回填"}</em>
             </header>
             ${buildVersionModeOrder.map((mode) => renderRecommendedBuildCell(row.modes.get(mode), mode)).join("")}
           </article>
@@ -1496,7 +1511,7 @@ function renderBuildListView(guides) {
   `;
 }
 
-function renderBuildViewContent(guides, directoryGuides) {
+function renderBuildViewContent(guides, recommendedGuides) {
   if (state.sim.view === "matrix") {
     return `
       ${renderBuildAtlas(guides)}
@@ -1508,8 +1523,8 @@ function renderBuildViewContent(guides, directoryGuides) {
   }
   const priorityGuides = guides.slice(0, Math.min(12, state.sim.visible));
   return `
-    ${renderRecommendedBuildBoard(directoryGuides)}
-    <section class="build-result-section" aria-label="当前筛选下优先 BD">
+    ${renderRecommendedBuildBoard(recommendedGuides)}
+    ${priorityGuides.length ? `<section class="build-result-section" aria-label="当前筛选下优先 BD">
       <div class="section-title">
         <h4>优先查看</h4>
         <span>按来源、上限和成型难度排序，展开完整列表可看全部 ${guides.length} 套</span>
@@ -1524,13 +1539,19 @@ function renderBuildViewContent(guides, directoryGuides) {
           </a>
         `).join("")}
       </div>
-    </section>
+    </section>` : `<section class="build-result-section" aria-label="当前来源无列表">
+      <div class="empty-panel">
+        <p class="panel-kicker">当前来源没有列表结果</p>
+        <h3>上方矩阵已用最佳可用资料补位</h3>
+        <p>这些补位 BD 仍可打开完整详情，页面会标明社区、跨赛季、官方模板或未来推演状态。</p>
+      </div>
+    </section>`}
   `;
 }
 
 function renderSimulator() {
   const guides = filteredGuides();
-  const directoryGuides = directoryGuidesForCurrentFilters();
+  const recommendedGuides = recommendedDirectoryGuidesForCurrentFilters();
   const selected = guides[state.sim.buildIndex] || guides[0] || null;
   const listRows = guides.slice(0, 30);
   renderBuildClassRail();
@@ -1555,7 +1576,7 @@ function renderSimulator() {
     ${listRows.length < guides.length ? `<div class="build-list-foot">还有 ${guides.length - listRows.length} 套，请用右侧完整列表或继续筛选。</div>` : ""}
   `;
 
-  if (!guides.length) {
+  if (!guides.length && !recommendedGuides.length) {
     $("[data-sim-result]").innerHTML = `
       <div class="empty-panel">
         <p class="panel-kicker">没有匹配 BD</p>
@@ -1568,7 +1589,7 @@ function renderSimulator() {
 
   const modeLabel = modeName(state.sim.mode);
   const communityCount = guides.filter((guide) => guide.source.references?.length).length;
-  const topGuide = guides[0];
+  const topGuide = guides[0] || recommendedGuides[0];
   $("[data-sim-result]").innerHTML = `
     <div class="library-head">
       <div>
@@ -1579,11 +1600,11 @@ function renderSimulator() {
       <div class="library-stats">
         <span><b>${guides.length}</b>套流派</span>
         <span><b>${communityCount}</b>社区参考</span>
-        <span><b>${topGuide.ceiling.label}</b>最高参考</span>
+        <span><b>${topGuide?.ceiling.label || "待回填"}</b>最高参考</span>
       </div>
     </div>
     ${renderBuildViewTabs(guides)}
-    ${renderBuildViewContent(guides, directoryGuides)}
+    ${renderBuildViewContent(guides, recommendedGuides)}
   `;
   bindImageFallbacks($("[data-sim-result]"));
 }

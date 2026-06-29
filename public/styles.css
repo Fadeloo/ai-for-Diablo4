@@ -1183,6 +1183,20 @@ h4 {
   border-right: 0;
 }
 
+.recommended-build-cell.is-fallback {
+  background:
+    linear-gradient(180deg, rgba(214, 173, 99, 0.08), rgba(8, 4, 3, 0.36)),
+    rgba(18, 10, 7, 0.52);
+}
+
+.recommended-build-cell.is-fallback span {
+  color: var(--gold-bright);
+}
+
+.recommended-build-cell.is-fallback em {
+  color: rgba(242, 232, 216, 0.72);
+}
+
 .recommended-build-cell.is-empty {
   opacity: 0.55;
 }
