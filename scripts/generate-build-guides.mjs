@@ -1334,7 +1334,7 @@ function refineSkillTreeWithBase(merged, base) {
   for (let index = pointOrder.length; index < (base.pointOrder || []).length; index += 1) {
     pointOrder.push({
       ...base.pointOrder[index],
-      reason: `补足完整加点路线：${base.pointOrder[index].reason}`
+      reason: `巅峰前补点：${base.pointOrder[index].reason}`
     });
   }
   const skillBar = (merged.skillBar || []).map((skill, index) => {
@@ -1364,7 +1364,7 @@ function refineParagonWithBase(merged, base) {
   for (let index = clickOrder.length; index < (base.clickOrder || []).length; index += 1) {
     clickOrder.push({
       ...base.clickOrder[index],
-      reason: `补足完整巅峰路线：${base.clickOrder[index].reason}`
+      reason: `后段巅峰补点：${base.clickOrder[index].reason}`
     });
   }
   return {

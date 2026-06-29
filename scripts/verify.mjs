@@ -360,11 +360,13 @@ for (const guide of buildGuides.builds) {
   assert(allowedRouteSourceSnippets.some((snippet) => guide.skillTree?.sourceStatus?.includes(snippet)), `Build guide needs player-facing skill route source status: ${guide.id}`);
   assert(guide.skillTree.skillBar.every((skill) => !genericSkillStepPattern.test(skill.name || "")), `Build guide skill bar still contains generic placeholders: ${guide.id}`);
   assert(guide.skillTree.pointOrder.every((step) => !genericSkillStepPattern.test(step.skill || "")), `Build guide skill point order still contains generic placeholders: ${guide.id}`);
+  assert(guide.skillTree.pointOrder.every((step) => !String(step.reason || "").includes("补足完整")), `Build guide skill route reason still exposes generation copy: ${guide.id}`);
   assert(guide.skillTree?.classMechanic, `Build guide needs class mechanic text: ${guide.id}`);
   assert(guide.paragon?.boardOrder?.length >= 4, `Build guide needs paragon boards: ${guide.id}`);
   assert(guide.paragon?.clickOrder?.length >= 18, `Build guide needs complete paragon click order: ${guide.id}`);
   assert(allowedRouteSourceSnippets.some((snippet) => guide.paragon?.sourceStatus?.includes(snippet)), `Build guide needs player-facing paragon route source status: ${guide.id}`);
   assert(guide.paragon.clickOrder.every((step) => !genericParagonNodePattern.test(step.node || "")), `Build guide paragon route still contains generic click nodes: ${guide.id}`);
+  assert(guide.paragon.clickOrder.every((step) => !String(step.reason || "").includes("补足完整")), `Build guide paragon route reason still exposes generation copy: ${guide.id}`);
   assert(guide.paragon.boardOrder.every((board) => !routeEnglishPattern.test([board.name, board.glyph, board.goal].join(" "))), `Build guide paragon boards must be localized to Chinese: ${guide.id}`);
   assert(guide.paragon.clickOrder.every((step) => !routeEnglishPattern.test([step.board, step.node, step.reason].join(" "))), `Build guide paragon click route must be localized to Chinese: ${guide.id}`);
   assert((guide.paragon.glyphs || []).every((glyph) => !routeEnglishPattern.test([glyph.name, glyph.socket, glyph.note].join(" "))), `Build guide paragon glyphs must be localized to Chinese: ${guide.id}`);
@@ -386,7 +388,7 @@ const frontendText = [
   await readFile(path.join(PROJECT_ROOT, "index.html"), "utf8"),
   await readFile(path.join(PROJECT_ROOT, "public/app.js"), "utf8")
 ].join("\n");
-for (const forbidden of ["模型分", "先选目标", "rationale", "完整 BD 细节", "模型预估", "AI 思考", "模型推理", "候选配装", "配装规划", "路线待校准", "待回填", "资料校验中", "资料待校准"]) {
+for (const forbidden of ["模型分", "先选目标", "rationale", "完整 BD 细节", "模型预估", "AI 思考", "模型推理", "候选配装", "配装规划", "配置速查", "完整技能", "完整巅峰", "完整打法", "看完整", "先按这几步", "路线待校准", "待回填", "资料校验中", "资料待校准"]) {
   assert(!frontendText.includes(forbidden), `Frontend still contains non-guide copy: ${forbidden}`);
 }
 assert(frontendText.includes("renderSeasonBuildMatrix"), "BD library must render a season build matrix by class, archetype and mode");
@@ -429,13 +431,10 @@ assert(frontendText.includes("guide-family-matrix") && frontendText.includes("gu
 assert(frontendText.includes("renderCurrentArchetypeComparison") && frontendText.includes("guide-mode-comparison") && frontendText.includes("guide-mode-row"), "BD detail must expose a same-archetype daily/speed/push comparison table");
 assert(frontendText.includes("技能第一步") || frontendText.includes("skillTree.pointOrder?.[0]"), "Same-archetype comparison must expose skill route entry points");
 assert(frontendText.includes("firstParagon") && frontendText.includes("gameplay?.loop"), "Same-archetype comparison must expose paragon and gameplay entry points");
-assert(frontendText.includes("renderBuildManualPanel"), "BD overview must render a copy-ready execution manual");
-assert(frontendText.includes("build-manual-panel"), "BD overview must expose gear, skill, paragon and gameplay before long sections");
-assert(frontendText.includes("manual-gear-row"), "BD execution manual must expose all gear slots as jump targets");
 assert(frontendText.includes("renderGuideCopyOverview"), "BD hero must render a copy overview before long sections");
 assert(frontendText.includes("guide-copy-overview") && frontendText.includes("抄作业速览"), "BD copy overview must expose gear, skills, paragon, gameplay and replacement entry points");
 assert(frontendText.includes("renderGuideHeroExecutionStrip") && frontendText.includes("guide-hero-execution") && frontendText.includes("BD 首屏执行速览"), "BD detail hero must expose immediate gear, skill, paragon and gameplay execution facts");
-assert(frontendText.includes("guide-hero-execution__actions") && frontendText.includes("配置速查") && frontendText.includes("打法分区"), "BD detail hero execution strip must link to planner, gear, skills, paragon and gameplay sections");
+assert(frontendText.includes("guide-hero-execution__actions") && frontendText.includes("BD 配置") && frontendText.includes("打法分区"), "BD detail hero execution strip must link to planner, gear, skills, paragon and gameplay sections");
 assert(frontendText.includes("renderGuideHeroModeTabs") && frontendText.includes("guide-hero-modes") && frontendText.includes("同流派用途版本切换"), "BD detail hero must expose daily/speed/push version switching before long sections");
 assert(frontendText.includes("buildVersionModeOrder.map((mode)") && frontendText.includes("guideCeilingTier(item)") && frontendText.includes("guideSourceLabel(item)"), "BD hero mode tabs must expose mode, ceiling, difficulty and source state");
 assert(frontendText.includes("renderGuideSectionDirectory") && frontendText.includes("guide-section-directory"), "BD overview must expose a section directory for gear, skills, paragon, gameplay, variants and sources");
@@ -446,7 +445,8 @@ assert(frontendText.includes("renderBuildPlannerSheet"), "BD detail must expose 
 assert(frontendText.includes("planner-sheet") && frontendText.includes("planner-gear-row") && frontendText.includes("planner-skillbar") && frontendText.includes("planner-boards") && frontendText.includes("planner-gameplay"), "BD planner sheet must expose gear, skill, paragon and gameplay in one execution view");
 assert(frontendText.includes("planner-loadout-overview") && frontendText.includes("配置页 11 部位装备图标速览") && frontendText.includes("renderLoadoutStrip(guide)"), "BD planner sheet must expose an 11-slot icon loadout overview before the detailed gear table");
 assert(frontendText.includes("renderPlannerRouteOverview") && frontendText.includes("planner-route-overview") && frontendText.includes("技能加点前 3 步") && frontendText.includes("巅峰点击前 3 步") && frontendText.includes("打法起手"), "BD planner sheet must expose a copy-ready skill, paragon and gameplay route overview before long tables");
-assert(frontendText.includes("完整技能") && frontendText.includes("完整巅峰") && frontendText.includes("完整打法"), "BD planner route overview must link to dedicated skill, paragon and gameplay detail sections");
+assert(frontendText.includes("技能页") && frontendText.includes("巅峰页") && frontendText.includes("打法页"), "BD planner route overview must link to dedicated skill, paragon and gameplay detail sections");
+assert(frontendText.includes("planner: () => renderGuideDetailSection(\"BD 配置\"") && !frontendText.includes("${renderBuildManualPanel(guide)}") && !frontendText.includes("${renderBuildDamageModel(guide)}\n    `, \"planner\")"), "BD planner section must be a focused configuration page, not a mixed manual or damage page");
 assert(frontendText.includes("[\"planner\", \"配置\"]"), "BD section navigation must include the dedicated planner sheet section");
 assert(frontendText.includes("const defaultGuideSection = \"planner\""), "BD detail default route must open the copy-ready planner section");
 assert(frontendText.includes("selectedGuideSection: \"planner\""), "Initial BD detail state must default to the planner section");
