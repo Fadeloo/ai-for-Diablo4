@@ -363,7 +363,7 @@ const frontendText = [
   await readFile(path.join(PROJECT_ROOT, "index.html"), "utf8"),
   await readFile(path.join(PROJECT_ROOT, "public/app.js"), "utf8")
 ].join("\n");
-for (const forbidden of ["模型分", "先选目标", "rationale", "完整 BD 细节", "模型预估"]) {
+for (const forbidden of ["模型分", "先选目标", "rationale", "完整 BD 细节", "模型预估", "AI 思考", "模型推理", "候选配装", "配装规划", "路线待校准", "待回填", "资料校验中", "资料待校准"]) {
   assert(!frontendText.includes(forbidden), `Frontend still contains non-guide copy: ${forbidden}`);
 }
 assert(frontendText.includes("renderSeasonBuildMatrix"), "BD library must render a season build matrix by class, archetype and mode");

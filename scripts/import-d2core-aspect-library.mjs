@@ -44,7 +44,7 @@ const items = rawItems
     zhName: item.name,
     zhEffect: cleanEffect(item.affixesDesc),
     aspectType: item.aspectType,
-    zhAspectType: item.aspectTypeName || "类型待回填",
+    zhAspectType: item.aspectTypeName || "类型整理中",
     sourceClasses: item.char || [],
     zhClassName: item.charName || "",
     zhAllowedSlots: allowedSlotsForType(item.aspectTypeName),

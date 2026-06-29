@@ -14,6 +14,7 @@
 - `index.html`：`Harris‘s Diablo 4` 前端入口，按暴雪官网式暗黑资料站结构组织首页和功能入口。
 - `public/`：前端样式、交互脚本、本地生成的英雄图和装备类型图标。
 - `docs/PLAYER_SITE_REDESIGN_PLAN.md`：正式重构前的玩家资料站方案，定义信息架构、页面组件、数据存储、AI 边界、实施顺序和验收门禁。
+- `docs/PLAYER_SITE_MASTER_DESIGN.md`：后续实现前的主设计基线，统一页面路由、组件边界、数据存储、AI 分析、分期实施和发布门禁。
 - `docs/SITE_IMPLEMENTATION_DESIGN.md`：继续开发前的实施基线，记录页面架构、组件职责、数据读取链路、本轮改造规格和验收补充。
 - `docs/SYSTEM_DESIGN.md`：继续实现前的总控设计，定义页面、组件、数据契约、来源导入、AI 分析和验收标准。
 - `docs/PRODUCT_BLUEPRINT.md`：整体产品架构、页面组件、功能路径、数据存储和导入管线蓝图。

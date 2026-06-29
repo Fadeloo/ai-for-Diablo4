@@ -202,7 +202,7 @@ const items = uniqueData.items.map((item) => {
     visualType,
     zhVisualType: zh.visualType(visualType),
     primarySlot: slotCandidates[0] || null,
-    zhPrimarySlot: zhSlotCandidates[0] || "待回填",
+    zhPrimarySlot: zhSlotCandidates[0] || "部位资料整理中",
     slotCandidates,
     zhSlotCandidates,
     communityEquipType: communityOverride?.equipType || null,

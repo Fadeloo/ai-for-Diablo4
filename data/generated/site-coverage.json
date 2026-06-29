@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-29T05:43:29.487Z",
+  "generatedAt": "2026-06-29T05:53:28.628Z",
   "scope": "player_site_data_coverage_and_storage_usage",
   "asOf": "2026-06-28",
   "storageLayers": [
@@ -484,7 +484,7 @@
         "equipmentCoverage",
         "sourceCoverage"
       ],
-      "frontendUse": "来源页说明当前数据如何存储、如何被页面消费，以及哪些字段仍待回填。"
+      "frontendUse": "来源页说明当前数据如何存储、如何被页面消费，以及哪些字段仍在按来源继续整理。"
     }
   ],
   "buildDetailComponentBlueprint": [

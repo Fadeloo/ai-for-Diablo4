@@ -625,7 +625,7 @@
       {
         "slotId": "ring1",
         "target": {"type": "unique", "zhName": "延迟灭绝", "image": "./public/assets/icon-jewelry.png"},
-        "aspect": {"name": "暗金特效位", "role": "来源 BD 的骨魂核心戒指位", "sourceStatus": "Mobalytics S14 Astral Bone Spirit 装备位，本站装备库待回填"},
+        "aspect": {"name": "暗金特效位", "role": "来源 BD 的骨魂核心戒指位", "sourceStatus": "Mobalytics S14 Astral Bone Spirit 装备位，本站装备库继续按来源整理"},
         "required": true,
         "core": true,
         "replaceable": false,

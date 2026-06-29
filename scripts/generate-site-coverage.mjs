@@ -345,7 +345,7 @@ const frontendDataContracts = [
       "equipmentCoverage",
       "sourceCoverage"
     ],
-    frontendUse: "来源页说明当前数据如何存储、如何被页面消费，以及哪些字段仍待回填。"
+    frontendUse: "来源页说明当前数据如何存储、如何被页面消费，以及哪些字段仍在按来源继续整理。"
   }
 ];
 

@@ -531,7 +531,7 @@ function makeTarget(item, slot, archetype, index) {
     zhName: item.zhName,
     image: item.image,
     externalImage: item.externalImage,
-    description: `${item.zhBuildRole || "暗金组件"}，固定词缀：${(item.zhGuaranteedAffixes || []).join(" / ") || "待回填"}。`
+      description: `${item.zhBuildRole || "暗金组件"}，固定词缀：${(item.zhGuaranteedAffixes || []).join(" / ") || "词缀资料整理中"}。`
   };
 }
 
@@ -656,7 +656,7 @@ function withPlayerPower(slot, options = {}) {
     powerSourceStatus: matchedEquipment
       ? "装备库特效文本：官方 3.1.0 种子 + 社区数据库校对"
       : matchedAspect
-        ? `暗黑核威能库：${matchedAspect.source?.d2coreBuild || "版本待回填"} · ${matchedAspect.zhAspectType || "类型待回填"}`
+        ? `暗黑核威能库：${matchedAspect.source?.d2coreBuild || "版本整理中"} · ${matchedAspect.zhAspectType || "类型整理中"}`
         : null,
     matchedItemId: matchedEquipment?.id || null,
     matchedAspectId: matchedAspect?.aspectId || null,
@@ -671,7 +671,7 @@ function withPlayerPower(slot, options = {}) {
       zhName: matchedEquipment.zhName,
       image: matchedEquipment.image || slot.target.image,
       externalImage: matchedEquipment.externalImage || slot.target.externalImage,
-      description: `${matchedEquipment.zhBuildRole || slot.target.description || "暗金组件"}，固定词缀：${(matchedEquipment.zhGuaranteedAffixes || []).join(" / ") || "待回填"}。`
+      description: `${matchedEquipment.zhBuildRole || slot.target.description || "暗金组件"}，固定词缀：${(matchedEquipment.zhGuaranteedAffixes || []).join(" / ") || "词缀资料整理中"}。`
     } : slot.target,
     dataStatus: slotPlayerDataStatus(slot, power, Boolean(options.communityReference)),
     aspect: {
@@ -705,7 +705,7 @@ function gearSlotsFor({ equipmentItems, equipmentIndex, aspectIndex, classInfo, 
       aspect: {
         name: selected ? "暗金特效位" : aspectName(slot, archetype, mode, index),
         role: core ? "构筑联动核心" : "词缀与防御补强",
-        sourceStatus: selected ? "唯一装备固定词缀来自官方 3.1.0 补丁，暗金特效待回填" : "威能名称为构筑模板，需接入全量威能库核验"
+        sourceStatus: selected ? "唯一装备固定词缀来自官方 3.1.0 补丁，暗金特效继续按来源整理" : "威能名称为构筑模板，需接入全量威能库核验"
       },
       affixes,
       tempers: temperLines(slot, archetype),
@@ -789,7 +789,7 @@ function ceilingFor(performance, mode) {
       {
         type: "leaderboard_sample",
         zhLabel: "真实榜单样本",
-        zhStatus: "待回填",
+        zhStatus: "样本整理中",
         zhDetail: "没有同赛季 150 层通关样本时，不把速度写成已验证排行。"
       }
     ],
@@ -1395,7 +1395,7 @@ function resolvePatchedTarget(slot, patchTarget, equipmentIndex) {
   }
   const description = patchTarget.description
     ?? (matchedItem
-      ? `${matchedItem.zhBuildRole || "暗金组件"}，固定词缀：${(matchedItem.zhGuaranteedAffixes || []).join(" / ") || "待回填"}。`
+      ? `${matchedItem.zhBuildRole || "暗金组件"}，固定词缀：${(matchedItem.zhGuaranteedAffixes || []).join(" / ") || "词缀资料整理中"}。`
       : slot.target.description);
   return {
     ...slot.target,

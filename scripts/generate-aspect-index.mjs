@@ -70,7 +70,7 @@ for (const guide of builds) {
       targetName: slot.target?.zhName,
       targetType: slot.target?.type,
       role: slot.aspect?.role,
-      sourceStatus: slot.aspect?.sourceStatus || slot.dataStatus || "来源状态待回填",
+      sourceStatus: slot.aspect?.sourceStatus || slot.dataStatus || "来源状态整理中",
       core: Boolean(slot.core),
       required: Boolean(slot.required),
       replaceable: Boolean(slot.replaceable)

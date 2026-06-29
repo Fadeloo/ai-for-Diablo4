@@ -312,7 +312,7 @@ function buildGuide({ archetype, mode, classInfo, profile, synergyItems, seasonI
       equipmentAffixes: "官方 3.1.0 固定词缀已接入",
       uniquePower: "暗金特效与完整数值范围待授权数据源回填",
       skillRanks: "技能顺序为构筑模板，精确点数待游戏内/可审计数据源校准",
-      paragon: "巅峰路径为路线模板，具体盘名、节点坐标和雕文半径待回填",
+      paragon: "巅峰路径为路线模板，具体盘名、节点坐标和雕文半径继续按来源整理",
       prediction: seasonIndex === 0 ? "基于官方补丁资料的预测" : "未来赛季低置信度推演"
     }
   };

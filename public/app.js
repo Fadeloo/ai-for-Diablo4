@@ -384,7 +384,7 @@ function itemName(item) {
 
 function normalizeAffixName(affix) {
   if (typeof affix === "string") return affix;
-  return affix.zhName || affix.name || "待回填词缀";
+  return affix.zhName || affix.name || "词缀资料整理中";
 }
 
 function itemAffixes(item) {
@@ -455,7 +455,7 @@ function versionLineLabel(value) {
     December: "12"
   };
   const match = value?.match(/^(.+?) Build #(\d+) \(All Platforms\)—([A-Za-z]+) (\d{1,2}), (\d{4})$/);
-  if (!match) return value || "来源版本待回填";
+  if (!match) return value || "来源版本整理中";
   const [, patch, build, month, day, year] = match;
   return `${patch} 构建 #${build}（全平台）— ${year}-${monthMap[month] ?? month}-${day.padStart(2, "0")}`;
 }
@@ -666,7 +666,7 @@ function renderSelects() {
     statusSelect.innerHTML = `
       <option value="all">全部状态</option>
       <option value="community_database_reference">社区数据库参考</option>
-      <option value="needs_source_backfill">完整范围待回填</option>
+      <option value="needs_source_backfill">完整范围整理中</option>
       <option value="official_3_1_0_patch">官方固定词缀</option>
       <option value="external_url_reference">外部图标</option>
     `;
@@ -1499,7 +1499,7 @@ function renderSourceReferences(guide) {
       ${references.map((reference) => `
         <article>
           <strong>${reference.site} · ${reference.title}</strong>
-          <span>${reference.sourceSeason} · ${reference.asOf || "日期待回填"}</span>
+          <span>${reference.sourceSeason} · ${reference.asOf || "日期整理中"}</span>
           <p>${reference.note}</p>
           <a href="${reference.url}" target="_blank" rel="noreferrer">查看来源页面</a>
         </article>
@@ -1696,7 +1696,7 @@ function renderSeasonBuildModeCell(guide, mode) {
     return `
       <div class="season-build-mode-cell is-empty">
         <span>${modeLabels[mode] || mode}</span>
-        <strong>待回填</strong>
+        <strong>暂无匹配</strong>
         <em>当前筛选下暂无 BD</em>
       </div>
     `;
@@ -1769,7 +1769,7 @@ function renderRecommendedBuildCell(guide, mode) {
     return `
       <div class="recommended-build-cell is-empty">
         <span>${modeLabels[mode] || mode}</span>
-        <strong>待回填</strong>
+        <strong>暂无匹配</strong>
         <em>当前来源筛选下暂无可展示 BD</em>
       </div>
     `;
@@ -1832,7 +1832,7 @@ function renderRecommendedBuildBoard(guides) {
             <header>
               <span>${row.classInfo.zhName}</span>
               <strong>${row.archetypes.length} 个流派 · ${row.classGuides.length} 套 BD</strong>
-              <em>${row.communityCount} 套社区来源 · ${row.fallbackCount} 套按资料状态展示 · ${row.archetypes.slice(0, 5).join(" / ") || "待回填"}</em>
+              <em>${row.communityCount} 套社区来源 · ${row.fallbackCount} 套按资料状态展示 · ${row.archetypes.slice(0, 5).join(" / ") || "流派资料整理中"}</em>
             </header>
             ${buildVersionModeOrder.map((mode) => renderRecommendedBuildCell(row.modes.get(mode), mode)).join("")}
           </article>
@@ -2110,7 +2110,7 @@ function renderSimulator() {
       <div class="library-stats">
         <span><b>${guides.length}</b>套流派</span>
         <span><b>${communityCount}</b>社区参考</span>
-        <span><b>${topGuide?.ceiling.label || "待回填"}</b>最高参考</span>
+        <span><b>${topGuide?.ceiling.label || "赛季样本整理中"}</b>最高参考</span>
       </div>
     </div>
     ${renderBuildMaturityPanel(recommendedGuides)}
@@ -2121,7 +2121,7 @@ function renderSimulator() {
 }
 
 function renderTargetLink(target) {
-  if (!target?.itemId) return `<strong>${target?.zhName || "待回填装备"}</strong>`;
+  if (!target?.itemId) return `<strong>${target?.zhName || "装备资料整理中"}</strong>`;
   return `<a href="${itemUrl(target.itemId)}">${target.zhName}</a>`;
 }
 
@@ -2147,7 +2147,7 @@ function gearSlotStateClass(slot) {
 }
 
 function gearAspectDisplay(slot) {
-  const aspectName = slot.aspect?.name || "威能待回填";
+  const aspectName = slot.aspect?.name || "威能资料整理中";
   const fallback = slot.aspect?.displayName || slot.aspect?.role || aspectName;
   return displayText(isDisplayableAspectName(slot) ? aspectName : fallback);
 }
@@ -2156,17 +2156,17 @@ function gearPowerDisplay(slot) {
   const targetType = slot.target?.type;
   if (targetType === "mythic" || targetType === "unique") {
     const prefix = targetType === "mythic" ? "神话暗金" : "暗金";
-    return `${prefix}：${displayText(slot.target.zhName || slot.target.name || "装备待回填")}`;
+    return `${prefix}：${displayText(slot.target.zhName || slot.target.name || "装备资料整理中")}`;
   }
   const aspectName = slot.aspect?.name || "";
   if (aspectName && isDisplayableAspectName(slot)) {
     return `威能：${displayText(aspectName)}`;
   }
-  return displayText(slot.aspect?.displayName || slot.aspect?.role || "威能资料校验中");
+  return displayText(slot.aspect?.displayName || slot.aspect?.role || "威能资料整理中");
 }
 
 function gearPowerText(slot) {
-  return slot.aspect?.powerText || slot.aspect?.role || slot.target?.description || "效果文本资料校验中";
+  return slot.aspect?.powerText || slot.aspect?.role || slot.target?.description || "效果文本整理中";
 }
 
 function renderGearSummaryMatrix(guide) {
@@ -2203,7 +2203,7 @@ function renderGearSummaryMatrix(guide) {
               <div class="gear-summary-cell gear-summary-target">
                 <span class="gear-summary-label">目标装备</span>
                 ${renderTargetLink(slot.target)}
-                <em>${displayText(slot.target.description || "装备说明资料校验中")}</em>
+                <em>${displayText(slot.target.description || "装备说明整理中")}</em>
               </div>
               <div class="gear-summary-cell">
                 <span class="gear-summary-label">核心 / 替换</span>
@@ -2220,7 +2220,7 @@ function renderGearSummaryMatrix(guide) {
               </div>
               <div class="gear-summary-cell">
                 <span class="gear-summary-label">词缀优先级</span>
-                <p>${affixes.length ? affixes.join(" / ") : "词缀资料校验中"}</p>
+                <p>${affixes.length ? affixes.join(" / ") : "词缀资料整理中"}</p>
               </div>
               <div class="gear-summary-actions">
                 <button type="button" data-guide-jump="gear" data-gear-slot-target="${slot.slotId}">看明细</button>
@@ -2236,8 +2236,8 @@ function renderGearSummaryMatrix(guide) {
 
 function renderGearSlot(slot) {
   const upgradePath = slot.upgradePath || [];
-  const sourceStatus = slot.dataStatus || slot.aspect?.sourceStatus || "资料状态待回填";
-  const slotSource = slot.aspect?.sourceStatus || "槽位来源待回填";
+  const sourceStatus = slot.dataStatus || slot.aspect?.sourceStatus || "资料状态整理中";
+  const slotSource = slot.aspect?.sourceStatus || "槽位来源整理中";
   const alternatives = (slot.alternatives || []).map((alt) => {
     const name = alt.itemId ? `<a href="${itemUrl(alt.itemId)}">${alt.zhName}</a>` : `<b>${alt.zhName}</b>`;
     return `<li>${name}<span>${displayText(`${alt.reason} ${alt.tradeoff}`)}</span></li>`;
@@ -2412,7 +2412,7 @@ function renderLoadoutBoard(guide) {
           <p>${guide.formationDifficulty.label}成型 · ${guide.taxonomy.stage}</p>
           <small>${guideSourceLabel(guide)}</small>
           <div>
-            ${(coreUniques.length ? coreUniques : ["核心暗金待回填"]).map((name) => `<b>${name}</b>`).join("")}
+            ${(coreUniques.length ? coreUniques : ["核心暗金整理中"]).map((name) => `<b>${name}</b>`).join("")}
             ${coreAspects.map((name) => `<b>${name}</b>`).join("")}
           </div>
         </div>
@@ -2518,7 +2518,7 @@ function renderBuildManualPanel(guide) {
             ${flowSections.map(([title, lines]) => `
               <div>
                 <strong>${title}</strong>
-                <p>${displayText((lines || [])[0] || "资料校验中")}</p>
+                <p>${displayText((lines || [])[0] || "流程资料整理中")}</p>
               </div>
             `).join("")}
           </div>
@@ -2560,7 +2560,7 @@ function renderPlannerGearRow(slot) {
       </div>
       <div class="planner-gear-replace">
         <span>首选替换</span>
-        <strong>${displayText(replacement?.zhName || "暂无替换建议")}</strong>
+      <strong>${displayText(replacement?.zhName || "暂无替换方案")}</strong>
         <p>${displayText(replacement?.tradeoff || replacement?.reason || (slot.replaceable ? "按缺件、抗性或容错替换。" : "核心联动位，缺件时先降层过渡。"))}</p>
       </div>
     </article>
@@ -2924,7 +2924,7 @@ function renderSkillRouteMatrix(skillTree) {
       <header class="route-matrix__head">
         <div>
           <span>技能路线总表</span>
-          <strong>${displayText(skillTree.core || "核心技能资料校验中")} · ${steps.length} 步加点</strong>
+          <strong>${displayText(skillTree.core || "核心技能整理中")} · ${steps.length} 步加点</strong>
         </div>
         <em>技能栏、等级段、投入点数和加点原因</em>
       </header>
@@ -3493,8 +3493,8 @@ function renderClassSeasonSummary(selected, guides) {
       <article><strong>${guides.length}</strong><span>当前赛季 BD</span></article>
       <article><strong>${archetypeCount}</strong><span>流派轴</span></article>
       <article><strong>${communityCount}</strong><span>社区来源</span></article>
-      <article><strong>${bestPush ? `${bestPush.taxonomy.archetypeName} · ${bestPush.ceiling.displayTier || bestPush.ceiling.tier}` : "待回填"}</strong><span>冲层上限</span></article>
-      <article><strong>${easiest ? `${easiest.taxonomy.archetypeName} · ${easiest.formationDifficulty.label}` : "待回填"}</strong><span>低门槛入口</span></article>
+      <article><strong>${bestPush ? `${bestPush.taxonomy.archetypeName} · ${bestPush.ceiling.displayTier || bestPush.ceiling.tier}` : "赛季样本整理中"}</strong><span>冲层上限</span></article>
+      <article><strong>${easiest ? `${easiest.taxonomy.archetypeName} · ${easiest.formationDifficulty.label}` : "赛季样本整理中"}</strong><span>低门槛入口</span></article>
       <article><strong>${selected.primaryResources.map(resourceLabel).join(" / ")}</strong><span>职业资源</span></article>
     </div>
   `;
@@ -3505,7 +3505,7 @@ function renderClassModeCard(guide, mode) {
     return `
       <div class="class-mode-card is-empty">
         <span>${modeName(mode)}</span>
-        <strong>待回填</strong>
+        <strong>暂无当前版本</strong>
         <em>暂无结构化 BD</em>
       </div>
     `;
@@ -3766,7 +3766,7 @@ function renderSelectedClass() {
           ${modeShortcuts.map(({ mode, guide }) => `
             <a class="class-build-chip" href="#builds" data-build-filter-class="${selected.id}" data-build-filter-mode="${mode}" data-build-filter-source="all">
               <span>${modeName(mode)}</span>
-              <strong>${guide?.taxonomy.archetypeName || "待回填"}</strong>
+              <strong>${guide?.taxonomy.archetypeName || "暂无当前版本"}</strong>
               <em>${guide ? guideSourceLabel(guide) : "暂无可用 BD"}</em>
             </a>
           `).join("")}
@@ -3867,7 +3867,7 @@ function renderEquipmentDetail(item) {
   const affixes = item.guaranteedAffixes
     .map((affix, index) => {
       const label = itemAffixes(item)[index] || normalizeAffixName(affix);
-      const slots = Array.isArray(affix.slots) ? affix.slots.join(" / ") : "待回填";
+      const slots = Array.isArray(affix.slots) ? affix.slots.join(" / ") : "槽位整理中";
       return `
         <li>
           <strong>${label}</strong>
@@ -3891,10 +3891,10 @@ function renderEquipmentDetail(item) {
   const versionInfo = item.gameVersion || item.source?.gameVersion;
   const platformText = versionInfo?.platforms === "All Platforms" ? "全平台" : (versionInfo?.platforms || "全平台");
   const versionText = versionInfo?.patch
-    ? `${versionInfo.patch} 构建 #${versionInfo.build}（${platformText}）— ${versionInfo.releaseDate || "日期待回填"}`
+    ? `${versionInfo.patch} 构建 #${versionInfo.build}（${platformText}）— ${versionInfo.releaseDate || "日期整理中"}`
     : versionLineLabel(item.source.versionLine);
   const communitySource = item.communitySource;
-  const sourceName = communitySource?.sourceId ? (sourceLabels[communitySource.sourceId] || communitySource.sourceId) : "社区来源待回填";
+  const sourceName = communitySource?.sourceId ? (sourceLabels[communitySource.sourceId] || communitySource.sourceId) : "社区来源整理中";
 
   panel.innerHTML = `
     <div class="equipment-detail-hero">
@@ -3913,11 +3913,11 @@ function renderEquipmentDetail(item) {
       </div>
       <div class="equipment-info-grid">
         <article><strong>验证部位</strong><span>${equipmentTypeLabel(item)}</span></article>
-        <article><strong>装备类型</strong><span>${item.zhCommunityEquipType || item.zhVisualType || "待回填"}</span></article>
+        <article><strong>装备类型</strong><span>${item.zhCommunityEquipType || item.zhVisualType || "装备类型整理中"}</span></article>
         <article><strong>职业限制</strong><span>${equipmentClassLabel(item)}</span></article>
         <article><strong>构筑用途</strong><span>${item.zhBuildRole || item.buildRole}</span></article>
         <article><strong>适用场景</strong><span>${(item.zhModeFit || item.modeFit).join(" / ")}</span></article>
-        <article><strong>基础数值</strong><span>${item.communityBaseText || "资料校验中"}</span></article>
+        <article><strong>基础数值</strong><span>${item.communityBaseText || "基础数值整理中"}</span></article>
       </div>
     </section>
     <section class="detail-section">
@@ -3928,11 +3928,11 @@ function renderEquipmentDetail(item) {
       <div class="unique-power-panel">
         <article>
           <strong>特效</strong>
-          <p>${displayText(item.zhUniquePower || "暗金特效资料校验中")}</p>
+          <p>${displayText(item.zhUniquePower || "暗金特效整理中")}</p>
         </article>
         <article>
           <strong>掉落</strong>
-          <p>${displayText(item.dropSource?.zhText || "掉落来源资料校验中")}</p>
+          <p>${displayText(item.dropSource?.zhText || "掉落来源整理中")}</p>
         </article>
       </div>
     </section>
@@ -3980,7 +3980,7 @@ function renderEquipmentDetail(item) {
         <span>${sourceName}</span>
       </div>
       <p>官方固定词缀：${versionText}</p>
-      ${communitySource ? `<p>暗金特效、掉落和验证部位：${sourceName} · 数据版本 ${communitySource.d2coreBuild || "待回填"}</p>` : ""}
+      ${communitySource ? `<p>暗金特效、掉落和验证部位：${sourceName} · 数据版本 ${communitySource.d2coreBuild || "版本整理中"}</p>` : ""}
       <div class="source-actions">
         <a href="${itemUrl(item)}">打开独立装备页</a>
         <a href="${item.source.url}" target="_blank" rel="noreferrer">查看补丁来源</a>
@@ -4064,7 +4064,7 @@ function renderAspects() {
       return `
         <button class="aspect-row" type="button" data-aspect-id="${aspect.id}" aria-selected="${aspect.id === selected?.id}">
           <span>
-            <small>${sourceTag} · ${topSlots || "部位待回填"}</small>
+            <small>${sourceTag} · ${topSlots || "部位资料整理中"}</small>
             <strong>${aspectName}</strong>
             <em>${aspect.guideCount} 套 BD · ${aspect.usageCount} 次使用 · ${(aspect.zhClasses || []).slice(0, 4).join(" / ")}</em>
           </span>
@@ -4172,9 +4172,9 @@ function renderAspectDetail(aspect) {
       <div class="equipment-info-grid">
         <article><strong>职业</strong><span>${aspect.zhClasses.join(" / ")}</span></article>
         <article><strong>用途</strong><span>${aspect.zhModes.join(" / ")}</span></article>
-        <article><strong>威能类型</strong><span>${database?.zhAspectType || "资料校验中"}</span></article>
+        <article><strong>威能类型</strong><span>${database?.zhAspectType || "类型资料整理中"}</span></article>
         <article><strong>数据范围</strong><span>${aspect.dataStatus?.zhText || "从 BD 汇总"}</span></article>
-        <article><strong>来源样本</strong><span>${database ? (sourceLabels[database.sourceId] || database.sourceId) : ((aspect.sourceStatusSamples || []).slice(0, 3).join(" / ") || "待回填")}</span></article>
+        <article><strong>来源样本</strong><span>${database ? (sourceLabels[database.sourceId] || database.sourceId) : ((aspect.sourceStatusSamples || []).slice(0, 3).join(" / ") || "来源样本整理中")}</span></article>
       </div>
     </section>
     <section class="detail-section">
@@ -4262,7 +4262,7 @@ function renderForecastBuildCell(seasonId, row, mode, build) {
       <article class="forecast-build-card">
         <span>${label}</span>
         <strong>${displayText(build.zhArchetypeName || build.archetypeName)}</strong>
-        <em>${displayText(build.predictedPit150Minutes)} 分参考 · 资料待校准</em>
+        <em>${displayText(build.predictedPit150Minutes)} 分参考 · 赛季样本校准中</em>
       </article>
     `;
   }
@@ -4358,7 +4358,7 @@ function renderCoverage() {
     <section class="coverage-panel">
       <div class="section-title">
         <h4>数据覆盖与使用方式</h4>
-        <span>${coverage.asOf || "日期待回填"}</span>
+        <span>${coverage.asOf || "日期整理中"}</span>
       </div>
       <div class="coverage-grid">
         <article>
@@ -4369,7 +4369,7 @@ function renderCoverage() {
         <article>
           <strong>${equipmentCoverage.total}</strong>
           <span>装备种子</span>
-          <p>固定词缀已接入；暗金特效、完整范围、掉落来源和官方槽位仍待回填。</p>
+          <p>固定词缀已接入；暗金特效、完整范围、掉落来源和官方槽位继续按来源整理。</p>
         </article>
         <article>
           <strong>${aspectCoverage.total}</strong>
