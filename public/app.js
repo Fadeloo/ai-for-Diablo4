@@ -3111,6 +3111,7 @@ function renderBuildPlannerSheet(guide) {
         <a href="${guideSectionUrl(guide, "variants")}">替换方案</a>
       </div>
       ${renderPlannerGearMatrix(guide)}
+      ${renderRouteOverview(guide)}
       <section class="planner-loadout-overview" aria-label="配置页 11 部位装备图标速览">
         <header>
           <span>11 部位图标速览</span>
