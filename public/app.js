@@ -2514,6 +2514,7 @@ function renderBuildViewContent(guides, recommendedGuides) {
   const priorityGuides = guides.slice(0, Math.min(12, state.sim.visible));
   return `
     ${renderRecommendedBuildBoard(recommendedGuides)}
+    ${renderSeasonBuildMatrix(guides)}
     ${priorityGuides.length ? `<section class="build-result-section" aria-label="当前筛选下优先 BD">
       <div class="section-title">
         <h4>优先查看</h4>

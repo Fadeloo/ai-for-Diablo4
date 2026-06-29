@@ -393,6 +393,7 @@ for (const forbidden of ["模型分", "先选目标", "rationale", "完整 BD �
 }
 assert(frontendText.includes("renderSeasonBuildMatrix"), "BD library must render a season build matrix by class, archetype and mode");
 assert(frontendText.includes("season-build-matrix"), "BD library must expose daily/speed/push comparisons before individual cards");
+assert(frontendText.includes("${renderRecommendedBuildBoard(recommendedGuides)}\n    ${renderSeasonBuildMatrix(guides)}"), "BD default recommendation view must expose the full class/archetype/mode matrix without requiring a view switch");
 assert(frontendText.includes("renderRecommendedBuildBoard"), "BD library must render a class-by-mode recommended build entry board");
 assert(frontendText.includes("recommended-build-board"), "BD library must expose per-class daily/speed/push entry points");
 assert(frontendText.includes("recommendedDirectoryGuidesForCurrentFilters"), "BD recommendation board must use a best-available guide pool instead of hiding classes without current source matches");
