@@ -240,6 +240,7 @@ assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildSidebarSectionLinks" && contract.fields?.includes("gearSlots") && contract.fields?.includes("skillTree.pointOrder")), "Site coverage must describe the build sidebar section links contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildDetailLayout"), "Site coverage must describe the build detail data contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildPlannerSheet" && contract.fields?.includes("gearSlots[].alternatives[0]") && contract.fields?.includes("paragon.clickOrder")), "Site coverage must describe the copy-ready build planner sheet contract");
+assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildDamageModelPanel" && contract.fields?.includes("damageModel.breakdown") && contract.fields?.includes("damageModel.assumptions")), "Site coverage must describe the build damage model panel contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildFamilyNavigator" && contract.fields?.includes("taxonomy.mode") && contract.fields?.includes("ceiling.pit150Minutes") && contract.fields?.includes("source.verificationLevel")), "Site coverage must describe the build family navigator contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildModeComparison" && contract.fields?.includes("coreRequirements") && contract.fields?.includes("skillTree.pointOrder[0]") && contract.fields?.includes("paragon.clickOrder[0]") && contract.fields?.includes("gameplay.loop[0]")), "Site coverage must describe the same-archetype mode comparison contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildReadinessChecklist" && contract.fields?.includes("gearSlots[].required") && contract.fields?.includes("gearSlots[].alternatives[0]") && contract.fields?.includes("gameplay.defense[0]")), "Site coverage must describe the build readiness checklist contract");
@@ -260,6 +261,7 @@ assert(siteCoverage.playerRequirementCoverage?.some((item) => item.id === "gear_
 assert(siteCoverage.playerRequirementCoverage?.some((item) => item.id === "core_power_summary" && item.satisfied === buildGuides.builds.length), "Coverage must expose player requirement coverage for core powers");
 assert(siteCoverage.playerRequirementCoverage?.some((item) => item.id === "skill_order" && item.satisfied === buildGuides.builds.length), "Coverage must expose player requirement coverage for skill order");
 assert(siteCoverage.playerRequirementCoverage?.some((item) => item.id === "paragon_click_order" && item.satisfied === buildGuides.builds.length), "Coverage must expose player requirement coverage for paragon click order");
+assert(siteCoverage.playerRequirementCoverage?.some((item) => item.id === "damage_breakdown" && item.satisfied === buildGuides.builds.length), "Coverage must expose player requirement coverage for damage breakdowns");
 assert(siteCoverage.playerRequirementCoverage?.some((item) => item.id === "readiness_checklist" && item.satisfied === buildGuides.builds.length), "Coverage must expose player requirement coverage for readiness checklists");
 assert(siteCoverage.playerRequirementCoverage?.some((item) => item.id === "mode_comparison" && item.satisfied === buildGuides.builds.length), "Coverage must expose player requirement coverage for daily/speed/push comparison");
 assert(siteCoverage.playerRequirementCoverage?.some((item) => item.id === "source_status" && item.satisfied === buildGuides.builds.length), "Coverage must expose player requirement coverage for source status");
@@ -275,6 +277,7 @@ assert(siteCoverage.buildIntegrity?.routeSpecificity?.genericSkillSteps === 0, "
 assert(siteCoverage.buildIntegrity?.routeSpecificity?.genericSkillBarEntries === 0, "Site coverage must prove skill bars do not expose generic placeholders");
 assert(siteCoverage.buildIntegrity?.routeSpecificity?.genericParagonNodes === 0, "Site coverage must prove paragon routes do not expose generic placeholders");
 assert(siteCoverage.buildIntegrity?.gameplayBuilds === buildGuides.builds.length, "Site coverage must prove every BD has gameplay instructions");
+assert(siteCoverage.buildIntegrity?.damageModelBuilds === buildGuides.builds.length, "Site coverage must prove every BD has damage model breakdowns");
 assert(siteCoverage.buildIntegrity?.progressionBuilds === buildGuides.builds.length, "Site coverage must prove every BD has progression instructions");
 assert(siteCoverage.buildIntegrity?.replacementBuilds === buildGuides.builds.length, "Site coverage must prove every BD has replacement data");
 assert(siteCoverage.buildIntegrity?.readinessChecklistBuilds === buildGuides.builds.length, "Site coverage must prove every BD has readiness checklist data");
@@ -296,11 +299,15 @@ for (const guide of buildGuides.builds) {
   assert(guide.displayName && guide.displayName.includes(guide.taxonomy.className) && guide.displayName.includes(guide.taxonomy.archetypeName), `Build guide needs player-facing displayName: ${guide.id}`);
   assert(guide.guideCompleteness?.counts?.gearSlots === buildGuides.slotOrder.length, `Build guide completeness must count every gear slot: ${guide.id}`);
   assert(guide.guideCompleteness?.counts?.skillSteps >= 18 && guide.guideCompleteness?.counts?.paragonSteps >= 18, `Build guide completeness must count complete skill and paragon routes: ${guide.id}`);
-  assert(guide.guideCompleteness?.counts?.gameplaySections >= 5 && guide.guideCompleteness?.counts?.replaceableSlots >= 1, `Build guide completeness must count gameplay and replacement coverage: ${guide.id}`);
+  assert(guide.guideCompleteness?.counts?.gameplaySections >= 5 && guide.guideCompleteness?.counts?.damageBreakdown >= 7 && guide.guideCompleteness?.counts?.replaceableSlots >= 1, `Build guide completeness must count gameplay, damage and replacement coverage: ${guide.id}`);
   assert(guide.guideCompleteness?.checklist?.length >= 5, `Build guide completeness needs a player checklist: ${guide.id}`);
   assert(guide.formationDifficulty?.label && guide.formationDifficulty?.reasons?.length >= 2, `Build guide needs formation difficulty: ${guide.id}`);
   assert(guide.ceiling?.tier && typeof guide.ceiling.pit150Minutes === "number", `Build guide needs ceiling reference: ${guide.id}`);
   assert(guide.ceiling?.confidence > 0 && guide.ceiling?.sourceStatus && guide.ceiling?.evidence?.length >= 2, `Build guide needs ceiling evidence and confidence: ${guide.id}`);
+  assert(guide.damageModel?.expectedDps > 0 && guide.damageModel?.hitDamage > 0, `Build guide needs expected damage model totals: ${guide.id}`);
+  assert(Object.keys(guide.damageModel?.breakdown || {}).length >= 7, `Build guide needs damage model breakdown: ${guide.id}`);
+  assert((guide.damageModel?.assumptions || []).length >= 3 && guide.damageModel.assumptions.some((line) => line.includes("服务器") || line.includes("结算")), `Build guide damage model needs assumptions: ${guide.id}`);
+  assert((guide.damageModel?.drivers || []).length >= 3, `Build guide damage model needs player-facing drivers: ${guide.id}`);
   if (!["community_reference", "cross_season_reference"].includes(guide.ceiling.sourceStatus)) {
     assert(guide.ceiling.displayTier?.includes("模板") && guide.ceiling.label?.includes("模板参考"), `Template guide ceiling must be labeled as template reference: ${guide.id}`);
   }
@@ -433,6 +440,7 @@ assert(frontendText.includes("guide.guideCompleteness"), "BD detail must read ge
 assert(frontendText.includes("renderBuildPlannerSheet"), "BD detail must expose a dedicated copy-ready planner sheet section");
 assert(frontendText.includes("planner-sheet") && frontendText.includes("planner-gear-row") && frontendText.includes("planner-skillbar") && frontendText.includes("planner-boards") && frontendText.includes("planner-gameplay"), "BD planner sheet must expose gear, skill, paragon and gameplay in one execution view");
 assert(frontendText.includes("[\"planner\", \"配置\"]"), "BD section navigation must include the dedicated planner sheet section");
+assert(frontendText.includes("renderBuildDamageModel") && frontendText.includes("damage-model-panel") && frontendText.includes("[\"damage\", \"伤害\"]"), "BD detail must expose a dedicated damage breakdown section");
 assert(!frontendText.includes("${renderBuildDossier(guide)}"), "BD hero must stay lightweight and not render the old dense dossier block");
 assert(frontendText.includes("renderCoreRequirementList") && frontendText.includes("core-requirement-list"), "BD sidebar must render structured core requirements from resolved gear slots");
 assert(frontendText.includes("gearPowerDisplay"), "BD detail must render concrete unique/aspect power labels instead of visible placeholder labels");

@@ -1668,6 +1668,12 @@ function guideSectionMeta(guide, key) {
       detail: `${guide.paragon?.boardOrder?.length || 0} 张盘 · ${guide.paragon?.glyphs?.length || 0} 个雕文 · ${guide.paragon?.clickOrder?.length || 0} 步`,
       stat: `${guide.paragon?.boardOrder?.length || 0} 盘`
     },
+    damage: {
+      label: "伤害",
+      title: "期望伤害和乘区拆解",
+      detail: `${formatNumber(guide.damageModel?.expectedDps || 0)} 每秒伤害 · ${Object.keys(guide.damageModel?.breakdown || {}).length} 个拆解项`,
+      stat: "拆解"
+    },
     gameplay: {
       label: "打法",
       title: "起手、循环和防御窗口",
@@ -1873,6 +1879,63 @@ function renderCeilingEvidence(guide) {
         </article>
       `).join("")}
     </div>
+  `;
+}
+
+const damageBreakdownLabels = {
+  baseSkillDamage: "基础技能伤害",
+  primaryStatFactor: "主属性乘区",
+  additiveFactor: "加伤池",
+  independentMultiplier: "独立乘区",
+  criticalFactor: "暴击期望",
+  vulnerableFactor: "易伤期望",
+  overpowerFactor: "压制期望"
+};
+
+function renderBuildDamageModel(guide) {
+  const model = guide.damageModel;
+  if (!model?.breakdown) return "";
+  const rows = Object.entries(model.breakdown).map(([key, value]) => {
+    const isBase = key === "baseSkillDamage";
+    const normalized = isBase ? Math.min(value / 4000, 1) : Math.min(Math.max((value - 1) / 1.6, 0), 1);
+    return `
+      <div class="damage-model-row">
+        <span>${damageBreakdownLabels[key] || key}</span>
+        <i><b style="width:${Math.max(normalized * 100, 5)}%"></b></i>
+        <strong>${isBase ? formatNumber(value) : percent(value)}</strong>
+      </div>
+    `;
+  }).join("");
+  const inputs = model.inputs || {};
+  return `
+    <section class="damage-model-panel" aria-label="BD 期望伤害拆解">
+      <header>
+        <div>
+          <span>${displayText(model.label || "期望伤害拆解")}</span>
+          <strong>${formatNumber(model.expectedDps || 0)} 每秒伤害 · ${formatNumber(model.hitDamage || 0)} 单次命中</strong>
+        </div>
+        <em>${displayText(model.modelVersion || "expected_value_v1")} · ${displayText(model.sourceStatus || "explainable_estimate")}</em>
+      </header>
+      <div class="damage-model-facts">
+        <article><b>${formatNumber(inputs.weaponDamage || 0)}</b><span>武器伤害</span></article>
+        <article><b>${inputs.skillCoefficient || "-"}</b><span>技能系数</span></article>
+        <article><b>${formatNumber(inputs.primaryStat || 0)}</b><span>主属性</span></article>
+        <article><b>${inputs.attacksPerSecond || "-"}</b><span>每秒攻击</span></article>
+        <article><b>${percent(inputs.criticalChance || 0)}</b><span>暴击率</span></article>
+        <article><b>${percent(inputs.vulnerableUptime || 0)}</b><span>易伤覆盖</span></article>
+      </div>
+      <div class="damage-model-grid">
+        <div class="damage-model-breakdown">
+          ${rows}
+        </div>
+        <aside>
+          <strong>主要驱动</strong>
+          <ul>${listItems(model.drivers || [])}</ul>
+          <strong>计算假设</strong>
+          <ul>${listItems(model.assumptions || [])}</ul>
+        </aside>
+      </div>
+    </section>
   `;
 }
 
@@ -3572,6 +3635,7 @@ const guideDetailSections = [
   ["gear", "装备"],
   ["skills", "技能"],
   ["paragon", "巅峰"],
+  ["damage", "伤害"],
   ["gameplay", "打法"],
   ["variants", "替换"],
   ["sources", "来源"]
@@ -3587,6 +3651,7 @@ function renderGuideSectionByKey(guide, activeSection = state.selectedGuideSecti
       ${renderGuideCopyOverview(guide)}
       ${renderGuideSectionDirectory(guide)}
       ${renderBuildReadinessChecklist(guide)}
+      ${renderBuildDamageModel(guide)}
       ${renderExecutionPlan(guide)}
       ${renderSuitability(guide)}
       <div class="core-item-strip">${renderCoreUniques(guide, 5)}</div>
@@ -3613,6 +3678,7 @@ function renderGuideSectionByKey(guide, activeSection = state.selectedGuideSecti
       </div>
     `, "overview"),
     planner: () => renderGuideDetailSection("配置速查", "装备、技能、巅峰、打法和替换的紧凑执行表", `
+      ${renderBuildDamageModel(guide)}
       ${renderBuildManualPanel(guide)}
       ${renderBuildPlannerSheet(guide)}
     `, "planner"),
@@ -3632,6 +3698,7 @@ function renderGuideSectionByKey(guide, activeSection = state.selectedGuideSecti
       ${renderRouteSourcePanel(guide, "paragon")}
       ${renderParagon(guide.paragon)}
     `, "paragon"),
+    damage: () => renderGuideDetailSection("伤害拆解", "期望值模型、乘区、驱动和假设", renderBuildDamageModel(guide), "damage"),
     gameplay: () => renderGuideDetailSection("打法", "起手、循环、首领、防御和常见错误", renderGameplay(guide.gameplay), "gameplay"),
     variants: () => renderGuideDetailSection("替换与变体", "缺件、冲层和高容错版本", `
       ${renderReplacementMatrix(guide)}

@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { calculateExpectedDps } from "../src/damage/calculate.js";
 import { zh } from "./lib/zh-localization.mjs";
 
 const root = path.resolve(new URL(".", import.meta.url).pathname, "..");
@@ -797,6 +798,97 @@ function ceilingFor(performance, mode) {
   };
 }
 
+function roundNumber(value, digits = 2) {
+  return Number(Number(value).toFixed(digits));
+}
+
+function damageModelFor(guide) {
+  const stats = guide.summary?.statPriority || [];
+  const gearSlots = guide.gearSlots || [];
+  const requiredCount = gearSlots.filter((slot) => slot.required).length;
+  const uniqueCount = gearSlots.filter((slot) => slot.target?.type === "unique").length;
+  const legendaryAspectCount = gearSlots.filter((slot) => slot.aspect?.displayKind === "legendary_aspect").length;
+  const mode = guide.taxonomy?.mode || "daily";
+  const modeScalar = mode === "pit_push" ? 1.16 : mode === "speed_farm" ? 1.05 : 0.96;
+  const tierScalar = guide.ceiling?.tier === "T0" ? 1.18 : guide.ceiling?.tier === "T1" ? 1.1 : guide.ceiling?.tier === "T2" ? 1.03 : 0.96;
+  const hasCrit = stats.some((stat) => stat.includes("暴击"));
+  const hasVulnerable = stats.some((stat) => stat.includes("易伤"));
+  const hasOverpower = stats.some((stat) => stat.includes("压制"));
+  const hasResource = stats.some((stat) => stat.includes("资源"));
+  const hasCooldown = stats.some((stat) => stat.includes("冷却"));
+  const weaponDamage = Math.round((980 + requiredCount * 42 + uniqueCount * 28) * modeScalar);
+  const skillCoefficient = roundNumber((mode === "pit_push" ? 1.42 : mode === "speed_farm" ? 1.24 : 1.14) + legendaryAspectCount * 0.018, 2);
+  const primaryStat = Math.round(760 + (guide.ceiling?.confidence || 0.48) * 520 + uniqueCount * 24);
+  const additiveBonuses = [
+    0.28 + stats.length * 0.035,
+    requiredCount * 0.018,
+    hasResource ? 0.08 : 0.04
+  ];
+  const multiplicativeBonuses = [
+    roundNumber((guide.ceiling?.confidence || 0.48) * 0.22, 3),
+    roundNumber((tierScalar - 1) * 0.55 + 0.08, 3),
+    hasCooldown ? 0.09 : 0.05
+  ];
+  const input = {
+    weaponDamage,
+    skillCoefficient,
+    primaryStat,
+    additiveBonuses,
+    multiplicativeBonuses,
+    critical: {
+      chance: hasCrit ? 0.46 : 0.32,
+      damageMultiplier: hasCrit ? 0.34 : 0.16
+    },
+    vulnerable: {
+      uptime: hasVulnerable ? 0.82 : 0.58,
+      damageMultiplier: hasVulnerable ? 0.28 : 0.12
+    },
+    overpower: {
+      chance: hasOverpower ? 0.18 : 0.05,
+      damageMultiplier: hasOverpower ? 0.68 : 0.22
+    },
+    attacksPerSecond: roundNumber(mode === "speed_farm" ? 1.52 : mode === "pit_push" ? 1.18 : 1.3, 2)
+  };
+  const result = calculateExpectedDps(input);
+  return {
+    modelVersion: "expected_value_v1",
+    sourceStatus: "explainable_estimate",
+    label: "期望伤害拆解",
+    expectedDps: Math.round(result.expectedDps),
+    hitDamage: Math.round(result.hit.finalDamage),
+    inputs: {
+      weaponDamage: input.weaponDamage,
+      skillCoefficient: input.skillCoefficient,
+      primaryStat: input.primaryStat,
+      attacksPerSecond: input.attacksPerSecond,
+      criticalChance: input.critical.chance,
+      vulnerableUptime: input.vulnerable.uptime,
+      overpowerChance: input.overpower.chance
+    },
+    breakdown: {
+      baseSkillDamage: Math.round(result.hit.breakdown.baseSkillDamage),
+      primaryStatFactor: roundNumber(result.hit.breakdown.primaryStatFactor, 3),
+      additiveFactor: roundNumber(result.hit.breakdown.additiveFactor, 3),
+      independentMultiplier: roundNumber(result.hit.breakdown.independentMultiplier, 3),
+      criticalFactor: roundNumber(result.hit.breakdown.criticalFactor, 3),
+      vulnerableFactor: roundNumber(result.hit.breakdown.vulnerableFactor, 3),
+      overpowerFactor: roundNumber(result.hit.breakdown.overpowerFactor, 3)
+    },
+    drivers: uniqueStrings([
+      `${guide.taxonomy?.modeName || "用途"}版本按${stats.slice(0, 3).join(" / ") || "核心词缀"}估算主乘区。`,
+      `${requiredCount} 个硬需求和 ${uniqueCount} 个暗金/神话暗金提高成型后输入。`,
+      guide.ceiling?.evidenceLabel || guide.ceiling?.label,
+      hasCrit ? "暴击词缀进入暴击期望乘区。" : "暴击按基础期望处理。",
+      hasVulnerable ? "易伤覆盖进入事件期望乘区。" : "易伤按中等覆盖处理。"
+    ], 5),
+    assumptions: [
+      ...result.hit.assumptions,
+      "该数值用于比较同站 BD 的伤害结构，不等同于游戏内面板、训练假人或天坑实测。",
+      "暗金特效、威能范围、快照、攻速断点和怪物减伤没有可靠来源时只进入 assumptions，不写成已验证结算。"
+    ]
+  };
+}
+
 function classMechanicText(classInfo, archetype) {
   const mechanic = {
     barbarian: "武器专精、狂暴和战吼覆盖决定爆发窗口；缺怒气时先补资源而不是硬堆伤害。",
@@ -1328,26 +1420,30 @@ function guideCompletenessFor(guide) {
     paragonBoards: paragonBoards.length,
     paragonSteps: paragonSteps.length,
     gameplaySections: gameplaySections.length,
+    damageBreakdown: guide.damageModel?.breakdown ? Object.keys(guide.damageModel.breakdown).length : 0,
     variants: guide.variants?.length || 0,
     sourceReferences: guide.source?.references?.length || 0
   };
   const sections = {
     gear: counts.gearSlots >= slotOrder.length ? "complete" : "needs_validation",
-    skills: counts.skillBarSkills >= 6 && counts.skillSteps >= 10 ? "complete" : "needs_validation",
-    paragon: counts.paragonBoards >= 4 && counts.paragonSteps >= 10 ? "complete" : "needs_validation",
+    skills: counts.skillBarSkills >= 6 && counts.skillSteps >= 18 ? "complete" : "needs_validation",
+    paragon: counts.paragonBoards >= 4 && counts.paragonSteps >= 18 ? "complete" : "needs_validation",
     gameplay: counts.gameplaySections >= 5 ? "complete" : "needs_validation",
+    damage: counts.damageBreakdown >= 7 ? "complete" : "needs_validation",
     variants: counts.variants >= 3 && counts.replaceableSlots > 0 ? "complete" : "needs_validation",
     sources: guide.source?.verificationLevel || "official_seed_template"
   };
-  const readyCount = Object.values(sections).filter((status) => status === "complete").length;
+  const coreSectionKeys = ["gear", "skills", "paragon", "gameplay", "damage", "variants"];
+  const readyCount = coreSectionKeys.filter((key) => sections[key] === "complete").length;
   return {
-    label: `${readyCount}/5 核心分区完整`,
+    label: `${readyCount}/${coreSectionKeys.length} 核心分区完整`,
     counts,
     sections,
     checklist: [
       `装备 ${counts.gearSlots}/${slotOrder.length} 槽`,
       `技能 ${counts.skillSteps} 步`,
       `巅峰 ${counts.paragonSteps} 步`,
+      `伤害 ${counts.damageBreakdown} 项`,
       `打法 ${counts.gameplaySections} 组`,
       `替换 ${counts.replaceableSlots} 槽`
     ],
@@ -1402,6 +1498,7 @@ function finalizeGuide(guide) {
   const finalized = {
     ...baseFinalized,
     coreRequirements,
+    damageModel: damageModelFor(baseFinalized),
     summary: {
       ...baseFinalized.summary,
       requirements: coreRequirements

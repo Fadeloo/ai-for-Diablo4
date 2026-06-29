@@ -171,6 +171,9 @@ const frontendDataContracts = [
       "progression",
       "skillTree",
       "paragon",
+      "damageModel",
+      "damageModel.breakdown",
+      "damageModel.assumptions",
       "gameplay",
       "variants",
       "dataQuality",
@@ -232,6 +235,20 @@ const frontendDataContracts = [
       "source.verificationLevel"
     ],
     frontendUse: "同一流派的日常、速刷、冲层版本横向对比，直接展示成型难度、适用阶段、上限、核心件、技能第一步、巅峰第一步和打法入口。"
+  },
+  {
+    component: "BuildDamageModelPanel",
+    zhName: "BD 伤害拆解面板",
+    source: "build-guides.builds[id].damageModel",
+    fields: [
+      "damageModel.expectedDps",
+      "damageModel.hitDamage",
+      "damageModel.inputs",
+      "damageModel.breakdown",
+      "damageModel.drivers",
+      "damageModel.assumptions"
+    ],
+    frontendUse: "BD 总览、配置和伤害分区展示期望 DPS、单次命中、乘区拆解、主要驱动和服务器端未验证假设。"
   },
   {
     component: "BuildReadinessChecklist",
@@ -519,6 +536,11 @@ const buildDetailComponentBlueprint = [
     playerQuestion: "起手、循环、首领、防御和速刷怎么打？"
   },
   {
+    component: "BuildDamageModelPanel",
+    requiredFields: ["damageModel.expectedDps", "damageModel.breakdown", "damageModel.assumptions"],
+    playerQuestion: "这套 BD 的伤害来自哪些乘区，哪些是假设？"
+  },
+  {
     component: "ReplacementMatrix",
     requiredFields: ["gearSlots[].alternatives", "gearSlots[].replaceable", "variants"],
     playerQuestion: "缺某个部位时能替换什么，代价是什么？"
@@ -630,6 +652,7 @@ const buildIntegrity = {
   paragonRouteBuilds: builds.filter((guide) => (guide.paragon?.boardOrder || []).length >= 4 && (guide.paragon?.clickOrder || []).length >= 18).length,
   routeSpecificity: countGenericRouteEntries(builds),
   gameplayBuilds: builds.filter((guide) => guide.gameplay?.opener?.length && guide.gameplay?.loop?.length && guide.gameplay?.boss?.length).length,
+  damageModelBuilds: builds.filter((guide) => guide.damageModel?.expectedDps > 0 && Object.keys(guide.damageModel?.breakdown || {}).length >= 7 && (guide.damageModel?.assumptions || []).length >= 3).length,
   progressionBuilds: builds.filter((guide) => (guide.progression?.stages || []).length >= 4 && (guide.progression?.checkpoints || []).length >= 4).length,
   replacementBuilds: builds.filter((guide) => (guide.gearSlots || []).every((slot) => (slot.alternatives || []).length >= 1)).length,
   readinessChecklistBuilds: builds.filter((guide) => {
@@ -677,6 +700,8 @@ buildIntegrity.fullExecutionBuilds = builds.filter((guide) => (guide.gearSlots |
   && guide.gameplay?.opener?.length
   && guide.gameplay?.loop?.length
   && guide.gameplay?.boss?.length
+  && guide.damageModel?.expectedDps > 0
+  && Object.keys(guide.damageModel?.breakdown || {}).length >= 7
   && (guide.progression?.stages || []).length >= 4
   && (guide.guideCompleteness?.checklist || []).length >= 5
   && guide.source?.verificationLevel
@@ -739,6 +764,13 @@ const playerRequirementCoverage = [
     satisfied: buildIntegrity.readinessChecklistBuilds,
     total: totalBuilds,
     proof: "每套 BD 必须生成抄作业检查清单，覆盖装备硬需求、替换槽、技能、巅峰、打法和来源状态。"
+  },
+  {
+    id: "damage_breakdown",
+    zhName: "伤害乘区拆解",
+    satisfied: buildIntegrity.damageModelBuilds,
+    total: totalBuilds,
+    proof: "每套 BD 必须有期望 DPS、单次命中、7 项乘区 breakdown、主要驱动和 assumptions。"
   },
   {
     id: "progression_plan",

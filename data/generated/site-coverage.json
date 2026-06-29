@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-29T06:30:43.125Z",
+  "generatedAt": "2026-06-29T06:42:17.036Z",
   "scope": "player_site_data_coverage_and_storage_usage",
   "asOf": "2026-06-28",
   "storageLayers": [
@@ -288,6 +288,9 @@
         "progression",
         "skillTree",
         "paragon",
+        "damageModel",
+        "damageModel.breakdown",
+        "damageModel.assumptions",
         "gameplay",
         "variants",
         "dataQuality",
@@ -349,6 +352,20 @@
         "source.verificationLevel"
       ],
       "frontendUse": "同一流派的日常、速刷、冲层版本横向对比，直接展示成型难度、适用阶段、上限、核心件、技能第一步、巅峰第一步和打法入口。"
+    },
+    {
+      "component": "BuildDamageModelPanel",
+      "zhName": "BD 伤害拆解面板",
+      "source": "build-guides.builds[id].damageModel",
+      "fields": [
+        "damageModel.expectedDps",
+        "damageModel.hitDamage",
+        "damageModel.inputs",
+        "damageModel.breakdown",
+        "damageModel.drivers",
+        "damageModel.assumptions"
+      ],
+      "frontendUse": "BD 总览、配置和伤害分区展示期望 DPS、单次命中、乘区拆解、主要驱动和服务器端未验证假设。"
     },
     {
       "component": "BuildReadinessChecklist",
@@ -607,6 +624,15 @@
       "playerQuestion": "起手、循环、首领、防御和速刷怎么打？"
     },
     {
+      "component": "BuildDamageModelPanel",
+      "requiredFields": [
+        "damageModel.expectedDps",
+        "damageModel.breakdown",
+        "damageModel.assumptions"
+      ],
+      "playerQuestion": "这套 BD 的伤害来自哪些乘区，哪些是假设？"
+    },
+    {
       "component": "ReplacementMatrix",
       "requiredFields": [
         "gearSlots[].alternatives",
@@ -719,6 +745,13 @@
       "proof": "每套 BD 必须生成抄作业检查清单，覆盖装备硬需求、替换槽、技能、巅峰、打法和来源状态。"
     },
     {
+      "id": "damage_breakdown",
+      "zhName": "伤害乘区拆解",
+      "satisfied": 252,
+      "total": 252,
+      "proof": "每套 BD 必须有期望 DPS、单次命中、7 项乘区 breakdown、主要驱动和 assumptions。"
+    },
+    {
       "id": "progression_plan",
       "zhName": "开荒到成型路线",
       "satisfied": 252,
@@ -779,6 +812,7 @@
       "genericParagonNodes": 0
     },
     "gameplayBuilds": 252,
+    "damageModelBuilds": 252,
     "progressionBuilds": 252,
     "replacementBuilds": 252,
     "readinessChecklistBuilds": 252,
