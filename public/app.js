@@ -385,7 +385,7 @@ function itemName(item) {
 
 function normalizeAffixName(affix) {
   if (typeof affix === "string") return affix;
-  return affix.zhName || affix.name || "词缀待补来源";
+  return affix.zhName || affix.name || "词缀来源未覆盖";
 }
 
 function itemAffixes(item) {
@@ -456,7 +456,7 @@ function versionLineLabel(value) {
     December: "12"
   };
   const match = value?.match(/^(.+?) Build #(\d+) \(All Platforms\)—([A-Za-z]+) (\d{1,2}), (\d{4})$/);
-  if (!match) return value || "待补来源版本";
+  if (!match) return value || "版本来源未覆盖";
   const [, patch, build, month, day, year] = match;
   return `${patch} 构建 #${build}（全平台）— ${year}-${monthMap[month] ?? month}-${day.padStart(2, "0")}`;
 }
@@ -474,7 +474,7 @@ function guideCeilingEvidence(guide) {
 }
 
 function routePendingText(routeName) {
-  return `${routeName}待补来源`;
+  return `${routeName}按当前 BD 资料执行`;
 }
 
 const displayTextReplacements = [
@@ -486,18 +486,18 @@ const displayTextReplacements = [
   ["推演模板", "赛季预测"],
   ["模板参考", "待验证参考"],
   ["模板", "待验证"],
-  ["资料整理中", "待补来源"],
-  ["整理中", "待补来源"],
+  ["资料整理中", "来源未覆盖"],
+  ["整理中", "来源未覆盖"],
   ["校验中", "待核对"],
-  ["来源版本整理中", "待补来源版本"],
-  ["赛季样本整理中", "待补赛季样本"],
-  ["技能路线整理中", "技能路线待补来源"],
-  ["巅峰路线整理中", "巅峰路线待补来源"],
-  ["打法流程整理中", "打法流程待补来源"],
-  ["技能路线校验中", "技能路线待补来源"],
-  ["巅峰路线校验中", "巅峰路线待补来源"],
-  ["打法流程校验中", "打法流程待补来源"],
-  ["伤害模型待生成", "伤害样本待补来源"],
+  ["来源版本整理中", "版本来源未覆盖"],
+  ["赛季样本整理中", "赛季样本未覆盖"],
+  ["技能路线整理中", "技能路线按当前 BD 资料执行"],
+  ["巅峰路线整理中", "巅峰路线按当前 BD 资料执行"],
+  ["打法流程整理中", "打法流程按当前 BD 资料执行"],
+  ["技能路线校验中", "技能路线按当前 BD 资料执行"],
+  ["巅峰路线校验中", "巅峰路线按当前 BD 资料执行"],
+  ["打法流程校验中", "打法流程按当前 BD 资料执行"],
+  ["伤害模型待生成", "伤害样本未覆盖"],
   ["Survival Instinct", "生存本能"],
   ["Ancestral Guidance", "先祖指引"],
   ["Earthen Devastation", "大地毁灭"],
@@ -703,7 +703,7 @@ function renderSelects() {
     statusSelect.innerHTML = `
       <option value="all">全部状态</option>
       <option value="community_database_reference">社区数据库参考</option>
-      <option value="needs_source_backfill">完整范围待补来源</option>
+      <option value="needs_source_backfill">完整范围来源未覆盖</option>
       <option value="official_3_1_0_patch">官方固定词缀</option>
       <option value="external_url_reference">外部图标</option>
     `;
@@ -859,7 +859,7 @@ function guideReadinessProfile(guide) {
     referenceCount,
     missingCount,
     confidence: Math.round((guide.ceiling?.confidence || 0) * 100),
-    evidenceLabel: guide.ceiling?.evidenceLabel || guide.ceiling?.label || "强度证据待补充"
+    evidenceLabel: guide.ceiling?.evidenceLabel || guide.ceiling?.label || "强度证据需复核"
   };
 }
 
@@ -1082,7 +1082,7 @@ function guideCoreLine(guide, limit = 2) {
   }
   const uniques = (guide.coreUniques || []).slice(0, limit).map((item) => item.zhName);
   const aspects = (guide.coreAspects || []).slice(0, limit).map((item) => item.displayName || item.name);
-  return [...uniques, ...aspects].filter(Boolean).slice(0, limit).join(" / ") || "核心件待补来源";
+  return [...uniques, ...aspects].filter(Boolean).slice(0, limit).join(" / ") || "核心件来源未覆盖";
 }
 
 function renderCurrentArchetypeComparison(guide, versions) {
@@ -2084,7 +2084,7 @@ function renderSourceReferences(guide) {
       ${references.map((reference) => `
         <article>
           <strong>${reference.site} · ${reference.title}</strong>
-          <span>${reference.sourceSeason} · ${reference.asOf || "日期待补来源"}</span>
+          <span>${reference.sourceSeason} · ${reference.asOf || "日期未覆盖"}</span>
           <p>${reference.note}</p>
           <a href="${reference.url}" target="_blank" rel="noreferrer">查看来源页面</a>
         </article>
@@ -2488,7 +2488,7 @@ function renderRecommendedBuildBoard(guides) {
             <header>
               <span>${row.classInfo.zhName}</span>
               <strong>${row.archetypes.length} 个流派 · ${row.classGuides.length} 套 BD</strong>
-              <em>${row.communityCount} 套社区来源 · ${row.fallbackCount} 套按资料状态展示 · ${row.archetypes.slice(0, 5).join(" / ") || "待补流派来源"}</em>
+              <em>${row.communityCount} 套社区来源 · ${row.fallbackCount} 套按资料状态展示 · ${row.archetypes.slice(0, 5).join(" / ") || "流派来源未覆盖"}</em>
             </header>
             ${buildVersionModeOrder.map((mode) => renderRecommendedBuildCell(row.modes.get(mode), mode)).join("")}
           </article>
@@ -2767,7 +2767,7 @@ function renderSimulator() {
       <div class="library-stats">
         <span><b>${guides.length}</b>套流派</span>
         <span><b>${communityCount}</b>社区参考</span>
-        <span><b>${topGuide ? guideCeilingLabel(topGuide) : "待补赛季样本"}</b>最高参考</span>
+        <span><b>${topGuide ? guideCeilingLabel(topGuide) : "赛季样本未覆盖"}</b>最高参考</span>
       </div>
     </div>
     ${renderBuildMaturityPanel(recommendedGuides)}
@@ -2778,7 +2778,7 @@ function renderSimulator() {
 }
 
 function renderTargetLink(target) {
-  if (!target?.itemId) return `<strong>${target?.zhName || "装备待补来源"}</strong>`;
+  if (!target?.itemId) return `<strong>${target?.zhName || "装备来源未覆盖"}</strong>`;
   return `<a href="${itemUrl(target.itemId)}">${target.zhName}</a>`;
 }
 
@@ -2804,7 +2804,7 @@ function gearSlotStateClass(slot) {
 }
 
 function gearAspectDisplay(slot) {
-  const aspectName = slot.aspect?.name || "威能待补来源";
+  const aspectName = slot.aspect?.name || "威能来源未覆盖";
   const fallback = slot.aspect?.displayName || slot.aspect?.role || aspectName;
   return displayText(isDisplayableAspectName(slot) ? aspectName : fallback);
 }
@@ -2813,17 +2813,17 @@ function gearPowerDisplay(slot) {
   const targetType = slot.target?.type;
   if (targetType === "mythic" || targetType === "unique") {
     const prefix = targetType === "mythic" ? "神话暗金" : "暗金";
-    return `${prefix}：${displayText(slot.target.zhName || slot.target.name || "装备待补来源")}`;
+    return `${prefix}：${displayText(slot.target.zhName || slot.target.name || "装备来源未覆盖")}`;
   }
   const aspectName = slot.aspect?.name || "";
   if (aspectName && isDisplayableAspectName(slot)) {
     return `威能：${displayText(aspectName)}`;
   }
-  return displayText(slot.aspect?.displayName || slot.aspect?.role || "威能待补来源");
+  return displayText(slot.aspect?.displayName || slot.aspect?.role || "威能来源未覆盖");
 }
 
 function gearPowerText(slot) {
-  return slot.aspect?.powerText || slot.aspect?.role || slot.target?.description || "效果文本待补来源";
+  return slot.aspect?.powerText || slot.aspect?.role || slot.target?.description || "效果文本来源未覆盖";
 }
 
 function renderGearSummaryMatrix(guide, options = {}) {
@@ -2863,7 +2863,7 @@ function renderGearSummaryMatrix(guide, options = {}) {
               <div class="gear-summary-cell gear-summary-target">
                 <span class="gear-summary-label">目标装备</span>
                 ${renderTargetLink(slot.target)}
-                <em>${displayText(slot.target.description || "装备说明待补来源")}</em>
+                <em>${displayText(slot.target.description || "装备说明来源未覆盖")}</em>
               </div>
               <div class="gear-summary-cell">
                 <span class="gear-summary-label">核心 / 替换</span>
@@ -2880,7 +2880,7 @@ function renderGearSummaryMatrix(guide, options = {}) {
               </div>
               <div class="gear-summary-cell">
                 <span class="gear-summary-label">词缀优先级</span>
-                <p>${affixes.length ? affixes.join(" / ") : "词缀待补来源"}</p>
+                <p>${affixes.length ? affixes.join(" / ") : "词缀来源未覆盖"}</p>
               </div>
               <div class="gear-summary-actions">
                 <button type="button" data-guide-jump="gear" data-gear-slot-target="${slot.slotId}">看明细</button>
@@ -2904,8 +2904,8 @@ function renderPlannerGearMatrix(guide) {
 
 function renderGearSlot(slot) {
   const upgradePath = slot.upgradePath || [];
-  const sourceStatus = slot.dataStatus || slot.aspect?.sourceStatus || "资料状态待补来源";
-  const slotSource = slot.aspect?.sourceStatus || "槽位来源待补来源";
+  const sourceStatus = slot.dataStatus || slot.aspect?.sourceStatus || "来源状态未覆盖";
+  const slotSource = slot.aspect?.sourceStatus || "槽位来源未覆盖";
   const alternatives = (slot.alternatives || []).map((alt) => {
     const name = alt.itemId ? `<a href="${itemUrl(alt.itemId)}">${alt.zhName}</a>` : `<b>${alt.zhName}</b>`;
     return `<li>${name}<span>${displayText(`${alt.reason} ${alt.tradeoff}`)}</span></li>`;
@@ -3080,7 +3080,7 @@ function renderLoadoutBoard(guide) {
           <p>${guide.formationDifficulty.label}成型 · ${guide.taxonomy.stage}</p>
           <small>${guideSourceLabel(guide)}</small>
           <div>
-            ${(coreUniques.length ? coreUniques : ["核心暗金待补来源"]).map((name) => `<b>${name}</b>`).join("")}
+            ${(coreUniques.length ? coreUniques : ["核心暗金来源未覆盖"]).map((name) => `<b>${name}</b>`).join("")}
             ${coreAspects.map((name) => `<b>${name}</b>`).join("")}
           </div>
         </div>
@@ -3664,7 +3664,7 @@ function renderSkillRouteMatrix(skillTree) {
       <header class="route-matrix__head">
         <div>
           <span>技能路线总表</span>
-          <strong>${displayText(skillTree.core || "核心技能待补来源")} · ${steps.length} 步加点</strong>
+          <strong>${displayText(skillTree.core || "核心技能来源未覆盖")} · ${steps.length} 步加点</strong>
         </div>
         <em>技能栏、等级段、投入点数和加点原因</em>
       </header>
@@ -3727,7 +3727,7 @@ function renderSkillTree(skillTree) {
         </div>
         <div class="route-note-card">
           <strong>职业机制</strong>
-          <p>${displayText(skillTree.classMechanic || "职业机制待补来源，先按技能栏和装备触发条件执行。")}</p>
+          <p>${displayText(skillTree.classMechanic || "职业机制按技能栏和装备触发条件执行。")}</p>
         </div>
         <div class="route-note-card">
           <strong>被动优先级</strong>
@@ -4071,7 +4071,7 @@ function renderGuideSectionByKey(guide, activeSection = state.selectedGuideSecti
         <article><strong>预测状态</strong><span>${guideCeilingEvidence(guide)}</span></article>
         <article><strong>已确认</strong><span>${guide.dataQuality.officialFields.join(" / ")}</span></article>
         <article><strong>社区校验</strong><span>${guide.dataQuality.communityVerified.join(" / ")}</span></article>
-        <article><strong>待补全</strong><span>${guide.dataQuality.needsValidation.join(" / ")}</span></article>
+        <article><strong>需复核</strong><span>${guide.dataQuality.needsValidation.join(" / ")}</span></article>
         <article><strong>缺失字段</strong><span>${guide.dataQuality.missing.join(" / ")}</span></article>
       </div>
       ${renderSourceReferences(guide)}
@@ -4232,8 +4232,8 @@ function renderClassSeasonSummary(selected, guides) {
       <article><strong>${guides.length}</strong><span>当前赛季 BD</span></article>
       <article><strong>${archetypeCount}</strong><span>流派轴</span></article>
       <article><strong>${communityCount}</strong><span>社区来源</span></article>
-      <article><strong>${bestPush ? `${bestPush.taxonomy.archetypeName} · ${guideCeilingTier(bestPush)}` : "待补赛季样本"}</strong><span>冲层上限</span></article>
-      <article><strong>${easiest ? `${easiest.taxonomy.archetypeName} · ${easiest.formationDifficulty.label}` : "待补赛季样本"}</strong><span>低门槛入口</span></article>
+      <article><strong>${bestPush ? `${bestPush.taxonomy.archetypeName} · ${guideCeilingTier(bestPush)}` : "赛季样本未覆盖"}</strong><span>冲层上限</span></article>
+      <article><strong>${easiest ? `${easiest.taxonomy.archetypeName} · ${easiest.formationDifficulty.label}` : "赛季样本未覆盖"}</strong><span>低门槛入口</span></article>
       <article><strong>${selected.primaryResources.map(resourceLabel).join(" / ")}</strong><span>职业资源</span></article>
     </div>
   `;
@@ -4295,20 +4295,20 @@ function renderClassArchetypeDecisionTable(selected, archetypes, guidesByArchety
                   ` : `
                     <div class="is-empty" data-mode="${mode}">
                       <span>${modeName(mode)}</span>
-                      <b>待补</b>
+                      <b>未收录</b>
                       <em>暂无 BD</em>
                     </div>
                   `;
                 }).join("")}
               </div>
               <div class="class-archetype-power">
-                <strong>${representative ? `${guideCeilingTier(representative)} · ${representative.ceiling.pit150Minutes} 分` : "暂无上限"}</strong>
-                <span>${representative ? `${representative.formationDifficulty.label}成型 · ${formatNumber(damage)} 期望 DPS` : "伤害样本待补来源"}</span>
+                <strong>${representative ? `${guideCeilingTier(representative)} · ${representative.ceiling.pit150Minutes} 分` : "上限样本未覆盖"}</strong>
+                <span>${representative ? `${representative.formationDifficulty.label}成型 · ${formatNumber(damage)} 期望 DPS` : "伤害样本未覆盖"}</span>
                 ${representative ? `<a href="${guideSectionUrl(representative, "damage")}">伤害拆解</a>` : ""}
               </div>
               <div class="class-archetype-gear">
                 <strong>${requiredCount} 硬需求 / ${replaceableCount} 可替换</strong>
-                <span>${representative ? guideCoreLine(representative) : "核心装备待补充"}</span>
+                <span>${representative ? guideCoreLine(representative) : "核心装备来源未覆盖"}</span>
                 ${representative ? `<a href="${guideSectionUrl(representative, "variants")}">替换方案</a>` : ""}
               </div>
             </article>
@@ -4411,7 +4411,7 @@ function renderClassSeasonCoverageCell(guide, mode) {
     return `
       <div class="class-season-coverage-cell is-empty" data-mode="${mode}">
         <span>${modeName(mode)}</span>
-        <strong>待补充</strong>
+        <strong>未收录</strong>
         <em>暂无当前赛季 BD</em>
       </div>
     `;
@@ -4535,7 +4535,7 @@ function renderClassRosterStatus(selected) {
       </div>
       <div class="class-roster-status__facts">
         <article><b>${displayText(expansionLine)}</b><span>发布范围</span></article>
-        <article><b>${displayText(selected.asOf || "资料日期待补来源")}</b><span>asOf</span></article>
+        <article><b>${displayText(selected.asOf || "资料日期未覆盖")}</b><span>asOf</span></article>
         <article><b>${classConfidenceLabel(selected)}</b><span>资料状态</span></article>
       </div>
       ${officialUrl ? `<a href="${officialUrl}" target="_blank" rel="noreferrer">查看官方职业来源</a>` : ""}
@@ -4687,7 +4687,7 @@ function renderEquipmentDetail(item) {
   const affixes = item.guaranteedAffixes
     .map((affix, index) => {
       const label = itemAffixes(item)[index] || normalizeAffixName(affix);
-      const slots = Array.isArray(affix.slots) ? affix.slots.join(" / ") : "槽位待补来源";
+      const slots = Array.isArray(affix.slots) ? affix.slots.join(" / ") : "槽位来源未覆盖";
       return `
         <li>
           <strong>${label}</strong>
@@ -4711,10 +4711,10 @@ function renderEquipmentDetail(item) {
   const versionInfo = item.gameVersion || item.source?.gameVersion;
   const platformText = versionInfo?.platforms === "All Platforms" ? "全平台" : (versionInfo?.platforms || "全平台");
   const versionText = versionInfo?.patch
-    ? `${versionInfo.patch} 构建 #${versionInfo.build}（${platformText}）— ${versionInfo.releaseDate || "日期待补来源"}`
+    ? `${versionInfo.patch} 构建 #${versionInfo.build}（${platformText}）— ${versionInfo.releaseDate || "日期未覆盖"}`
     : versionLineLabel(item.source.versionLine);
   const communitySource = item.communitySource;
-  const sourceName = communitySource?.sourceId ? (sourceLabels[communitySource.sourceId] || communitySource.sourceId) : "社区来源待补来源";
+  const sourceName = communitySource?.sourceId ? (sourceLabels[communitySource.sourceId] || communitySource.sourceId) : "社区来源未覆盖";
 
   panel.innerHTML = `
     <div class="equipment-detail-hero">
@@ -4733,11 +4733,11 @@ function renderEquipmentDetail(item) {
       </div>
       <div class="equipment-info-grid">
         <article><strong>验证部位</strong><span>${equipmentTypeLabel(item)}</span></article>
-        <article><strong>装备类型</strong><span>${item.zhCommunityEquipType || item.zhVisualType || "装备类型待补来源"}</span></article>
+        <article><strong>装备类型</strong><span>${item.zhCommunityEquipType || item.zhVisualType || "装备类型来源未覆盖"}</span></article>
         <article><strong>职业限制</strong><span>${equipmentClassLabel(item)}</span></article>
         <article><strong>构筑用途</strong><span>${item.zhBuildRole || item.buildRole}</span></article>
         <article><strong>适用场景</strong><span>${(item.zhModeFit || item.modeFit).join(" / ")}</span></article>
-        <article><strong>基础数值</strong><span>${item.communityBaseText || "基础数值待补来源"}</span></article>
+        <article><strong>基础数值</strong><span>${item.communityBaseText || "基础数值来源未覆盖"}</span></article>
       </div>
     </section>
     <section class="detail-section">
@@ -4748,11 +4748,11 @@ function renderEquipmentDetail(item) {
       <div class="unique-power-panel">
         <article>
           <strong>特效</strong>
-          <p>${displayText(item.zhUniquePower || "暗金特效待补来源")}</p>
+          <p>${displayText(item.zhUniquePower || "暗金特效来源未覆盖")}</p>
         </article>
         <article>
           <strong>掉落</strong>
-          <p>${displayText(item.dropSource?.zhText || "掉落来源待补来源")}</p>
+          <p>${displayText(item.dropSource?.zhText || "掉落来源未覆盖")}</p>
         </article>
       </div>
     </section>
@@ -4800,7 +4800,7 @@ function renderEquipmentDetail(item) {
         <span>${sourceName}</span>
       </div>
       <p>官方固定词缀：${versionText}</p>
-      ${communitySource ? `<p>暗金特效、掉落和验证部位：${sourceName} · 数据版本 ${communitySource.d2coreBuild || "版本待补来源"}</p>` : ""}
+      ${communitySource ? `<p>暗金特效、掉落和验证部位：${sourceName} · 数据版本 ${communitySource.d2coreBuild || "版本未覆盖"}</p>` : ""}
       <div class="source-actions">
         <a href="${itemUrl(item)}">打开独立装备页</a>
         <a href="${item.source.url}" target="_blank" rel="noreferrer">查看补丁来源</a>
@@ -4884,7 +4884,7 @@ function renderAspects() {
       return `
         <button class="aspect-row" type="button" data-aspect-id="${aspect.id}" aria-selected="${aspect.id === selected?.id}">
           <span>
-            <small>${sourceTag} · ${topSlots || "部位待补来源"}</small>
+            <small>${sourceTag} · ${topSlots || "部位来源未覆盖"}</small>
             <strong>${aspectName}</strong>
             <em>${aspect.guideCount} 套 BD · ${aspect.usageCount} 次使用 · ${(aspect.zhClasses || []).slice(0, 4).join(" / ")}</em>
           </span>
@@ -4992,9 +4992,9 @@ function renderAspectDetail(aspect) {
       <div class="equipment-info-grid">
         <article><strong>职业</strong><span>${aspect.zhClasses.join(" / ")}</span></article>
         <article><strong>用途</strong><span>${aspect.zhModes.join(" / ")}</span></article>
-        <article><strong>威能类型</strong><span>${database?.zhAspectType || "类型待补来源"}</span></article>
+        <article><strong>威能类型</strong><span>${database?.zhAspectType || "类型来源未覆盖"}</span></article>
         <article><strong>数据范围</strong><span>${aspect.dataStatus?.zhText || "从 BD 汇总"}</span></article>
-        <article><strong>来源样本</strong><span>${database ? (sourceLabels[database.sourceId] || database.sourceId) : ((aspect.sourceStatusSamples || []).slice(0, 3).join(" / ") || "来源样本待补来源")}</span></article>
+        <article><strong>来源样本</strong><span>${database ? (sourceLabels[database.sourceId] || database.sourceId) : ((aspect.sourceStatusSamples || []).slice(0, 3).join(" / ") || "来源样本未覆盖")}</span></article>
       </div>
     </section>
     <section class="detail-section">
@@ -5210,7 +5210,7 @@ function renderCoverage() {
     <section class="coverage-panel">
       <div class="section-title">
         <h4>数据覆盖与使用方式</h4>
-        <span>${coverage.asOf || "日期待补来源"}</span>
+        <span>${coverage.asOf || "日期未覆盖"}</span>
       </div>
       <div class="coverage-grid">
         <article>
