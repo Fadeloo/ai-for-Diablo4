@@ -29,7 +29,7 @@ const state = {
   coverage: null,
   activeView: "home",
   selectedGuideId: null,
-  selectedGuideSection: "overview",
+  selectedGuideSection: "planner",
   pendingGuideSlotTarget: null,
   selectedClassId: "barbarian",
   selectedEquipmentId: null,
@@ -203,6 +203,7 @@ const modeLabels = {
 };
 
 const buildVersionModeOrder = ["daily", "speed_farm", "pit_push"];
+const defaultGuideSection = "planner";
 
 function $(selector) {
   return document.querySelector(selector);
@@ -268,12 +269,12 @@ function setView(route, options = {}) {
   const normalized = parsed.view;
   state.activeView = normalized;
   if (parsed.guideId) {
-    if (state.selectedGuideId !== parsed.guideId) state.selectedGuideSection = "overview";
+    if (state.selectedGuideId !== parsed.guideId) state.selectedGuideSection = defaultGuideSection;
     state.selectedGuideId = parsed.guideId;
     if (parsed.sectionId && guideDetailSectionOrder.includes(parsed.sectionId)) {
       state.selectedGuideSection = parsed.sectionId;
     } else if (!parsed.sectionId) {
-      state.selectedGuideSection = "overview";
+      state.selectedGuideSection = defaultGuideSection;
     }
   }
   if (parsed.itemId) {
@@ -729,7 +730,7 @@ function allBuildGuides() {
 }
 
 function guideUrl(guide) {
-  return `#bd/${encodeURIComponent(guide.id)}`;
+  return guideSectionUrl(guide, defaultGuideSection);
 }
 
 function guideSectionUrl(guide, sectionId) {
@@ -2460,7 +2461,7 @@ function renderBuildViewContent(guides, recommendedGuides) {
               `;
             })()}
             <div class="compact-guide-actions">
-              <a href="${guideUrl(guide)}">总览</a>
+              <a href="${guideUrl(guide)}">配置</a>
               <a href="${guideSectionUrl(guide, "gear")}">装备</a>
               <a href="${guideSectionUrl(guide, "skills")}">技能</a>
               <a href="${guideSectionUrl(guide, "paragon")}">巅峰</a>
@@ -3665,8 +3666,8 @@ function renderGameplay(gameplay) {
 }
 
 const guideDetailSections = [
-  ["overview", "总览"],
   ["planner", "配置"],
+  ["overview", "总览"],
   ["progression", "开荒"],
   ["gear", "装备"],
   ["skills", "技能"],
@@ -3679,7 +3680,7 @@ const guideDetailSections = [
 
 const guideDetailSectionOrder = guideDetailSections.map(([key]) => key);
 
-function renderGuideSectionByKey(guide, activeSection = state.selectedGuideSection || "overview") {
+function renderGuideSectionByKey(guide, activeSection = state.selectedGuideSection || defaultGuideSection) {
   const sectionRenderers = {
     overview: () => renderGuideDetailSection("总览", "定位、强弱项和适用阶段", `
       ${renderBuildVersionSwitcher(guide)}
@@ -3714,9 +3715,9 @@ function renderGuideSectionByKey(guide, activeSection = state.selectedGuideSecti
       </div>
     `, "overview"),
     planner: () => renderGuideDetailSection("配置速查", "装备、技能、巅峰、打法和替换的紧凑执行表", `
-      ${renderBuildDamageModel(guide)}
       ${renderBuildManualPanel(guide)}
       ${renderBuildPlannerSheet(guide)}
+      ${renderBuildDamageModel(guide)}
     `, "planner"),
     progression: () => renderGuideDetailSection("开荒到成型", "升级、过渡、终局和用途专精", renderProgressionPlan(guide.progression), "progression"),
     gear: () => renderGuideDetailSection("全身装备", "每个位置、替换件和精造方向", `
@@ -3770,7 +3771,7 @@ function renderGuideSectionByKey(guide, activeSection = state.selectedGuideSecti
       </div>
     `, "sources")
   };
-  return (sectionRenderers[activeSection] || sectionRenderers.overview)();
+  return (sectionRenderers[activeSection] || sectionRenderers[defaultGuideSection] || sectionRenderers.overview)();
 }
 
 function renderGuideActiveSection(guide) {
@@ -5209,7 +5210,7 @@ function bindInteractions() {
       }
       return;
     }
-    state.selectedGuideSection = button.dataset.guideJump || "overview";
+    state.selectedGuideSection = button.dataset.guideJump || defaultGuideSection;
     $$(".guide-section-nav [data-guide-jump]").forEach((navButton) => {
       navButton.setAttribute("aria-selected", String(navButton.dataset.guideJump === state.selectedGuideSection));
     });

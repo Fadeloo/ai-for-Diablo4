@@ -441,6 +441,9 @@ assert(frontendText.includes("guide.guideCompleteness"), "BD detail must read ge
 assert(frontendText.includes("renderBuildPlannerSheet"), "BD detail must expose a dedicated copy-ready planner sheet section");
 assert(frontendText.includes("planner-sheet") && frontendText.includes("planner-gear-row") && frontendText.includes("planner-skillbar") && frontendText.includes("planner-boards") && frontendText.includes("planner-gameplay"), "BD planner sheet must expose gear, skill, paragon and gameplay in one execution view");
 assert(frontendText.includes("[\"planner\", \"配置\"]"), "BD section navigation must include the dedicated planner sheet section");
+assert(frontendText.includes("const defaultGuideSection = \"planner\""), "BD detail default route must open the copy-ready planner section");
+assert(frontendText.includes("selectedGuideSection: \"planner\""), "Initial BD detail state must default to the planner section");
+assert(frontendText.includes("guideSectionUrl(guide, defaultGuideSection)"), "BD guideUrl must link directly to the planner section instead of a generic overview");
 assert(frontendText.includes("renderBuildDamageModel") && frontendText.includes("damage-model-panel") && frontendText.includes("[\"damage\", \"伤害\"]"), "BD detail must expose a dedicated damage breakdown section");
 assert(!frontendText.includes("${renderBuildDossier(guide)}"), "BD hero must stay lightweight and not render the old dense dossier block");
 assert(frontendText.includes("renderCoreRequirementList") && frontendText.includes("core-requirement-list"), "BD sidebar must render structured core requirements from resolved gear slots");
