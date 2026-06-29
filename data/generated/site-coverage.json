@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-29T06:21:53.048Z",
+  "generatedAt": "2026-06-29T06:30:43.125Z",
   "scope": "player_site_data_coverage_and_storage_usage",
   "asOf": "2026-06-28",
   "storageLayers": [
@@ -695,14 +695,14 @@
       "zhName": "技能栏与加点顺序",
       "satisfied": 252,
       "total": 252,
-      "proof": "每套 BD 必须有 6 技能栏和至少 10 步技能加点路线。"
+      "proof": "每套 BD 必须有 6 技能栏和至少 18 步技能加点路线，覆盖升级、过渡、终局微调。"
     },
     {
       "id": "paragon_click_order",
       "zhName": "巅峰盘与点击顺序",
       "satisfied": 252,
       "total": 252,
-      "proof": "每套 BD 必须有至少 4 张巅峰盘和至少 10 步点击路线。"
+      "proof": "每套 BD 必须有至少 4 张巅峰盘和至少 18 步点击路线，覆盖雕文孔、传奇节点、稀有群和收尾小点。"
     },
     {
       "id": "gameplay_flow",
@@ -773,9 +773,9 @@
     "routeSpecificity": {
       "totalSkillBarEntries": 1512,
       "genericSkillBarEntries": 0,
-      "totalSkillSteps": 2520,
+      "totalSkillSteps": 4788,
       "genericSkillSteps": 0,
-      "totalParagonNodes": 2520,
+      "totalParagonNodes": 4536,
       "genericParagonNodes": 0
     },
     "gameplayBuilds": 252,

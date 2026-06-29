@@ -193,7 +193,7 @@ for (const row of simulations.rows) {
     }
     const forecastGuide = findBuildGuide(row.seasonId, row.classId, mode, modeResult.topBuilds[0].archetypeId);
     assert(forecastGuide, `Forecast top build must link to a complete build guide: ${row.seasonId}/${row.classId}/${mode}/${modeResult.topBuilds[0].archetypeId}`);
-    assert(forecastGuide.gearSlots?.length === 11 && forecastGuide.skillTree?.pointOrder?.length >= 10 && forecastGuide.paragon?.clickOrder?.length >= 10, `Forecast linked guide must expose gear, skill and paragon detail: ${forecastGuide.id}`);
+    assert(forecastGuide.gearSlots?.length === 11 && forecastGuide.skillTree?.pointOrder?.length >= 18 && forecastGuide.paragon?.clickOrder?.length >= 18, `Forecast linked guide must expose gear, skill and paragon detail: ${forecastGuide.id}`);
   }
 }
 
@@ -295,7 +295,7 @@ for (const guide of buildGuides.builds) {
   assert(guide.title && guide.summary?.oneLine, `Build guide needs Chinese title and summary: ${guide.id}`);
   assert(guide.displayName && guide.displayName.includes(guide.taxonomy.className) && guide.displayName.includes(guide.taxonomy.archetypeName), `Build guide needs player-facing displayName: ${guide.id}`);
   assert(guide.guideCompleteness?.counts?.gearSlots === buildGuides.slotOrder.length, `Build guide completeness must count every gear slot: ${guide.id}`);
-  assert(guide.guideCompleteness?.counts?.skillSteps >= 10 && guide.guideCompleteness?.counts?.paragonSteps >= 10, `Build guide completeness must count skill and paragon routes: ${guide.id}`);
+  assert(guide.guideCompleteness?.counts?.skillSteps >= 18 && guide.guideCompleteness?.counts?.paragonSteps >= 18, `Build guide completeness must count complete skill and paragon routes: ${guide.id}`);
   assert(guide.guideCompleteness?.counts?.gameplaySections >= 5 && guide.guideCompleteness?.counts?.replaceableSlots >= 1, `Build guide completeness must count gameplay and replacement coverage: ${guide.id}`);
   assert(guide.guideCompleteness?.checklist?.length >= 5, `Build guide completeness needs a player checklist: ${guide.id}`);
   assert(guide.formationDifficulty?.label && guide.formationDifficulty?.reasons?.length >= 2, `Build guide needs formation difficulty: ${guide.id}`);
@@ -349,13 +349,13 @@ for (const guide of buildGuides.builds) {
     assert((slot?.target.itemId ?? null) === (coreUnique.itemId ?? null), `Core unique summary must match gear slot target itemId: ${guide.id}/${coreUnique.slotId}`);
   }
   assert(guide.skillTree?.skillBar?.length === 6, `Build guide needs six skill bar entries: ${guide.id}`);
-  assert(guide.skillTree?.pointOrder?.length >= 10, `Build guide needs skill point order: ${guide.id}`);
+  assert(guide.skillTree?.pointOrder?.length >= 18, `Build guide needs complete skill point order: ${guide.id}`);
   assert(allowedRouteSourceSnippets.some((snippet) => guide.skillTree?.sourceStatus?.includes(snippet)), `Build guide needs player-facing skill route source status: ${guide.id}`);
   assert(guide.skillTree.skillBar.every((skill) => !genericSkillStepPattern.test(skill.name || "")), `Build guide skill bar still contains generic placeholders: ${guide.id}`);
   assert(guide.skillTree.pointOrder.every((step) => !genericSkillStepPattern.test(step.skill || "")), `Build guide skill point order still contains generic placeholders: ${guide.id}`);
   assert(guide.skillTree?.classMechanic, `Build guide needs class mechanic text: ${guide.id}`);
   assert(guide.paragon?.boardOrder?.length >= 4, `Build guide needs paragon boards: ${guide.id}`);
-  assert(guide.paragon?.clickOrder?.length >= 10, `Build guide needs paragon click order: ${guide.id}`);
+  assert(guide.paragon?.clickOrder?.length >= 18, `Build guide needs complete paragon click order: ${guide.id}`);
   assert(allowedRouteSourceSnippets.some((snippet) => guide.paragon?.sourceStatus?.includes(snippet)), `Build guide needs player-facing paragon route source status: ${guide.id}`);
   assert(guide.paragon.clickOrder.every((step) => !genericParagonNodePattern.test(step.node || "")), `Build guide paragon route still contains generic click nodes: ${guide.id}`);
   assert(guide.paragon.boardOrder.every((board) => !routeEnglishPattern.test([board.name, board.glyph, board.goal].join(" "))), `Build guide paragon boards must be localized to Chinese: ${guide.id}`);

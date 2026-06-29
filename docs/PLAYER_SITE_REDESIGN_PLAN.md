@@ -555,9 +555,9 @@ publish_audits(id, entity_type, entity_id, checks_json, passed, created_at)
 - `progression.stages.length >= 4`
 - `progression.checkpoints.length >= 4`
 - `skillTree.skillBar.length === 6`
-- `skillTree.pointOrder.length >= 10`
+- `skillTree.pointOrder.length >= 18`
 - `paragon.boardOrder.length >= 4`
-- `paragon.clickOrder.length >= 10`
+- `paragon.clickOrder.length >= 18`
 - `gameplay` 至少包含 `opener`、`loop`、`boss`、`defense`
 - `variants.length >= 3`
 - `source.references` 对社区 BD 必须非空

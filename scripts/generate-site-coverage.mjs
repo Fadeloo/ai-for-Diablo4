@@ -626,8 +626,8 @@ const buildIntegrity = {
   replaceableSlotBuilds: builds.filter((guide) => (guide.gearSlots || []).some((slot) => slot.replaceable === true)).length,
   gearPowerDisplayBuilds: builds.filter((guide) => (guide.gearSlots || []).length === 11 && (guide.gearSlots || []).every((slot) => slot.aspect?.displayName && slot.aspect?.displayKind)).length,
   coreRequirementBuilds: builds.filter((guide) => (guide.coreRequirements || []).length >= 4 && ((guide.coreUniques || []).length >= 2 || (guide.coreAspects || []).length >= 4)).length,
-  skillRouteBuilds: builds.filter((guide) => (guide.skillTree?.skillBar || []).length === 6 && (guide.skillTree?.pointOrder || []).length >= 10).length,
-  paragonRouteBuilds: builds.filter((guide) => (guide.paragon?.boardOrder || []).length >= 4 && (guide.paragon?.clickOrder || []).length >= 10).length,
+  skillRouteBuilds: builds.filter((guide) => (guide.skillTree?.skillBar || []).length === 6 && (guide.skillTree?.pointOrder || []).length >= 18).length,
+  paragonRouteBuilds: builds.filter((guide) => (guide.paragon?.boardOrder || []).length >= 4 && (guide.paragon?.clickOrder || []).length >= 18).length,
   routeSpecificity: countGenericRouteEntries(builds),
   gameplayBuilds: builds.filter((guide) => guide.gameplay?.opener?.length && guide.gameplay?.loop?.length && guide.gameplay?.boss?.length).length,
   progressionBuilds: builds.filter((guide) => (guide.progression?.stages || []).length >= 4 && (guide.progression?.checkpoints || []).length >= 4).length,
@@ -638,8 +638,8 @@ const buildIntegrity = {
       && counts.gearSlots === 11
       && counts.requiredSlots >= 1
       && counts.replaceableSlots >= 1
-      && counts.skillSteps >= 10
-      && counts.paragonSteps >= 10
+      && counts.skillSteps >= 18
+      && counts.paragonSteps >= 18
       && counts.gameplaySections >= 5;
   }).length,
   sourceStatusBuilds: builds.filter((guide) => guide.source?.verificationLevel
@@ -671,9 +671,9 @@ buildIntegrity.fullExecutionBuilds = builds.filter((guide) => (guide.gearSlots |
   && (guide.gearSlots || []).every((slot) => (slot.alternatives || []).length >= 1 && slot.aspect?.displayName && slot.aspect?.displayKind)
   && (guide.coreRequirements || []).length >= 4
   && (guide.skillTree?.skillBar || []).length === 6
-  && (guide.skillTree?.pointOrder || []).length >= 10
+  && (guide.skillTree?.pointOrder || []).length >= 18
   && (guide.paragon?.boardOrder || []).length >= 4
-  && (guide.paragon?.clickOrder || []).length >= 10
+  && (guide.paragon?.clickOrder || []).length >= 18
   && guide.gameplay?.opener?.length
   && guide.gameplay?.loop?.length
   && guide.gameplay?.boss?.length
@@ -717,14 +717,14 @@ const playerRequirementCoverage = [
     zhName: "技能栏与加点顺序",
     satisfied: buildIntegrity.skillRouteBuilds,
     total: totalBuilds,
-    proof: "每套 BD 必须有 6 技能栏和至少 10 步技能加点路线。"
+    proof: "每套 BD 必须有 6 技能栏和至少 18 步技能加点路线，覆盖升级、过渡、终局微调。"
   },
   {
     id: "paragon_click_order",
     zhName: "巅峰盘与点击顺序",
     satisfied: buildIntegrity.paragonRouteBuilds,
     total: totalBuilds,
-    proof: "每套 BD 必须有至少 4 张巅峰盘和至少 10 步点击路线。"
+    proof: "每套 BD 必须有至少 4 张巅峰盘和至少 18 步点击路线，覆盖雕文孔、传奇节点、稀有群和收尾小点。"
   },
   {
     id: "gameplay_flow",

@@ -811,6 +811,18 @@ function classMechanicText(classInfo, archetype) {
   return `${mechanic[classInfo.id] || "职业机制待来源回填。"} 本 BD 围绕「${archetype.zhName}」展开。`;
 }
 
+function compactStepList(steps) {
+  return steps
+    .filter((step) => Array.isArray(step) && step[1] && step[3])
+    .map(([levelRange, skill, points, reason], index) => ({
+      step: index + 1,
+      levelRange,
+      skill,
+      points,
+      reason
+    }));
+}
+
 function skillTreeFor({ classInfo, archetype, simBuild }) {
   const simPlan = simBuild?.guide?.skillPlan;
   const routePlan = routePlanFor(classInfo.id, archetype.id);
@@ -819,7 +831,7 @@ function skillTreeFor({ classInfo, archetype, simBuild }) {
   const passives = routePlan?.passives?.length
     ? routePlan.passives
     : uniqueStrings([`${statLabels(archetype)[0]}收益`, "生命与护甲", "资源循环", "冷却缩减", "精英减伤"], 5);
-  const pointOrder = [
+  const pointOrder = compactStepList([
     ["1-3", bar[0], "+1 并点强化", "先建立资源、触发或易伤入口。"],
     ["4-8", bar[1], "+5", "主力输出优先点满，保证升级和清怪速度。"],
     ["9-13", bar[2], "+1 至关键强化", "拿到第一层防御或增伤窗口。"],
@@ -829,8 +841,17 @@ function skillTreeFor({ classInfo, archetype, simBuild }) {
     ["29-34", passives[0] || `${archetype.zhName}专精`, "+3", "围绕主词缀提高稳定伤害。"],
     ["35-42", passives[1] || "防御专精", "+3 至 +6", "补生命、护甲、减伤或屏障。"],
     ["43-50", passives[2] || "循环专精", "+3 至 +6", "解决断档，进入世界等级过渡。"],
-    ["50+", passives[3] || passives[0] || "终局专精", "按装备微调", "核心暗金到位后，把临时点数转到乘区和循环。"]
-  ];
+    ["50-55", bar[1], "补强化分支", "终局前确认主攻技能分支和装备触发方向一致。"],
+    ["56-60", bar[2], "补强化分支", "把防御或资源技能补到能稳定覆盖危险窗口。"],
+    ["60-65", passives[3] || passives[0] || `${archetype.zhName}增幅`, "+3", "进入巅峰后优先补独立增伤或冷却收益。"],
+    ["65-70", passives[4] || passives[1] || "韧性补强", "+3", "护甲、抗性或近远减伤不足时先补这一组。"],
+    ["70-75", bar[3], "补强化分支", "补齐位移、解控、聚怪或控制技能的关键分支。"],
+    ["75-80", bar[4], "补强化分支", "让爆发前置、控制或易伤覆盖更稳定。"],
+    ["80-85", passives[0] || `${archetype.zhName}专精`, "补满剩余点", "核心装备到位后把临时防御点转回主伤害。"],
+    ["85-90", passives[2] || "循环专精", "补满剩余点", "解决资源断档和冷却空窗。"],
+    ["90-95", passives[1] || "防御专精", "按层数调整", "冲层失败多来自防御真空，先保证存活再追求伤害。"],
+    ["95-100", passives[3] || passives[0] || "终局专精", "按装备微调", "根据暗金、威能和精造命中情况做最终重分配。"]
+  ]);
   return {
     core: routePlan?.core || simPlan?.core || archetype.zhName,
     classMechanic: classMechanicText(classInfo, archetype),
@@ -840,13 +861,7 @@ function skillTreeFor({ classInfo, archetype, simBuild }) {
       role: roles[index] || (index === 1 ? "主攻" : index >= 4 ? "爆发/增益" : "循环/防御"),
       points: index === 1 ? 5 : 1
     })),
-    pointOrder: pointOrder.map(([levelRange, skill, points, reason], index) => ({
-      step: index + 1,
-      levelRange,
-      skill,
-      points,
-      reason
-    })),
+    pointOrder,
     passives,
     notes: simPlan?.priority || [`${bar[1]}先满，再补${bar[2]}、${bar[3]}和${passives.slice(0, 3).join(" / ")}。`]
   };
@@ -888,10 +903,18 @@ function paragonFor({ classInfo, archetype, simBuild }) {
     [boardName(1, "第二盘"), `${boardName(1, archetype.zhName)}核心节点`, "优先拿流派乘区或核心联动。"],
     [boardName(1, "第二盘"), `${glyphName(1, "伤害")}插槽`, `放入${glyphName(1, "伤害")}并连接主伤害路线。`],
     [boardName(1, "第二盘"), `${statLabels(archetype)[1] || "精英伤害"}稀有群`, "拿主伤害标签和精英伤害。"],
+    [boardName(1, "第二盘"), `${glyphName(1, "伤害")}半径属性`, "优先点够雕文半径，不够属性时先走最近小点。"],
     [boardName(2, "第三盘"), `${glyphName(2, "资源")}插槽`, `放入${glyphName(2, "资源")}修正循环断档。`],
     [boardName(2, "第三盘"), `${routePlan?.passives?.[2] || "资源冷却"}路线`, "修正循环断档。"],
+    [boardName(2, "第三盘"), `${statLabels(archetype)[0]}魔法群`, "补主标签小点，先满足雕文半径再走远端。"],
     [boardName(3, "第四盘"), `${glyphName(3, "防御")}插槽`, "冲层前补齐抗性和护甲。"],
-    [boardName(3, "第四盘"), `${statLabels(archetype)[2] || "终局补强"}收尾群`, "雕文半径满足后再补伤害小点。"]
+    [boardName(3, "第四盘"), `${statLabels(archetype)[2] || "终局补强"}稀有群`, "补第二层伤害或防御标签。"],
+    [boardName(3, "第四盘"), `${glyphName(3, "防御")}半径属性`, "把防御雕文半径点满，避免高层被秒。"],
+    [boardName(4, "第五盘"), `${glyphName(4, "补强")}插槽`, "第五盘用于补齐装备缺口对应雕文。"],
+    [boardName(4, "第五盘"), `${boardName(4, "补强盘")}核心节点`, "如果该盘传奇节点收益高于远端小点，先拿传奇节点。"],
+    [boardName(4, "第五盘"), `${statLabels(archetype)[1] || "精英伤害"}补强群`, "补强精英包处理和首领单体。"],
+    [boardName(5, "第六盘"), `${glyphName(5, "收尾")}插槽`, "最后一张盘只在核心四盘成型后接入。"],
+    [boardName(5, "第六盘"), `${statLabels(archetype)[3] || "生存"}收尾群`, "根据层数缺口补生存、资源或伤害小点。"]
   ];
   return {
     boardOrder: boards,
@@ -1216,6 +1239,12 @@ function refineSkillTreeWithBase(merged, base) {
     const replacement = baseStepsByIndex.get(index);
     return replacement ? { ...step, skill: replacement.skill, reason: replacement.reason } : step;
   });
+  for (let index = pointOrder.length; index < (base.pointOrder || []).length; index += 1) {
+    pointOrder.push({
+      ...base.pointOrder[index],
+      reason: `补足完整加点路线：${base.pointOrder[index].reason}`
+    });
+  }
   const skillBar = (merged.skillBar || []).map((skill, index) => {
     if (!genericSkillStepPattern.test(skill.name || "")) return skill;
     const replacement = base.skillBar?.[index];
@@ -1228,7 +1257,7 @@ function refineSkillTreeWithBase(merged, base) {
     ...merged,
     core: genericSkillStepPattern.test(merged.core || "") ? base.core : merged.core,
     skillBar,
-    pointOrder,
+    pointOrder: pointOrder.map((step, index) => ({ ...step, step: index + 1 })),
     passives: passives.length ? passives : base.passives
   };
 }
@@ -1240,6 +1269,12 @@ function refineParagonWithBase(merged, base) {
     const replacement = baseStepsByIndex.get(index);
     return replacement ? { ...step, board: replacement.board, node: replacement.node, reason: replacement.reason } : step;
   });
+  for (let index = clickOrder.length; index < (base.clickOrder || []).length; index += 1) {
+    clickOrder.push({
+      ...base.clickOrder[index],
+      reason: `补足完整巅峰路线：${base.clickOrder[index].reason}`
+    });
+  }
   return {
     ...merged,
     boardOrder: (merged.boardOrder || []).map((board) => ({
@@ -1249,8 +1284,9 @@ function refineParagonWithBase(merged, base) {
       glyph: localizeRouteText(board.glyph),
       rotate: localizeRouteText(board.rotate)
     })),
-    clickOrder: clickOrder.map((step) => ({
+    clickOrder: clickOrder.map((step, index) => ({
       ...step,
+      step: index + 1,
       board: localizeRouteText(step.board),
       node: localizeRouteText(step.node),
       reason: localizeRouteText(step.reason)

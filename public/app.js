@@ -2768,8 +2768,8 @@ function renderLoadoutStrip(guide) {
 }
 
 function renderBuildManualPanel(guide) {
-  const skillSteps = (guide.skillTree?.pointOrder || []).slice(0, 10);
-  const paragonSteps = (guide.paragon?.clickOrder || []).slice(0, 10);
+  const skillSteps = guide.skillTree?.pointOrder || [];
+  const paragonSteps = guide.paragon?.clickOrder || [];
   const flowSections = [
     ["起手", guide.gameplay?.opener || []],
     ["主循环", guide.gameplay?.loop || []],
@@ -2913,8 +2913,8 @@ function renderPlannerSequence(title, subtitle, rows, renderRow) {
 function renderBuildPlannerSheet(guide) {
   const requiredCount = guide.gearSlots.filter((slot) => slot.required).length;
   const replaceableCount = guide.gearSlots.filter((slot) => slot.replaceable).length;
-  const skillSteps = (guide.skillTree?.pointOrder || []).slice(0, 10);
-  const paragonSteps = (guide.paragon?.clickOrder || []).slice(0, 10);
+  const skillSteps = guide.skillTree?.pointOrder || [];
+  const paragonSteps = guide.paragon?.clickOrder || [];
   const boards = guide.paragon?.boardOrder || [];
   return `
     <section class="planner-sheet" aria-label="BD 配置总表">

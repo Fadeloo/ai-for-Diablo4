@@ -201,9 +201,9 @@ twoHand, mainHand, offHand
 技能、巅峰和打法最小字段：
 
 - `skillTree.skillBar` 必须 6 个主动技能。
-- `skillTree.pointOrder` 至少 10 个阶段。
+- `skillTree.pointOrder` 至少 18 个阶段，覆盖升级、过渡、终局微调和装备成型后的重分配。
 - `paragon.boardOrder` 至少 4 个盘或盘位。
-- `paragon.clickOrder` 至少 10 个有序步骤。
+- `paragon.clickOrder` 至少 18 个有序步骤，覆盖雕文孔、传奇节点、稀有群、半径属性和收尾小点。
 - `gameplay` 必须含 `opener`、`loop`、`boss`、`defense`。
 - `variants` 至少 3 条，用于缺件、速刷和高层生存。
 
