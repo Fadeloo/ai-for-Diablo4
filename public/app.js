@@ -770,6 +770,70 @@ function guideSourceLabel(guide) {
   return verificationLevelLabels[guide.source.verificationLevel] || (guide.source.references?.length ? "社区参考" : "结构化模板");
 }
 
+function guideReadinessProfile(guide) {
+  const referenceCount = guide.source.references?.length || 0;
+  const missingCount = (guide.dataQuality?.needsValidation || []).length + (guide.dataQuality?.missing || []).length;
+  const profiles = {
+    community_reference: {
+      label: "同赛季社区可抄",
+      action: "可以作为当前赛季优先抄作业入口。",
+      caution: "进入详情后仍要核对来源更新时间、热修和榜单样本。",
+      tone: "ready"
+    },
+    cross_season_reference: {
+      label: "跨赛季社区参考",
+      action: "可以抄装备、技能和打法结构，但需要按当前赛季重新校准强度。",
+      caution: "赛季机制、数值改动和 150 层速度不能当作已验证排行。",
+      tone: "reference"
+    },
+    official_seed_template: {
+      label: "官方词缀模板",
+      action: "适合看装备位、词缀方向和过渡路线，不建议直接当终局答案。",
+      caution: "缺少社区实战来源，技能和巅峰仍按结构化路线组织。",
+      tone: "template"
+    },
+    projection_template: {
+      label: "未来赛季推演",
+      action: "适合做赛季预判和备选思路，不作为已验证 BD。",
+      caution: "未来机制、数值和职业改动落地前，所有强度只作为缺口提示。",
+      tone: "projection"
+    }
+  };
+  const profile = profiles[guide.source.verificationLevel] || profiles.official_seed_template;
+  return {
+    ...profile,
+    referenceCount,
+    missingCount,
+    confidence: Math.round((guide.ceiling?.confidence || 0) * 100),
+    evidenceLabel: guide.ceiling?.evidenceLabel || guide.ceiling?.label || "强度证据待补充"
+  };
+}
+
+function renderGuideReadinessPanel(guide) {
+  const profile = guideReadinessProfile(guide);
+  return `
+    <section class="guide-readiness guide-readiness--${profile.tone}" aria-label="可抄程度">
+      <div>
+        <span>可抄程度</span>
+        <strong>${profile.label}</strong>
+        <p>${profile.action}</p>
+      </div>
+      <div class="guide-readiness__facts">
+        <article><b>${profile.referenceCount}</b><span>来源链接</span></article>
+        <article><b>${profile.confidence}%</b><span>强度置信度</span></article>
+        <article><b>${profile.missingCount}</b><span>待校准项</span></article>
+      </div>
+      <p class="guide-readiness__caution">${profile.caution}</p>
+      <div class="guide-readiness__actions">
+        <a href="${guideSectionUrl(guide, "gear")}">看装备</a>
+        <a href="${guideSectionUrl(guide, "skills")}">看技能</a>
+        <a href="${guideSectionUrl(guide, "paragon")}">看巅峰</a>
+        <a href="${guideSectionUrl(guide, "gameplay")}">看打法</a>
+      </div>
+    </section>
+  `;
+}
+
 function guideSourceRank(guide) {
   const ranks = {
     community_reference: 0,
@@ -2748,6 +2812,7 @@ function renderGuideSectionByKey(guide, activeSection = state.selectedGuideSecti
   const sectionRenderers = {
     overview: () => renderGuideDetailSection("总览", "定位、强弱项和适用阶段", `
       ${renderBuildVersionSwitcher(guide)}
+      ${renderGuideReadinessPanel(guide)}
       ${renderBuildManualPanel(guide)}
       ${renderExecutionPlan(guide)}
       ${renderRouteOverview(guide)}
@@ -2804,6 +2869,7 @@ function renderGuideSectionByKey(guide, activeSection = state.selectedGuideSecti
       </div>
     `, "variants"),
     sources: () => renderGuideDetailSection("来源与状态", `${guide.gameVersion.patch} 构建 #${guide.gameVersion.build}`, `
+      ${renderGuideReadinessPanel(guide)}
       <div class="source-status-grid">
         <article><strong>作者</strong><span>${guide.source.authorName}</span></article>
         <article><strong>数据状态</strong><span>${guideSourceLabel(guide)}</span></article>
@@ -2897,8 +2963,8 @@ function renderBuildGuideDetail() {
           </nav>
           <div class="guide-sidebar-card">
             <strong>资料状态</strong>
-            <span>${guideSourceLabel(guide)}</span>
-            <p>${guide.ceiling.evidenceLabel || guide.ceiling.label}</p>
+            <span>${guideReadinessProfile(guide).label}</span>
+            <p>${guideReadinessProfile(guide).action}</p>
           </div>
           <div class="guide-sidebar-card">
             <strong>核心需求</strong>

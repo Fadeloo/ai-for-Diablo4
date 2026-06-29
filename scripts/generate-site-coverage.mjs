@@ -128,6 +128,20 @@ const frontendDataContracts = [
     frontendUse: "按 #bd/<guideId>/<section> 分区页面展示装备、技能、巅峰、打法、替换和来源状态，避免把完整攻略堆在同一屏。"
   },
   {
+    component: "GuideReadinessPanel",
+    zhName: "BD 可抄程度面板",
+    source: "build-guides.builds[id].source + build-guides.builds[id].dataQuality + ceiling",
+    fields: [
+      "source.verificationLevel",
+      "source.references",
+      "ceiling.confidence",
+      "ceiling.evidenceLabel",
+      "dataQuality.needsValidation",
+      "dataQuality.missing"
+    ],
+    frontendUse: "BD 详情页在总览和来源分区直接告诉玩家这套是同赛季可抄、跨赛季参考、官方模板还是未来推演，并给出风险和分区入口。"
+  },
+  {
     component: "EquipmentUsageMatrix",
     zhName: "装备使用矩阵",
     source: "equipment-library.items + build-guides.builds[].gearSlots",

@@ -1112,6 +1112,104 @@ h4 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.guide-readiness {
+  background:
+    linear-gradient(180deg, rgba(214, 173, 99, 0.1), rgba(8, 4, 3, 0.72));
+  border: 1px solid rgba(214, 173, 99, 0.24);
+  display: grid;
+  gap: 14px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+  padding: 14px;
+}
+
+.guide-readiness--ready {
+  border-color: rgba(106, 186, 121, 0.42);
+}
+
+.guide-readiness--reference {
+  border-color: rgba(214, 173, 99, 0.36);
+}
+
+.guide-readiness--projection {
+  opacity: 0.84;
+}
+
+.guide-readiness span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.guide-readiness strong {
+  color: #fff7df;
+  display: block;
+  font-size: 20px;
+  line-height: 1.25;
+  margin-top: 4px;
+}
+
+.guide-readiness p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 6px 0 0;
+}
+
+.guide-readiness__facts {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.guide-readiness__facts article {
+  background: rgba(8, 4, 3, 0.5);
+  border: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+  gap: 3px;
+  min-height: 58px;
+  padding: 9px;
+}
+
+.guide-readiness__facts b {
+  color: var(--bone);
+  font-size: 16px;
+}
+
+.guide-readiness__facts span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.guide-readiness__caution {
+  border-top: 1px solid rgba(214, 173, 99, 0.14);
+  grid-column: 1 / -1;
+  padding-top: 12px;
+}
+
+.guide-readiness__actions {
+  display: grid;
+  gap: 8px;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.guide-readiness__actions a {
+  background: rgba(214, 173, 99, 0.1);
+  border: 1px solid rgba(214, 173, 99, 0.2);
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-weight: 850;
+  min-height: 32px;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.guide-readiness__actions a:hover {
+  background: rgba(164, 32, 24, 0.24);
+  border-color: rgba(240, 207, 143, 0.46);
+}
+
 .build-result-section {
   background: rgba(8, 4, 3, 0.34);
   border: 1px solid rgba(214, 173, 99, 0.18);
@@ -5722,6 +5820,9 @@ h4 {
   .guide-card-grid,
   .compact-guide-grid,
   .build-maturity-grid,
+  .guide-readiness,
+  .guide-readiness__facts,
+  .guide-readiness__actions,
   .recommended-build-row,
   .class-build-actions,
   .class-season-summary,

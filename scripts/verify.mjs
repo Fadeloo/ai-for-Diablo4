@@ -195,6 +195,7 @@ assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildMaturityPanel" && contract.fields?.includes("source.verificationLevel")), "Site coverage must describe the build maturity panel contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildSidebarSectionLinks" && contract.fields?.includes("gearSlots") && contract.fields?.includes("skillTree.pointOrder")), "Site coverage must describe the build sidebar section links contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "BuildDetailLayout"), "Site coverage must describe the build detail data contract");
+assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "GuideReadinessPanel" && contract.fields?.includes("source.verificationLevel") && contract.fields?.includes("dataQuality.needsValidation")), "Site coverage must describe the guide readiness panel contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "ClassBuildMatrix" && contract.fields?.includes("skillTree.pointOrder[0]") && contract.fields?.includes("paragon.clickOrder[0]")), "Site coverage must describe the class build matrix contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.component === "ClassSeasonCoverage" && contract.fields?.includes("taxonomy.seasonId") && contract.fields?.includes("source.references")), "Site coverage must describe the class cross-season coverage contract");
 assert(siteCoverage.frontendDataContracts?.some((contract) => contract.fields?.includes("gearSlots")), "Frontend data contracts must expose full build detail fields");
@@ -303,6 +304,7 @@ assert(frontendText.includes("renderEquipmentUsageMatrix"), "Equipment detail mu
 assert(frontendText.includes("equipment-usage-matrix"), "Equipment detail must expose class, build, mode, slot and replacement status for related builds");
 assert(frontendText.includes("requirement-coverage-grid") && frontendText.includes("BD 执行信息覆盖"), "Sources page must render player-facing BD requirement coverage");
 assert(frontendText.includes("renderLoadoutBoard"), "BD detail must render a paper-doll loadout board");
+assert(frontendText.includes("renderGuideReadinessPanel") && frontendText.includes("guide-readiness__actions"), "BD detail must expose copy-readiness and section actions");
 assert(frontendText.includes("loadout-paper-doll"), "BD detail must expose a fixed 11-slot paper-doll layout");
 assert(frontendText.includes("renderBuildVersionSwitcher"), "BD detail must render same-archetype daily/speed/push version switching");
 assert(frontendText.includes("guide-version-tabs"), "BD detail must expose visible version tabs near the hero");
