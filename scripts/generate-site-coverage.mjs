@@ -171,7 +171,7 @@ const frontendDataContracts = [
       "gameplay.loop",
       "gameplay.defense"
     ],
-    frontendUse: "BD 打开后第一屏先给装备、技能、巅峰、打法和替换入口，像攻略站速查栏一样帮助玩家立即判断能不能抄。"
+    frontendUse: "BD 总览先给装备、技能、巅峰、打法和替换入口，帮助玩家立即判断能不能抄。"
   },
   {
     component: "BuildPlannerSheet",
@@ -195,7 +195,7 @@ const frontendDataContracts = [
       "gameplay.loop",
       "gameplay.defense"
     ],
-    frontendUse: "BD 配置分区像主流构筑模拟器一样，把 11 个装备位、首选替换、词缀/淬炼/精造、技能栏、加点、巅峰盘、点击顺序和打法速查放在同一个可抄总表。"
+    frontendUse: "BD 配置分区把 11 个装备位、首选替换、词缀/淬炼/精造、技能栏、加点、巅峰盘、点击顺序和打法速查放在同一个可抄总表。"
   },
   {
     component: "GuideReadinessPanel",

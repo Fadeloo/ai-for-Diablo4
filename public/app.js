@@ -1489,6 +1489,96 @@ function renderGuideCopyOverview(guide) {
   `;
 }
 
+function guideSectionMeta(guide, key) {
+  const counts = guide.guideCompleteness?.counts || {};
+  const requiredCount = (guide.gearSlots || []).filter((slot) => slot.required).length;
+  const replaceableCount = (guide.gearSlots || []).filter((slot) => slot.replaceable).length;
+  const sectionData = {
+    overview: {
+      label: "总览",
+      title: "定位、阶段和核心需求",
+      detail: `${guide.formationDifficulty.label}成型 · ${guide.taxonomy.stage} · ${guideSourceLabel(guide)}`,
+      stat: guide.ceiling.displayTier || guide.ceiling.tier
+    },
+    planner: {
+      label: "配置",
+      title: "可复制的配置速查",
+      detail: `${guide.gearSlots.length} 装备位 · ${counts.skillSteps || guide.skillTree?.pointOrder?.length || 0} 技能步 · ${counts.paragonSteps || guide.paragon?.clickOrder?.length || 0} 巅峰步`,
+      stat: `${guide.gearSlots.length} 位`
+    },
+    progression: {
+      label: "开荒",
+      title: "升级到成型的阶段路线",
+      detail: `${guide.progression?.stages?.length || 0} 个阶段 · 缺件先按检查点过渡`,
+      stat: `${guide.progression?.stages?.length || 0} 段`
+    },
+    gear: {
+      label: "装备",
+      title: "全身 11 个部位配装",
+      detail: `${requiredCount} 硬需求 · ${replaceableCount} 可替换 · 词缀、淬炼、精造、宝石`,
+      stat: "11 位"
+    },
+    skills: {
+      label: "技能",
+      title: "技能栏和加点顺序",
+      detail: `${guide.skillTree?.core || "核心技能"} · ${(guide.skillTree?.skillBar || []).length} 个技能 · ${guide.skillTree?.pointOrder?.length || 0} 步`,
+      stat: `${guide.skillTree?.pointOrder?.length || 0} 步`
+    },
+    paragon: {
+      label: "巅峰",
+      title: "巅峰盘和点击顺序",
+      detail: `${guide.paragon?.boardOrder?.length || 0} 张盘 · ${guide.paragon?.glyphs?.length || 0} 个雕文 · ${guide.paragon?.clickOrder?.length || 0} 步`,
+      stat: `${guide.paragon?.boardOrder?.length || 0} 盘`
+    },
+    gameplay: {
+      label: "打法",
+      title: "起手、循环和防御窗口",
+      detail: "起手 / 主循环 / 首领 / 防御 / 速刷 / 常见错误",
+      stat: "6 段"
+    },
+    variants: {
+      label: "替换",
+      title: "缺件和变体方案",
+      detail: `${guide.variants?.length || 0} 个变体 · ${replaceableCount} 个可替换部位`,
+      stat: `${guide.variants?.length || 0} 套`
+    },
+    sources: {
+      label: "来源",
+      title: "来源、版本和缺口",
+      detail: `${guide.gameVersion.patch} Build #${guide.gameVersion.build} · ${guide.source.updatedAt}`,
+      stat: guide.source.references?.length ? `${guide.source.references.length} 源` : "结构化"
+    }
+  };
+  return sectionData[key] || sectionData.overview;
+}
+
+function renderGuideSectionDirectory(guide) {
+  return `
+    <section class="guide-section-directory" aria-label="BD 分区地图">
+      <header>
+        <div>
+          <span>BD 分区地图</span>
+          <strong>按分区查看完整执行信息</strong>
+        </div>
+        <em>${guide.taxonomy.className} · ${guide.taxonomy.archetypeName}</em>
+      </header>
+      <div>
+        ${guideDetailSections.map(([key]) => {
+          const meta = guideSectionMeta(guide, key);
+          return `
+            <a href="${guideSectionUrl(guide, key)}" data-guide-jump="${key}"${state.selectedGuideSection === key ? " aria-current=\"page\"" : ""}>
+              <span>${meta.label}</span>
+              <strong>${meta.title}</strong>
+              <p>${displayText(meta.detail)}</p>
+              <b>${meta.stat}</b>
+            </a>
+          `;
+        }).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderSourceReferences(guide) {
   const references = guide.source.references || [];
   if (!references.length) {
@@ -3255,10 +3345,9 @@ function renderGuideSectionByKey(guide, activeSection = state.selectedGuideSecti
     overview: () => renderGuideDetailSection("总览", "定位、强弱项和适用阶段", `
       ${renderBuildVersionSwitcher(guide)}
       ${renderGuideReadinessPanel(guide)}
-      ${renderBuildManualPanel(guide)}
+      ${renderGuideCopyOverview(guide)}
+      ${renderGuideSectionDirectory(guide)}
       ${renderExecutionPlan(guide)}
-      ${renderRouteOverview(guide)}
-      ${renderGameplayOverview(guide)}
       ${renderSuitability(guide)}
       <div class="core-item-strip">${renderCoreUniques(guide, 5)}</div>
       <div class="core-aspect-strip">${renderCoreAspects(guide)}</div>
@@ -3283,7 +3372,10 @@ function renderGuideSectionByKey(guide, activeSection = state.selectedGuideSecti
         </article>
       </div>
     `, "overview"),
-    planner: () => renderGuideDetailSection("抄作业配置", "装备、技能、巅峰、打法和替换一张表", renderBuildPlannerSheet(guide), "planner"),
+    planner: () => renderGuideDetailSection("配置速查", "装备、技能、巅峰、打法和替换的紧凑执行表", `
+      ${renderBuildManualPanel(guide)}
+      ${renderBuildPlannerSheet(guide)}
+    `, "planner"),
     progression: () => renderGuideDetailSection("开荒到成型", "升级、过渡、终局和用途专精", renderProgressionPlan(guide.progression), "progression"),
     gear: () => renderGuideDetailSection("全身装备", "每个位置、替换件和精造方向", `
       ${renderLoadoutBoard(guide)}
@@ -3355,7 +3447,10 @@ function renderGuideSectionSwitcher(guide) {
   return `
     <nav class="guide-section-switcher" aria-label="当前 BD 分区切换">
       ${guideDetailSections.map(([key, label]) => `
-        <a href="${guideSectionUrl(guide, key)}" data-guide-jump="${key}" aria-selected="${state.selectedGuideSection === key}"${state.selectedGuideSection === key ? " aria-current=\"page\"" : ""}>${label}</a>
+        <a href="${guideSectionUrl(guide, key)}" data-guide-jump="${key}" aria-selected="${state.selectedGuideSection === key}"${state.selectedGuideSection === key ? " aria-current=\"page\"" : ""}>
+          <span>${label}</span>
+          <b>${guideSectionMeta(guide, key).stat}</b>
+        </a>
       `).join("")}
     </nav>
   `;
@@ -3400,8 +3495,6 @@ function renderBuildGuideDetail() {
           <span><b>${guide.gearSlots.length}</b>装备位置</span>
           <span><b>${guide.coreUniques.length}</b>核心暗金</span>
         </div>
-        ${renderGuideCopyOverview(guide)}
-        ${renderBuildDossier(guide)}
       </header>
 
       <div class="guide-detail-layout">
