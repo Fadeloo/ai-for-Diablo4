@@ -2092,6 +2092,63 @@ h4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.guide-hero-execution {
+  background: rgba(6, 3, 3, 0.58);
+  border: 1px solid rgba(240, 207, 143, 0.22);
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1.35fr 1fr 1fr 1fr auto;
+  padding: 12px;
+}
+
+.guide-hero-execution article {
+  border-right: 1px solid rgba(214, 173, 99, 0.16);
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  padding-right: 10px;
+}
+
+.guide-hero-execution article span {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.guide-hero-execution article strong {
+  color: var(--bone);
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.guide-hero-execution article a,
+.guide-hero-execution__actions a {
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.guide-hero-execution article a:hover,
+.guide-hero-execution__actions a:hover {
+  color: #fff4ce;
+}
+
+.guide-hero-execution__actions {
+  align-content: start;
+  display: grid;
+  gap: 6px;
+  min-width: 88px;
+}
+
+.guide-hero-execution__actions a {
+  background: rgba(214, 173, 99, 0.1);
+  border: 1px solid rgba(214, 173, 99, 0.22);
+  padding: 6px 8px;
+  text-align: center;
+}
+
 .build-dossier {
   display: grid;
   gap: 10px;
@@ -7158,6 +7215,20 @@ h4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .guide-hero-execution {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .guide-hero-execution__actions {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .guide-hero-execution article:nth-of-type(2n) {
+    border-right: 0;
+    padding-right: 0;
+  }
+
   .guide-section-directory > div {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -7580,6 +7651,7 @@ h4 {
   .hero-metrics,
   .guide-copy-overview > header,
   .guide-copy-overview__grid,
+  .guide-hero-execution,
   .loadout-board__header,
   .build-manual-panel > header,
   .build-manual-grid,
@@ -7946,6 +8018,23 @@ h4 {
   }
 
   .guide-mode-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .guide-hero-execution article {
+    border-right: 0;
+    border-bottom: 1px solid rgba(214, 173, 99, 0.14);
+    padding-bottom: 10px;
+    padding-right: 0;
+  }
+
+  .guide-hero-execution article:last-of-type {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .guide-hero-execution__actions {
+    grid-column: auto;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 

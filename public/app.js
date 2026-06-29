@@ -1664,6 +1664,47 @@ function renderGuideCopyOverview(guide) {
   `;
 }
 
+function renderGuideHeroExecutionStrip(guide) {
+  const coreSlots = (guide.gearSlots || [])
+    .filter((slot) => slot.required || slot.core)
+    .slice(0, 4);
+  const firstSkillStep = guide.skillTree?.pointOrder?.[0];
+  const firstParagonStep = guide.paragon?.clickOrder?.[0];
+  const firstLoop = guide.gameplay?.loop?.[0] || guide.gameplay?.opener?.[0];
+  const counts = guide.guideCompleteness?.counts || {};
+  return `
+    <section class="guide-hero-execution" aria-label="BD 首屏执行速览">
+      <article class="guide-hero-execution__gear">
+        <span>核心配装</span>
+        <strong>${coreSlots.map((slot) => `${slot.zhSlotName}:${slot.target.zhName}`).join(" / ")}</strong>
+        <a href="${guideSectionUrl(guide, "gear")}">${guide.gearSlots.length} 个部位</a>
+      </article>
+      <article>
+        <span>技能起步</span>
+        <strong>${firstSkillStep ? `${displayText(firstSkillStep.levelRange)} · ${displayText(firstSkillStep.skill)} · ${displayText(firstSkillStep.points)}` : routePendingText("技能路线")}</strong>
+        <a href="${guideSectionUrl(guide, "skills")}">${counts.skillSteps || guide.skillTree?.pointOrder?.length || 0} 步加点</a>
+      </article>
+      <article>
+        <span>巅峰起步</span>
+        <strong>${firstParagonStep ? `${displayText(firstParagonStep.board)} · ${displayText(firstParagonStep.node)}` : routePendingText("巅峰路线")}</strong>
+        <a href="${guideSectionUrl(guide, "paragon")}">${counts.paragonSteps || guide.paragon?.clickOrder?.length || 0} 步点击</a>
+      </article>
+      <article>
+        <span>打法入口</span>
+        <strong>${displayText(firstLoop || routePendingText("打法流程"))}</strong>
+        <a href="${guideSectionUrl(guide, "gameplay")}">打法分区</a>
+      </article>
+      <nav class="guide-hero-execution__actions" aria-label="BD 快速跳转">
+        <a href="${guideSectionUrl(guide, "planner")}">配置速查</a>
+        <a href="${guideSectionUrl(guide, "gear")}">装备</a>
+        <a href="${guideSectionUrl(guide, "skills")}">技能</a>
+        <a href="${guideSectionUrl(guide, "paragon")}">巅峰</a>
+        <a href="${guideSectionUrl(guide, "gameplay")}">打法</a>
+      </nav>
+    </section>
+  `;
+}
+
 function guideSectionMeta(guide, key) {
   const counts = guide.guideCompleteness?.counts || {};
   const requiredCount = (guide.gearSlots || []).filter((slot) => slot.required).length;
@@ -3839,6 +3880,7 @@ function renderBuildGuideDetail() {
           <span><b>${guide.gearSlots.length}</b>装备位置</span>
           <span><b>${guide.coreUniques.length}</b>核心暗金</span>
         </div>
+        ${renderGuideHeroExecutionStrip(guide)}
       </header>
 
       <div class="guide-detail-layout">

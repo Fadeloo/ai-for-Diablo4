@@ -434,6 +434,8 @@ assert(frontendText.includes("build-manual-panel"), "BD overview must expose gea
 assert(frontendText.includes("manual-gear-row"), "BD execution manual must expose all gear slots as jump targets");
 assert(frontendText.includes("renderGuideCopyOverview"), "BD hero must render a copy overview before long sections");
 assert(frontendText.includes("guide-copy-overview") && frontendText.includes("抄作业速览"), "BD copy overview must expose gear, skills, paragon, gameplay and replacement entry points");
+assert(frontendText.includes("renderGuideHeroExecutionStrip") && frontendText.includes("guide-hero-execution") && frontendText.includes("BD 首屏执行速览"), "BD detail hero must expose immediate gear, skill, paragon and gameplay execution facts");
+assert(frontendText.includes("guide-hero-execution__actions") && frontendText.includes("配置速查") && frontendText.includes("打法分区"), "BD detail hero execution strip must link to planner, gear, skills, paragon and gameplay sections");
 assert(frontendText.includes("renderGuideSectionDirectory") && frontendText.includes("guide-section-directory"), "BD overview must expose a section directory for gear, skills, paragon, gameplay, variants and sources");
 assert(frontendText.includes("renderBuildReadinessChecklist") && frontendText.includes("build-checklist"), "BD overview must expose a readiness checklist for gear, replacement, skill, paragon, gameplay and source checks");
 assert(frontendText.includes("装备硬需求") && frontendText.includes("可替换部位") && frontendText.includes("技能起步") && frontendText.includes("巅峰起步") && frontendText.includes("打法窗口"), "BD readiness checklist must expose actionable player checklist groups");
